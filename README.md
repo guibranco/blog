@@ -38,6 +38,9 @@ blog/                                # nome do repositório
 │   ├── post.html                    # Template de artigo
 │   └── category.html                # Template de página de categoria
 │
+├── _data/
+│   └── quotes.yml                   # Lista de quotes da sidebar
+│
 ├── categorias/                      # Uma página .md por categoria
 │   ├── infraestrutura.md
 │   └── telecomunicacoes.md
@@ -138,11 +141,6 @@ author_cover: /assets/img/cover.jpg     # imagem de fundo da sidebar
 url: "https://guibranco.github.io"
 baseurl: "/blog"
 
-# Quote do dia (exibida na sidebar)
-quote:
-  text: "Never, never, never give up."
-  author: "Winston Churchill"
-
 # Redes sociais (todos opcionais)
 social:
   github:        https://github.com/guibranco
@@ -155,6 +153,24 @@ social:
   whatsapp:      https://api.whatsapp.com/send/?phone=353871471762
   website:       http://guilherme.stracini.com
 ```
+
+---
+
+## 💬 Quotes da sidebar
+
+As quotes são selecionadas dinamicamente a cada build a partir do arquivo `_data/quotes.yml`. O Jekyll usa os segundos do horário do build como seed — então cada `git push` exibe uma quote diferente.
+
+**Formato do arquivo:**
+
+```yaml
+- text: "The best way to predict the future is to invent it."
+  author: "Alan Kay"
+
+- text: "Not all those who wander are lost."
+  author: "J.R.R. Tolkien"
+```
+
+Para adicionar uma nova quote, basta incluir um novo item no final do arquivo. Não há limite de quantidade — quanto mais quotes, mais variação entre builds.
 
 ---
 

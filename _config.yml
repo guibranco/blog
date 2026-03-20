@@ -7,10 +7,6 @@ author_avatar: /assets/img/avatar.png
 author_cover: /assets/img/cover.jpg
 author_bio: "Software engineer. PHP, C#, JS, Rust. Integrations, APIs, insurance & logistics. Lego collector."
 
-quote:
-  text: "Never, never, never give up."
-  author: "Winston Churchill"
-
 social:
   github: https://github.com/guibranco
   linkedin: https://www.linkedin.com/in/guilhermestracini/
