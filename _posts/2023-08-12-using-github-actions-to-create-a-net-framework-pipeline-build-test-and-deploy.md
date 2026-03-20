@@ -1,186 +1,125 @@
 ---
 layout: post
 title: "Using GitHub Actions to create a .NET Framework pipeline. Build, test, and deploy!"
-description: "In this article, we gonna cover the CI/CD process of a .NET Framework project using GitHub Actions to build, test, and run. What are GitHub Actions? GitHub Actions provides a flexible way to automate..."
+description: "Step-by-step guide to set up a CI/CD pipeline for a .NET Framework project using GitHub Actions — covering build, test, and deploy with MSBuild, NuGet, and VSTest."
 date: 2023-08-12
 categories: [Coding, DevOps, Testing]
-tags: [net, net-framework, actions, build, cd, ci, code, coverage, deploy, gh, gh-actions, github, pipeline, test, workflows, yaml, yml]
+tags: [net-framework, github-actions, ci, cd, build, test, deploy, msbuild, nuget, vstest, yaml, pipeline]
 reading_time: 5
 ---
 
-In this article, we gonna cover the CI/CD process of a .NET Framework project using GitHub Actions to build, test, and run.
+<p class="lead">In this article we'll cover the CI/CD process of a .NET Framework project using GitHub Actions to build, test, and run — from creating the workflow file to monitoring the pipeline execution.</p>
 
-What are GitHub Actions?  
-GitHub Actions provides a flexible way to automate various tasks directly from your GitHub repositories, such as building, testing, and deploying applications. These actions are defined in YAML files as workflows and can be customized to suit your project's specific requirements.
+For reference, here's the PoC repository used as the basis for this tutorial:
 
-For reference, I have set up a repository in GitHub with a PoC (Proof of Concept) based on this tutorial. This repository has many more features than the simple ones I will guide you through this tutorial.
+[![POC GH Actions CI .NET Framework](https://github-readme-stats-guibranco.vercel.app/api/pin/?username=GuilhermeStracini&repo=POC-GHActions-CI-NetFramework&show_owner=false&show_forks=true&show_issues=true)](https://github.com/GuilhermeStracini/POC-GHActions-CI-NetFramework){:target="_blank"}
 
-[![POC GH Actions CI .NET Framework](https://github-readme-stats-guibranco.vercel.app/api/pin/?username=GuilhermeStracini&repo=POC-GHActions-CI-NetFramework&show_owner=false&show_forks=true&show_issues=true)](https://github.com/GuilhermeStracini/POC-GHActions-CI-NetFramework)
+<div class="callout callout-tip">
+  <div class="callout-label">What are GitHub Actions?</div>
+  GitHub Actions provides a flexible way to automate tasks directly from your GitHub repositories — building, testing, and deploying applications. Workflows are defined in YAML files and can be customized to your project's requirements.
+</div>
 
----
+<div class="divider">· · ·</div>
 
-Creating a GitHub Actions Pipeline for .NET Framework Projects:
+<div class="section-header">
+  <div class="section-num">01</div>
+  <div class="section-title-wrap"><h2>Creating the workflow</h2></div>
+</div>
 
-1. Open your repository on GitHub and click on the "Actions" tab.
+**Step 1:** Open your repository on GitHub and click on the **Actions** tab.
 
-2. GitHub provides numerous workflow templates for different programming languages and frameworks. To set up a workflow yourself, click on the **Set up a workflow yourself** link above the **Choose a workflow**section.
+**Step 2:** Click **Set up a workflow yourself** to create a blank workflow file.
 
-3. In the GitHub Actions editor, let's name this workflow and set up the triggers that will fire this workflow run.
+**Step 3:** Name the workflow and define the triggers:
 
-```yaml
-name: Build .NET Framework
+<div class="code-block">
+  <div class="code-header">
+    <div class="code-dots"><span></span><span></span><span></span></div>
+    <div class="code-lang">YAML — triggers</div>
+  </div>
+  <pre><span class="va">name</span>: <span class="st">Build .NET Framework</span>
 
-on:
-  push:
-  workflow_dispatch:
-```
+<span class="va">on</span>:
+  <span class="va">push</span>:
+  <span class="va">workflow_dispatch</span>:</pre>
+</div>
 
-In the first line, we defined the workflow name to: **Build .NET Framework**
+The `push` event triggers the workflow on every push. `workflow_dispatch` allows manual execution from the Actions tab. Full reference: [Events that trigger workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows){:target="_blank"}.
 
-In the next lines, the workflow triggers, push events, and workflow\_dispatch were defined.  
-The **push** event will trigger this workflow whenever a new push is done to this repository.  
-The **workflow\_dispatch**allows us to run the workflow manually from the **Actions**page.  
-You can find a complete reference of all events that trigger a workflow run here: [Events that trigger workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows "Events that trigger workflows").
+<div class="divider">· · ·</div>
 
-4. Now, we need to define our job to build the solution. But for it, we need some steps like:
+<div class="section-header">
+  <div class="section-num">02</div>
+  <div class="section-title-wrap"><h2>Defining the build job</h2></div>
+</div>
 
-- Inform GitHub Actions runner to run this workflow in a Windows-based environment.
-- Checkout the code.
-- Setup MSBuild as the build tool.
-- Setup NuGet tool to restore packages.
-- Setup VSTest as the test tool.
-- Restore the NuGet packages.
-- Build the solution.
-- Run the test project.
-- (Optionally) Run the fresh build executable (assuming that it is a **.exe** project).
+**Step 4:** Create the job with a Windows runner (required for .NET Framework):
 
-So let's do that, let's first create a job and set up a Windows-based environment:
+<div class="code-block">
+  <div class="code-header">
+    <div class="code-dots"><span></span><span></span><span></span></div>
+    <div class="code-lang">YAML — job definition</div>
+  </div>
+  <pre><span class="va">jobs</span>:
+  <span class="va">build</span>:
+    <span class="va">name</span>: <span class="st">Build</span>
+    <span class="va">runs-on</span>: <span class="st">windows-latest</span></pre>
+</div>
 
-```yaml
-jobs:
-  build:
-    name: Build
-    runs-on: windows-latest
-```
+**Step 5:** Add the steps — setup tools, restore packages, build, test, and run:
 
-In these four lines, we did:
+<div class="code-block">
+  <div class="code-header">
+    <div class="code-dots"><span></span><span></span><span></span></div>
+    <div class="code-lang">YAML — complete steps</div>
+  </div>
+  <pre><span class="va">steps</span>:
+  - <span class="va">name</span>: <span class="st">Checkout Code</span>
+    <span class="va">uses</span>: <span class="st">actions/checkout@v3</span>
+    <span class="va">with</span>:
+      <span class="va">fetch-depth</span>: <span class="nu">0</span>
 
-- Informed GH Actiosn that we will start out the **jobs** section
-- Create our first job named **build**(it could be anything)
-- Give a name to the job (for logging purposes)
-- Selected which environment we want to run this job (environments are job-based, so different jobs can run in different environments)
+  - <span class="va">name</span>: <span class="st">Setup MSBuild Path</span>
+    <span class="va">uses</span>: <span class="st">microsoft/setup-msbuild@v1.3</span>
+    <span class="va">env</span>:
+      <span class="va">ACTIONS_ALLOW_UNSECURE_COMMANDS</span>: <span class="st">true</span>
 
-Now we need to configure the job`s steps as we mentioned before
+  - <span class="va">name</span>: <span class="st">Setup VSTest</span>
+    <span class="va">uses</span>: <span class="st">darenm/Setup-VSTest@v1.2</span>
 
-```yaml
-steps:
-  - name: Checkout Code
-    uses: actions/checkout@v3
-    with:
-      fetch-depth: 0
+  - <span class="va">name</span>: <span class="st">Setup Nuget</span>
+    <span class="va">uses</span>: <span class="st">NuGet/setup-nuget@v1.2</span>
 
-  - name: Setup MSBuild Path
-    uses: microsoft/setup-msbuild@v1.3
-    env:
-      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+  - <span class="va">name</span>: <span class="st">Restore NuGet Packages</span>
+    <span class="va">run</span>: <span class="st">nuget restore your-solution-name.sln</span>
 
-  - name: Setup VSTest
-    uses: darenm/Setup-VSTest@v1.2  
+  - <span class="va">name</span>: <span class="st">Build Release</span>
+    <span class="va">run</span>: <span class="st">msbuild your-solution-name.sln /p:Configuration=Release</span>
 
-  - name: Setup Nuget
-    uses: NuGet/setup-nuget@v1.2
-    env:
-      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+  - <span class="va">name</span>: <span class="st">Test</span>
+    <span class="va">run</span>: <span class="st">vstest.console.exe path-to-test-binary.dll</span>
 
-  - name: Restore NuGet Packages
-    run: nuget restore your-solution-name.sln
+  - <span class="va">name</span>: <span class="st">Run</span>
+    <span class="va">run</span>: <span class="st">path-to-application-binary.exe</span></pre>
+</div>
 
-  - name: Build Release
-    run: msbuild your-solution-name.sln /p:Configuration=Release
+**Replace in your workflow:**
+- `your-solution-name.sln` — path/name of your solution file
+- `path-to-test-binary.dll` — path to the tests DLL inside `bin/Release/`
+- `path-to-application-binary.exe` — path to the main executable
 
-  - name: Test
-    run: vstest.console.exe path-to-test-binary.dll
+<div class="divider">· · ·</div>
 
-  - name: Run
-    run: path-to-application-binary.exe
-```
+<div class="section-header">
+  <div class="section-num">03</div>
+  <div class="section-title-wrap"><h2>Monitoring and next steps</h2></div>
+</div>
 
-In the code below, we have 8 steps that will do all the required actions to set up the environment, restore NuGet packages, build, test, and finally run the application.
+**Step 6:** Save and trigger the workflow — either manually from the Actions tab or automatically on the next push.
 
-- In both steps (**restore NuGet Packages** and **build release**), replace **your-solution-name.sln** with the path/name of your solution.
-- In the Test step, replace **path-to-test-binary.dll** with the path where the tests project dll is present after a successfully built release run. Usually, this is inside the bin/Release/ directory with the tests project directory.
-- In the **path-to-application-binary.exe,** replace the /bin/Release/ directory with the file name of your solution's leading project.
+**Step 7:** Monitor the pipeline directly from the **Actions** tab. You can track progress, view logs, and debug issues for each step in real time.
 
-5. Save and Trigger the Workflow: Once you've customized the workflow according to your project's requirements, save the changes and trigger the workflow manually or automatically on specific events, such as pushes to the repository or pull requests.
-
-6. Monitor the Pipeline: GitHub Actions provides a comprehensive view of the pipeline's execution. You can track progress, view logs, and debug potential issues directly from the Actions tab in your repository.
-
-Here we have the full workflow file to build, test and run a .NET Framework solution within GitHub Actions:
-
-```yaml
-name: Build .NET Framework
-
-on:
-  push:
-  workflow_dispatch:
-
-jobs:
-  build:
-    name: Build
-    runs-on: windows-latest
-  
-  steps:
-  
-    - name: Checkout Code
-      uses: actions/checkout@v3
-      with:
-      fetch-depth: 0
-
-    - name: Setup MSBuild Path
-      uses: microsoft/setup-msbuild@v1.3
-      env:
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-
-    - name: Setup VSTest
-      uses: darenm/Setup-VSTest@v1.2  
-
-    - name: Setup Nuget
-      uses: NuGet/setup-nuget@v1.2
-      env:
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-
-    - name: Restore NuGet Packages
-      run: nuget restore your-solution-name.sln
-
-    - name: Build Release
-      run: msbuild your-solution-name.sln /p:Configuration=Release
-
-    - name: Test
-      run: vstest.console.exe path-to-test-binary.dll
-
-    - name: Run
-      run: path-to-application-binary.exe
-```
-
----
-
-Benefits of GitHub Actions for your projects:  
-By leveraging GitHub Actions to create a pipeline for your projects, developers can enjoy several benefits, including:
-
-1. Automated Builds: GitHub Actions enables automatic build execution whenever changes are pushed to the repository, ensuring consistent and up-to-date builds.
-
-2. Testing Automation: Integrate automated testing into your pipeline using tools like xUnit or NUnit. This ensures that code changes are thoroughly tested before deployment, reducing the risk of introducing bugs into production.
-
-3. Submit coverage reports to Sonar Cloud, Code Climate, Codefactor, Codecov, etc
-
-4. Deployment Flexibility: GitHub Actions provides a range of deployment options, allowing you to seamlessly deploy your .NET Framework projects to various hosting environments, such as Azure, AWS, or on-premises servers.
-
-5. Collaboration and Transparency: With GitHub Actions, all pipeline workflows are visible to the development team, promoting collaboration and transparency. Team members can review, provide feedback, and contribute to the pipeline configuration.
-
-References:
-
-- [Official GitHub Actions documentation](https://docs.github.com/en/actions)
-- [GH Action: actions/checkout](https://github.com/actions/checkout)
-- [GH Action: Microsoft/setup-msbuild](https://github.com/microsoft/setup-msbuild)
-- [GH Action: darenm/Setup-VSTest](https://github.com/darenm/Setup-VSTest)
-- [GH Action: NuGet/setup-nuget](https://github.com/NuGet/setup-nuget)
+<div class="callout callout-tip">
+  <div class="callout-label">Going further</div>
+  The PoC repository includes additional features beyond this tutorial: code coverage reporting, artifact publishing, and deployment steps. Check it out for a more complete example of a production-ready CI/CD pipeline for .NET Framework.
+</div>

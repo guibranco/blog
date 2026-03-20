@@ -1,22 +1,68 @@
 ---
 layout: post
-title: "Tem idade para começar a aprender programação ?"
-description: "Não tem idade para começar, porém é necessário atentar-se a alguns fatos! - Vai demorar de 6 meses a 2 anos para você conseguir seu primero emprego fixo. - Muitas pessoas estão querendo entrar na..."
+title: "Tem idade para começar a aprender programação?"
+description: "Não tem idade para começar — mas existem fatos importantes que todo adulto que quer entrar na área de programação precisa conhecer antes de tomar a decisão."
 date: 2023-01-22
 categories: [Career]
-tags: [aprender, carreira, comecar, estudar, idade, programacao]
+tags: [aprender, carreira, comecar, estudar, idade, programacao, mercado-de-trabalho]
 reading_time: 3
 ---
 
-Não tem idade para começar, porém é necessário atentar-se a alguns fatos!
+<p class="lead">Não tem idade para começar a programar. Mas existem fatos concretos que todo adulto que considera entrar na área precisa conhecer — expectativas realistas são mais úteis do que entusiasmo infundado.</p>
 
-- Vai demorar de **6 meses a 2 anos** para você conseguir **seu primero emprego fixo**.
-- Muitas pessoas estão querendo entrar na área, acreditando que é **fácil arrumar emprego** ou que vão ganhar **altos salários**. Não é bem assim, esses, em grande maioria **vão ficar sem emprego**, porque saem atropelando os estudos, querendo atalho para tudo, resposta mágica de tudo e não aprendem o que precisam de verdade.
-- Tivemos um boom por causa da pandemia, e agora estamos voltando ao normal (muitas vagas fechadas, algumas pessoas demitidas, os famosos layoffs do começo de 2023).
-- Seu **primeiro emprego**, e provavelmente segundo e terceiro **vão te pagar pouco**. Vaga de júnior não é pra ganhar dinheiro, é pra aprender como funcionam as empresas (hierarquia, prazos, projetos, cerimônias, rotinas, etc).
-- Seu salário vai ser o mesmo de um garoto(a) de 18 a 22 anos, que mora com os pais e não tem contas para pagar, não é porque você vai ter 30-40 anos que o salário vai ser o que uma pessoa dessa idade precisaria ganhar para sustentar uma casa/família. **Salário de primeira oportunidade** gira entre um salário mínimo (SM) e 3k, depois de 6 meses a 1 ano nessa vaga tu já consegue ir para vagas de 2k a 4,5k.
-- **Você vai ser júnior, depois que arrumar o primeiro emprego, de 3 a 5 anos e só então vai virar pleno.** Cuidado com essas empresas que promovem a cada 6 mese/1 ano, mas continuam pagando pouco, elas só estão promovendo para segurar vocês lá pelo ego, e elas sabem que dessa forma vocês não vão conseguir sair de lá e ir pra outra empresa com o mesmo nível de senioridade, o que gera um circulo vicioso, onde a empresa te controla e mantem você com um salário baixo.
-- A média salarial de pleno é de 6k a 9k (CLT ou multiplique por 1.8 para valores PJ) em SP.
-- Ser programador/desenvolvedor não é ser codificador. Digitar código qualquer um faz, uma criança de 10, 12 anos que gosta da área hoje em dia já deve saber umas 2-3 linguagens de programação (eu comecei com 14 anos...), você vai competir com essas pessoas. **Ser programador é identificar problemas e prover a solução** (isso as vezes acontece sem mesmo digitar uma linha de código).
-- Quantidade de tecnologias não define senioridade, não se assuste se uma vaga de júnior te pedir 10, 15 coisas diferentes. Senioridade é sobre **QUALIDADE** e não **QUANTIDADE**.
-- Se você tem por volta de 40 anos, esteja preparado, seu chefe provavelmente vai ter mais ou menos a metade da sua idade quando você entrar no mercado, tem gente que não gosta, ou não consegue, se isso não for problema, sucesso...
+<div class="callout callout-tip">
+  <div class="callout-label">Resposta direta</div>
+  <strong>Não tem idade.</strong> Mas leia o restante do artigo — existem nuances importantes, especialmente para quem está considerando mudar de carreira depois dos 30 ou 40 anos.
+</div>
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">01</div>
+  <div class="section-title-wrap"><h2>O que esperar da jornada</h2></div>
+</div>
+
+- Vai demorar de **6 meses a 2 anos** para conseguir o primeiro emprego fixo.
+- Muitas pessoas entram na área achando que é fácil arrumar emprego ou que vão ganhar altos salários rapidamente. A maioria dessas pessoas **fica sem emprego**, porque atropela os estudos buscando atalhos.
+- Tivemos um boom pós-pandemia, e agora estamos voltando ao normal — muitas vagas fechadas e os famosos *layoffs* de 2023.
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">02</div>
+  <div class="section-title-wrap"><h2>Salários e senioridade — a realidade</h2></div>
+</div>
+
+<table class="compare-table">
+  <thead><tr><th>Situação</th><th>CLT (SP)</th><th>Observação</th></tr></thead>
+  <tbody>
+    <tr><td>Primeiro emprego</td><td>SM – R$ 3k</td><td>Independente da sua idade. Vaga de júnior não é para ganhar, é para aprender.</td></tr>
+    <tr><td>Segundo/terceiro emprego (JR)</td><td>R$ 2k – R$ 4,5k</td><td>Após 6 meses a 1 ano na primeira vaga.</td></tr>
+    <tr><td>Pleno</td><td>R$ 6k – R$ 9k</td><td>De 3 a 5 anos de carreira. Multiplique por 1,8 para PJ.</td></tr>
+    <tr><td>Sênior</td><td>R$ 12k – R$ 18k</td><td>Não é tempo — é qualidade de experiência.</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-warn">
+  <div class="callout-label">Se você tem 30-40 anos</div>
+  Seu salário de primeiro emprego vai ser o mesmo que o de um jovem de 18-22 anos que mora com os pais. Não é porque você tem mais responsabilidades financeiras que o mercado vai pagar diferente. Planeje suas finanças para sustentar essa fase de transição.
+</div>
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">03</div>
+  <div class="section-title-wrap"><h2>O que realmente define um bom programador</h2></div>
+</div>
+
+- **Ser programador não é ser codificador.** Digitar código qualquer um faz. Uma criança de 10 anos hoje já sabe 2-3 linguagens. Você vai competir com essas pessoas.
+- **Ser programador é identificar problemas e prover soluções** — isso às vezes acontece sem digitar uma linha de código.
+- **Senioridade é QUALIDADE, não QUANTIDADE** de tecnologias ou anos de empresa. Não se assuste com vagas de júnior pedindo 10-15 tecnologias diferentes.
+- Cuidado com empresas que promovem a cada 6 meses/1 ano com pequenos aumentos — isso é uma armadilha para segurar você com salário baixo usando o ego como isca.
+
+<div class="conclusion">
+  <h2>Vale a pena?</h2>
+  <p>Depende <strong>do motivo</strong>. Se você entra porque gosta de resolver problemas, de construir coisas, de aprender continuamente — vale muito. A área é excelente para quem tem esse perfil.</p>
+  <p>Se você entra pelo dinheiro ou pela "facilidade" que viu em anúncios de cursos online, provavelmente vai se frustrar. A barreira do primeiro emprego é real, a concorrência aumentou muito, e o mercado está mais exigente.</p>
+  <p>Mas se você estiver disposto a estudar de verdade, com paciência e sem buscar atalhos — não existe idade que impeça você de ter uma carreira sólida em programação.</p>
+</div>

@@ -84,6 +84,12 @@ A categoria declarada no campo `category:` deve ser idêntica à usada no front 
 |---|---|---|
 | Infraestrutura | `categorias/infraestrutura.md` | `/categorias/infraestrutura/` |
 | Telecomunicações | `categorias/telecomunicacoes.md` | `/categorias/telecomunicacoes/` |
+| Career | `categorias/career.md` | `/categorias/career/` |
+| Coding | `categorias/coding.md` | `/categorias/coding/` |
+| DevOps | `categorias/devops.md` | `/categorias/devops/` |
+| Hobbies | `categorias/hobbies.md` | `/categorias/hobbies/` |
+| Investments | `categorias/investments.md` | `/categorias/investments/` |
+| Testing | `categorias/testing.md` | `/categorias/testing/` |
 
 > Ao publicar um post com uma categoria nova, lembre-se sempre de criar o arquivo correspondente em `categorias/` — caso contrário o link na sidebar retornará 404.
 

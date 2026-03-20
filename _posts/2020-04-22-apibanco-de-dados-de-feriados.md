@@ -1,56 +1,67 @@
 ---
 layout: post
 title: "API/Banco de dados de feriados"
-description: "Ter uma base de dados com os feriados da sua região ou país é uma necessidade cada vez mais comum nos mais variados tipos de sistemas, para aumentar a precisão nos dados e informações ao usuário..."
+description: "Conheça dois serviços gratuitos para consultar feriados via HTTP — HolidayAPI e Calendarific — e as bibliotecas open source em C# e Rust criadas para integrá-los."
 date: 2020-04-22
 categories: [Coding]
-tags: [api, banco-de-dados, base-de-dados, biblioteca, c, calendarific, feriados, github, holiday, holidayapi, holidays, integracao, library, pt-br, rust, sdk, sistema]
+tags: [api, banco-de-dados, calendarific, feriados, github, holidayapi, integracao, library, rust, sdk]
 reading_time: 4
 ---
 
-Ter uma base de dados com os feriados da sua região ou país é uma necessidade cada vez mais comum nos mais variados tipos de sistemas, para aumentar a precisão nos dados e informações ao usuário final. Seja um e-commerce para estimar uma data de entrega de pedidos, seja para calcular a data de vencimento e limite de pagamento de um boleto, um sistema que trabalha com jornadas/turnos e em feriados tem expediente diferente, ou mesmo uma simples agenda que precisa saber quando um dia não será um dia útil.
+<p class="lead">Manter uma base atualizada com os feriados da sua região é uma necessidade cada vez mais comum — de e-commerces que estimam datas de entrega a sistemas de folha de pagamento que calculam dias úteis. Neste artigo apresento dois serviços que resolvem esse problema gratuitamente.</p>
 
-Manter esta base atualizada nem sempre é uma tarefa simples de se fazer, até porque, alguns feriados não são fixos, e variam ano a ano ou até mesmo de país para país.
+<div class="divider">· · ·</div>
 
-Neste breve artigo vou apresentar dois serviços (API) que podem ser utilizados gratuitamente para consultar os feriados através de requisições HTTP.
+<div class="section-header">
+  <div class="section-num">01</div>
+  <div class="section-title-wrap"><h2>HolidayAPI</h2></div>
+</div>
 
-## HolidayAPI
+O [HolidayAPI](https://holidayapi.com){:target="_blank"} permite até **10 mil chamadas por mês** no plano grátis, cobre 250 países e retorna respostas em mais de 100 idiomas. Após o cadastro, é gerada uma chave de autenticação incluída na URL de cada requisição.
 
-Primeiramente vou falar do **[HolidayAPI](https://holidayapi.com)**, um serviço simples e que permite até 10 mil chamadas por mês no plano grátis. Possui informações de feriados de 250 países, incluindo o Brasil e é possível obter as respostas em mais de 100 diferentes idiomas.
+<div class="providers-grid">
+  <div class="provider-card"><div class="provider-name"><code>/holidays</code></div><div class="provider-detail">Retorna os feriados mediante o ano e o país informados.</div></div>
+  <div class="provider-card"><div class="provider-name"><code>/languages</code></div><div class="provider-detail">Retorna os idiomas disponíveis para retorno dos dados.</div></div>
+  <div class="provider-card"><div class="provider-name"><code>/countries</code></div><div class="provider-detail">Lista os países disponíveis para pesquisa na API.</div></div>
+  <div class="provider-card"><div class="provider-name"><code>/workday</code></div><div class="provider-detail">Calcula o próximo dia útil a partir de uma data e quantidade de dias.</div></div>
+  <div class="provider-card"><div class="provider-name"><code>/workdays</code></div><div class="provider-detail">Calcula os dias úteis entre duas datas.</div></div>
+</div>
 
-A utilização da API é bem simples, após efetuar o cadastro é gerada uma chave de autenticação que deve ser incluída na URL sempre que for feita uma chama a API.
+Documentação em [holidayapi.com/docs](https://holidayapi.com/docs){:target="_blank"}. Duas das bibliotecas disponíveis são de minha autoria:
 
-A API possui os seguintes endpoints:
+[![GuiStracini.HolidayAPI](https://github-readme-stats-guibranco.vercel.app/api/pin/?username=guibranco&repo=GuiStracini.HolidayAPI&show_owner=true&show_forks=false&show_issues=true)](https://github.com/guibranco/GuiStracini.HolidayAPI){:target="_blank"}
+[![Holiday API Rust SDK](https://github-readme-stats-guibranco.vercel.app/api/pin/?username=guibranco&repo=holiday-api-sdk-rs&show_owner=true&show_forks=false&show_issues=true)](https://github.com/guibranco/holiday-api-sdk-rs){:target="_blank"}
 
-- /holidays - Retorna os feriados, mediante o ano e o país.
-- /languages - Retorna os idiomas disponíveis para retorno dos dados.
-- /countries - Lista os países disponíveis para pesquisa na API.
-- /workday - Calcula o próximo dia útil a partir de uma data e uma quantidade de dias.
-- /workdays - Calcula os dias úteis entre duas datas.
+<div class="callout callout-warn">
+  <div class="callout-label">Limitação do plano grátis</div>
+  No plano gratuito você só pode pesquisar feriados <strong>retroativos</strong>. Para consultar feriados futuros, é necessário um plano pago a partir de US$16,60/mês.
+</div>
 
-Caso queira ver a documentação completa, ela está disponível [nesta página](https://holidayapi.com/docs)
+<div class="divider">· · ·</div>
 
-Atualmente existem bibliotecas da **HolidayAPI** nas mais variadas linguagens, dentre elas, algumas criadas pelo criador desta API e outras pela comunidade. A lista completa de bibliotecas disponíveis vocês podem ver no final da página de documentação da API.  
-P.S: Duas delas, a de [C#](https://guilherme.stracini.com.br/GuiStracini.HolidayAPI/) e [Rust](https://guilherme.stracini.com.br/holiday-api-sdk-rs/) são de minha autoria :P   
-  
- [![GuiStracini.HolidayAPI](https://github-readme-stats-guibranco.vercel.app/api/pin/?username=guibranco&repo=GuiStracini.HolidayAPI&show_owner=true&show_forks=false&show_issues=true)](https://github.com/guibranco/GuiStracini.HolidayAPI)  [![Holiday API Rust](https://github-readme-stats-guibranco.vercel.app/api/pin/?username=guibranco&repo=holiday-api-sdk-rs&show_owner=true&show_forks=false&show_issues=true)](https://github.com/guibranco/holiday-api-sdk-rs)
+<div class="section-header">
+  <div class="section-num">02</div>
+  <div class="section-title-wrap"><h2>Calendarific</h2></div>
+</div>
 
-No plano grátis, além de limitado a 10 mil requisições por mês, você só pode pesquisar feriados retroativos, isto é, que já passaram. Caso deseje pesquisar por feriados futuros, será necessário aderir a um dos planos pagos, que começam em cerca de U$ 16,60 por mês (cobrado anualmente, no valor de U$199,00).
+O [Calendarific](https://calendarific.com/){:target="_blank"} segue os mesmos moldes da HolidayAPI, com autenticação via API key na query string.
 
-## Calendarific
+<table class="compare-table">
+  <thead><tr><th>Característica</th><th>HolidayAPI</th><th>Calendarific</th></tr></thead>
+  <tbody>
+    <tr><td>Requisições/mês (grátis)</td><td>10.000</td><td>1.000</td></tr>
+    <tr><td>Países cobertos</td><td>250</td><td>230</td></tr>
+    <tr><td>Feriados futuros (grátis)</td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td></tr>
+    <tr><td>Plano pago a partir de</td><td>US$ 16,60/mês</td><td>US$ 10,00/mês</td></tr>
+  </tbody>
+</table>
 
-[**Calendarific**](https://calendarific.com/) é uma API de feriados que segue os mesmos moldes da **HolidayAPI.**
+SDKs em C# e Rust para o Calendarific também são de minha autoria:
 
-Possui 3 endpoints, e também usa uma chave (API key) via parâmetro de URL (query string)
+[![Calendarific SDK .NET](https://github-readme-stats-guibranco.vercel.app/api/pin/?username=guibranco&repo=calendarific-sdk-dotnet&show_owner=true&show_forks=false&show_issues=true)](https://github.com/guibranco/calendarific-sdk-dotnet/){:target="_blank"}
+[![Calendarific SDK Rust](https://github-readme-stats-guibranco.vercel.app/api/pin/?username=guibranco&repo=calendarific-sdk-rs&show_owner=true&show_forks=false&show_issues=true)](https://github.com/guibranco/calendarific-sdk-rs){:target="_blank"}
 
-- /holidays - Que retorna os feriados, mediante o ano e o país.
-- /languages - Que retorna os idiomas disponíveis para retorno dos dados.
-- /countries - Que lista os países disponíveis para pesquisa na API.
-
-A diferença do **Calendarific** é que nele o plano grátis oferece apenas 1000 requisições mensais (fazendo uma requisição por dia, e armazenando os dados, daria no máximo 31 requisições por mês), e permite consultar os feriados futuros também, não só os retroativos. Atualmente a API disponibiliza a informação de 230 países e suas subdivisões no plano gratuito, em contra-partida, a **HolidayAPI** oferece dados de 250 países (e subdivisões, apenas em um dos planos pagos).
-
-No momento da escrita deste artigo, a **Calendarific** disponibiliza apenas bibliotecas de integração nas linguagens: Golang, Ruby, Python, PHP e JS (NodeJS). Na [documentação oficial](https://calendarific.com/client-libraries) eles não informam a existência de bibliotecas criadas pela comunidade. Porém neste exato momento estou escrevendo as versões de [C#](https://guilherme.stracini.com.br/calendarific-sdk-dotnet/) e [Rust](https://guilherme.stracini.com.br/calendarific-sdk-rs/) das bibliotecas de consumo desta API e em breve estão disponíveis em meu perfil no [GitHub](https://github.com/GuiBranco).   
-  
- [![Calendarific SDK .NET](https://github-readme-stats-guibranco.vercel.app/api/pin/?username=guibranco&repo=calendarific-sdk-dotnet&show_owner=true&show_forks=false&show_issues=true)](https://github.com/guibranco/calendarific-sdk-dotnet/)  [![Calendarific SDK Rust](https://github-readme-stats-guibranco.vercel.app/api/pin/?username=guibranco&repo=calendarific-sdk-rs&show_owner=true&show_forks=false&show_issues=true)](https://github.com/guibranco//calendarific-sdk-rs)
-
-Os planos pagos desta API, que permitem um consumo mensal ilimitado, custam a partir de U$10,00.
+<div class="conclusion">
+  <h2>Qual escolher?</h2>
+  <p>Para <strong>volume alto</strong> de requisições gratuitas: HolidayAPI (10× mais). Para <strong>feriados futuros sem custo</strong>: Calendarific é a única opção gratuita.</p>
+</div>
