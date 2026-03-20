@@ -6,7 +6,7 @@ date: 2024-02-21
 categories: [Coding]
 tags: [rabbitmq, lavinmq, cloudamqp, mensageria, message-broker, php, infraestrutura, iaas, filas, arquitetura]
 reading_time: 4
-image: /assets/img/posts/logo-rabbit-mq.jpg
+image: /assets/img/posts/logo-rabbit-mq.png
 ---
 
 <p class="lead">Descubra como tirar proveito do poder da mensageria com o RabbitMQ gratuitamente. Neste artigo explico como usar o RabbitMQ ou LavinMQ de graça, caso você não possua acesso a um servidor dedicado ou VPS para instalação.</p>
