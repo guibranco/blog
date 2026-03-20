@@ -3,7 +3,8 @@ title: "Tecnologia & Viagens"
 description: "Blog sobre tecnologia, infraestrutura e automação para quem viaja e constrói."
 lang: "pt-BR"
 author: "Guilherme Branco Stracini"
-author_avatar: /assets/img/avatar.jpg
+author_avatar: /assets/img/avatar.png
+authro_cover: /assets/img/cover.jpg
 author_bio: "Software engineer. PHP, C#, JS, Rust. Integrations, APIs, insurance & logistics. Lego collector."
 
 quote:
