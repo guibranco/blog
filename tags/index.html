@@ -1,0 +1,258 @@
+---
+layout: null
+permalink: /tags/
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tags — {{ site.title }}</title>
+  <meta name="description" content="Todos os tópicos abordados em {{ site.title }}">
+  {% seo %}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+  <style>
+    .tags-index-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 3rem;
+    }
+    .tag-index-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .06em;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      color: var(--ink-muted);
+      text-decoration: none;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .tag-index-item:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+    .tag-index-item .tag-count {
+      background: var(--border);
+      color: var(--ink-light);
+      font-size: 9px;
+      padding: 1px 6px;
+      border-radius: 10px;
+      transition: background .2s, color .2s;
+    }
+    .tag-index-item:hover .tag-count {
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+    /* Size variants by post count */
+    .tag-size-1 { font-size: 10px; }
+    .tag-size-2 { font-size: 11px; }
+    .tag-size-3 { font-size: 12px; }
+    .tag-size-4 { font-size: 13px; font-weight: 500; }
+    .tag-size-5 { font-size: 14px; font-weight: 500; }
+  </style>
+</head>
+<body>
+
+  <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Abrir menu">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- ══════════ SIDEBAR ══════════ -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-avatar-wrap">
+      {% if site.author_cover %}
+        <img class="sidebar-avatar-bg" src="{{ site.author_cover | relative_url }}" alt="">
+      {% else %}
+        <div class="sidebar-avatar-bg-fallback"></div>
+      {% endif %}
+      <div class="sidebar-avatar">
+        {% if site.author_avatar %}
+          <img src="{{ site.author_avatar | relative_url }}" alt="{{ site.author }}">
+        {% else %}
+          <div class="sidebar-avatar-placeholder">{{ site.author | slice: 0 }}</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="sidebar-identity">
+      <p class="sidebar-name"><a href="{{ site.baseurl }}/">{{ site.title }}</a></p>
+      {% if site.author_bio %}<p class="sidebar-tagline">{{ site.author_bio }}</p>{% endif %}
+    </div>
+
+    {% if site.social %}
+    <div class="sidebar-social">
+      {% if site.social.github %}<a href="{{ site.social.github }}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>{% endif %}
+      {% if site.social.linkedin %}<a href="{{ site.social.linkedin }}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>{% endif %}
+      {% if site.social.instagram %}<a href="{{ site.social.instagram }}" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>{% endif %}
+      {% if site.social.facebook %}<a href="{{ site.social.facebook }}" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>{% endif %}
+      {% if site.social.youtube %}<a href="{{ site.social.youtube }}" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>{% endif %}
+      {% if site.social.stackoverflow %}<a href="{{ site.social.stackoverflow }}" target="_blank" title="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>{% endif %}
+      {% if site.social.pinterest %}<a href="{{ site.social.pinterest }}" target="_blank" title="Pinterest"><i class="fab fa-pinterest"></i></a>{% endif %}
+      {% if site.social.whatsapp %}<a href="{{ site.social.whatsapp }}" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>{% endif %}
+      {% if site.social.website %}<a href="{{ site.social.website }}" target="_blank" title="Site pessoal"><i class="fas fa-globe"></i></a>{% endif %}
+    </div>
+    {% endif %}
+
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="{{ site.baseurl }}/"><i class="fas fa-home"></i> Home</a></li>
+        {% assign nav_cats = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
+        {% for cat in nav_cats %}
+        <li>
+          <a href="{{ site.baseurl }}/categorias/{{ cat | slugify: "latin" }}/">
+            <i class="fas fa-folder-open"></i> {{ cat }}
+          </a>
+        </li>
+        {% endfor %}
+        <li><a href="{{ site.baseurl }}/tags/" class="active"><i class="fas fa-tags"></i> Tags</a></li>
+        <li><a href="{{ site.baseurl }}/feed.xml"><i class="fas fa-rss"></i> RSS</a></li>
+      </ul>
+    </nav>
+
+    {% if site.data.quotes %}
+    {% assign quote_count = site.data.quotes | size %}
+    {% assign seed = site.time | date: "%S" | plus: 0 %}
+    {% assign quote_index = seed | modulo: quote_count %}
+    {% assign quote = site.data.quotes[quote_index] %}
+    <div class="sidebar-widget">
+      <p class="widget-title">Quote</p>
+      <p class="widget-quote-text">"{{ quote.text }}"</p>
+      <p class="widget-quote-author">— {{ quote.author }}</p>
+    </div>
+    {% endif %}
+
+    <div class="sidebar-widget">
+      <p class="widget-title">Buscar</p>
+      <form class="widget-search" action="{{ site.baseurl }}/busca/" method="get">
+        <input type="search" name="q" placeholder="Buscar artigos…" autocomplete="off">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+
+  </aside>
+
+  <!-- ══════════ MAIN ══════════ -->
+  <div class="main">
+
+    <section class="hero">
+      <p class="hero-eyebrow">// tópicos //</p>
+      <h1 class="hero-title">Todas as tags</h1>
+      {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq %}
+      <p class="hero-desc">{{ all_tags | size }} tópicos em {{ site.posts | size }} artigos.</p>
+    </section>
+
+    <div class="content-wrap">
+
+      {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
+
+      {% if all_tags.size == 0 %}
+        <div class="empty-state">
+          <div class="empty-glyph">∅</div>
+          <p>Nenhuma tag publicada ainda.</p>
+        </div>
+      {% else %}
+
+        <div class="section-row">
+          <h2 class="section-title">Tags</h2>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-light);">{{ all_tags | size }} tópicos</span>
+        </div>
+
+        <!-- Tag cloud with post counts -->
+        <div class="tags-index-grid">
+          {% for tag in all_tags %}
+            {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
+            {% assign count = tag_posts | size %}
+            {% if count >= 5 %}{% assign size_class = "tag-size-5" %}
+            {% elsif count == 4 %}{% assign size_class = "tag-size-4" %}
+            {% elsif count == 3 %}{% assign size_class = "tag-size-3" %}
+            {% elsif count == 2 %}{% assign size_class = "tag-size-2" %}
+            {% else %}{% assign size_class = "tag-size-1" %}
+            {% endif %}
+            <a class="tag-index-item {{ size_class }}" href="{{ site.baseurl }}/tags/{{ tag | slugify: "latin" }}/">
+              #{{ tag }}
+              <span class="tag-count">{{ count }}</span>
+            </a>
+          {% endfor %}
+        </div>
+
+        <!-- Posts grouped by tag -->
+        <div class="section-row" style="margin-top: 1rem;">
+          <h2 class="section-title">Por tag</h2>
+        </div>
+
+        {% for tag in all_tags %}
+          {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
+          <div style="margin-bottom: 2.5rem;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);">
+              <a href="{{ site.baseurl }}/tags/{{ tag | slugify: "latin" }}/"
+                 style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;
+                        padding:4px 12px;border-radius:20px;background:var(--accent-light);
+                        color:var(--accent);border:1px solid #b7dfc8;text-decoration:none;">
+                #{{ tag }}
+              </a>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-light);">
+                {{ tag_posts | size }} artigo{% if tag_posts.size != 1 %}s{% endif %}
+              </span>
+            </div>
+            <ul style="list-style:none;margin:0;padding:0;">
+              {% for post in tag_posts %}
+              <li style="display:flex;align-items:baseline;justify-content:space-between;
+                          padding:.5rem 0;border-bottom:1px solid var(--border);gap:1rem;">
+                <a href="{{ post.url | relative_url }}"
+                   style="font-family:'Source Serif 4',serif;font-size:.95rem;color:var(--ink);
+                          text-decoration:none;line-height:1.4;flex:1;">
+                  {{ post.title }}
+                </a>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:10px;
+                              color:var(--ink-light);white-space:nowrap;flex-shrink:0;">
+                  {{ post.date | date: "%d/%m/%Y" }}
+                </span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+
+      {% endif %}
+
+    </div>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <span class="footer-brand">{{ site.title }}</span>
+        <ul class="footer-links">
+          <li><a href="{{ site.baseurl }}/">← Home</a></li>
+          <li><a href="{{ site.baseurl }}/feed.xml">RSS</a></li>
+        </ul>
+        <span class="footer-meta">© {{ 'now' | date: "%Y" }} · Jekyll + GitHub Pages</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    const toggle  = document.getElementById('sidebar-toggle');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    const open  = () => { sidebar.classList.add('open');    overlay.classList.add('open');    };
+    const close = () => { sidebar.classList.remove('open'); overlay.classList.remove('open'); };
+    toggle.addEventListener('click', () => sidebar.classList.contains('open') ? close() : open());
+    overlay.addEventListener('click', close);
+  </script>
+
+</body>
+</html>
