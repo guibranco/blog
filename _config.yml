@@ -1,0 +1,54 @@
+# ── Identidade ──────────────────────────────────────────
+title: "Tecnologia & Viagens"
+description: "Blog sobre tecnologia, infraestrutura e automação para quem viaja e constrói."
+author: "Guilherme Branco Stracini"
+lang: "pt-BR"
+
+# ── URLs ────────────────────────────────────────────────
+url: "https://guibranco.github.io"
+baseurl: "/blog"
+
+# ── Permalinks ──────────────────────────────────────────
+permalink: /artigos/:slug/
+
+# ── Build ───────────────────────────────────────────────
+markdown: kramdown
+highlighter: rouge
+encoding: utf-8
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# ── Plugins ─────────────────────────────────────────────
+plugins:
+  - jekyll-feed        # /feed.xml gerado automaticamente
+  - jekyll-seo-tag     # meta tags open graph e twitter card
+  - jekyll-sitemap     # /sitemap.xml gerado automaticamente
+
+# ── Paginação ───────────────────────────────────────────
+paginate: 10
+paginate_path: "/pagina/:num/"
+
+# ── Feed RSS ────────────────────────────────────────────
+feed:
+  title: "Tecnologia & Viagens"
+  path: feed.xml
+
+# ── Defaults ────────────────────────────────────────────
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Guilherme"
+
+# ── Exclusões do build ──────────────────────────────────
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - .github/
+  - node_modules/
