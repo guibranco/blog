@@ -1,8 +1,671 @@
 ---
-layout: default
+layout: null
 ---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }} — {{ site.description }}</title>
+  <meta name="description" content="{{ site.description }}">
+  {% seo %}
 
-{% for post in site.posts %}
-  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-  <small>{{ post.date | date: "%d/%m/%Y" }}</small>
-{% endfor %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:          #1a1714;
+      --ink-muted:    #5a534a;
+      --ink-light:    #8a8078;
+      --surface:      #faf9f6;
+      --surface-warm: #f2ede6;
+      --border:       #e2dbd0;
+      --accent:       #2d6a4f;
+      --accent-warm:  #b85c00;
+      --accent-light: #e8f5ee;
+      --tag-bg:       #fffbf5;
+      --green-glow:   #93c97a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.75;
+      font-size: 17px;
+      font-weight: 300;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ─── */
+    .site-header {
+      background: var(--ink);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .site-header-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: .95rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .brand { display: flex; flex-direction: column; gap: 1px; }
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--surface);
+      line-height: 1.1;
+    }
+    .brand-tagline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--green-glow);
+      opacity: .8;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(250,249,246,.4);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--green-glow); }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--ink);
+      padding: 5rem 2rem 4.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,.04);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent, transparent 40px,
+        rgba(255,255,255,.015) 40px,
+        rgba(255,255,255,.015) 80px
+      );
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--green-glow);
+      margin-bottom: 1.5rem;
+      opacity: .85;
+      position: relative;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      color: var(--surface);
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      max-width: 700px;
+      margin: 0 auto 1.25rem;
+      position: relative;
+    }
+    .hero-title em { font-style: italic; color: var(--green-glow); }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: rgba(250,249,246,.5);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+      line-height: 1.7;
+      position: relative;
+    }
+    .hero-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      position: relative;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 2rem;
+      color: var(--surface);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(250,249,246,.3);
+      margin-top: 4px;
+    }
+    .hero-stat-divider {
+      width: 1px;
+      height: 36px;
+      background: rgba(255,255,255,.1);
+    }
+
+    /* ─── PAGE WRAP ─── */
+    .page-wrap {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    /* ─── FEATURED ─── */
+    .featured-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 4rem;
+      background: white;
+      transition: box-shadow .25s;
+    }
+    .featured-card:hover { box-shadow: 0 8px 32px rgba(26,23,20,.08); }
+
+    .featured-image {
+      background: var(--ink);
+      min-height: 320px;
+      position: relative;
+      overflow: hidden;
+    }
+    .featured-image img {
+      width: 100%; height: 100%;
+      object-fit: cover; opacity: .85; display: block;
+    }
+    .featured-placeholder {
+      width: 100%; height: 100%; min-height: 320px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--ink); position: relative; overflow: hidden;
+    }
+    .featured-placeholder::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        -45deg, transparent, transparent 30px,
+        rgba(255,255,255,.025) 30px, rgba(255,255,255,.025) 60px
+      );
+    }
+    .featured-placeholder span {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 5rem;
+      color: rgba(255,255,255,.06);
+      position: relative;
+      user-select: none;
+    }
+
+    .featured-body {
+      padding: 2.5rem 2.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .cat-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1rem; }
+    .cat-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid #b7dfc8;
+    }
+    .featured-body h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 1rem;
+      letter-spacing: -.01em;
+    }
+    .featured-body h2 a:hover { color: var(--accent); }
+    .featured-excerpt {
+      font-size: .95rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+      font-weight: 300;
+    }
+    .featured-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-light);
+      margin-bottom: 1.5rem;
+    }
+    .featured-meta .sep { opacity: .4; }
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 1px;
+      transition: gap .2s;
+    }
+    .read-more:hover { gap: 14px; }
+
+    /* ─── SECTION ROW ─── */
+    .section-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1.75rem;
+      padding-bottom: .75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* ─── POSTS GRID ─── */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 4rem;
+    }
+    .post-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .post-card:hover {
+      box-shadow: 0 6px 24px rgba(26,23,20,.07);
+      transform: translateY(-2px);
+    }
+    .post-card-image {
+      height: 160px;
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .post-card-image img {
+      width: 100%; height: 100%;
+      object-fit: cover; opacity: .8; display: block;
+    }
+    .post-card-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--ink); position: relative; overflow: hidden;
+    }
+    .post-card-placeholder::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        -45deg, transparent, transparent 20px,
+        rgba(255,255,255,.025) 20px, rgba(255,255,255,.025) 40px
+      );
+    }
+    .post-card-placeholder span {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 2.75rem;
+      color: rgba(255,255,255,.07);
+      position: relative;
+      user-select: none;
+    }
+    .post-card-body {
+      padding: 1.25rem 1.35rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .post-card-cats { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: .75rem; }
+    .post-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: .65rem;
+      letter-spacing: -.01em;
+    }
+    .post-card h3 a:hover { color: var(--accent); }
+    .post-card-excerpt {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+    .post-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-light);
+      margin-top: auto;
+      padding-top: .75rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ─── TAGS CLOUD ─── */
+    .tags-cloud { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 4rem; }
+    .tag-item {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .06em;
+      padding: 5px 14px;
+      border-radius: 20px;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      color: var(--ink-muted);
+      transition: border-color .2s, color .2s;
+    }
+    .tag-item:hover { border-color: var(--ink-muted); color: var(--ink); }
+
+    /* ─── EMPTY STATE ─── */
+    .empty-state {
+      text-align: center;
+      padding: 5rem 2rem;
+      color: var(--ink-light);
+    }
+    .empty-state-glyph {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 3rem;
+      color: var(--border);
+      margin-bottom: 1rem;
+    }
+    .empty-state p {
+      font-size: .9rem;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: .06em;
+    }
+
+    /* ─── FOOTER ─── */
+    .site-footer { background: var(--ink); padding: 2.5rem 2rem; }
+    .site-footer-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: rgba(250,249,246,.5);
+    }
+    .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+    .footer-links a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(250,249,246,.28);
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--green-glow); }
+    .footer-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: rgba(250,249,246,.2);
+      letter-spacing: .06em;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-image, .featured-placeholder { min-height: 220px; }
+      .posts-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .posts-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.25rem; }
+      .hero-stat-num { font-size: 1.5rem; }
+      .site-footer-inner { flex-direction: column; align-items: flex-start; gap: .75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="{{ site.baseurl }}/" class="brand">
+        <span class="brand-name">{{ site.title }}</span>
+        <span class="brand-tagline">{{ site.description | truncate: 50 }}</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="{{ site.baseurl }}/">Início</a></li>
+        <li><a href="{{ site.baseurl }}/feed.xml">RSS</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">// tecnologia &amp; viagens //</p>
+    <h1 class="hero-title">
+      Onde a <em>infraestrutura</em><br>encontra o mundo
+    </h1>
+    <p class="hero-desc">{{ site.description }}</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">{{ site.posts | size }}</div>
+        <div class="hero-stat-label">Artigos</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">
+          {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq %}
+          {{ all_tags | size }}
+        </div>
+        <div class="hero-stat-label">Tópicos</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">
+          {% assign all_cats = site.posts | map: 'categories' | join: ',' | split: ',' | uniq %}
+          {{ all_cats | size }}
+        </div>
+        <div class="hero-stat-label">Categorias</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <div class="page-wrap">
+
+    {% if site.posts.size == 0 %}
+
+      <div class="empty-state">
+        <div class="empty-state-glyph">em breve.</div>
+        <p>Nenhum artigo publicado ainda.</p>
+      </div>
+
+    {% else %}
+
+      <!-- FEATURED POST -->
+      {% assign featured = site.posts.first %}
+      <p class="featured-label">// destaque</p>
+      <article class="featured-card">
+
+        <div class="featured-image">
+          {% if featured.image %}
+            <img src="{{ featured.image | relative_url }}" alt="{{ featured.title }}">
+          {% else %}
+            <div class="featured-placeholder">
+              <span>{{ featured.title | slice: 0 }}</span>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="featured-body">
+          {% if featured.categories.size > 0 %}
+          <div class="cat-pills">
+            {% for cat in featured.categories %}
+            <span class="cat-pill">{{ cat }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <h2><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+
+          {% if featured.description %}
+          <p class="featured-excerpt">{{ featured.description }}</p>
+          {% elsif featured.excerpt %}
+          <p class="featured-excerpt">{{ featured.excerpt | strip_html | truncate: 180 }}</p>
+          {% endif %}
+
+          <div class="featured-meta">
+            <span>{{ featured.date | date: "%d/%m/%Y" }}</span>
+            {% if featured.reading_time %}
+            <span class="sep">·</span>
+            <span>{{ featured.reading_time }} min de leitura</span>
+            {% endif %}
+          </div>
+
+          <a class="read-more" href="{{ featured.url | relative_url }}">Ler artigo →</a>
+        </div>
+
+      </article>
+
+      <!-- POSTS GRID -->
+      {% assign other_posts = site.posts | shift %}
+      {% if other_posts.size > 0 %}
+
+      <div class="section-row">
+        <h2 class="section-title">Todos os artigos</h2>
+      </div>
+
+      <div class="posts-grid">
+        {% for post in other_posts %}
+        <article class="post-card">
+
+          <div class="post-card-image">
+            {% if post.image %}
+              <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+            {% else %}
+              <div class="post-card-placeholder">
+                <span>{{ post.title | slice: 0 }}</span>
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="post-card-body">
+            {% if post.categories.size > 0 %}
+            <div class="post-card-cats">
+              {% for cat in post.categories limit: 2 %}
+              <span class="cat-pill">{{ cat }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
+
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+
+            {% if post.description %}
+            <p class="post-card-excerpt">{{ post.description | truncate: 120 }}</p>
+            {% elsif post.excerpt %}
+            <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+            {% endif %}
+
+            <div class="post-card-meta">
+              <span>{{ post.date | date: "%d/%m/%Y" }}</span>
+              {% if post.reading_time %}
+              <span>{{ post.reading_time }} min</span>
+              {% endif %}
+            </div>
+          </div>
+
+        </article>
+        {% endfor %}
+      </div>
+
+      {% endif %}
+
+      <!-- TAGS CLOUD -->
+      {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
+      {% if all_tags.size > 0 %}
+      <div class="section-row">
+        <h2 class="section-title">Tópicos</h2>
+      </div>
+      <div class="tags-cloud">
+        {% for tag in all_tags %}
+        <a class="tag-item" href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">#{{ tag }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+    {% endif %}
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <span class="footer-brand">{{ site.title }}</span>
+      <ul class="footer-links">
+        <li><a href="{{ site.baseurl }}/feed.xml">RSS</a></li>
+        <li><a href="{{ site.baseurl }}/sitemap.xml">Sitemap</a></li>
+      </ul>
+      <span class="footer-meta">© {{ 'now' | date: "%Y" }} · Feito com Jekyll</span>
+    </div>
+  </footer>
+
+</body>
+</html>
