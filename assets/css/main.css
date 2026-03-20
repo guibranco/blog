@@ -64,15 +64,27 @@ a { color: inherit; text-decoration: none; }
 .sidebar-avatar-wrap {
   position: relative;
   height: 170px;
-  overflow: hidden;
   flex-shrink: 0;
+  /* overflow must stay visible so the avatar circle can bleed below */
+}
+/* clip only the background layer, not the whole wrap */
+.sidebar-avatar-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
 }
 .sidebar-avatar-bg {
+  position: absolute;
+  inset: 0;
   width: 100%; height: 100%;
   object-fit: cover; opacity: .15; display: block;
+  clip-path: inset(0);
 }
 .sidebar-avatar-bg-fallback {
-  width: 100%; height: 100%;
+  position: absolute;
+  inset: 0;
   background: repeating-linear-gradient(
     -45deg, transparent, transparent 20px,
     rgba(255,255,255,.03) 20px, rgba(255,255,255,.03) 40px
@@ -80,13 +92,14 @@ a { color: inherit; text-decoration: none; }
 }
 .sidebar-avatar {
   position: absolute;
-  bottom: -28px; left: 50%;
+  bottom: -32px; left: 50%;
   transform: translateX(-50%);
   width: 64px; height: 64px;
   border-radius: 50%;
-  border: 3px solid rgba(255,255,255,.1);
+  border: 3px solid rgba(255,255,255,.15);
   overflow: hidden;
   background: var(--ink);
+  z-index: 1;
 }
 .sidebar-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .sidebar-avatar-placeholder {
@@ -98,7 +111,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .sidebar-identity {
-  padding: 2.5rem 1.4rem 1.1rem;
+  padding: 3rem 1.4rem 1.1rem;
   text-align: center;
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
