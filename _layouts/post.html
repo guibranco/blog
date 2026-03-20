@@ -109,33 +109,37 @@
     <header class="hero">
     {% endif %}
 
-      <a class="hero-back" href="{{ site.baseurl }}/">
-        <i class="fas fa-arrow-left"></i> todos os artigos
-      </a>
+      <div class="hero-inner">
 
-      <div class="hero-eyebrow">
-        <span>///</span>
-        {% for cat in page.categories %}{{ cat }}{% unless forloop.last %} &amp; {% endunless %}{% endfor %}
-        <span>///</span>
-      </div>
+        <a class="hero-back" href="{{ site.baseurl }}/">
+          <i class="fas fa-arrow-left"></i> todos os artigos
+        </a>
 
-      <h1>{{ page.title }}</h1>
+        <div class="hero-eyebrow">
+          <span>///</span>
+          {% for cat in page.categories %}{{ cat }}{% unless forloop.last %} &amp; {% endunless %}{% endfor %}
+          <span>///</span>
+        </div>
 
-      {% if page.description %}
-      <p class="hero-sub">{{ page.description }}</p>
-      {% endif %}
+        <h1>{{ page.title }}</h1>
 
-      <div class="hero-meta">
-        <span>{{ page.date | date: "%d de %B de %Y" }}</span>
-        {% if page.reading_time %}
-        <span class="dot">·</span>
-        <span>~{{ page.reading_time }} min de leitura</span>
+        {% if page.description %}
+        <p class="hero-sub">{{ page.description }}</p>
         {% endif %}
-        {% if page.tags.size > 0 %}
-        <span class="dot">·</span>
-        {% for tag in page.tags limit: 3 %}<span>#{{ tag }}</span> {% endfor %}
-        {% endif %}
-      </div>
+
+        <div class="hero-meta">
+          <span>{{ page.date | date: "%d de %B de %Y" }}</span>
+          {% if page.reading_time %}
+          <span class="dot">·</span>
+          <span>~{{ page.reading_time }} min de leitura</span>
+          {% endif %}
+          {% if page.tags.size > 0 %}
+          <span class="dot">·</span>
+          {% for tag in page.tags limit: 3 %}<span>#{{ tag }}</span> {% endfor %}
+          {% endif %}
+        </div>
+
+      </div><!-- /.hero-inner -->
 
     </header>
 
