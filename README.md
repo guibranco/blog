@@ -6,13 +6,13 @@
 
 Publicado via [Jekyll](https://jekyllrb.com/) · Hospedado no [GitHub Pages](https://pages.github.com/) · Zero custo de servidor
 
-[![Deploy](https://github.com/guibranco/blog-tech-viagens/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/guibranco/blog-tech-viagens/actions)
+[![Deploy](https://github.com/guibranco/blog/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/guibranco/blog/actions)
 [![Jekyll](https://img.shields.io/badge/Jekyll-4.x-red?logo=jekyll&logoColor=white)](https://jekyllrb.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ---
 
-[🌐 Ver o blog](https://guibranco.github.io/blog-tech-viagens) · [📡 RSS](https://guibranco.github.io/blog-tech-viagens/feed.xml) · [🗺️ Sitemap](https://guibranco.github.io/blog-tech-viagens/sitemap.xml)
+[🌐 Ver o blog](https://guibranco.github.io/blog) · [📡 RSS](https://guibranco.github.io/blog/feed.xml) · [🗺️ Sitemap](https://guibranco.github.io/blog/sitemap.xml)
 
 </div>
 
@@ -29,7 +29,7 @@ O design é totalmente customizado — sem temas de terceiros — com tipografia
 ## 🗂️ Estrutura do projeto
 
 ```
-blog-tech-viagens/
+blog/
 │
 ├── _posts/                          # Artigos em Markdown
 │   └── 2026-03-20-envio-sms-internet.md
