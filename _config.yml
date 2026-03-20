@@ -17,6 +17,7 @@ social:
   pinterest: https://www.pinterest.com/guibranco/
   whatsapp: https://api.whatsapp.com/send/?phone=353871471762
   website: https://guilherme.stracini.com.br
+  website_image: /assets/img/avatar.png
 
 # ── URLs ────────────────────────────────────────────────
 url: "https://guibranco.github.io"
