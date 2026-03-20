@@ -158,12 +158,12 @@ social:
   pinterest:     https://www.pinterest.com/guibranco/
   whatsapp:      https://api.whatsapp.com/send/?phone=353871471762
   website:       http://guilherme.stracini.com
-  website_image: https://blog.guilhermebranco.com.br/wp-content/uploads/2019/01/cropped-og_photo-1.png  # optional: replaces globe icon
-  strava:        https://www.strava.com/athletes/yourprofile    # optional
-  soundcloud:    https://soundcloud.com/yourprofile             # optional
-  spotify:       https://open.spotify.com/user/yourid          # optional
-  reddit:        https://www.reddit.com/user/yourprofile        # optional
-  medium:        https://medium.com/@yourprofile                # optional
+  website_image: /assets/img/avatar.png
+  strava:        https://www.strava.com/athletes/171612487
+  soundcloud:    https://open.spotify.com/user/22x2qmq6hbuqyjy2emg6k4xiq
+  spotify:       https://soundcloud.com/guilherme-stracini
+  reddit:        https://www.reddit.com/user/SilverSport8845/
+  medium:        https://medium.com/@guilhermebrancostracini
 ```
 
 ---
