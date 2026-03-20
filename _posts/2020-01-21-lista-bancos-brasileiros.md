@@ -6,6 +6,7 @@ date: 2020-01-21
 categories: [Coding]
 tags: [github, open-source, bancos, brasil, api, dados, json, csv, xml, sfn]
 reading_time: 2
+image: /assets/img/posts/logo-bancos-brasileiros.png
 ---
 
 Manter um sistema atualizado com os bancos existentes no Brasil é uma tarefa árdua e difícil? Não mais. Confira este repositório no GitHub, criado em meados de 2017, que mantém uma lista atualizada dos bancos comerciais brasileiros, incluindo informações sobre PIX, DOC, TED e portabilidade de salário.
