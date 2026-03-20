@@ -6,6 +6,7 @@ date: 2026-03-20
 categories: [Infraestrutura, Telecomunicações]
 tags: [sms, api, gsm, android, twilio, gateway, simbox, php, iot, automação]
 reading_time: 12
+image: /assets/img/posts/envio-sms-internet.png
 ---
 
 <p class="lead">Seja para notificações de sistemas, alertas de monitoramento, autenticação em dois fatores ou automações criativas durante uma viagem, enviar um SMS pela internet é uma necessidade que aparece cedo ou tarde na vida de qualquer desenvolvedor. As opções vão do pragmático ao surpreendentemente artesanal.</p>
