@@ -6,12 +6,13 @@ layout: null
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ site.title }} — {{ site.description }}</title>
+  <title>{{ site.title }}</title>
   <meta name="description" content="{{ site.description }}">
   {% seo %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,10 +29,10 @@ layout: null
       --accent-light: #e8f5ee;
       --tag-bg:       #fffbf5;
       --green-glow:   #93c97a;
+      --sidebar-w:    290px;
     }
 
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Source Serif 4', Georgia, serif;
       background: var(--surface);
@@ -39,633 +40,655 @@ layout: null
       line-height: 1.75;
       font-size: 17px;
       font-weight: 300;
+      display: flex;
+      min-height: 100vh;
     }
-
     a { color: inherit; text-decoration: none; }
 
-    /* ─── NAV ─── */
-    .site-header {
+    /* ═══ SIDEBAR ═══ */
+    .sidebar {
+      width: var(--sidebar-w);
+      flex-shrink: 0;
       background: var(--ink);
+      min-height: 100vh;
       position: sticky;
       top: 0;
-      z-index: 100;
-    }
-    .site-header-inner {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: .95rem 2rem;
+      height: 100vh;
+      overflow-y: auto;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
+      flex-direction: column;
+      scrollbar-width: none;
     }
-    .brand { display: flex; flex-direction: column; gap: 1px; }
-    .brand-name {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.2rem;
-      color: var(--surface);
-      line-height: 1.1;
-    }
-    .brand-tagline {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--green-glow);
-      opacity: .8;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.75rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: rgba(250,249,246,.4);
-      transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--green-glow); }
+    .sidebar::-webkit-scrollbar { display: none; }
 
-    /* ─── HERO ─── */
+    .sidebar-avatar-wrap {
+      position: relative;
+      height: 170px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .sidebar-avatar-bg {
+      width: 100%; height: 100%;
+      object-fit: cover; opacity: .15; display: block;
+    }
+    .sidebar-avatar-bg-fallback {
+      width: 100%; height: 100%;
+      background: repeating-linear-gradient(
+        -45deg, transparent, transparent 20px,
+        rgba(255,255,255,.03) 20px, rgba(255,255,255,.03) 40px
+      );
+    }
+    .sidebar-avatar {
+      position: absolute;
+      bottom: -28px; left: 50%;
+      transform: translateX(-50%);
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,.1);
+      overflow: hidden;
+      background: var(--ink);
+    }
+    .sidebar-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .sidebar-avatar-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,.06);
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 1.5rem; color: rgba(250,249,246,.4);
+    }
+
+    .sidebar-identity {
+      padding: 2.5rem 1.4rem 1.1rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .sidebar-name {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 1.1rem; color: var(--surface); line-height: 1.2;
+      margin-bottom: .45rem;
+    }
+    .sidebar-name a { color: inherit; }
+    .sidebar-tagline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px; letter-spacing: .055em;
+      color: rgba(250,249,246,.28); line-height: 1.65;
+    }
+
+    .sidebar-social {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 5px; padding: .9rem 1.4rem;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .sidebar-social a {
+      width: 30px; height: 30px; border-radius: 6px;
+      background: rgba(255,255,255,.06);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; color: rgba(250,249,246,.38);
+      transition: background .2s, color .2s;
+    }
+    .sidebar-social a:hover { background: rgba(255,255,255,.12); color: var(--green-glow); }
+
+    .sidebar-nav { padding: .85rem 0; flex: 1; }
+    .sidebar-nav ul { list-style: none; }
+    .sidebar-nav a {
+      display: flex; align-items: center; gap: 8px;
+      padding: .5rem 1.4rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px; letter-spacing: .075em; text-transform: uppercase;
+      color: rgba(250,249,246,.4);
+      transition: color .2s, background .2s;
+    }
+    .sidebar-nav a i { width: 13px; opacity: .45; flex-shrink: 0; }
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active { color: var(--green-glow); background: rgba(255,255,255,.03); }
+
+    .sidebar-nav .has-children > a { justify-content: space-between; }
+    .sidebar-nav .has-children > a .chevron {
+      font-size: 11px; opacity: .35;
+      transition: transform .25s; margin-left: auto;
+    }
+    .sidebar-nav .has-children.open > a .chevron { transform: rotate(90deg); }
+
+    .sidebar-nav .submenu {
+      display: none;
+      background: rgba(0,0,0,.18);
+      border-left: 2px solid rgba(255,255,255,.05);
+      margin-left: 1.4rem;
+    }
+    .sidebar-nav .has-children.open .submenu { display: block; }
+    .sidebar-nav .submenu a {
+      font-size: 9.5px; padding: .38rem 1rem;
+      color: rgba(250,249,246,.28);
+    }
+    .sidebar-nav .submenu a:hover { color: var(--green-glow); }
+
+    .sidebar-widget {
+      padding: .9rem 1.4rem;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .widget-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8.5px; letter-spacing: .16em; text-transform: uppercase;
+      color: rgba(250,249,246,.22); margin-bottom: .65rem;
+    }
+    .widget-quote-text {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: .9rem; color: rgba(250,249,246,.5);
+      line-height: 1.55; margin-bottom: .35rem;
+    }
+    .widget-quote-author {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px; letter-spacing: .07em;
+      color: rgba(250,249,246,.22);
+    }
+
+    .widget-search { display: flex; gap: 5px; }
+    .widget-search input {
+      flex: 1; background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.08); border-radius: 6px;
+      padding: .4rem .65rem;
+      font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+      color: rgba(250,249,246,.65); outline: none;
+      transition: border-color .2s;
+    }
+    .widget-search input::placeholder { color: rgba(250,249,246,.18); }
+    .widget-search input:focus { border-color: rgba(255,255,255,.18); }
+    .widget-search button {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.08); border-radius: 6px;
+      padding: .4rem .65rem; color: rgba(250,249,246,.38);
+      font-size: 11px; cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+    .widget-search button:hover { background: rgba(255,255,255,.13); color: var(--green-glow); }
+
+    /* ═══ MOBILE TOGGLE ═══ */
+    .sidebar-toggle {
+      display: none;
+      position: fixed; top: .9rem; left: .9rem; z-index: 200;
+      width: 38px; height: 38px; border-radius: 8px;
+      background: var(--ink); border: none;
+      color: rgba(250,249,246,.55); font-size: 15px;
+      cursor: pointer; align-items: center; justify-content: center;
+    }
+
+    /* ═══ MAIN ═══ */
+    .main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+
     .hero {
       background: var(--ink);
-      padding: 5rem 2rem 4.5rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+      padding: 3rem 2.25rem 2.75rem;
+      position: relative; overflow: hidden;
       border-bottom: 1px solid rgba(255,255,255,.04);
     }
     .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: repeating-linear-gradient(
-        45deg,
-        transparent, transparent 40px,
-        rgba(255,255,255,.015) 40px,
-        rgba(255,255,255,.015) 80px
+        45deg, transparent, transparent 40px,
+        rgba(255,255,255,.015) 40px, rgba(255,255,255,.015) 80px
       );
       pointer-events: none;
     }
     .hero-eyebrow {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--green-glow);
-      margin-bottom: 1.5rem;
-      opacity: .85;
-      position: relative;
+      font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--green-glow); margin-bottom: .9rem; opacity: .8; position: relative;
     }
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 700;
-      color: var(--surface);
-      line-height: 1.1;
-      letter-spacing: -.02em;
-      max-width: 700px;
-      margin: 0 auto 1.25rem;
-      position: relative;
+      font-size: clamp(1.75rem, 3vw, 2.75rem);
+      font-weight: 700; color: var(--surface);
+      line-height: 1.15; letter-spacing: -.02em;
+      max-width: 480px; margin-bottom: .85rem; position: relative;
     }
     .hero-title em { font-style: italic; color: var(--green-glow); }
     .hero-desc {
-      font-size: 1.05rem;
-      color: rgba(250,249,246,.5);
-      max-width: 480px;
-      margin: 0 auto 2.5rem;
-      font-weight: 300;
-      line-height: 1.7;
-      position: relative;
+      font-size: .9rem; color: rgba(250,249,246,.42);
+      max-width: 400px; font-weight: 300; line-height: 1.7;
+      position: relative; margin-bottom: 1.75rem;
     }
-    .hero-stats {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      position: relative;
-    }
-    .hero-stat { text-align: center; }
+    .hero-stats { display: flex; align-items: center; gap: 1.25rem; position: relative; }
+    .hero-stat { text-align: left; }
     .hero-stat-num {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 2rem;
-      color: var(--surface);
-      line-height: 1;
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 1.6rem; color: var(--surface); line-height: 1;
     }
     .hero-stat-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: rgba(250,249,246,.3);
-      margin-top: 4px;
+      font-family: 'JetBrains Mono', monospace; font-size: 8.5px;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(250,249,246,.25); margin-top: 3px;
     }
-    .hero-stat-divider {
-      width: 1px;
-      height: 36px;
-      background: rgba(255,255,255,.1);
+    .hero-stat-divider { width: 1px; height: 28px; background: rgba(255,255,255,.1); }
+
+    .content-wrap { padding: 2.25rem 2.25rem 5rem; flex: 1; }
+
+    .section-row {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 1.4rem; padding-bottom: .6rem; border-bottom: 1px solid var(--border);
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif; font-size: 1.15rem;
+      font-weight: 700; color: var(--ink);
     }
 
-    /* ─── PAGE WRAP ─── */
-    .page-wrap {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 4rem 2rem 6rem;
-    }
-
-    /* ─── FEATURED ─── */
-    .featured-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-    }
+    /* Featured */
     .featured-card {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      margin-bottom: 4rem;
-      background: white;
+      display: grid; grid-template-columns: 1.15fr 1fr;
+      border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; background: white; margin-bottom: 2.5rem;
       transition: box-shadow .25s;
     }
-    .featured-card:hover { box-shadow: 0 8px 32px rgba(26,23,20,.08); }
+    .featured-card:hover { box-shadow: 0 6px 28px rgba(26,23,20,.08); }
 
-    .featured-image {
-      background: var(--ink);
-      min-height: 320px;
-      position: relative;
-      overflow: hidden;
-    }
-    .featured-image img {
-      width: 100%; height: 100%;
-      object-fit: cover; opacity: .85; display: block;
-    }
+    .featured-image { background: var(--ink); min-height: 260px; position: relative; overflow: hidden; }
+    .featured-image img { width: 100%; height: 100%; object-fit: cover; opacity: .85; display: block; }
     .featured-placeholder {
-      width: 100%; height: 100%; min-height: 320px;
+      width: 100%; height: 100%; min-height: 260px;
       display: flex; align-items: center; justify-content: center;
       background: var(--ink); position: relative; overflow: hidden;
     }
     .featured-placeholder::before {
-      content: '';
-      position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: repeating-linear-gradient(
-        -45deg, transparent, transparent 30px,
-        rgba(255,255,255,.025) 30px, rgba(255,255,255,.025) 60px
+        -45deg, transparent, transparent 26px,
+        rgba(255,255,255,.025) 26px, rgba(255,255,255,.025) 52px
       );
     }
     .featured-placeholder span {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 5rem;
-      color: rgba(255,255,255,.06);
-      position: relative;
-      user-select: none;
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 5rem; color: rgba(255,255,255,.06); position: relative; user-select: none;
     }
 
     .featured-body {
-      padding: 2.5rem 2.25rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      padding: 1.6rem 1.6rem 1.85rem;
+      display: flex; flex-direction: column; justify-content: center;
     }
-    .cat-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1rem; }
+    .cat-pills { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: .8rem; }
     .cat-pill {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: 20px;
-      background: var(--accent-light);
-      color: var(--accent);
-      border: 1px solid #b7dfc8;
+      font-family: 'JetBrains Mono', monospace; font-size: 9px;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 2px 9px; border-radius: 20px;
+      background: var(--accent-light); color: var(--accent); border: 1px solid #b7dfc8;
     }
     .featured-body h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.4rem, 2.5vw, 2rem);
-      font-weight: 700;
-      line-height: 1.2;
-      color: var(--ink);
-      margin-bottom: 1rem;
-      letter-spacing: -.01em;
+      font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+      font-weight: 700; line-height: 1.25; color: var(--ink);
+      margin-bottom: .8rem; letter-spacing: -.01em;
     }
     .featured-body h2 a:hover { color: var(--accent); }
     .featured-excerpt {
-      font-size: .95rem;
-      color: var(--ink-muted);
-      line-height: 1.7;
-      margin-bottom: 1.75rem;
-      font-weight: 300;
+      font-size: .865rem; color: var(--ink-muted); line-height: 1.7;
+      margin-bottom: 1.1rem; font-weight: 300; flex: 1;
     }
     .featured-meta {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--ink-light);
-      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+      color: var(--ink-light); margin-bottom: 1.1rem;
     }
-    .featured-meta .sep { opacity: .4; }
+    .featured-meta .sep { opacity: .35; }
     .read-more {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border-bottom: 1px solid var(--accent);
-      padding-bottom: 1px;
-      transition: gap .2s;
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent); border-bottom: 1px solid var(--accent);
+      padding-bottom: 1px; transition: gap .2s;
     }
-    .read-more:hover { gap: 14px; }
+    .read-more:hover { gap: 11px; }
 
-    /* ─── SECTION ROW ─── */
-    .section-row {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 1.75rem;
-      padding-bottom: .75rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    /* ─── POSTS GRID ─── */
+    /* Posts grid */
     .posts-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-bottom: 4rem;
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 14px; margin-bottom: 2.5rem;
     }
     .post-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      background: white; border: 1px solid var(--border); border-radius: 10px;
+      overflow: hidden; display: flex; flex-direction: column;
       transition: box-shadow .2s, transform .2s;
     }
-    .post-card:hover {
-      box-shadow: 0 6px 24px rgba(26,23,20,.07);
-      transform: translateY(-2px);
-    }
-    .post-card-image {
-      height: 160px;
-      background: var(--ink);
-      position: relative;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .post-card-image img {
-      width: 100%; height: 100%;
-      object-fit: cover; opacity: .8; display: block;
-    }
+    .post-card:hover { box-shadow: 0 4px 18px rgba(26,23,20,.07); transform: translateY(-2px); }
+
+    .post-card-image { height: 130px; background: var(--ink); position: relative; overflow: hidden; flex-shrink: 0; }
+    .post-card-image img { width: 100%; height: 100%; object-fit: cover; opacity: .8; display: block; }
     .post-card-placeholder {
       width: 100%; height: 100%;
       display: flex; align-items: center; justify-content: center;
       background: var(--ink); position: relative; overflow: hidden;
     }
     .post-card-placeholder::before {
-      content: '';
-      position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: repeating-linear-gradient(
-        -45deg, transparent, transparent 20px,
-        rgba(255,255,255,.025) 20px, rgba(255,255,255,.025) 40px
+        -45deg, transparent, transparent 16px,
+        rgba(255,255,255,.025) 16px, rgba(255,255,255,.025) 32px
       );
     }
     .post-card-placeholder span {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 2.75rem;
-      color: rgba(255,255,255,.07);
-      position: relative;
-      user-select: none;
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 2.25rem; color: rgba(255,255,255,.07); position: relative; user-select: none;
     }
-    .post-card-body {
-      padding: 1.25rem 1.35rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .post-card-cats { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: .75rem; }
+    .post-card-body { padding: 1rem 1.1rem 1.25rem; display: flex; flex-direction: column; flex: 1; }
+    .post-card-cats { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: .55rem; }
     .post-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      line-height: 1.3;
-      color: var(--ink);
-      margin-bottom: .65rem;
-      letter-spacing: -.01em;
+      font-family: 'Playfair Display', serif; font-size: .94rem; font-weight: 700;
+      line-height: 1.3; color: var(--ink); margin-bottom: .45rem; letter-spacing: -.01em;
     }
     .post-card h3 a:hover { color: var(--accent); }
     .post-card-excerpt {
-      font-size: 13px;
-      color: var(--ink-muted);
-      line-height: 1.65;
-      flex: 1;
-      margin-bottom: 1rem;
-      font-weight: 300;
+      font-size: 12px; color: var(--ink-muted); line-height: 1.6;
+      flex: 1; margin-bottom: .75rem; font-weight: 300;
     }
     .post-card-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--ink-light);
-      margin-top: auto;
-      padding-top: .75rem;
-      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      font-family: 'JetBrains Mono', monospace; font-size: 9.5px; color: var(--ink-light);
+      padding-top: .6rem; border-top: 1px solid var(--border); margin-top: auto;
     }
 
-    /* ─── TAGS CLOUD ─── */
-    .tags-cloud { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 4rem; }
+    /* Tags */
+    .tags-cloud { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 2.5rem; }
     .tag-item {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: .06em;
-      padding: 5px 14px;
-      border-radius: 20px;
-      background: var(--tag-bg);
-      border: 1px solid var(--border);
-      color: var(--ink-muted);
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .055em;
+      padding: 4px 11px; border-radius: 20px;
+      background: var(--tag-bg); border: 1px solid var(--border); color: var(--ink-muted);
       transition: border-color .2s, color .2s;
     }
     .tag-item:hover { border-color: var(--ink-muted); color: var(--ink); }
 
-    /* ─── EMPTY STATE ─── */
-    .empty-state {
-      text-align: center;
-      padding: 5rem 2rem;
-      color: var(--ink-light);
-    }
-    .empty-state-glyph {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 3rem;
-      color: var(--border);
-      margin-bottom: 1rem;
+    /* Empty */
+    .empty-state { text-align: center; padding: 4rem 2rem; color: var(--ink-light); }
+    .empty-glyph {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 2.25rem; color: var(--border); margin-bottom: .75rem;
     }
     .empty-state p {
-      font-size: .9rem;
-      font-family: 'JetBrains Mono', monospace;
-      letter-spacing: .06em;
+      font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: .08em;
     }
 
-    /* ─── FOOTER ─── */
-    .site-footer { background: var(--ink); padding: 2.5rem 2rem; }
+    /* Footer */
+    .site-footer { background: var(--ink); padding: 1.35rem 2.25rem; border-top: 1px solid rgba(255,255,255,.04); }
     .site-footer-inner {
-      max-width: 1160px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      flex-wrap: wrap;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; flex-wrap: wrap;
     }
     .footer-brand {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.05rem;
-      color: rgba(250,249,246,.5);
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: .95rem; color: rgba(250,249,246,.35);
     }
-    .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+    .footer-links { display: flex; gap: 1.2rem; list-style: none; }
     .footer-links a {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: rgba(250,249,246,.28);
-      transition: color .2s;
+      font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: rgba(250,249,246,.22); transition: color .2s;
     }
     .footer-links a:hover { color: var(--green-glow); }
     .footer-meta {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: rgba(250,249,246,.2);
-      letter-spacing: .06em;
+      font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+      color: rgba(250,249,246,.16); letter-spacing: .06em;
     }
 
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 900px) {
-      .featured-card { grid-template-columns: 1fr; }
-      .featured-image, .featured-placeholder { min-height: 220px; }
-      .posts-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
+    /* ═══ RESPONSIVE ═══ */
+    @media (max-width: 1060px) {
       .posts-grid { grid-template-columns: 1fr; }
-      .hero-stats { gap: 1.25rem; }
-      .hero-stat-num { font-size: 1.5rem; }
-      .site-footer-inner { flex-direction: column; align-items: flex-start; gap: .75rem; }
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-placeholder { min-height: 180px; }
+    }
+    @media (max-width: 768px) {
+      :root { --sidebar-w: 270px; }
+      .sidebar {
+        position: fixed; left: 0; top: 0; bottom: 0; z-index: 100;
+        transform: translateX(-100%); transition: transform .3s ease;
+      }
+      .sidebar.open { transform: translateX(0); box-shadow: 4px 0 24px rgba(0,0,0,.3); }
+      .sidebar-toggle { display: flex; }
+      .sidebar-overlay {
+        display: none; position: fixed; inset: 0;
+        background: rgba(0,0,0,.45); z-index: 99;
+      }
+      .sidebar-overlay.open { display: block; }
+      .content-wrap { padding: 1.4rem 1.25rem 4rem; }
+      .hero { padding: 2.25rem 1.25rem 1.75rem; }
+      .site-footer { padding: 1.25rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <header class="site-header">
-    <div class="site-header-inner">
-      <a href="{{ site.baseurl }}/" class="brand">
-        <span class="brand-name">{{ site.title }}</span>
-        <span class="brand-tagline">{{ site.description | truncate: 50 }}</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="{{ site.baseurl }}/">Início</a></li>
-        <li><a href="{{ site.baseurl }}/feed.xml">RSS</a></li>
+  <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Abrir menu">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- ══════════ SIDEBAR ══════════ -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-avatar-wrap">
+      {% if site.author_avatar %}
+        <img class="sidebar-avatar-bg" src="{{ site.author_avatar | relative_url }}" alt="">
+      {% else %}
+        <div class="sidebar-avatar-bg-fallback"></div>
+      {% endif %}
+      <div class="sidebar-avatar">
+        {% if site.author_avatar %}
+          <img src="{{ site.author_avatar | relative_url }}" alt="{{ site.author }}">
+        {% else %}
+          <div class="sidebar-avatar-placeholder">{{ site.author | slice: 0 }}</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="sidebar-identity">
+      <p class="sidebar-name"><a href="{{ site.baseurl }}/">{{ site.title }}</a></p>
+      {% if site.author_bio %}
+      <p class="sidebar-tagline">{{ site.author_bio }}</p>
+      {% endif %}
+    </div>
+
+    {% if site.social %}
+    <div class="sidebar-social">
+      {% if site.social.github %}<a href="{{ site.social.github }}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>{% endif %}
+      {% if site.social.linkedin %}<a href="{{ site.social.linkedin }}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>{% endif %}
+      {% if site.social.instagram %}<a href="{{ site.social.instagram }}" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>{% endif %}
+      {% if site.social.facebook %}<a href="{{ site.social.facebook }}" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>{% endif %}
+      {% if site.social.youtube %}<a href="{{ site.social.youtube }}" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>{% endif %}
+      {% if site.social.stackoverflow %}<a href="{{ site.social.stackoverflow }}" target="_blank" title="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>{% endif %}
+      {% if site.social.pinterest %}<a href="{{ site.social.pinterest }}" target="_blank" title="Pinterest"><i class="fab fa-pinterest"></i></a>{% endif %}
+      {% if site.social.whatsapp %}<a href="{{ site.social.whatsapp }}" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>{% endif %}
+      {% if site.social.website %}<a href="{{ site.social.website }}" target="_blank" title="Site pessoal"><i class="fas fa-globe"></i></a>{% endif %}
+    </div>
+    {% endif %}
+
+    <nav class="sidebar-nav">
+      <ul>
+        <li>
+          <a href="{{ site.baseurl }}/" class="active">
+            <i class="fas fa-home"></i> Home
+          </a>
+        </li>
+
+        {% assign nav_cats = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
+        {% for cat in nav_cats %}
+        <li>
+          <a href="{{ site.baseurl }}/categorias/{{ cat | slugify }}/">
+            <i class="fas fa-folder-open"></i> {{ cat }}
+          </a>
+        </li>
+        {% endfor %}
+
+        <li>
+          <a href="{{ site.baseurl }}/feed.xml">
+            <i class="fas fa-rss"></i> RSS
+          </a>
+        </li>
       </ul>
+    </nav>
+
+    {% if site.quote %}
+    <div class="sidebar-widget">
+      <p class="widget-title">Quote</p>
+      <p class="widget-quote-text">"{{ site.quote.text }}"</p>
+      <p class="widget-quote-author">— {{ site.quote.author }}</p>
     </div>
-  </header>
+    {% endif %}
 
-  <!-- HERO -->
-  <section class="hero">
-    <p class="hero-eyebrow">// tecnologia &amp; viagens //</p>
-    <h1 class="hero-title">
-      Onde a <em>infraestrutura</em><br>encontra o mundo
-    </h1>
-    <p class="hero-desc">{{ site.description }}</p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">{{ site.posts | size }}</div>
-        <div class="hero-stat-label">Artigos</div>
-      </div>
-      <div class="hero-stat-divider"></div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">
-          {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq %}
-          {{ all_tags | size }}
-        </div>
-        <div class="hero-stat-label">Tópicos</div>
-      </div>
-      <div class="hero-stat-divider"></div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">
-          {% assign all_cats = site.posts | map: 'categories' | join: ',' | split: ',' | uniq %}
-          {{ all_cats | size }}
-        </div>
-        <div class="hero-stat-label">Categorias</div>
-      </div>
+    <div class="sidebar-widget">
+      <p class="widget-title">Buscar</p>
+      <form class="widget-search" action="{{ site.baseurl }}/busca/" method="get">
+        <input type="search" name="q" placeholder="Buscar artigos…" autocomplete="off">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </form>
     </div>
-  </section>
 
-  <!-- CONTENT -->
-  <div class="page-wrap">
+  </aside>
 
-    {% if site.posts.size == 0 %}
+  <!-- ══════════ MAIN ══════════ -->
+  <div class="main">
 
-      <div class="empty-state">
-        <div class="empty-state-glyph">em breve.</div>
-        <p>Nenhum artigo publicado ainda.</p>
+    <section class="hero">
+      <p class="hero-eyebrow">// tecnologia &amp; viagens //</p>
+      <h1 class="hero-title">Onde a <em>infraestrutura</em><br>encontra o mundo</h1>
+      <p class="hero-desc">{{ site.description }}</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">{{ site.posts | size }}</div>
+          <div class="hero-stat-label">Artigos</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">
+            {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq %}
+            {{ all_tags | size }}
+          </div>
+          <div class="hero-stat-label">Tópicos</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">
+            {% assign all_cats = site.posts | map: 'categories' | join: ',' | split: ',' | uniq %}
+            {{ all_cats | size }}
+          </div>
+          <div class="hero-stat-label">Categorias</div>
+        </div>
       </div>
+    </section>
 
-    {% else %}
+    <div class="content-wrap">
 
-      <!-- FEATURED POST -->
-      {% assign featured = site.posts.first %}
-      <p class="featured-label">// destaque</p>
-      <article class="featured-card">
-
-        <div class="featured-image">
-          {% if featured.image %}
-            <img src="{{ featured.image | relative_url }}" alt="{{ featured.title }}">
-          {% else %}
-            <div class="featured-placeholder">
-              <span>{{ featured.title | slice: 0 }}</span>
-            </div>
-          {% endif %}
+      {% if site.posts.size == 0 %}
+        <div class="empty-state">
+          <div class="empty-glyph">em breve.</div>
+          <p>Nenhum artigo publicado ainda.</p>
         </div>
 
-        <div class="featured-body">
-          {% if featured.categories.size > 0 %}
-          <div class="cat-pills">
-            {% for cat in featured.categories %}
-            <span class="cat-pill">{{ cat }}</span>
-            {% endfor %}
-          </div>
-          {% endif %}
+      {% else %}
 
-          <h2><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
-
-          {% if featured.description %}
-          <p class="featured-excerpt">{{ featured.description }}</p>
-          {% elsif featured.excerpt %}
-          <p class="featured-excerpt">{{ featured.excerpt | strip_html | truncate: 180 }}</p>
-          {% endif %}
-
-          <div class="featured-meta">
-            <span>{{ featured.date | date: "%d/%m/%Y" }}</span>
-            {% if featured.reading_time %}
-            <span class="sep">·</span>
-            <span>{{ featured.reading_time }} min de leitura</span>
-            {% endif %}
-          </div>
-
-          <a class="read-more" href="{{ featured.url | relative_url }}">Ler artigo →</a>
+        {% assign featured = site.posts.first %}
+        <div class="section-row">
+          <h2 class="section-title">Destaque</h2>
         </div>
-
-      </article>
-
-      <!-- POSTS GRID -->
-      {% assign other_posts = site.posts | shift %}
-      {% if other_posts.size > 0 %}
-
-      <div class="section-row">
-        <h2 class="section-title">Todos os artigos</h2>
-      </div>
-
-      <div class="posts-grid">
-        {% for post in other_posts %}
-        <article class="post-card">
-
-          <div class="post-card-image">
-            {% if post.image %}
-              <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+        <article class="featured-card">
+          <div class="featured-image">
+            {% if featured.image %}
+              <img src="{{ featured.image | relative_url }}" alt="{{ featured.title }}">
             {% else %}
-              <div class="post-card-placeholder">
-                <span>{{ post.title | slice: 0 }}</span>
-              </div>
+              <div class="featured-placeholder"><span>{{ featured.title | slice: 0 }}</span></div>
             {% endif %}
           </div>
-
-          <div class="post-card-body">
-            {% if post.categories.size > 0 %}
-            <div class="post-card-cats">
-              {% for cat in post.categories limit: 2 %}
-              <span class="cat-pill">{{ cat }}</span>
-              {% endfor %}
+          <div class="featured-body">
+            {% if featured.categories.size > 0 %}
+            <div class="cat-pills">
+              {% for cat in featured.categories %}<span class="cat-pill">{{ cat }}</span>{% endfor %}
             </div>
             {% endif %}
-
-            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-
-            {% if post.description %}
-            <p class="post-card-excerpt">{{ post.description | truncate: 120 }}</p>
-            {% elsif post.excerpt %}
-            <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+            <h2><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+            {% if featured.description %}
+            <p class="featured-excerpt">{{ featured.description }}</p>
+            {% elsif featured.excerpt %}
+            <p class="featured-excerpt">{{ featured.excerpt | strip_html | truncate: 180 }}</p>
             {% endif %}
+            <div class="featured-meta">
+              <span>{{ featured.date | date: "%d/%m/%Y" }}</span>
+              {% if featured.reading_time %}<span class="sep">·</span><span>{{ featured.reading_time }} min de leitura</span>{% endif %}
+            </div>
+            <a class="read-more" href="{{ featured.url | relative_url }}">Ler artigo →</a>
+          </div>
+        </article>
 
-            <div class="post-card-meta">
-              <span>{{ post.date | date: "%d/%m/%Y" }}</span>
-              {% if post.reading_time %}
-              <span>{{ post.reading_time }} min</span>
+        {% assign other_posts = site.posts | shift %}
+        {% if other_posts.size > 0 %}
+        <div class="section-row">
+          <h2 class="section-title">Todos os artigos</h2>
+        </div>
+        <div class="posts-grid">
+          {% for post in other_posts %}
+          <article class="post-card">
+            <div class="post-card-image">
+              {% if post.image %}
+                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+              {% else %}
+                <div class="post-card-placeholder"><span>{{ post.title | slice: 0 }}</span></div>
               {% endif %}
             </div>
-          </div>
+            <div class="post-card-body">
+              {% if post.categories.size > 0 %}
+              <div class="post-card-cats">
+                {% for cat in post.categories limit: 2 %}<span class="cat-pill">{{ cat }}</span>{% endfor %}
+              </div>
+              {% endif %}
+              <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+              {% if post.description %}
+              <p class="post-card-excerpt">{{ post.description | truncate: 110 }}</p>
+              {% elsif post.excerpt %}
+              <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 110 }}</p>
+              {% endif %}
+              <div class="post-card-meta">
+                <span>{{ post.date | date: "%d/%m/%Y" }}</span>
+                {% if post.reading_time %}<span>{{ post.reading_time }} min</span>{% endif %}
+              </div>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+        {% endif %}
 
-        </article>
-        {% endfor %}
-      </div>
+        {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
+        {% if all_tags.size > 0 %}
+        <div class="section-row">
+          <h2 class="section-title">Tópicos</h2>
+        </div>
+        <div class="tags-cloud">
+          {% for tag in all_tags %}
+          <a class="tag-item" href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">#{{ tag }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
 
       {% endif %}
+    </div>
 
-      <!-- TAGS CLOUD -->
-      {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
-      {% if all_tags.size > 0 %}
-      <div class="section-row">
-        <h2 class="section-title">Tópicos</h2>
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <span class="footer-brand">{{ site.title }}</span>
+        <ul class="footer-links">
+          <li><a href="{{ site.baseurl }}/feed.xml">RSS</a></li>
+          <li><a href="{{ site.baseurl }}/sitemap.xml">Sitemap</a></li>
+        </ul>
+        <span class="footer-meta">© {{ 'now' | date: "%Y" }} · Jekyll + GitHub Pages</span>
       </div>
-      <div class="tags-cloud">
-        {% for tag in all_tags %}
-        <a class="tag-item" href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">#{{ tag }}</a>
-        {% endfor %}
-      </div>
-      {% endif %}
-
-    {% endif %}
+    </footer>
 
   </div>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="site-footer-inner">
-      <span class="footer-brand">{{ site.title }}</span>
-      <ul class="footer-links">
-        <li><a href="{{ site.baseurl }}/feed.xml">RSS</a></li>
-        <li><a href="{{ site.baseurl }}/sitemap.xml">Sitemap</a></li>
-      </ul>
-      <span class="footer-meta">© {{ 'now' | date: "%Y" }} · Feito com Jekyll</span>
-    </div>
-  </footer>
+  <script>
+    const toggle  = document.getElementById('sidebar-toggle');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    const open  = () => { sidebar.classList.add('open');    overlay.classList.add('open');    };
+    const close = () => { sidebar.classList.remove('open'); overlay.classList.remove('open'); };
+    toggle.addEventListener('click', () => sidebar.classList.contains('open') ? close() : open());
+    overlay.addEventListener('click', close);
+    document.querySelectorAll('.has-children > a').forEach(a => {
+      a.addEventListener('click', e => { e.preventDefault(); a.closest('.has-children').classList.toggle('open'); });
+    });
+  </script>
 
 </body>
 </html>
