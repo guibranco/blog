@@ -1,25 +1,108 @@
 ---
 layout: post
 title: "Testes automatizados: Os diferentes tipos de testes de software"
-description: "Veja neste artigo os diferentes tipos de testes automatizados que existem. Teste unitário (unit test) - garantir que o código faz o que deveria fazer em todos os cenários. Testa cada pedaço de..."
+description: "Guia objetivo sobre os diferentes tipos de testes automatizados — unitário, integração, E2E, carga, estresse e UAT — e quando aplicar cada um."
 date: 2022-01-17
 categories: [Coding, DevOps, Testing]
-tags: [desenvolvimento, e2e-test, end-to-end-test, integration-test, load-test, performance-test, pt-br, stress-test, teste, testing, uat-test, unit-test]
+tags: [e2e-test, end-to-end-test, integration-test, load-test, stress-test, teste, testing, unit-test, uat-test, qualidade]
 reading_time: 3
 ---
 
-Veja neste artigo os diferentes tipos de testes automatizados que existem.
+<p class="lead">Os testes automatizados são a base de qualquer estratégia sólida de qualidade de software. Cada tipo cobre uma dimensão diferente do sistema — entender qual usar em cada situação é fundamental para construir uma suíte de testes eficiente.</p>
 
-**Teste unitário (unit test)** -> garantir que o código faz o que deveria fazer em todos os cenários. Testa cada pedaço de código, e garante (ou deveria garantir) que todas as linhas são executadas (testadas) e resultam naquilo que era esperado. Basicamente testa a lógica.
+<div class="divider">· · ·</div>
 
-**Teste de carga (load test)** -> garantir que o código e possivelmente a infraestrutura aguentam N vezes a carga normal para eventuais picos não planejados e ver como a aplicação (código) e a infraestrutura (serviços, servidores, hardware) se comportam nessa situação. Basicamente testa a performance.
+<div class="section-header">
+  <div class="section-num">01</div>
+  <div class="section-title-wrap"><h2>Os tipos de teste</h2></div>
+</div>
 
-**Testes de estresse (stress test)** -> ajuda a determinar a carga máxima do que está sendo testado, para determinar quando deve ser escalado vertical ou horizontalmente, ou mesmo criado um mecanismo de limitação dentro das diversas arquiteturas, lógicas e ferramentas disponíveis. Basicamente testa a robustez.
+<div class="simbox-card">
+  <div class="simbox-header">
+    <div class="simbox-icon">UT</div>
+    <div class="simbox-header-text">
+      <h4>Teste unitário (Unit test)</h4>
+      <span>Testa a lógica</span>
+    </div>
+  </div>
+  <div class="simbox-body">
+    <p>Garante que o código faz o que deveria fazer em <strong>todos os cenários</strong>. Testa cada pedaço de código isoladamente e garante que todas as linhas são executadas e resultam no que era esperado. As dependências externas (APIs, banco de dados) são "mockadas" — simuladas — para isolar a unidade sendo testada.</p>
+  </div>
+</div>
 
-**Teste fim a fim** (**end-to-end test, ou E2E test** - a pronuncia de "two" e "to" é parecida, por isso se usa 2 no lugar de "to" e 4 no lugar de "for" geralmente) -> garantir que o sistema como um todo (diferente do unit test) faz aquilo que era previsto, dado um determinado cenário. Neste caso, se testa todas as camadas, da perspectiva do fluxo de um cenário. Basicamente testa os "user flows" ou "user cases".
+<div class="simbox-card">
+  <div class="simbox-header">
+    <div class="simbox-icon">IT</div>
+    <div class="simbox-header-text">
+      <h4>Teste de integração (Integration test)</h4>
+      <span>Testa módulos e integrações reais</span>
+    </div>
+  </div>
+  <div class="simbox-body">
+    <p>Similar ao unit test, mas testa uma <strong>unidade maior</strong> — um conjunto de unidades que formam um módulo. Diferente do E2E, não testa um user case completo, mas um módulo lógico específico. No teste de integração, você <strong>realmente chama</strong> a dependência externa (API, banco de dados), desde que isso seja viável e não gere impacto financeiro ou de infraestrutura.</p>
+  </div>
+</div>
 
-**Teste de integração (integration test)** -> similar ao unit test, os testes de integração testam uma unidade maior, ou seja, um conjunto de unidades, que formam um módulo, diferente de um E2E, que testa geralmente um user case/scenario, o integration test testa um módulo lógico da aplicação por exemplo, uma integração com banco de dados, ou API (REST, SOAP, etc), geralmente para garantir que a outra ponta (geralmente não criada por você) está funcionando de acordo com o esperado por você.Supondo que você tenha uma API de CEPs por exemplo, no teste unitário você iria "mockar" as chamadas e resposta a essa API, de forma que você iria testar seu código que chama a API mas sem de fato chamar a API, ja no teste de integração, você iria realmente chamar a API, desde que isso seja possível e não resulte em impacto financeiro ou de infraestrutura).
+<div class="simbox-card">
+  <div class="simbox-header">
+    <div class="simbox-icon">E2E</div>
+    <div class="simbox-header-text">
+      <h4>Teste fim a fim (End-to-End / E2E)</h4>
+      <span>Testa user flows completos</span>
+    </div>
+  </div>
+  <div class="simbox-body">
+    <p>Garante que o sistema como um todo faz aquilo que era previsto para um determinado cenário. Testa <strong>todas as camadas</strong> da perspectiva do fluxo de um usuário (user flow / user case) — da interface ao banco de dados e de volta. É o tipo de teste mais próximo da experiência real do usuário.</p>
+  </div>
+</div>
 
-Isso resume a parte de testes automatizados da sua aplicação e que de certa parte, te dão métricas para melhorar certos pontos da sua aplicação, entre eles, performance.Fora isso, e acho que de fato respondendo sua pergunta, uma forma de analisar performance, é usando profilers de memória/CPU na aplicação ou mesmo ferramentas de APM e realizando o trace/rastreamento de onde os picos de uso ocorrem, sob quais circunstancias e momentos.
+<div class="simbox-card">
+  <div class="simbox-header">
+    <div class="simbox-icon">LT</div>
+    <div class="simbox-header-text">
+      <h4>Teste de carga (Load test)</h4>
+      <span>Testa a performance</span>
+    </div>
+  </div>
+  <div class="simbox-body">
+    <p>Garante que o código e a infraestrutura aguentam <strong>N vezes a carga normal</strong> para eventuais picos não planejados. Verifica como a aplicação e a infraestrutura (serviços, servidores, hardware) se comportam sob pressão.</p>
+  </div>
+</div>
 
-Alguns problemas de performance, podem ocorrer devido aos mais variados tipos como problema no algoritmo implementado, falta de expertise/know how do desenvolvedor em adotar um determinado procedimento, gargalo em um fluxo especifico, gargalo em uma dependência (banco de dados, rede, I/O, deadlock, etc), insuficiencia de hardware para a carga da aplicação. Para você determinar exatamente qual o ponto de problema e qual solução, você precisa entender todo o contexto da aplicação e do que ela usa ("dependências") e analisar seus fluxos, depurando (debugando) ou com apoio de ferramentas como profilers e APM (ai qual e como vai depender de N fatores, como cultura da empresa, tipo de problema, tempo para solucionar, etc, etc, etc)
+<div class="simbox-card">
+  <div class="simbox-header">
+    <div class="simbox-icon">ST</div>
+    <div class="simbox-header-text">
+      <h4>Teste de estresse (Stress test)</h4>
+      <span>Testa a robustez</span>
+    </div>
+  </div>
+  <div class="simbox-body">
+    <p>Ajuda a determinar a <strong>carga máxima</strong> do que está sendo testado — até onde a aplicação aguenta antes de degradar ou falhar. Essencial para definir quando escalar verticalmente, horizontalmente, ou implementar mecanismos de limitação de taxa (rate limiting, circuit breaker).</p>
+  </div>
+</div>
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">02</div>
+  <div class="section-title-wrap"><h2>Comparativo rápido</h2></div>
+</div>
+
+<table class="compare-table">
+  <thead>
+    <tr><th>Tipo</th><th>O que testa</th><th>Velocidade</th><th>Usa infra real?</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Unit test</td><td>Lógica isolada</td><td>Muito rápido</td><td><span class="cross">✗</span> Mock</td></tr>
+    <tr><td>Integration test</td><td>Módulos e integrações</td><td>Médio</td><td><span class="check">✓</span> Sim</td></tr>
+    <tr><td>E2E test</td><td>User flows completos</td><td>Lento</td><td><span class="check">✓</span> Sim</td></tr>
+    <tr><td>Load test</td><td>Performance sob carga</td><td>Variável</td><td><span class="check">✓</span> Sim</td></tr>
+    <tr><td>Stress test</td><td>Limite máximo do sistema</td><td>Variável</td><td><span class="check">✓</span> Sim</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-tip">
+  <div class="callout-label">Sobre análise de performance</div>
+  Além dos testes, problemas de performance podem ser diagnosticados com <strong>profilers de memória/CPU</strong> e ferramentas de <strong>APM</strong> (Application Performance Monitoring). Causas comuns: algoritmo ineficiente, gargalo em banco de dados, I/O lento, deadlock, ou simplesmente hardware insuficiente para a carga da aplicação.
+</div>
