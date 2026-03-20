@@ -29,17 +29,22 @@ O design é totalmente customizado — sem temas de terceiros — com tipografia
 ## 🗂️ Estrutura do projeto
 
 ```
-blog/
+blog/                                # nome do repositório
 │
 ├── _posts/                          # Artigos em Markdown
 │   └── 2026-03-20-envio-sms-internet.md
 │
 ├── _layouts/
-│   └── post.html                    # Template de artigo
+│   ├── post.html                    # Template de artigo
+│   └── category.html                # Template de página de categoria
+│
+├── categorias/                      # Uma página .md por categoria
+│   ├── infraestrutura.md
+│   └── telecomunicacoes.md
 │
 ├── assets/
-│   └── css/
-│       └── main.css                 # Estilos compartilhados
+│   ├── css/
+│   │   └── main.css                 # Estilos compartilhados
 │   └── img/
 │       ├── cover.jpg                # Imagem de fundo da sidebar
 │       └── avatar.jpg               # Foto de perfil circular
@@ -49,6 +54,35 @@ blog/
 ├── Gemfile                          # Dependências Ruby
 └── README.md
 ```
+
+---
+
+## 🗃️ Gerenciando categorias
+
+O Jekyll não gera páginas de categoria automaticamente. Para cada nova categoria usada nos posts, é preciso criar um arquivo `.md` correspondente em `categorias/`.
+
+**Criando uma nova categoria:**
+
+```bash
+cat > categorias/devops.md << 'FRONTMATTER'
+---
+layout: category
+category: DevOps
+permalink: /categorias/devops/
+---
+FRONTMATTER
+```
+
+A categoria declarada no campo `category:` deve ser idêntica à usada no front matter dos posts (incluindo acentos e capitalização). O `permalink` usa a versão slugificada, sem acentos.
+
+**Categorias existentes:**
+
+| Categoria | Arquivo | URL |
+|---|---|---|
+| Infraestrutura | `categorias/infraestrutura.md` | `/categorias/infraestrutura/` |
+| Telecomunicações | `categorias/telecomunicacoes.md` | `/categorias/telecomunicacoes/` |
+
+> Ao publicar um post com uma categoria nova, lembre-se sempre de criar o arquivo correspondente em `categorias/` — caso contrário o link na sidebar retornará 404.
 
 ---
 
@@ -102,7 +136,7 @@ author_cover: /assets/img/cover.jpg     # imagem de fundo da sidebar
 
 # URLs
 url: "https://guibranco.github.io"
-baseurl: "/blog-tech-viagens"
+baseurl: "/blog"
 
 # Quote do dia (exibida na sidebar)
 quote:
