@@ -478,7 +478,7 @@ a { color: inherit; text-decoration: none; }
    POST — article body
 ───────────────────────────────────── */
 .article-wrap { padding: 3rem 2.25rem 5rem; flex: 1; }
-.article-inner { max-width: 680px; }
+.article-inner { max-width: 680px; margin: 0 auto; }
 
 .article-inner p  { margin-bottom: 1.25rem; }
 .article-inner ul,
