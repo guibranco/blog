@@ -157,8 +157,8 @@ social:
   stackoverflow: https://stackoverflow.com/users/1890220/guilherme-branco-stracini
   pinterest:     https://www.pinterest.com/guibranco/
   whatsapp:      https://api.whatsapp.com/send/?phone=353871471762
-  website:       http://guilherme.stracini.com
-  website_image: /assets/img/avatar.png
+  website:       http://guilherme.stracini.com.br
+  website_image: assets/img/avatar.png
   strava:        https://www.strava.com/athletes/171612487
   soundcloud:    https://open.spotify.com/user/22x2qmq6hbuqyjy2emg6k4xiq
   spotify:       https://soundcloud.com/guilherme-stracini
