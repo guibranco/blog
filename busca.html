@@ -1,0 +1,434 @@
+---
+layout: null
+permalink: /busca/
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Busca — {{ site.title }}</title>
+  <meta name="description" content="Busca em {{ site.title }}">
+  {% seo %}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+<body>
+
+  <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Abrir menu">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- ══════════ SIDEBAR ══════════ -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-avatar-wrap">
+      {% if site.author_cover %}
+        <img class="sidebar-avatar-bg" src="{{ site.author_cover | relative_url }}" alt="">
+      {% else %}
+        <div class="sidebar-avatar-bg-fallback"></div>
+      {% endif %}
+      <div class="sidebar-avatar">
+        {% if site.author_avatar %}
+          <img src="{{ site.author_avatar | relative_url }}" alt="{{ site.author }}">
+        {% else %}
+          <div class="sidebar-avatar-placeholder">{{ site.author | slice: 0 }}</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="sidebar-identity">
+      <p class="sidebar-name"><a href="{{ site.baseurl }}/">{{ site.title }}</a></p>
+      {% if site.author_bio %}<p class="sidebar-tagline">{{ site.author_bio }}</p>{% endif %}
+    </div>
+
+    {% if site.social %}
+    <div class="sidebar-social">
+      {% if site.social.github %}<a href="{{ site.social.github }}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>{% endif %}
+      {% if site.social.linkedin %}<a href="{{ site.social.linkedin }}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>{% endif %}
+      {% if site.social.instagram %}<a href="{{ site.social.instagram }}" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>{% endif %}
+      {% if site.social.facebook %}<a href="{{ site.social.facebook }}" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>{% endif %}
+      {% if site.social.youtube %}<a href="{{ site.social.youtube }}" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>{% endif %}
+      {% if site.social.stackoverflow %}<a href="{{ site.social.stackoverflow }}" target="_blank" title="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>{% endif %}
+      {% if site.social.pinterest %}<a href="{{ site.social.pinterest }}" target="_blank" title="Pinterest"><i class="fab fa-pinterest"></i></a>{% endif %}
+      {% if site.social.whatsapp %}<a href="{{ site.social.whatsapp }}" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>{% endif %}
+      {% if site.social.website %}<a href="{{ site.social.website }}" target="_blank" title="Site pessoal"><i class="fas fa-globe"></i></a>{% endif %}
+    </div>
+    {% endif %}
+
+    <nav class="sidebar-nav">
+      <ul>
+        <li>
+          <a href="{{ site.baseurl }}/">
+            <i class="fas fa-home"></i> Home
+          </a>
+        </li>
+        {% assign nav_cats = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
+        {% for cat in nav_cats %}
+        <li>
+          <a href="{{ site.baseurl }}/categorias/{{ cat | slugify: "latin" }}/">
+            <i class="fas fa-folder-open"></i> {{ cat }}
+          </a>
+        </li>
+        {% endfor %}
+        <li>
+          <a href="{{ site.baseurl }}/feed.xml">
+            <i class="fas fa-rss"></i> RSS
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    {% if site.data.quotes %}
+    {% assign quote_count = site.data.quotes | size %}
+    {% assign seed = site.time | date: "%S" | plus: 0 %}
+    {% assign quote_index = seed | modulo: quote_count %}
+    {% assign quote = site.data.quotes[quote_index] %}
+    <div class="sidebar-widget">
+      <p class="widget-title">Quote</p>
+      <p class="widget-quote-text">"{{ quote.text }}"</p>
+      <p class="widget-quote-author">— {{ quote.author }}</p>
+    </div>
+    {% endif %}
+
+    <div class="sidebar-widget">
+      <p class="widget-title">Buscar</p>
+      <form class="widget-search" id="sidebar-search-form">
+        <input type="search" id="sidebar-search-input" name="q" placeholder="Buscar artigos…" autocomplete="off">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+
+  </aside>
+
+  <!-- ══════════ MAIN ══════════ -->
+  <div class="main">
+
+    <section class="hero">
+      <p class="hero-eyebrow">// busca //</p>
+      <h1 class="hero-title" id="hero-title">Buscar artigos</h1>
+      <p class="hero-desc" id="hero-desc">Digite um termo para pesquisar em títulos, categorias, tags e conteúdo.</p>
+    </section>
+
+    <div class="content-wrap">
+
+      <!-- Search bar -->
+      <form class="search-bar" id="search-form">
+        <div class="search-input-wrap">
+          <i class="fas fa-search search-icon"></i>
+          <input
+            type="search"
+            id="search-input"
+            name="q"
+            placeholder="Buscar artigos…"
+            autocomplete="off"
+            autocorrect="off"
+            spellcheck="false"
+          >
+          <button type="button" class="search-clear" id="search-clear" aria-label="Limpar">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </form>
+
+      <!-- Results area -->
+      <div id="search-results"></div>
+
+      <!-- States -->
+      <div class="search-state" id="state-initial">
+        <div class="empty-glyph">↑</div>
+        <p>Use o campo acima para buscar.</p>
+      </div>
+
+      <div class="search-state" id="state-loading" style="display:none;">
+        <div class="empty-glyph">…</div>
+        <p>Carregando índice de busca.</p>
+      </div>
+
+      <div class="search-state" id="state-empty" style="display:none;">
+        <div class="empty-glyph">∅</div>
+        <p>Nenhum resultado encontrado.</p>
+      </div>
+
+    </div>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <span class="footer-brand">{{ site.title }}</span>
+        <ul class="footer-links">
+          <li><a href="{{ site.baseurl }}/">← Todos os artigos</a></li>
+          <li><a href="{{ site.baseurl }}/feed.xml">RSS</a></li>
+        </ul>
+        <span class="footer-meta">© {{ 'now' | date: "%Y" }} · Jekyll + GitHub Pages</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <style>
+    /* ── Search bar ── */
+    .search-bar { margin-bottom: 2rem; }
+    .search-input-wrap {
+      display: flex;
+      align-items: center;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: .6rem 1rem;
+      gap: 10px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .search-input-wrap:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(45,106,79,.1);
+    }
+    .search-icon { color: var(--ink-light); font-size: 14px; flex-shrink: 0; }
+    #search-input {
+      flex: 1;
+      border: none; outline: none; background: none;
+      font-family: 'Source Serif 4', serif;
+      font-size: 1rem; font-weight: 300;
+      color: var(--ink);
+    }
+    #search-input::placeholder { color: var(--ink-light); }
+    .search-clear {
+      background: none; border: none; cursor: pointer;
+      color: var(--ink-light); font-size: 12px; padding: 2px;
+      opacity: 0; transition: opacity .15s;
+      flex-shrink: 0;
+    }
+    .search-clear.visible { opacity: 1; }
+    .search-clear:hover { color: var(--ink); }
+
+    /* ── Results ── */
+    .results-header {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--ink-light); margin-bottom: 1.25rem;
+      padding-bottom: .6rem; border-bottom: 1px solid var(--border);
+    }
+    .results-header strong { color: var(--accent); }
+
+    .result-card {
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none; color: inherit;
+      transition: background .15s;
+    }
+    .result-card:hover { background: var(--surface-warm); margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; border-radius: 8px; }
+    .result-card:last-child { border-bottom: none; }
+
+    .result-num {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 1.5rem; color: var(--border); flex-shrink: 0;
+      line-height: 1; padding-top: .2rem; min-width: 2rem; text-align: right;
+    }
+    .result-body { flex: 1; min-width: 0; }
+    .result-cats { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: .5rem; }
+    .result-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 700; color: var(--ink);
+      line-height: 1.3; margin-bottom: .4rem;
+    }
+    .result-card:hover .result-title { color: var(--accent); }
+    .result-excerpt {
+      font-size: 13px; color: var(--ink-muted); line-height: 1.6;
+      margin-bottom: .5rem; font-weight: 300;
+    }
+    .result-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: var(--ink-light);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .result-meta .sep { opacity: .4; }
+
+    /* Highlighted match */
+    mark {
+      background: rgba(45,106,79,.15);
+      color: var(--accent);
+      border-radius: 2px;
+      padding: 0 1px;
+    }
+
+    /* ── States ── */
+    .search-state { text-align: center; padding: 3.5rem 2rem; color: var(--ink-light); }
+    .search-state .empty-glyph {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 2.5rem; color: var(--border); margin-bottom: .75rem;
+    }
+    .search-state p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px; letter-spacing: .08em;
+    }
+  </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+  <script>
+    // ── Sidebar mobile toggle ──
+    const toggle  = document.getElementById('sidebar-toggle');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    const openSb  = () => { sidebar.classList.add('open');    overlay.classList.add('open');    };
+    const closeSb = () => { sidebar.classList.remove('open'); overlay.classList.remove('open'); };
+    toggle.addEventListener('click', () => sidebar.classList.contains('open') ? closeSb() : openSb());
+    overlay.addEventListener('click', closeSb);
+
+    // ── Search logic ──
+    const input      = document.getElementById('search-input');
+    const clearBtn   = document.getElementById('search-clear');
+    const resultsEl  = document.getElementById('search-results');
+    const stateInit  = document.getElementById('state-initial');
+    const stateLoad  = document.getElementById('state-loading');
+    const stateEmpty = document.getElementById('state-empty');
+    const heroTitle  = document.getElementById('hero-title');
+    const heroDesc   = document.getElementById('hero-desc');
+
+    let searchIndex = null;
+    let documents   = [];
+    let indexReady  = false;
+
+    // Read ?q= from URL on load
+    const params = new URLSearchParams(window.location.search);
+    const initialQuery = params.get('q') || '';
+
+    function showState(which) {
+      stateInit.style.display  = which === 'initial' ? '' : 'none';
+      stateLoad.style.display  = which === 'loading' ? '' : 'none';
+      stateEmpty.style.display = which === 'empty'   ? '' : 'none';
+      resultsEl.innerHTML      = which === 'results'  ? resultsEl.innerHTML : '';
+    }
+
+    function highlight(text, query) {
+      if (!query || !text) return text || '';
+      const terms = query.trim().split(/\s+/).filter(Boolean);
+      const escaped = terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+      const re = new RegExp(`(${escaped.join('|')})`, 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function truncateAround(text, query, radius = 140) {
+      if (!text) return '';
+      const lower = text.toLowerCase();
+      const term  = query.trim().split(/\s+/)[0].toLowerCase();
+      const idx   = lower.indexOf(term);
+      if (idx === -1) return text.slice(0, radius * 2) + '…';
+      const start = Math.max(0, idx - radius);
+      const end   = Math.min(text.length, idx + radius);
+      return (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+    }
+
+    function renderResults(query, results) {
+      if (results.length === 0) { showState('empty'); return; }
+
+      const header = `<p class="results-header"><strong>${results.length}</strong> resultado${results.length !== 1 ? 's' : ''} para "<strong>${query}</strong>"</p>`;
+      const cards  = results.map((r, i) => {
+        const doc     = documents.find(d => d.id === parseInt(r.ref));
+        if (!doc) return '';
+        const excerpt = truncateAround(doc.content, query);
+        const cats    = doc.categories ? doc.categories.split(', ').filter(Boolean) : [];
+        const catHtml = cats.map(c => `<span class="cat-pill">${c}</span>`).join('');
+
+        return `
+        <a class="result-card" href="${doc.url}">
+          <div class="result-num">${String(i + 1).padStart(2, '0')}</div>
+          <div class="result-body">
+            ${catHtml ? `<div class="result-cats">${catHtml}</div>` : ''}
+            <div class="result-title">${highlight(doc.title, query)}</div>
+            ${excerpt ? `<p class="result-excerpt">${highlight(excerpt, query)}</p>` : ''}
+            <div class="result-meta">
+              <span>${doc.date}</span>
+              ${doc.reading_time ? `<span class="sep">·</span><span>${doc.reading_time} min</span>` : ''}
+              ${doc.tags ? `<span class="sep">·</span><span>${highlight(doc.tags, query)}</span>` : ''}
+            </div>
+          </div>
+        </a>`;
+      }).join('');
+
+      resultsEl.innerHTML = header + cards;
+      showState('results');
+      resultsEl.style.display = '';
+    }
+
+    function runSearch(query) {
+      if (!query.trim()) { showState('initial'); clearBtn.classList.remove('visible'); return; }
+      clearBtn.classList.add('visible');
+
+      // Update URL without reload
+      const url = new URL(window.location);
+      url.searchParams.set('q', query);
+      window.history.replaceState({}, '', url);
+
+      // Update hero
+      heroTitle.textContent = `"${query}"`;
+      heroDesc.textContent  = 'Resultados da busca';
+
+      if (!indexReady) { showState('loading'); return; }
+
+      try {
+        const results = searchIndex.search(query + '~1'); // fuzzy
+        renderResults(query, results);
+      } catch(e) {
+        // If lunr throws on special chars, try without fuzzy
+        try {
+          const results = searchIndex.search(query);
+          renderResults(query, results);
+        } catch(e2) {
+          showState('empty');
+        }
+      }
+    }
+
+    // Load index
+    showState('loading');
+    fetch('{{ "/search.json" | relative_url }}')
+      .then(r => r.json())
+      .then(data => {
+        documents = data;
+        searchIndex = lunr(function() {
+          this.ref('id');
+          this.field('title',       { boost: 10 });
+          this.field('categories',  { boost: 6  });
+          this.field('tags',        { boost: 6  });
+          this.field('description', { boost: 4  });
+          this.field('content',     { boost: 1  });
+
+          data.forEach(doc => this.add(doc));
+        });
+        indexReady = true;
+        showState('initial');
+
+        // Run query from URL if present
+        if (initialQuery) {
+          input.value = initialQuery;
+          runSearch(initialQuery);
+        }
+      })
+      .catch(() => showState('initial'));
+
+    // Input events
+    input.addEventListener('input', () => runSearch(input.value));
+    input.addEventListener('keydown', e => { if (e.key === 'Escape') { input.value = ''; runSearch(''); } });
+    clearBtn.addEventListener('click', () => { input.value = ''; input.focus(); runSearch(''); });
+
+    // Sidebar search form → redirect to busca page
+    const sidebarForm  = document.getElementById('sidebar-search-form');
+    const sidebarInput = document.getElementById('sidebar-search-input');
+    if (sidebarForm) {
+      sidebarForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const q = sidebarInput.value.trim();
+        if (q) { input.value = q; runSearch(q); input.focus(); }
+      });
+    }
+
+    // Focus on load if no initial query
+    if (!initialQuery) input.focus();
+  </script>
+
+</body>
+</html>
