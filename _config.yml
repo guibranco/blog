@@ -1,8 +1,25 @@
 # ── Identidade ──────────────────────────────────────────
 title: "Tecnologia & Viagens"
 description: "Blog sobre tecnologia, infraestrutura e automação para quem viaja e constrói."
-author: "Guilherme Branco Stracini"
 lang: "pt-BR"
+author: "Guilherme Branco Stracini"
+author_avatar: /assets/img/avatar.jpg
+author_bio: "Software engineer. PHP, C#, JS, Rust. Integrations, APIs, insurance & logistics. Lego collector."
+
+quote:
+  text: "Never, never, never give up."
+  author: "Winston Churchill"
+
+social:
+  github: https://github.com/guibranco
+  linkedin: https://www.linkedin.com/in/guilhermestracini/
+  instagram: https://instagram.com/gui.stracini
+  facebook: https://www.facebook.com/guilherme.stracini/
+  youtube: https://www.youtube.com/@GuilhermeBrancoStracini
+  stackoverflow: https://stackoverflow.com/users/1890220/guilherme-branco-stracini
+  pinterest: https://www.pinterest.com/guibranco/
+  whatsapp: https://api.whatsapp.com/send/?phone=353871471762
+  website: http://guilherme.stracini.com
 
 # ── URLs ────────────────────────────────────────────────
 url: "https://guibranco.github.io"
