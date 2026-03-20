@@ -81,11 +81,15 @@
       </ul>
     </nav>
 
-    {% if site.quote %}
+    {% if site.data.quotes %}
+    {% assign quote_count = site.data.quotes | size %}
+    {% assign seed = site.time | date: "%S" | plus: 0 %}
+    {% assign quote_index = seed | modulo: quote_count %}
+    {% assign quote = site.data.quotes[quote_index] %}
     <div class="sidebar-widget">
       <p class="widget-title">Quote</p>
-      <p class="widget-quote-text">"{{ site.quote.text }}"</p>
-      <p class="widget-quote-author">— {{ site.quote.author }}</p>
+      <p class="widget-quote-text">"{{ quote.text }}"</p>
+      <p class="widget-quote-author">— {{ quote.author }}</p>
     </div>
     {% endif %}
 
