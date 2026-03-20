@@ -73,7 +73,7 @@ layout: null
         {% assign nav_cats = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
         {% for cat in nav_cats %}
         <li>
-          <a href="{{ site.baseurl }}/categorias/{{ cat | slugify }}/">
+          <a href="{{ site.baseurl }}/categorias/{{ cat | slugify: "latin" }}/">
             <i class="fas fa-folder-open"></i> {{ cat }}
           </a>
         </li>
