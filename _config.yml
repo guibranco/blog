@@ -7,6 +7,8 @@ author_avatar: /assets/img/avatar.png
 author_cover: /assets/img/cover.jpg
 author_bio: "Software engineer. PHP, C#, JS, Rust. Integrations, APIs, insurance & logistics. Lego collector."
 
+google_analytics: G-E6MXHTTEDH
+
 social:
   github: https://github.com/guibranco
   linkedin: https://www.linkedin.com/in/guilhermestracini/
