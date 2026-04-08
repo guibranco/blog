@@ -93,6 +93,11 @@ layout: null
         {% endfor %}
 
         <li>
+          <a href="{{ site.baseurl }}/tags/">
+            <i class="fas fa-tags"></i> Tags
+          </a>
+        </li>
+        <li>
           <a href="{{ site.baseurl }}/feed.xml">
             <i class="fas fa-rss"></i> RSS
           </a>
@@ -203,13 +208,13 @@ layout: null
         <div class="posts-grid">
           {% for post in other_posts %}
           <article class="post-card">
-            <div class="post-card-image">
+            <a href="{{ post.url | relative_url }}" class="post-card-image" tabindex="-1" aria-hidden="true">
               {% if post.image %}
                 <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
               {% else %}
                 <div class="post-card-placeholder"><span>{{ post.title | slice: 0 }}</span></div>
               {% endif %}
-            </div>
+            </a>
             <div class="post-card-body">
               {% if post.categories.size > 0 %}
               <div class="post-card-cats">

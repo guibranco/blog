@@ -152,13 +152,13 @@
         <div class="posts-grid">
           {% for post in cat_posts %}
           <article class="post-card">
-            <div class="post-card-image">
+            <a href="{{ post.url | relative_url }}" class="post-card-image" tabindex="-1" aria-hidden="true">
               {% if post.image %}
                 <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
               {% else %}
                 <div class="post-card-placeholder"><span>{{ post.title | slice: 0 }}</span></div>
               {% endif %}
-            </div>
+            </a>
             <div class="post-card-body">
               {% if post.categories.size > 0 %}
               <div class="post-card-cats">
