@@ -437,7 +437,7 @@ a { color: inherit; text-decoration: none; }
 }
 .post-card:hover { box-shadow: 0 4px 18px rgba(26,23,20,.07); transform: translateY(-2px); }
 
-.post-card-image { height: 220px; background: var(--ink); position: relative; overflow: hidden; flex-shrink: 0; }
+.post-card-image { height: 450px; background: var(--ink); position: relative; overflow: hidden; flex-shrink: 0; }
 .post-card-image img { width: 100%; height: 100%; object-fit: cover; opacity: .8; display: block; }
 .post-card-placeholder {
   width: 100%; height: 100%;
