@@ -643,9 +643,9 @@ Replace every occurrence of these placeholders with your real values:
 | Placeholder | Example | Meaning |
 |---|---|---|
 | `myapp` | `logstream` | App slug — used for user, directory, and service names |
-| `your-domain.com` | `logs.straccini.com` | The domain pointing to this server |
+| `your-domain.com` | `sub.domain.com` | The domain pointing to this server |
 | `your-server-ip` | `152.67.xx.xx` | Server public IP |
-| `your-org/your-repo` | `guibranco/myapp` | GitHub repository |
+| `your-org/your-repo` | `guibranco/logstream-server` | GitHub repository |
 | `8081` | `8081` | Internal HTTP port your PHP app listens on |
 | `8080` | `8080` | Internal WebSocket port (omit section if not used) |
 | `bin/server.php` | `bin/server.php` | Entry point script to start your app |
