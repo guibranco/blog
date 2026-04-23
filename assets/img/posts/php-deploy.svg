@@ -1,0 +1,127 @@
+<svg width="1200" height="630" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>Deploying a PHP Application to Ubuntu VPS</title>
+<desc>Dark terminal-style cover image showing a PHP deployment pipeline: GitHub to server via SSH, with Nginx, PHP 8.3, systemd and Certbot layers.</desc>
+<style>
+  .bg { fill: #0d1117; }
+  .grid { stroke: #161b22; stroke-width: 1; fill: none; }
+  .panel { fill: #161b22; stroke: #30363d; stroke-width: 0.5; }
+  .panel-green { fill: #0d2818; stroke: #238636; stroke-width: 0.5; }
+  .panel-blue  { fill: #0c1d3b; stroke: #1f6feb; stroke-width: 0.5; }
+  .panel-purple{ fill: #1a0e3a; stroke: #8957e5; stroke-width: 0.5; }
+  .panel-amber { fill: #2d1b00; stroke: #d29922; stroke-width: 0.5; }
+  .label-white { fill: #f0f6fc; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 11px; }
+  .label-green { fill: #3fb950; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 11px; }
+  .label-blue  { fill: #58a6ff; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 11px; }
+  .label-purple{ fill: #bc8cff; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 11px; }
+  .label-amber { fill: #e3b341; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 11px; }
+  .label-muted { fill: #484f58; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 10px; }
+  .title-text  { fill: #f0f6fc; font-family: Georgia, serif; font-style: italic; font-size: 26px; }
+  .sub-text    { fill: #8b949e; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 10px; letter-spacing: 0.1em; }
+  .dot-green   { fill: #3fb950; }
+  .dot-blue    { fill: #58a6ff; }
+  .dot-amber   { fill: #e3b341; }
+  .wire        { stroke: #3fb950; stroke-width: 1; fill: none; stroke-dasharray: 5 3; opacity: 0.6; }
+  .wire-solid  { stroke: #3fb950; stroke-width: 1; fill: none; opacity: 0.4; }
+  .packet      { fill: #238636; }
+  .packet-blue { fill: #1f6feb; }
+</style>
+
+<rect class="bg" width="680" height="400"/>
+
+<line class="grid" x1="0" y1="60" x2="680" y2="60"/>
+<line class="grid" x1="0" y1="200" x2="680" y2="200"/>
+<line class="grid" x1="0" y1="340" x2="680" y2="340"/>
+<line class="grid" x1="170" y1="0" x2="170" y2="400"/>
+<line class="grid" x1="340" y1="0" x2="340" y2="400"/>
+<line class="grid" x1="510" y1="0" x2="510" y2="400"/>
+<rect x="0" y="0" width="680" height="400" fill="none" stroke="#161b22" stroke-width="1"/>
+
+<text x="40" y="48" class="title-text">Deploying PHP</text>
+<text x="40" y="72" class="title-text">to Ubuntu VPS</text>
+<text x="40" y="92" class="sub-text">// github actions · nginx · php 8.3 · systemd · certbot</text>
+<line x1="40" y1="100" x2="320" y2="100" stroke="#3fb950" stroke-width="0.5" opacity="0.5"/>
+
+<rect x="40" y="116" width="110" height="58" rx="4" class="panel-blue"/>
+<text x="95" y="136" text-anchor="middle" class="label-blue">GitHub</text>
+<text x="95" y="152" text-anchor="middle" class="label-muted">push to main</text>
+<circle cx="60" cy="163" r="3" class="dot-blue"/>
+<circle cx="75" cy="163" r="3" class="dot-green"/>
+<circle cx="90" cy="163" r="3" class="dot-amber"/>
+
+<rect x="40" y="188" width="110" height="58" rx="4" class="panel"/>
+<text x="95" y="208" text-anchor="middle" class="label-white">CI runner</text>
+<text x="95" y="222" text-anchor="middle" class="label-muted">ubuntu-latest</text>
+<text x="95" y="236" text-anchor="middle" class="label-green">✓ phpunit</text>
+
+<path d="M 95 174 L 95 188" class="wire-solid"/>
+<rect x="87" y="177" width="16" height="8" rx="2" class="packet-blue"/>
+
+<rect x="40" y="260" width="110" height="58" rx="4" class="panel"/>
+<text x="95" y="280" text-anchor="middle" class="label-white">SSH deploy</text>
+<text x="95" y="294" text-anchor="middle" class="label-muted">ed25519 key</text>
+<text x="95" y="308" text-anchor="middle" class="label-green">git pull</text>
+
+<path d="M 95 246 L 95 260" class="wire-solid"/>
+<rect x="87" y="249" width="16" height="8" rx="2" class="packet"/>
+
+<rect x="200" y="116" width="120" height="76" rx="4" class="panel-green"/>
+<text x="260" y="138" text-anchor="middle" class="label-green">Nginx</text>
+<text x="260" y="154" text-anchor="middle" class="label-muted">:443 HTTPS</text>
+<text x="260" y="168" text-anchor="middle" class="label-muted">proxy_pass :8081</text>
+<text x="260" y="182" text-anchor="middle" class="label-muted">/ws → :8080</text>
+
+<rect x="200" y="206" width="120" height="60" rx="4" class="panel"/>
+<text x="260" y="226" text-anchor="middle" class="label-white">Certbot</text>
+<text x="260" y="241" text-anchor="middle" class="label-muted">Let's Encrypt</text>
+<text x="260" y="255" text-anchor="middle" class="label-green">auto-renew</text>
+
+<path d="M 150 155 L 200 155" class="wire"/>
+<rect x="162" y="149" width="18" height="10" rx="2" class="packet-blue"/>
+
+<rect x="200" y="280" width="120" height="60" rx="4" class="panel-amber"/>
+<text x="260" y="300" text-anchor="middle" class="label-amber">UFW firewall</text>
+<text x="260" y="316" text-anchor="middle" class="label-muted">22 · 80 · 443</text>
+<text x="260" y="330" text-anchor="middle" class="label-muted">only</text>
+
+<rect x="200" y="354" width="120" height="30" rx="4" class="panel"/>
+<text x="260" y="374" text-anchor="middle" class="label-muted">.env  chmod 640</text>
+
+<rect x="380" y="116" width="130" height="76" rx="4" class="panel-purple"/>
+<text x="445" y="138" text-anchor="middle" class="label-purple">systemd</text>
+<text x="445" y="154" text-anchor="middle" class="label-muted">myapp.service</text>
+<text x="445" y="168" text-anchor="middle" class="label-muted">Restart=on-failure</text>
+<text x="445" y="182" text-anchor="middle" class="label-green">active (running)</text>
+
+<rect x="380" y="206" width="130" height="60" rx="4" class="panel"/>
+<text x="445" y="226" text-anchor="middle" class="label-white">PHP 8.3</text>
+<text x="445" y="241" text-anchor="middle" class="label-muted">bin/server.php</text>
+<text x="445" y="255" text-anchor="middle" class="label-muted">:8081 / :8080</text>
+
+<rect x="380" y="280" width="130" height="60" rx="4" class="panel"/>
+<text x="445" y="300" text-anchor="middle" class="label-white">Composer</text>
+<text x="445" y="316" text-anchor="middle" class="label-muted">--no-dev</text>
+<text x="445" y="330" text-anchor="middle" class="label-muted">--optimize-autoloader</text>
+
+<path d="M 320 155 L 380 155" class="wire"/>
+<rect x="332" y="149" width="18" height="10" rx="2" class="packet"/>
+
+<path d="M 510 155 L 575 155" class="wire"/>
+<rect x="380" y="354" width="130" height="30" rx="4" class="panel-amber"/>
+<text x="445" y="374" text-anchor="middle" class="label-amber">journalctl -u myapp</text>
+
+<rect x="580" y="116" width="65" height="76" rx="4" class="panel-blue"/>
+<text x="612" y="140" text-anchor="middle" class="label-blue">health</text>
+<text x="612" y="156" text-anchor="middle" class="label-blue">check</text>
+<text x="612" y="174" text-anchor="middle" class="label-green">HTTP</text>
+<text x="612" y="188" text-anchor="middle" class="label-green">200</text>
+
+<rect x="580" y="206" width="65" height="60" rx="4" class="panel"/>
+<text x="612" y="226" text-anchor="middle" class="label-white">MariaDB</text>
+<text x="612" y="242" text-anchor="middle" class="label-muted">optional</text>
+<text x="612" y="256" text-anchor="middle" class="label-muted">127.0.0.1</text>
+
+<path d="M 445 266 L 445 280" class="wire-solid"/>
+<path d="M 612 192 L 612 206" class="wire-solid"/>
+
+<text x="640" y="385" text-anchor="end" class="label-muted" opacity="0.4">© Tecnologia &amp; Viagens</text>
+</svg>
