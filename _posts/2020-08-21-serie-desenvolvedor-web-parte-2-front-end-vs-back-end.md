@@ -14,10 +14,6 @@ series_part: 2
 
 <p class="lead">Quer entrar no mercado de TI mas está perdido e não sabe por onde começar? Este artigo detalha as diferenças práticas entre front-end e back-end — tecnologias, habilidades e o que estudar para cada caminho.</p>
 
-Esta é a Parte 2 de uma série sobre desenvolvimento web:
-- [Parte 1: As principais profissões](/blog/artigos/serie-desenvolvedor-web-parte-1-as-principais-profissoes/)
-- **Parte 2: Front-end vs Back-end** ← você está aqui
-
 <div class="callout callout-warn">
   <div class="callout-label">Antes de começar</div>
   A maioria das empresas valoriza mais <strong>experiência</strong> do que formação acadêmica. Eu mesmo abandonei a faculdade de ADS e sempre trabalhei na área. Não estou sugerindo que você faça o mesmo — o ponto é: não se prenda exclusivamente à faculdade. Na área de desenvolvimento se aprende muito mais fora dela.
