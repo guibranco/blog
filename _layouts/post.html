@@ -175,7 +175,19 @@
         </div>
       </div>
 
-      <!-- Card 2: tags (fundo diferenciado) -->
+      <!-- Card 2: categorias -->
+      {% if page.categories.size > 0 %}
+      <div class="article-card article-card--categories">
+        <p class="card-section-title"><i class="fas fa-folder-open"></i> &nbsp;Categorias</p>
+        <div class="post-categories">
+          {% for cat in page.categories %}
+          <a class="post-category" href="{{ site.baseurl }}/categorias/{{ cat | slugify: 'latin' }}/">{{ cat }}</a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Card 3: tags (fundo diferenciado) -->
       {% if page.tags.size > 0 %}
       <div class="article-card article-card--tags">
         <p class="card-section-title"><i class="fas fa-tags"></i> &nbsp;Tags deste artigo</p>
