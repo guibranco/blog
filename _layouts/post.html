@@ -87,8 +87,8 @@
         </li>
         {% endfor %}
         <li>
-          <a href="{{ site.baseurl }}/tags/">
-            <i class="fas fa-tags"></i> Tags
+          <a href="{{ site.baseurl }}/topicos/">
+            <i class="fas fa-tags"></i> Tópicos
           </a>
         </li>
         <li>
@@ -190,10 +190,10 @@
       <!-- Card 3: tags (fundo diferenciado) -->
       {% if page.tags.size > 0 %}
       <div class="article-card article-card--tags">
-        <p class="card-section-title"><i class="fas fa-tags"></i> &nbsp;Tags deste artigo</p>
+        <p class="card-section-title"><i class="fas fa-tags"></i> &nbsp;Tópicos deste artigo</p>
         <div class="post-tags">
           {% for tag in page.tags %}
-          <a class="post-tag" href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">#{{ tag }}</a>
+          <a class="post-tag" href="{{ site.baseurl }}/topicos/{{ tag | slugify }}/">#{{ tag }}</a>
           {% endfor %}
         </div>
       </div>

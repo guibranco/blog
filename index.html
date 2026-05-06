@@ -93,8 +93,8 @@ layout: null
         {% endfor %}
 
         <li>
-          <a href="{{ site.baseurl }}/tags/">
-            <i class="fas fa-tags"></i> Tags
+          <a href="{{ site.baseurl }}/topicos/">
+            <i class="fas fa-tags"></i> Tópicos
           </a>
         </li>
         <li>
@@ -255,7 +255,7 @@ layout: null
           </div>
           <div class="tags-cloud">
             {% for tag in all_tags %}
-            <a class="tag-item" href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">#{{ tag }}</a>
+            <a class="tag-item" href="{{ site.baseurl }}/topicos/{{ tag | slugify }}/">#{{ tag }}</a>
             {% endfor %}
           </div>
         </div>

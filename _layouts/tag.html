@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>#{{ page.tag }} — {{ site.title }}</title>
-  <meta name="description" content="Artigos com a tag {{ page.tag }} em {{ site.title }}">
+  <title>Tópico: {{ page.tag }} — {{ site.title }}</title>
+  <meta name="description" content="Artigos sobre o tópico {{ page.tag }} em {{ site.title }}">
   {% seo %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,8 +86,8 @@
         </li>
         {% endfor %}
         <li>
-          <a href="{{ site.baseurl }}/tags/" class="active">
-            <i class="fas fa-tags"></i> Tags
+          <a href="{{ site.baseurl }}/topicos/" class="active">
+            <i class="fas fa-tags"></i> Tópicos
           </a>
         </li>
         <li>
@@ -124,12 +124,12 @@
   <div class="main">
 
     <section class="hero">
-      <p class="hero-eyebrow">// tag //</p>
-      <h1 class="hero-title">#{{ page.tag }}</h1>
+      <p class="hero-eyebrow">// tópico //</p>
+      <h1 class="hero-title">{{ page.tag }}</h1>
       {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains page.tag" %}
       <p class="hero-desc">
-        {{ tag_posts | size }} artigo{% if tag_posts.size != 1 %}s{% endif %} com esta tag.
-        <a href="{{ site.baseurl }}/tags/" class="hero-desc-link">← todas as tags</a>
+        {{ tag_posts | size }} artigo{% if tag_posts.size != 1 %}s{% endif %} neste tópico.
+        <a href="{{ site.baseurl }}/topicos/" class="hero-desc-link">← todos os tópicos</a>
       </p>
     </section>
 
@@ -148,7 +148,7 @@
         <div class="article-card">
           <div class="section-row">
             <h2 class="section-title">Artigos</h2>
-            <a href="{{ site.baseurl }}/tags/" class="section-link">← todas as tags</a>
+            <a href="{{ site.baseurl }}/topicos/" class="section-link">← todos os tópicos</a>
           </div>
           <div class="posts-grid">
             {% for post in tag_posts %}
@@ -189,7 +189,7 @@
       <div class="site-footer-inner">
         <span class="footer-brand">{{ site.title }}</span>
         <ul class="footer-links">
-          <li><a href="{{ site.baseurl }}/tags/">← Todas as tags</a></li>
+          <li><a href="{{ site.baseurl }}/topicos/">← Todos os tópicos</a></li>
           <li><a href="{{ site.baseurl }}/">Home</a></li>
           <li><a href="{{ site.baseurl }}/feed.xml">RSS</a></li>
         </ul>
