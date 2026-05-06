@@ -26,6 +26,7 @@
   --free:         #2d6a4f;
   --hybrid:       #4a5568;
   --sidebar-w:    290px;
+  --stage-bg:     #e5dfd7;
 }
 
 /* Respeita o tamanho de fonte configurado pelo usuário no browser */
@@ -230,7 +231,7 @@ a { color: inherit; text-decoration: none; }
 /* ─────────────────────────────────────
    MAIN COLUMN
 ───────────────────────────────────── */
-.main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.main { flex: 1; min-width: 0; display: flex; flex-direction: column; background: var(--stage-bg); }
 
 /* ─────────────────────────────────────
    HERO — index.html variant
@@ -497,7 +498,28 @@ a { color: inherit; text-decoration: none; }
 /* ─────────────────────────────────────
    POST — article body
 ───────────────────────────────────── */
-.article-wrap { padding: 3rem 2.25rem 5rem; flex: 1; }
+.article-wrap {
+  padding: 2.5rem 2rem 4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.article-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 28px rgba(26, 23, 20, 0.08);
+  padding: 3rem 3.5rem 3.5rem;
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.article-card--tags  { background: var(--surface-warm); }
+.article-card--related { background: #fff; }
+.article-card--comments { background: #fff; }
+
 .article-inner { width: 100%; }
 
 .article-inner p  { margin-bottom: 1.25rem; }
@@ -736,7 +758,6 @@ a { color: inherit; text-decoration: none; }
 /* Post tags */
 .post-tags {
   display: flex; flex-wrap: wrap; gap: 7px;
-  margin-top: 2.75rem; padding-top: 1.75rem; border-top: 1px solid var(--border);
 }
 .post-tag {
   font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; letter-spacing: .06em;
@@ -801,7 +822,8 @@ a { color: inherit; text-decoration: none; }
   .content-wrap { padding: 1.4rem 1.25rem 4rem; }
 
   /* post */
-  .article-wrap { padding: 2rem 1.25rem 4rem; }
+  .article-wrap { padding: 1.25rem 0.75rem 3rem; gap: 0.875rem; }
+  .article-card { padding: 1.75rem 1.5rem 2.25rem; border-radius: 12px; }
 
   /* shared */
   .hero { padding: 2.25rem 1.25rem 1.75rem; }
@@ -815,8 +837,11 @@ a { color: inherit; text-decoration: none; }
   .simbox-specs { grid-template-columns: 1fr 1fr; }
 }
 
+/* ── Comments ──────────────────────────────────────────────────────────────── */
+.article-comments { width: 100%; }
+
 /* ── Related posts ─────────────────────────────────────────────────────────── */
-.related-posts { padding: 2.5rem 0 1rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+.related-posts { padding: 0; border-top: none; margin-top: 0; }
 .related-title { font-family: 'JetBrains Mono', monospace; font-size: 0.69rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 1.25rem; }
 .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .related-card { text-decoration: none; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; transition: border-color .2s, transform .2s; display: flex; flex-direction: column; }

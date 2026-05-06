@@ -167,57 +167,67 @@
 
     <!-- Article -->
     <div class="article-wrap">
-      <div class="article-inner">
-        {{ content }}
 
-        {% if page.tags.size > 0 %}
+      <!-- Card 1: conteúdo do post -->
+      <div class="article-card">
+        <div class="article-inner">
+          {{ content }}
+        </div>
+      </div>
+
+      <!-- Card 2: tags (fundo diferenciado) -->
+      {% if page.tags.size > 0 %}
+      <div class="article-card article-card--tags">
         <div class="post-tags">
           {% for tag in page.tags %}
           <a class="post-tag" href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">#{{ tag }}</a>
           {% endfor %}
         </div>
-        {% endif %}
+      </div>
+      {% endif %}
 
-        {% comment %}── Related posts — scored by shared tags (+1 each) and categories (+2 each) ──{% endcomment %}
-        {% assign scored = "" | split: "" %}
-        {% for candidate in site.posts %}
-          {% unless candidate.url == page.url %}
-            {% assign score = 0 %}
-            {% for cat in page.categories %}
-              {% if candidate.categories contains cat %}
-                {% assign score = score | plus: 2 %}
-              {% endif %}
-            {% endfor %}
-            {% for tag in page.tags %}
-              {% if candidate.tags contains tag %}
-                {% assign score = score | plus: 1 %}
-              {% endif %}
-            {% endfor %}
-            {% if score > 0 %}
-              {% assign padded = score | prepend: "000" | slice: -3, 3 %}
-              {% assign entry = padded | append: "|" | append: candidate.url %}
-              {% assign scored = scored | push: entry %}
-            {% endif %}
-          {% endunless %}
-        {% endfor %}
-
-        {% assign scored = scored | sort | reverse %}
-        {% assign top_urls = "" | split: "" %}
-        {% for entry in scored limit: 3 %}
-          {% assign parts = entry | split: "|" %}
-          {% assign top_urls = top_urls | push: parts[1] %}
-        {% endfor %}
-
-        {% assign related_posts = "" | split: "" %}
-        {% for url in top_urls %}
-          {% for candidate in site.posts %}
-            {% if candidate.url == url %}
-              {% assign related_posts = related_posts | push: candidate %}
+      <!-- Card 3: artigos relacionados -->
+      {% comment %}── Related posts — scored by shared tags (+1 each) and categories (+2 each) ──{% endcomment %}
+      {% assign scored = "" | split: "" %}
+      {% for candidate in site.posts %}
+        {% unless candidate.url == page.url %}
+          {% assign score = 0 %}
+          {% for cat in page.categories %}
+            {% if candidate.categories contains cat %}
+              {% assign score = score | plus: 2 %}
             {% endif %}
           {% endfor %}
-        {% endfor %}
+          {% for tag in page.tags %}
+            {% if candidate.tags contains tag %}
+              {% assign score = score | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+          {% if score > 0 %}
+            {% assign padded = score | prepend: "000" | slice: -3, 3 %}
+            {% assign entry = padded | append: "|" | append: candidate.url %}
+            {% assign scored = scored | push: entry %}
+          {% endif %}
+        {% endunless %}
+      {% endfor %}
 
-        {% if related_posts.size > 0 %}
+      {% assign scored = scored | sort | reverse %}
+      {% assign top_urls = "" | split: "" %}
+      {% for entry in scored limit: 3 %}
+        {% assign parts = entry | split: "|" %}
+        {% assign top_urls = top_urls | push: parts[1] %}
+      {% endfor %}
+
+      {% assign related_posts = "" | split: "" %}
+      {% for url in top_urls %}
+        {% for candidate in site.posts %}
+          {% if candidate.url == url %}
+            {% assign related_posts = related_posts | push: candidate %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+
+      {% if related_posts.size > 0 %}
+      <div class="article-card article-card--related">
         <div class="related-posts">
           <p class="related-title">Artigos relacionados</p>
           <div class="related-grid">
@@ -239,32 +249,32 @@
             {% endfor %}
           </div>
         </div>
-        {% endif %}
-
       </div>
-    </div>
+      {% endif %}
 
-    <!-- Comments -->
-    <div class="article-wrap" style="padding-top: 0;">
-      <div class="article-inner">
-        <script src="https://giscus.app/client.js"
-                data-repo="guibranco/blog"
-                data-repo-id="R_kgDORsK33A"
-                data-category="Comments"
-                data-category-id="DIC_kwDORsK33M4C5z8L"
-                data-mapping="pathname"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="top"
-                data-theme="light"
-                data-lang="en"
-                data-loading="lazy"
-                crossorigin="anonymous"
-                async>
-        </script>
+      <!-- Card 4: comentários (fundo branco) -->
+      <div class="article-card article-card--comments">
+        <div class="article-comments">
+          <script src="https://giscus.app/client.js"
+                  data-repo="guibranco/blog"
+                  data-repo-id="R_kgDORsK33A"
+                  data-category="Comments"
+                  data-category-id="DIC_kwDORsK33M4C5z8L"
+                  data-mapping="pathname"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="top"
+                  data-theme="light"
+                  data-lang="en"
+                  data-loading="lazy"
+                  crossorigin="anonymous"
+                  async>
+          </script>
+        </div>
       </div>
-    </div>
+
+    </div><!-- /.article-wrap -->
 
     <!-- Footer -->
     <footer class="site-footer">
