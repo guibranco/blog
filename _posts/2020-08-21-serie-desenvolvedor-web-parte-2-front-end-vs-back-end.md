@@ -16,104 +16,176 @@ series_part: 2
 
 Antes de mais nada é preciso saber que na área de TI existem diversas profissões e que uma mesma profissão pode executar trabalhos diferentes conforme a empresa a qual você presta serviço. Neste artigo vou abordar especialmente as profissões de desenvolvimento: desenvolvedor web, analista de desenvolvimento, programador, back-end, front-end, e qualquer outro nome que essa mesma tarefa possa ter.
 
-A maioria das empresas leva em consideração mais sua experiência na área do que sua formação acadêmica, por isso o curso que você fez ou faz na faculdade — sendo ele de TI ou área correlata — não fará muita diferença para um desenvolvedor. Eu mesmo abandonei a faculdade de ADS, não me formei e sempre trabalhei na área. Não estou falando para você fazer o mesmo, mas não se prenda muito à faculdade — aprendemos bem mais por fora dela do que dentro, afinal a faculdade não é só para desenvolvedores e precisa preparar o profissional para a vida e para outras profissões também.
+A maioria das empresas leva em consideração mais sua experiência na área do que sua formação acadêmica, por isso o curso que você fez ou faz na faculdade não fará muita diferença para um desenvolvedor. Eu mesmo abandonei a faculdade de ADS, não me formei e sempre trabalhei na área. Não estou falando para você fazer o mesmo, mas não se prenda muito à faculdade — aprendemos bem mais por fora dela do que dentro.
 
-> *Se você está entrando nesta área pelo retorno financeiro, tome muito cuidado. Pessoas que ganham bem são pessoas que gostam e exercem bem suas atividades. Entrar em qualquer área por dinheiro geralmente é um erro — fazer algo que não gosta pode desmotivar e frustrar até o ponto que você desista.*
->
+<div class="callout callout-warn">
+  <div class="callout-label">Atenção</div>
+  Se você está entrando nesta área pelo retorno financeiro, tome muito cuidado. Pessoas que ganham bem são pessoas que gostam e exercem bem suas atividades. Entrar em qualquer área por dinheiro geralmente é um erro — fazer algo que não gosta pode desmotivar e frustrar até o ponto que você desista.
+</div>
+
 > *Escolha um trabalho que você ame e não terás que trabalhar um único dia em sua vida. — Confúcio*
 
 <div class="divider">· · ·</div>
 
-## O que é front-end e back-end?
-
-No desenvolvimento web separamos as partes do sistema em back-end, front-end e infraestrutura. Além de outras partes que podem ou não existir conforme o tipo e porte do sistema/empresa.
-
-### Front-end
+<div class="section-header">
+  <div class="section-num">01</div>
+  <div class="section-title-wrap"><h2>Front-end</h2></div>
+</div>
 
 O front-end é a parte do sistema web que o usuário final vê — a interface gráfica. É feita por um desenvolvedor front-end, com ou sem o apoio de um UX, ou por um fullstack.
 
-Cabe ao "front ender" os conhecimentos necessários para construir uma tela responsiva que leve a melhor experiência ao usuário sem consumir recursos demasiados do navegador, internet e computador de cada pessoa.
+Cabe ao front-ender os conhecimentos necessários para construir uma tela responsiva que leve a melhor experiência ao usuário sem consumir recursos demasiados do navegador, internet e computador de cada pessoa.
 
-Geralmente um front-end domina a stack básica da web: HTML, CSS e JS. Grande parte acaba tendo conhecimento de uma linguagem de back-end também — principalmente freelancers e fullstacks — geralmente PHP ou o próprio JS via Node.js ou Deno. Não é obrigatório, porém conhecimento nunca é demais.
+A stack básica do front-end é composta por três tecnologias obrigatórias:
 
-Além da stack básica, um front deve conhecer bibliotecas e frameworks. Recomenda-se saber pelo menos uma biblioteca JS e um framework de UI.
+<div class="providers-grid">
+  <div class="provider-card">
+    <div class="provider-name">HTML</div>
+    <div class="provider-detail">HyperText Markup Language — a linguagem universal dos navegadores. Estrutura o documento e o conteúdo. Sem ela não existe interface gráfica web.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">CSS</div>
+    <div class="provider-detail">Cascade Style Sheets — define a apresentação visual: responsividade, animações, temas, grid e flexbox.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">JavaScript</div>
+    <div class="provider-detail">Atualmente a única linguagem de script suportada por todos os navegadores. Manipula o DOM, cria interatividade e realiza requisições ao back-end.</div>
+  </div>
+</div>
 
-**Bibliotecas JS populares (2020):**
+Além da stack básica, um front deve conhecer pelo menos uma biblioteca JS e um framework de UI:
 
-- React
-- Angular
-- Vue
-- jQuery (ainda usada em sistemas legados; para novos projetos o JS nativo + CSS3 já fazem praticamente tudo que antes exigia jQuery)
+<div class="providers-grid">
+  <div class="provider-card">
+    <div class="provider-name">React</div>
+    <div class="provider-detail">Biblioteca JS mantida pelo Meta. Maior ecossistema e comunidade. Padrão de mercado em 2020.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">Angular</div>
+    <div class="provider-detail">Framework completo mantido pelo Google. Mais opinativo, curva de aprendizado maior.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">Vue</div>
+    <div class="provider-detail">Curva de aprendizado menor. Popular em projetos de porte médio.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">jQuery</div>
+    <div class="provider-detail">Ainda muito usada em sistemas legados. Para novos projetos o JS nativo + CSS3 já cobre praticamente tudo que antes exigia jQuery.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">Bootstrap</div>
+    <div class="provider-detail">Framework CSS mais popular. Rápido para começar, grid system consolidado.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">Materialize / Bulma / Foundation / Semantic</div>
+    <div class="provider-detail">Alternativas ao Bootstrap com abordagens visuais e filosóficas diferentes.</div>
+  </div>
+</div>
 
-**Frameworks CSS / UI Kits:**
-
-- Bootstrap
-- Materialize
-- Bulma
-- Foundation
-- Semantic
-
-Além desses, conhecer técnicas de UI/UX, usabilidade, SEO, paleta de cores, teste A/B, pré-processadores CSS (Sass, Less), arquitetura CSS (BEM), conceitos de SPA e PWA são diferenciais importantes.
-
-### Back-end
-
-Back-end é a parte do sistema que realiza o processamento — onde ficam a lógica e as regras de negócio. É no back-end que ocorre a conexão com banco de dados, envio de e-mails, processamento de pagamentos, envio de dados para outros sistemas. É a parte que o usuário não pode e não deve ver.
-
-Lembrando: **tudo que está no front-end o usuário consegue alterar**, intencionalmente ou não, criando brechas de segurança. Por isso é importante fazer validações no back-end mesmo que elas já existam no front-end. No front valide apenas para melhorar a experiência do usuário e evitar requisições desnecessárias.
-
-Para trabalhar com back-end é ideal conhecer o básico de front-end — saber como o front se comporta e vai consumir seu código é importante para criar a melhor API possível.
-
-Diferente do front-end que tem uma stack de 3 tecnologias obrigatórias (HTML, CSS, JS), no back-end não existe padronização: praticamente qualquer linguagem de programação pode ser usada. Basicamente o que pode ser feito com uma linguagem pode ser feito com qualquer outra, mudando apenas o paradigma ou a implementação.
-
-**Não acreditem em nenhum vídeo, artigo ou comentário falando que linguagem X ou Y vai morrer — isso são pessoas tentando direcionar você para outra linguagem que preferem, ou pura ignorância do mercado.**
-
-Algumas das linguagens disponíveis: PHP, JS (Node.js / Deno), C#, Java, Rust, Python, Ruby, Elixir, Go, Kotlin, Clojure, F#, VB.NET, Erlang, C++, C, e muitas outras.
-
-Partindo do princípio que você sabe zero de qualquer linguagem de programação, você vai levar em média de **6 meses a 2 anos** para estar apto a conseguir uma vaga com alguma delas. Você só precisa saber de **uma** delas para a vaga de back-end (diferente do front, que exige a stack completa — mas a stack do front dá para aprender em 3 meses a 1 ano).
-
-PHP e JS (via [Node.js](https://nodejs.org/en){:target="_blank"} ou [Deno](https://deno.com/){:target="_blank"}) são os que têm a menor curva de aprendizado e a maior quantidade de vagas no mercado. Java e C# são mais usados no mundo corporativo — grandes empresas, e-commerces, bancos, financeiras e indústria.
-
-### Salário
-
-As duas profissões pagam relativamente o mesmo. O que varia é o contexto:
-
-- **Agência de publicidade ou e-commerce** — o apelo visual é maior, você provavelmente encontrará melhores remunerações para front-end.
-- **Sistemas corporativos** (ERP, WMS, TMS, CRM, sistemas bancários) — mais oferta e melhores salários para back-end.
-
-Isso não é uma regra, é um padrão observado ao longo dos anos — não existe garantia que esse cenário permaneça para sempre.
+<div class="callout callout-tip">
+  <div class="callout-label">Diferenciais</div>
+  Conhecer técnicas de UI/UX, usabilidade, SEO, paleta de cores, teste A/B, pré-processadores CSS (Sass, Less), arquitetura CSS (BEM), e os conceitos de SPA e PWA são diferenciais importantes para um front-ender.
+</div>
 
 <div class="divider">· · ·</div>
 
-## O que estudar para começar?
+<div class="section-header">
+  <div class="section-num">02</div>
+  <div class="section-title-wrap"><h2>Back-end</h2></div>
+</div>
 
-Para começar como desenvolvedor web — seja front-end, back-end ou fullstack — é importante conhecer a stack básica da web: HTML, CSS e JS.
+Back-end é a parte do sistema que realiza o processamento — onde ficam a lógica e as regras de negócio. É no back-end que ocorre a conexão com banco de dados, envio de e-mails, processamento de pagamentos e integração com outros sistemas. É a parte que o usuário não pode e não deve ver.
 
-**Ordem de aprendizagem recomendada:**
+<div class="callout callout-warn">
+  <div class="callout-label">Segurança</div>
+  Tudo que está no front-end o usuário consegue alterar, intencionalmente ou não — criando brechas de segurança. Por isso é fundamental fazer validações no back-end mesmo que elas já existam no front-end. No front valide apenas para melhorar a experiência do usuário e evitar requisições desnecessárias.
+</div>
 
-**1. HTML** — *HyperText Markup Language* — A linguagem universal dos navegadores. Sem ela você não cria um sistema web com interface gráfica.
-- Funcionamento básico e protocolo HTTP
-- Tags e atributos
-- O que é UI e UX
-- Semântica
-- SEO
+Diferente do front-end que tem uma stack de 3 tecnologias obrigatórias, no back-end não existe padronização — praticamente qualquer linguagem pode ser usada. O que pode ser feito com uma pode ser feito com qualquer outra, mudando apenas o paradigma ou a implementação.
 
-**2. CSS** — *Cascade Style Sheets* — As definições de estilo que permitem personalizar a aparência das tags HTML.
-- Seletores e atributos
-- Media queries
-- Pseudo classes e pseudo atributos
-- Grid system e Flexbox
-- BEM (Block Element Modifier)
-- Pré-compiladores (Sass, Less)
+<div class="callout callout-warn">
+  <div class="callout-label">Mito a combater</div>
+  Não acreditem em nenhum vídeo, artigo ou comentário falando que linguagem X ou Y vai morrer — isso são pessoas tentando direcionar você para outra linguagem que preferem, ou pura ignorância do mercado.
+</div>
 
-**3. JS** — *JavaScript* — Atualmente a única linguagem de script suportada por todos os navegadores que seguem o padrão de mercado (não confunda JavaScript com Java — são coisas totalmente diferentes!). O JS é responsável por dar vida à página no lado do cliente e realizar interações que o CSS sozinho não é capaz.
-- DOM — Document Object Model
-- Tipos de dados primitivos (string, integer, boolean)
-- Variáveis e escopo (`var`, `const`, `let`)
-- Estruturas condicionais (`if`, `else`) e de repetição (`for`, `while`)
-- Arrays e Objetos
-- JSON (JavaScript Object Notation)
-- Funções, Prototype e Eventos
-- Requisições assíncronas — AJAX (`xmlhttp` & `fetch`)
-- Promises
-- Cookies, Local Storage e Session Storage
-- WebSockets
+<div class="providers-grid">
+  <div class="provider-card">
+    <div class="provider-name">PHP</div>
+    <div class="provider-detail">Menor curva de aprendizado. Maioria das vagas de júnior no mercado. Muito usado em agências, e-commerces e sistemas de pequeno porte.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">JavaScript (Node.js / Deno)</div>
+    <div class="provider-detail">O mesmo JS do front-end, agora no back. Funciona também no mobile e desktop. Grande volume de vagas e curva de aprendizado baixa.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">Python</div>
+    <div class="provider-detail">Fácil de aprender, forte em dados e ML. Menos vagas web para júnior comparado a PHP e JS.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">C# (.NET)</div>
+    <div class="provider-detail">Dominante em grandes empresas, fintechs e sistemas corporativos. Curva de aprendizado maior.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">Java</div>
+    <div class="provider-detail">Padrão em bancos, indústria e enterprise. Verboso, mas extremamente maduro e estável.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">Rust / Go / Elixir / Ruby / Kotlin / outros</div>
+    <div class="provider-detail">Cada uma com seu nicho e paradigma. Menos vagas para iniciantes, mas crescimento acelerado em diferentes segmentos.</div>
+  </div>
+</div>
+
+Partindo do princípio que você sabe zero de qualquer linguagem, você vai levar em média **6 meses a 2 anos** para estar apto a conseguir uma vaga. Você só precisa saber de **uma** linguagem para a vaga de back-end — diferente do front, que exige a stack completa (mas o front dá para aprender em 3 meses a 1 ano).
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">03</div>
+  <div class="section-title-wrap"><h2>Salários e mercado</h2></div>
+</div>
+
+As duas profissões pagam relativamente o mesmo. O que varia é o contexto:
+
+<table class="compare-table">
+  <thead><tr><th>Contexto</th><th>Tende a pagar mais para</th></tr></thead>
+  <tbody>
+    <tr><td>Agências de publicidade, e-commerce, marketing digital</td><td>Front-end (apelo visual maior)</td></tr>
+    <tr><td>Sistemas corporativos (ERP, WMS, TMS, CRM, bancos)</td><td>Back-end (lógica e performance)</td></tr>
+    <tr><td>Startups, SaaS</td><td>Fullstack ou equilibrado</td></tr>
+  </tbody>
+</table>
+
+Lembrando que isso não é uma regra — é um padrão observado ao longo dos anos. Não existe garantia que esse cenário permaneça para sempre.
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">04</div>
+  <div class="section-title-wrap"><h2>O que estudar para começar</h2></div>
+</div>
+
+Para começar como desenvolvedor web — seja front-end, back-end ou fullstack — é importante conhecer a stack básica. Recomendo a seguinte ordem de aprendizagem:
+
+<div class="providers-grid">
+  <div class="provider-card">
+    <div class="provider-name">1. HTML</div>
+    <div class="provider-detail">Funcionamento básico · Protocolo HTTP · Tags e atributos · UI e UX · Semântica · SEO</div>
+    <div class="provider-price">3 a 4 semanas</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">2. CSS</div>
+    <div class="provider-detail">Seletores · Atributos · Media queries · Pseudo classes · Grid system · Flexbox · BEM · Sass/Less</div>
+    <div class="provider-price">4 a 8 semanas</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">3. JavaScript</div>
+    <div class="provider-detail">DOM · Tipos primitivos · Variáveis e escopo · Condicionais e loops · Arrays e Objetos · JSON · Funções · Eventos · AJAX/fetch · Promises · WebSockets</div>
+    <div class="provider-price">2 a 6 meses</div>
+  </div>
+</div>
+
+<div class="conclusion">
+  <h2>A barreira do primeiro emprego</h2>
+  <p>O mercado é competitivo para quem está entrando — isso é real. Mas depois que você quebra a barreira do primeiro emprego, fica muito mais fácil. O que importa nessa fase não é o salário, é o aprendizado.</p>
+  <p>Escolha a área que mais te atrai, estude com consistência, construa um portfólio com projetos reais e fuja de atalhos. Não existe caminho mágico.</p>
+</div>
