@@ -34,8 +34,8 @@ body {
   font-family: 'Source Serif 4', Georgia, serif;
   background: var(--surface);
   color: var(--ink);
-  line-height: 1.75;
-  font-size: 17px;
+  line-height: 1.8;
+  font-size: 19px;
   font-weight: 300;
   display: flex;
   min-height: 100vh;
@@ -407,7 +407,7 @@ a { color: inherit; text-decoration: none; }
 }
 .featured-body h2 a:hover { color: var(--accent); }
 .featured-excerpt {
-  font-size: .865rem; color: var(--ink-muted); line-height: 1.7;
+  font-size: .925rem; color: var(--ink-muted); line-height: 1.7;
   margin-bottom: 1.1rem; font-weight: 300; flex: 1;
 }
 .featured-meta {
@@ -464,7 +464,7 @@ a { color: inherit; text-decoration: none; }
 }
 .post-card h3 a:hover { color: var(--accent); }
 .post-card-excerpt {
-  font-size: 12px; color: var(--ink-muted); line-height: 1.6;
+  font-size: 14px; color: var(--ink-muted); line-height: 1.6;
   flex: 1; margin-bottom: .75rem; font-weight: 300;
 }
 .post-card-meta {
@@ -625,7 +625,7 @@ a { color: inherit; text-decoration: none; }
 .app-list { list-style: none; margin: 1.1rem 0; }
 .app-list li {
   display: flex; align-items: flex-start; gap: 11px;
-  padding: .8rem 0; border-bottom: 1px solid var(--border); font-size: 14.5px;
+  padding: .8rem 0; border-bottom: 1px solid var(--border); font-size: 16px;
 }
 .app-list li:last-child { border-bottom: none; }
 .app-icon {
@@ -701,7 +701,7 @@ a { color: inherit; text-decoration: none; }
 /* Callouts */
 .callout {
   border-left: 3px solid; padding: .9rem 1.2rem;
-  border-radius: 0 8px 8px 0; margin: 1.5rem 0; font-size: 14.5px;
+  border-radius: 0 8px 8px 0; margin: 1.5rem 0; font-size: 16px;
 }
 .callout-tip  { border-color: var(--accent);      background: var(--accent-light); }
 .callout-warn { border-color: var(--accent-warm); background: #fff4e8; }
@@ -722,7 +722,7 @@ a { color: inherit; text-decoration: none; }
   color: white; margin-bottom: .9rem;
 }
 .conclusion p {
-  color: rgba(250,249,246,.7); font-size: 14.5px; line-height: 1.7; margin-bottom: .9rem;
+  color: rgba(250,249,246,.7); font-size: 16px; line-height: 1.7; margin-bottom: .9rem;
 }
 .conclusion p:last-child { margin-bottom: 0; }
 
