@@ -349,7 +349,13 @@ a { color: inherit; text-decoration: none; }
 /* ─────────────────────────────────────
    INDEX — content area
 ───────────────────────────────────── */
-.content-wrap { padding: 2.25rem 2.25rem 5rem; flex: 1; }
+.content-wrap {
+  padding: 2.5rem 2.5rem 4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
 
 .section-row {
   display: flex; align-items: baseline; justify-content: space-between;
@@ -365,7 +371,7 @@ a { color: inherit; text-decoration: none; }
 .featured-card {
   display: grid; grid-template-columns: 1.15fr 1fr;
   border: 1px solid var(--border); border-radius: 12px;
-  overflow: hidden; background: white; margin-bottom: 2.5rem;
+  overflow: hidden; background: white;
   transition: box-shadow .25s;
 }
 .featured-card:hover { box-shadow: 0 6px 28px rgba(26,23,20,.08); }
@@ -430,7 +436,7 @@ a { color: inherit; text-decoration: none; }
 /* Posts grid */
 .posts-grid {
   display: grid; grid-template-columns: repeat(2, 1fr);
-  gap: 14px; margin-bottom: 2.5rem;
+  gap: 14px;
 }
 .post-card {
   background: white; border: 1px solid var(--border); border-radius: 10px;
@@ -476,7 +482,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Tags cloud */
-.tags-cloud { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 2.5rem; }
+.tags-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
 .tag-item {
   font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; letter-spacing: .055em;
   padding: 4px 11px; border-radius: 20px;
@@ -840,7 +846,7 @@ a { color: inherit; text-decoration: none; }
   .sidebar-overlay.open { display: block; }
 
   /* index */
-  .content-wrap { padding: 1.4rem 1.25rem 4rem; }
+  .content-wrap { padding: 1.25rem 1rem 3rem; gap: 0.875rem; }
 
   /* post */
   .article-wrap { padding: 1.25rem 1rem 3rem; gap: 0.875rem; }

@@ -161,91 +161,103 @@ layout: null
     <div class="content-wrap">
 
       {% if site.posts.size == 0 %}
-        <div class="empty-state">
-          <div class="empty-glyph">em breve.</div>
-          <p>Nenhum artigo publicado ainda.</p>
+
+        <div class="article-card">
+          <div class="empty-state">
+            <div class="empty-glyph">em breve.</div>
+            <p>Nenhum artigo publicado ainda.</p>
+          </div>
         </div>
 
       {% else %}
 
-        {% assign featured = site.posts.first %}
-        <div class="section-row">
-          <h2 class="section-title">Destaque</h2>
-        </div>
-        <article class="featured-card">
-          <div class="featured-image">
-            {% if featured.image %}
-              <img src="{{ featured.image | relative_url }}" alt="{{ featured.title }}">
-            {% else %}
-              <div class="featured-placeholder"><span>{{ featured.title | slice: 0 }}</span></div>
-            {% endif %}
+        <!-- Card: destaque -->
+        <div class="article-card">
+          <div class="section-row">
+            <h2 class="section-title">Destaque</h2>
           </div>
-          <div class="featured-body">
-            {% if featured.categories.size > 0 %}
-            <div class="cat-pills">
-              {% for cat in featured.categories %}<span class="cat-pill">{{ cat }}</span>{% endfor %}
-            </div>
-            {% endif %}
-            <h2><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
-            {% if featured.description %}
-            <p class="featured-excerpt">{{ featured.description }}</p>
-            {% elsif featured.excerpt %}
-            <p class="featured-excerpt">{{ featured.excerpt | strip_html | truncate: 180 }}</p>
-            {% endif %}
-            <div class="featured-meta">
-              <span>{{ featured.date | date: "%d/%m/%Y" }}</span>
-              {% if featured.reading_time %}<span class="sep">·</span><span>{{ featured.reading_time }} min de leitura</span>{% endif %}
-            </div>
-            <a class="read-more" href="{{ featured.url | relative_url }}">Ler artigo →</a>
-          </div>
-        </article>
-
-        {% assign other_posts = site.posts | shift %}
-        {% if other_posts.size > 0 %}
-        <div class="section-row">
-          <h2 class="section-title">Todos os artigos</h2>
-        </div>
-        <div class="posts-grid">
-          {% for post in other_posts %}
-          <article class="post-card">
-            <a href="{{ post.url | relative_url }}" class="post-card-image" tabindex="-1" aria-hidden="true">
-              {% if post.image %}
-                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+          {% assign featured = site.posts.first %}
+          <article class="featured-card">
+            <div class="featured-image">
+              {% if featured.image %}
+                <img src="{{ featured.image | relative_url }}" alt="{{ featured.title }}">
               {% else %}
-                <div class="post-card-placeholder"><span>{{ post.title | slice: 0 }}</span></div>
+                <div class="featured-placeholder"><span>{{ featured.title | slice: 0 }}</span></div>
               {% endif %}
-            </a>
-            <div class="post-card-body">
-              {% if post.categories.size > 0 %}
-              <div class="post-card-cats">
-                {% for cat in post.categories limit: 2 %}<span class="cat-pill">{{ cat }}</span>{% endfor %}
+            </div>
+            <div class="featured-body">
+              {% if featured.categories.size > 0 %}
+              <div class="cat-pills">
+                {% for cat in featured.categories %}<span class="cat-pill">{{ cat }}</span>{% endfor %}
               </div>
               {% endif %}
-              <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-              {% if post.description %}
-              <p class="post-card-excerpt">{{ post.description | truncate: 110 }}</p>
-              {% elsif post.excerpt %}
-              <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 110 }}</p>
+              <h2><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+              {% if featured.description %}
+              <p class="featured-excerpt">{{ featured.description }}</p>
+              {% elsif featured.excerpt %}
+              <p class="featured-excerpt">{{ featured.excerpt | strip_html | truncate: 180 }}</p>
               {% endif %}
-              <div class="post-card-meta">
-                <span>{{ post.date | date: "%d/%m/%Y" }}</span>
-                {% if post.reading_time %}<span>{{ post.reading_time }} min</span>{% endif %}
+              <div class="featured-meta">
+                <span>{{ featured.date | date: "%d/%m/%Y" }}</span>
+                {% if featured.reading_time %}<span class="sep">·</span><span>{{ featured.reading_time }} min de leitura</span>{% endif %}
               </div>
+              <a class="read-more" href="{{ featured.url | relative_url }}">Ler artigo →</a>
             </div>
           </article>
-          {% endfor %}
+        </div>
+
+        <!-- Card: todos os artigos -->
+        {% assign other_posts = site.posts | shift %}
+        {% if other_posts.size > 0 %}
+        <div class="article-card">
+          <div class="section-row">
+            <h2 class="section-title">Todos os artigos</h2>
+          </div>
+          <div class="posts-grid">
+            {% for post in other_posts %}
+            <article class="post-card">
+              <a href="{{ post.url | relative_url }}" class="post-card-image" tabindex="-1" aria-hidden="true">
+                {% if post.image %}
+                  <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+                {% else %}
+                  <div class="post-card-placeholder"><span>{{ post.title | slice: 0 }}</span></div>
+                {% endif %}
+              </a>
+              <div class="post-card-body">
+                {% if post.categories.size > 0 %}
+                <div class="post-card-cats">
+                  {% for cat in post.categories limit: 2 %}<span class="cat-pill">{{ cat }}</span>{% endfor %}
+                </div>
+                {% endif %}
+                <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                {% if post.description %}
+                <p class="post-card-excerpt">{{ post.description | truncate: 110 }}</p>
+                {% elsif post.excerpt %}
+                <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 110 }}</p>
+                {% endif %}
+                <div class="post-card-meta">
+                  <span>{{ post.date | date: "%d/%m/%Y" }}</span>
+                  {% if post.reading_time %}<span>{{ post.reading_time }} min</span>{% endif %}
+                </div>
+              </div>
+            </article>
+            {% endfor %}
+          </div>
         </div>
         {% endif %}
 
+        <!-- Card: tópicos (mesmo fundo das tags no post) -->
         {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
         {% if all_tags.size > 0 %}
-        <div class="section-row">
-          <h2 class="section-title">Tópicos</h2>
-        </div>
-        <div class="tags-cloud">
-          {% for tag in all_tags %}
-          <a class="tag-item" href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">#{{ tag }}</a>
-          {% endfor %}
+        <div class="article-card article-card--tags">
+          <div class="section-row">
+            <h2 class="section-title">Tópicos</h2>
+          </div>
+          <div class="tags-cloud">
+            {% for tag in all_tags %}
+            <a class="tag-item" href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">#{{ tag }}</a>
+            {% endfor %}
+          </div>
         </div>
         {% endif %}
 
