@@ -4,13 +4,13 @@ on:
   push:
     paths:
       - '_posts/**'
-      - 'tags/**'
+      - 'topicos/**'
       - 'categorias/**'
       - 'feed/**'
   pull_request:
     paths:
       - '_posts/**'
-      - 'tags/**'
+      - 'topicos/**'
       - 'categorias/**'
       - 'feed/**'
   workflow_dispatch:

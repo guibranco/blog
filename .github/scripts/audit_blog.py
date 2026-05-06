@@ -20,7 +20,7 @@ from pathlib import Path
 
 ROOT         = Path(__file__).resolve().parents[2]
 POSTS_DIR    = ROOT / "_posts"
-TAGS_DIR     = ROOT / "tags"
+TAGS_DIR     = ROOT / "topicos"
 CATS_DIR     = ROOT / "categorias"
 FEEDS_DIR    = ROOT / "feed"
 ASSETS_DIR   = ROOT / "assets"
@@ -240,7 +240,7 @@ def audit() -> tuple[dict, set, set]:
         slug = slugify(tag)
         if slug not in existing_tags:
             issues["missing_tag_pages"].append({"tag": tag, "slug": slug})
-            gh_error("tags/", f"Missing tag page: tags/{slug}.md  (tag: '{tag}')")
+            gh_error("topicos/", f"Missing tag page: topicos/{slug}.md  (tag: '{tag}')")
 
     for cat in sorted(all_cats):
         slug = slugify(cat)
@@ -324,8 +324,8 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
     if issues["missing_tag_pages"]:
         lines.append(f"**{len(issues['missing_tag_pages'])} missing:**\n")
         for item in issues["missing_tag_pages"]:
-            lines.append(f"- `tags/{item['slug']}.md` — tag: `{item['tag']}`")
-        lines.append("\n<details><summary>Fix template</summary>\n\n```yaml\n---\nlayout: tag\ntag: <tag-name>\npermalink: /tags/<slug>/\n---\n```\n</details>")
+            lines.append(f"- `topicos/{item['slug']}.md` — tag: `{item['tag']}`")
+        lines.append("\n<details><summary>Fix template</summary>\n\n```yaml\n---\nlayout: tag\ntag: <tag-name>\npermalink: /topicos/<slug>/\n---\n```\n</details>")
     else:
         lines.append("✅ All tag pages present.")
     lines.append("")

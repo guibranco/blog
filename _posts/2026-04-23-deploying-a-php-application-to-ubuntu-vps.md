@@ -362,6 +362,7 @@ certbot renew --dry-run
 
 ### `ci.yml` — runs on every pull request
 
+{% raw %}
 ```yaml
 # .github/workflows/ci.yml
 name: CI
@@ -400,9 +401,11 @@ jobs:
         env:
           XDEBUG_MODE: coverage
 ```
+{% endraw %}
 
 ### `release.yml` — runs on push to `main`, deploys to the server
 
+{% raw %}
 ```yaml
 # .github/workflows/release.yml
 name: Release
@@ -470,6 +473,7 @@ jobs:
           fi
           echo "Health check passed — HTTP $STATUS"
 ```
+{% endraw %}
 
 <div class="divider">· · ·</div>
 
@@ -540,6 +544,7 @@ Add these secrets: `WIREGUARD_CONFIG`, `MYSQL_SERVER`, `MYSQL_USER_MIGRATION`, `
 
 Add this job to `release.yml`:
 
+{% raw %}
 ```yaml
   migrate:
     needs: deploy
@@ -571,6 +576,7 @@ Add this job to `release.yml`:
         if: always()
         run: sudo wg-quick down wg0
 ```
+{% endraw %}
 
 <div class="divider">· · ·</div>
 
