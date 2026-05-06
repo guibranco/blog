@@ -16,52 +16,6 @@ permalink: /tags/
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
-  <style>
-    .tags-index-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 3rem;
-    }
-    .tag-index-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: .06em;
-      padding: 6px 14px;
-      border-radius: 20px;
-      background: var(--tag-bg);
-      border: 1px solid var(--border);
-      color: var(--ink-muted);
-      text-decoration: none;
-      transition: border-color .2s, color .2s, background .2s;
-    }
-    .tag-index-item:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: var(--accent-light);
-    }
-    .tag-index-item .tag-count {
-      background: var(--border);
-      color: var(--ink-light);
-      font-size: 9px;
-      padding: 1px 6px;
-      border-radius: 10px;
-      transition: background .2s, color .2s;
-    }
-    .tag-index-item:hover .tag-count {
-      background: var(--accent-light);
-      color: var(--accent);
-    }
-    /* Size variants by post count */
-    .tag-size-1 { font-size: 10px; }
-    .tag-size-2 { font-size: 11px; }
-    .tag-size-3 { font-size: 12px; }
-    .tag-size-4 { font-size: 13px; font-weight: 500; }
-    .tag-size-5 { font-size: 14px; font-weight: 500; }
-  </style>
 </head>
 <body>
 
@@ -160,72 +114,61 @@ permalink: /tags/
       {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
 
       {% if all_tags.size == 0 %}
-        <div class="empty-state">
-          <div class="empty-glyph">∅</div>
-          <p>Nenhuma tag publicada ainda.</p>
+        <div class="article-card">
+          <div class="empty-state">
+            <div class="empty-glyph">∅</div>
+            <p>Nenhuma tag publicada ainda.</p>
+          </div>
         </div>
       {% else %}
 
-        <div class="section-row">
-          <h2 class="section-title">Tags</h2>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-light);">{{ all_tags | size }} tópicos</span>
+        <!-- Card: nuvem de tags -->
+        <div class="article-card article-card--tags">
+          <div class="section-row">
+            <h2 class="section-title">Tags</h2>
+            <span class="section-meta">{{ all_tags | size }} tópicos</span>
+          </div>
+          <div class="tags-index-grid">
+            {% for tag in all_tags %}
+              {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
+              {% assign count = tag_posts | size %}
+              {% if count >= 5 %}{% assign size_class = "tag-size-5" %}
+              {% elsif count == 4 %}{% assign size_class = "tag-size-4" %}
+              {% elsif count == 3 %}{% assign size_class = "tag-size-3" %}
+              {% elsif count == 2 %}{% assign size_class = "tag-size-2" %}
+              {% else %}{% assign size_class = "tag-size-1" %}
+              {% endif %}
+              <a class="tag-index-item {{ size_class }}" href="{{ site.baseurl }}/tags/{{ tag | slugify: "latin" }}/">
+                #{{ tag }}
+                <span class="tag-count">{{ count }}</span>
+              </a>
+            {% endfor %}
+          </div>
         </div>
 
-        <!-- Tag cloud with post counts -->
-        <div class="tags-index-grid">
+        <!-- Card: artigos por tag -->
+        <div class="article-card">
+          <div class="section-row">
+            <h2 class="section-title">Por tag</h2>
+          </div>
           {% for tag in all_tags %}
             {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
-            {% assign count = tag_posts | size %}
-            {% if count >= 5 %}{% assign size_class = "tag-size-5" %}
-            {% elsif count == 4 %}{% assign size_class = "tag-size-4" %}
-            {% elsif count == 3 %}{% assign size_class = "tag-size-3" %}
-            {% elsif count == 2 %}{% assign size_class = "tag-size-2" %}
-            {% else %}{% assign size_class = "tag-size-1" %}
-            {% endif %}
-            <a class="tag-index-item {{ size_class }}" href="{{ site.baseurl }}/tags/{{ tag | slugify: "latin" }}/">
-              #{{ tag }}
-              <span class="tag-count">{{ count }}</span>
-            </a>
+            <div class="tag-group">
+              <div class="tag-group-header">
+                <a class="post-tag" href="{{ site.baseurl }}/tags/{{ tag | slugify: "latin" }}/">#{{ tag }}</a>
+                <span class="tag-group-count">{{ tag_posts | size }} artigo{% if tag_posts.size != 1 %}s{% endif %}</span>
+              </div>
+              <ul class="tag-group-list">
+                {% for post in tag_posts %}
+                <li class="tag-group-item">
+                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                  <span class="tag-group-item-date">{{ post.date | date: "%d/%m/%Y" }}</span>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
           {% endfor %}
         </div>
-
-        <!-- Posts grouped by tag -->
-        <div class="section-row" style="margin-top: 1rem;">
-          <h2 class="section-title">Por tag</h2>
-        </div>
-
-        {% for tag in all_tags %}
-          {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
-          <div style="margin-bottom: 2.5rem;">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);">
-              <a href="{{ site.baseurl }}/tags/{{ tag | slugify: "latin" }}/"
-                 style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;
-                        padding:4px 12px;border-radius:20px;background:var(--accent-light);
-                        color:var(--accent);border:1px solid #b7dfc8;text-decoration:none;">
-                #{{ tag }}
-              </a>
-              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-light);">
-                {{ tag_posts | size }} artigo{% if tag_posts.size != 1 %}s{% endif %}
-              </span>
-            </div>
-            <ul style="list-style:none;margin:0;padding:0;">
-              {% for post in tag_posts %}
-              <li style="display:flex;align-items:baseline;justify-content:space-between;
-                          padding:.5rem 0;border-bottom:1px solid var(--border);gap:1rem;">
-                <a href="{{ post.url | relative_url }}"
-                   style="font-family:'Source Serif 4',serif;font-size:.95rem;color:var(--ink);
-                          text-decoration:none;line-height:1.4;flex:1;">
-                  {{ post.title }}
-                </a>
-                <span style="font-family:'JetBrains Mono',monospace;font-size:10px;
-                              color:var(--ink-light);white-space:nowrap;flex-shrink:0;">
-                  {{ post.date | date: "%d/%m/%Y" }}
-                </span>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
-        {% endfor %}
 
       {% endif %}
 
