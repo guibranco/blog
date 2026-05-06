@@ -178,6 +178,7 @@
       <!-- Card 2: tags (fundo diferenciado) -->
       {% if page.tags.size > 0 %}
       <div class="article-card article-card--tags">
+        <p class="card-section-title"><i class="fas fa-tags"></i> &nbsp;Tags deste artigo</p>
         <div class="post-tags">
           {% for tag in page.tags %}
           <a class="post-tag" href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">#{{ tag }}</a>
