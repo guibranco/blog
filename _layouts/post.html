@@ -177,6 +177,70 @@
           {% endfor %}
         </div>
         {% endif %}
+
+        {% comment %}── Related posts — scored by shared tags (+1 each) and categories (+2 each) ──{% endcomment %}
+        {% assign scored = "" | split: "" %}
+        {% for candidate in site.posts %}
+          {% unless candidate.url == page.url %}
+            {% assign score = 0 %}
+            {% for cat in page.categories %}
+              {% if candidate.categories contains cat %}
+                {% assign score = score | plus: 2 %}
+              {% endif %}
+            {% endfor %}
+            {% for tag in page.tags %}
+              {% if candidate.tags contains tag %}
+                {% assign score = score | plus: 1 %}
+              {% endif %}
+            {% endfor %}
+            {% if score > 0 %}
+              {% assign padded = score | prepend: "000" | slice: -3, 3 %}
+              {% assign entry = padded | append: "|" | append: candidate.url %}
+              {% assign scored = scored | push: entry %}
+            {% endif %}
+          {% endunless %}
+        {% endfor %}
+
+        {% assign scored = scored | sort | reverse %}
+        {% assign top_urls = "" | split: "" %}
+        {% for entry in scored limit: 3 %}
+          {% assign parts = entry | split: "|" %}
+          {% assign top_urls = top_urls | push: parts[1] %}
+        {% endfor %}
+
+        {% assign related_posts = "" | split: "" %}
+        {% for url in top_urls %}
+          {% for candidate in site.posts %}
+            {% if candidate.url == url %}
+              {% assign related_posts = related_posts | push: candidate %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+
+        {% if related_posts.size > 0 %}
+        <div class="related-posts">
+          <p class="related-title">Artigos relacionados</p>
+          <div class="related-grid">
+            {% for post in related_posts %}
+            <a href="{{ post.url | relative_url }}" class="related-card">
+              {% if post.image %}
+              <div class="related-card-image" style="background-image: url('{{ post.image | relative_url }}');"></div>
+              {% else %}
+              <div class="related-card-image related-card-placeholder">{{ post.title | slice: 0 }}</div>
+              {% endif %}
+              <div class="related-card-body">
+                <p class="related-card-title">{{ post.title }}</p>
+                <p class="related-card-meta">
+                  {{ post.date | date: "%d/%m/%Y" }}
+                  {% if post.reading_time %} · ~{{ post.reading_time }} min{% endif %}
+                </p>
+              </div>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
       </div>
     </div>
 
