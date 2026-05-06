@@ -20,7 +20,7 @@ from pathlib import Path
 
 ROOT         = Path(__file__).resolve().parents[2]
 POSTS_DIR    = ROOT / "_posts"
-TAGS_DIR     = ROOT / "tags"
+TAGS_DIR     = ROOT / "topicos"
 CATS_DIR     = ROOT / "categorias"
 FEEDS_DIR    = ROOT / "feed"
 ASSETS_DIR   = ROOT / "assets"
