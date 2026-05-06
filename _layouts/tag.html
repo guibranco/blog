@@ -129,7 +129,7 @@
       {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains page.tag" %}
       <p class="hero-desc">
         {{ tag_posts | size }} artigo{% if tag_posts.size != 1 %}s{% endif %} com esta tag.
-        <a href="{{ site.baseurl }}/tags/" style="color: var(--green-glow); margin-left: 8px; font-family: 'JetBrains Mono', monospace; font-size: .85em;">← todas as tags</a>
+        <a href="{{ site.baseurl }}/tags/" class="hero-desc-link">← todas as tags</a>
       </p>
     </section>
 
@@ -138,45 +138,48 @@
       {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains page.tag" %}
 
       {% if tag_posts.size == 0 %}
-        <div class="empty-state">
-          <div class="empty-glyph">∅</div>
-          <p>Nenhum artigo com esta tag ainda.</p>
+        <div class="article-card">
+          <div class="empty-state">
+            <div class="empty-glyph">∅</div>
+            <p>Nenhum artigo com esta tag ainda.</p>
+          </div>
         </div>
       {% else %}
-        <div class="section-row">
-          <h2 class="section-title">Artigos</h2>
-          <a href="{{ site.baseurl }}/tags/" class="section-link" style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-light);">← todas as tags</a>
-        </div>
-
-        <div class="posts-grid">
-          {% for post in tag_posts %}
-          <article class="post-card">
-            <a href="{{ post.url | relative_url }}" class="post-card-image" tabindex="-1" aria-hidden="true">
-              {% if post.image %}
-                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-              {% else %}
-                <div class="post-card-placeholder"><span>{{ post.title | slice: 0 }}</span></div>
-              {% endif %}
-            </a>
-            <div class="post-card-body">
-              {% if post.categories.size > 0 %}
-              <div class="post-card-cats">
-                {% for cat in post.categories limit: 2 %}<span class="cat-pill">{{ cat }}</span>{% endfor %}
+        <div class="article-card">
+          <div class="section-row">
+            <h2 class="section-title">Artigos</h2>
+            <a href="{{ site.baseurl }}/tags/" class="section-link">← todas as tags</a>
+          </div>
+          <div class="posts-grid">
+            {% for post in tag_posts %}
+            <article class="post-card">
+              <a href="{{ post.url | relative_url }}" class="post-card-image" tabindex="-1" aria-hidden="true">
+                {% if post.image %}
+                  <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+                {% else %}
+                  <div class="post-card-placeholder"><span>{{ post.title | slice: 0 }}</span></div>
+                {% endif %}
+              </a>
+              <div class="post-card-body">
+                {% if post.categories.size > 0 %}
+                <div class="post-card-cats">
+                  {% for cat in post.categories limit: 2 %}<span class="cat-pill">{{ cat }}</span>{% endfor %}
+                </div>
+                {% endif %}
+                <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                {% if post.description %}
+                <p class="post-card-excerpt">{{ post.description | truncate: 110 }}</p>
+                {% elsif post.excerpt %}
+                <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 110 }}</p>
+                {% endif %}
+                <div class="post-card-meta">
+                  <span>{{ post.date | date: "%d/%m/%Y" }}</span>
+                  {% if post.reading_time %}<span>{{ post.reading_time }} min</span>{% endif %}
+                </div>
               </div>
-              {% endif %}
-              <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-              {% if post.description %}
-              <p class="post-card-excerpt">{{ post.description | truncate: 110 }}</p>
-              {% elsif post.excerpt %}
-              <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 110 }}</p>
-              {% endif %}
-              <div class="post-card-meta">
-                <span>{{ post.date | date: "%d/%m/%Y" }}</span>
-                {% if post.reading_time %}<span>{{ post.reading_time }} min</span>{% endif %}
-              </div>
-            </div>
-          </article>
-          {% endfor %}
+            </article>
+            {% endfor %}
+          </div>
         </div>
       {% endif %}
 
