@@ -6,6 +6,7 @@ date: 2020-08-21
 categories: [Career]
 tags: [back-end, backend, carreira, desenvolvimento, front-end, frontend, javascript, php, estudos]
 reading_time: 8
+image: /assets/img/posts/backend-vs-frontend.jpg
 series: serie-desenvolvedor-web
 series_title: "Série: Desenvolvedor web"
 series_part: 2
