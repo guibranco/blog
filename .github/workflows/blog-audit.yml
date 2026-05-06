@@ -1,0 +1,36 @@
+name: Blog Structure Audit
+
+on:
+  push:
+    paths:
+      - '_posts/**'
+      - 'tags/**'
+      - 'categorias/**'
+      - 'feed/**'
+  pull_request:
+    paths:
+      - '_posts/**'
+      - 'tags/**'
+      - 'categorias/**'
+      - 'feed/**'
+  workflow_dispatch:
+
+jobs:
+  audit:
+    name: Audit blog structure
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run audit
+        run: python3 .github/scripts/audit_blog.py
+
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: blog-audit-report
+          path: audit-report.md
+          retention-days: 30
