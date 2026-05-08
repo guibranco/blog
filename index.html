@@ -237,7 +237,7 @@ layout: null
                 {% endif %}
                 <div class="post-card-meta">
                   <span>{{ post.date | date: "%d/%m/%Y" }}</span>
-                  {% if post.reading_time %}<span>{{ post.reading_time }} min</span>{% endif %}
+                  {% if post.reading_time %}<span><i class="fa-regular fa-clock"></i> ~{{ post.reading_time }} min</span>{% endif %}
                 </div>
               </div>
             </article>
