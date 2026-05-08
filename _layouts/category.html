@@ -128,18 +128,15 @@
     <section class="hero">
       <p class="hero-eyebrow">// categoria //</p>
       <h1 class="hero-title">{{ page.category }}</h1>
-      {% assign cat_posts = site.posts | where_exp: "post", "post.categories contains page.category" %}
       <p class="hero-desc">
-        {{ cat_posts | size }} artigo{% if cat_posts.size != 1 %}s{% endif %} publicado{% if cat_posts.size != 1 %}s{% endif %} nesta categoria.
+        {{ paginator.total_posts }} artigo{% if paginator.total_posts != 1 %}s{% endif %} publicado{% if paginator.total_posts != 1 %}s{% endif %} nesta categoria.
       </p>
     </section>
 
     <!-- Posts -->
     <div class="content-wrap">
 
-      {% assign cat_posts = site.posts | where_exp: "post", "post.categories contains page.category" %}
-
-      {% if cat_posts.size == 0 %}
+      {% if paginator.posts.size == 0 %}
         <div class="empty-state">
           <div class="empty-glyph">em breve.</div>
           <p>Nenhum artigo nesta categoria ainda.</p>
@@ -150,7 +147,7 @@
         </div>
 
         <div class="posts-grid">
-          {% for post in cat_posts %}
+          {% for post in paginator.posts %}
           <article class="post-card">
             <a href="{{ post.url | relative_url }}" class="post-card-image" tabindex="-1" aria-hidden="true">
               {% if post.image %}
@@ -179,6 +176,7 @@
           </article>
           {% endfor %}
         </div>
+        {% include pagination.html %}
       {% endif %}
 
     </div>

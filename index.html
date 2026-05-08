@@ -1,5 +1,7 @@
 ---
 layout: null
+pagination:
+  enabled: true
 ---
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -214,7 +216,7 @@ layout: null
           </div>
         </div>
 
-        {% assign regular_posts = site.posts | where_exp: "p", "p.featured != true" %}
+        {% assign regular_posts = paginator.posts | where_exp: "p", "p.featured != true" %}
         {% if regular_posts.size > 0 %}
         <div class="article-card">
           <div class="section-row">
@@ -250,17 +252,19 @@ layout: null
             </article>
             {% endfor %}
           </div>
+          {% include pagination.html %}
         </div>
         {% endif %}
 
         {% else %}
 
+        {% if paginator.page == 1 %}
         <!-- Card: destaque (fallback: post mais recente) -->
         <div class="article-card">
           <div class="section-row">
             <h2 class="section-title">Destaque</h2>
           </div>
-          {% assign featured = site.posts.first %}
+          {% assign featured = paginator.posts.first %}
           <article class="featured-card">
             <div class="featured-image">
               {% if featured.image %}
@@ -289,8 +293,13 @@ layout: null
             </div>
           </article>
         </div>
+        {% endif %}
 
-        {% assign other_posts = site.posts | shift %}
+        {% if paginator.page == 1 %}
+          {% assign other_posts = paginator.posts | shift %}
+        {% else %}
+          {% assign other_posts = paginator.posts %}
+        {% endif %}
         {% if other_posts.size > 0 %}
         <div class="article-card">
           <div class="section-row">
@@ -326,6 +335,7 @@ layout: null
             </article>
             {% endfor %}
           </div>
+          {% include pagination.html %}
         </div>
         {% endif %}
 
