@@ -171,7 +171,91 @@ layout: null
 
       {% else %}
 
-        <!-- Card: destaque -->
+        {% assign featured_limit = site.featured_limit | default: 2 %}
+        {% assign pinned = site.posts | where: "featured", true | limit: featured_limit %}
+
+        {% if pinned.size > 0 %}
+
+        <!-- Card: destaques fixos (featured: true) -->
+        <div class="article-card">
+          <div class="section-row">
+            <h2 class="section-title">Destaques</h2>
+          </div>
+          <div class="posts-grid">
+            {% for post in pinned %}
+            <article class="post-card post-card--featured">
+              <a href="{{ post.url | relative_url }}" class="post-card-image" tabindex="-1" aria-hidden="true">
+                {% if post.image %}
+                  <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+                {% else %}
+                  <div class="post-card-placeholder"><span>{{ post.title | slice: 0 }}</span></div>
+                {% endif %}
+              </a>
+              <div class="post-card-body">
+                <span class="featured-badge">⭐ Destaque</span>
+                {% if post.categories.size > 0 %}
+                <div class="post-card-cats">
+                  {% for cat in post.categories limit: 2 %}<span class="cat-pill">{{ cat }}</span>{% endfor %}
+                </div>
+                {% endif %}
+                <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                {% if post.description %}
+                <p class="post-card-excerpt">{{ post.description | truncate: 110 }}</p>
+                {% elsif post.excerpt %}
+                <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 110 }}</p>
+                {% endif %}
+                <div class="post-card-meta">
+                  <span>{{ post.date | date: "%d/%m/%Y" }}</span>
+                  {% if post.reading_time %}<span><i class="fa-regular fa-clock"></i> ~{{ post.reading_time }} min</span>{% endif %}
+                </div>
+              </div>
+            </article>
+            {% endfor %}
+          </div>
+        </div>
+
+        {% assign regular_posts = site.posts | where_exp: "p", "p.featured != true" %}
+        {% if regular_posts.size > 0 %}
+        <div class="article-card">
+          <div class="section-row">
+            <h2 class="section-title">Todos os artigos</h2>
+          </div>
+          <div class="posts-grid">
+            {% for post in regular_posts %}
+            <article class="post-card">
+              <a href="{{ post.url | relative_url }}" class="post-card-image" tabindex="-1" aria-hidden="true">
+                {% if post.image %}
+                  <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+                {% else %}
+                  <div class="post-card-placeholder"><span>{{ post.title | slice: 0 }}</span></div>
+                {% endif %}
+              </a>
+              <div class="post-card-body">
+                {% if post.categories.size > 0 %}
+                <div class="post-card-cats">
+                  {% for cat in post.categories limit: 2 %}<span class="cat-pill">{{ cat }}</span>{% endfor %}
+                </div>
+                {% endif %}
+                <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                {% if post.description %}
+                <p class="post-card-excerpt">{{ post.description | truncate: 110 }}</p>
+                {% elsif post.excerpt %}
+                <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 110 }}</p>
+                {% endif %}
+                <div class="post-card-meta">
+                  <span>{{ post.date | date: "%d/%m/%Y" }}</span>
+                  {% if post.reading_time %}<span><i class="fa-regular fa-clock"></i> ~{{ post.reading_time }} min</span>{% endif %}
+                </div>
+              </div>
+            </article>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        {% else %}
+
+        <!-- Card: destaque (fallback: post mais recente) -->
         <div class="article-card">
           <div class="section-row">
             <h2 class="section-title">Destaque</h2>
@@ -206,7 +290,6 @@ layout: null
           </article>
         </div>
 
-        <!-- Card: todos os artigos -->
         {% assign other_posts = site.posts | shift %}
         {% if other_posts.size > 0 %}
         <div class="article-card">
@@ -244,6 +327,8 @@ layout: null
             {% endfor %}
           </div>
         </div>
+        {% endif %}
+
         {% endif %}
 
         <!-- Card: tópicos (mesmo fundo das tags no post) -->
