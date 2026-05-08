@@ -52,6 +52,7 @@ plugins:
 # ── Paginação ───────────────────────────────────────────
 paginate: 10
 paginate_path: "/pagina/:num/"
+featured_limit: 2
 
 # ── Feed RSS ────────────────────────────────────────────
 feed:

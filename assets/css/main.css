@@ -486,6 +486,14 @@ a { color: inherit; text-decoration: none; }
   font-family: 'JetBrains Mono', monospace; font-size: 0.59rem; color: var(--ink-light);
   padding-top: .6rem; border-top: 1px solid var(--border); margin-top: auto;
 }
+.post-card--featured { border: 2px solid var(--accent); }
+.featured-badge {
+  display: inline-block; align-self: flex-start;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.55rem;
+  letter-spacing: .07em; text-transform: uppercase;
+  background: var(--accent-light); color: var(--accent); border: 1px solid #b7dfc8;
+  padding: 2px 8px; border-radius: 20px; margin-bottom: .5rem;
+}
 
 /* Tags cloud */
 .tags-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
