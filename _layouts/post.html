@@ -15,6 +15,8 @@
 </head>
 <body>
 
+  <div id="reading-progress" aria-hidden="true"></div>
+
   <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Abrir menu">
     <i class="fas fa-bars"></i>
   </button>
@@ -306,6 +308,12 @@
   </div><!-- /.main -->
 
   <script>
+    const bar = document.getElementById('reading-progress');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      bar.style.width = Math.min(doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100, 100) + '%';
+    }, { passive: true });
+
     const toggle  = document.getElementById('sidebar-toggle');
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('sidebar-overlay');
