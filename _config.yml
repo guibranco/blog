@@ -45,14 +45,20 @@ kramdown:
 
 # ── Plugins ─────────────────────────────────────────────
 plugins:
-  - jekyll-feed        # /feed.xml gerado automaticamente
-  - jekyll-seo-tag     # meta tags open graph e twitter card
-  - jekyll-sitemap     # /sitemap.xml gerado automaticamente
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate-v2
 
 # ── Paginação ───────────────────────────────────────────
-paginate: 10
-paginate_path: "/pagina/:num/"
 featured_limit: 2
+
+pagination:
+  enabled: true
+  per_page: 9
+  permalink: '/pagina/:num/'
+  sort_field: 'date'
+  sort_reverse: true
 
 # ── Feed RSS ────────────────────────────────────────────
 feed:

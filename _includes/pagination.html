@@ -1,0 +1,15 @@
+{% if paginator.total_pages > 1 %}
+<nav class="pagination" aria-label="Navegação de páginas">
+  {% if paginator.previous_page %}
+  <a class="pagination-btn" href="{{ paginator.previous_page_path | relative_url }}">← Anterior</a>
+  {% else %}
+  <span class="pagination-btn pagination-disabled">← Anterior</span>
+  {% endif %}
+  <span class="pagination-info">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+  <a class="pagination-btn" href="{{ paginator.next_page_path | relative_url }}">Próximo →</a>
+  {% else %}
+  <span class="pagination-btn pagination-disabled">Próximo →</span>
+  {% endif %}
+</nav>
+{% endif %}
