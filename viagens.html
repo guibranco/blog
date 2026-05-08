@@ -1,15 +1,20 @@
+---
+layout: null
+permalink: /viagens/
+---
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.category }} — {{ site.title }}</title>
-  <meta name="description" content="Artigos sobre {{ page.category }} em {{ site.title }}">
+  <title>Viagens — {{ site.title }}</title>
+  <meta name="description" content="Mapa interativo dos posts de viagem em {{ site.title }}">
   {% seo %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   {% include analytics.html %}
 </head>
@@ -80,8 +85,7 @@
         {% assign nav_cats = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
         {% for cat in nav_cats %}
         <li>
-          <a href="{{ site.baseurl }}/categorias/{{ cat | slugify: "latin" }}/"
-             {% if page.category == cat %}class="active"{% endif %}>
+          <a href="{{ site.baseurl }}/categorias/{{ cat | slugify: "latin" }}/">
             <i class="fas fa-folder-open"></i> {{ cat }}
           </a>
         </li>
@@ -92,7 +96,7 @@
           </a>
         </li>
         <li>
-          <a href="{{ site.baseurl }}/viagens/">
+          <a href="{{ site.baseurl }}/viagens/" class="active">
             <i class="fas fa-map-location-dot"></i> Viagens
           </a>
         </li>
@@ -129,66 +133,32 @@
   <!-- ══════════ MAIN ══════════ -->
   <div class="main">
 
-    {% include breadcrumb.html %}
+    {% assign travel_posts = site.posts | where_exp: "p", "p.location" %}
 
-    <!-- Hero -->
     <section class="hero">
-      <p class="hero-eyebrow">// categoria //</p>
-      <h1 class="hero-title">{{ page.category }}</h1>
-      <p class="hero-desc">
-        {{ paginator.total_posts }} artigo{% if paginator.total_posts != 1 %}s{% endif %} publicado{% if paginator.total_posts != 1 %}s{% endif %} nesta categoria.
-      </p>
+      <p class="hero-eyebrow">// viagens //</p>
+      <h1 class="hero-title">Viagens</h1>
+      <p class="hero-desc">{{ travel_posts | size }} destino{% if travel_posts.size != 1 %}s{% endif %} no mapa.</p>
     </section>
 
-    <!-- Posts -->
     <div class="content-wrap">
 
-      {% if paginator.posts.size == 0 %}
-        <div class="empty-state">
-          <div class="empty-glyph">em breve.</div>
-          <p>Nenhum artigo nesta categoria ainda.</p>
-        </div>
+      {% if travel_posts.size > 0 %}
+      <div class="article-card travel-map-card">
+        <div id="map"></div>
+      </div>
       {% else %}
-        <div class="section-row">
-          <h2 class="section-title">Todos os artigos</h2>
+      <div class="article-card">
+        <div class="empty-state">
+          <div class="empty-glyph">✈</div>
+          <p>Nenhum post com localização definida ainda.<br>
+            Adicione <code>location: { lat: ..., lng: ..., label: "..." }</code> ao front matter de um post.</p>
         </div>
-
-        <div class="posts-grid">
-          {% for post in paginator.posts %}
-          <article class="post-card">
-            <a href="{{ post.url | relative_url }}" class="post-card-image" tabindex="-1" aria-hidden="true">
-              {% if post.image %}
-                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-              {% else %}
-                <div class="post-card-placeholder"><span>{{ post.title | slice: 0 }}</span></div>
-              {% endif %}
-            </a>
-            <div class="post-card-body">
-              {% if post.categories.size > 0 %}
-              <div class="post-card-cats">
-                {% for cat in post.categories limit: 2 %}<span class="cat-pill">{{ cat }}</span>{% endfor %}
-              </div>
-              {% endif %}
-              <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-              {% if post.description %}
-              <p class="post-card-excerpt">{{ post.description | truncate: 110 }}</p>
-              {% elsif post.excerpt %}
-              <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 110 }}</p>
-              {% endif %}
-              <div class="post-card-meta">
-                <span>{{ post.date | date: "%d/%m/%Y" }}</span>
-                {% if post.reading_time %}<span><i class="fa-regular fa-clock"></i> ~{{ post.reading_time }} min</span>{% endif %}
-              </div>
-            </div>
-          </article>
-          {% endfor %}
-        </div>
-        {% include pagination.html %}
+      </div>
       {% endif %}
 
     </div>
 
-    <!-- Footer -->
     <footer class="site-footer">
       <div class="site-footer-inner">
         <span class="footer-brand">{{ site.title }}</span>
@@ -201,6 +171,40 @@
     </footer>
 
   </div>
+
+  {% if travel_posts.size > 0 %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script>
+    const posts = [
+      {% for post in travel_posts %}
+      {
+        lat: {{ post.location.lat }},
+        lng: {{ post.location.lng }},
+        label: {{ post.location.label | jsonify }},
+        title: {{ post.title | jsonify }},
+        date: "{{ post.date | date: '%d/%m/%Y' }}",
+        url: "{{ post.url | relative_url }}"
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ];
+
+    const map = L.map('map');
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const markers = posts.map(p => {
+      const m = L.marker([p.lat, p.lng]).addTo(map);
+      m.bindPopup(
+        `<strong><a href="${p.url}">${p.title}</a></strong><br>` +
+        `<small>${p.label} · ${p.date}</small>`
+      );
+      return m;
+    });
+    map.fitBounds(L.featureGroup(markers).getBounds().pad(0.15));
+  </script>
+  {% endif %}
 
   <script>
     const toggle  = document.getElementById('sidebar-toggle');

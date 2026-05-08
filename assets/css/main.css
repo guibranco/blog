@@ -233,6 +233,13 @@ a { color: inherit; text-decoration: none; }
 .main { flex: 1; min-width: 0; display: flex; flex-direction: column; background: var(--stage-bg); }
 
 /* ─────────────────────────────────────
+   TRAVEL MAP
+───────────────────────────────────── */
+.travel-map-card { padding: 0; overflow: hidden; }
+#map { height: 65vh; min-height: 420px; width: 100%; display: block; }
+@media (max-width: 600px) { #map { height: 55vh; min-height: 320px; } }
+
+/* ─────────────────────────────────────
    BREADCRUMB
 ───────────────────────────────────── */
 .breadcrumb {
@@ -532,7 +539,7 @@ a { color: inherit; text-decoration: none; }
 #back-to-top {
   position: fixed; bottom: 2rem; right: 2rem;
   width: 40px; height: 40px; border-radius: 50%;
-  background: var(--accent); color: var(--bg);
+  background: var(--accent); color: var(--surface);
   border: none; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   opacity: 0; pointer-events: none;
