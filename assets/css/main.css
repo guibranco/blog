@@ -240,6 +240,32 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 600px) { #map { height: 55vh; min-height: 320px; } }
 
 /* ─────────────────────────────────────
+   PHOTO GALLERY (lightbox)
+───────────────────────────────────── */
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: .75rem;
+  margin: 1.5rem 0;
+}
+.photo-gallery a {
+  display: block;
+  overflow: hidden;
+  border-radius: 6px;
+  aspect-ratio: 4 / 3;
+  background: var(--ink-faint, #e8e5e0);
+}
+.photo-gallery a img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .3s ease, opacity .3s ease;
+}
+.photo-gallery a:hover img { transform: scale(1.05); opacity: .9; }
+@media (max-width: 480px) {
+  .photo-gallery { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: .5rem; }
+}
+
+/* ─────────────────────────────────────
    BREADCRUMB
 ───────────────────────────────────── */
 .breadcrumb {
