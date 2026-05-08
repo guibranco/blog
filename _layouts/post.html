@@ -16,6 +16,9 @@
 <body>
 
   <div id="reading-progress" aria-hidden="true"></div>
+  <button id="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
   <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Abrir menu">
     <i class="fas fa-bars"></i>
@@ -309,10 +312,13 @@
 
   <script>
     const bar = document.getElementById('reading-progress');
+    const btt = document.getElementById('back-to-top');
     window.addEventListener('scroll', () => {
       const doc = document.documentElement;
       bar.style.width = Math.min(doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100, 100) + '%';
+      btt.classList.toggle('visible', window.scrollY > 400);
     }, { passive: true });
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
     const toggle  = document.getElementById('sidebar-toggle');
     const sidebar = document.getElementById('sidebar');
