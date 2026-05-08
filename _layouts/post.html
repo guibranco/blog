@@ -164,6 +164,10 @@
           <span class="dot">·</span>
           {% for tag in page.tags limit: 3 %}<span>#{{ tag }}</span> {% endfor %}
           {% endif %}
+          <span class="dot">·</span>
+          <button id="share-btn" class="share-btn" aria-label="Compartilhar este artigo">
+            <i class="fas fa-share-nodes"></i> Compartilhar
+          </button>
         </div>
 
       </div><!-- /.hero-inner -->
@@ -310,6 +314,8 @@
 
   </div><!-- /.main -->
 
+  <div id="share-toast" class="share-toast" aria-live="polite">URL copiada!</div>
+
   <script>
     const bar = document.getElementById('reading-progress');
     const btt = document.getElementById('back-to-top');
@@ -319,6 +325,18 @@
       btt.classList.toggle('visible', window.scrollY > 400);
     }, { passive: true });
     btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    document.getElementById('share-btn')?.addEventListener('click', async () => {
+      const data = { title: document.title, url: location.href };
+      if (navigator.share) {
+        await navigator.share(data);
+      } else {
+        await navigator.clipboard.writeText(location.href);
+        const toast = document.getElementById('share-toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      }
+    });
 
     const toggle  = document.getElementById('sidebar-toggle');
     const sidebar = document.getElementById('sidebar');
