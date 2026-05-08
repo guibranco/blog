@@ -1,0 +1,17 @@
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="{{ site.baseurl }}/">Home</a>
+  <span aria-hidden="true">›</span>
+  {% if page.layout == 'post' %}
+    {% for cat in page.categories limit: 1 %}
+    <a href="{{ site.baseurl }}/categorias/{{ cat | slugify: 'latin' }}/">{{ cat }}</a>
+    <span aria-hidden="true">›</span>
+    {% endfor %}
+    <span aria-current="page">{{ page.title | truncate: 50 }}</span>
+  {% elsif page.layout == 'category' %}
+    <span aria-current="page">{{ page.category }}</span>
+  {% elsif page.layout == 'tag' %}
+    <a href="{{ site.baseurl }}/topicos/">Tópicos</a>
+    <span aria-hidden="true">›</span>
+    <span aria-current="page">#{{ page.tag }}</span>
+  {% endif %}
+</nav>

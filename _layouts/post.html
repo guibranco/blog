@@ -129,6 +129,8 @@
   <!-- ══════════ MAIN ══════════ -->
   <div class="main">
 
+    {% include breadcrumb.html %}
+
     <!-- Hero -->
     {% if page.image %}
     <header class="hero hero--with-image" style="background-image: url('{{ page.image | relative_url }}');">
