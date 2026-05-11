@@ -1,0 +1,12 @@
+  <script>
+    const toggle  = document.getElementById('sidebar-toggle');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    const open  = () => { sidebar.classList.add('open');    overlay.classList.add('open');    };
+    const close = () => { sidebar.classList.remove('open'); overlay.classList.remove('open'); };
+    toggle.addEventListener('click', () => sidebar.classList.contains('open') ? close() : open());
+    overlay.addEventListener('click', close);
+    document.querySelectorAll('.has-children > a').forEach(a => {
+      a.addEventListener('click', e => { e.preventDefault(); a.closest('.has-children').classList.toggle('open'); });
+    });
+  </script>
