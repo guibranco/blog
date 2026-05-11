@@ -15,116 +15,7 @@
 </head>
 <body>
 
-  <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Abrir menu">
-    <i class="fas fa-bars"></i>
-  </button>
-  <div class="sidebar-overlay" id="sidebar-overlay"></div>
-
-  <!-- ══════════ SIDEBAR ══════════ -->
-  <aside class="sidebar" id="sidebar">
-
-    <div class="sidebar-avatar-wrap">
-      {% if site.author_cover %}
-        <img class="sidebar-avatar-bg" src="{{ site.author_cover | relative_url }}" alt="">
-      {% else %}
-        <div class="sidebar-avatar-bg-fallback"></div>
-      {% endif %}
-      <div class="sidebar-avatar">
-        {% if site.author_avatar %}
-          <img src="{{ site.author_avatar | relative_url }}" alt="{{ site.author }}">
-        {% else %}
-          <div class="sidebar-avatar-placeholder">{{ site.author | slice: 0 }}</div>
-        {% endif %}
-      </div>
-    </div>
-
-    <div class="sidebar-identity">
-      <p class="sidebar-name"><a href="{{ site.baseurl }}/">{{ site.title }}</a></p>
-      {% if site.author_bio %}<p class="sidebar-tagline">{{ site.author_bio }}</p>{% endif %}
-    </div>
-
-    {% if site.social %}
-    <div class="sidebar-social">
-      {% if site.social.github %}<a href="{{ site.social.github }}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>{% endif %}
-      {% if site.social.linkedin %}<a href="{{ site.social.linkedin }}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>{% endif %}
-      {% if site.social.instagram %}<a href="{{ site.social.instagram }}" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>{% endif %}
-      {% if site.social.facebook %}<a href="{{ site.social.facebook }}" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>{% endif %}
-      {% if site.social.youtube %}<a href="{{ site.social.youtube }}" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>{% endif %}
-      {% if site.social.stackoverflow %}<a href="{{ site.social.stackoverflow }}" target="_blank" title="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>{% endif %}
-      {% if site.social.pinterest %}<a href="{{ site.social.pinterest }}" target="_blank" title="Pinterest"><i class="fab fa-pinterest"></i></a>{% endif %}
-      {% if site.social.whatsapp %}<a href="{{ site.social.whatsapp }}" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>{% endif %}
-      {% if site.social.strava %}<a href="{{ site.social.strava }}" target="_blank" title="Strava"><i class="fab fa-strava"></i></a>{% endif %}
-      {% if site.social.soundcloud %}<a href="{{ site.social.soundcloud }}" target="_blank" title="SoundCloud"><i class="fab fa-soundcloud"></i></a>{% endif %}
-      {% if site.social.spotify %}<a href="{{ site.social.spotify }}" target="_blank" title="Spotify"><i class="fab fa-spotify"></i></a>{% endif %}
-      {% if site.social.reddit %}<a href="{{ site.social.reddit }}" target="_blank" title="Reddit"><i class="fab fa-reddit"></i></a>{% endif %}
-      {% if site.social.medium %}<a href="{{ site.social.medium }}" target="_blank" title="Medium"><i class="fab fa-medium"></i></a>{% endif %}
-      {% if site.social.website %}
-      <a href="{{ site.social.website }}" target="_blank" title="Site pessoal">
-        {% if site.social.website_image %}
-          <img src="{{ site.social.website_image }}" alt="Site pessoal" style="width:16px;height:16px;border-radius:50%;object-fit:cover;vertical-align:middle;">
-        {% else %}
-          <i class="fas fa-globe"></i>
-        {% endif %}
-      </a>
-      {% endif %}
-    </div>
-    {% endif %}
-
-    <nav class="sidebar-nav">
-      <ul>
-        <li>
-          <a href="{{ site.baseurl }}/">
-            <i class="fas fa-home"></i> Home
-          </a>
-        </li>
-        {% assign nav_cats = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
-        {% for cat in nav_cats %}
-        <li>
-          <a href="{{ site.baseurl }}/categorias/{{ cat | slugify: "latin" }}/"
-             {% if page.category == cat %}class="active"{% endif %}>
-            <i class="fas fa-folder-open"></i> {{ cat }}
-          </a>
-        </li>
-        {% endfor %}
-        <li>
-          <a href="{{ site.baseurl }}/topicos/">
-            <i class="fas fa-tags"></i> Tópicos
-          </a>
-        </li>
-        <li>
-          <a href="{{ site.baseurl }}/viagens/">
-            <i class="fas fa-map-location-dot"></i> Viagens
-          </a>
-        </li>
-        <li>
-          <a href="{{ site.baseurl }}/feed.xml">
-            <i class="fas fa-rss"></i> RSS
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    {% if site.data.quotes %}
-    {% assign quote_count = site.data.quotes | size %}
-    {% assign seed = site.time | date: "%S" | plus: 0 %}
-    {% assign quote_index = seed | modulo: quote_count %}
-    {% assign quote = site.data.quotes[quote_index] %}
-    <div class="sidebar-widget">
-      <p class="widget-title">Quote</p>
-      <p class="widget-quote-text">"{{ quote.text }}"</p>
-      <p class="widget-quote-author">— {{ quote.author }}</p>
-    </div>
-    {% endif %}
-
-    <div class="sidebar-widget">
-      <p class="widget-title">Buscar</p>
-      <form class="widget-search" action="{{ site.baseurl }}/busca/" method="get">
-        <input type="search" name="q" placeholder="Buscar artigos…" autocomplete="off">
-        <button type="submit"><i class="fas fa-search"></i></button>
-      </form>
-    </div>
-
-  </aside>
+  {% include sidebar.html %}
 
   <!-- ══════════ MAIN ══════════ -->
   <div class="main">
@@ -202,15 +93,7 @@
 
   </div>
 
-  <script>
-    const toggle  = document.getElementById('sidebar-toggle');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('sidebar-overlay');
-    const open  = () => { sidebar.classList.add('open');    overlay.classList.add('open');    };
-    const close = () => { sidebar.classList.remove('open'); overlay.classList.remove('open'); };
-    toggle.addEventListener('click', () => sidebar.classList.contains('open') ? close() : open());
-    overlay.addEventListener('click', close);
-  </script>
+  {% include sidebar-script.html %}
 
 </body>
 </html>
