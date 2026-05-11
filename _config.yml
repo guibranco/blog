@@ -49,6 +49,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-paginate-v2
+  - jekyll-redirect-from
 
 # ── Paginação ───────────────────────────────────────────
 featured_limit: 2
