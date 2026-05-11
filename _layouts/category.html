@@ -46,32 +46,7 @@
 
         <div class="posts-grid">
           {% for post in paginator.posts %}
-          <article class="post-card">
-            <a href="{{ post.url | relative_url }}" class="post-card-image" tabindex="-1" aria-hidden="true">
-              {% if post.image %}
-                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-              {% else %}
-                <div class="post-card-placeholder"><span>{{ post.title | slice: 0 }}</span></div>
-              {% endif %}
-            </a>
-            <div class="post-card-body">
-              {% if post.categories.size > 0 %}
-              <div class="post-card-cats">
-                {% for cat in post.categories limit: 2 %}<span class="cat-pill">{{ cat }}</span>{% endfor %}
-              </div>
-              {% endif %}
-              <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-              {% if post.description %}
-              <p class="post-card-excerpt">{{ post.description | truncate: 110 }}</p>
-              {% elsif post.excerpt %}
-              <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 110 }}</p>
-              {% endif %}
-              <div class="post-card-meta">
-                <span>{{ post.date | date: "%d/%m/%Y" }}</span>
-                {% if post.reading_time %}<span><i class="fa-regular fa-clock"></i> ~{{ post.reading_time }} min</span>{% endif %}
-              </div>
-            </div>
-          </article>
+          {% include post-card.html post=post %}
           {% endfor %}
         </div>
         {% include pagination.html %}

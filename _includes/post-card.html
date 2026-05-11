@@ -1,0 +1,27 @@
+            <article class="post-card{% if include.featured %} post-card--featured{% endif %}">
+              <a href="{{ include.post.url | relative_url }}" class="post-card-image" tabindex="-1" aria-hidden="true">
+                {% if include.post.image %}
+                  <img src="{{ include.post.image | relative_url }}" alt="{{ include.post.title }}">
+                {% else %}
+                  <div class="post-card-placeholder"><span>{{ include.post.title | slice: 0 }}</span></div>
+                {% endif %}
+              </a>
+              <div class="post-card-body">
+                {% if include.featured %}<span class="featured-badge">⭐ Destaque</span>{% endif %}
+                {% if include.post.categories.size > 0 %}
+                <div class="post-card-cats">
+                  {% for cat in include.post.categories limit: 2 %}<span class="cat-pill">{{ cat }}</span>{% endfor %}
+                </div>
+                {% endif %}
+                <h3><a href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a></h3>
+                {% if include.post.description %}
+                <p class="post-card-excerpt">{{ include.post.description | truncate: 110 }}</p>
+                {% elsif include.post.excerpt %}
+                <p class="post-card-excerpt">{{ include.post.excerpt | strip_html | truncate: 110 }}</p>
+                {% endif %}
+                <div class="post-card-meta">
+                  <span>{{ include.post.date | date: "%d/%m/%Y" }}</span>
+                  {% if include.post.reading_time %}<span><i class="fa-regular fa-clock"></i> ~{{ include.post.reading_time }} min</span>{% endif %}
+                </div>
+              </div>
+            </article>
