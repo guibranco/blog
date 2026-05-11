@@ -226,7 +226,7 @@ permalink: /busca/
 
       const header = `<p class="results-header"><strong>${results.length}</strong> resultado${results.length !== 1 ? 's' : ''} para "<strong>${query}</strong>"</p>`;
       const cards  = results.map((r, i) => {
-        const doc     = documents.find(d => d.id === parseInt(r.ref));
+        const doc     = documents.find(d => d.id === Number.parseInt(r.ref));
         if (!doc) return '';
         const excerpt = truncateAround(doc.content, query);
         const cats    = doc.categories ? doc.categories.split(', ').filter(Boolean) : [];
