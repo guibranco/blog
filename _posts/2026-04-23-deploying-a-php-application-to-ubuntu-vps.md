@@ -11,7 +11,8 @@ image: /assets/img/posts/php-deploy.svg
 
 <p class="lead">A step-by-step guide for deploying a long-running PHP application (with optional WebSocket support) to an Ubuntu VPS, using GitHub Actions for CI/CD.</p>
 
-> **Based on:** the logstream-server deployment on an OCI Ubuntu VPS.
+> **Based on:** the [logstream-server](https://github.com/guibranco/logstream-server) deployment on an OCI Ubuntu VPS.
+> 
 > **Tested on:** Ubuntu 22.04 / 24.04 (LTS), PHP 8.3, Nginx, Certbot.
 
 <div class="divider">· · ·</div>
