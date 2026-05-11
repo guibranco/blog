@@ -1,7 +1,5 @@
 ---
-redirect_from:
-  - /tags/background-worker/
 layout: tag
-tag: Background Worker
+tag: background worker
 permalink: /topicos/background-worker/
 ---
