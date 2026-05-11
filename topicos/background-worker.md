@@ -1,5 +1,5 @@
 ---
 layout: tag
-tag: background worker
+tag: background-worker
 permalink: /topicos/background-worker/
 ---
