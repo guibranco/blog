@@ -9,7 +9,7 @@ series: dev-essentials
 series_title: "Dev Essentials"
 series_part: 3
 reading_time: 2
-image: /assets/img/posts/logo-vsc.jpg
+image: /assets/img/posts/logo-vsc.png
 ---
 
 <p class="lead">In this third part of the <strong>Dev Essentials</strong> series, I present the extensions I use in <strong>Visual Studio Code</strong> — covering every language and tool in my stack.</p>
