@@ -1,0 +1,80 @@
+name: Auto-create category and tag pages
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - '_posts/**'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-create-pages:
+    name: Create missing pages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Get changed post files
+        id: changed
+        run: |
+          git fetch origin ${{ github.base_ref }} --quiet
+
+          # Added (A) or Modified (M) .md files inside _posts/
+          CHANGED=$(git diff --name-only --diff-filter=AM \
+            origin/${{ github.base_ref }}...HEAD \
+            -- '_posts/*.md' | tr '\n' ' ')
+
+          echo "files=${CHANGED}" >> "$GITHUB_OUTPUT"
+
+          if [ -z "$CHANGED" ]; then
+            echo "No post files changed."
+          else
+            echo "Changed posts: $CHANGED"
+          fi
+
+      - name: Create missing category and tag pages
+        if: steps.changed.outputs.files != ''
+        id: create
+        run: |
+          python3 .github/scripts/create_missing_pages.py ${{ steps.changed.outputs.files }}
+
+      - name: Commit new pages
+        if: steps.create.outputs.created_count != '' && steps.create.outputs.created_count != '0'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add categorias/ topicos/ feed/
+          git commit -m "chore: auto-create missing category and tag pages [skip ci]"
+          git push origin HEAD:${{ github.head_ref }}
+
+      - name: Comment on PR
+        if: steps.create.outputs.created_count != '' && steps.create.outputs.created_count != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = `${{ steps.create.outputs.pr_comment }}`;
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner:        context.repo.owner,
+              repo:         context.repo.repo,
+              body,
+            });
+
+      - name: No new pages needed
+        if: steps.changed.outputs.files == '' || steps.create.outputs.created_count == '0'
+        run: echo "✅ All category and tag pages already exist."
