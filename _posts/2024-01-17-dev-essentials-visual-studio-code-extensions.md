@@ -14,15 +14,6 @@ image: /assets/img/posts/logo-vsc.png
 
 <p class="lead">In this third part of the <strong>Dev Essentials</strong> series, I present the extensions I use in <strong>Visual Studio Code</strong> — covering every language and tool in my stack.</p>
 
-**Series index:**
-
-- [Part I — Software and Tools](/blog/artigos/dev-essentials-software-and-tools/)
-- [Part II — Visual Studio (IDE) Extensions](/blog/artigos/dev-essentials-visual-studio-ide-extensions/)
-- **Part III — Visual Studio Code Extensions** ← you are here
-- [Part IV — JetBrains ReSharper Extensions](/blog/artigos/dev-essentials-jetbrains-resharper-extensions/)
-
-<div class="divider">· · ·</div>
-
 <div class="providers-grid">
   <div class="provider-card"><div class="provider-name"><a href="https://marketplace.visualstudio.com/items?itemName=4ops.terraform" target="_blank">Terraform</a></div><div class="provider-detail">Terraform language support.</div></div>
   <div class="provider-card"><div class="provider-name"><a href="https://marketplace.visualstudio.com/items?itemName=adpyke.codesnap" target="_blank">Codesnap</a></div><div class="provider-detail">Take beautiful screenshots of your code.</div></div>
