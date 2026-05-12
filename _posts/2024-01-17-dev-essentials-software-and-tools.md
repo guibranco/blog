@@ -16,8 +16,6 @@ image: /assets/img/posts/setup-scaled.jpg
 
 As a software engineer, having the right software and tools at your disposal is crucial for optimizing productivity, streamlining development processes, and ensuring the delivery of high-quality code. With the ever-evolving landscape of software engineering, it's essential to stay up-to-date with the latest technologies and tools that can enhance your efficiency and effectiveness.
 
-<div class="divider">· · ·</div>
-
 - [Apache JMeter](https://jmeter.apache.org/){:target="_blank"} — load and performance testing tool
 - [Beyond Compare](https://www.scootersoftware.com/){:target="_blank"} — file and folder diff/merge tool
 - [Catlight](https://catlight.io/){:target="_blank"} — build and issue status notifier for GitHub, Azure DevOps and more
