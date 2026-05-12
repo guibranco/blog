@@ -15,15 +15,6 @@ image: /assets/img/posts/logo_resharper.png
 
 <p class="lead">In this fourth and final part of the <strong>Dev Essentials</strong> series, I present the extensions I use on <strong>JetBrains ReSharper</strong> — plugins that take an already powerful tool even further.</p>
 
-**Series index:**
-
-- [Part I — Software and Tools](/blog/artigos/dev-essentials-software-and-tools/)
-- [Part II — Visual Studio (IDE) Extensions](/blog/artigos/dev-essentials-visual-studio-ide-extensions/)
-- [Part III — Visual Studio Code Extensions](/blog/artigos/dev-essentials-visual-studio-code-extensions/)
-- **Part IV — JetBrains ReSharper Extensions** ← you are here
-
-<div class="divider">· · ·</div>
-
 <div class="providers-grid">
   <div class="provider-card"><div class="provider-name"><a href="https://plugins.jetbrains.com/plugin/19783-attribute-localization-for-resharper" target="_blank">Attribute Localization for ReSharper</a></div><div class="provider-detail">Automates localization of attribute arguments.</div></div>
   <div class="provider-card"><div class="provider-name"><a href="https://plugins.jetbrains.com/plugin/11677-cleancode" target="_blank">Clean Code</a></div><div class="provider-detail">Highlights code smells based on clean code principles.</div></div>
