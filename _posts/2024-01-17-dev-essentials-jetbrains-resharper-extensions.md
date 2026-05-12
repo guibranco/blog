@@ -9,6 +9,8 @@ series: dev-essentials
 series_title: "Dev Essentials"
 series_part: 4
 reading_time: 2
+image: /assets/img/posts/ReSharper_logo.jpg
+
 ---
 
 <p class="lead">In this fourth and final part of the <strong>Dev Essentials</strong> series, I present the extensions I use on <strong>JetBrains ReSharper</strong> — plugins that take an already powerful tool even further.</p>
