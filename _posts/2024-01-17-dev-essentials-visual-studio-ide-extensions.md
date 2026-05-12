@@ -9,7 +9,7 @@ series: dev-essentials
 series_title: "Dev Essentials"
 series_part: 2
 reading_time: 2
-image: /assets/img/posts/logo-vs-v2.jpg
+image: /assets/img/posts/logo-vs-v2.png
 ---
 
 <p class="lead">In this second part of the <strong>Dev Essentials</strong> series, I present the extensions I use in <strong>Visual Studio (IDE)</strong> — the ones that survived years of use and actually make a difference.</p>
