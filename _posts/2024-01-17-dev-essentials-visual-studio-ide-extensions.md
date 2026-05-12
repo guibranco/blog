@@ -14,15 +14,6 @@ image: /assets/img/posts/logo-vs-v2.png
 
 <p class="lead">In this second part of the <strong>Dev Essentials</strong> series, I present the extensions I use in <strong>Visual Studio (IDE)</strong> — the ones that survived years of use and actually make a difference.</p>
 
-**Series index:**
-
-- [Part I — Software and Tools](/blog/artigos/dev-essentials-software-and-tools/)
-- **Part II — Visual Studio (IDE) Extensions** ← you are here
-- [Part III — Visual Studio Code Extensions](/blog/artigos/dev-essentials-visual-studio-code-extensions/)
-- [Part IV — JetBrains ReSharper Extensions](/blog/artigos/dev-essentials-jetbrains-resharper-extensions/)
-
-<div class="divider">· · ·</div>
-
 <div class="providers-grid">
   <div class="provider-card">
     <div class="provider-name"><a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgradeassistant" target="_blank">.NET Upgrade Assistant</a></div>
