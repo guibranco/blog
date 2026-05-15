@@ -1,0 +1,100 @@
+<svg width="1200" height="630" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+<style>
+.bg{fill:#0f0e0c}.grid{stroke:#1e1c18;stroke-width:.5;fill:none}
+.tt{fill:#faf9f6;font-family:Georgia,serif;font-style:italic;font-size:24px}
+.st{fill:#5a534a;font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;letter-spacing:.1em}
+.lw{fill:#faf9f6;font-family:'JetBrains Mono','Courier New',monospace;font-size:11px}
+.lg{fill:#93c97a;font-family:'JetBrains Mono','Courier New',monospace;font-size:11px}
+.la{fill:#e3b341;font-family:'JetBrains Mono','Courier New',monospace;font-size:11px}
+.lm{fill:#5a534a;font-family:'JetBrains Mono','Courier New',monospace;font-size:9px}
+.ls{fill:#faf9f6;font-family:'JetBrains Mono','Courier New',monospace;font-size:9px;opacity:.6}
+.panel-g{fill:#0d2010;stroke:#2a5a20;stroke-width:.5}
+.panel-a{fill:#2d1b00;stroke:#8a6020;stroke-width:.5}
+.panel-b{fill:#0c1d3b;stroke:#1f6feb;stroke-width:.5}
+.divider-line{stroke:#2e2c28;stroke-width:1;fill:none}
+</style>
+
+<rect class="bg" width="680" height="400"/>
+<line class="grid" x1="0" y1="100" x2="680" y2="100"/>
+<line class="grid" x1="0" y1="200" x2="680" y2="200"/>
+<line class="grid" x1="0" y1="300" x2="680" y2="300"/>
+<line class="grid" x1="340" y1="0" x2="340" y2="400"/>
+<rect x="0" y="0" width="680" height="400" fill="none" stroke="#1e1c18" stroke-width="1"/>
+
+<!-- Title -->
+<text x="40" y="44" class="tt">Dev vs QA</text>
+<text x="40" y="70" class="tt">Responsabilidades de Teste</text>
+<text x="40" y="90" class="st">// white box · black box · pirâmide de testes</text>
+<line x1="40" y1="98" x2="300" y2="98" stroke="#93c97a" stroke-width=".5" opacity=".6"/>
+
+<!-- DEV Panel (White Box) -->
+<rect x="40" y="112" width="272" height="128" rx="4" class="panel-g"/>
+<text x="56" y="132" class="lg">Desenvolvedor — White Box</text>
+<text x="56" y="148" class="lm" style="fill:#3a6a30">Conhece o código interno · Caixa branca</text>
+<line x1="56" y1="156" x2="296" y2="156" stroke="#2a5a20" stroke-width=".5"/>
+<circle cx="64" cy="172" r="4" fill="#3fb950"/>
+<text x="74" y="176" class="lw" style="font-size:10px">Unit Test</text>
+<text x="200" y="176" class="lm" style="fill:#3a6a30">→ lógica isolada</text>
+<circle cx="64" cy="194" r="4" fill="#3fb950"/>
+<text x="74" y="198" class="lw" style="font-size:10px">Integration Test</text>
+<text x="200" y="198" class="lm" style="fill:#3a6a30">→ módulos</text>
+<circle cx="64" cy="216" r="4" fill="#3fb950"/>
+<text x="74" y="220" class="lw" style="font-size:10px">Load Test</text>
+<text x="200" y="220" class="lm" style="fill:#3a6a30">→ performance</text>
+<text x="56" y="234" class="lm" style="fill:#2a5a20;font-style:italic">Escreve os testes junto ao código</text>
+
+<!-- QA Panel (Black Box) -->
+<rect x="40" y="256" width="272" height="112" rx="4" class="panel-a"/>
+<text x="56" y="276" class="la">QA — Black Box</text>
+<text x="56" y="292" class="lm" style="fill:#8a6020">Testa comportamento externo · Caixa preta</text>
+<line x1="56" y1="300" x2="296" y2="300" stroke="#8a6020" stroke-width=".5"/>
+<circle cx="64" cy="316" r="4" fill="#e3b341"/>
+<text x="74" y="320" class="lw" style="font-size:10px">E2E Test</text>
+<text x="200" y="320" class="lm" style="fill:#8a6020">→ fluxo completo</text>
+<circle cx="64" cy="338" r="4" fill="#e3b341"/>
+<text x="74" y="342" class="lw" style="font-size:10px">UAT</text>
+<text x="200" y="342" class="lm" style="fill:#8a6020">→ validação usuário</text>
+<text x="56" y="360" class="lm" style="fill:#8a6020;font-style:italic">Valida sem ver o código fonte</text>
+
+<!-- Vertical divider -->
+<line x1="330" y1="108" x2="330" y2="375" class="divider-line" stroke-dasharray="4 3"/>
+
+<!-- ── Testing Pyramid ── -->
+<!-- apex at x=505, y=130 | base from x=382 to x=628, y=362 -->
+
+<!-- Layer 5 (UAT) top -->
+<polygon points="505,132 505,132 521,172 489,172" fill="#b85c00" opacity=".9"/>
+<text x="505" y="157" text-anchor="middle" class="ls" style="font-size:8px">UAT</text>
+
+<!-- Layer 4 (E2E) -->
+<polygon points="489,174 521,174 545,214 465,214" fill="#d29922" opacity=".9"/>
+<text x="505" y="198" text-anchor="middle" class="ls" style="font-size:9px">E2E Test</text>
+
+<!-- Layer 3 (Load) -->
+<polygon points="465,216 545,216 563,256 447,256" fill="#4a9a40" opacity=".85"/>
+<text x="505" y="240" text-anchor="middle" class="ls" style="font-size:9px">Load Test</text>
+
+<!-- Layer 2 (Integration) -->
+<polygon points="447,258 563,258 583,298 427,298" fill="#3a7a30" opacity=".9"/>
+<text x="505" y="282" text-anchor="middle" class="ls" style="font-size:10px">Integration Test</text>
+
+<!-- Layer 1 (Unit) base -->
+<polygon points="427,300 583,300 605,360 405,360" fill="#2a5a20" opacity=".95"/>
+<text x="505" y="334" text-anchor="middle" class="lw" style="font-size:11px">Unit Test</text>
+
+<!-- Pyramid divider between DEV and QA layers -->
+<line x1="447" y1="256" x2="563" y2="256" stroke="#faf9f6" stroke-width=".75" stroke-dasharray="3 2" opacity=".4"/>
+
+<!-- Side labels -->
+<text x="625" y="334" class="lm" style="fill:#93c97a">DEV</text>
+<text x="625" y="282" class="lm" style="fill:#93c97a">DEV</text>
+<text x="625" y="240" class="lm" style="fill:#93c97a">DEV</text>
+<text x="625" y="198" class="lm" style="fill:#e3b341">QA</text>
+<text x="625" y="157" class="lm" style="fill:#e3b341">QA</text>
+
+<!-- Pyramid labels -->
+<text x="505" y="376" text-anchor="middle" class="lm">Pirâmide de Testes</text>
+<text x="505" y="387" text-anchor="middle" class="lm" style="fill:#3a6a30">base = + quantidade + velocidade</text>
+
+<text x="640" y="395" text-anchor="end" class="lm" opacity=".4">© Tecnologia &amp; Viagens</text>
+</svg>
