@@ -138,3 +138,39 @@ Outra abordagem é planejar pela meta mensal. Dividir R$ 5.000 por 12 meses resu
   <p>Você não precisa esperar janeiro. Defina hoje qual será o valor da sua "semana 1", baixe uma planilha ou abra o app e faça o primeiro depósito. Profissionais de TI, acostumados a metas e cronogramas, tendem a se adaptar bem a esse tipo de desafio — é só aplicar a mesma lógica de progressão que já usamos no trabalho ao próprio bolso.</p>
   <p>Ao final das 52 semanas, você terá uma reserva expressiva e, mais importante, o hábito de poupar consolidado.</p>
 </div>
+
+<div class="divider">· · ·</div>
+
+<div class="references">
+  <p class="references-title">Referências</p>
+  <ol class="references-list">
+    <li>
+      Mobills. <strong>Desafio das 52 Semanas: como juntar até R$ 13.780 em 1 ano.</strong>
+      <a href="https://www.mobills.com.br/blog/economizar/desafio-52-semanas/" target="_blank">mobills.com.br</a>
+    </li>
+    <li>
+      SumUp. <strong>Desafio das 52 semanas: tabela grátis para organizar suas finanças.</strong>
+      <a href="https://www.sumup.com/pt-br/gerenciar/financas/desafio-52-semanas/" target="_blank">sumup.com</a>
+    </li>
+    <li>
+      Apps Para Vida. <strong>Desafio 52 Semanas Para Economizar Dinheiro.</strong>
+      <a href="https://appsparavida.com.br/desafio-52-semanas-para-economizar-dinheiro/" target="_blank">appsparavida.com.br</a>
+    </li>
+    <li>
+      Sofisa Direto. <strong>7 vantagens de realizar o desafio das 52 semanas.</strong>
+      <a href="https://blog.sofisadireto.com.br/vantagens-desafio-das-52-semanas" target="_blank">blog.sofisadireto.com.br</a>
+    </li>
+    <li>
+      Toro Investimentos. <strong>Desafio de juntar dinheiro: saiba como poupar dinheiro rápido.</strong>
+      <a href="https://blog.toroinvestimentos.com.br/educacao-financeira/desafio-de-juntar-dinheiro/" target="_blank">blog.toroinvestimentos.com.br</a>
+    </li>
+    <li>
+      Meu Bolso em Dia. <strong>Como guardar dinheiro e sair das dívidas: técnica #02 — Crie seu próprio desafio.</strong>
+      <a href="https://meubolsoemdia.com.br/Materias/tecnicas-para-guardar-dinheiro2-crie-seu-proprio-desafio" target="_blank">meubolsoemdia.com.br</a>
+    </li>
+    <li>
+      InfinitePay. <strong>Tabela Para Juntar Dinheiro Mensal e Fazer Mais de R$ 13 Mil.</strong>
+      <a href="https://www.infinitepay.io/blog/tabela-para-juntar-dinheiro-mensal" target="_blank">infinitepay.io</a>
+    </li>
+  </ol>
+</div>

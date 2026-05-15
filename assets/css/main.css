@@ -1150,3 +1150,11 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
   font-family: 'JetBrains Mono', monospace; font-size: 0.625rem;
   color: var(--ink-light); white-space: nowrap; flex-shrink: 0;
 }
+/* ── References ─────────────────────────────────────────────────────────────── */
+.references { margin-top: 2rem; padding: 1.5rem 1.75rem; background: var(--tag-bg); border: 1px solid var(--border); border-radius: 8px; }
+.references-title { font-family: 'JetBrains Mono', monospace; font-size: 0.69rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 1rem; }
+.references-list { margin: 0; padding-left: 1.5rem; display: flex; flex-direction: column; gap: .65rem; }
+.references-list li { font-family: 'Source Serif 4', serif; font-size: .875rem; color: var(--ink-muted); line-height: 1.5; }
+.references-list li strong { color: var(--ink); font-weight: 600; }
+.references-list li a { font-family: 'JetBrains Mono', monospace; font-size: .8rem; color: var(--accent); text-decoration: none; margin-left: .4rem; }
+.references-list li a:hover { text-decoration: underline; }
