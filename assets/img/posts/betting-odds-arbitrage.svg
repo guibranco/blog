@@ -1,0 +1,111 @@
+<svg width="1200" height="630" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+<style>
+.bg{fill:#0f0e0c}.grid{stroke:#1e1c18;stroke-width:.5;fill:none}
+.tt{fill:#faf9f6;font-family:Georgia,serif;font-style:italic;font-size:24px}
+.st{fill:#5a534a;font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;letter-spacing:.1em}
+.lw{fill:#faf9f6;font-family:'JetBrains Mono','Courier New',monospace;font-size:11px}
+.lg{fill:#93c97a;font-family:'JetBrains Mono','Courier New',monospace;font-size:11px}
+.la{fill:#e3b341;font-family:'JetBrains Mono','Courier New',monospace;font-size:11px}
+.lb{fill:#58a6ff;font-family:'JetBrains Mono','Courier New',monospace;font-size:11px}
+.lm{fill:#5a534a;font-family:'JetBrains Mono','Courier New',monospace;font-size:9px}
+.panel{fill:#1a1814;stroke:#2e2c28;stroke-width:.5}
+.panel-g{fill:#0d2010;stroke:#2a5a20;stroke-width:.5}
+.panel-a{fill:#2d1b00;stroke:#8a6020;stroke-width:.5}
+.panel-b{fill:#0c1d3b;stroke:#1f6feb;stroke-width:.5}
+.panel-p{fill:#1a0e3a;stroke:#6a3fb0;stroke-width:.5}
+.num{fill:#faf9f6;font-family:Georgia,serif;font-size:28px;font-weight:bold}
+.big-green{fill:#93c97a;font-family:Georgia,serif;font-size:22px;font-weight:bold}
+</style>
+
+<rect class="bg" width="680" height="400"/>
+<line class="grid" x1="0" y1="100" x2="680" y2="100"/>
+<line class="grid" x1="0" y1="200" x2="680" y2="200"/>
+<line class="grid" x1="0" y1="300" x2="680" y2="300"/>
+<line class="grid" x1="340" y1="0" x2="340" y2="400"/>
+<rect x="0" y="0" width="680" height="400" fill="none" stroke="#1e1c18" stroke-width="1"/>
+
+<!-- Title -->
+<text x="40" y="44" class="tt">Betting Odds</text>
+<text x="40" y="70" class="tt">From Probability to Arbitrage</text>
+<text x="40" y="90" class="st">// decimal · fractional · american · sure bet</text>
+<line x1="40" y1="98" x2="300" y2="98" stroke="#93c97a" stroke-width=".5" opacity=".6"/>
+
+<!-- Odds Formats - Left column (3 cards stacked) -->
+<!-- Decimal -->
+<rect x="40" y="112" width="86" height="70" rx="4" class="panel-g"/>
+<text x="83" y="130" text-anchor="middle" class="lg" style="font-size:9px">Decimal</text>
+<text x="83" y="154" text-anchor="middle" class="big-green" style="font-size:26px">2.50</text>
+<text x="83" y="172" text-anchor="middle" class="lm" style="fill:#3a6a30">stake × odds</text>
+
+<!-- Fractional -->
+<rect x="134" y="112" width="86" height="70" rx="4" class="panel-b"/>
+<text x="177" y="130" text-anchor="middle" class="lb" style="font-size:9px">Fractional</text>
+<text x="177" y="154" text-anchor="middle" style="fill:#58a6ff;font-family:Georgia,serif;font-size:22px;font-weight:bold">3/2</text>
+<text x="177" y="172" text-anchor="middle" class="lm" style="fill:#1f6feb">profit / stake</text>
+
+<!-- American -->
+<rect x="228" y="112" width="86" height="70" rx="4" class="panel-p"/>
+<text x="271" y="130" text-anchor="middle" class="lm" style="fill:#9a70d0;font-size:9px">American</text>
+<text x="271" y="154" text-anchor="middle" style="fill:#bc8cff;font-family:Georgia,serif;font-size:20px;font-weight:bold">+150</text>
+<text x="271" y="172" text-anchor="middle" class="lm" style="fill:#6a3fb0">per $100 bet</text>
+
+<!-- Probability panel -->
+<rect x="40" y="196" width="274" height="80" rx="4" class="panel"/>
+<text x="177" y="214" text-anchor="middle" class="lw" style="font-size:10px">Implied probability</text>
+<text x="177" y="232" text-anchor="middle" class="lm" style="fill:#5a534a">1 ÷ odds × 100</text>
+<line x1="56" y1="238" x2="298" y2="238" stroke="#2e2c28" stroke-width=".5"/>
+<text x="80" y="254" text-anchor="middle" class="lg" style="font-size:10px">2.00</text>
+<text x="80" y="268" text-anchor="middle" class="lm">= 50%</text>
+<text x="177" y="254" text-anchor="middle" class="lg" style="font-size:10px">1.50</text>
+<text x="177" y="268" text-anchor="middle" class="lm">= 66.7%</text>
+<text x="274" y="254" text-anchor="middle" class="lg" style="font-size:10px">4.00</text>
+<text x="274" y="268" text-anchor="middle" class="lm">= 25%</text>
+
+<!-- Bookmaker margin note -->
+<rect x="40" y="290" width="274" height="28" rx="4" class="panel-a"/>
+<text x="177" y="308" text-anchor="middle" class="la" style="font-size:9px">Odds include bookmaker margin (vig)</text>
+
+<!-- RIGHT SIDE: Arbitrage visual -->
+<rect x="358" y="112" width="290" height="258" rx="6" class="panel"/>
+
+<!-- Header -->
+<rect x="358" y="112" width="290" height="30" rx="4" fill="#1a2d10" stroke="#2a5a20" stroke-width=".5"/>
+<text x="503" y="131" text-anchor="middle" class="lg">Arbitrage — Sure Bet</text>
+
+<!-- Three outcome cards -->
+<rect x="370" y="152" width="82" height="80" rx="4" class="panel-g"/>
+<text x="411" y="170" text-anchor="middle" class="lm" style="fill:#3a6a30">Team A</text>
+<text x="411" y="196" text-anchor="middle" class="big-green">3.00</text>
+<text x="411" y="214" text-anchor="middle" class="lm" style="fill:#3a6a30">£1 stake</text>
+<text x="411" y="228" text-anchor="middle" class="lg" style="font-size:9px">return £3</text>
+
+<rect x="462" y="152" width="82" height="80" rx="4" class="panel-g"/>
+<text x="503" y="170" text-anchor="middle" class="lm" style="fill:#3a6a30">Draw</text>
+<text x="503" y="196" text-anchor="middle" class="big-green">3.00</text>
+<text x="503" y="214" text-anchor="middle" class="lm" style="fill:#3a6a30">£1 stake</text>
+<text x="503" y="228" text-anchor="middle" class="lg" style="font-size:9px">return £3</text>
+
+<rect x="554" y="152" width="82" height="80" rx="4" class="panel-g"/>
+<text x="595" y="170" text-anchor="middle" class="lm" style="fill:#3a6a30">Team B</text>
+<text x="595" y="196" text-anchor="middle" class="big-green">3.00</text>
+<text x="595" y="214" text-anchor="middle" class="lm" style="fill:#3a6a30">£1 stake</text>
+<text x="595" y="228" text-anchor="middle" class="lg" style="font-size:9px">return £3</text>
+
+<!-- Divider -->
+<line x1="370" y1="244" x2="636" y2="244" stroke="#2e2c28" stroke-width=".5"/>
+
+<!-- Summary -->
+<text x="503" y="262" text-anchor="middle" class="lm">Total stake: £3 · Guaranteed return: £3</text>
+<text x="503" y="278" text-anchor="middle" class="la">Min profit: £0 · Any odds &gt; 3.00 = gain</text>
+
+<!-- Condition -->
+<rect x="370" y="290" width="266" height="26" rx="3" fill="#0a1a0a" stroke="#2a5a20" stroke-width=".5"/>
+<text x="503" y="307" text-anchor="middle" class="lg" style="font-size:9px">All 3 outcomes ≥ 3.00 = zero risk guaranteed</text>
+
+<!-- Divider right -->
+<line x1="370" y1="326" x2="636" y2="326" stroke="#2e2c28" stroke-width=".5"/>
+<text x="503" y="344" text-anchor="middle" class="lm" style="fill:#3a534a">Rare on single bookmaker</text>
+<text x="503" y="358" text-anchor="middle" class="lm" style="fill:#3a534a">Common across multiple books</text>
+
+<text x="640" y="392" text-anchor="end" class="lm" opacity=".4">© Tecnologia &amp; Viagens</text>
+</svg>
