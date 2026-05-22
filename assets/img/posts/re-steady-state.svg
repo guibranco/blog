@@ -1,0 +1,106 @@
+<svg width="680" height="328" viewBox="0 0 680 328" xmlns="http://www.w3.org/2000/svg">
+<style>
+.cl{font-family:"JetBrains Mono","Courier New",monospace;font-size:9px;fill:#5a534a;}
+.rl{font-family:"JetBrains Mono","Courier New",monospace;font-size:8px;fill:#5a534a;text-anchor:end;}
+</style>
+<rect width="680" height="328" fill="#faf9f6" rx="8"/>
+<rect x="88" y="36" width="572" height="240" fill="#f5f0e8" rx="4"/>
+<line x1="88" y1="36" x2="88" y2="276" stroke="#ddd8d0" stroke-width="1"/>
+<line x1="154" y1="36" x2="154" y2="276" stroke="#ddd8d0" stroke-width="1"/>
+<line x1="220" y1="36" x2="220" y2="276" stroke="#ddd8d0" stroke-width="1"/>
+<line x1="286" y1="36" x2="286" y2="276" stroke="#ddd8d0" stroke-width="1"/>
+<line x1="352" y1="36" x2="352" y2="276" stroke="#ddd8d0" stroke-width="1"/>
+<line x1="418" y1="36" x2="418" y2="276" stroke="#ddd8d0" stroke-width="1"/>
+<line x1="484" y1="36" x2="484" y2="276" stroke="#ddd8d0" stroke-width="1"/>
+<line x1="550" y1="36" x2="550" y2="276" stroke="#ddd8d0" stroke-width="1"/>
+<line x1="616" y1="36" x2="616" y2="276" stroke="#ddd8d0" stroke-width="1"/>
+<text x="143.0" y="31" class="cl" text-anchor="middle">M3</text>
+<text x="209.0" y="31" class="cl" text-anchor="middle">M6</text>
+<text x="275.0" y="31" class="cl" text-anchor="middle">M9</text>
+<text x="341.0" y="31" class="cl" text-anchor="middle">M12</text>
+<text x="407.0" y="31" class="cl" text-anchor="middle">M15</text>
+<text x="473.0" y="31" class="cl" text-anchor="middle">M18</text>
+<text x="539.0" y="31" class="cl" text-anchor="middle">M21</text>
+<text x="605.0" y="31" class="cl" text-anchor="middle">M24</text>
+<text x="84" y="43" class="rl">T01</text>
+<rect x="88" y="37" width="528" height="6" fill="#2d6a4f" rx="2" opacity=".85"/>
+<rect x="613" y="36" width="6" height="8" fill="#f0c060" rx="1"/>
+<text x="84" y="53" class="rl">T02</text>
+<rect x="110" y="47" width="528" height="6" fill="#2d6a4f" rx="2" opacity=".85"/>
+<rect x="635" y="46" width="6" height="8" fill="#f0c060" rx="1"/>
+<text x="84" y="63" class="rl">T03</text>
+<rect x="132" y="57" width="528" height="6" fill="#2d6a4f" rx="2" opacity=".85"/>
+<rect x="657" y="56" width="6" height="8" fill="#f0c060" rx="1"/>
+<text x="84" y="73" class="rl">T04</text>
+<rect x="154" y="67" width="506" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="83" class="rl">T05</text>
+<rect x="176" y="77" width="484" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="93" class="rl">T06</text>
+<rect x="198" y="87" width="462" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="103" class="rl">T07</text>
+<rect x="220" y="97" width="440" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="113" class="rl">T08</text>
+<rect x="242" y="107" width="418" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="123" class="rl">T09</text>
+<rect x="264" y="117" width="396" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="133" class="rl">T10</text>
+<rect x="286" y="127" width="374" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="143" class="rl">T11</text>
+<rect x="308" y="137" width="352" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="153" class="rl">T12</text>
+<rect x="330" y="147" width="330" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="163" class="rl">T13</text>
+<rect x="352" y="157" width="308" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="173" class="rl">T14</text>
+<rect x="374" y="167" width="286" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="183" class="rl">T15</text>
+<rect x="396" y="177" width="264" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="193" class="rl">T16</text>
+<rect x="418" y="187" width="242" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="203" class="rl">T17</text>
+<rect x="440" y="197" width="220" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="213" class="rl">T18</text>
+<rect x="462" y="207" width="198" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="223" class="rl">T19</text>
+<rect x="484" y="217" width="176" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="233" class="rl">T20</text>
+<rect x="506" y="227" width="154" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="243" class="rl">T21</text>
+<rect x="528" y="237" width="132" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="253" class="rl">T22</text>
+<rect x="550" y="247" width="110" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="263" class="rl">T23</text>
+<rect x="572" y="257" width="88" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<text x="84" y="273" class="rl">T24</text>
+<rect x="594" y="267" width="66" height="6" fill="#4a9a60" rx="2" opacity=".85"/>
+<line x1="110.0" y1="36" x2="110.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="132.0" y1="36" x2="132.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="154.0" y1="36" x2="154.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="176.0" y1="36" x2="176.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="198.0" y1="36" x2="198.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="220.0" y1="36" x2="220.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="242.0" y1="36" x2="242.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="264.0" y1="36" x2="264.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="286.0" y1="36" x2="286.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="308.0" y1="36" x2="308.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="330.0" y1="36" x2="330.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="352.0" y1="36" x2="352.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="374.0" y1="36" x2="374.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="396.0" y1="36" x2="396.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="418.0" y1="36" x2="418.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="440.0" y1="36" x2="440.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="462.0" y1="36" x2="462.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="484.0" y1="36" x2="484.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="506.0" y1="36" x2="506.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="528.0" y1="36" x2="528.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="550.0" y1="36" x2="550.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="572.0" y1="36" x2="572.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="594.0" y1="36" x2="594.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<line x1="616.0" y1="36" x2="616.0" y2="276" stroke="#f0c060" stroke-width=".5" opacity=".5"/>
+<rect x="88" y="288" width="12" height="8" fill="#2d6a4f" rx="1"/>
+<text x="104" y="295" class="cl">Título ativo (2 anos)</text>
+<rect x="248" y="288" width="12" height="8" fill="#f0c060" rx="1"/>
+<text x="264" y="295" class="cl">Vencimento mensal (R$ 2.500)</text>
+<text x="340" y="314" text-anchor="middle" class="cl" style="font-size:10px;fill:#2d6a4f;font-weight:500">1 título vence por mês → liquidez mensal permanente · R$ 2.500/mês disponível</text>
+<text x="340" y="18" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:10px;fill:#1a1714;font-weight:500;">Estado estável — 24 títulos LCI/LCA de 2 anos escalonados (R$ 60.000)</text>
+</svg>

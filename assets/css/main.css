@@ -1158,3 +1158,11 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 .references-list li strong { color: var(--ink); font-weight: 600; }
 .references-list li a { font-family: 'JetBrains Mono', monospace; font-size: .8rem; color: var(--accent); text-decoration: none; margin-left: .4rem; }
 .references-list li a:hover { text-decoration: underline; }
+
+/* ── Personal story box ─────────────────────────────────────────────────────── */
+.personal-story { border-left: 3px solid var(--accent-warm); background: #fff8f0; border-radius: 0 8px 8px 0; padding: 1rem 1.3rem; margin: 1.75rem 0; }
+.personal-story-label { font-family: 'JetBrains Mono', monospace; font-size: 0.59rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-warm); font-weight: 600; margin-bottom: .55rem; display: flex; align-items: center; gap: .45rem; }
+.personal-story p { font-size: .95rem; color: var(--ink-muted); line-height: 1.7; margin-bottom: .75rem; }
+.personal-story p:last-child { margin-bottom: 0; }
+.personal-story strong { color: var(--ink); }
+.personal-story code { font-family: 'JetBrains Mono', monospace; font-size: .8rem; background: #f5e8d8; padding: 1px 5px; border-radius: 3px; color: var(--accent-warm); }

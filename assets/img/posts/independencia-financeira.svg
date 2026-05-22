@@ -1,0 +1,88 @@
+<svg width="1200" height="630" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+<style>
+.bg{fill:#f5f0e8}
+.tt{fill:#1a1714;font-family:Georgia,serif;font-style:italic}
+.st{fill:#5a534a;font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;letter-spacing:.08em}
+.lm{fill:#8a8078;font-family:'JetBrains Mono','Courier New',monospace;font-size:9px}
+.pillar-label{font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;font-weight:600;text-anchor:middle}
+.pillar-sub{font-family:'JetBrains Mono','Courier New',monospace;font-size:8px;text-anchor:middle;opacity:.8}
+.value{font-family:Georgia,serif;font-style:italic;font-size:14px;text-anchor:middle}
+</style>
+
+<!-- Warm cream background -->
+<rect class="bg" width="680" height="400"/>
+
+<!-- Subtle grid texture -->
+<pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8e2d8" stroke-width=".4"/>
+</pattern>
+<rect width="680" height="400" fill="url(#grid)" opacity=".5"/>
+
+<!-- Top accent bar -->
+<rect x="0" y="0" width="680" height="5" fill="#2d6a4f"/>
+
+<!-- LEFT: Title block -->
+<text x="48" y="72" class="tt" style="font-size:36px;fill:#1a1714">Independência</text>
+<text x="48" y="112" class="tt" style="font-size:36px;fill:#1a1714">Financeira</text>
+<rect x="48" y="122" width="240" height="2" fill="#2d6a4f" opacity=".6"/>
+<text x="48" y="140" class="st">// os primeiros passos</text>
+
+<!-- Descriptive items left -->
+<text x="56" y="178" class="lm">📌 Reserva de Emergência</text>
+<text x="56" y="196" class="lm">📌 Reserva de Oportunidade</text>
+<text x="56" y="214" class="lm">📌 Aposentadoria</text>
+<text x="56" y="232" class="lm">📌 Médio e longo prazo</text>
+<text x="56" y="250" class="lm">📌 Investimentos de alto risco</text>
+
+<!-- Quote bottom-left -->
+<text x="48" y="330" class="tt" style="font-size:13px;fill:#5a534a;font-style:italic">"Não é o quanto você ganha,</text>
+<text x="48" y="348" class="tt" style="font-size:13px;fill:#5a534a;font-style:italic">mas o quanto você guarda."</text>
+<text x="48" y="368" class="st" style="font-size:9px;fill:#8a8078">— Warren Buffett</text>
+
+<!-- Vertical divider -->
+<line x1="330" y1="20" x2="330" y2="380" stroke="#ddd8d0" stroke-width="1"/>
+
+<!-- RIGHT: 5 Pillars chart -->
+<!-- Baseline -->
+<line x1="355" y1="340" x2="650" y2="340" stroke="#c8c0b4" stroke-width="1.5"/>
+
+<!-- Pillar dimensions: x centers at 375, 430, 490, 550, 610 -->
+<!-- Heights: RE=150, RO=90, Apo=210, Mid=170, Risk=70 -->
+<!-- All bars end at y=340, so y_top = 340 - height -->
+
+<!-- RE (Reserva Emergência) — forest green -->
+<rect x="355" y="190" width="44" height="150" fill="#2d6a4f" rx="3 3 0 0" opacity=".9"/>
+<text x="377" y="183" class="pillar-label" fill="#2d6a4f">RE</text>
+<text x="377" y="172" class="pillar-sub" fill="#2d6a4f">12×</text>
+<text x="377" y="358" class="pillar-sub" fill="#5a534a">Emergência</text>
+
+<!-- RO (Reserva Oportunidade) — teal -->
+<rect x="411" y="250" width="44" height="90" fill="#1a7a8a" rx="3 3 0 0" opacity=".9"/>
+<text x="433" y="243" class="pillar-label" fill="#1a7a8a">RO</text>
+<text x="433" y="232" class="pillar-sub" fill="#1a7a8a">30%</text>
+<text x="433" y="358" class="pillar-sub" fill="#5a534a">Oportunidade</text>
+
+<!-- Aposentadoria — warm brown -->
+<rect x="467" y="130" width="44" height="210" fill="#8a6030" rx="3 3 0 0" opacity=".9"/>
+<text x="489" y="123" class="pillar-label" fill="#8a6030">APO</text>
+<text x="489" y="112" class="pillar-sub" fill="#8a6030">14%+</text>
+<text x="489" y="358" class="pillar-sub" fill="#5a534a">Aposentadoria</text>
+
+<!-- Médio/Longo prazo — slate -->
+<rect x="523" y="170" width="44" height="170" fill="#4a5a6a" rx="3 3 0 0" opacity=".9"/>
+<text x="545" y="163" class="pillar-label" fill="#4a5a6a">M/L</text>
+<text x="545" y="152" class="pillar-sub" fill="#4a5a6a">FIIs</text>
+<text x="545" y="358" class="pillar-sub" fill="#5a534a">Médio/Longo</text>
+
+<!-- Alto Risco — amber -->
+<rect x="579" y="270" width="44" height="70" fill="#b85c00" rx="3 3 0 0" opacity=".9"/>
+<text x="601" y="263" class="pillar-label" fill="#b85c00">RISCO</text>
+<text x="601" y="252" class="pillar-sub" fill="#b85c00">BTC+</text>
+<text x="601" y="358" class="pillar-sub" fill="#5a534a">Alto risco</text>
+
+<!-- Right caption -->
+<text x="500" y="385" text-anchor="middle" class="st" style="font-size:9px;fill:#8a8078">Os 5 pilares da independência financeira</text>
+
+<!-- Bottom right watermark -->
+<text x="660" y="395" text-anchor="end" class="lm" opacity=".5">© Tecnologia &amp; Viagens</text>
+</svg>

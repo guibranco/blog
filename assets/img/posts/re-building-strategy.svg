@@ -1,0 +1,108 @@
+<svg width="724" height="315" viewBox="0 0 724 315" xmlns="http://www.w3.org/2000/svg">
+<style>
+.cl { font-family:"JetBrains Mono","Courier New",monospace; font-size:10px; fill:#5a534a; }
+.tt { font-family:"JetBrains Mono","Courier New",monospace; font-size:9px; font-weight:500; text-anchor:middle; }
+.rl { font-family:"JetBrains Mono","Courier New",monospace; font-size:9px; fill:#5a534a; text-anchor:end; }
+</style>
+<rect width="724" height="315" fill="#faf9f6" rx="8"/>
+<rect x="88" y="44" width="616" height="216" fill="#f5f0e8" rx="4"/>
+<line x1="88" y1="44" x2="88" y2="260" stroke="#ddd8d0" stroke-width="1"/>
+<line x1="154" y1="44" x2="154" y2="260" stroke="#ddd8d0" stroke-width="1"/>
+<line x1="220" y1="44" x2="220" y2="260" stroke="#ddd8d0" stroke-width="1"/>
+<line x1="286" y1="44" x2="286" y2="260" stroke="#ddd8d0" stroke-width="1"/>
+<line x1="352" y1="44" x2="352" y2="260" stroke="#ddd8d0" stroke-width="1"/>
+<line x1="418" y1="44" x2="418" y2="260" stroke="#ddd8d0" stroke-width="1"/>
+<line x1="484" y1="44" x2="484" y2="260" stroke="#ddd8d0" stroke-width="1"/>
+<line x1="550" y1="44" x2="550" y2="260" stroke="#ddd8d0" stroke-width="1"/>
+<line x1="616" y1="44" x2="616" y2="260" stroke="#ddd8d0" stroke-width="1"/>
+<line x1="682" y1="44" x2="682" y2="260" stroke="#ddd8d0" stroke-width="1"/>
+<text x="99.0" y="38" class="cl" text-anchor="middle">M1</text>
+<text x="165.0" y="38" class="cl" text-anchor="middle">M4</text>
+<text x="231.0" y="38" class="cl" text-anchor="middle">M7</text>
+<text x="297.0" y="38" class="cl" text-anchor="middle">M10</text>
+<text x="363.0" y="38" class="cl" text-anchor="middle">M13</text>
+<text x="429.0" y="38" class="cl" text-anchor="middle">M16</text>
+<text x="495.0" y="38" class="cl" text-anchor="middle">M19</text>
+<text x="561.0" y="38" class="cl" text-anchor="middle">M22</text>
+<text x="627.0" y="38" class="cl" text-anchor="middle">M25</text>
+<text x="693.0" y="38" class="cl" text-anchor="middle">M28</text>
+<text x="84" y="64" class="rl">T01</text>
+<rect x="88" y="47" width="66" height="21" fill="#f0c060" rx="2"/>
+<text x="121.0" y="63" class="tt" fill="#5a3a00">90d</text>
+<rect x="154" y="47" width="132" height="21" fill="#a8d870" rx="2"/>
+<text x="220.0" y="63" class="tt" fill="#1a4d00">180d</text>
+<rect x="286" y="47" width="264" height="21" fill="#4a9a40" rx="2"/>
+<text x="418.0" y="63" class="tt" fill="#0d2d00">360d</text>
+<rect x="550" y="47" width="154" height="21" fill="#2d6a4f" rx="2"/>
+<text x="627.0" y="63" class="tt" fill="#ffffff">720d</text>
+<text x="84" y="91" class="rl">T02</text>
+<rect x="110" y="74" width="66" height="21" fill="#f0c060" rx="2"/>
+<text x="143.0" y="90" class="tt" fill="#5a3a00">90d</text>
+<rect x="176" y="74" width="132" height="21" fill="#a8d870" rx="2"/>
+<text x="242.0" y="90" class="tt" fill="#1a4d00">180d</text>
+<rect x="308" y="74" width="264" height="21" fill="#4a9a40" rx="2"/>
+<text x="440.0" y="90" class="tt" fill="#0d2d00">360d</text>
+<rect x="572" y="74" width="132" height="21" fill="#2d6a4f" rx="2"/>
+<text x="638.0" y="90" class="tt" fill="#ffffff">720d</text>
+<text x="84" y="118" class="rl">T03</text>
+<rect x="132" y="101" width="66" height="21" fill="#f0c060" rx="2"/>
+<text x="165.0" y="117" class="tt" fill="#5a3a00">90d</text>
+<rect x="198" y="101" width="132" height="21" fill="#a8d870" rx="2"/>
+<text x="264.0" y="117" class="tt" fill="#1a4d00">180d</text>
+<rect x="330" y="101" width="264" height="21" fill="#4a9a40" rx="2"/>
+<text x="462.0" y="117" class="tt" fill="#0d2d00">360d</text>
+<rect x="594" y="101" width="110" height="21" fill="#2d6a4f" rx="2"/>
+<text x="649.0" y="117" class="tt" fill="#ffffff">720d</text>
+<text x="84" y="145" class="rl">T04</text>
+<rect x="154" y="128" width="66" height="21" fill="#f0c060" rx="2"/>
+<text x="187.0" y="144" class="tt" fill="#5a3a00">90d</text>
+<rect x="220" y="128" width="132" height="21" fill="#a8d870" rx="2"/>
+<text x="286.0" y="144" class="tt" fill="#1a4d00">180d</text>
+<rect x="352" y="128" width="264" height="21" fill="#4a9a40" rx="2"/>
+<text x="484.0" y="144" class="tt" fill="#0d2d00">360d</text>
+<rect x="616" y="128" width="88" height="21" fill="#2d6a4f" rx="2"/>
+<text x="660.0" y="144" class="tt" fill="#ffffff">720d</text>
+<text x="84" y="172" class="rl">T05</text>
+<rect x="176" y="155" width="66" height="21" fill="#f0c060" rx="2"/>
+<text x="209.0" y="171" class="tt" fill="#5a3a00">90d</text>
+<rect x="242" y="155" width="132" height="21" fill="#a8d870" rx="2"/>
+<text x="308.0" y="171" class="tt" fill="#1a4d00">180d</text>
+<rect x="374" y="155" width="264" height="21" fill="#4a9a40" rx="2"/>
+<text x="506.0" y="171" class="tt" fill="#0d2d00">360d</text>
+<rect x="638" y="155" width="66" height="21" fill="#2d6a4f" rx="2"/>
+<text x="671.0" y="171" class="tt" fill="#ffffff">720d</text>
+<text x="84" y="199" class="rl">T06</text>
+<rect x="198" y="182" width="66" height="21" fill="#f0c060" rx="2"/>
+<text x="231.0" y="198" class="tt" fill="#5a3a00">90d</text>
+<rect x="264" y="182" width="132" height="21" fill="#a8d870" rx="2"/>
+<text x="330.0" y="198" class="tt" fill="#1a4d00">180d</text>
+<rect x="396" y="182" width="264" height="21" fill="#4a9a40" rx="2"/>
+<text x="528.0" y="198" class="tt" fill="#0d2d00">360d</text>
+<rect x="660" y="182" width="44" height="21" fill="#2d6a4f" rx="2"/>
+<text x="682.0" y="198" class="tt" fill="#ffffff">720d</text>
+<text x="84" y="226" class="rl">T07</text>
+<rect x="220" y="209" width="66" height="21" fill="#f0c060" rx="2"/>
+<text x="253.0" y="225" class="tt" fill="#5a3a00">90d</text>
+<rect x="286" y="209" width="132" height="21" fill="#a8d870" rx="2"/>
+<text x="352.0" y="225" class="tt" fill="#1a4d00">180d</text>
+<rect x="418" y="209" width="264" height="21" fill="#4a9a40" rx="2"/>
+<text x="550.0" y="225" class="tt" fill="#0d2d00">360d</text>
+<rect x="682" y="209" width="22" height="21" fill="#2d6a4f" rx="2"/>
+<text x="693.0" y="225" class="tt" fill="#ffffff">720d</text>
+<text x="84" y="253" class="rl">T08</text>
+<rect x="242" y="236" width="66" height="21" fill="#f0c060" rx="2"/>
+<text x="275.0" y="252" class="tt" fill="#5a3a00">90d</text>
+<rect x="308" y="236" width="132" height="21" fill="#a8d870" rx="2"/>
+<text x="374.0" y="252" class="tt" fill="#1a4d00">180d</text>
+<rect x="440" y="236" width="264" height="21" fill="#4a9a40" rx="2"/>
+<text x="572.0" y="252" class="tt" fill="#0d2d00">360d</text>
+<rect x="88" y="274" width="14" height="10" fill="#f0c060" rx="2"/>
+<text x="106" y="283" class="cl">90 dias</text>
+<rect x="228" y="274" width="14" height="10" fill="#a8d870" rx="2"/>
+<text x="246" y="283" class="cl">180 dias</text>
+<rect x="368" y="274" width="14" height="10" fill="#4a9a40" rx="2"/>
+<text x="386" y="283" class="cl">1 ano</text>
+<rect x="508" y="274" width="14" height="10" fill="#2d6a4f" rx="2"/>
+<text x="526" y="283" class="cl">2 anos</text>
+<text x="362" y="16" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:11px;fill:#1a1714;font-weight:500;">Estratégia de construção — escada de LCI/LCA (8 de 24 títulos)</text>
+</svg>
