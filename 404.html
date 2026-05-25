@@ -1,0 +1,136 @@
+---
+layout: default
+title: "Página não encontrada"
+permalink: /404.html
+sitemap: true
+---
+
+<div class="main">
+  <div style="
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    text-align: center;
+    background: var(--stage-bg);
+  ">
+
+    <!-- Terminal-style 404 block -->
+    <div style="
+      background: var(--ink);
+      border-radius: 12px;
+      padding: 2.5rem 3rem;
+      max-width: 540px;
+      width: 100%;
+      box-shadow: 0 8px 40px rgba(26,23,20,.18);
+    ">
+
+      <!-- Terminal header dots -->
+      <div style="display:flex;gap:7px;margin-bottom:1.5rem;">
+        <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:block;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#febc2e;display:block;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#28c840;display:block;"></span>
+      </div>
+
+      <!-- 404 number -->
+      <div style="
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        font-size: 6rem;
+        line-height: 1;
+        color: var(--green-glow);
+        margin-bottom: .25rem;
+        opacity: .9;
+      ">404</div>
+
+      <!-- Command line style message -->
+      <p style="
+        font-family: 'JetBrains Mono', monospace;
+        font-size: .75rem;
+        letter-spacing: .08em;
+        color: rgba(250,249,246,.35);
+        margin-bottom: 1.5rem;
+      ">$ curl -I {{ page.url | default: request.path }}<br>
+      → HTTP/1.1 <span style="color:#ff5f57;">404 Not Found</span></p>
+
+      <!-- Divider -->
+      <div style="height:1px;background:rgba(255,255,255,.07);margin-bottom:1.5rem;"></div>
+
+      <!-- Human-readable message -->
+      <p style="
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2rem;
+        color: rgba(250,249,246,.8);
+        margin-bottom: .75rem;
+        line-height: 1.4;
+      ">Página não encontrada</p>
+
+      <p style="
+        font-family: 'Source Serif 4', serif;
+        font-size: .9rem;
+        color: rgba(250,249,246,.4);
+        line-height: 1.65;
+        margin-bottom: 2rem;
+      ">O endereço que você digitou não existe, pode ter sido movido ou o link pode estar desatualizado.</p>
+
+      <!-- Action buttons -->
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;">
+        <a href="{{ site.baseurl }}/" style="
+          display: inline-flex; align-items: center; gap: 8px;
+          background: var(--accent); color: #fff;
+          font-family: 'JetBrains Mono', monospace;
+          font-size: .66rem; letter-spacing: .1em; text-transform: uppercase;
+          padding: .6rem 1.25rem; border-radius: 6px;
+          text-decoration: none; transition: opacity .2s;
+        ">
+          <i class="fas fa-home"></i> Início
+        </a>
+        <a href="{{ site.baseurl }}/busca/" style="
+          display: inline-flex; align-items: center; gap: 8px;
+          background: rgba(255,255,255,.07); color: rgba(250,249,246,.65);
+          font-family: 'JetBrains Mono', monospace;
+          font-size: .66rem; letter-spacing: .1em; text-transform: uppercase;
+          padding: .6rem 1.25rem; border-radius: 6px;
+          text-decoration: none; border: 1px solid rgba(255,255,255,.12);
+          transition: border-color .2s, color .2s;
+        ">
+          <i class="fas fa-search"></i> Buscar
+        </a>
+      </div>
+    </div>
+
+    <!-- Recent posts suggestion -->
+    <div style="margin-top:3rem;max-width:560px;width:100%;">
+      <p style="
+        font-family: 'JetBrains Mono', monospace;
+        font-size: .59rem; letter-spacing: .14em; text-transform: uppercase;
+        color: var(--ink-light); margin-bottom: 1.1rem;
+      ">Talvez você queira ler</p>
+
+      <div style="display:flex;flex-direction:column;gap:.6rem;">
+        {% assign recent = site.posts | limit: 4 %}
+        {% for post in recent %}
+        <a href="{{ post.url | relative_url }}" style="
+          display: flex; align-items: baseline; gap: .75rem;
+          background: #fff; border: 1px solid var(--border);
+          border-radius: 8px; padding: .75rem 1rem;
+          text-decoration: none; transition: border-color .2s, transform .2s;
+        " onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-1px)'"
+           onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+          <span style="
+            font-family: 'JetBrains Mono', monospace; font-size: .59rem;
+            color: var(--ink-light); white-space: nowrap; flex-shrink: 0;
+          ">{{ post.date | date: "%d/%m/%Y" }}</span>
+          <span style="
+            font-family: 'Source Serif 4', serif; font-size: .9rem;
+            color: var(--ink); line-height: 1.35;
+          ">{{ post.title }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+</div>
