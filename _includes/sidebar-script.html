@@ -1,12 +1,36 @@
-  <script>
-    const toggle  = document.getElementById('sidebar-toggle');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('sidebar-overlay');
-    const open  = () => { sidebar.classList.add('open');    overlay.classList.add('open');    };
-    const close = () => { sidebar.classList.remove('open'); overlay.classList.remove('open'); };
-    toggle.addEventListener('click', () => sidebar.classList.contains('open') ? close() : open());
-    overlay.addEventListener('click', close);
-    document.querySelectorAll('.has-children > a').forEach(a => {
-      a.addEventListener('click', e => { e.preventDefault(); a.closest('.has-children').classList.toggle('open'); });
+<script>
+  /* ── Sidebar toggle ── */
+  const toggle  = document.getElementById('sidebar-toggle');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  const open  = () => { sidebar.classList.add('open');    overlay.classList.add('open');    };
+  const close = () => { sidebar.classList.remove('open'); overlay.classList.remove('open'); };
+  toggle.addEventListener('click', () => sidebar.classList.contains('open') ? close() : open());
+  overlay.addEventListener('click', close);
+  document.querySelectorAll('.has-children > a').forEach(a => {
+    a.addEventListener('click', e => { e.preventDefault(); a.closest('.has-children').classList.toggle('open'); });
+  });
+
+  /* ── Code block auto-header: traffic lights + language badge + copy ── */
+  document.querySelectorAll('.article-inner pre').forEach(pre => {
+    const code = pre.querySelector('code') || pre;
+    const langMatch = (code.className + ' ' + pre.className + ' ' + (pre.parentElement?.className || ''))
+      .match(/language-([a-z][a-z0-9-]*)/i);
+    const lang = langMatch ? langMatch[1].toUpperCase() : '';
+    const header = document.createElement('div');
+    header.className = 'code-auto-header';
+    header.innerHTML =
+      '<div class="code-auto-dots"><span></span><span></span><span></span></div>' +
+      '<span class="code-auto-lang">' + lang + '</span>' +
+      '<button class="code-copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i> Copiar</button>';
+    pre.insertBefore(header, pre.firstChild);
+    header.querySelector('.code-copy-btn').addEventListener('click', async function () {
+      try {
+        await navigator.clipboard.writeText((pre.querySelector('code') || pre).innerText);
+        this.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+        this.classList.add('copied');
+        setTimeout(() => { this.innerHTML = '<i class="fas fa-copy"></i> Copiar'; this.classList.remove('copied'); }, 2200);
+      } catch (e) {}
     });
-  </script>
+  });
+</script>
