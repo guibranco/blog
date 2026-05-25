@@ -1,122 +1,144 @@
 ---
-layout: default
+layout: page
 title: "Página não encontrada"
+description: "A URL solicitada não existe neste blog."
 permalink: /404.html
-sitemap: true
+sitemap: false
 ---
 
-<div class="main">
-  <div style="
-    min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem 2rem;
-    text-align: center;
-    background: var(--stage-bg);
-  ">
+<div class="article-wrap" style="min-height: 80vh;">
+  <div class="article-card" style="max-width: 680px; margin: 0 auto;">
 
-    <!-- Terminal-style 404 block -->
+    <!-- Terminal 404 block -->
     <div style="
       background: var(--ink);
-      border-radius: 12px;
-      padding: 2.5rem 3rem;
-      max-width: 540px;
-      width: 100%;
-      box-shadow: 0 8px 40px rgba(26,23,20,.18);
+      border-radius: 10px;
+      padding: 2rem 2.25rem 2.25rem;
+      margin-bottom: 2rem;
     ">
-
-      <!-- Terminal header dots -->
-      <div style="display:flex;gap:7px;margin-bottom:1.5rem;">
-        <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:block;"></span>
-        <span style="width:12px;height:12px;border-radius:50%;background:#febc2e;display:block;"></span>
-        <span style="width:12px;height:12px;border-radius:50%;background:#28c840;display:block;"></span>
+      <!-- Traffic lights -->
+      <div style="display:flex;gap:7px;margin-bottom:1.25rem;">
+        <span style="width:11px;height:11px;border-radius:50%;background:#ff5f57;display:block;"></span>
+        <span style="width:11px;height:11px;border-radius:50%;background:#febc2e;display:block;"></span>
+        <span style="width:11px;height:11px;border-radius:50%;background:#28c840;display:block;"></span>
       </div>
 
-      <!-- 404 number -->
+      <!-- 404 -->
       <div style="
-        font-family: 'Playfair Display', serif;
-        font-style: italic;
-        font-size: 6rem;
-        line-height: 1;
-        color: var(--green-glow);
-        margin-bottom: .25rem;
-        opacity: .9;
+        font-family: 'Playfair Display', serif; font-style: italic;
+        font-size: 5.5rem; line-height: 1;
+        color: var(--green-glow); margin-bottom: .2rem;
       ">404</div>
 
-      <!-- Command line style message -->
+      <!-- CLI style -->
       <p style="
-        font-family: 'JetBrains Mono', monospace;
-        font-size: .75rem;
-        letter-spacing: .08em;
-        color: rgba(250,249,246,.35);
-        margin-bottom: 1.5rem;
-      ">$ curl -I {{ page.url | default: request.path }}<br>
-      → HTTP/1.1 <span style="color:#ff5f57;">404 Not Found</span></p>
+        font-family: 'JetBrains Mono', monospace; font-size: .72rem;
+        color: rgba(250,249,246,.3); margin-bottom: 1.25rem; line-height: 1.7;
+      ">$ curl -sI "{{ site.url }}{{ page.url }}"<br>
+      → HTTP/2 <span style="color:#ff5f57;">404 Not Found</span><br>
+      → <span style="color:rgba(250,249,246,.2);">x-powered-by: Jekyll + GitHub Pages</span></p>
 
-      <!-- Divider -->
-      <div style="height:1px;background:rgba(255,255,255,.07);margin-bottom:1.5rem;"></div>
+      <div style="height:1px;background:rgba(255,255,255,.07);margin-bottom:1.25rem;"></div>
 
-      <!-- Human-readable message -->
+      <!-- Human message -->
       <p style="
-        font-family: 'Playfair Display', serif;
-        font-size: 1.2rem;
-        color: rgba(250,249,246,.8);
-        margin-bottom: .75rem;
-        line-height: 1.4;
+        font-family: 'Playfair Display', serif; font-size: 1.15rem;
+        color: rgba(250,249,246,.85); margin-bottom: .5rem;
       ">Página não encontrada</p>
-
       <p style="
-        font-family: 'Source Serif 4', serif;
-        font-size: .9rem;
-        color: rgba(250,249,246,.4);
-        line-height: 1.65;
-        margin-bottom: 2rem;
-      ">O endereço que você digitou não existe, pode ter sido movido ou o link pode estar desatualizado.</p>
-
-      <!-- Action buttons -->
-      <div style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;">
-        <a href="{{ site.baseurl }}/" style="
-          display: inline-flex; align-items: center; gap: 8px;
-          background: var(--accent); color: #fff;
-          font-family: 'JetBrains Mono', monospace;
-          font-size: .66rem; letter-spacing: .1em; text-transform: uppercase;
-          padding: .6rem 1.25rem; border-radius: 6px;
-          text-decoration: none; transition: opacity .2s;
-        ">
-          <i class="fas fa-home"></i> Início
-        </a>
-        <a href="{{ site.baseurl }}/busca/" style="
-          display: inline-flex; align-items: center; gap: 8px;
-          background: rgba(255,255,255,.07); color: rgba(250,249,246,.65);
-          font-family: 'JetBrains Mono', monospace;
-          font-size: .66rem; letter-spacing: .1em; text-transform: uppercase;
-          padding: .6rem 1.25rem; border-radius: 6px;
-          text-decoration: none; border: 1px solid rgba(255,255,255,.12);
-          transition: border-color .2s, color .2s;
-        ">
-          <i class="fas fa-search"></i> Buscar
-        </a>
-      </div>
+        font-family: 'Source Serif 4', serif; font-size: .875rem;
+        color: rgba(250,249,246,.4); line-height: 1.65; margin-bottom: 0;
+      ">O endereço solicitado não existe, pode ter sido movido ou o link está desatualizado.</p>
     </div>
 
-    <!-- Recent posts suggestion -->
-    <div style="margin-top:3rem;max-width:560px;width:100%;">
+    <!-- ── SEARCH BOX ── -->
+    <div style="margin-bottom: 2.25rem;">
       <p style="
         font-family: 'JetBrains Mono', monospace;
         font-size: .59rem; letter-spacing: .14em; text-transform: uppercase;
-        color: var(--ink-light); margin-bottom: 1.1rem;
-      ">Talvez você queira ler</p>
+        color: var(--ink-light); margin-bottom: .75rem;
+      ">Procurar no blog</p>
 
-      <div style="display:flex;flex-direction:column;gap:.6rem;">
-        {% assign recent = site.posts | limit: 4 %}
-        {% for post in recent %}
+      <form action="{{ site.baseurl }}/busca/" method="get"
+            style="display:flex; gap:.6rem; align-items:center;">
+        <input
+          type="search"
+          name="q"
+          id="search-404"
+          placeholder="Digite o que procura…"
+          autocomplete="off"
+          autofocus
+          style="
+            flex: 1;
+            background: var(--surface-warm);
+            color: var(--ink);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: .7rem 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .78rem;
+            outline: none;
+            transition: border-color .2s, box-shadow .2s;
+          "
+          onfocus="this.style.borderColor='var(--accent)';this.style.boxShadow='0 0 0 3px rgba(45,106,79,.12)'"
+          onblur="this.style.borderColor='var(--border)';this.style.boxShadow='none'"
+        >
+        <button type="submit" style="
+          display: inline-flex; align-items: center; gap: .5rem;
+          background: var(--accent); color: #fff;
+          font-family: 'JetBrains Mono', monospace;
+          font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+          padding: .7rem 1.25rem; border: none; border-radius: 8px;
+          cursor: pointer; white-space: nowrap;
+          transition: opacity .2s;
+        " onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+          <i class="fas fa-search"></i> Buscar
+        </button>
+      </form>
+    </div>
+
+    <!-- ── QUICK LINKS ── -->
+    <div style="display:flex; gap:.65rem; flex-wrap:wrap; margin-bottom:2.25rem;">
+      <a href="{{ site.baseurl }}/" style="
+        display: inline-flex; align-items: center; gap: .4rem;
+        font-family: 'JetBrains Mono', monospace; font-size: .66rem;
+        letter-spacing: .08em; text-transform: uppercase;
+        color: var(--accent); border: 1px solid var(--accent);
+        padding: .4rem .9rem; border-radius: 6px;
+        text-decoration: none; transition: background .2s, color .2s;
+      " onmouseover="this.style.background='var(--accent)';this.style.color='#fff'"
+         onmouseout="this.style.background='transparent';this.style.color='var(--accent)'">
+        <i class="fas fa-home"></i> Início
+      </a>
+      <a href="{{ site.baseurl }}/busca/" style="
+        display: inline-flex; align-items: center; gap: .4rem;
+        font-family: 'JetBrains Mono', monospace; font-size: .66rem;
+        letter-spacing: .08em; text-transform: uppercase;
+        color: var(--ink-muted); border: 1px solid var(--border);
+        padding: .4rem .9rem; border-radius: 6px;
+        text-decoration: none; transition: border-color .2s, color .2s;
+      " onmouseover="this.style.borderColor='var(--ink-muted)';this.style.color='var(--ink)'"
+         onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--ink-muted)'">
+        <i class="fas fa-search"></i> Página de busca
+      </a>
+    </div>
+
+    <!-- ── RECENT POSTS ── -->
+    <div>
+      <p style="
+        font-family: 'JetBrains Mono', monospace;
+        font-size: .59rem; letter-spacing: .14em; text-transform: uppercase;
+        color: var(--ink-light); margin-bottom: 1rem;
+      ">Artigos recentes</p>
+
+      <div style="display:flex; flex-direction:column; gap:.6rem;">
+        {% for post in site.posts limit: 5 %}
         <a href="{{ post.url | relative_url }}" style="
-          display: flex; align-items: baseline; gap: .75rem;
-          background: #fff; border: 1px solid var(--border);
-          border-radius: 8px; padding: .75rem 1rem;
-          text-decoration: none; transition: border-color .2s, transform .2s;
+          display: flex; align-items: baseline; gap: .85rem;
+          border: 1px solid var(--border); border-radius: 8px;
+          padding: .7rem 1rem; text-decoration: none;
+          transition: border-color .2s, transform .15s;
+          background: var(--surface);
         " onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-1px)'"
            onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
           <span style="
@@ -127,6 +149,15 @@ sitemap: true
             font-family: 'Source Serif 4', serif; font-size: .9rem;
             color: var(--ink); line-height: 1.35;
           ">{{ post.title }}</span>
+          {% if post.categories.size > 0 %}
+          <span style="
+            margin-left: auto; flex-shrink: 0;
+            font-family: 'JetBrains Mono', monospace; font-size: .55rem;
+            letter-spacing: .07em; text-transform: uppercase;
+            background: var(--accent-light); color: var(--accent);
+            border: 1px solid #b7dfc8; padding: 2px 8px; border-radius: 20px;
+          ">{{ post.categories | first }}</span>
+          {% endif %}
         </a>
         {% endfor %}
       </div>
