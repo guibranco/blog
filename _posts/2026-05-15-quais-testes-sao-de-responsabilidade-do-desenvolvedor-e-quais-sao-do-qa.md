@@ -4,7 +4,7 @@ title: "Quais testes são de responsabilidade do desenvolvedor e quais são do Q
 description: "Entenda a divisão de responsabilidades entre desenvolvedores e QAs nos testes de software — unit test, integration test e load test versus E2E e UAT — e a diferença entre caixa branca e caixa preta."
 date: 2026-05-15
 categories: [Coding, Testing]
-tags: [dev, developer, desenvolvedor, qa, quality-assurance, automation, automation-engineer, software-engineer, testes, tests, user-acceptance, testing, unit-test, integration-test, load-test, e2e-test, uat, qa, qualidade, white-box, end-to-end, black-box, desenvolvedor, pirâmide-de-testes]
+tags: [dev, developer, desenvolvedor, qa, quality-assurance, automation, automation-engineer, software-engineer, testes, tests, teste, testes, user-acceptance, testing, unit-test, integration-test, load-test, e2e-test, uat, qa, qualidade, white-box, end-to-end, black-box, desenvolvedor, pirâmide-de-testes]
 reading_time: 6
 image: /assets/img/posts/dev-vs-qa-testes.svg
 ---
