@@ -85,7 +85,7 @@ Pagamos o aluguel adiantado pelos 7 dias — sem depósito, sem cadastro de moto
 
 Os carros eram novos, com painel multimídia, Apple CarPlay, Android Auto, USB, Bluetooth e rádio FM. A T-Cross saiu com o tanque vazio e enchemos logo na primeira posto: **€ 77,00 para tanque cheio**.
 
-Seguimos direto de Tirana para Sarande — cerca de 3 horas de estrada boa, bem sinalizada. Waze e Google Maps funcionam perfeitamente. Na região de Tirana havia radares fixos, bem sinalizados na pista e no Waze. Saímos do aeroporto por volta das 01h00 e chegamos ao AirBnB em Sarande por volta das 04h00 da terça-feira, 09/06.
+Seguimos direto de Tirana para Sarande — cerca de 3 horas de estrada boa, bem sinalizada. Waze e Google Maps funcionam perfeitamente. Na região de Tirana havia radares fixos, bem sinalizados na pista e no Waze. Saímos do aeroporto por volta das 01h00 e chegamos ao AirBnB em Sarande por volta das 04h00 da terça-feira, 09/06. Na área externa do aeroporto de Tirana havia opções de comida boa e barata — aproveitamos para jantar antes de pegar a estrada. No posto de gasolina, ganhamos energéticos.
 
 <div class="callout callout-tip">
   <div class="callout-label">Condução na Albânia</div>
@@ -136,52 +136,52 @@ Ficamos em dois AirBnBs, com menos de 10 minutos de carro entre si. O custo foi 
   </thead>
   <tbody>
     <tr>
-      <td>Dia 0</td>
+      <td>Dia 0 — Chegada</td>
       <td>08/06 (Seg)</td>
-      <td>Dublin → Londres → Tirana · Aluguel dos carros · Drive Tirana→Sarande · Chegada 01h00</td>
-      <td>≈ € 148 (bagagem extra) + voos</td>
+      <td>Aeroporto Dublin 09h00 · DUB→STN 11h35 (Ryanair) · STN→TIA 16h55–20h50 (Ryanair UK) · Jantar no aeroporto de Tirana · Aluguel dos carros · Viagem Tirana→Sarande · Chegada em Sarande ~04h00</td>
+      <td>≈ € 148 (bagagem extra) + voos · ≈ € 10 (jantar em Tirana)
     </tr>
     <tr>
       <td>Dia 1</td>
       <td>09/06 (Ter)</td>
-      <td>Acordou 11h00 · Almoço Bora Bora (Ksamil) · Beach club Principotes · Volta 21h00</td>
+      <td>Acordou 11h00 · Almoço Bora Bora (Ksamil) · Beach club Principotes até ~21h00 · Repouso (algumas doentes)</td>
       <td>≈ € 145</td>
     </tr>
     <tr>
       <td>Dia 2</td>
       <td>10/06 (Qua)</td>
-      <td>Ferry Sarande→Corfu 10h00 · Táxi até a marina · Almoço · Passeio de barco · 2 táxis até o ferry · Ferry volta 19h00 · Chegada a Sarande 19h00 · Jantar My Family · Piscina no Panorama</td>
+      <td>Acordou 09h00 · Ferry Sarande→Corfu 10h00 (chegada 12h00 horário grego) · Van táxi até a marina · Almoço na marina · Passeio de barco 13h00–17h00 · 2 táxis marina→ferry · Ferry volta 19h00 (chegada Sarande 19h00) · Jantar My Family · Piscina no Panorama</td>
       <td>≈ € 155</td>
     </tr>
     <tr>
       <td>Dia 3</td>
       <td>11/06 (Qui)</td>
-      <td>Poda Beach Club (12h–19h) · Jantar Kamay Beach · Bianco (21h–04h)</td>
+      <td>Acordou 10h00 · Poda Beach Club 12h00–19h00 · Jantar Kamay Beach · Bianco rooftop 21h00–00h00 · Bianco balada 00h00–04h00</td>
       <td>≈ € 97 + ★ € 300 (Bianco, ver nota)</td>
     </tr>
     <tr>
       <td>Dia 4</td>
       <td>12/06 (Sex)</td>
-      <td>Resolução da bateria do carro · Almoço Tre Ishujt · Poda (praia gratuita) · Jantar Poda · Bianco rooftop · Poda clube</td>
+      <td>Acordou 12h00 · Resolução da bateria do carro · Almoço Tre Ishujt · Poda (praia gratuita) · Jantar Poda · Sorvete Ice Roll · Bianco rooftop (~23h45) · Poda clube (breve)</td>
       <td>≈ € 85</td>
     </tr>
     <tr>
       <td>Dia 5</td>
       <td>13/06 (Sáb)</td>
-      <td>Almoço Groovy Grill · Orange Beach Club · Vibe 360 (1.º jogo do Brasil na Copa)</td>
+      <td>Acordou 10h00 · Almoço Groovy Grill · Orange Beach Club (piscina + espreguiçadeiras) · Vibe 360° (1.º jogo do Brasil na Copa)</td>
       <td>≈ € 45</td>
     </tr>
     <tr>
       <td>Dia 6</td>
       <td>14/06 (Dom)</td>
-      <td>Passeio de lancha El Niño (30€) / Viking (40€) · Lost Party à noite</td>
+      <td>Acordou 09h00 · Passeio El Niño 10h00–15h00 (30€) / Viking 10h00–18h00 (40€) · Lost Party à noite (parte do grupo)</td>
       <td>≈ € 50</td>
     </tr>
     <tr>
-      <td>Partida</td>
+      <td>Dia 7 — Partida</td>
       <td>15/06 (Seg)</td>
-      <td>Saída Sarande 04h00 · Chegada Tirana 07h30 · Voo 10h40 → Liverpool</td>
-      <td>—</td>
+      <td>Acordou 03h00 · Saída Sarande 04h00 · Entrega dos carros · TIA→LPL 10h40–13h00 (Ryanair UK) · Imigração Liverpool · LPL→DUB 15h45–16h40 (Ryanair)</td>
+      <td>≈ € 15 (comida nos aeroportos + snacks para a viagem)
     </tr>
   </tbody>
 </table>
@@ -246,10 +246,16 @@ Pegamos o ferry de volta às 19h00 (horário grego), chegando a Sarande às 19h0
     <tr><td>Cerveja Amstel 500 ml (lata)</td><td>130 Leks</td><td>≈ € 1,44</td></tr>
     <tr><td>Cerveja Heineken 500 ml (lata)</td><td>180 Leks</td><td>≈ € 2,00</td></tr>
     <tr><td>Monster Energy 500 ml</td><td>250–300 Leks</td><td>≈ € 2,78–3,33</td></tr>
-    <tr><td>Red Bull 330 ml</td><td>190 Leks</td><td>≈ € 2,11</td></tr>
-    <tr><td>Salgadinhos, biscoitos e chocolates</td><td>150–200 Leks</td><td>≈ € 1,67–2,22</td></tr>
+    <tr><td>Red Bull 250 ml (lata)</td><td>190 Leks</td><td>≈ € 2,11</td></tr>
+    <tr><td>Salgadinhos, biscoitos e chocolates</td><td>150–250 Leks</td><td>≈ € 1,67–2,78</td></tr>
+    <tr><td>Pizza congelada (promoção 2 por 1)</td><td>300 Leks</td><td>≈ € 3,33</td></tr>
   </tbody>
 </table>
+
+<div class="callout callout-tip">
+  <div class="callout-label">Compras no mercado — gasto médio</div>
+  Cada AirBnB gastou em média <strong>≈ € 20,00 por dia</strong> em compras de mercado: bebidas (cervejas, energéticos, refrigerantes), petiscos, bolachas e chocolates. A pizza congelada em promoção (2 por 1 a 300 Leks) estava disponível em alguns mercados — opção prática mas sem grande qualidade; não a recomendo.
+</div>
 
 <div class="callout callout-warn">
   <div class="callout-label">Abordagem na alfândega grega</div>
@@ -329,11 +335,11 @@ O grupo se dividiu: 6 pessoas foram no passeio Viking (≈ € 40,00/pessoa, das
 
 À noite, parte do grupo foi à festa **Lost** — uma festa branca em um hotel em Sarande. Fiquei no apartamento para descansar antes da madrugada de direção.
 
-Saímos de Sarande de ambos os AirBnBs por volta das 04h00, chegamos ao aeroporto de Tirana às 07h30 e embarcamos no voo das 10h40 para Liverpool.
+Saímos de Sarande de ambos os AirBnBs às 04h00, chegamos ao aeroporto de Tirana às 07h30 e embarcamos no voo das 10h40 para Liverpool (Ryanair UK, chegada 13h00). Por virem da Albânia, todos os 8 passageiros precisaram passar pela imigração do Reino Unido em Liverpool antes de acessar a área de conexão — de lá seguimos para a área pública, e então de volta à área restrita para embarcar para Dublin (Ryanair, 15h45–16h40). As meninas comeram um lanche no aeroporto de Tirana; em Liverpool paramos no **Burger King**. Compramos também energéticos e salgadinhos variados para consumir durante os percursos.
 
 <div class="callout callout-tip">
   <div class="callout-label">Aeroporto de Tirana — quanto tempo antes?</div>
-  Chegamos com 3 horas de antecedência, mas 2 horas seriam suficientes. O security check foi ágil (menos de 5 minutos na fila). O controle de passaporte para portadores de passaporte europeu é automatizado e instantâneo; para brasileiros havia uma fila pequena e rápida.
+  Chegamos com 3 horas de antecedência para o voo de volta, mas 2 horas seriam suficientes. O security check foi ágil (menos de 5 minutos na fila). O controle de passaporte para portadores de passaporte europeu é automatizado e instantâneo; para brasileiros havia uma fila pequena e rápida.
 </div>
 
 <div class="divider">· · ·</div>
