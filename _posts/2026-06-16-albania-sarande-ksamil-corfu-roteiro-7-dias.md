@@ -139,7 +139,7 @@ Ficamos em dois AirBnBs, com menos de 10 minutos de carro entre si. O custo foi 
       <td>Dia 0 — Chegada</td>
       <td>08/06 (Seg)</td>
       <td>Aeroporto Dublin 09h00 · DUB→STN 11h35 (Ryanair) · STN→TIA 16h55–20h50 (Ryanair UK) · Jantar no aeroporto de Tirana · Aluguel dos carros · Viagem Tirana→Sarande · Chegada em Sarande ~04h00</td>
-      <td>≈ € 148 (bagagem extra) + voos · ≈ € 10 (jantar em Tirana)
+      <td>≈ € 148 (bagagem extra) + voos · ≈ € 10 (jantar em Tirana)</td>
     </tr>
     <tr>
       <td>Dia 1</td>
@@ -181,7 +181,7 @@ Ficamos em dois AirBnBs, com menos de 10 minutos de carro entre si. O custo foi 
       <td>Dia 7 — Partida</td>
       <td>15/06 (Seg)</td>
       <td>Acordou 03h00 · Saída Sarande 04h00 · Entrega dos carros · TIA→LPL 10h40–13h00 (Ryanair UK) · Imigração Liverpool · LPL→DUB 15h45–16h40 (Ryanair)</td>
-      <td>≈ € 15 (comida nos aeroportos + snacks para a viagem)
+      <td>≈ € 15 (comida nos aeroportos + snacks para a viagem)</td>
     </tr>
   </tbody>
 </table>
