@@ -218,7 +218,7 @@ Em Corfu, saímos do porto de ferry em uma van táxi até a marina de partida do
 
 O passeio de barco custou **€ 50,00 por pessoa** e incluiu: prato de frutas, bebidas (cerveja, água e refrigerante), Bluetooth para música, e 3 a 4 paradas para nadar — incluindo uma entrada em caverna. Levamos uma garrafa de whisky e energéticos à parte. O barco tinha banheiro de uso livre, quarto (privativo) e acomodava confortavelmente o nosso grupo de 7.
 
-Pegamos o ferry de volta às 19h00, chegando a Sarande às 19h00 (due ao fuso horário). Jantamos no **My Family**, bem próximo ao cais, com excelente qualidade e preço baixo — **nota 9/10**. Depois fomos à piscina privativa do AirBnB dos amigos, passamos no mercado e compramos bebidas e petiscos.
+Pegamos o ferry de volta às 19h00, chegando a Sarande às 19h00 (devido ao fuso horário). Jantamos no **My Family**, bem próximo ao cais, com excelente qualidade e preço baixo — **nota 9/10**. Depois fomos à piscina privativa do AirBnB dos amigos, passamos no mercado e compramos bebidas e petiscos.
 
 **Preços no mercado (referência):**
 
