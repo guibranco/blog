@@ -56,7 +56,7 @@ As passagens foram compradas em 28/03/2026 pelo **Kiwi** para 6 pessoas (incluin
     <tr><td>Tirana → Liverpool</td><td>€ 220,74</td><td>≈ € 36,79</td></tr>
     <tr><td>Liverpool → Dublin</td><td>€ 151,62</td><td>≈ € 25,27</td></tr>
     <tr><td>Taxa de serviço Kiwi</td><td>€ 55,38</td><td>≈ € 9,23</td></tr>
-    <tr><td><strong>Total</strong></td><td><strong>€ 849,00</strong></td><td><strong>€ 141,50</strong></td></tr>
+    <tr><td><strong>Total</strong></td><td><strong>€ 849</strong></td><td><strong>€ 141,50</strong></td></tr>
   </tbody>
 </table>
 
@@ -76,14 +76,14 @@ Chegamos em Tirana na segunda-feira, 08/06, por volta das 22h00. O grupo que vei
     <tr><th>Modelo</th><th>Diária</th><th>7 dias (total)</th><th>Câmbio</th></tr>
   </thead>
   <tbody>
-    <tr><td>VW Polo</td><td>€ 25,00/dia</td><td>€ 175,00</td><td>Manual</td></tr>
+    <tr><td>VW Polo</td><td>€ 25/dia</td><td>€ 175</td><td>Manual</td></tr>
     <tr><td>VW T-Cross</td><td>€ 35/dia</td><td>€ 245</td><td>Automático</td></tr>
   </tbody>
 </table>
 
 Pagamos o aluguel adiantado pelos 7 dias — sem depósito, sem cadastro de motoristas adicionais (mesmo com mais de um motorista por carro) e sem exigência de CNH internacional. A CNH brasileira foi suficiente, mas **não chegaram a pedi-la em momento algum**.
 
-Os carros eram novos, com painel multimídia, Apple CarPlay, Android Auto, USB, Bluetooth e rádio FM. A T-Cross saiu com o tanque vazio e enchemos logo na primeira posto: **€ 77,00 para tanque cheio**.
+Os carros eram novos, com painel multimídia, Apple CarPlay, Android Auto, USB, Bluetooth e rádio FM. A T-Cross saiu com o tanque vazio e enchemos logo na primeira posto: **€ 77 para tanque cheio**.
 
 Seguimos direto de Tirana para Sarande — cerca de 3 horas de estrada boa, bem sinalizada. Waze e Google Maps funcionam perfeitamente. Na região de Tirana havia radares fixos, bem sinalizados na pista e no Waze. Saímos do aeroporto por volta das 01h00 e chegamos ao AirBnB em Sarande por volta das 04h00 da terça-feira, 09/06. Na área externa do aeroporto de Tirana havia opções de comida boa e barata — aproveitamos para jantar antes de pegar a estrada. No posto de gasolina, ganhamos energéticos.
 
@@ -94,7 +94,7 @@ Seguimos direto de Tirana para Sarande — cerca de 3 horas de estrada boa, bem 
 
 <div class="callout callout-warn">
   <div class="callout-label">Atenção: radares móveis na volta</div>
-  O VW Polo do nosso grupo levou uma multa de <strong>€ 20,00</strong> por excesso de velocidade, capturado por um radar móvel à beira da estrada, a menos de 1 hora de entregar o carro — quase em Tirana. O radar estava no Waze, mas o motorista do Polo usava o Google Maps e não viu o alerta. A multa foi cobrada no ato da devolução — a locadora já sabia da infração no momento exato em que chegamos, sem nenhum contato da polícia durante o trajeto. <strong>Use o Waze ou ative alertas de radar no Google Maps.</strong>
+  O VW Polo do nosso grupo levou uma multa de <strong>€ 20</strong> por excesso de velocidade, capturado por um radar móvel à beira da estrada, a menos de 1 hora de entregar o carro — quase em Tirana. O radar estava no Waze, mas o motorista do Polo usava o Google Maps e não viu o alerta. A multa foi cobrada no ato da devolução — a locadora já sabia da infração no momento exato em que chegamos, sem nenhum contato da polícia durante o trajeto. <strong>Use o Waze ou ative alertas de radar no Google Maps.</strong>
 </div>
 
 <div class="divider">· · ·</div>
@@ -104,7 +104,7 @@ Seguimos direto de Tirana para Sarande — cerca de 3 horas de estrada boa, bem 
   <div class="section-title-wrap"><h2>Hospedagem em Sarande</h2></div>
 </div>
 
-Ficamos em dois AirBnBs, com menos de 10 minutos de carro entre si. O custo foi de **menos de € 200,00 por pessoa para os 7 dias** (≈ € 28,00/noite por pessoa) em ambos.
+Ficamos em dois AirBnBs, com menos de 10 minutos de carro entre si. O custo foi de **menos de € 200 por pessoa para os 7 dias** (≈ € 28/noite por pessoa) em ambos.
 
 **Dervari Luxury Duplex** (meu grupo — 4 pessoas):
 - 2 quartos (casal + 2 camas individuais conversíveis) e 2 banheiros completos com água quente
@@ -188,7 +188,7 @@ Ficamos em dois AirBnBs, com menos de 10 minutos de carro entre si. O custo foi 
 
 <div class="callout callout-warn">
   <div class="callout-label">★ Nota sobre o Dia 3 — Bianco</div>
-  O gasto no Bianco foi um ponto fora da curva: € 300,00 em uma única noite — incluindo sessão de narguilé, drinks de vodca, cervejas e bebidas oferecidas para pessoas ao longo da noite. O valor <strong>não representa o custo médio do local</strong>; é perfeitamente possível passar a noite no Bianco gastando entre € 40,00 e € 80,00.
+  O gasto no Bianco foi um ponto fora da curva: € 300 em uma única noite — incluindo sessão de narguilé, drinks de vodca, cervejas e bebidas oferecidas para pessoas ao longo da noite. O valor <strong>não representa o custo médio do local</strong>; é perfeitamente possível passar a noite no Bianco gastando entre € 40 e € 80.
 </div>
 
 <div class="divider">· · ·</div>
@@ -198,21 +198,21 @@ Ficamos em dois AirBnBs, com menos de 10 minutos de carro entre si. O custo foi 
   <div class="section-title-wrap"><h2>Dia 1 — Ksamil: Bora Bora e Principotes</h2></div>
 </div>
 
-Após dormir até as 11h00, fomos de carro até Ksamil (cerca de 30 minutos de Sarande). Almoçamos no restaurante Bora Bora na praia, um lugar pequeno e simples. A conta de 4 pessoas — um prato de cordeiro, uma salada, uma massa, um prato de frutos do mar mistos, cervejas e 2 garrafas de vinho — saiu por **€ 130,00** (≈ € 32,50 por pessoa). Avaliação: **6/10**.
+Após dormir até as 11h00, fomos de carro até Ksamil (cerca de 30 minutos de Sarande). Almoçamos no restaurante Bora Bora na praia, um lugar pequeno e simples. A conta de 4 pessoas — um prato de cordeiro, uma salada, uma massa, um prato de frutos do mar mistos, cervejas e 2 garrafas de vinho — saiu por **€ 130** (≈ € 32,50 por pessoa). Avaliação: **6/10**.
 
 <div class="callout callout-warn">
   <div class="callout-label">Cuidado com frutos do mar</div>
   Uma das amigas que pediu o prato de frutos do mar teve problemas intestinais nos dias seguintes. Embora não seja possível confirmar a causa, vale ter cautela com frutos do mar em restaurantes de menor estrutura.
 </div>
 
-Após o almoço fomos ao **Principotes Ksamil Beach Club**. Conseguimos uma cama de praia à beira-mar por **€ 300,00** para o grupo (incluindo uma garrafa de Prosecco e prato de frutas). O grupo do outro carro, poucos metros mais afastado do mar, pagou **€ 150,00** pela cama deles. Há uma diferença de preço conforme a localização — e ficamos sabendo depois que a cama de frente ao mar havia sido oferecida a eles por € 200,00.
+Após o almoço fomos ao **Principotes Ksamil Beach Club**. Conseguimos uma cama de praia à beira-mar por **€ 300** para o grupo (incluindo uma garrafa de Prosecco e prato de frutas). O grupo do outro carro, poucos metros mais afastado do mar, pagou **€ 150** pela cama deles. Há uma diferença de preço conforme a localização — e ficamos sabendo depois que a cama de frente ao mar havia sido oferecida a eles por € 200.
 
 <div class="callout callout-tip">
   <div class="callout-label">Dica: negocie antes de sentar</div>
-  Chegamos ao beach club já um pouco descontraídos, ansiosos e sem ter combinado com o outro grupo. Por isso, pagamos € 300,00 sem negociar. Se estivéssemos em sintonia, provavelmente pagaríamos € 200,00. Sempre negocie antes de se acomodar — especialmente nas camas da primeira fila.
+  Chegamos ao beach club já um pouco descontraídos, ansiosos e sem ter combinado com o outro grupo. Por isso, pagamos € 300 sem negociar. Se estivéssemos em sintonia, provavelmente pagaríamos € 200. Sempre negocie antes de se acomodar — especialmente nas camas da primeira fila.
 </div>
 
-O acesso à praia é gratuito, mesmo sem pagar pelo espaço. No Principotes há bar com serviço de garçom, restaurante e banheiros. Além das bebidas gratuitas incluídas, consumimos **€ 150,00 em cervejas e vinho** ao longo do dia (≈ € 37,50/pessoa). Ficamos até as 21h00 e voltamos para Sarande.
+O acesso à praia é gratuito, mesmo sem pagar pelo espaço. No Principotes há bar com serviço de garçom, restaurante e banheiros. Além das bebidas gratuitas incluídas, consumimos **€ 150 em cervejas e vinho** ao longo do dia (≈ € 37,50/pessoa). Ficamos até as 21h00 e voltamos para Sarande.
 
 <div class="divider">· · ·</div>
 
@@ -228,13 +228,13 @@ Fomos a pé até o porto de Sarande (≈ 10 minutos do AirBnB) e embarcamos no f
   Uma das integrantes do grupo esqueceu o passaporte e não pôde embarcar — não dava tempo de buscar no AirBnB e voltar, e o próximo ferry chegaria tarde demais para aproveitar o dia. Perdeu o passeio e ficou em Sarande. <strong>Verifique a documentação na noite anterior.</strong>
 </div>
 
-Passagem: **€ 32,00 (ida) + € 32,00 (volta) = € 64,00 por pessoa**.
+Passagem: **€ 32 (ida) + € 32 (volta) = € 64 por pessoa**.
 
-Em Corfu, saímos do porto do ferry em uma van táxi até a marina de partida do barco: **€ 55,00 para 7 pessoas** (≈ € 7,86/pessoa), trajeto de ≈ 11 minutos. Almoçamos na própria marina. Eu optei por um gyro/yeero de porco (≈ **€ 12,00**); os outros escolheram hambúrguer ou outro lanche — os pratos variavam entre **€ 10,00 e € 15,00**, mais bebida (cerveja ou refrigerante).
+Em Corfu, saímos do porto do ferry em uma van táxi até a marina de partida do barco: **€ 55 para 7 pessoas** (≈ € 7,86/pessoa), trajeto de ≈ 11 minutos. Almoçamos na própria marina. Eu optei por um gyro/yeero de porco (≈ **€ 12**); os outros escolheram hambúrguer ou outro lanche — os pratos variavam entre **€ 10 e € 15**, mais bebida (cerveja ou refrigerante).
 
-O passeio de barco saiu às 13h00, com duração de 4 horas, e custou **€ 50,00 por pessoa**. Incluiu: prato de frutas, bebidas (cerveja, água e refrigerante), Bluetooth para música, e 3 a 4 paradas para nadar — incluindo uma entrada em caverna. Levamos uma garrafa de whisky e energéticos à parte. O barco tinha banheiro de uso livre, quarto (privativo) e acomodava confortavelmente o nosso grupo de 7.
+O passeio de barco saiu às 13h00, com duração de 4 horas, e custou **€ 50 por pessoa**. Incluiu: prato de frutas, bebidas (cerveja, água e refrigerante), Bluetooth para música, e 3 a 4 paradas para nadar — incluindo uma entrada em caverna. Levamos uma garrafa de whisky e energéticos à parte. O barco tinha banheiro de uso livre, quarto (privativo) e acomodava confortavelmente o nosso grupo de 7.
 
-Pegamos o ferry de volta às 19h00 (horário grego), chegando a Sarande às 19h00 (horário albanês) — a hora de viagem e a diferença de fuso horário se cancelam. Na volta da marina até o porto do ferry, em vez de uma única van, dividimos em **2 táxis — € 25,00 cada** (um com 4 pessoas e outro com 3), totalizando € 50,00 para o grupo — menos do que os € 55,00 pagos em uma van só na ida. Jantamos no **My Family**, bem próximo ao cais, com excelente qualidade e preço baixo — **nota 9/10**. Depois fomos à piscina privativa do AirBnB dos amigos, passamos no mercado e compramos bebidas e petiscos.
+Pegamos o ferry de volta às 19h00 (horário grego), chegando a Sarande às 19h00 (horário albanês) — a hora de viagem e a diferença de fuso horário se cancelam. Na volta da marina até o porto do ferry, em vez de uma única van, dividimos em **2 táxis — € 25 cada** (um com 4 pessoas e outro com 3), totalizando € 50 para o grupo — menos do que os € 55 pagos em uma van só na ida. Jantamos no **My Family**, bem próximo ao cais, com excelente qualidade e preço baixo — **nota 9/10**. Depois fomos à piscina privativa do AirBnB dos amigos, passamos no mercado e compramos bebidas e petiscos.
 
 **Preços no mercado (referência):**
 
@@ -244,7 +244,7 @@ Pegamos o ferry de volta às 19h00 (horário grego), chegando a Sarande às 19h0
   </thead>
   <tbody>
     <tr><td>Cerveja Amstel 500 ml (lata)</td><td>130 Leks</td><td>≈ € 1,44</td></tr>
-    <tr><td>Cerveja Heineken 500 ml (lata)</td><td>180 Leks</td><td>≈ € 2,00</td></tr>
+    <tr><td>Cerveja Heineken 500 ml (lata)</td><td>180 Leks</td><td>≈ € 2</td></tr>
     <tr><td>Monster Energy 500 ml</td><td>250–300 Leks</td><td>≈ € 2,78–3,33</td></tr>
     <tr><td>Red Bull 250 ml (lata)</td><td>190 Leks</td><td>≈ € 2,11</td></tr>
     <tr><td>Salgadinhos, biscoitos e chocolates</td><td>150–250 Leks</td><td>≈ € 1,67–2,78</td></tr>
@@ -254,7 +254,7 @@ Pegamos o ferry de volta às 19h00 (horário grego), chegando a Sarande às 19h0
 
 <div class="callout callout-tip">
   <div class="callout-label">Compras no mercado — gasto médio</div>
-  Cada AirBnB gastou em média <strong>≈ € 20,00 por dia</strong> em compras de mercado: bebidas (cervejas, energéticos, refrigerantes), petiscos, bolachas e chocolates. A pizza congelada em promoção (2 por 1 a 300 Leks) estava disponível em alguns mercados — opção prática mas sem grande qualidade; não a recomendo.
+  Cada AirBnB gastou em média <strong>≈ € 20 por dia</strong> em compras de mercado: bebidas (cervejas, energéticos, refrigerantes), petiscos, bolachas e chocolates. A pizza congelada em promoção (2 por 1 a 300 Leks) estava disponível em alguns mercados — opção prática mas sem grande qualidade; não a recomendo.
 </div>
 
 <div class="callout callout-warn">
@@ -269,11 +269,11 @@ Pegamos o ferry de volta às 19h00 (horário grego), chegando a Sarande às 19h0
   <div class="section-title-wrap"><h2>Dia 3 — Poda Beach Club e Bianco</h2></div>
 </div>
 
-Fomos ao **Poda Beach Club** — similar ao Principotes, porém mais acessível e, neste dia, mais movimentado. Pagamos **€ 100,00 pela cama à beira-mar** (incluindo uma garrafa de Prosecco; sem a garrafa seriam € 80,00). Ficamos das 12h00 às 19h00.
+Fomos ao **Poda Beach Club** — similar ao Principotes, porém mais acessível e, neste dia, mais movimentado. Pagamos **€ 100 pela cama à beira-mar** (incluindo uma garrafa de Prosecco; sem a garrafa seriam € 80). Ficamos das 12h00 às 19h00.
 
-A conta de bebidas ao longo do dia — cervejas, drinks de vodca, whisky e mojitos — foi de **€ 130,00 para 4 pessoas** (≈ € 32,50/pessoa). O almoço no restaurante do Poda custou **≈ € 20,00 por pessoa** — avaliação **8/10**.
+A conta de bebidas ao longo do dia — cervejas, drinks de vodca, whisky e mojitos — foi de **€ 130 para 4 pessoas** (≈ € 32,50/pessoa). O almoço no restaurante do Poda custou **≈ € 20 por pessoa** — avaliação **8/10**.
 
-À noite, fomos ao **Kamay Beach Restaurant**, próximo à Mão de Ksamil. A conta ficou em **≈ € 20,00 por pessoa** (jantar + bebidas).
+À noite, fomos ao **Kamay Beach Restaurant**, próximo à Mão de Ksamil. A conta ficou em **≈ € 20 por pessoa** (jantar + bebidas).
 
 De lá fomos ao **Bianco** em Ksamil. Chegamos às 21h00 e ficamos no rooftop até as 00h00, quando descemos para a balada no piso térreo.
 
@@ -282,9 +282,9 @@ De lá fomos ao **Bianco** em Ksamil. Chegamos às 21h00 e ficamos no rooftop at
 - Não há código de vestimenta rígido — roupas de praia são toleradas no rooftop, mas no piso inferior a maioria estava com roupa mais arrumada
 - Fui de camiseta polo, bermuda de tecido e tênis; a amiga foi de vestido e salto alto
 
-O gasto pessoal nessa noite foi de **€ 300,00** (drinks de vodca, cervejas Corona, sessão de narguilé e bebidas oferecidas para pessoas ao longo da noite). O valor foi atípico — o Bianco é acessível para quem controla o consumo.
+O gasto pessoal nessa noite foi de **€ 300** (drinks de vodca, cervejas Corona, sessão de narguilé e bebidas oferecidas para pessoas ao longo da noite). O valor foi atípico — o Bianco é acessível para quem controla o consumo.
 
-Ao sair, o carro (T-Cross) não ligou por pane elétrica na bateria. Voltamos para Sarande de táxi: **€ 50,00** do Bianco ao AirBnB em Sarande.
+Ao sair, o carro (T-Cross) não ligou por pane elétrica na bateria. Voltamos para Sarande de táxi: **€ 50** do Bianco ao AirBnB em Sarande.
 
 <div class="divider">· · ·</div>
 
@@ -297,9 +297,9 @@ Retornamos ao Bianco para buscar o carro. Ligamos para a locadora e, em menos de
 
 Almoçamos no **Tre Ishujt**, restaurante em frente ao Bianco — excelente comida e atendimento, **nota 9/10**.
 
-À tarde, fomos ao Poda — desta vez na praia pública, sem pagar nada. O mar estava agitado e com visibilidade reduzida. Ficamos ≈ 1 hora e jantamos no próprio Poda: **6.500 Leks para 4 pessoas** (≈ € 72,00 no total, ≈ € 18,00/pessoa).
+À tarde, fomos ao Poda — desta vez na praia pública, sem pagar nada. O mar estava agitado e com visibilidade reduzida. Ficamos ≈ 1 hora e jantamos no próprio Poda: **6.500 Leks para 4 pessoas** (≈ € 72 no total, ≈ € 18/pessoa).
 
-Depois, tomamos sorvete no **Ice Roll** — **≈ 700 Leks (≈ € 7,78) por sorvete** — e voltamos ao Bianco para o rooftop. A entrada é gratuita — os **≈ € 50,00 para 4 pessoas** (≈ € 12,50/pessoa) foram inteiramente em bebidas: mojitos, whisky e cerveja. Às 23h45 fomos ao **Poda** no ambiente fechado. A experiência foi desagradável pelo comportamento dos garçons na pista — passavam empurrando sem pedir licença. Não ficamos muito tempo.
+Depois, tomamos sorvete no **Ice Roll** — **≈ 700 Leks (≈ € 7,78) por sorvete** — e voltamos ao Bianco para o rooftop. A entrada é gratuita — os **≈ € 50 para 4 pessoas** (≈ € 12,50/pessoa) foram inteiramente em bebidas: mojitos, whisky e cerveja. Às 23h45 fomos ao **Poda** no ambiente fechado. A experiência foi desagradável pelo comportamento dos garçons na pista — passavam empurrando sem pedir licença. Não ficamos muito tempo.
 
 <div class="divider">· · ·</div>
 
@@ -308,11 +308,11 @@ Depois, tomamos sorvete no **Ice Roll** — **≈ 700 Leks (≈ € 7,78) por so
   <div class="section-title-wrap"><h2>Dia 5 — Groovy Grill, Orange e Copa do Mundo</h2></div>
 </div>
 
-Almoçamos no **Groovy Grill**, entre o Poda e o Orange: **€ 70,00 para 4 pessoas** (≈ € 17,50/pessoa — pratos + bebidas).
+Almoçamos no **Groovy Grill**, entre o Poda e o Orange: **€ 70 para 4 pessoas** (≈ € 17,50/pessoa — pratos + bebidas).
 
-Fomos ao **Orange Beach Club** (em Ksamil — não confundir com o Orange Night Club de Sarande), onde aproveitamos a piscina gratuita e as espreguiçadeiras à beira-mar. As espreguiçadeiras custam **€ 15,00 cada**, mas como consumimos no bar durante o dia, não fomos cobrados. Voltamos ao AirBnB por volta das 19h00 para descansar.
+Fomos ao **Orange Beach Club** (em Ksamil — não confundir com o Orange Night Club de Sarande), onde aproveitamos a piscina gratuita e as espreguiçadeiras à beira-mar. As espreguiçadeiras custam **€ 15 cada**, mas como consumimos no bar durante o dia, não fomos cobrados. Voltamos ao AirBnB por volta das 19h00 para descansar.
 
-À noite, assistimos ao primeiro jogo do Brasil na Copa do Mundo no **Vibe 360°**, um bar à beira-mar com telão. Levamos uma garrafa de whisky comprada em um mercado em frente ao bar (≈ € 30,00), mas o estabelecimento **confiscou a garrafa na entrada**, devolvendo apenas no momento de irmos embora. O bar vendia cerveja e whisky (600 Leks por dose — ≈ € 6,67), mas não tinha energético — consumimos os nossos discretamente. A comida era barata mas quem comeu não gostou. Avaliação **6/10**.
+À noite, assistimos ao primeiro jogo do Brasil na Copa do Mundo no **Vibe 360°**, um bar à beira-mar com telão. Levamos uma garrafa de whisky comprada em um mercado em frente ao bar (≈ € 30), mas o estabelecimento **confiscou a garrafa na entrada**, devolvendo apenas no momento de irmos embora. O bar vendia cerveja e whisky (600 Leks por dose — ≈ € 6,67), mas não tinha energético — consumimos os nossos discretamente. A comida era barata mas quem comeu não gostou. Avaliação **6/10**.
 
 <div class="divider">· · ·</div>
 
@@ -321,7 +321,7 @@ Fomos ao **Orange Beach Club** (em Ksamil — não confundir com o Orange Night 
   <div class="section-title-wrap"><h2>Dia 6 — Passeios de barco</h2></div>
 </div>
 
-O grupo se dividiu: 6 pessoas foram no passeio Viking (≈ € 40,00/pessoa, das 10h00 às 18h00) e eu fui com uma amiga no passeio da **El Niño Boat Tours Sarande** (€ 30,00/pessoa, das 10h00 às 15h00).
+O grupo se dividiu: 6 pessoas foram no passeio Viking (≈ € 40/pessoa, das 10h00 às 18h00) e eu fui com uma amiga no passeio da **El Niño Boat Tours Sarande** (€ 30/pessoa, das 10h00 às 15h00).
 
 **O que o passeio El Niño incluía:**
 - Turtle Cave — 10 minutos de parada para fotos
