@@ -129,7 +129,7 @@ O projeto **Agregador de Vagas** reúne todas as vagas publicadas nos repositór
 
 <div class="gateway-diagram" style="padding: 1rem;">
   <a href="https://apibr.com/ui/vagas/" target="_blank">
-    <img src="https://blog.guilhermebranco.com.br/wp-content/uploads/2026/01/ApiBrVagasUiV2.png" alt="API BR - Vagas - User Interface screenshot" style="max-width:100%;border-radius:8px;">
+    <img src="{{ site.baseurl }}/assets/img/posts/ApiBrVagasUiV2.png" alt="API BR - Vagas - User Interface screenshot" style="max-width:100%;border-radius:8px;">
   </a>
   <p class="gw-caption">Interface do Agregador de Vagas — API BR</p>
 </div>
