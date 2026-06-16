@@ -150,7 +150,7 @@ Ficamos em dois AirBnBs, com menos de 10 minutos de carro entre si. O custo foi 
     <tr>
       <td>Dia 2</td>
       <td>10/06 (Qua)</td>
-      <td>Ferry Sarande→Corfu 10h00 · 2 táxis até a marina · Almoço · Passeio de barco · Ferry volta 19h00 · Chegada Sarande 19h00 · Jantar My Family · Piscina no Panorama</td>
+      <td>Ferry Sarande→Corfu 10h00 · Táxi até a marina · Almoço · Passeio de barco · 2 táxis até o ferry · Ferry volta 19h00 · Chegada a Sarande 19h00 · Jantar My Family · Piscina no Panorama</td>
       <td>≈ € 155</td>
     </tr>
     <tr>
