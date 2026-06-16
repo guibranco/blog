@@ -221,9 +221,6 @@ Do Covent Garden, pegamos um ônibus até a **Liverpool Street** e de lá o **St
   </a>
 </div>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.0/css/glightbox.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.0/js/glightbox.min.js"></script>
-<script>GLightbox({ selector: '.glightbox' });</script>
 
 <div class="divider">· · ·</div>
 
