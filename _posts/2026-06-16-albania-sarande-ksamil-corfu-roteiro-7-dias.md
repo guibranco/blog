@@ -76,7 +76,7 @@ Chegamos em Tirana na segunda-feira, 08/06, por volta das 22h00. O grupo que vei
     <tr><th>Modelo</th><th>Diária</th><th>7 dias (total)</th><th>Câmbio</th></tr>
   </thead>
   <tbody>
-    <tr><td>VW Polo</td><td>€ 24,29/dia</td><td>€ 170,00</td><td>Manual</td></tr>
+    <tr><td>VW Polo</td><td>€ 25,00/dia</td><td>€ 175,00</td><td>Manual</td></tr>
     <tr><td>VW T-Cross</td><td>€ 35/dia</td><td>€ 245</td><td>Automático</td></tr>
   </tbody>
 </table>
