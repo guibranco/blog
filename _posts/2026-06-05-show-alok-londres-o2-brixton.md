@@ -107,13 +107,13 @@ Ficamos no **Publove @ The Steam Engine**, um hostel no bairro de Waterloo. Opta
     <tr>
       <td>Dia 2 — Show</td>
       <td>05/06 (Sex)</td>
-      <td>Acordou 11h00 · Oxford Circus · Primark · Five Guys · M&M's World £ 77 · LEGO Store £ 12 · Voi (grátis) · O2 Brixton (Alok, 19h00) · Tia Maria · KFC</td>
+      <td>Oxford Circus · Primark · Five Guys · M&M's World £ 77 · LEGO Store £ 12 · Voi (grátis) · O2 Brixton (ingresso £ 60, Alok 19h00) · Bebidas ≈ £ 10/copo · Tia Maria £ 30 · KFC £ 20</td>
       <td>≈ £ 110 (compras + comida + show)</td>
     </tr>
     <tr>
       <td>Dia 3 — Partida</td>
       <td>06/06 (Sáb)</td>
-      <td>Borough Market £ 10 · Costa Cafe · M&M's World £ 38 · LEGO Store £ 15 · Noodle Inn £ 21,67 · Trem Stansted £ 20 · Voo STN→DUB 22h00</td>
+      <td>Borough Market £ 10/pessoa · Costa Coffee £ 5/pessoa · M&M's World £ 38 · LEGO Store £ 15 · Noodle Inn £ 21,67 · Trem Stansted £ 20 · Voo STN→DUB 22h00</td>
       <td>€ 25,35 (voo) + £ 74,67 (comida + compras + transporte)</td>
     </tr>
   </tbody>
@@ -121,7 +121,7 @@ Ficamos no **Publove @ The Steam Engine**, um hostel no bairro de Waterloo. Opta
 
 <div class="callout callout-warn">
   <div class="callout-label">Valores provisórios</div>
-  Os gastos com show, bebidas no evento, Tia Maria e KFC não foram detalhados — os totais acima serão revisados.
+  Os valores de comida e bebida no Dia 3 (show, after, KFC) foram actualizados.
 </div>
 
 <div class="divider">· · ·</div>
@@ -144,26 +144,28 @@ Depois do almoço, caminhamos (com uma combinação de ônibus) até Leicester S
   A loja de Leicester Square é enorme e vai além dos chocolates — há roupas, canecas, bonés e vários itens personalizáveis. Comprei chocolates para consumo próprio e para presentes (quase 1 kg, entre ao leite, amendoim e outros sabores) além de itens não comestíveis. <strong>Total gasto: £ 77,00</strong>. Já sabia que voltaria no dia seguinte.
 </div>
 
-Na **LEGO Store** ao lado, comprei um conjunto de presente (temática rosa) e algumas minifiguras — **£ 12,00**.
+Na **LEGO Store** ao lado, comprei uma **flor em LEGO** (<a href="https://www.lego.com/en-ie/product/roses-40460" target="_blank">#40460 - LEGO Botanicals Roses - Faux Flowers Building Set</a>) e algumas minifiguras — **£ 12,00**. A peça da flor é um dos sets mais presentes e elegantes que a loja tem para oferecer.
 
 ### Voltando de bicicleta elétrica — Voi
 
 O retorno ao hostel foi de bicicleta elétrica usando o aplicativo **Voi**. Conseguimos 3 viagens gratuitas pelo app — o trajeto de quase 3 km durou apenas 15 minutos.
 
 <div class="callout callout-tip">
-  <div class="callout-label">Voi em Londres vs. Irlanda</div>
-  As bicicletas elétricas da Voi em Londres são significativamente mais potentes e rápidas do que as disponíveis aqui na Irlanda, que funcionam mais como bicicletas comuns com suporte leve em subidas. O trajeto de ≈ £ 5,00 saiu de graça.
+  <div class="callout-label">Voi em Londres vs. Moby na Irlanda</div>
+  As bicicletas elétricas da Voi em Londres são significativamente mais potentes e rápidas do que as **Moby** aqui na Irlanda, que funcionam mais como bicicletas comuns com suporte leve em subidas. O trajeto de ≈ £ 5,00 saiu de graça.
 </div>
 
 ### O2 Academy Brixton — Show do Alok
 
 O show era às 19h00. Fomos de ônibus até Brixton. A área já estava tomada de brasileiros — a segurança estava reforçada e o esquema de entrada fazia a fila dar a volta no quarteirão para evitar aglomeração na porta, que fica numa rua bastante movimentada.
 
-Os preços das bebidas dentro do evento estavam compatíveis com o mercado de casas de show em Londres. A acústica e o show de luzes foram muito bons.
+O ingresso custou **£ 60,00 por pessoa**. As bebidas seguiam o padrão londrino de casas de show — **£ 10,00 por copo** (whisky com energético ou vodca com Seven Up). A acústica e o show de luzes foram muito bons.
 
 ### Tia Maria Brazilian Bar e KFC
 
-Saindo da O2, fomos ao **Tia Maria**, um bar brasileiro próximo, onde havia apresentação ao vivo de música sertaneja. Ficamos até o fechamento e, em seguida, paramos no **KFC** da vizinhança para comer antes de voltar ao hostel.
+Saindo da O2, fomos ao **Tia Maria**, um bar brasileiro próximo, onde havia apresentação ao vivo de música sertaneja. Gastei **£ 30,00** em cervejas, vodca e outras bebidas ao longo da noite. Ficamos até o fechamento.
+
+Ao sair, no **KFC** da vizinhança, encontramos outros brasileiros voltando de outras festas — inclusive de outro afterparty do show do Alok. A conta foi de **£ 60,00 para os 3** (≈ £ 20,00/pessoa).
 
 <div class="divider">· · ·</div>
 
@@ -176,11 +178,11 @@ Na manhã de sábado, nos arrumamos, guardamos as malas e deixamos o hostel. Com
 
 ### Borough Market
 
-Começamos pelo **Borough Market**, um dos mercados de rua mais famosos de Londres. Comemos frutas com chocolate — **£ 10,00 para os 3**.
+Começamos pelo **Borough Market**, um dos mercados de rua mais famosos de Londres. Comemos copos de frutas com chocolate — **£ 10,00 por copo** (cada um).
 
 ### Costa Coffee
 
-De lá, fomos a um **Costa Coffee** nas redondezas para matar o tempo, já que não podíamos voltar ao hostel. O café e a sombra foram bem-vindos para descansar antes da tarde agitada.
+De lá, fomos a um **Costa Coffee** nas redondezas para matar o tempo, já que não podíamos voltar ao hostel. O café custou **£ 5,00 por pessoa** e a pausa foi bem-vinda para descansar antes da tarde agitada.
 
 ### Volta à Leicester Square
 
@@ -242,17 +244,19 @@ Do Covent Garden, pegamos um ônibus até a **Liverpool Street** e de lá o **St
     <tr><td>National Express (STN→Londres)</td><td>£ 18,00</td></tr>
     <tr><td>Táxi (Waterloo → hostel, ÷ 3)</td><td>≈ £ 3,67</td></tr>
     <tr><td>Stansted Express (Londres→STN)</td><td>≈ £ 20,00</td></tr>
-    <tr><td>Alimentação (Five Guys, Borough Market, Noodle Inn, KFC)</td><td>≈ £ 40,00</td></tr>
+    <tr><td>Alimentação (Five Guys, Borough Market £ 10/copo, Costa Coffee £ 5, Noodle Inn, KFC £ 20)</td><td>≈ £ 65,00</td></tr>
     <tr><td>Compras M&M's World (2 visitas)</td><td>£ 115,00</td></tr>
     <tr><td>Compras LEGO Store (2 visitas)</td><td>£ 27,00</td></tr>
-    <tr><td>Show, bebidas e Tia Maria</td><td>a revisar</td></tr>
-    <tr><td><strong>Total estimado (sem show/bar)</strong></td><td><strong>€ 47 + £ 263,67</strong></td></tr>
+    <tr><td>Ingresso show do Alok</td><td>£ 60,00</td></tr>
+    <tr><td>Bebidas na O2 Academy (≈ £ 10/copo)</td><td>≈ £ 30,00</td></tr>
+    <tr><td>Tia Maria (cervejas + spirits)</td><td>£ 30,00</td></tr>
+    <tr><td><strong>Total estimado</strong></td><td><strong>€ 47 + £ 390,67</strong></td></tr>
   </tbody>
 </table>
 
 <div class="callout callout-tip">
   <div class="callout-label">Compras vs. custo de viagem</div>
-  O maior gasto individual foi nas lojas — as duas visitas à M&M's World somaram <strong>£ 115,00</strong> e as duas à LEGO <strong>£ 27,00</strong>. Excluindo as compras, a viagem em si (voos + hostel + transporte + comida) ficou em torno de <strong>€ 47 + £ 121,67 por pessoa</strong> — um custo muito acessível para 3 dias em Londres.
+  O maior gasto individual foi nas lojas — as duas visitas à M&M's World somaram <strong>£ 115,00</strong> e as duas à LEGO <strong>£ 27,00</strong>. Excluindo as compras, a viagem em si (voos + hostel + transporte + comida + show + bar) ficou em torno de <strong>€ 47 + £ 213,00 por pessoa</strong>. Adicionando as compras nas lojas, o total sobe para <strong>€ 47 + £ 355,00</strong> — ainda muito acessível para 3 dias em Londres com show incluído.
 </div>
 
 <div class="divider">· · ·</div>
@@ -273,19 +277,19 @@ Do Covent Garden, pegamos um ônibus até a **Liverpool Street** e de lá o **St
   <div class="provider-card">
     <div class="provider-name">M&M's World London</div>
     <div class="provider-detail">Enorme loja temática em Leicester Square. Chocolates, itens personalizáveis, roupas e acessórios. Fácil gastar bastante — vá com orçamento definido.</div>
-    <div class="provider-price">Livre (entrada gratuita) · Compras a partir de £ 5</div>
+    <div class="provider-price">Livre (entrada gratuita) · Compras a partir de £ 5 · <a href="https://www.mms.com/en-ie/explore/mms-stores/london" target="_blank">mms.com</a></div>
   </div>
 
   <div class="provider-card">
     <div class="provider-name">LEGO Store Leicester Square</div>
-    <div class="provider-detail">Loja oficial da LEGO em Leicester Square. Sets exclusivos, minifiguras e personalização de chaveiros. Boa para presentes.</div>
-    <div class="provider-price">Sets a partir de £ 10 · Minifiguras £ 4–8</div>
+    <div class="provider-detail">Loja oficial da LEGO em Leicester Square. Sets exclusivos como a Flor (rosa), minifiguras e personalização de chaveiros. Boa para presentes.</div>
+    <div class="provider-price">Sets a partir de £ 10 · Minifiguras £ 4–8 · <a href="https://www.lego.com/en-be/stores/store/lsq" target="_blank">lego.com</a></div>
   </div>
 
   <div class="provider-card">
     <div class="provider-name">O2 Academy Brixton</div>
-    <div class="provider-detail">Uma das casas de show mais icônicas de Londres. Boa acústica e show de luzes. Show do Alok em 05/06/2026. Bebidas com preços de venue londrino.</div>
-    <div class="provider-price">Ingresso variável · Bebidas ≈ £ 8–12</div>
+    <div class="provider-detail">Uma das casas de show mais icônicas de Londres. Boa acústica e show de luzes. Show do Alok em 05/06/2026. Bebidas a £ 10/copo. <a href="https://www.instagram.com/o2academybrix/" target="_blank">Instagram</a>.</div>
+    <div class="provider-price">Ingresso ≈ £ 60 · Bebidas £ 10/copo</div>
   </div>
 
   <div class="provider-card">
@@ -303,18 +307,18 @@ Do Covent Garden, pegamos um ônibus até a **Liverpool Street** e de lá o **St
   <div class="provider-card">
     <div class="provider-name">Borough Market</div>
     <div class="provider-detail">Um dos mercados de rua mais tradicionais de Londres. Frutas, queijos, pães, comidas do mundo todo. Ótimo para um café da manhã tardio ou lanche antes do voo.</div>
-    <div class="provider-price">Entrada gratuita · Lanches a partir de £ 5</div>
+    <div class="provider-price">Entrada gratuita · Copos de fruta ≈ £ 10 · <a href="https://boroughmarket.org.uk/" target="_blank">boroughmarket.org.uk</a></div>
   </div>
 
   <div class="provider-card">
     <div class="provider-name">Tia Maria Brazilian Bar</div>
-    <div class="provider-detail">Bar brasileiro próximo ao O2 Academy Brixton. Música sertaneja ao vivo. Ótimo ponto de encontro para a comunidade brasileira em Londres após shows.</div>
-    <div class="provider-price">Preços a revisar</div>
+    <div class="provider-detail">Bar brasileiro próximo ao O2 Academy Brixton. Música sertaneja ao vivo. Ótimo ponto de encontro da comunidade brasileira em Londres após shows. <a href="https://www.instagram.com/tiamaria.london/" target="_blank">Instagram</a>.</div>
+    <div class="provider-price">≈ £ 30/pessoa (cervejas + spirits)</div>
   </div>
 
   <div class="provider-card">
     <div class="provider-name">Voi — Bicicletas elétricas</div>
-    <div class="provider-detail">App de aluguel de bicicletas elétricas. Em Londres são mais potentes do que as disponíveis na Irlanda. Verifique promoções de viagens gratuitas no app antes de usar.</div>
+    <div class="provider-detail">App de aluguel de bicicletas elétricas. Em Londres são significativamente mais potentes do que as <strong>Moby</strong> disponíveis na Irlanda. Verifique promoções de viagens gratuitas no app antes de usar.</div>
     <div class="provider-price">≈ £ 5/viagem · Promoções disponíveis</div>
   </div>
 
@@ -367,7 +371,7 @@ Do Covent Garden, pegamos um ônibus até a **Liverpool Street** e de lá o **St
 
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-bicycle"></i> Voi — Bicicletas elétricas</div>
-    <div class="provider-detail">Aluguel de bicicletas elétricas por app. Verifique promoções de viagens gratuitas.</div>
+    <div class="provider-detail">Aluguel de bicicletas elétricas por app (não disponível na Irlanda — aqui é a Moby). Verifique promoções de viagens gratuitas.</div>
     <div class="provider-price"><a href="https://www.voi.com" target="_blank">voi.com</a></div>
   </div>
 
