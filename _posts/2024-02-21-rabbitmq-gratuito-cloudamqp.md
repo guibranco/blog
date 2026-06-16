@@ -26,7 +26,7 @@ Se você precisar de uma ou mais instâncias do [RabbitMQ](https://www.rabbitmq.
 
 Para usar, basta acessar [cloudamqp.com](https://www.cloudamqp.com/){:target="_blank"} e criar uma conta — manualmente, com sua conta do GitHub ou com o Google. Até a presente data, **não é obrigatório cadastrar cartão de crédito**. Ele será solicitado, mas não é necessário informar (a menos que deseje um plano pago).
 
-[![Captura de tela da página de criação de instâncias do CloudAMQP mostrando o plano gratuito selecionado e o aviso de que não há cartão de crédito associado](https://blog.guilhermebranco.com.br/wp-content/uploads/2024/02/CloudAMQP-Create-free-instance-1024x535.png)](https://www.cloudamqp.com/){:target="_blank"}
+[![Captura de tela da página de criação de instâncias do CloudAMQP mostrando o plano gratuito selecionado e o aviso de que não há cartão de crédito associado]({{ site.baseurl }}/assets/img/posts/CloudAMQP-Create-free-instance.png)](https://www.cloudamqp.com/){:target="_blank"}
 
 <div class="divider">· · ·</div>
 

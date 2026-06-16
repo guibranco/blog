@@ -140,7 +140,7 @@ Comecei a programar em PHP em 2007 — o Node.js nem existia (foi criado em 2009
 
 Dependendo da empresa, pode existir um time dedicado (SRE, DevOps, Platform Engineering) ou o próprio desenvolvedor assume a responsabilidade pela infraestrutura.
 
-[![DevOps vs SRE vs Platform Engineering](https://blog.guilhermebranco.com.br/wp-content/uploads/2023/09/devOpsvsSREvsPlatform-715x1024.png)](https://blog.bytebytego.com/p/ep-52-devops-vs-sre-vs-platform-engineering){:target="_blank"}
+[![DevOps vs SRE vs Platform Engineering]({{ site.baseurl }}/assets/img/posts/devOpsvsSREvsPlatform.png)](https://blog.bytebytego.com/p/ep-52-devops-vs-sre-vs-platform-engineering){:target="_blank"}
 
 Referências para entender as diferenças:
 - [DevOps vs. SRE vs. Platform Engineering — ByteByteGo](https://blog.bytebytego.com/p/ep-52-devops-vs-sre-vs-platform-engineering){:target="_blank"}
