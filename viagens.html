@@ -25,12 +25,14 @@ permalink: /viagens/
   <!-- ══════════ MAIN ══════════ -->
   <div class="main">
 
-    {% assign travel_posts = site.posts | where_exp: "p", "p.location" %}
+    {% assign posts_single = site.posts | where_exp: "p", "p.location" %}
+    {% assign posts_multi  = site.posts | where_exp: "p", "p.locations" %}
+    {% assign travel_posts = posts_single | concat: posts_multi | uniq %}
 
     <section class="hero">
       <p class="hero-eyebrow">// viagens //</p>
       <h1 class="hero-title">Viagens</h1>
-      <p class="hero-desc">{{ travel_posts | size }} destino{% if travel_posts.size != 1 %}s{% endif %} no mapa.</p>
+      <p class="hero-desc">{{ travel_posts | size }} post{% if travel_posts.size != 1 %}s{% endif %} com localização no mapa.</p>
     </section>
 
     <div class="content-wrap">
@@ -44,7 +46,10 @@ permalink: /viagens/
         <div class="empty-state">
           <div class="empty-glyph">✈</div>
           <p>Nenhum post com localização definida ainda.<br>
-            Adicione <code>location: { lat: ..., lng: ..., label: "..." }</code> ao front matter de um post.</p>
+            Adicione <code>location: { lat: ..., lng: ..., label: "..." }</code>
+            ou <code>locations: [{ lat: ..., lng: ..., label: "..." }, ...]</code>
+            ao front matter de um post.
+          </p>
         </div>
       </div>
       {% endif %}
@@ -58,18 +63,42 @@ permalink: /viagens/
   {% if travel_posts.size > 0 %}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   <script>
-    const posts = [
+    // Pins gerados pelo Liquid — suporta `location` (objeto) e `locations` (array)
+    const pins = [
       {% for post in travel_posts %}
-      {
-        lat: {{ post.location.lat }},
-        lng: {{ post.location.lng }},
-        label: {{ post.location.label | jsonify }},
-        title: {{ post.title | jsonify }},
-        date: "{{ post.date | date: '%d/%m/%Y' }}",
-        url: "{{ post.url | relative_url }}"
-      }{% unless forloop.last %},{% endunless %}
+
+        {% comment %}── Formato array: locations: [{lat,lng,label}, ...] ──{% endcomment %}
+        {% if post.locations %}
+          {% for loc in post.locations %}
+          {
+            lat:   {{ loc.lat }},
+            lng:   {{ loc.lng }},
+            label: {{ loc.label | jsonify }},
+            title: {{ post.title | jsonify }},
+            date:  "{{ post.date | date: '%d/%m/%Y' }}",
+            url:   "{{ post.url | relative_url }}"
+          },
+          {% endfor %}
+        {% endif %}
+
+        {% comment %}── Formato objeto: location: {lat, lng, label} ──{% endcomment %}
+        {% if post.location %}
+          {% assign loc = post.location %}
+          {
+            lat:   {{ loc.lat }},
+            lng:   {{ loc.lng }},
+            label: {{ loc.label | jsonify }},
+            title: {{ post.title | jsonify }},
+            date:  "{{ post.date | date: '%d/%m/%Y' }}",
+            url:   "{{ post.url | relative_url }}"
+          },
+        {% endif %}
+
       {% endfor %}
     ];
+
+    // Remove o trailing comma do último elemento (gerado pelo Liquid acima)
+    // O array já é válido porque o JS ignora trailing commas em ES5+
 
     const map = L.map('map');
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -77,15 +106,20 @@ permalink: /viagens/
       attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
     }).addTo(map);
 
-    const markers = posts.map(p => {
+    const markers = pins.map(p => {
       const m = L.marker([p.lat, p.lng]).addTo(map);
       m.bindPopup(
         `<strong><a href="${p.url}">${p.title}</a></strong><br>` +
-        `<small>${p.label} · ${p.date}</small>`
+        `<small style="font-family:monospace">${p.label} · ${p.date}</small>`
       );
       return m;
     });
-    map.fitBounds(L.featureGroup(markers).getBounds().pad(0.15));
+
+    if (markers.length === 1) {
+      map.setView([markers[0]._latlng.lat, markers[0]._latlng.lng], 8);
+    } else {
+      map.fitBounds(L.featureGroup(markers).getBounds().pad(0.15));
+    }
   </script>
   {% endif %}
 
