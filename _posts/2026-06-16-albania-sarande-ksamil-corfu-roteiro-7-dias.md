@@ -174,7 +174,7 @@ Ficamos em dois AirBnBs, com menos de 10 minutos de carro entre si. O custo foi 
     <tr>
       <td>Dia 6</td>
       <td>14/06 (Dom)</td>
-      <td>Acordou 09h00 · Passeio El Niño 10h00–15h00 (30€) / Viking 10h00–18h00 (40€) · Lost Party à noite (parte do grupo)</td>
+      <td>Acordou 09h00 · Passeio El Niño 10h00–15h00 (30€) / Viking 10h00–18h00 (40€) · Lost Seaside à noite (parte do grupo)</td>
       <td>≈ € 50</td>
     </tr>
     <tr>
@@ -310,7 +310,7 @@ Depois, tomamos sorvete no **Ice Roll** — **≈ 700 Leks (≈ € 7,78) por so
 
 Almoçamos no **Groovy Grill**, entre o Poda e o Orange: **€ 70,00 para 4 pessoas** (≈ € 17,50/pessoa — pratos + bebidas).
 
-Fomos ao **Orange Beach Club**, onde aproveitamos a piscina gratuita e as espreguiçadeiras à beira-mar. As espreguiçadeiras custam **€ 15,00 cada**, mas como consumimos no bar durante o dia, não fomos cobrados. Voltamos ao AirBnB por volta das 19h00 para descansar.
+Fomos ao **Orange Beach Club** (em Ksamil — não confundir com o Orange Night Club de Sarande), onde aproveitamos a piscina gratuita e as espreguiçadeiras à beira-mar. As espreguiçadeiras custam **€ 15,00 cada**, mas como consumimos no bar durante o dia, não fomos cobrados. Voltamos ao AirBnB por volta das 19h00 para descansar.
 
 À noite, assistimos ao primeiro jogo do Brasil na Copa do Mundo no **Vibe 360°**, um bar à beira-mar com telão. Levamos uma garrafa de whisky comprada em um mercado em frente ao bar (≈ € 30,00), mas o estabelecimento **confiscou a garrafa na entrada**, devolvendo apenas no momento de irmos embora. O bar vendia cerveja e whisky (600 Leks por dose — ≈ € 6,67), mas não tinha energético — consumimos os nossos discretamente. A comida era barata mas quem comeu não gostou. Avaliação **6/10**.
 
@@ -333,7 +333,7 @@ O grupo se dividiu: 6 pessoas foram no passeio Viking (≈ € 40,00/pessoa, das
 - 1 bebida inclusa (cerveja, refrigerante ou água)
 - Lancha com ≈ 12 passageiros + 1 tripulante/piloto
 
-À noite, parte do grupo foi à festa **Lost** — uma festa branca em um hotel em Sarande. Fiquei no apartamento para descansar antes da madrugada de direção.
+À noite, parte do grupo foi à festa **Lost Seaside** — uma festa **Lost Seaside** — evento à beira-mar em Sarande. Fiquei no apartamento para descansar antes da madrugada de direção.
 
 Saímos de Sarande de ambos os AirBnBs às 04h00, chegamos ao aeroporto de Tirana às 07h30 e embarcamos no voo das 10h40 para Liverpool (Ryanair UK, chegada 13h00). Por virem da Albânia, todos os 8 passageiros precisaram passar pela imigração do Reino Unido em Liverpool antes de acessar a área de conexão — de lá seguimos para a área pública, e então de volta à área restrita para embarcar para Dublin (Ryanair, 15h45–16h40). As meninas comeram um lanche no aeroporto de Tirana; em Liverpool paramos no **Burger King**. Compramos também energéticos e salgadinhos variados para consumir durante os percursos.
 
@@ -390,8 +390,8 @@ Saímos de Sarande de ambos os AirBnBs às 04h00, chegamos ao aeroporto de Tiran
   </div>
 
   <div class="provider-card">
-    <div class="provider-name">Poda Beach Club</div>
-    <div class="provider-detail">Beach club popular e mais acessível que o Principotes. Cama com Prosecco. Restaurante (nota 8/10), bar e pista de dança à noite. Acesso à praia gratuito.</div>
+    <div class="provider-name">Poda Beach Club — Ksamil</div>
+    <div class="provider-detail">Beach club popular em Ksamil, mais acessível que o Principotes. Cama com Prosecco. Restaurante (nota 8/10), bar e pista de dança à noite. Acesso à praia gratuito.</div>
     <div class="provider-price">€ 80–100/cama (grupo) · Restaurante ≈ € 20/pessoa</div>
   </div>
 
@@ -402,44 +402,50 @@ Saímos de Sarande de ambos os AirBnBs às 04h00, chegamos ao aeroporto de Tiran
   </div>
 
   <div class="provider-card">
-    <div class="provider-name">My Family Restaurant — Sarande</div>
-    <div class="provider-detail">Restaurante de rua próximo ao porto do ferry. Excelente qualidade de comida e atendimento acima da expectativa para o preço. Nota 9/10.</div>
+    <div class="provider-name">My Family — Sarande</div>
+    <div class="provider-detail">Restaurante de rua próximo ao porto do ferry. Excelente qualidade de comida e atendimento acima da expectativa. Nota 9/10. <a href="https://www.instagram.com/myfamily_restaurant/" target="_blank">Instagram</a>.</div>
     <div class="provider-price">Preço baixo · ≈ € 10–15/pessoa</div>
   </div>
 
   <div class="provider-card">
     <div class="provider-name">Tre Ishujt — Ksamil</div>
-    <div class="provider-detail">Restaurante em frente ao Bianco. Ótima comida e atendimento. Nota 9/10.</div>
+    <div class="provider-detail">Restaurante em frente ao Bianco. Ótima comida e atendimento. Nota 9/10. <a href="https://www.instagram.com/3ishujt.restaurant.lounge/" target="_blank">Instagram</a>.</div>
     <div class="provider-price">Preço moderado · ≈ € 15–20/pessoa</div>
   </div>
 
   <div class="provider-card">
     <div class="provider-name">Groovy Grill — Ksamil</div>
-    <div class="provider-detail">Restaurante entre o Poda e o Orange. Bom custo-benefício para almoço.</div>
+    <div class="provider-detail">Restaurante entre o Poda e o Orange. Bom custo-benefício para almoço. <a href="https://www.instagram.com/groovygrill.ksamil/" target="_blank">Instagram</a>.</div>
     <div class="provider-price">≈ € 17,50/pessoa (prato + bebida)</div>
   </div>
 
   <div class="provider-card">
-    <div class="provider-name">Kamay Beach Restaurant</div>
-    <div class="provider-detail">Restaurante próximo à Mão de Ksamil (Hand of Ksamil). Preço acessível.</div>
+    <div class="provider-name">Kamay Beach — Ksamil</div>
+    <div class="provider-detail">Restaurante próximo à Mão de Ksamil. Preço acessível. <a href="https://www.instagram.com/kamay.ksamil/" target="_blank">Instagram</a>.</div>
     <div class="provider-price">≈ € 20/pessoa (jantar + bebida)</div>
   </div>
 
   <div class="provider-card">
-    <div class="provider-name">Bora Bora Restaurant — Ksamil</div>
-    <div class="provider-detail">Restaurante pequeno na praia de Ksamil. Comida razoável, sem grandes destaques. Nota 6/10. Atenção com frutos do mar.</div>
+    <div class="provider-name">Bora Bora — Ksamil</div>
+    <div class="provider-detail">Restaurante pequeno na praia de Ksamil. Comida razoável, sem grandes destaques. Nota 6/10. Atenção com frutos do mar. <a href="https://www.instagram.com/boraborabeachksamil/" target="_blank">Instagram</a>.</div>
     <div class="provider-price">€ 130 para 4 (cervejas + 2 vinhos + pratos)</div>
   </div>
 
   <div class="provider-card">
     <div class="provider-name">Orange Beach Club — Ksamil</div>
-    <div class="provider-detail">Beach club com piscina gratuita. Espreguiçadeiras à beira-mar (€ 15 cada, mas sem cobrança com consumo mínimo).</div>
+    <div class="provider-detail">Beach club em Ksamil com piscina gratuita. Espreguiçadeiras à beira-mar (€ 15 cada, sem cobrança com consumo mínimo no bar). <a href="https://www.instagram.com/orange_beach_club_ksamil/" target="_blank">Instagram</a>.</div>
     <div class="provider-price">Espreguiçadeira € 15 · Piscina gratuita</div>
   </div>
 
   <div class="provider-card">
+    <div class="provider-name">Orange Night Club — Sarande</div>
+    <div class="provider-detail">O Orange também tem um night club em Sarande — diferente do beach club de Ksamil. <a href="https://www.instagram.com/orange_club_sarande_albania/" target="_blank">Instagram</a>.</div>
+    <div class="provider-price">Sarande · Entrada e preços variados</div>
+  </div>
+
+  <div class="provider-card">
     <div class="provider-name">Vibe 360° — Sarande</div>
-    <div class="provider-detail">Bar à beira-mar com telão. Bom para assistir jogos. Atenção: confiscam garrafas trazidas de fora (devolvem na saída). Energéticos não vendidos no local. Whisky: 600 Leks/dose. Comida barata mas abaixo da expectativa. Nota 6/10.</div>
+    <div class="provider-detail">Bar à beira-mar com telão. Bom para assistir jogos. Atenção: confiscam garrafas trazidas de fora (devolvem na saída). Energéticos não vendidos no local. Whisky: 600 Leks/dose. Comida barata mas abaixo da expectativa. Nota 6/10. <a href="https://www.instagram.com/vibe360.al/" target="_blank">Instagram</a>.</div>
     <div class="provider-price">Whisky 600 Leks/dose · Drinks a preço de bar</div>
   </div>
 
@@ -458,6 +464,12 @@ Saímos de Sarande de ambos os AirBnBs às 04h00, chegamos ao aeroporto de Tiran
   <div class="provider-card">
     <div class="provider-name">Dervari Luxury Duplex — Sarande</div>
     <div class="provider-detail">AirBnB duplex, 2 quartos, 2 banheiros, varanda grande, piscina no condomínio (09h–18h), garagem coberta e restaurante. Localização privilegiada em Sarande.</div>
+    <div class="provider-price">Menos de € 200/pessoa para 7 noites</div>
+  </div>
+
+  <div class="provider-card">
+    <div class="provider-name">Panorama Pool Duplex — Sarande</div>
+    <div class="provider-detail">AirBnB duplex dos amigos, 2 quartos, 2 banheiros. Piscina privativa direto da varanda do apartamento, sem horário restrito. Mercado acessível a pé ou de carro.</div>
     <div class="provider-price">Menos de € 200/pessoa para 7 noites</div>
   </div>
 
@@ -562,50 +574,98 @@ Os valores abaixo são estimativas baseadas nos gastos reais relatados, com base
 
   <div class="provider-card">
     <div class="provider-name"><i class="fab fa-airbnb"></i> Dervari Luxury Duplex</div>
-    <div class="provider-detail">Nosso AirBnB em Sarande — duplex com piscina no condomínio, garagem coberta e ótima localização.</div>
-    <div class="provider-price"><a href="<!-- TODO: link AirBnB Dervari -->" target="_blank">Ver no AirBnB →</a></div>
+    <div class="provider-detail">Nosso AirBnB em Sarande — duplex com piscina no condomínio (09h–18h), garagem coberta e ótima localização. Menos de € 200/pessoa para 7 noites.</div>
+    <div class="provider-price"><a href="https://www.airbnb.ie/rooms/1431173026469327368" target="_blank">Ver no AirBnB →</a></div>
   </div>
 
   <div class="provider-card">
     <div class="provider-name"><i class="fab fa-airbnb"></i> Panorama Pool Duplex</div>
-    <div class="provider-detail">AirBnB dos amigos em Sarande — piscina privativa direto da varanda, sem horário de uso.</div>
-    <div class="provider-price"><a href="<!-- TODO: link AirBnB Panorama -->" target="_blank">Ver no AirBnB →</a></div>
+    <div class="provider-detail">AirBnB dos amigos em Sarande — piscina privativa direto da varanda, sem horário de uso. Menos de € 200/pessoa para 7 noites.</div>
+    <div class="provider-price"><a href="https://www.airbnb.ie/rooms/1663917529458046003" target="_blank">Ver no AirBnB →</a></div>
   </div>
 
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-ship"></i> Finikas Lines</div>
     <div class="provider-detail">Ferry Sarande ↔ Corfu. Saída às 10h00 de Sarande, chegada às 12h00 em Corfu (horário local). Volta às 19h00.</div>
-    <div class="provider-price"><a href="<!-- TODO: link de compra/afiliado Finikas -->" target="_blank">Comprar passagem →</a></div>
+    <div class="provider-price"><a href="https://finikas-lines.com/" target="_blank">Comprar passagem →</a></div>
   </div>
 
   <div class="provider-card">
-    <div class="provider-name"><i class="fas fa-sailboat"></i> El Niño Boat Tours</div>
-    <div class="provider-detail">Passeio de lancha em Sarande — Turtle Cave, Secret Beach, Cape Qefali, Kakome Bay e praia de Kroreza.</div>
-    <div class="provider-price"><a href="<!-- TODO: link/WhatsApp El Niño -->" target="_blank">Reservar →</a></div>
+    <div class="provider-name"><i class="fas fa-water"></i> El Niño Boat Tours — Sarande</div>
+    <div class="provider-detail">Passeio de lancha em Sarande — Turtle Cave, Secret Beach, Cape Qefali, Kakome Bay e praia de Kroreza. Das 10h00 às 15h00.</div>
+    <div class="provider-price"><a href="https://wa.me/355692151641" target="_blank"><i class="fab fa-whatsapp"></i> +355 69 215 1641</a></div>
   </div>
 
   <div class="provider-card">
     <div class="provider-name"><i class="fab fa-instagram"></i> Principotes Ksamil</div>
-    <div class="provider-detail">Beach club de alto padrão em Ksamil. Reservas e informações pelo Instagram.</div>
-    <div class="provider-price"><a href="<!-- TODO: link Instagram Principotes -->" target="_blank">Ver no Instagram →</a></div>
+    <div class="provider-detail">Beach club de alto padrão em Ksamil. Cama à beira-mar com Prosecco e frutas. Reservas e informações pelo Instagram.</div>
+    <div class="provider-price"><a href="https://www.instagram.com/principotesksamil.al/" target="_blank">@principotesksamil.al</a></div>
   </div>
 
   <div class="provider-card">
-    <div class="provider-name"><i class="fab fa-instagram"></i> Poda Beach Club</div>
-    <div class="provider-detail">Beach club popular em Ksamil. Reservas e informações pelo Instagram.</div>
-    <div class="provider-price"><a href="<!-- TODO: link Instagram Poda -->" target="_blank">Ver no Instagram →</a></div>
+    <div class="provider-name"><i class="fab fa-instagram"></i> Poda Beach Club — Ksamil</div>
+    <div class="provider-detail">Beach club popular em Ksamil. Cama com Prosecco, bar, restaurante e pista de dança à noite.</div>
+    <div class="provider-price"><a href="https://www.instagram.com/poda_beach_club/" target="_blank">@poda_beach_club</a></div>
   </div>
 
   <div class="provider-card">
-    <div class="provider-name"><i class="fab fa-instagram"></i> Bianco Ksamil</div>
+    <div class="provider-name"><i class="fab fa-instagram"></i> Bianco — Ksamil</div>
     <div class="provider-detail">Bar rooftop e balada em Ksamil. Entrada gratuita. Confira programação pelo Instagram.</div>
-    <div class="provider-price"><a href="<!-- TODO: link Instagram Bianco -->" target="_blank">Ver no Instagram →</a></div>
+    <div class="provider-price"><a href="https://www.instagram.com/biancoksamilislands/" target="_blank">@biancoksamilislands</a></div>
   </div>
 
   <div class="provider-card">
-    <div class="provider-name"><i class="fab fa-whatsapp"></i> Contato / Reservas</div>
-    <div class="provider-detail">Muitos locais em Sarande e Ksamil preferem contato direto via WhatsApp para reservas.</div>
-    <div class="provider-price"><a href="<!-- TODO: link WhatsApp -->" target="_blank">Contato via WhatsApp →</a></div>
+    <div class="provider-name"><i class="fab fa-instagram"></i> Lost Seaside</div>
+    <div class="provider-detail">Festa branca em hotel de Sarande. Parte do grupo foi na última noite da viagem.</div>
+    <div class="provider-price"><a href="https://www.instagram.com/lost.seaside/" target="_blank">@lost.seaside</a></div>
+  </div>
+
+  <div class="provider-card">
+    <div class="provider-name"><i class="fab fa-instagram"></i> Tre Ishujt — Ksamil</div>
+    <div class="provider-detail">Restaurante em frente ao Bianco. Ótima comida e atendimento. Nota 9/10.</div>
+    <div class="provider-price"><a href="https://www.instagram.com/3ishujt.restaurant.lounge/" target="_blank">@3ishujt.restaurant.lounge</a></div>
+  </div>
+
+  <div class="provider-card">
+    <div class="provider-name"><i class="fab fa-instagram"></i> Groovy Grill — Ksamil</div>
+    <div class="provider-detail">Restaurante entre o Poda e o Orange. Bom custo-benefício para almoço.</div>
+    <div class="provider-price"><a href="https://www.instagram.com/groovygrill.ksamil/" target="_blank">@groovygrill.ksamil</a></div>
+  </div>
+
+  <div class="provider-card">
+    <div class="provider-name"><i class="fab fa-instagram"></i> Kamay Beach — Ksamil</div>
+    <div class="provider-detail">Restaurante próximo à Mão de Ksamil. Preço acessível.</div>
+    <div class="provider-price"><a href="https://www.instagram.com/kamay.ksamil/" target="_blank">@kamay.ksamil</a></div>
+  </div>
+
+  <div class="provider-card">
+    <div class="provider-name"><i class="fab fa-instagram"></i> My Family — Sarande</div>
+    <div class="provider-detail">Restaurante de rua próximo ao porto do ferry. Excelente qualidade e atendimento acima da expectativa. Nota 9/10.</div>
+    <div class="provider-price"><a href="https://www.instagram.com/myfamily_restaurant/" target="_blank">@myfamily_restaurant</a></div>
+  </div>
+
+  <div class="provider-card">
+    <div class="provider-name"><i class="fab fa-instagram"></i> Orange Beach Club — Ksamil</div>
+    <div class="provider-detail">Beach club em Ksamil com piscina gratuita e espreguiçadeiras à beira-mar.</div>
+    <div class="provider-price"><a href="https://www.instagram.com/orange_beach_club_ksamil/" target="_blank">@orange_beach_club_ksamil</a></div>
+  </div>
+
+  <div class="provider-card">
+    <div class="provider-name"><i class="fab fa-instagram"></i> Orange Night Club — Sarande</div>
+    <div class="provider-detail">Night club do Orange em Sarande — diferente do beach club de Ksamil.</div>
+    <div class="provider-price"><a href="https://www.instagram.com/orange_club_sarande_albania/" target="_blank">@orange_club_sarande_albania</a></div>
+  </div>
+
+  <div class="provider-card">
+    <div class="provider-name"><i class="fab fa-instagram"></i> Bora Bora — Ksamil</div>
+    <div class="provider-detail">Restaurante pequeno na praia. Comida razoável, sem grandes destaques. Nota 6/10. Atenção com frutos do mar.</div>
+    <div class="provider-price"><a href="https://www.instagram.com/boraborabeachksamil/" target="_blank">@boraborabeachksamil</a></div>
+  </div>
+
+  <div class="provider-card">
+    <div class="provider-name"><i class="fab fa-instagram"></i> Vibe 360° — Sarande</div>
+    <div class="provider-detail">Bar à beira-mar com telão. Confiscam garrafas externas (devolvem na saída). Whisky: 600 Leks/dose. Comida barata mas abaixo da expectativa. Nota 6/10.</div>
+    <div class="provider-price"><a href="https://www.instagram.com/vibe360.al/" target="_blank">@vibe360.al</a></div>
   </div>
 
 </div>
