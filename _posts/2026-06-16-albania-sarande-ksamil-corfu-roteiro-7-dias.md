@@ -23,7 +23,7 @@ locations:
     label: "Corfu, Grécia"
 ---
 
-<p class="lead">Oito brasileiros morando na Irlanda, dois carros alugados por € 20 e € 35 por dia, praias com águas cristalinas de tirar o fôlego e hospedagem com piscina por menos de € 200 por pessoa a semana. A Albânia pode ser o destino com melhor custo-benefício da Europa — e este é o relato completo da nossa viagem de 7 dias saindo de Dublin.</p>
+<p class="lead">Oito brasileiros morando na Irlanda, dois carros alugados por € 25 e € 35 por dia, praias com águas cristalinas de tirar o fôlego e hospedagem com piscina por menos de € 200 por pessoa a semana. A Albânia pode ser o destino com melhor custo-benefício da Europa — e este é o relato completo da nossa viagem de 7 dias saindo de Dublin.</p>
 
 <div class="callout callout-tip">
   <div class="callout-label">Moeda e pagamentos</div>
