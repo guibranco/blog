@@ -221,7 +221,7 @@ O acesso à praia é gratuito, mesmo sem pagar pelo espaço. No Principotes há 
   <div class="section-title-wrap"><h2>Dia 2 — Corfu, Grécia</h2></div>
 </div>
 
-Fomos a pé até o porto de Sarande (≈ 10 minutos do AirBnB) e embarcamos no ferry da **Finikas Lines** às 10h00, chegando a Corfu às 12h00 (a Grécia está 1 hora à frente da Albânia).
+Fomos a pé até o porto de Sarande (≈ 10 minutos do AirBnB) e embarcamos no ferry da **Finikas Lines** às 10h00. A travessia dura 1 hora — mas como a Grécia está 1 hora à frente da Albânia, chegamos a Corfu às 12h00 no horário local (2 horas de diferença no relógio, 1 hora de viagem real).
 
 <div class="callout callout-warn">
   <div class="callout-label">Não esqueça o passaporte</div>
@@ -232,9 +232,9 @@ Passagem: **€ 32,00 (ida) + € 32,00 (volta) = € 64,00 por pessoa**.
 
 Em Corfu, saímos do porto do ferry em uma van táxi até a marina de partida do barco: **€ 55,00 para 7 pessoas** (≈ € 7,86/pessoa), trajeto de ≈ 11 minutos. Almoçamos na própria marina. Eu optei por um gyro/yeero de porco (≈ **€ 12,00**); os outros escolheram hambúrguer ou outro lanche — os pratos variavam entre **€ 10,00 e € 15,00**, mais bebida (cerveja ou refrigerante).
 
-O passeio de barco custou **€ 50,00 por pessoa** e incluiu: prato de frutas, bebidas (cerveja, água e refrigerante), Bluetooth para música, e 3 a 4 paradas para nadar — incluindo uma entrada em caverna. Levamos uma garrafa de whisky e energéticos à parte. O barco tinha banheiro de uso livre, quarto (privativo) e acomodava confortavelmente o nosso grupo de 7.
+O passeio de barco saiu às 13h00, com duração de 4 horas, e custou **€ 50,00 por pessoa**. Incluiu: prato de frutas, bebidas (cerveja, água e refrigerante), Bluetooth para música, e 3 a 4 paradas para nadar — incluindo uma entrada em caverna. Levamos uma garrafa de whisky e energéticos à parte. O barco tinha banheiro de uso livre, quarto (privativo) e acomodava confortavelmente o nosso grupo de 7.
 
-Pegamos o ferry de volta às 19h00, chegando a Sarande às 19h00 (devido à diferença de fuso horário). Na volta da marina até o porto do ferry, em vez de uma única van, dividimos em **2 táxis — € 25,00 cada** (um com 4 pessoas e outro com 3), totalizando € 50,00 para o grupo — menos do que os € 55,00 pagos em uma van só na ida. Jantamos no **My Family**, bem próximo ao cais, com excelente qualidade e preço baixo — **nota 9/10**. Depois fomos à piscina privativa do AirBnB dos amigos, passamos no mercado e compramos bebidas e petiscos.
+Pegamos o ferry de volta às 19h00 (horário grego), chegando a Sarande às 19h00 (horário albanês) — a hora de viagem e a diferença de fuso horário se cancelam. Na volta da marina até o porto do ferry, em vez de uma única van, dividimos em **2 táxis — € 25,00 cada** (um com 4 pessoas e outro com 3), totalizando € 50,00 para o grupo — menos do que os € 55,00 pagos em uma van só na ida. Jantamos no **My Family**, bem próximo ao cais, com excelente qualidade e preço baixo — **nota 9/10**. Depois fomos à piscina privativa do AirBnB dos amigos, passamos no mercado e compramos bebidas e petiscos.
 
 **Preços no mercado (referência):**
 
@@ -544,6 +544,65 @@ Os valores abaixo são estimativas baseadas nos gastos reais relatados, com base
 </div>
 
 <div class="divider">· · ·</div>
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">13</div>
+  <div class="section-title-wrap"><h2>Links úteis</h2></div>
+</div>
+
+<div class="providers-grid">
+
+  <div class="provider-card">
+    <div class="provider-name"><i class="fab fa-airbnb"></i> Dervari Luxury Duplex</div>
+    <div class="provider-detail">Nosso AirBnB em Sarande — duplex com piscina no condomínio, garagem coberta e ótima localização.</div>
+    <div class="provider-price"><a href="<!-- TODO: link AirBnB Dervari -->" target="_blank">Ver no AirBnB →</a></div>
+  </div>
+
+  <div class="provider-card">
+    <div class="provider-name"><i class="fab fa-airbnb"></i> Panorama Pool Duplex</div>
+    <div class="provider-detail">AirBnB dos amigos em Sarande — piscina privativa direto da varanda, sem horário de uso.</div>
+    <div class="provider-price"><a href="<!-- TODO: link AirBnB Panorama -->" target="_blank">Ver no AirBnB →</a></div>
+  </div>
+
+  <div class="provider-card">
+    <div class="provider-name"><i class="fas fa-ship"></i> Finikas Lines</div>
+    <div class="provider-detail">Ferry Sarande ↔ Corfu. Saída às 10h00 de Sarande, chegada às 12h00 em Corfu (horário local). Volta às 19h00.</div>
+    <div class="provider-price"><a href="<!-- TODO: link de compra/afiliado Finikas -->" target="_blank">Comprar passagem →</a></div>
+  </div>
+
+  <div class="provider-card">
+    <div class="provider-name"><i class="fas fa-sailboat"></i> El Niño Boat Tours</div>
+    <div class="provider-detail">Passeio de lancha em Sarande — Turtle Cave, Secret Beach, Cape Qefali, Kakome Bay e praia de Kroreza.</div>
+    <div class="provider-price"><a href="<!-- TODO: link/WhatsApp El Niño -->" target="_blank">Reservar →</a></div>
+  </div>
+
+  <div class="provider-card">
+    <div class="provider-name"><i class="fab fa-instagram"></i> Principotes Ksamil</div>
+    <div class="provider-detail">Beach club de alto padrão em Ksamil. Reservas e informações pelo Instagram.</div>
+    <div class="provider-price"><a href="<!-- TODO: link Instagram Principotes -->" target="_blank">Ver no Instagram →</a></div>
+  </div>
+
+  <div class="provider-card">
+    <div class="provider-name"><i class="fab fa-instagram"></i> Poda Beach Club</div>
+    <div class="provider-detail">Beach club popular em Ksamil. Reservas e informações pelo Instagram.</div>
+    <div class="provider-price"><a href="<!-- TODO: link Instagram Poda -->" target="_blank">Ver no Instagram →</a></div>
+  </div>
+
+  <div class="provider-card">
+    <div class="provider-name"><i class="fab fa-instagram"></i> Bianco Ksamil</div>
+    <div class="provider-detail">Bar rooftop e balada em Ksamil. Entrada gratuita. Confira programação pelo Instagram.</div>
+    <div class="provider-price"><a href="<!-- TODO: link Instagram Bianco -->" target="_blank">Ver no Instagram →</a></div>
+  </div>
+
+  <div class="provider-card">
+    <div class="provider-name"><i class="fab fa-whatsapp"></i> Contato / Reservas</div>
+    <div class="provider-detail">Muitos locais em Sarande e Ksamil preferem contato direto via WhatsApp para reservas.</div>
+    <div class="provider-price"><a href="<!-- TODO: link WhatsApp -->" target="_blank">Contato via WhatsApp →</a></div>
+  </div>
+
+</div>
 
 <div class="conclusion">
   <h2>Vale muito a pena — e eu volto</h2>
