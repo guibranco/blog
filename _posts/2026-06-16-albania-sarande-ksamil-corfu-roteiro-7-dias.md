@@ -44,12 +44,30 @@ locations:
 
 O grupo era de 8 pessoas, todos brasileiros morando na Irlanda. Dois integrantes foram em voo direto Dublin → Tirana. Os outros seis fizeram escala em Londres — metade pelo **Stansted** (Ryanair + Ryanair UK) e a outra metade pelo **Gatwick** (Ryanair + Wizz Air).
 
+As passagens foram compradas em 28/03/2026 pelo **Kiwi** para 6 pessoas (incluindo 3 que acabaram desistindo da viagem):
+
+<table class="compare-table">
+  <thead>
+    <tr><th>Trecho</th><th>Total (6 pax)</th><th>Por pessoa</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Dublin → Londres (Stansted)</td><td>€ 143,94</td><td>≈ € 23,99</td></tr>
+    <tr><td>Londres (Stansted) → Tirana</td><td>€ 277,32</td><td>≈ € 46,22</td></tr>
+    <tr><td>Tirana → Liverpool</td><td>€ 220,74</td><td>≈ € 36,79</td></tr>
+    <tr><td>Liverpool → Dublin</td><td>€ 151,62</td><td>≈ € 25,27</td></tr>
+    <tr><td>Taxa de serviço Kiwi</td><td>€ 55,38</td><td>≈ € 9,23</td></tr>
+    <tr><td><strong>Total</strong></td><td><strong>€ 849,00</strong></td><td><strong>€ 141,50</strong></td></tr>
+  </tbody>
+</table>
+
+Nenhum integrante adicionou bagagem extra no momento da compra.
+
 <div class="callout callout-warn">
   <div class="callout-label">Atenção à bagagem de mão nas low-costs</div>
-  Levei uma mochila grande sem ter pago pela bagagem extra nem pela priority boarding. Resultado: tive de pagar <strong>€ 60 no aeroporto de Dublin</strong> e <strong>£ 75 (≈ € 88) no aeroporto de Londres</strong> na fila de embarque — um total de aproximadamente <strong>€ 148 em taxas evitáveis</strong>. Na volta, apostei que não seria necessário (voltaríamos todos juntos nos dois voos e eu poderia redistribuir o conteúdo para as malas dos amigos) e não precisei pagar nada. Se houver dúvida, pague a priority antecipadamente online — sai mais barato.
+  Quem adicionou priority/bagagem antecipadamente pagou <strong>€ 29 (Ryanair)</strong> + <strong>£ 29 (Ryanair UK)</strong> — bem mais barato do que pagar na fila. No meu caso, levei uma mochila grande sem prioridade e paguei <strong>€ 60 no embarque em Dublin</strong> e <strong>£ 75 (≈ € 88) no embarque em Londres</strong> — um total de <strong>≈ € 148 em taxas na fila de embarque, apenas na ida</strong>. Na volta não foi necessário pagar nada, pois nenhum dos voos fez verificação de bagagem — mas isso não é garantido. Se houver dúvida, pague a priority antecipadamente.
 </div>
 
-Chegamos em Tirana na segunda-feira, 08/06, por volta das 22h00. Logo na saída do terminal alugamos dois carros na agência localizada dentro do próprio aeroporto.
+Chegamos em Tirana na segunda-feira, 08/06, por volta das 22h00. O grupo que veio pela Wizz Air (Gatwick) chegou mais tarde, então ficamos no aeroporto aguardando até quase 01h00 da manhã. Só após a chegada de todos alugamos os dois carros na agência localizada dentro do próprio terminal.
 
 ### Aluguel de carros em Tirana
 
@@ -58,16 +76,16 @@ Chegamos em Tirana na segunda-feira, 08/06, por volta das 22h00. Logo na saída 
     <tr><th>Modelo</th><th>Diária</th><th>7 dias (total)</th><th>Câmbio</th></tr>
   </thead>
   <tbody>
-    <tr><td>VW Polo</td><td>≈ € 24/dia</td><td>≈ € 170</td><td>Manual</td></tr>
+    <tr><td>VW Polo</td><td>€ 24,29/dia</td><td>€ 170,00</td><td>Manual</td></tr>
     <tr><td>VW T-Cross</td><td>€ 35/dia</td><td>€ 245</td><td>Automático</td></tr>
   </tbody>
 </table>
 
 Pagamos o aluguel adiantado pelos 7 dias — sem depósito, sem cadastro de motoristas adicionais (mesmo com mais de um motorista por carro) e sem exigência de CNH internacional. A CNH brasileira foi suficiente, mas **não chegaram a pedi-la em momento algum**.
 
-Os carros eram novos, com painel multimídia, Apple CarPlay, Android Auto, USB, Bluetooth e rádio FM. A T-Cross saiu com o tanque vazio e enchemos logo na primeira posto: **€ 80,00 para tanque cheio**.
+Os carros eram novos, com painel multimídia, Apple CarPlay, Android Auto, USB, Bluetooth e rádio FM. A T-Cross saiu com o tanque vazio e enchemos logo na primeira posto: **€ 77,00 para tanque cheio**.
 
-Seguimos direto de Tirana para Sarande — cerca de 3 horas de estrada boa, bem sinalizada. Waze e Google Maps funcionam perfeitamente. Na região de Tirana havia radares fixos, bem sinalizados na pista e no Waze. Chegamos ao AirBnB por volta das 01h00 da terça-feira, 09/06.
+Seguimos direto de Tirana para Sarande — cerca de 3 horas de estrada boa, bem sinalizada. Waze e Google Maps funcionam perfeitamente. Na região de Tirana havia radares fixos, bem sinalizados na pista e no Waze. Saímos do aeroporto por volta das 01h00 e chegamos ao AirBnB em Sarande por volta das 04h00 da terça-feira, 09/06.
 
 <div class="callout callout-tip">
   <div class="callout-label">Condução na Albânia</div>
@@ -76,7 +94,7 @@ Seguimos direto de Tirana para Sarande — cerca de 3 horas de estrada boa, bem 
 
 <div class="callout callout-warn">
   <div class="callout-label">Atenção: radares móveis na volta</div>
-  O VW Polo do nosso grupo levou uma multa de <strong>€ 20,00</strong> por excesso de velocidade, capturado por um radar móvel à beira da estrada próximo a Tirana. O radar estava no Waze, mas o motorista do Polo estava usando o Google Maps e não viu o alerta. A multa foi cobrada no ato da devolução do veículo — a locadora já sabia da infração no momento exato em que entregamos o carro, sem qualquer contato da polícia durante o trajeto.
+  O VW Polo do nosso grupo levou uma multa de <strong>€ 20,00</strong> por excesso de velocidade, capturado por um radar móvel à beira da estrada, a menos de 1 hora de entregar o carro — quase em Tirana. O radar estava no Waze, mas o motorista do Polo usava o Google Maps e não viu o alerta. A multa foi cobrada no ato da devolução — a locadora já sabia da infração no momento exato em que chegamos, sem nenhum contato da polícia durante o trajeto. <strong>Use o Waze ou ative alertas de radar no Google Maps.</strong>
 </div>
 
 <div class="divider">· · ·</div>
@@ -86,21 +104,19 @@ Seguimos direto de Tirana para Sarande — cerca de 3 horas de estrada boa, bem 
   <div class="section-title-wrap"><h2>Hospedagem em Sarande</h2></div>
 </div>
 
-Ficamos no **Dervari Luxury Duplex**, dividido em dois apartamentos de 4 pessoas cada — com menos de 10 minutos de carro entre eles. O custo foi de **menos de € 200,00 por pessoa para os 7 dias** (≈ € 28,00/noite por pessoa).
+Ficamos em dois AirBnBs, com menos de 10 minutos de carro entre si. O custo foi de **menos de € 200,00 por pessoa para os 7 dias** (≈ € 28,00/noite por pessoa) em ambos.
 
-**O apartamento incluía:**
-- 2 quartos (um de casal e um com 2 camas individuais conversíveis)
-- 2 banheiros completos com água quente
-- Sala com TV, Wi-Fi e varanda grande
-- Cozinha completa com fogão, forno, geladeira/freezer e pia
-- Máquina de lavar
+**Dervari Luxury Duplex** (meu grupo — 4 pessoas):
+- 2 quartos (casal + 2 camas individuais conversíveis) e 2 banheiros completos com água quente
+- Sala com TV e Wi-Fi, varanda grande e varanda menor
+- Cozinha completa (fogão, forno, geladeira/freezer, pia) e máquina de lavar
+- Condomínio com elevador, garagem coberta, piscina (09h00–18h00) e restaurante à beira da piscina
+- Na rua: supermercados, bares, restaurantes e beach clubs a poucos metros
 
-**O condomínio incluía:**
-- Elevador e garagem coberta
-- Piscina (funcionamento das 09h00 às 18h00)
-- Restaurante à beira da piscina
-
-Na rua havia supermercados, bares, restaurantes e beach clubs a poucos metros.
+**Panorama Pool Duplex** (grupo dos amigos — 4 pessoas):
+- Mesma configuração interna (2 quartos, 2 banheiros, mesma estrutura)
+- Piscina **privativa direto da varanda do apartamento**, sem horário de funcionamento — embora todo o prédio tivesse acesso, estava sempre disponível para nós
+- Na rua não havia comércio imediato, mas havia um mercado acessível a pé ou de carro nas proximidades
 
 <div class="divider">· · ·</div>
 
@@ -134,7 +150,7 @@ Na rua havia supermercados, bares, restaurantes e beach clubs a poucos metros.
     <tr>
       <td>Dia 2</td>
       <td>10/06 (Qua)</td>
-      <td>Ferry Sarande→Corfu 10h00 · Táxi · Almoço na marina · Passeio de barco · Jantar My Family · Piscina</td>
+      <td>Ferry Sarande→Corfu 10h00 · 2 táxis até a marina · Almoço · Passeio de barco · Ferry volta 19h00 · Chegada Sarande 19h00 · Jantar My Family · Piscina no Panorama</td>
       <td>≈ € 155</td>
     </tr>
     <tr>
@@ -214,11 +230,11 @@ Fomos a pé até o porto de Sarande (≈ 10 minutos do AirBnB) e embarcamos no f
 
 Passagem: **€ 32,00 (ida) + € 32,00 (volta) = € 64,00 por pessoa**.
 
-Em Corfu, saímos do porto de ferry em uma van táxi até a marina de partida do barco: **€ 55,00 para 7 pessoas** (≈ € 7,86/pessoa), trajeto de ≈ 11 minutos. Almoçamos na própria marina — um gyro/yeero de porco por ≈ **€ 12,00**.
+Em Corfu, saímos do porto do ferry em uma van táxi até a marina de partida do barco: **€ 55,00 para 7 pessoas** (≈ € 7,86/pessoa), trajeto de ≈ 11 minutos. Almoçamos na própria marina. Eu optei por um gyro/yeero de porco (≈ **€ 12,00**); os outros escolheram hambúrguer ou outro lanche — os pratos variavam entre **€ 10,00 e € 15,00**, mais bebida (cerveja ou refrigerante).
 
 O passeio de barco custou **€ 50,00 por pessoa** e incluiu: prato de frutas, bebidas (cerveja, água e refrigerante), Bluetooth para música, e 3 a 4 paradas para nadar — incluindo uma entrada em caverna. Levamos uma garrafa de whisky e energéticos à parte. O barco tinha banheiro de uso livre, quarto (privativo) e acomodava confortavelmente o nosso grupo de 7.
 
-Pegamos o ferry de volta às 19h00, chegando a Sarande às 19h00 (devido ao fuso horário). Jantamos no **My Family**, bem próximo ao cais, com excelente qualidade e preço baixo — **nota 9/10**. Depois fomos à piscina privativa do AirBnB dos amigos, passamos no mercado e compramos bebidas e petiscos.
+Pegamos o ferry de volta às 19h00, chegando a Sarande às 19h00 (devido à diferença de fuso horário). Na volta da marina até o porto do ferry, em vez de uma única van, dividimos em **2 táxis — € 25,00 cada** (um com 4 pessoas e outro com 3), totalizando € 50,00 para o grupo — menos do que os € 55,00 pagos em uma van só na ida. Jantamos no **My Family**, bem próximo ao cais, com excelente qualidade e preço baixo — **nota 9/10**. Depois fomos à piscina privativa do AirBnB dos amigos, passamos no mercado e compramos bebidas e petiscos.
 
 **Preços no mercado (referência):**
 
@@ -237,7 +253,7 @@ Pegamos o ferry de volta às 19h00, chegando a Sarande às 19h00 (devido ao fuso
 
 <div class="callout callout-warn">
   <div class="callout-label">Abordagem na alfândega grega</div>
-  Fui o único dos 7 a ser parado após o controle de passaporte em Corfu. Um membro do exército me questionou brevemente (menos de 2 minutos) — possivelmente pela aparência física, pela ausência de bagagem e pela roupa mais formal (fui de polo e bermuda de pano, pois um amigo pediria a namorada em noivado no passeio de barco). Expliquei que estava hospedado em Sarande, que era uma visita de apenas 1 dia, que morava em Dublin há 3 anos e que já havia visitado a Grécia anteriormente. Fui liberado sem problemas.
+  Fui o único dos 7 a ser parado após o controle de passaporte em Corfu. Um membro do exército me questionou brevemente (menos de 2 minutos) — possivelmente pela aparência física, pela ausência de bagagem e pela roupa mais formal (fui de polo e bermuda de pano, pois uma amiga pediria a namorada em noivado no passeio de barco). Expliquei que estava hospedado em Sarande, que era uma visita de apenas 1 dia, que morava em Dublin há 3 anos e que já havia visitado a Grécia anteriormente. Fui liberado sem problemas.
 </div>
 
 <div class="divider">· · ·</div>
@@ -277,7 +293,7 @@ Almoçamos no **Tre Ishujt**, restaurante em frente ao Bianco — excelente comi
 
 À tarde, fomos ao Poda — desta vez na praia pública, sem pagar nada. O mar estava agitado e com visibilidade reduzida. Ficamos ≈ 1 hora e jantamos no próprio Poda: **6.500 Leks para 4 pessoas** (≈ € 72,00 no total, ≈ € 18,00/pessoa).
 
-Depois, tomamos sorvete no **Ice Roll** — **≈ 700 Leks (≈ € 7,78) por sorvete** — e voltamos ao Bianco para o rooftop: **≈ € 50,00 para 4 pessoas** (≈ € 12,50/pessoa). Às 23h45 fomos ao **Poda** no ambiente fechado. A experiência foi desagradável pelo comportamento dos garçons na pista — passavam empurrando sem pedir licença. Não ficamos muito tempo.
+Depois, tomamos sorvete no **Ice Roll** — **≈ 700 Leks (≈ € 7,78) por sorvete** — e voltamos ao Bianco para o rooftop. A entrada é gratuita — os **≈ € 50,00 para 4 pessoas** (≈ € 12,50/pessoa) foram inteiramente em bebidas: mojitos, whisky e cerveja. Às 23h45 fomos ao **Poda** no ambiente fechado. A experiência foi desagradável pelo comportamento dos garçons na pista — passavam empurrando sem pedir licença. Não ficamos muito tempo.
 
 <div class="divider">· · ·</div>
 
@@ -290,7 +306,7 @@ Almoçamos no **Groovy Grill**, entre o Poda e o Orange: **€ 70,00 para 4 pess
 
 Fomos ao **Orange Beach Club**, onde aproveitamos a piscina gratuita e as espreguiçadeiras à beira-mar. As espreguiçadeiras custam **€ 15,00 cada**, mas como consumimos no bar durante o dia, não fomos cobrados. Voltamos ao AirBnB por volta das 19h00 para descansar.
 
-À noite, assistimos ao primeiro jogo do Brasil na Copa do Mundo no **Vibe 360**, um bar à beira-mar com telão — avaliação **6/10**.
+À noite, assistimos ao primeiro jogo do Brasil na Copa do Mundo no **Vibe 360°**, um bar à beira-mar com telão. Levamos uma garrafa de whisky comprada em um mercado em frente ao bar (≈ € 30,00), mas o estabelecimento **confiscou a garrafa na entrada**, devolvendo apenas no momento de irmos embora. O bar vendia cerveja e whisky (600 Leks por dose — ≈ € 6,67), mas não tinha energético — consumimos os nossos discretamente. A comida era barata mas quem comeu não gostou. Avaliação **6/10**.
 
 <div class="divider">· · ·</div>
 
@@ -302,8 +318,8 @@ Fomos ao **Orange Beach Club**, onde aproveitamos a piscina gratuita e as espreg
 O grupo se dividiu: 6 pessoas foram no passeio Viking (≈ € 40,00/pessoa, das 10h00 às 18h00) e eu fui com uma amiga no passeio da **El Niño Boat Tours Sarande** (€ 30,00/pessoa, das 10h00 às 15h00).
 
 **O que o passeio El Niño incluía:**
-- Turtle Cave
-- Secret Beach (10 minutos de parada para fotos)
+- Turtle Cave — 10 minutos de parada para fotos
+- Secret Beach — 10 minutos de parada para fotos
 - Cape Qefali — 20 a 30 minutos de nado
 - Kakome Bay — 20 a 30 minutos de nado
 - Praia de Kroreza das 12h00 às 14h00 (restaurante, bar e espreguiçadeiras inclusas; paga apenas consumo)
@@ -416,9 +432,9 @@ Saímos de Sarande de ambos os AirBnBs por volta das 04h00, chegamos ao aeroport
   </div>
 
   <div class="provider-card">
-    <div class="provider-name">Vibe 360 — Sarande</div>
-    <div class="provider-detail">Bar à beira-mar com telão. Bom para assistir jogos, ambiente descontraído. Nota 6/10.</div>
-    <div class="provider-price">Drinks a preço de bar</div>
+    <div class="provider-name">Vibe 360° — Sarande</div>
+    <div class="provider-detail">Bar à beira-mar com telão. Bom para assistir jogos. Atenção: confiscam garrafas trazidas de fora (devolvem na saída). Energéticos não vendidos no local. Whisky: 600 Leks/dose. Comida barata mas abaixo da expectativa. Nota 6/10.</div>
+    <div class="provider-price">Whisky 600 Leks/dose · Drinks a preço de bar</div>
   </div>
 
   <div class="provider-card">
@@ -448,7 +464,7 @@ Saímos de Sarande de ambos os AirBnBs por volta das 04h00, chegamos ao aeroport
   <div class="section-title-wrap"><h2>Resumo financeiro por pessoa</h2></div>
 </div>
 
-Os valores abaixo são estimativas baseadas nos gastos reais relatados, com base no grupo da T-Cross (narrador + 3 amigos). Serão revisados conforme necessário.
+Os valores abaixo são estimativas baseadas nos gastos reais relatados, com base no grupo da T-Cross (narrador + 3 amigos).
 
 <table class="compare-table">
   <thead>
