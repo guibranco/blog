@@ -178,9 +178,9 @@ Na manhã de sábado, nos arrumamos, guardamos as malas e deixamos o hostel. Com
 
 Começamos pelo **Borough Market**, um dos mercados de rua mais famosos de Londres. Comemos frutas com chocolate — **£ 10,00 para os 3**.
 
-### Costa Cafe
+### Costa Coffee
 
-De lá, fomos a um **Costa Cafe** nas redondezas para matar o tempo, já que não podíamos voltar ao hostel. O café e a sombra foram bem-vindos para descansar antes da tarde agitada.
+De lá, fomos a um **Costa Coffee** nas redondezas para matar o tempo, já que não podíamos voltar ao hostel. O café e a sombra foram bem-vindos para descansar antes da tarde agitada.
 
 ### Volta à Leicester Square
 
