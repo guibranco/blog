@@ -84,8 +84,8 @@ def feed_template(original: str, slug: str) -> str:
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
         "  <channel>\n"
-        f'    <title>{{{{ site.title }}}} — {original.replace("&", "&amp;")}</title>\n'
-        f'    <description>Artigos sobre {original.replace("&", "&amp;")} em {{{{ site.title }}}}</description>\n'
+        f'    <title>{{{{ site.title | xml_escape }}}} — {original.replace("&", "&amp;")}</title>\n'
+        f'    <description>Artigos sobre {original.replace("&", "&amp;")} em {{{{ site.title | xml_escape }}}}</description>\n'
         f'    <link>{{{{ site.url }}}}{{{{ site.baseurl }}}}/categorias/{slug}/</link>\n'
         f'    <atom:link href="{{{{ site.url }}}}{{{{ site.baseurl }}}}/feed/{slug}.xml"'
         ' rel="self" type="application/rss+xml"/>\n'
