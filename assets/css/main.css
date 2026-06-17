@@ -1166,3 +1166,93 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 .personal-story p:last-child { margin-bottom: 0; }
 .personal-story strong { color: var(--ink); }
 .personal-story code { font-family: 'JetBrains Mono', monospace; font-size: .8rem; background: #f5e8d8; padding: 1px 5px; border-radius: 3px; color: var(--accent-warm); }
+
+/* ─────────────────────────────────────
+   SIDEBAR — has-children with separate chevron button
+───────────────────────────────────── */
+.sidebar-nav .has-children {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.sidebar-nav .has-children > a {
+  flex: 1;
+  justify-content: flex-start;
+}
+.submenu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: .45rem .7rem;
+  color: rgba(250,249,246,.22);
+  display: flex;
+  align-items: center;
+  transition: color .2s;
+  flex-shrink: 0;
+}
+.submenu-toggle:hover { color: var(--green-glow); }
+.submenu-toggle .chevron {
+  font-size: 0.63rem;
+  transition: transform .25s;
+}
+.has-children.open .submenu-toggle .chevron { transform: rotate(90deg); }
+.sidebar-nav .submenu {
+  width: 100%;
+  flex-basis: 100%;
+  margin-left: 0;
+  padding-left: 1.4rem;
+}
+
+/* ─────────────────────────────────────
+   CATEGORY PAGE — subcategory grid
+───────────────────────────────────── */
+.content-wrap--subcats { padding-bottom: 0; }
+
+.subcats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: .75rem;
+  margin-bottom: .25rem;
+}
+
+.subcat-card {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  padding: .9rem 1.1rem;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: border-color .2s, box-shadow .2s, transform .15s;
+}
+.subcat-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 3px 12px rgba(26,23,20,.07);
+  transform: translateY(-1px);
+}
+.subcat-name {
+  font-family: 'Playfair Display', serif;
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.subcat-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.575rem;
+  letter-spacing: .07em;
+  color: var(--ink-light);
+}
+
+/* ─────────────────────────────────────
+   SECTION LINK (back arrow in section-row)
+───────────────────────────────────── */
+.section-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.59rem;
+  letter-spacing: .07em;
+  color: var(--ink-light);
+  transition: color .2s;
+}
+.section-link:hover { color: var(--accent); }

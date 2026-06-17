@@ -3,12 +3,35 @@
   <span aria-hidden="true">›</span>
   {% if page.layout == 'post' %}
     {% for cat in page.categories limit: 1 %}
-    <a href="{{ site.baseurl }}/categorias/{{ cat | slugify: 'latin' }}/">{{ cat }}</a>
-    <span aria-hidden="true">›</span>
+      {% assign _cat_data = site.data.categories | where: "name", cat | first %}
+      {% assign _cat_slug = cat | slugify: 'latin' %}
+      {% if _cat_data %}{% assign _cat_slug = _cat_data.slug %}{% endif %}
+      <a href="{{ site.baseurl }}/categorias/{{ _cat_slug }}/">{{ cat }}</a>
+      <span aria-hidden="true">›</span>
     {% endfor %}
+    {% if page.subcategory %}
+      {% assign _parent = page.categories | first %}
+      {% assign _pcat  = site.data.categories | where: "name", _parent | first %}
+      {% if _pcat %}
+        {% assign _sub_data = _pcat.subcategories | where: "name", page.subcategory | first %}
+        {% assign _sub_slug = page.subcategory | slugify: 'latin' %}
+        {% if _sub_data %}{% assign _sub_slug = _sub_data.slug %}{% endif %}
+        <a href="{{ site.baseurl }}/categorias/{{ _pcat.slug }}/{{ _sub_slug }}/">{{ page.subcategory }}</a>
+        <span aria-hidden="true">›</span>
+      {% endif %}
+    {% endif %}
     <span aria-current="page">{{ page.title | truncate: 50 }}</span>
   {% elsif page.layout == 'category' %}
-    <span aria-current="page">{{ page.category }}</span>
+    {% if page.subcategory %}
+      {% assign _pcat2 = site.data.categories | where: "name", page.category | first %}
+      {% assign _pcat2_slug = page.category | slugify: 'latin' %}
+      {% if _pcat2 %}{% assign _pcat2_slug = _pcat2.slug %}{% endif %}
+      <a href="{{ site.baseurl }}/categorias/{{ _pcat2_slug }}/">{{ page.category }}</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">{{ page.subcategory }}</span>
+    {% else %}
+      <span aria-current="page">{{ page.category }}</span>
+    {% endif %}
   {% elsif page.layout == 'tag' %}
     <a href="{{ site.baseurl }}/topicos/">Tópicos</a>
     <span aria-hidden="true">›</span>

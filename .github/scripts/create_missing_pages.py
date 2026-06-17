@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 create_missing_pages.py — auto-creates missing category pages, tag pages,
-and category RSS feed files.
+subcategory pages, and RSS feed files.
 
 Called by the GitHub Actions workflow with a list of post file paths:
     python3 create_missing_pages.py _posts/2026-05-11-my-post.md ...
@@ -28,17 +28,37 @@ CATS_DIR   = ROOT / "categorias"
 TAGS_DIR   = ROOT / "topicos"
 FEEDS_DIR  = ROOT / "feed"
 
-CATEGORY_LAYOUT    = "category"
-TAG_LAYOUT         = "tag"
+CATEGORY_LAYOUT       = "category"
+TAG_LAYOUT            = "tag"
 CATEGORY_PERMALINK    = "/categorias/{slug}/"
 SUBCATEGORY_PERMALINK = "/categorias/{cat_slug}/{sub_slug}/"
-TAG_PERMALINK      = "/topicos/{slug}/"
-FEED_PERMALINK     = "/feed/{slug}.xml"
+TAG_PERMALINK         = "/topicos/{slug}/"
+FEED_PERMALINK        = "/feed/{slug}.xml"
+SUBFEED_PERMALINK     = "/feed/{cat_slug}-{sub_slug}.xml"
+
+# Manual slug overrides for names that produce bad automatic slugs.
+# Key: lowercased original name; Value: desired slug.
+SLUG_OVERRIDES: dict[str, str] = {
+    "c#":               "csharp",
+    "c++":              "cpp",
+    "js/ts & node.js":  "js-ts-node-js",
+    "js/ts":            "js-ts",
+    "tips & tricks":    "tips-tricks",
+    "travel & places":  "travel-places",
+}
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def slugify(text: str) -> str:
-    """Latin slugify matching Jekyll's `slugify: 'latin'` filter."""
+    """Latin slugify matching Jekyll's `slugify: 'latin'` filter.
+
+    Checks SLUG_OVERRIDES first so special names (C#, JS/TS…) always produce
+    the same slug as the manually created page files.
+    """
+    key = text.strip().lower()
+    if key in SLUG_OVERRIDES:
+        return SLUG_OVERRIDES[key]
+
     replacements = {
         'ã': 'a', 'â': 'a', 'á': 'a', 'à': 'a',
         'ê': 'e', 'é': 'e', 'è': 'e',
@@ -47,7 +67,7 @@ def slugify(text: str) -> str:
         'ú': 'u', 'ü': 'u',
         'ç': 'c',
     }
-    s = text.lower()
+    s = key
     for src, dst in replacements.items():
         s = s.replace(src, dst)
     s = re.sub(r'[^a-z0-9\s-]', '', s)
@@ -137,8 +157,13 @@ def extract_subcat_pairs(fm: dict) -> list[tuple[str, str]]:
     return pairs
 
 
+def _xml_escape(text: str) -> str:
+    return text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+
+
 def feed_template(original: str, slug: str) -> str:
-    """Generate a Jekyll Liquid RSS feed file for a category."""
+    """Generate a Jekyll Liquid RSS feed file for a top-level category."""
+    safe = _xml_escape(original)
     return (
         "---\n"
         "layout: null\n"
@@ -147,15 +172,57 @@ def feed_template(original: str, slug: str) -> str:
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
         "  <channel>\n"
-        f'    <title>{{{{ site.title | xml_escape }}}} — {original.replace("&", "&amp;")}</title>\n'
-        f'    <description>Artigos sobre {original.replace("&", "&amp;")} em {{{{ site.title | xml_escape }}}}</description>\n'
+        f'    <title>{{{{ site.title | xml_escape }}}} — {safe}</title>\n'
+        f'    <description>Artigos sobre {safe} em {{{{ site.title | xml_escape }}}}</description>\n'
         f'    <link>{{{{ site.url }}}}{{{{ site.baseurl }}}}/categorias/{slug}/</link>\n'
         f'    <atom:link href="{{{{ site.url }}}}{{{{ site.baseurl }}}}/feed/{slug}.xml"'
         ' rel="self" type="application/rss+xml"/>\n'
         "    <language>pt-BR</language>\n"
-        f'    {{% assign _cat = "{original}" %}}\n'
-        '    {% assign cat_posts = site.posts | where_exp: "p", "p.categories contains _cat" | limit: 20 %}\n'
-        "    {% for post in cat_posts %}\n"
+        f'    {{% assign _cat_posts = site.posts | where_exp: "p",'
+        f' "p.categories contains \'{original}\'" | limit: 20 %}}\n'
+        "    {% for post in _cat_posts %}\n"
+        "    <item>\n"
+        "      <title>{{ post.title | xml_escape }}</title>\n"
+        "      <link>{{ post.url | absolute_url }}</link>\n"
+        '      <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>\n'
+        "      <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>\n"
+        "      <description>{{ post.description | xml_escape }}</description>\n"
+        "    </item>\n"
+        "    {% endfor %}\n"
+        "  </channel>\n"
+        "</rss>\n"
+    )
+
+
+def subcategory_feed_template(
+    cat_original: str, cat_slug: str,
+    sub_original: str, sub_slug: str,
+) -> str:
+    """Generate a Jekyll Liquid RSS feed for a subcategory."""
+    safe_cat = _xml_escape(cat_original)
+    safe_sub = _xml_escape(sub_original)
+    feed_slug = f"{cat_slug}-{sub_slug}"
+    # Filter: old posts use categories: [SubName]; new posts use subcategory: SubName
+    filter_cond = (
+        f"p.categories contains '{sub_original}'"
+        f" or p.subcategory == '{sub_original}'"
+    )
+    return (
+        "---\n"
+        "layout: null\n"
+        f"permalink: {SUBFEED_PERMALINK.format(cat_slug=cat_slug, sub_slug=sub_slug)}\n"
+        "---\n"
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+        "  <channel>\n"
+        f'    <title>{{{{ site.title | xml_escape }}}} — {safe_cat} › {safe_sub}</title>\n'
+        f'    <description>Artigos sobre {safe_sub} em {{{{ site.title | xml_escape }}}}</description>\n'
+        f'    <link>{{{{ site.url }}}}{{{{ site.baseurl }}}}/categorias/{cat_slug}/{sub_slug}/</link>\n'
+        f'    <atom:link href="{{{{ site.url }}}}{{{{ site.baseurl }}}}/feed/{feed_slug}.xml"'
+        ' rel="self" type="application/rss+xml"/>\n'
+        "    <language>pt-BR</language>\n"
+        f'    {{% assign _sub_posts = site.posts | where_exp: "p", "{filter_cond}" | limit: 20 %}}\n'
+        "    {% for post in _sub_posts %}\n"
         "    <item>\n"
         "      <title>{{ post.title | xml_escape }}</title>\n"
         "      <link>{{ post.url | absolute_url }}</link>\n"
@@ -205,8 +272,8 @@ def collect_missing(post_files: list[str]) -> tuple[dict, dict, dict]:
             for f in cat_dir.glob("*.md"):
                 existing_subcats.add((cat_dir.name, f.stem))
 
-    missing_cats:    dict[str, str]                    = {}
-    missing_tags:    dict[str, str]                    = {}
+    missing_cats:    dict[str, str]                         = {}
+    missing_tags:    dict[str, str]                         = {}
     missing_subcats: dict[tuple[str, str], tuple[str, str]] = {}
 
     for post_file in post_files:
@@ -217,15 +284,15 @@ def collect_missing(post_files: list[str]) -> tuple[dict, dict, dict]:
             print(f"⚠ File not found, skipping: {path}")
             continue
 
-        fm   = parse_front_matter(path)
-        cats = extract_list(fm.get('categories', []))
-        tags = extract_list(fm.get('tags', []))
+        fm    = parse_front_matter(path)
+        cats  = extract_list(fm.get('categories', []))
+        tags  = extract_list(fm.get('tags', []))
         pairs = extract_subcat_pairs(fm)
 
         print(f"\n📄 {path.name}")
-        print(f"   categories:  {cats}")
+        print(f"   categories:    {cats}")
         print(f"   subcategories: {pairs or '(none)'}")
-        print(f"   tags:        {tags}")
+        print(f"   tags:          {tags}")
 
         for cat in cats:
             if not cat:
@@ -259,14 +326,13 @@ def create_pages(
     """
     Create missing category pages, subcategory pages, tag pages, and RSS feeds.
     Returns (created_cats, created_subcats, created_tags, created_feeds).
-    Each item is a tuple describing what was created.
     """
     existing_feeds = {f.stem for f in FEEDS_DIR.glob("*.xml")}
 
-    created_cats:    list[tuple[str, str]]             = []
-    created_subcats: list[tuple[str, str, str, str]]   = []
-    created_tags:    list[tuple[str, str]]             = []
-    created_feeds:   list[tuple[str, str]]             = []
+    created_cats:    list[tuple[str, str]]           = []
+    created_subcats: list[tuple[str, str, str, str]] = []
+    created_tags:    list[tuple[str, str]]           = []
+    created_feeds:   list[tuple[str, str, str]]      = []  # (label, slug, path)
 
     for slug, original in sorted(missing_cats.items()):
         # Category page
@@ -278,6 +344,9 @@ def create_pages(
             f"permalink: {CATEGORY_PERMALINK.format(slug=slug)}\n"
             f"pagination:\n"
             f"  enabled: true\n"
+            f"  per_page: 10\n"
+            f"  sort_field: date\n"
+            f"  sort_reverse: true\n"
             f"  category: {original}\n"
             f"---\n",
             encoding='utf-8',
@@ -290,21 +359,22 @@ def create_pages(
             feed_path = FEEDS_DIR / f"{slug}.xml"
             feed_path.write_text(feed_template(original, slug), encoding='utf-8')
             existing_feeds.add(slug)
-            created_feeds.append((original, slug))
+            created_feeds.append((original, slug, f"feed/{slug}.xml"))
             print(f"✅ Created: feed/{slug}.xml  (category: {original})")
 
     for (cat_slug, sub_slug), (cat_original, sub_original) in sorted(missing_subcats.items()):
-        # Ensure parent directory exists (categorias/{cat_slug}/)
+        # Ensure parent directory exists
         subcat_dir = CATS_DIR / cat_slug
         subcat_dir.mkdir(exist_ok=True)
 
         sub_path = subcat_dir / f"{sub_slug}.md"
         permalink = SUBCATEGORY_PERMALINK.format(cat_slug=cat_slug, sub_slug=sub_slug)
-        # where_condition handles both old (subcategory: string) and
-        # new (subcategories: ["Parent/Child"]) front matter formats.
-        pair_str   = f"{cat_original}/{sub_original}"
+        pair_str  = f"{cat_original}/{sub_original}"
+        # Backward-compatible: catches old posts (categories: [SubName]) AND
+        # new posts (subcategory: SubName / subcategories: ["Parent/SubName"])
         wc = (
-            f":subcategory == '{sub_original}' "
+            f":categories contains '{sub_original}' "
+            f"or :subcategory == '{sub_original}' "
             f"or :subcategories contains '{pair_str}'"
         )
         sub_path.write_text(
@@ -315,13 +385,27 @@ def create_pages(
             f"permalink: {permalink}\n"
             f"pagination:\n"
             f"  enabled: true\n"
-            f"  category: {cat_original}\n"
+            f"  per_page: 10\n"
+            f"  sort_field: date\n"
+            f"  sort_reverse: true\n"
             f"  where_condition: \"{wc}\"\n"
             f"---\n",
             encoding='utf-8',
         )
         created_subcats.append((cat_original, cat_slug, sub_original, sub_slug))
         print(f"✅ Created: categorias/{cat_slug}/{sub_slug}.md  ({cat_original} › {sub_original})")
+
+        # RSS feed for this subcategory
+        feed_stem = f"{cat_slug}-{sub_slug}"
+        if feed_stem not in existing_feeds:
+            feed_path = FEEDS_DIR / f"{feed_stem}.xml"
+            feed_path.write_text(
+                subcategory_feed_template(cat_original, cat_slug, sub_original, sub_slug),
+                encoding='utf-8',
+            )
+            existing_feeds.add(feed_stem)
+            created_feeds.append((f"{cat_original} › {sub_original}", feed_stem, f"feed/{feed_stem}.xml"))
+            print(f"✅ Created: feed/{feed_stem}.xml  ({cat_original} › {sub_original})")
 
     for slug, original in sorted(missing_tags.items()):
         tag_path = TAGS_DIR / f"{slug}.md"
@@ -343,7 +427,7 @@ def build_pr_comment(
     created_cats:    list[tuple[str, str]],
     created_subcats: list[tuple[str, str, str, str]],
     created_tags:    list[tuple[str, str]],
-    created_feeds:   list[tuple[str, str]],
+    created_feeds:   list[tuple[str, str, str]],
     post_files:      list[str],
 ) -> str:
     total = len(created_cats) + len(created_subcats) + len(created_tags) + len(created_feeds)
@@ -377,11 +461,8 @@ def build_pr_comment(
 
     if created_feeds:
         lines.append(f"### 📡 RSS feeds ({len(created_feeds)})\n")
-        for original, slug in created_feeds:
-            lines.append(
-                f"- `feed/{slug}.xml` → **{original}** "
-                f"(`/feed/{slug}.xml`)"
-            )
+        for label, slug, path in created_feeds:
+            lines.append(f"- `{path}` → **{label}** (`/{path}`)")
         lines.append("")
 
     if created_tags:

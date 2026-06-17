@@ -60,14 +60,42 @@
           </a>
         </li>
 
-        {% assign nav_cats = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
-        {% for cat in nav_cats %}
-        <li>
-          <a href="{{ site.baseurl }}/categorias/{{ cat | slugify: "latin" }}/"
-             {% if page.categories contains cat or page.category == cat %}class="active"{% endif %}>
-            <i class="fas fa-folder-open"></i> {{ cat }}
-          </a>
-        </li>
+        {% for cat in site.data.categories %}
+          {% assign cat_is_open = false %}
+          {% if page.category == cat.name %}{% assign cat_is_open = true %}{% endif %}
+          {% if page.categories contains cat.name %}{% assign cat_is_open = true %}{% endif %}
+          {% for sub in cat.subcategories %}
+            {% if page.subcategory == sub.name %}{% assign cat_is_open = true %}{% endif %}
+          {% endfor %}
+
+          {% if cat.subcategories.size > 0 %}
+          <li class="has-children{% if cat_is_open %} open{% endif %}">
+            <a href="{{ site.baseurl }}/categorias/{{ cat.slug }}/"
+               {% if page.category == cat.name or page.categories contains cat.name %}class="active"{% endif %}>
+              <i class="{{ cat.icon }}"></i> {{ cat.name }}
+            </a>
+            <button class="submenu-toggle" aria-label="Expandir {{ cat.name }}">
+              <i class="fas fa-chevron-right chevron"></i>
+            </button>
+            <ul class="submenu">
+              {% for sub in cat.subcategories %}
+              <li>
+                <a href="{{ site.baseurl }}/categorias/{{ cat.slug }}/{{ sub.slug }}/"
+                   {% if page.subcategory == sub.name %}class="active"{% endif %}>
+                  {{ sub.name }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% else %}
+          <li>
+            <a href="{{ site.baseurl }}/categorias/{{ cat.slug }}/"
+               {% if page.category == cat.name or page.categories contains cat.name %}class="active"{% endif %}>
+              <i class="{{ cat.icon }}"></i> {{ cat.name }}
+            </a>
+          </li>
+          {% endif %}
         {% endfor %}
 
         <li>

@@ -7,8 +7,16 @@
   const close = () => { sidebar.classList.remove('open'); overlay.classList.remove('open'); };
   toggle.addEventListener('click', () => sidebar.classList.contains('open') ? close() : open());
   overlay.addEventListener('click', close);
-  document.querySelectorAll('.has-children > a').forEach(a => {
-    a.addEventListener('click', e => { e.preventDefault(); a.closest('.has-children').classList.toggle('open'); });
+
+  /* ── Submenu toggle (chevron button) ── */
+  document.querySelectorAll('.submenu-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.closest('.has-children').classList.toggle('open');
+    });
+  });
+  /* Auto-open if a submenu link is already marked active (JS fallback for non-Jekyll-rendered pages) */
+  document.querySelectorAll('.sidebar-nav .has-children').forEach(li => {
+    if (li.querySelector('.submenu a.active')) li.classList.add('open');
   });
 
   /* ── Code block auto-header: traffic lights + language badge + copy ── */

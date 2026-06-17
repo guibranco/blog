@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% if page.subcategory %}
+  <title>{{ page.subcategory }} · {{ page.category }} — {{ site.title }}</title>
+  <meta name="description" content="Artigos sobre {{ page.subcategory }} em {{ site.title }}">
+  {% else %}
   <title>{{ page.category }} — {{ site.title }}</title>
   <meta name="description" content="Artigos sobre {{ page.category }} em {{ site.title }}">
+  {% endif %}
   {% seo %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,12 +29,43 @@
 
     <!-- Hero -->
     <section class="hero">
-      <p class="hero-eyebrow">// categoria //</p>
-      <h1 class="hero-title">{{ page.category }}</h1>
+      {% if page.subcategory %}
+        <p class="hero-eyebrow">// {{ page.category | downcase }} //</p>
+        <h1 class="hero-title">{{ page.subcategory }}</h1>
+      {% else %}
+        <p class="hero-eyebrow">// categoria //</p>
+        <h1 class="hero-title">{{ page.category }}</h1>
+      {% endif %}
       <p class="hero-desc">
         {{ paginator.total_posts }} artigo{% if paginator.total_posts != 1 %}s{% endif %} publicado{% if paginator.total_posts != 1 %}s{% endif %} nesta categoria.
       </p>
     </section>
+
+    <!-- Subcategory grid (only on top-level category pages) -->
+    {% unless page.subcategory %}
+    {% assign _cat_nav = site.data.categories | where: "name", page.category | first %}
+    {% if _cat_nav.subcategories.size > 0 %}
+    <div class="content-wrap content-wrap--subcats">
+      <div class="section-row">
+        <h2 class="section-title">Subcategorias</h2>
+      </div>
+      <div class="subcats-grid">
+        {% for sub in _cat_nav.subcategories %}
+          {% assign _sub_count = 0 %}
+          {% for post in site.posts %}
+            {% if post.categories contains sub.name or post.subcategory == sub.name %}
+              {% assign _sub_count = _sub_count | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+          <a class="subcat-card" href="{{ site.baseurl }}/categorias/{{ _cat_nav.slug }}/{{ sub.slug }}/">
+            <span class="subcat-name">{{ sub.name }}</span>
+            <span class="subcat-count">{{ _sub_count }} artigo{% if _sub_count != 1 %}s{% endif %}</span>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    {% endunless %}
 
     <!-- Posts -->
     <div class="content-wrap">
@@ -41,7 +77,15 @@
         </div>
       {% else %}
         <div class="section-row">
-          <h2 class="section-title">Todos os artigos</h2>
+          {% if page.subcategory %}
+            <h2 class="section-title">Artigos em {{ page.subcategory }}</h2>
+            {% assign _back_cat = site.data.categories | where: "name", page.category | first %}
+            {% if _back_cat %}
+            <a href="{{ site.baseurl }}/categorias/{{ _back_cat.slug }}/" class="section-link">← {{ page.category }}</a>
+            {% endif %}
+          {% else %}
+            <h2 class="section-title">Todos os artigos</h2>
+          {% endif %}
         </div>
 
         <div class="posts-grid">

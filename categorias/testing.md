@@ -1,8 +1,4 @@
 ---
-layout: category
-category: Testing
+redirect_to: /blog/categorias/coding/testing/
 permalink: /categorias/testing/
-pagination:
-  enabled: true
-  category: Testing
 ---
