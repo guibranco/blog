@@ -15,6 +15,11 @@ import os
 import re
 import sys
 from pathlib import Path
+try:
+    import yaml as _yaml
+    _HAS_YAML = True
+except ImportError:
+    _HAS_YAML = False
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
@@ -23,12 +28,12 @@ CATS_DIR   = ROOT / "categorias"
 TAGS_DIR   = ROOT / "topicos"
 FEEDS_DIR  = ROOT / "feed"
 
-CATEGORY_LAYOUT        = "category"
-TAG_LAYOUT             = "tag"
-CATEGORY_PERMALINK     = "/categorias/{slug}/"
-SUBCATEGORY_PERMALINK  = "/categorias/{cat_slug}/{sub_slug}/"
-TAG_PERMALINK          = "/topicos/{slug}/"
-FEED_PERMALINK         = "/feed/{slug}.xml"
+CATEGORY_LAYOUT    = "category"
+TAG_LAYOUT         = "tag"
+CATEGORY_PERMALINK    = "/categorias/{slug}/"
+SUBCATEGORY_PERMALINK = "/categorias/{cat_slug}/{sub_slug}/"
+TAG_PERMALINK      = "/topicos/{slug}/"
+FEED_PERMALINK     = "/feed/{slug}.xml"
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -51,28 +56,85 @@ def slugify(text: str) -> str:
 
 
 def parse_front_matter(path: Path) -> dict:
-    """Return a dict of front matter key/value pairs."""
-    fm = {}
-    in_fm = False
-    for i, line in enumerate(path.read_text(encoding='utf-8').splitlines()):
-        if i == 0 and line.strip() == '---':
-            in_fm = True
-            continue
-        if in_fm and line.strip() == '---':
-            break
-        if in_fm:
-            m = re.match(r'^(\w+):\s*(.*)', line)
-            if m:
-                fm[m.group(1)] = m.group(2).strip()
+    """Return a dict of front matter values.
+
+    Uses PyYAML when available (handles multi-line arrays, nested structures).
+    Falls back to a simple regex parser for single-line scalar values only.
+    """
+    text = path.read_text(encoding='utf-8')
+    parts = text.split('---', 2)
+    if len(parts) < 3:
+        return {}
+    raw = parts[1]
+
+    if _HAS_YAML:
+        try:
+            return _yaml.safe_load(raw) or {}
+        except _yaml.YAMLError:
+            pass  # fall through to regex parser
+
+    # Fallback: regex parser (scalar values only)
+    fm: dict = {}
+    for line in raw.splitlines():
+        m = re.match(r'^(\w+):\s*(.*)', line)
+        if m:
+            fm[m.group(1)] = m.group(2).strip()
     return fm
 
 
-def extract_list(raw: str) -> list[str]:
-    """Parse `[foo, bar]` or a bare value into a list."""
-    raw = raw.strip()
+def extract_list(raw) -> list[str]:
+    """Parse a value into a list of strings.
+    Accepts: Python list (from yaml), inline '[a, b]' string, or bare string.
+    """
+    if isinstance(raw, list):
+        return [str(i).strip() for i in raw if i is not None]
+    if not raw:
+        return []
+    raw = str(raw).strip()
     if raw.startswith('[') and raw.endswith(']'):
         return [i.strip().strip('"').strip("'") for i in raw[1:-1].split(',') if i.strip()]
     return [raw.strip('"').strip("'")] if raw else []
+
+
+def extract_subcat_pairs(fm: dict) -> list[tuple[str, str]]:
+    """Return (parent_category, subcategory) pairs from a post's front matter.
+
+    Supports two formats:
+      • subcategory: "DevOps"            — paired with every parent in categories[]
+      • subcategories:                   — explicit pairs; each item must be "Parent/Child"
+          - "Coding/DevOps"
+          - "Testing/Automation"
+
+    Both fields may coexist; duplicates are removed.
+    """
+    categories = extract_list(fm.get('categories', []))
+    pairs: list[tuple[str, str]] = []
+    seen: set[tuple[str, str]] = set()
+
+    def _add(parent: str, child: str) -> None:
+        parent, child = parent.strip(), child.strip()
+        if parent and child and (parent, child) not in seen:
+            pairs.append((parent, child))
+            seen.add((parent, child))
+
+    # New format: subcategories: ["Parent/Child", ...]
+    for item in extract_list(fm.get('subcategories', [])):
+        if '/' in item:
+            parent, child = item.split('/', 1)
+            _add(parent, child)
+        # bare name without parent — skip; ambiguous
+
+    # Old format: subcategory: "Name" — pair with every parent category
+    sub = fm.get('subcategory', '')
+    if isinstance(sub, str):
+        sub = sub.strip().strip('"').strip("'")
+    else:
+        sub = str(sub).strip() if sub else ''
+    if sub:
+        for cat in categories:
+            _add(cat, sub)
+
+    return pairs
 
 
 def feed_template(original: str, slug: str) -> str:
@@ -155,14 +217,14 @@ def collect_missing(post_files: list[str]) -> tuple[dict, dict, dict]:
             print(f"⚠ File not found, skipping: {path}")
             continue
 
-        fm = parse_front_matter(path)
-        cats    = extract_list(fm.get('categories', ''))
-        tags    = extract_list(fm.get('tags', ''))
-        sub_raw = fm.get('subcategory', '').strip().strip('"').strip("'")
+        fm   = parse_front_matter(path)
+        cats = extract_list(fm.get('categories', []))
+        tags = extract_list(fm.get('tags', []))
+        pairs = extract_subcat_pairs(fm)
 
         print(f"\n📄 {path.name}")
         print(f"   categories:  {cats}")
-        print(f"   subcategory: {sub_raw or '(none)'}")
+        print(f"   subcategories: {pairs or '(none)'}")
         print(f"   tags:        {tags}")
 
         for cat in cats:
@@ -172,13 +234,12 @@ def collect_missing(post_files: list[str]) -> tuple[dict, dict, dict]:
             if slug not in existing_cats and slug not in missing_cats:
                 missing_cats[slug] = cat
 
-            # Subcategory tied to this parent category
-            if sub_raw:
-                cat_slug = slugify(cat)
-                sub_slug = slugify(sub_raw)
-                key = (cat_slug, sub_slug)
-                if key not in existing_subcats and key not in missing_subcats:
-                    missing_subcats[key] = (cat, sub_raw)
+        for cat_original, sub_original in pairs:
+            cat_slug = slugify(cat_original)
+            sub_slug = slugify(sub_original)
+            key = (cat_slug, sub_slug)
+            if key not in existing_subcats and key not in missing_subcats:
+                missing_subcats[key] = (cat_original, sub_original)
 
         for tag in tags:
             if not tag:
@@ -239,6 +300,13 @@ def create_pages(
 
         sub_path = subcat_dir / f"{sub_slug}.md"
         permalink = SUBCATEGORY_PERMALINK.format(cat_slug=cat_slug, sub_slug=sub_slug)
+        # where_condition handles both old (subcategory: string) and
+        # new (subcategories: ["Parent/Child"]) front matter formats.
+        pair_str   = f"{cat_original}/{sub_original}"
+        wc = (
+            f":subcategory == '{sub_original}' "
+            f"or :subcategories contains '{pair_str}'"
+        )
         sub_path.write_text(
             f"---\n"
             f"layout: {CATEGORY_LAYOUT}\n"
@@ -248,7 +316,7 @@ def create_pages(
             f"pagination:\n"
             f"  enabled: true\n"
             f"  category: {cat_original}\n"
-            f"  where_condition: \":subcategory == '{sub_original}'\"\n"
+            f"  where_condition: \"{wc}\"\n"
             f"---\n",
             encoding='utf-8',
         )
