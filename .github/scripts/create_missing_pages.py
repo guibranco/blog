@@ -84,24 +84,23 @@ def feed_template(original: str, slug: str) -> str:
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
         "  <channel>\n"
-        f'    <title>{{{{ site.title }}}} — {original}</title>\n'
-        f'    <description>Artigos sobre {original} em {{{{ site.title }}}}</description>\n'
+        f'    <title>{{{{ site.title }}}} — {original.replace("&", "&amp;")}</title>\n'
+        f'    <description>Artigos sobre {original.replace("&", "&amp;")} em {{{{ site.title }}}}</description>\n'
         f'    <link>{{{{ site.url }}}}{{{{ site.baseurl }}}}/categorias/{slug}/</link>\n'
         f'    <atom:link href="{{{{ site.url }}}}{{{{ site.baseurl }}}}/feed/{slug}.xml"'
         ' rel="self" type="application/rss+xml"/>\n'
         "    <language>pt-BR</language>\n"
-        "    {{% assign cat_posts = site.posts"
-        f' | where_exp: "p", "p.categories contains \'{original}\'"'
-        " | limit: 20 %}\n"
-        "    {{% for post in cat_posts %}}\n"
+        f'    {{% assign _cat = "{original}" %}}\n'
+        '    {% assign cat_posts = site.posts | where_exp: "p", "p.categories contains _cat" | limit: 20 %}\n'
+        "    {% for post in cat_posts %}\n"
         "    <item>\n"
-        "      <title>{{{{ post.title | xml_escape }}}}</title>\n"
-        "      <link>{{{{ post.url | absolute_url }}}}</link>\n"
-        '      <guid isPermaLink="true">{{{{ post.url | absolute_url }}}}</guid>\n'
-        "      <pubDate>{{{{ post.date | date_to_rfc822 }}}}</pubDate>\n"
-        "      <description>{{{{ post.description | xml_escape }}}}</description>\n"
+        "      <title>{{ post.title | xml_escape }}</title>\n"
+        "      <link>{{ post.url | absolute_url }}</link>\n"
+        '      <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>\n'
+        "      <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>\n"
+        "      <description>{{ post.description | xml_escape }}</description>\n"
         "    </item>\n"
-        "    {{% endfor %}}\n"
+        "    {% endfor %}\n"
         "  </channel>\n"
         "</rss>\n"
     )
