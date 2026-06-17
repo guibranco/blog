@@ -1,6 +1,6 @@
 ---
 layout: category
-category:  Travel & Places
+category: Travel & Places
 permalink: /categorias/travel-places/
 pagination:
   enabled: true
