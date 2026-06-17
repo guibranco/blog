@@ -23,11 +23,12 @@ CATS_DIR   = ROOT / "categorias"
 TAGS_DIR   = ROOT / "topicos"
 FEEDS_DIR  = ROOT / "feed"
 
-CATEGORY_LAYOUT    = "category"
-TAG_LAYOUT         = "tag"
-CATEGORY_PERMALINK = "/categorias/{slug}/"
-TAG_PERMALINK      = "/topicos/{slug}/"
-FEED_PERMALINK     = "/feed/{slug}.xml"
+CATEGORY_LAYOUT        = "category"
+TAG_LAYOUT             = "tag"
+CATEGORY_PERMALINK     = "/categorias/{slug}/"
+SUBCATEGORY_PERMALINK  = "/categorias/{cat_slug}/{sub_slug}/"
+TAG_PERMALINK          = "/topicos/{slug}/"
+FEED_PERMALINK         = "/feed/{slug}.xml"
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -122,13 +123,12 @@ def write_output(key: str, value: str) -> None:
 
 # ── Core logic ────────────────────────────────────────────────────────────────
 
-def collect_missing(post_files: list[str]) -> tuple[dict, dict]:
+def collect_missing(post_files: list[str]) -> tuple[dict, dict, dict]:
     """
-    Return two dicts of items that need pages created:
-        missing_cats: {slug: original_name}
-        missing_tags: {slug: original_name}
-    Feed files are checked per category in create_pages() since they always
-    accompany a new category page.
+    Return three dicts of items that need pages created:
+        missing_cats:    {slug: original_name}
+        missing_tags:    {slug: original_name}
+        missing_subcats: {(cat_slug, sub_slug): (cat_original, sub_original)}
     """
     for d in (CATS_DIR, TAGS_DIR, FEEDS_DIR):
         d.mkdir(parents=True, exist_ok=True)
@@ -136,8 +136,16 @@ def collect_missing(post_files: list[str]) -> tuple[dict, dict]:
     existing_cats = {f.stem for f in CATS_DIR.glob("*.md")}
     existing_tags = {f.stem for f in TAGS_DIR.glob("*.md")}
 
-    missing_cats: dict[str, str] = {}
-    missing_tags: dict[str, str] = {}
+    # Subcategory pages live in categorias/{cat_slug}/{sub_slug}.md
+    existing_subcats: set[tuple[str, str]] = set()
+    for cat_dir in CATS_DIR.iterdir():
+        if cat_dir.is_dir():
+            for f in cat_dir.glob("*.md"):
+                existing_subcats.add((cat_dir.name, f.stem))
+
+    missing_cats:    dict[str, str]                    = {}
+    missing_tags:    dict[str, str]                    = {}
+    missing_subcats: dict[tuple[str, str], tuple[str, str]] = {}
 
     for post_file in post_files:
         path = Path(post_file)
@@ -148,12 +156,14 @@ def collect_missing(post_files: list[str]) -> tuple[dict, dict]:
             continue
 
         fm = parse_front_matter(path)
-        cats = extract_list(fm.get('categories', ''))
-        tags = extract_list(fm.get('tags', ''))
+        cats    = extract_list(fm.get('categories', ''))
+        tags    = extract_list(fm.get('tags', ''))
+        sub_raw = fm.get('subcategory', '').strip().strip('"').strip("'")
 
         print(f"\n📄 {path.name}")
-        print(f"   categories: {cats}")
-        print(f"   tags:       {tags}")
+        print(f"   categories:  {cats}")
+        print(f"   subcategory: {sub_raw or '(none)'}")
+        print(f"   tags:        {tags}")
 
         for cat in cats:
             if not cat:
@@ -162,6 +172,14 @@ def collect_missing(post_files: list[str]) -> tuple[dict, dict]:
             if slug not in existing_cats and slug not in missing_cats:
                 missing_cats[slug] = cat
 
+            # Subcategory tied to this parent category
+            if sub_raw:
+                cat_slug = slugify(cat)
+                sub_slug = slugify(sub_raw)
+                key = (cat_slug, sub_slug)
+                if key not in existing_subcats and key not in missing_subcats:
+                    missing_subcats[key] = (cat, sub_raw)
+
         for tag in tags:
             if not tag:
                 continue
@@ -169,23 +187,25 @@ def collect_missing(post_files: list[str]) -> tuple[dict, dict]:
             if slug not in existing_tags and slug not in missing_tags:
                 missing_tags[slug] = tag
 
-    return missing_cats, missing_tags
+    return missing_cats, missing_tags, missing_subcats
 
 
 def create_pages(
-    missing_cats: dict[str, str],
-    missing_tags: dict[str, str],
-) -> tuple[list, list, list]:
+    missing_cats:    dict[str, str],
+    missing_tags:    dict[str, str],
+    missing_subcats: dict[tuple[str, str], tuple[str, str]],
+) -> tuple[list, list, list, list]:
     """
-    Create missing category pages, tag pages, and category feed files.
-    Returns (created_cats, created_tags, created_feeds).
-    Each item is a (original_name, slug) tuple.
+    Create missing category pages, subcategory pages, tag pages, and RSS feeds.
+    Returns (created_cats, created_subcats, created_tags, created_feeds).
+    Each item is a tuple describing what was created.
     """
     existing_feeds = {f.stem for f in FEEDS_DIR.glob("*.xml")}
 
-    created_cats:  list[tuple[str, str]] = []
-    created_tags:  list[tuple[str, str]] = []
-    created_feeds: list[tuple[str, str]] = []
+    created_cats:    list[tuple[str, str]]             = []
+    created_subcats: list[tuple[str, str, str, str]]   = []
+    created_tags:    list[tuple[str, str]]             = []
+    created_feeds:   list[tuple[str, str]]             = []
 
     for slug, original in sorted(missing_cats.items()):
         # Category page
@@ -212,6 +232,29 @@ def create_pages(
             created_feeds.append((original, slug))
             print(f"✅ Created: feed/{slug}.xml  (category: {original})")
 
+    for (cat_slug, sub_slug), (cat_original, sub_original) in sorted(missing_subcats.items()):
+        # Ensure parent directory exists (categorias/{cat_slug}/)
+        subcat_dir = CATS_DIR / cat_slug
+        subcat_dir.mkdir(exist_ok=True)
+
+        sub_path = subcat_dir / f"{sub_slug}.md"
+        permalink = SUBCATEGORY_PERMALINK.format(cat_slug=cat_slug, sub_slug=sub_slug)
+        sub_path.write_text(
+            f"---\n"
+            f"layout: {CATEGORY_LAYOUT}\n"
+            f"category: {cat_original}\n"
+            f"subcategory: {sub_original}\n"
+            f"permalink: {permalink}\n"
+            f"pagination:\n"
+            f"  enabled: true\n"
+            f"  category: {cat_original}\n"
+            f"  where_condition: \":subcategory == '{sub_original}'\"\n"
+            f"---\n",
+            encoding='utf-8',
+        )
+        created_subcats.append((cat_original, cat_slug, sub_original, sub_slug))
+        print(f"✅ Created: categorias/{cat_slug}/{sub_slug}.md  ({cat_original} › {sub_original})")
+
     for slug, original in sorted(missing_tags.items()):
         tag_path = TAGS_DIR / f"{slug}.md"
         tag_path.write_text(
@@ -225,16 +268,17 @@ def create_pages(
         created_tags.append((original, slug))
         print(f"✅ Created: topicos/{slug}.md  (tag: {original})")
 
-    return created_cats, created_tags, created_feeds
+    return created_cats, created_subcats, created_tags, created_feeds
 
 
 def build_pr_comment(
-    created_cats:  list[tuple[str, str]],
-    created_tags:  list[tuple[str, str]],
-    created_feeds: list[tuple[str, str]],
-    post_files:    list[str],
+    created_cats:    list[tuple[str, str]],
+    created_subcats: list[tuple[str, str, str, str]],
+    created_tags:    list[tuple[str, str]],
+    created_feeds:   list[tuple[str, str]],
+    post_files:      list[str],
 ) -> str:
-    total = len(created_cats) + len(created_tags) + len(created_feeds)
+    total = len(created_cats) + len(created_subcats) + len(created_tags) + len(created_feeds)
     posts_list = '\n'.join(f"- `{f}`" for f in post_files)
 
     lines = [
@@ -251,6 +295,15 @@ def build_pr_comment(
             lines.append(
                 f"- `categorias/{slug}.md` → **{original}** "
                 f"(`/categorias/{slug}/`)"
+            )
+        lines.append("")
+
+    if created_subcats:
+        lines.append(f"### 📂 Subcategories ({len(created_subcats)})\n")
+        for cat_original, cat_slug, sub_original, sub_slug in created_subcats:
+            lines.append(
+                f"- `categorias/{cat_slug}/{sub_slug}.md` → **{cat_original} › {sub_original}** "
+                f"(`/categorias/{cat_slug}/{sub_slug}/`)"
             )
         lines.append("")
 
@@ -294,20 +347,22 @@ def main() -> None:
 
     print(f"\n🔍 Scanning {len(post_files)} post file(s) for missing pages...\n")
 
-    missing_cats, missing_tags = collect_missing(post_files)
+    missing_cats, missing_tags, missing_subcats = collect_missing(post_files)
 
-    total_missing = len(missing_cats) + len(missing_tags)
+    total_missing = len(missing_cats) + len(missing_tags) + len(missing_subcats)
     if total_missing == 0:
-        print("\n✅ All category and tag pages already exist — nothing to create.")
+        print("\n✅ All category, subcategory and tag pages already exist — nothing to create.")
         write_output('created_count', '0')
         write_output('pr_comment', '')
         return
 
     print(f"\n📝 Creating missing pages...")
-    created_cats, created_tags, created_feeds = create_pages(missing_cats, missing_tags)
+    created_cats, created_subcats, created_tags, created_feeds = create_pages(
+        missing_cats, missing_tags, missing_subcats
+    )
 
-    total_created = len(created_cats) + len(created_tags) + len(created_feeds)
-    comment = build_pr_comment(created_cats, created_tags, created_feeds, post_files)
+    total_created = len(created_cats) + len(created_subcats) + len(created_tags) + len(created_feeds)
+    comment = build_pr_comment(created_cats, created_subcats, created_tags, created_feeds, post_files)
 
     write_output('created_count', str(total_created))
     write_output('pr_comment', comment)
