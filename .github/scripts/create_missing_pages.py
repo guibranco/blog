@@ -195,6 +195,9 @@ def create_pages(
             f"layout: {CATEGORY_LAYOUT}\n"
             f"category: {original}\n"
             f"permalink: {CATEGORY_PERMALINK.format(slug=slug)}\n"
+            f"pagination:\n"
+            f"  enabled: true\n"
+            f"  category: {original}\n"
             f"---\n",
             encoding='utf-8',
         )
