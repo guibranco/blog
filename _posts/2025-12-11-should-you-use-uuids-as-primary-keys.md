@@ -6,7 +6,7 @@ date: 2025-12-11
 categories: [Coding]
 tags: [uuid, primary-key, database, sql, performance, b-tree, uuidv7, ulid, arquitetura, backend, csharp, dotnet]
 reading_time: 7
-image: /assets/img/posts/UUID-primary-key.png
+image: /assets/img/posts/uuid.png
 ---
 
 <p class="lead">Database schema design is always full of trade-offs, but few debates are as persistent as the one around <strong>UUIDs vs. numeric primary keys</strong>. If you've ever wondered whether a UUID primary key actually slows down your database — and what to do about it — this post is for you.</p>
