@@ -4,7 +4,7 @@
 
 **Blog sobre tecnologia, infraestrutura e automação para quem viaja e constrói.**
 
-Publicado via [Jekyll](https://jekyllrb.com/) · Hospedado no [GitHub Pages](https://pages.github.com/) · Zero custo de servidor
+Publicado via [Jekyll](https://jekyllrb.com/) · Hospedado via [GitHub Pages](https://pages.github.com/) · Zero custo de servidor
 
 [![Deploy](https://github.com/guibranco/blog/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/guibranco/blog/actions)
 [![Jekyll](https://img.shields.io/badge/Jekyll-4.x-red?logo=jekyll&logoColor=white)](https://jekyllrb.com/)
@@ -12,7 +12,7 @@ Publicado via [Jekyll](https://jekyllrb.com/) · Hospedado no [GitHub Pages](htt
 
 ---
 
-[🌐 Ver o blog](https://guibranco.github.io/blog) · [📡 RSS](https://guibranco.github.io/blog/feed.xml) · [🗺️ Sitemap](https://guibranco.github.io/blog/sitemap.xml)
+[🌐 Ver o blog](https://guilherme.stracini.com.br/blog) · [📡 RSS](https://guilherme.stracini.com.br/blog/feed.xml) · [🗺️ Sitemap](https://guilherme.stracini.com.br/blog/sitemap.xml)
 
 </div>
 
@@ -22,7 +22,7 @@ Publicado via [Jekyll](https://jekyllrb.com/) · Hospedado no [GitHub Pages](htt
 
 Blog pessoal construído com Jekyll e publicado gratuitamente via GitHub Pages. Cada artigo é um arquivo Markdown em `_posts/` — um `git push` para a branch `main` dispara o build e publica automaticamente em ~1 minuto.
 
-O design é totalmente customizado — sem temas de terceiros — com tipografia editorial (Playfair Display + Source Serif 4 + JetBrains Mono), sidebar fixa com avatar, ícones sociais e navegação por categorias.
+O design é totalmente customizado — sem temas de terceiros — com tipografia editorial (Playfair Display + Source Serif 4 + JetBrains Mono), sidebar fixa com avatar, ícones sociais e navegação por categorias e tópicos.
 
 ---
 
@@ -31,28 +31,65 @@ O design é totalmente customizado — sem temas de terceiros — com tipografia
 ```
 blog/                                # nome do repositório
 │
-├── _posts/                          # Artigos em Markdown
-│   └── 2026-03-20-envio-sms-internet.md
+├── _posts/                          # Artigos em Markdown (30+ posts)
+│   └── AAAA-MM-DD-slug.md
 │
 ├── _layouts/
 │   ├── post.html                    # Template de artigo
-│   └── category.html                # Template de página de categoria
+│   ├── page.html                    # Template de página estática
+│   ├── category.html                # Template de página de categoria
+│   └── tag.html                     # Template de página de tópico/tag
+│
+├── _includes/                       # Partials reutilizáveis
+│   ├── sidebar.html
+│   ├── sidebar-script.html
+│   ├── footer.html
+│   ├── post-card.html
+│   ├── pagination.html
+│   ├── breadcrumb.html
+│   ├── series.html
+│   └── analytics.html
 │
 ├── _data/
 │   └── quotes.yml                   # Lista de quotes da sidebar
 │
 ├── categorias/                      # Uma página .md por categoria
+│   ├── career.md
+│   ├── coding.md
+│   ├── devops.md
+│   ├── hobbies.md
 │   ├── infraestrutura.md
-│   └── telecomunicacoes.md
+│   ├── investments.md
+│   ├── telecomunicacoes.md
+│   ├── testing.md
+│   └── travel-places.md
+│
+├── topicos/                         # Uma página .md por tag (geradas automaticamente)
+│   └── <slug>.md                    # Centenas de páginas de tópicos
+│
+├── feed/                            # Feeds RSS por categoria
+│   ├── career.xml
+│   ├── coding.xml
+│   ├── devops.xml
+│   ├── hobbies.xml
+│   ├── infraestrutura.xml
+│   ├── investments.xml
+│   ├── telecomunicacoes.xml
+│   ├── testing.xml
+│   └── travel-places.xml
 │
 ├── assets/
 │   ├── css/
-│   │   └── main.css                 # Estilos compartilhados
+│   │   └── main.css                 # Estilos compartilhados (tokens CSS em :root)
 │   └── img/
 │       ├── cover.jpg                # Imagem de fundo da sidebar
-│       └── avatar.jpg               # Foto de perfil circular
+│       └── avatar.png               # Foto de perfil circular
 │
-├── index.html                       # Página inicial
+├── index.html                       # Página inicial (paginada)
+├── busca.html                       # Página de busca
+├── viagens.html                     # Página de viagens
+├── search.json                      # Índice de busca client-side
+├── 404.html                         # Página de erro 404
 ├── _config.yml                      # Configurações do Jekyll
 ├── Gemfile                          # Dependências Ruby
 └── README.md
@@ -82,16 +119,17 @@ A categoria declarada no campo `category:` deve ser idêntica à usada no front 
 
 | Categoria | Arquivo | URL |
 |---|---|---|
-| Infraestrutura | `categorias/infraestrutura.md` | `/categorias/infraestrutura/` |
-| Telecomunicações | `categorias/telecomunicacoes.md` | `/categorias/telecomunicacoes/` |
 | Career | `categorias/career.md` | `/categorias/career/` |
 | Coding | `categorias/coding.md` | `/categorias/coding/` |
 | DevOps | `categorias/devops.md` | `/categorias/devops/` |
 | Hobbies | `categorias/hobbies.md` | `/categorias/hobbies/` |
+| Infraestrutura | `categorias/infraestrutura.md` | `/categorias/infraestrutura/` |
 | Investments | `categorias/investments.md` | `/categorias/investments/` |
+| Telecomunicações | `categorias/telecomunicacoes.md` | `/categorias/telecomunicacoes/` |
 | Testing | `categorias/testing.md` | `/categorias/testing/` |
+| Travel Places | `categorias/travel-places.md` | `/categorias/travel-places/` |
 
-> Ao publicar um post com uma categoria nova, lembre-se sempre de criar o arquivo correspondente em `categorias/` — caso contrário o link na sidebar retornará 404.
+> Ao publicar um post com uma categoria nova, lembre-se sempre de criar o arquivo correspondente em `categorias/` e o feed correspondente em `feed/` — caso contrário os links retornarão 404.
 
 ---
 
@@ -139,13 +177,18 @@ O GitHub Pages detecta o push, roda o build do Jekyll e publica em ~60 segundos.
 title: "Tecnologia & Viagens"
 description: "Blog sobre tecnologia, infraestrutura e automação para quem viaja e constrói."
 author: "Guilherme Branco Stracini"
-author_bio: "Software engineer. PHP, C#, JS, Rust. Integrações, APIs, seguros & logística."
-author_avatar: /assets/img/avatar.jpg    # foto circular na sidebar
+author_bio: "Software engineer. PHP, C#, JS, Rust. Integrations, APIs, insurance & logistics. Lego collector."
+author_avatar: /assets/img/avatar.png    # foto circular na sidebar
 author_cover: /assets/img/cover.jpg     # imagem de fundo da sidebar
 
+google_analytics: G-E6MXHTTEDH
+
 # URLs
-url: "https://guibranco.github.io"
+url: "https://guilherme.stracini.com.br"
 baseurl: "/blog"
+
+# Permalinks
+permalink: /artigos/:slug/
 
 # Redes sociais (todos opcionais)
 social:
@@ -157,11 +200,10 @@ social:
   stackoverflow: https://stackoverflow.com/users/1890220/guilherme-branco-stracini
   pinterest:     https://www.pinterest.com/guibranco/
   whatsapp:      https://api.whatsapp.com/send/?phone=353871471762
-  website:       http://guilherme.stracini.com.br
-  website_image: assets/img/avatar.png
+  website:       https://guilherme.stracini.com.br
   strava:        https://www.strava.com/athletes/171612487
-  soundcloud:    https://open.spotify.com/user/22x2qmq6hbuqyjy2emg6k4xiq
-  spotify:       https://soundcloud.com/guilherme-stracini
+  spotify:       https://open.spotify.com/user/22x2qmq6hbuqyjy2emg6k4xiq
+  soundcloud:    https://soundcloud.com/guilherme-stracini
   reddit:        https://www.reddit.com/user/SilverSport8845/
   medium:        https://medium.com/@guilhermebrancostracini
 ```
@@ -206,7 +248,7 @@ A sidebar suporta dois campos distintos:
 | `date` | date | ✅ | Data de publicação (`AAAA-MM-DD`) |
 | `description` | string | — | Subtítulo e meta description para SEO |
 | `categories` | list | — | Categorias (aparecem como pills e na nav) |
-| `tags` | list | — | Tags (aparecem no rodapé do artigo e na nuvem da home) |
+| `tags` | list | — | Tags (aparecem no rodapé do artigo e geram páginas em `topicos/`) |
 | `reading_time` | number | — | Tempo estimado de leitura em minutos |
 | `image` | path | — | Caminho da imagem de capa do artigo |
 
@@ -268,7 +310,7 @@ bundle install
 # Iniciar servidor local com live reload
 bundle exec jekyll serve
 
-# Acesse em: http://localhost:4000
+# Acesse em: http://localhost:4000/blog
 ```
 
 ### Plugins utilizados
@@ -278,6 +320,8 @@ bundle exec jekyll serve
 | `jekyll-feed` | Gera `/feed.xml` automaticamente |
 | `jekyll-seo-tag` | Meta tags Open Graph e Twitter Card |
 | `jekyll-sitemap` | Gera `/sitemap.xml` automaticamente |
+| `jekyll-paginate-v2` | Paginação avançada da página inicial |
+| `jekyll-redirect-from` | Redirecionamentos via front matter |
 
 ---
 
