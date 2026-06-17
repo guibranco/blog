@@ -3,8 +3,8 @@ layout: post
 title: "Albânia em 7 dias: Sarande, Ksamil e Corfu — o melhor custo-benefício da Europa saindo da Irlanda"
 description: "Roteiro completo de 7 dias na Albânia saindo de Dublin, com hospedagem em Sarande, passeio de barco em Corfu e os melhores beach clubs de Ksamil. Timeline, custos reais por pessoa e dicas práticas."
 date: 2026-06-16
-categories: [Hobbies]
-tags: [viagem, albania, sarande, ksamil, corfu, europa, beach-club, ferry, aluguel-de-carro, irlanda, dublin, custo-beneficio, guia-de-viagem, balcas]
+categories: [Travel & Places, Hobbies]
+tags: [viagem, albania, sarande, ksamil, corfu, europa, beach-club, ferry, aluguel-de-carro, irlanda, dublin, custo-beneficio, guia-de-viagem, balcas, travel, places, locations]
 reading_time: 18
 image: /assets/img/posts/albania-2026.jpg
 gallery: true
