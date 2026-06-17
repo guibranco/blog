@@ -1,8 +1,4 @@
 ---
-layout: category
-category: Telecomunicações
+redirect_to: /blog/categorias/infraestrutura/telecomunicacoes/
 permalink: /categorias/telecomunicacoes/
-pagination:
-  enabled: true
-  category: Telecomunicações
 ---

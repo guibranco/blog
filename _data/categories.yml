@@ -1,0 +1,48 @@
+- name: Career
+  slug: career
+  icon: "fas fa-briefcase"
+  subcategories: []
+
+- name: Coding
+  slug: coding
+  icon: "fas fa-code"
+  subcategories:
+    - name: "C#"
+      slug: csharp
+    - name: Databases
+      slug: databases
+    - name: DevOps
+      slug: devops
+    - name: "JS/TS & Node.JS"
+      slug: js-ts-node-js
+    - name: PHP
+      slug: php
+    - name: Python
+      slug: python
+    - name: Rust
+      slug: rust
+    - name: Testing
+      slug: testing
+    - name: "Tips & Tricks"
+      slug: tips-tricks
+
+- name: Infraestrutura
+  slug: infraestrutura
+  icon: "fas fa-server"
+  subcategories:
+    - name: "Telecomunicações"
+      slug: telecomunicacoes
+
+- name: Hobbies
+  slug: hobbies
+  icon: "fas fa-gamepad"
+  subcategories:
+    - name: LEGO
+      slug: lego
+    - name: "Travel & Places"
+      slug: travel-places
+
+- name: Investments
+  slug: investments
+  icon: "fas fa-chart-line"
+  subcategories: []

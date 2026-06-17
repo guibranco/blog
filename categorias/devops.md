@@ -1,8 +1,4 @@
 ---
-layout: category
-category: DevOps
+redirect_to: /blog/categorias/coding/devops/
 permalink: /categorias/devops/
-pagination:
-  enabled: true
-  category: DevOps
 ---

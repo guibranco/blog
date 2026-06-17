@@ -1,8 +1,4 @@
 ---
-layout: category
-category: Travel & Places
+redirect_to: /blog/categorias/hobbies/travel-places/
 permalink: /categorias/travel-places/
-pagination:
-  enabled: true
-  category: Travel & Places
 ---
