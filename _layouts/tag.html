@@ -23,12 +23,12 @@
     {% include breadcrumb.html %}
 
     <section class="hero">
-      <p class="hero-eyebrow">// tópico //</p>
+      <p class="hero-eyebrow" data-i18n="topic_eyebrow">// tópico //</p>
       <h1 class="hero-title">{{ page.tag }}</h1>
       {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains page.tag" %}
       <p class="hero-desc">
-        {{ tag_posts | size }} artigo{% if tag_posts.size != 1 %}s{% endif %} neste tópico.
-        <a href="{{ site.baseurl }}/topicos/" class="hero-desc-link">← todos os tópicos</a>
+        {{ tag_posts | size }} <span data-i18n="{% if tag_posts.size != 1 %}articles_count_suffix{% else %}article_count_suffix{% endif %}">artigo{% if tag_posts.size != 1 %}s{% endif %} neste tópico</span>.
+        <a href="{{ site.baseurl }}/topicos/" class="hero-desc-link"><span data-i18n="all_topics_link">← todos os tópicos</span></a>
       </p>
     </section>
 
@@ -40,14 +40,14 @@
         <div class="article-card">
           <div class="empty-state">
             <div class="empty-glyph">∅</div>
-            <p>Nenhum artigo com esta tag ainda.</p>
+            <p data-i18n="empty_no_tag_articles">Nenhum artigo com esta tag ainda.</p>
           </div>
         </div>
       {% else %}
         <div class="article-card">
           <div class="section-row">
-            <h2 class="section-title">Artigos</h2>
-            <a href="{{ site.baseurl }}/topicos/" class="section-link">← todos os tópicos</a>
+            <h2 class="section-title" data-i18n="section_articles">Artigos</h2>
+            <a href="{{ site.baseurl }}/topicos/" class="section-link"><span data-i18n="all_topics_link">← todos os tópicos</span></a>
           </div>
           <div class="posts-grid">
             {% for post in tag_posts %}

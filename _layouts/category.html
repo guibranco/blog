@@ -44,7 +44,7 @@
         <p class="hero-eyebrow">// {{ page.category | downcase }} //</p>
         <h1 class="hero-title">{{ page.subcategory }}</h1>
       {% else %}
-        <p class="hero-eyebrow">// categoria //</p>
+        <p class="hero-eyebrow" data-i18n="category_eyebrow">// categoria //</p>
         <h1 class="hero-title">{{ page.category }}</h1>
       {% endif %}
       <p class="hero-desc">
@@ -53,7 +53,7 @@
         {% else %}
           {% assign _n = paginator.total_posts %}
         {% endif %}
-        {{ _n }} artigo{% if _n != 1 %}s{% endif %} publicado{% if _n != 1 %}s{% endif %} nesta categoria.
+        {{ _n }} <span data-i18n="{% if _n != 1 %}articles_published_in_category{% else %}article_published_in_category{% endif %}">artigo{% if _n != 1 %}s{% endif %} publicado{% if _n != 1 %}s{% endif %} nesta categoria</span>.
       </p>
     </section>
 
@@ -63,7 +63,7 @@
     {% if _cat_nav.subcategories.size > 0 %}
     <div class="content-wrap content-wrap--subcats">
       <div class="section-row">
-        <h2 class="section-title">Subcategorias</h2>
+        <h2 class="section-title" data-i18n="subcategories_title">Subcategorias</h2>
       </div>
       <div class="subcats-grid">
         {% for sub in _cat_nav.subcategories %}
@@ -76,7 +76,7 @@
           {% endfor %}
           <a class="subcat-card" href="{{ site.baseurl }}/categorias/{{ _cat_nav.slug }}/{{ sub.slug }}/">
             <span class="subcat-name">{{ sub.name }}</span>
-            <span class="subcat-count">{{ _sub_count }} artigo{% if _sub_count != 1 %}s{% endif %}</span>
+            <span class="subcat-count">{{ _sub_count }} <span data-i18n="{% if _sub_count != 1 %}articles_plural{% else %}article_singular{% endif %}">artigo{% if _sub_count != 1 %}s{% endif %}</span></span>
           </a>
         {% endfor %}
       </div>
@@ -91,12 +91,12 @@
 
         {% if _sub_posts.size == 0 %}
           <div class="empty-state">
-            <div class="empty-glyph">em breve.</div>
-            <p>Nenhum artigo nesta categoria ainda.</p>
+            <div class="empty-glyph" data-i18n="empty_soon">em breve.</div>
+            <p data-i18n="empty_no_cat_articles">Nenhum artigo nesta categoria ainda.</p>
           </div>
         {% else %}
           <div class="section-row">
-            <h2 class="section-title">Artigos em {{ page.subcategory }}</h2>
+            <h2 class="section-title"><span data-i18n="articles_in_prefix">Artigos em</span> {{ page.subcategory }}</h2>
             {% assign _back_cat = site.data.categories | where: "name", page.category | first %}
             {% if _back_cat %}
             <a href="{{ site.baseurl }}/categorias/{{ _back_cat.slug }}/" class="section-link">← {{ page.category }}</a>
@@ -113,12 +113,12 @@
 
         {% if paginator.posts.size == 0 %}
           <div class="empty-state">
-            <div class="empty-glyph">em breve.</div>
-            <p>Nenhum artigo nesta categoria ainda.</p>
+            <div class="empty-glyph" data-i18n="empty_soon">em breve.</div>
+            <p data-i18n="empty_no_cat_articles">Nenhum artigo nesta categoria ainda.</p>
           </div>
         {% else %}
           <div class="section-row">
-            <h2 class="section-title">Todos os artigos</h2>
+            <h2 class="section-title" data-i18n="section_all_articles">Todos os artigos</h2>
           </div>
           <div class="posts-grid">
             {% for post in paginator.posts %}

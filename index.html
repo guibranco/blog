@@ -32,7 +32,7 @@ pagination:
       <div class="hero-stats">
         <div class="hero-stat">
           <div class="hero-stat-num">{{ site.posts | size }}</div>
-          <div class="hero-stat-label">Artigos</div>
+          <div class="hero-stat-label" data-i18n="stat_articles">Artigos</div>
         </div>
         <div class="hero-stat-divider"></div>
         <div class="hero-stat">
@@ -40,7 +40,7 @@ pagination:
             {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq %}
             {{ all_tags | size }}
           </div>
-          <div class="hero-stat-label">Tópicos</div>
+          <div class="hero-stat-label" data-i18n="topics">Tópicos</div>
         </div>
         <div class="hero-stat-divider"></div>
         <div class="hero-stat">
@@ -48,7 +48,7 @@ pagination:
             {% assign all_cats = site.posts | map: 'categories' | join: ',' | split: ',' | uniq %}
             {{ all_cats | size }}
           </div>
-          <div class="hero-stat-label">Categorias</div>
+          <div class="hero-stat-label" data-i18n="stat_categories">Categorias</div>
         </div>
       </div>
     </section>
@@ -59,8 +59,8 @@ pagination:
 
         <div class="article-card">
           <div class="empty-state">
-            <div class="empty-glyph">em breve.</div>
-            <p>Nenhum artigo publicado ainda.</p>
+            <div class="empty-glyph" data-i18n="empty_soon">em breve.</div>
+            <p data-i18n="empty_no_articles">Nenhum artigo publicado ainda.</p>
           </div>
         </div>
 
@@ -74,7 +74,7 @@ pagination:
         <!-- Card: destaques fixos (featured: true) -->
         <div class="article-card">
           <div class="section-row">
-            <h2 class="section-title">Destaques</h2>
+            <h2 class="section-title" data-i18n="section_featured">Destaques</h2>
           </div>
           <div class="posts-grid">
             {% for post in pinned %}
@@ -87,7 +87,7 @@ pagination:
         {% if regular_posts.size > 0 %}
         <div class="article-card">
           <div class="section-row">
-            <h2 class="section-title">Todos os artigos</h2>
+            <h2 class="section-title" data-i18n="section_all_articles">Todos os artigos</h2>
           </div>
           <div class="posts-grid">
             {% for post in regular_posts %}
@@ -104,7 +104,7 @@ pagination:
         <!-- Card: destaque (fallback: post mais recente) -->
         <div class="article-card">
           <div class="section-row">
-            <h2 class="section-title">Destaque</h2>
+            <h2 class="section-title" data-i18n="section_featured_single">Destaque</h2>
           </div>
           {% assign featured = paginator.posts.first %}
           <article class="featured-card">
@@ -129,7 +129,7 @@ pagination:
               {% endif %}
               <div class="featured-meta">
                 <span>{{ featured.date | date: "%d/%m/%Y" }}</span>
-                {% if featured.reading_time %}<span class="sep">·</span><span>{{ featured.reading_time }} min de leitura</span>{% endif %}
+                {% if featured.reading_time %}<span class="sep">·</span><span>{{ featured.reading_time }} <span data-i18n="reading_time">min de leitura</span></span>{% endif %}
               </div>
               <a class="read-more" href="{{ featured.url | relative_url }}" data-i18n="read_more">Ler artigo →</a>
             </div>
@@ -145,7 +145,7 @@ pagination:
         {% if other_posts.size > 0 %}
         <div class="article-card">
           <div class="section-row">
-            <h2 class="section-title">Todos os artigos</h2>
+            <h2 class="section-title" data-i18n="section_all_articles">Todos os artigos</h2>
           </div>
           <div class="posts-grid">
             {% for post in other_posts %}
@@ -163,7 +163,7 @@ pagination:
         {% if all_tags.size > 0 %}
         <div class="article-card article-card--tags">
           <div class="section-row">
-            <h2 class="section-title">Tópicos</h2>
+            <h2 class="section-title" data-i18n="topics">Tópicos</h2>
           </div>
           <div class="tags-cloud">
             {% for tag in all_tags %}
