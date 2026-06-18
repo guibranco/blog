@@ -4,6 +4,8 @@ title: "Top blogs that power up my learning journey"
 description: "A curated list of my favorite tech blogs covering software engineering, .NET, clean code, system design and developer career — the sources that have shaped my learning the most."
 date: 2023-07-17
 categories: [Career, Coding]
+subcategories:
+  - "Coding/Tips & Tricks"
 tags: [blogs, aprendizado, recursos, csharp, dotnet, clean-code, carreira, software-engineering, leitura]
 reading_time: 3
 image: /assets/img/posts/blogs.jpg
