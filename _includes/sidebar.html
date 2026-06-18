@@ -103,12 +103,12 @@
 
         <li>
           <a href="{{ site.baseurl }}/topicos/"{% if include.active_page == "topics" %} class="active"{% endif %}>
-            <i class="fas fa-tags"></i> Tópicos
+            <i class="fas fa-tags"></i> <span data-i18n="topics">Tópicos</span>
           </a>
         </li>
         <li>
           <a href="{{ site.baseurl }}/viagens/"{% if include.active_page == "travels" %} class="active"{% endif %}>
-            <i class="fas fa-map-location-dot"></i> Viagens
+            <i class="fas fa-map-location-dot"></i> <span data-i18n="travels">Viagens</span>
           </a>
         </li>
         <li>
@@ -132,11 +132,24 @@
     {% endif %}
 
     <div class="sidebar-widget">
-      <p class="widget-title">Buscar</p>
+      <p class="widget-title" data-i18n="search">Buscar</p>
       <form class="widget-search" action="{{ site.baseurl }}/busca/" method="get">
-        <input type="search" name="q" placeholder="Buscar artigos…" autocomplete="off">
+        <input type="search" name="q" placeholder="Buscar artigos…" autocomplete="off" data-i18n-placeholder="search_placeholder">
         <button type="submit"><i class="fas fa-search"></i></button>
       </form>
     </div>
 
+    <div class="lang-switcher">
+      {% for pair in site.data.i18n %}
+        <button class="lang-btn" data-lang="{{ pair[0] }}" title="{{ pair[1].lang_name }}">{{ pair[1].lang_label }}</button>
+      {% endfor %}
+    </div>
+
   </aside>
+
+  <script>
+    window.__i18n = {{ site.data.i18n | jsonify }};
+    window.__siteLang = "{{ site.lang | default: 'pt-BR' }}";
+    window.__articleLang = "{{ page.lang | default: site.lang | default: 'pt-BR' }}";
+  </script>
+  <script src="{{ '/assets/js/lang-switcher.js' | relative_url }}" defer></script>

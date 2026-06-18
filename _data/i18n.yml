@@ -24,6 +24,8 @@ pt-BR:
   footer_search: "Buscar"
   article_count_suffix: "artigo neste tópico"
   articles_count_suffix: "artigos neste tópico"
+  travels: "Viagens"
+  search_placeholder: "Buscar artigos…"
 
 en:
   home: "Home"
@@ -51,3 +53,5 @@ en:
   footer_search: "Search"
   article_count_suffix: "article in this topic"
   articles_count_suffix: "articles in this topic"
+  travels: "Travels"
+  search_placeholder: "Search articles…"

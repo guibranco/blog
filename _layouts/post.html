@@ -22,7 +22,9 @@
 <body>
 
   <div id="reading-progress" aria-hidden="true"></div>
-  <button id="back-to-top" aria-label="{{ _t.back_to_top }}" title="{{ _t.back_to_top }}">
+  <button id="back-to-top"
+          aria-label="{{ _t.back_to_top }}" title="{{ _t.back_to_top }}"
+          data-i18n-aria="back_to_top" data-i18n-title="back_to_top">
     <i class="fas fa-arrow-up"></i>
   </button>
 
@@ -43,7 +45,7 @@
       <div class="hero-inner">
 
         <a class="hero-back" href="{{ site.baseurl }}/">
-          <i class="fas fa-arrow-left"></i> {{ _t.back_link }}
+          <i class="fas fa-arrow-left"></i> <span data-i18n="back_link">{{ _t.back_link }}</span>
         </a>
 
         <div class="hero-eyebrow">
@@ -62,15 +64,16 @@
           <span>{{ page.date | date: _t.date_format }}</span>
           {% if page.reading_time %}
           <span class="dot">·</span>
-          <span>~{{ page.reading_time }} {{ _t.reading_time }}</span>
+          <span>~{{ page.reading_time }} <span data-i18n="reading_time">{{ _t.reading_time }}</span></span>
           {% endif %}
           {% if page.tags.size > 0 %}
           <span class="dot">·</span>
           {% for tag in page.tags limit: 3 %}<span>#{{ tag }}</span> {% endfor %}
           {% endif %}
           <span class="dot">·</span>
-          <button id="share-btn" class="share-btn" aria-label="{{ _t.share_aria }}">
-            <i class="fas fa-share-nodes"></i> {{ _t.share }}
+          <button id="share-btn" class="share-btn"
+                  aria-label="{{ _t.share_aria }}" data-i18n-aria="share_aria">
+            <i class="fas fa-share-nodes"></i> <span data-i18n="share">{{ _t.share }}</span>
           </button>
           {% if _lang != site.lang %}
           <span class="dot">·</span>
@@ -99,7 +102,9 @@
       <!-- Card 2: categorias -->
       {% if page.categories.size > 0 %}
       <div class="article-card article-card--categories">
-        <p class="card-section-title"><i class="fas fa-folder-open"></i> &nbsp;{{ _t.categories_title }}</p>
+        <p class="card-section-title">
+          <i class="fas fa-folder-open"></i> &nbsp;<span data-i18n="categories_title">{{ _t.categories_title }}</span>
+        </p>
         <div class="post-categories">
           {% for cat in page.categories %}
           <a class="post-category" href="{{ site.baseurl }}/categorias/{{ cat | slugify: 'latin' }}/">{{ cat }}</a>
@@ -108,10 +113,12 @@
       </div>
       {% endif %}
 
-      <!-- Card 3: tags (fundo diferenciado) -->
+      <!-- Card 3: tags -->
       {% if page.tags.size > 0 %}
       <div class="article-card article-card--tags">
-        <p class="card-section-title"><i class="fas fa-tags"></i> &nbsp;{{ _t.tags_title }}</p>
+        <p class="card-section-title">
+          <i class="fas fa-tags"></i> &nbsp;<span data-i18n="tags_title">{{ _t.tags_title }}</span>
+        </p>
         <div class="post-tags">
           {% for tag in page.tags %}
           <a class="post-tag" href="{{ site.baseurl }}/topicos/{{ tag | slugify }}/">#{{ tag }}</a>
@@ -120,7 +127,7 @@
       </div>
       {% endif %}
 
-      <!-- Card 3: artigos relacionados -->
+      <!-- Card 4: artigos relacionados -->
       {% comment %}── Related posts — scored by shared tags (+1 each) and categories (+2 each) ──{% endcomment %}
       {% assign scored = "" | split: "" %}
       {% for candidate in site.posts %}
@@ -163,7 +170,7 @@
       {% if related_posts.size > 0 %}
       <div class="article-card article-card--related">
         <div class="related-posts">
-          <p class="related-title">{{ _t.related_title }}</p>
+          <p class="related-title" data-i18n="related_title">{{ _t.related_title }}</p>
           <div class="related-grid">
             {% for post in related_posts %}
             <a href="{{ post.url | relative_url }}" class="related-card">
@@ -186,7 +193,7 @@
       </div>
       {% endif %}
 
-      <!-- Card 4: comentários (fundo branco) -->
+      <!-- Card 5: comentários -->
       <div class="article-card article-card--comments">
         <div class="article-comments">
           <script src="https://giscus.app/client.js"
@@ -214,7 +221,7 @@
 
   </div><!-- /.main -->
 
-  <div id="share-toast" class="share-toast" aria-live="polite">{{ _t.url_copied }}</div>
+  <div id="share-toast" class="share-toast" aria-live="polite" data-i18n="url_copied">{{ _t.url_copied }}</div>
 
   <script>
     const bar = document.getElementById('reading-progress');
@@ -237,7 +244,6 @@
         setTimeout(() => toast.classList.remove('show'), 2000);
       }
     });
-
   </script>
   {% include sidebar-script.html %}
 
