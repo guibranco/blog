@@ -1204,6 +1204,26 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 }
 
 /* ─────────────────────────────────────
+   SIDEBAR — per-category RSS feed links
+───────────────────────────────────── */
+.sidebar-nav > ul > li:not(.has-children) {
+  display: flex;
+  align-items: stretch;
+}
+.sidebar-nav > ul > li:not(.has-children) > a:first-child { flex: 1; }
+.sidebar-nav .submenu li {
+  display: flex;
+  align-items: stretch;
+}
+.sidebar-nav .submenu li > a:first-child { flex: 1; }
+.sidebar-nav a.sidebar-rss {
+  padding: .38rem .55rem;
+  color: rgba(250,249,246,.18);
+  gap: 0;
+}
+.sidebar-nav a.sidebar-rss i { width: auto; opacity: .6; }
+
+/* ─────────────────────────────────────
    CATEGORY PAGE — subcategory grid
 ───────────────────────────────────── */
 .content-wrap--subcats { padding-bottom: 0; }
