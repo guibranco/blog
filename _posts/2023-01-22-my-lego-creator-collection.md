@@ -4,6 +4,8 @@ title: "My LEGO Creator collection"
 description: "A look at my LEGO Creator Expert collection — assembled and displayed sets that have been part of my hobby over the years."
 date: 2023-01-22
 categories: [Hobbies]
+subcategories:
+  - "Hobbies/Lego"
 tags: [lego, colecao, hobbies, lego-creator, creator-expert]
 reading_time: 1
 image: /assets/img/posts/lego-10197-1.jpg

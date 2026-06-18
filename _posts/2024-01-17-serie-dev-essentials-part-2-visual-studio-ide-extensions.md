@@ -4,6 +4,8 @@ title: "Dev Essentials - Part II - Visual Studio (IDE) Extensions"
 description: "The Visual Studio extensions I use daily to boost productivity, enforce code quality, automate documentation, and streamline the .NET development workflow."
 date: 2024-01-17
 categories: [Coding]
+subcategories:
+  - "Coding/Tips & Tricks"
 tags: [dotnet, visual-studio, extensions, produtividade, csharp, setup, devtools]
 series: dev-essentials
 series_title: "Dev Essentials"
