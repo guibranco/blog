@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: "Playing with Docker: NGINX, Apache, RabbitMQ, MailHog, MySQL/MariaDB"
 description: "Set up a complete PHP development environment using Docker Compose — with NGINX, PHP-FPM, Apache, MySQL, MariaDB, Redis, MongoDB, RabbitMQ and MailHog, all wired together with healthchecks and ready to use."
 date: 2026-06-17

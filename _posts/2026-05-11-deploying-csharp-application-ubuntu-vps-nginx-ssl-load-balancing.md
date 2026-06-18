@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: "Deploying a C# Application to Ubuntu VPS with Nginx, SSL and Load Balancing"
 description: "Step-by-step guide for deploying a .NET application — API, Swagger, HealthChecks and background worker — to an OCI Ubuntu VPS using Nginx as reverse proxy with load balancing and Certbot SSL."
 date: 2026-05-11

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: "Dev Essentials - Part IV - JetBrains ReSharper Extensions"
 description: "The JetBrains ReSharper extensions I use to enforce code quality, measure complexity, improve unit testing workflow and boost overall .NET productivity."
 date: 2024-01-17

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: "Using GitHub Actions to create a .NET Framework pipeline: Build, test, and deploy"
 description: "A step-by-step guide to setting up a CI/CD pipeline for a .NET Framework project using GitHub Actions — build, test with VSTest, restore NuGet packages, and run the application automatically."
 date: 2023-08-12

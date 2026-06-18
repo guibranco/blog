@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: "Dev Essentials - Part I - Software and Tools"
 description: "A curated list of the essential software and tools I use daily as a software engineer — from API clients and database managers to .NET tools, Git clients and productivity utilities."
 date: 2024-01-17

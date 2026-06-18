@@ -1,3 +1,5 @@
+{% assign _bc_lang = page.lang | default: site.lang | default: "pt-BR" %}
+{% assign _bct = site.data.i18n[_bc_lang] %}
 <nav class="breadcrumb" aria-label="Breadcrumb">
   <a href="{{ site.baseurl }}/">Home</a>
   <span aria-hidden="true">›</span>
@@ -33,7 +35,7 @@
       <span aria-current="page">{{ page.category }}</span>
     {% endif %}
   {% elsif page.layout == 'tag' %}
-    <a href="{{ site.baseurl }}/topicos/">Tópicos</a>
+    <a href="{{ site.baseurl }}/topicos/">{{ _bct.topics }}</a>
     <span aria-hidden="true">›</span>
     <span aria-current="page">#{{ page.tag }}</span>
   {% endif %}

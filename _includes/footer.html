@@ -1,14 +1,16 @@
+    {% assign _f_lang = page.lang | default: site.lang | default: "pt-BR" %}
+    {% assign _ft = site.data.i18n[_f_lang] %}
     <footer class="site-footer">
       <div class="site-footer-inner">
         <span class="footer-brand">{{ site.title }}</span>
         <ul class="footer-links">
           {% if page.url != "/" %}
-            <li><a href="{{ site.baseurl }}/">← Todos os artigos</a></li>
+            <li><a href="{{ site.baseurl }}/">{{ _ft.footer_all_articles }}</a></li>
           {% endif %}
           {% if page.url contains "/topicos/" %}
-            <li><a href="{{ site.baseurl }}/topicos/">← Todos os tópicos</a></li>
-          {% endif %}         
-          <li><a href="{{ site.baseurl }}/busca/">Buscar</a></li>
+            <li><a href="{{ site.baseurl }}/topicos/">{{ _ft.footer_all_topics }}</a></li>
+          {% endif %}
+          <li><a href="{{ site.baseurl }}/busca/">{{ _ft.footer_search }}</a></li>
           <li><a href="{{ site.baseurl }}/feed.xml">RSS</a></li>
           <li><a href="{{ site.baseurl }}/sitemap.xml">Sitemap</a></li>
         </ul>

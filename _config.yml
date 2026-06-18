@@ -73,6 +73,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+      lang: "pt-BR"
       author:
         name: "Guilherme Branco Stracini"
         url:  "https://guilherme.stracini.com.br"
