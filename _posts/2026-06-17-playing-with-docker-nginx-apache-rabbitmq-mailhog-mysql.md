@@ -3,11 +3,11 @@ layout: post
 title: "Playing with Docker: NGINX, Apache, RabbitMQ, MailHog, MySQL/MariaDB"
 description: "Set up a complete PHP development environment using Docker Compose — with NGINX, PHP-FPM, Apache, MySQL, MariaDB, Redis, MongoDB, RabbitMQ and MailHog, all wired together with healthchecks and ready to use."
 date: 2026-06-17
-categories: [Coding, DevOps, Testing]
+categories: [Coding, Infraestrutura]
 subcategories:
   - "Coding/PHP"
-  - "DevOps/Docker"
-  - "Testing/Dev Environment"
+  - "Coding/Testing"
+  - "Infraestrutura/DevOps"
 tags: [docker, docker-compose, nginx, apache, php, php-fpm, mysql, mariadb, redis, mongodb, rabbitmq, mailhog, container, devops, devsecops, environment, dev-environment, developer-environment, infra, linux, windows, queue, smtp, sql, no-sql, nosql, database, web-server, webserver, server, healthcheck, message-broker, cache, local-environment]
 reading_time: 15
 image: /assets/img/posts/playing-with-docker.png

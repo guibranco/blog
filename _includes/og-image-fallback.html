@@ -1,0 +1,6 @@
+{% if page.image %}
+  <meta property="og:image" content="{{ page.image | absolute_url }}">
+{% else %}
+  <meta property="og:image" content="{{ '/assets/img/og-default.jpg' | absolute_url }}">
+{% endif %}
+<meta name="twitter:card" content="summary_large_image">

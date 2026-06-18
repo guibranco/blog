@@ -3,7 +3,7 @@ layout: post
 title: "Qual linguagem de programação devo escolher?"
 description: "Um guia prático para iniciantes sobre qual linguagem de programação aprender primeiro — web, mobile, infraestrutura e os padrões reais do mercado de trabalho."
 date: 2023-09-01
-categories: [Coding, Career]
+categories: [Career, Coding]
 subcategories:
   - "Coding/Tips & Tricks"
 tags: [linguagem-de-programacao, iniciante, carreira, javascript, php, python, csharp, java, mobile, frontend, backend, devops, ti]

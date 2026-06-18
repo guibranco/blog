@@ -11,8 +11,6 @@
       slug: csharp
     - name: Databases
       slug: databases
-    - name: DevOps
-      slug: devops
     - name: "JS/TS & Node.JS"
       slug: js-ts-node-js
     - name: PHP
@@ -30,6 +28,8 @@
   slug: infraestrutura
   icon: "fas fa-server"
   subcategories:
+    - name: DevOps
+      slug: devops
     - name: "Telecomunicações"
       slug: telecomunicacoes
 
