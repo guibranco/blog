@@ -1,0 +1,42 @@
+{%- assign _schema_cat = page.categories | first -%}
+{%- assign _schema_cat_data = site.data.categories | where: "name", _schema_cat | first -%}
+{%- assign _schema_cat_slug = _schema_cat | slugify: 'latin' -%}
+{%- if _schema_cat_data -%}{%- assign _schema_cat_slug = _schema_cat_data.slug -%}{%- endif -%}
+{%- if page.subcategory -%}
+  {%- assign _schema_sub_slug = page.subcategory | slugify: 'latin' -%}
+  {%- if _schema_cat_data -%}
+    {%- assign _schema_sub_data = _schema_cat_data.subcategories | where: "name", page.subcategory | first -%}
+    {%- if _schema_sub_data -%}{%- assign _schema_sub_slug = _schema_sub_data.slug -%}{%- endif -%}
+  {%- endif -%}
+{%- endif -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ page.title | escape }}",
+  "description": "{{ page.description | escape }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}"
+  }{% if page.image %},
+  "image": "{{ page.image | absolute_url }}"{% endif %}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}{{ site.baseurl }}/" },
+    { "@type": "ListItem", "position": 2, "name": "{{ _schema_cat | escape }}", "item": "{{ site.url }}{{ site.baseurl }}/categorias/{{ _schema_cat_slug }}/" }{% if page.subcategory %},
+    { "@type": "ListItem", "position": 3, "name": "{{ page.subcategory | escape }}", "item": "{{ site.url }}{{ site.baseurl }}/categorias/{{ _schema_cat_slug }}/{{ _schema_sub_slug }}/" },
+    { "@type": "ListItem", "position": 4, "name": "{{ page.title | escape }}", "item": "{{ page.url | absolute_url }}" }{% else %},
+    { "@type": "ListItem", "position": 3, "name": "{{ page.title | escape }}", "item": "{{ page.url | absolute_url }}" }{% endif %}
+  ]
+}
+</script>
