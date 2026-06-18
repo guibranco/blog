@@ -74,6 +74,7 @@
                {% if page.category == cat.name or page.categories contains cat.name %}class="active"{% endif %}>
               <i class="{{ cat.icon }}"></i> {{ cat.name }}
             </a>
+            <a href="{{ site.baseurl }}/feed/{{ cat.slug }}.xml" class="sidebar-rss" title="RSS {{ cat.name }}"><i class="fas fa-rss"></i></a>
             <button class="submenu-toggle" aria-label="Expandir {{ cat.name }}">
               <i class="fas fa-chevron-right chevron"></i>
             </button>
@@ -84,6 +85,7 @@
                    {% if page.subcategory == sub.name %}class="active"{% endif %}>
                   {{ sub.name }}
                 </a>
+                <a href="{{ site.baseurl }}/feed/{{ cat.slug }}-{{ sub.slug }}.xml" class="sidebar-rss" title="RSS {{ sub.name }}"><i class="fas fa-rss"></i></a>
               </li>
               {% endfor %}
             </ul>
@@ -94,6 +96,7 @@
                {% if page.category == cat.name or page.categories contains cat.name %}class="active"{% endif %}>
               <i class="{{ cat.icon }}"></i> {{ cat.name }}
             </a>
+            <a href="{{ site.baseurl }}/feed/{{ cat.slug }}.xml" class="sidebar-rss" title="RSS {{ cat.name }}"><i class="fas fa-rss"></i></a>
           </li>
           {% endif %}
         {% endfor %}
