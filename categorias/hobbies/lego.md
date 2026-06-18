@@ -8,5 +8,5 @@ pagination:
   per_page: 10
   sort_field: date
   sort_reverse: true
-  where_condition: ":categories contains 'LEGO' or :subcategory == 'LEGO' or :subcategories contains 'Hobbies/LEGO'"
+  where_condition: ":subcategories contains 'Hobbies/LEGO'"
 ---

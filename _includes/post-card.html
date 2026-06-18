@@ -8,9 +8,14 @@
               </a>
               <div class="post-card-body">
                 {% if include.featured %}<span class="featured-badge">⭐ Destaque</span>{% endif %}
-                {% if include.post.categories.size > 0 %}
+                {% if include.post.categories.size > 0 or include.post.subcategories.size > 0 %}
                 <div class="post-card-cats">
                   {% for cat in include.post.categories limit: 2 %}<span class="cat-pill">{{ cat }}</span>{% endfor %}
+                  {% for sub in include.post.subcategories limit: 1 %}
+                    {% assign _pc_parts = sub | split: "/" %}
+                    {% assign _pc_label = sub | remove_first: _pc_parts[0] | remove_first: "/" %}
+                    <span class="cat-pill cat-pill--sub">{{ _pc_label }}</span>
+                  {% endfor %}
                 </div>
                 {% endif %}
                 <h3><a href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a></h3>

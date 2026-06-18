@@ -8,5 +8,5 @@ pagination:
   per_page: 10
   sort_field: date
   sort_reverse: true
-  where_condition: ":categories contains 'Python' or :subcategory == 'Python' or :subcategories contains 'Coding/Python'"
+  where_condition: ":subcategories contains 'Coding/Python'"
 ---

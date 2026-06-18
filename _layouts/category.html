@@ -52,8 +52,9 @@
       <div class="subcats-grid">
         {% for sub in _cat_nav.subcategories %}
           {% assign _sub_count = 0 %}
+          {% assign _sub_full = page.category | append: "/" | append: sub.name %}
           {% for post in site.posts %}
-            {% if post.categories contains sub.name or post.subcategory == sub.name %}
+            {% if post.categories contains sub.name or post.subcategory == sub.name or post.subcategories contains _sub_full %}
               {% assign _sub_count = _sub_count | plus: 1 %}
             {% endif %}
           {% endfor %}

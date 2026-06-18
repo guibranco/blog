@@ -8,5 +8,5 @@ pagination:
   per_page: 10
   sort_field: date
   sort_reverse: true
-  where_condition: ":categories contains 'Tips & Tricks' or :subcategory == 'Tips & Tricks' or :subcategories contains 'Coding/Tips & Tricks'"
+  where_condition: ":subcategories contains 'Coding/Tips & Tricks'"
 ---
