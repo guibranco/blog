@@ -3,7 +3,10 @@ layout: post
 title: "Should You Use UUIDs as Primary Keys? Performance Myths, Real-World Trade-Offs, and the Ideal Architecture"
 description: "A deep dive into UUID vs. numeric primary key performance — B-Tree fragmentation, the numeric PK + UUID public ID pattern used by Stripe and GitHub, UUIDv7, ULID, and practical recommendations."
 date: 2025-12-11
-categories: [Coding]
+categories: [Coding, Infraestrutura]
+subcategories:
+  - "Coding/Tips & Tricks"
+  - "Infraestrutura/DevOps"
 tags: [uuid, primary-key, database, sql, performance, b-tree, uuidv7, ulid, arquitetura, backend, csharp, dotnet]
 reading_time: 7
 image: /assets/img/posts/uuid.png
