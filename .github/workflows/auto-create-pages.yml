@@ -3,8 +3,6 @@ name: Auto-create category and tag pages
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-    paths:
-      - '_posts/**'
 
 permissions:
   contents: write
@@ -23,11 +21,6 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: '3.12'
-
       - name: Get changed post files
         id: changed
         run: |
@@ -41,10 +34,16 @@ jobs:
           echo "files=${CHANGED}" >> "$GITHUB_OUTPUT"
 
           if [ -z "$CHANGED" ]; then
-            echo "No post files changed."
+            echo "No post files changed — skipping page creation."
           else
             echo "Changed posts: $CHANGED"
           fi
+
+      - name: Set up Python
+        if: steps.changed.outputs.files != ''
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
 
       - name: Create missing category and tag pages
         if: steps.changed.outputs.files != ''
@@ -79,4 +78,4 @@ jobs:
 
       - name: No new pages needed
         if: steps.changed.outputs.files == '' || steps.create.outputs.created_count == '0'
-        run: echo "✅ All category and tag pages already exist."
+        run: echo "All category and tag pages already exist."
