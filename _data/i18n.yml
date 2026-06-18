@@ -1,4 +1,5 @@
 pt-BR:
+  home: "Início"
   back_link: "← todos os artigos"
   reading_time: "min de leitura"
   share: "Compartilhar"
@@ -25,6 +26,7 @@ pt-BR:
   articles_count_suffix: "artigos neste tópico"
 
 en:
+  home: "Home"
   back_link: "← all articles"
   reading_time: "min read"
   share: "Share"

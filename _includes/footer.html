@@ -1,5 +1,5 @@
-    {% assign _f_lang = page.lang | default: site.lang | default: "pt-BR" %}
-    {% assign _ft = site.data.i18n[_f_lang] %}
+    {% include resolve-lang.html %}
+    {% assign _ft = _t %}
     <footer class="site-footer">
       <div class="site-footer-inner">
         <span class="footer-brand">{{ site.title }}</span>

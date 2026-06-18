@@ -1,7 +1,7 @@
-{% assign _bc_lang = page.lang | default: site.lang | default: "pt-BR" %}
-{% assign _bct = site.data.i18n[_bc_lang] %}
+{% include resolve-lang.html %}
+{% assign _bct = _t %}
 <nav class="breadcrumb" aria-label="Breadcrumb">
-  <a href="{{ site.baseurl }}/">Home</a>
+  <a href="{{ site.baseurl }}/">{{ _bct.home }}</a>
   <span aria-hidden="true">›</span>
   {% if page.layout == 'post' %}
     {% for cat in page.categories limit: 1 %}

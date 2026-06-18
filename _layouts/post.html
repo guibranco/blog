@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-{% assign _lang = page.lang | default: site.lang | default: "pt-BR" %}
-{% assign _t = site.data.i18n[_lang] %}
+{% include resolve-lang.html %}
 <html lang="{{ _lang }}">
 <head>
   <meta charset="UTF-8">
