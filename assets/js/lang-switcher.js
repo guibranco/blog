@@ -39,6 +39,12 @@
     });
 
     document.querySelectorAll('.lang-btn').forEach(function (btn) {
+      var isActive = btn.getAttribute('data-lang') === lang;
+      btn.classList.toggle('lang-btn--active', isActive);
+      btn.setAttribute('aria-pressed', isActive);
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(function (btn) {
       btn.classList.toggle('lang-btn--active', btn.getAttribute('data-lang') === lang);
     });
   }
