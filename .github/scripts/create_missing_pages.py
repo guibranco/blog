@@ -365,20 +365,14 @@ def create_pages(
 
         sub_path = subcat_dir / f"{sub_slug}.md"
         permalink = SUBCATEGORY_PERMALINK.format(cat_slug=cat_slug, sub_slug=sub_slug)
-        pair_str  = f"{cat_original}/{sub_original}"
-        wc = f":subcategories contains '{pair_str}'"
+        # No pagination block: the category layout filters posts via Liquid directly,
+        # which correctly handles the subcategories array field.
         sub_path.write_text(
             f"---\n"
             f"layout: {CATEGORY_LAYOUT}\n"
             f"category: {cat_original}\n"
             f"subcategory: {sub_original}\n"
             f"permalink: {permalink}\n"
-            f"pagination:\n"
-            f"  enabled: true\n"
-            f"  per_page: 10\n"
-            f"  sort_field: date\n"
-            f"  sort_reverse: true\n"
-            f"  where_condition: \"{wc}\"\n"
             f"---\n",
             encoding='utf-8',
         )

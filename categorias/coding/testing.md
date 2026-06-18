@@ -5,10 +5,4 @@ subcategory: Testing
 permalink: /categorias/coding/testing/
 redirect_from:
   - /categorias/testing/
-pagination:
-  enabled: true
-  per_page: 10
-  sort_field: date
-  sort_reverse: true
-  where_condition: ":subcategories contains 'Coding/Testing'"
 ---

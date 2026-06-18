@@ -27,6 +27,17 @@
 
     {% include breadcrumb.html %}
 
+    <!-- Filter posts for subcategory pages via Liquid (paginator where_condition is unreliable with arrays) -->
+    {% if page.subcategory %}
+      {% assign _sub_pair = page.category | append: "/" | append: page.subcategory %}
+      {% assign _sub_posts = "" | split: "" %}
+      {% for post in site.posts %}
+        {% if post.subcategories contains _sub_pair %}
+          {% assign _sub_posts = _sub_posts | push: post %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
     <!-- Hero -->
     <section class="hero">
       {% if page.subcategory %}
@@ -37,7 +48,12 @@
         <h1 class="hero-title">{{ page.category }}</h1>
       {% endif %}
       <p class="hero-desc">
-        {{ paginator.total_posts }} artigo{% if paginator.total_posts != 1 %}s{% endif %} publicado{% if paginator.total_posts != 1 %}s{% endif %} nesta categoria.
+        {% if page.subcategory %}
+          {% assign _n = _sub_posts.size %}
+        {% else %}
+          {% assign _n = paginator.total_posts %}
+        {% endif %}
+        {{ _n }} artigo{% if _n != 1 %}s{% endif %} publicado{% if _n != 1 %}s{% endif %} nesta categoria.
       </p>
     </section>
 
@@ -54,7 +70,7 @@
           {% assign _sub_count = 0 %}
           {% assign _sub_full = page.category | append: "/" | append: sub.name %}
           {% for post in site.posts %}
-            {% if post.categories contains sub.name or post.subcategory == sub.name or post.subcategories contains _sub_full %}
+            {% if post.subcategories contains _sub_full %}
               {% assign _sub_count = _sub_count | plus: 1 %}
             {% endif %}
           {% endfor %}
@@ -71,30 +87,47 @@
     <!-- Posts -->
     <div class="content-wrap">
 
-      {% if paginator.posts.size == 0 %}
-        <div class="empty-state">
-          <div class="empty-glyph">em breve.</div>
-          <p>Nenhum artigo nesta categoria ainda.</p>
-        </div>
-      {% else %}
-        <div class="section-row">
-          {% if page.subcategory %}
+      {% if page.subcategory %}
+
+        {% if _sub_posts.size == 0 %}
+          <div class="empty-state">
+            <div class="empty-glyph">em breve.</div>
+            <p>Nenhum artigo nesta categoria ainda.</p>
+          </div>
+        {% else %}
+          <div class="section-row">
             <h2 class="section-title">Artigos em {{ page.subcategory }}</h2>
             {% assign _back_cat = site.data.categories | where: "name", page.category | first %}
             {% if _back_cat %}
             <a href="{{ site.baseurl }}/categorias/{{ _back_cat.slug }}/" class="section-link">← {{ page.category }}</a>
             {% endif %}
-          {% else %}
-            <h2 class="section-title">Todos os artigos</h2>
-          {% endif %}
-        </div>
+          </div>
+          <div class="posts-grid">
+            {% for post in _sub_posts %}
+            {% include post-card.html post=post %}
+            {% endfor %}
+          </div>
+        {% endif %}
 
-        <div class="posts-grid">
-          {% for post in paginator.posts %}
-          {% include post-card.html post=post %}
-          {% endfor %}
-        </div>
-        {% include pagination.html %}
+      {% else %}
+
+        {% if paginator.posts.size == 0 %}
+          <div class="empty-state">
+            <div class="empty-glyph">em breve.</div>
+            <p>Nenhum artigo nesta categoria ainda.</p>
+          </div>
+        {% else %}
+          <div class="section-row">
+            <h2 class="section-title">Todos os artigos</h2>
+          </div>
+          <div class="posts-grid">
+            {% for post in paginator.posts %}
+            {% include post-card.html post=post %}
+            {% endfor %}
+          </div>
+          {% include pagination.html %}
+        {% endif %}
+
       {% endif %}
 
     </div>
