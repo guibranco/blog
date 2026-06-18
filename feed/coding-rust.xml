@@ -10,7 +10,7 @@ permalink: /feed/coding-rust.xml
     <link>{{ site.url }}{{ site.baseurl }}/categorias/coding/rust/</link>
     <atom:link href="{{ site.url }}{{ site.baseurl }}/feed/coding-rust.xml" rel="self" type="application/rss+xml"/>
     <language>pt-BR</language>
-    {% assign _sub_posts = site.posts | where_exp: "p", "p.categories contains 'Rust' or p.subcategory == 'Rust'" %}
+    {% assign _sub_posts = site.posts | where_exp: "p", "p.subcategories contains 'Coding/Rust'" %}
     {% for post in _sub_posts limit: 20 %}
     <item>
       <title>{{ post.title | xml_escape }}</title>

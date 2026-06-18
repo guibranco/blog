@@ -10,7 +10,7 @@ permalink: /feed/hobbies-lego.xml
     <link>{{ site.url }}{{ site.baseurl }}/categorias/hobbies/lego/</link>
     <atom:link href="{{ site.url }}{{ site.baseurl }}/feed/hobbies-lego.xml" rel="self" type="application/rss+xml"/>
     <language>pt-BR</language>
-    {% assign _sub_posts = site.posts | where_exp: "p", "p.categories contains 'LEGO' or p.subcategory == 'LEGO'" %}
+    {% assign _sub_posts = site.posts | where_exp: "p", "p.subcategories contains 'Hobbies/LEGO'" %}
     {% for post in _sub_posts limit: 20 %}
     <item>
       <title>{{ post.title | xml_escape }}</title>

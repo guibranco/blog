@@ -10,7 +10,7 @@ permalink: /feed/hobbies-travel-places.xml
     <link>{{ site.url }}{{ site.baseurl }}/categorias/hobbies/travel-places/</link>
     <atom:link href="{{ site.url }}{{ site.baseurl }}/feed/hobbies-travel-places.xml" rel="self" type="application/rss+xml"/>
     <language>pt-BR</language>
-    {% assign _sub_posts = site.posts | where_exp: "p", "p.categories contains 'Travel & Places' or p.subcategory == 'Travel & Places'" %}
+    {% assign _sub_posts = site.posts | where_exp: "p", "p.subcategories contains 'Hobbies/Travel & Places'" %}
     {% for post in _sub_posts limit: 20 %}
     <item>
       <title>{{ post.title | xml_escape }}</title>

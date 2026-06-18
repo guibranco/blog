@@ -10,7 +10,7 @@ permalink: /feed/infraestrutura-telecomunicacoes.xml
     <link>{{ site.url }}{{ site.baseurl }}/categorias/infraestrutura/telecomunicacoes/</link>
     <atom:link href="{{ site.url }}{{ site.baseurl }}/feed/infraestrutura-telecomunicacoes.xml" rel="self" type="application/rss+xml"/>
     <language>pt-BR</language>
-    {% assign _sub_posts = site.posts | where_exp: "p", "p.categories contains 'Telecomunicações' or p.subcategory == 'Telecomunicações'" %}
+    {% assign _sub_posts = site.posts | where_exp: "p", "p.subcategories contains 'Infraestrutura/Telecomunicações'" %}
     {% for post in _sub_posts limit: 20 %}
     <item>
       <title>{{ post.title | xml_escape }}</title>

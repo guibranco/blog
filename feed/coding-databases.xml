@@ -10,7 +10,7 @@ permalink: /feed/coding-databases.xml
     <link>{{ site.url }}{{ site.baseurl }}/categorias/coding/databases/</link>
     <atom:link href="{{ site.url }}{{ site.baseurl }}/feed/coding-databases.xml" rel="self" type="application/rss+xml"/>
     <language>pt-BR</language>
-    {% assign _sub_posts = site.posts | where_exp: "p", "p.categories contains 'Databases' or p.subcategory == 'Databases'" %}
+    {% assign _sub_posts = site.posts | where_exp: "p", "p.subcategories contains 'Coding/Databases'" %}
     {% for post in _sub_posts limit: 20 %}
     <item>
       <title>{{ post.title | xml_escape }}</title>
