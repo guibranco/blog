@@ -202,11 +202,7 @@ def subcategory_feed_template(
     safe_cat = _xml_escape(cat_original)
     safe_sub = _xml_escape(sub_original)
     feed_slug = f"{cat_slug}-{sub_slug}"
-    # Filter: old posts use categories: [SubName]; new posts use subcategory: SubName
-    filter_cond = (
-        f"p.categories contains '{sub_original}'"
-        f" or p.subcategory == '{sub_original}'"
-    )
+    filter_cond = f"p.subcategories contains '{cat_original}/{sub_original}'"
     return (
         "---\n"
         "layout: null\n"
@@ -370,13 +366,7 @@ def create_pages(
         sub_path = subcat_dir / f"{sub_slug}.md"
         permalink = SUBCATEGORY_PERMALINK.format(cat_slug=cat_slug, sub_slug=sub_slug)
         pair_str  = f"{cat_original}/{sub_original}"
-        # Backward-compatible: catches old posts (categories: [SubName]) AND
-        # new posts (subcategory: SubName / subcategories: ["Parent/SubName"])
-        wc = (
-            f":categories contains '{sub_original}' "
-            f"or :subcategory == '{sub_original}' "
-            f"or :subcategories contains '{pair_str}'"
-        )
+        wc = f":subcategories contains '{pair_str}'"
         sub_path.write_text(
             f"---\n"
             f"layout: {CATEGORY_LAYOUT}\n"
