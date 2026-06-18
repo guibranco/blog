@@ -4,6 +4,8 @@ title: "Dev Essentials - Part I - Software and Tools"
 description: "A curated list of the essential software and tools I use daily as a software engineer — from API clients and database managers to .NET tools, Git clients and productivity utilities."
 date: 2024-01-17
 categories: [Coding]
+subcategories:
+  - "Coding/Tips & Tricks"
 tags: [dotnet, setup, software, tools, visual-studio, visual-studio-code, produtividade, devtools, docker, git, postman, insomnia, nodejs, php, python, rust]
 reading_time: 3
 image: /assets/img/posts/setup-scaled.jpg

@@ -4,6 +4,8 @@ title: "Lista de Bancos Brasileiros"
 description: "Um repositório no GitHub com lista atualizada dos bancos comerciais brasileiros, incluindo informações sobre PIX, DOC, TED e portabilidade de salário, disponível em 5 formatos."
 date: 2020-01-21
 categories: [Coding]
+subcategories:
+  - "Coding/Tips & Tricks"
 tags: [github, open-source, bancos, brasil, api, dados, json, csv, xml, sfn]
 reading_time: 2
 image: /assets/img/posts/logo-bancos-brasileiros.png

@@ -3,7 +3,9 @@ layout: post
 title: "RabbitMQ gratuito: Potencialize sua arquitetura de mensageria sem custos"
 description: "Como usar RabbitMQ ou LavinMQ de graça com o CloudAMQP — sem cartão de crédito, sem servidor dedicado, ideal para projetos pessoais, estudos e pequenos projetos comerciais."
 date: 2024-02-21
-categories: [Coding]
+categories: [Infraestrutura]
+subcategories:
+  - "Infraestrutura/DevOps"
 tags: [rabbitmq, lavinmq, cloudamqp, mensageria, message-broker, php, infraestrutura, iaas, filas, arquitetura]
 reading_time: 4
 image: /assets/img/posts/rabbitmq-server.jpg

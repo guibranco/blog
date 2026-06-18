@@ -4,6 +4,8 @@ title: "Dev Essentials - Part III - Visual Studio Code Extensions"
 description: "The VS Code extensions I rely on for PHP, C#, Python, Rust, Go, JavaScript, Docker, Kubernetes, Git and more — a curated list built from years of daily use."
 date: 2024-01-17
 categories: [Coding]
+subcategories:
+  - "Coding/Tips & Tricks"
 tags: [visual-studio-code, extensions, produtividade, setup, php, csharp, python, rust, javascript, devtools]
 series: dev-essentials
 series_title: "Dev Essentials"

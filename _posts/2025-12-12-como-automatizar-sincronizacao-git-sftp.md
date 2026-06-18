@@ -3,10 +3,10 @@ layout: post
 title: "Como Automatizar a Sincronização Entre um Repositório Git Local e um Servidor (S)FTP"
 description: "Aprenda a montar um sistema Python que compara, envia e baixa arquivos entre um repositório Git local e um servidor FTP ou SFTP — com relatório HTML automático e commits inteligentes, sem depender de CI/CD externo."
 date: 2025-12-12
-categories: [Coding, DevOps]
+categories: [Coding, Infraestrutura]
 subcategories:
   - "Coding/Python"
-  - "DevOps/Automation"
+  - "Infraestrutura/DevOps"
 tags: [git, ftp, sftp, python, automacao, devops, sincronizacao, legado, ci-cd, gitpython, md5, hash, scripts]
 reading_time: 7
 image: /assets/img/posts/git-ftp-sync.png

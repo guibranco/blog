@@ -4,6 +4,8 @@ title: "API/Banco de dados de feriados"
 description: "Conheça dois serviços gratuitos para consultar feriados via HTTP — HolidayAPI e Calendarific — incluindo endpoints disponíveis, limitações do plano grátis e SDKs em C# e Rust."
 date: 2020-04-22
 categories: [Coding]
+subcategories:
+  - "Coding/Tips & Tricks"
 tags: [api, feriados, holidayapi, calendarific, sdk, csharp, rust, integracao, banco-de-dados, library]
 reading_time: 4
 image: /assets/img/posts/calendar.jpg
