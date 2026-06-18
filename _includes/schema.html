@@ -18,7 +18,8 @@
   "datePublished": "{{ page.date | date_to_xmlschema }}",
   "author": {
     "@type": "Person",
-    "name": "{{ site.author }}"
+    "name": "{{ site.author }}",
+    "url": "{{ page.author.url | default: site.social.website }}"
   },
   "publisher": {
     "@type": "Organization",

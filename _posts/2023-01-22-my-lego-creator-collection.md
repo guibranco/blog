@@ -5,7 +5,7 @@ description: "A look at my LEGO Creator Expert collection — assembled and disp
 date: 2023-01-22
 categories: [Hobbies]
 subcategories:
-  - "Hobbies/Lego"
+  - "Hobbies/LEGO"
 tags: [lego, colecao, hobbies, lego-creator, creator-expert]
 reading_time: 1
 image: /assets/img/posts/lego-10197-1.jpg
@@ -40,7 +40,3 @@ image: /assets/img/posts/lego-10197-1.jpg
     <img src="{{ site.baseurl }}/assets/img/posts/post-Lego-5.jpg" alt="LEGO Creator Expert collection — photo 5">
   </a>
 </div>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.0/css/glightbox.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.0/js/glightbox.min.js"></script>
-<script>GLightbox({ selector: '.glightbox' });</script>
