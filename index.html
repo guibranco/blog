@@ -131,7 +131,7 @@ pagination:
                 <span>{{ featured.date | date: "%d/%m/%Y" }}</span>
                 {% if featured.reading_time %}<span class="sep">·</span><span>{{ featured.reading_time }} min de leitura</span>{% endif %}
               </div>
-              <a class="read-more" href="{{ featured.url | relative_url }}">Ler artigo →</a>
+              <a class="read-more" href="{{ featured.url | relative_url }}" data-i18n="read_more">Ler artigo →</a>
             </div>
           </article>
         </div>

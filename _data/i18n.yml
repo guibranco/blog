@@ -26,6 +26,7 @@ pt-BR:
   articles_count_suffix: "artigos neste tópico"
   travels: "Viagens"
   search_placeholder: "Buscar artigos…"
+  read_more: "Ler artigo →"
 
 en:
   home: "Home"
@@ -55,3 +56,4 @@ en:
   articles_count_suffix: "articles in this topic"
   travels: "Travels"
   search_placeholder: "Search articles…"
+  read_more: "Read article →"
