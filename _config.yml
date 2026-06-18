@@ -73,9 +73,10 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: 
+      author:
         name: "Guilherme Branco Stracini"
         url:  "https://guilherme.stracini.com.br"
+      subcategories: []
 
 # ── Exclusões do build ──────────────────────────────────
 exclude:
