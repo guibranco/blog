@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: "AppVeyor vs GitHub Actions: A Comparative Look at CI/CD Excellence"
 description: "A detailed comparison between AppVeyor and GitHub Actions — two free CI/CD tools to optimize your DevOps workflow for personal, freelancer, or professional projects."
 date: 2024-02-22

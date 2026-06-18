@@ -1,3 +1,6 @@
+            {% assign _card_lang = include.post.lang | default: site.lang %}
+            {% assign _card_lang_t = site.data.i18n[_card_lang] %}
+            {% assign _site_t = site.data.i18n[site.lang] %}
             <article class="post-card{% if include.featured %} post-card--featured{% endif %}">
               <a href="{{ include.post.url | relative_url }}" class="post-card-image" tabindex="-1" aria-hidden="true">
                 {% if include.post.image %}
@@ -7,7 +10,8 @@
                 {% endif %}
               </a>
               <div class="post-card-body">
-                {% if include.featured %}<span class="featured-badge">⭐ Destaque</span>{% endif %}
+                {% if include.featured %}<span class="featured-badge">{{ _site_t.featured }}</span>{% endif %}
+                {% if _card_lang != site.lang %}<span class="lang-badge" title="{{ _card_lang_t.lang_name }}"><i class="fas fa-globe"></i> {{ _card_lang_t.lang_label }}</span>{% endif %}
                 {% if include.post.categories.size > 0 or include.post.subcategories.size > 0 %}
                 <div class="post-card-cats">
                   {% for cat in include.post.categories limit: 2 %}<span class="cat-pill">{{ cat }}</span>{% endfor %}

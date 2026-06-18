@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+{% include resolve-lang.html %}
+<html lang="{{ _lang }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +22,7 @@
 <body>
 
   <div id="reading-progress" aria-hidden="true"></div>
-  <button id="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">
+  <button id="back-to-top" aria-label="{{ _t.back_to_top }}" title="{{ _t.back_to_top }}">
     <i class="fas fa-arrow-up"></i>
   </button>
 
@@ -42,7 +43,7 @@
       <div class="hero-inner">
 
         <a class="hero-back" href="{{ site.baseurl }}/">
-          <i class="fas fa-arrow-left"></i> todos os artigos
+          <i class="fas fa-arrow-left"></i> {{ _t.back_link }}
         </a>
 
         <div class="hero-eyebrow">
@@ -58,19 +59,25 @@
         {% endif %}
 
         <div class="hero-meta">
-          <span>{{ page.date | date: "%d de %B de %Y" }}</span>
+          <span>{{ page.date | date: _t.date_format }}</span>
           {% if page.reading_time %}
           <span class="dot">·</span>
-          <span>~{{ page.reading_time }} min de leitura</span>
+          <span>~{{ page.reading_time }} {{ _t.reading_time }}</span>
           {% endif %}
           {% if page.tags.size > 0 %}
           <span class="dot">·</span>
           {% for tag in page.tags limit: 3 %}<span>#{{ tag }}</span> {% endfor %}
           {% endif %}
           <span class="dot">·</span>
-          <button id="share-btn" class="share-btn" aria-label="Compartilhar este artigo">
-            <i class="fas fa-share-nodes"></i> Compartilhar
+          <button id="share-btn" class="share-btn" aria-label="{{ _t.share_aria }}">
+            <i class="fas fa-share-nodes"></i> {{ _t.share }}
           </button>
+          {% if _lang != site.lang %}
+          <span class="dot">·</span>
+          <span class="hero-lang-badge" title="{{ _t.lang_name }}">
+            <i class="fas fa-globe"></i> {{ _t.lang_label }}
+          </span>
+          {% endif %}
         </div>
 
       </div><!-- /.hero-inner -->
@@ -92,7 +99,7 @@
       <!-- Card 2: categorias -->
       {% if page.categories.size > 0 %}
       <div class="article-card article-card--categories">
-        <p class="card-section-title"><i class="fas fa-folder-open"></i> &nbsp;Categorias</p>
+        <p class="card-section-title"><i class="fas fa-folder-open"></i> &nbsp;{{ _t.categories_title }}</p>
         <div class="post-categories">
           {% for cat in page.categories %}
           <a class="post-category" href="{{ site.baseurl }}/categorias/{{ cat | slugify: 'latin' }}/">{{ cat }}</a>
@@ -104,7 +111,7 @@
       <!-- Card 3: tags (fundo diferenciado) -->
       {% if page.tags.size > 0 %}
       <div class="article-card article-card--tags">
-        <p class="card-section-title"><i class="fas fa-tags"></i> &nbsp;Tópicos deste artigo</p>
+        <p class="card-section-title"><i class="fas fa-tags"></i> &nbsp;{{ _t.tags_title }}</p>
         <div class="post-tags">
           {% for tag in page.tags %}
           <a class="post-tag" href="{{ site.baseurl }}/topicos/{{ tag | slugify }}/">#{{ tag }}</a>
@@ -156,7 +163,7 @@
       {% if related_posts.size > 0 %}
       <div class="article-card article-card--related">
         <div class="related-posts">
-          <p class="related-title">Artigos relacionados</p>
+          <p class="related-title">{{ _t.related_title }}</p>
           <div class="related-grid">
             {% for post in related_posts %}
             <a href="{{ post.url | relative_url }}" class="related-card">
@@ -168,7 +175,7 @@
               <div class="related-card-body">
                 <p class="related-card-title">{{ post.title }}</p>
                 <p class="related-card-meta">
-                  {{ post.date | date: "%d/%m/%Y" }}
+                  {{ post.date | date: _t.date_short }}
                   {% if post.reading_time %} · ~{{ post.reading_time }} min{% endif %}
                 </p>
               </div>
@@ -193,7 +200,7 @@
                   data-emit-metadata="0"
                   data-input-position="top"
                   data-theme="light"
-                  data-lang="en"
+                  data-lang="{{ _t.giscus_lang }}"
                   data-loading="lazy"
                   crossorigin="anonymous"
                   async>
@@ -207,7 +214,7 @@
 
   </div><!-- /.main -->
 
-  <div id="share-toast" class="share-toast" aria-live="polite">URL copiada!</div>
+  <div id="share-toast" class="share-toast" aria-live="polite">{{ _t.url_copied }}</div>
 
   <script>
     const bar = document.getElementById('reading-progress');

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: "Dev Essentials - Part II - Visual Studio (IDE) Extensions"
 description: "The Visual Studio extensions I use daily to boost productivity, enforce code quality, automate documentation, and streamline the .NET development workflow."
 date: 2024-01-17

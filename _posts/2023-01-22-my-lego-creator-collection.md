@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: "My LEGO Creator collection"
 description: "A look at my LEGO Creator Expert collection — assembled and displayed sets that have been part of my hobby over the years."
 date: 2023-01-22
