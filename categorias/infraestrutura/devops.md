@@ -5,6 +5,7 @@ subcategory: DevOps
 permalink: /categorias/infraestrutura/devops/
 redirect_from:
   - /categorias/devops/
+  - /categorias/coding/devops/
 pagination:
   enabled: true
   per_page: 10
