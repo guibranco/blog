@@ -279,7 +279,7 @@ bantime  = 3600
 findtime = 600
 ```
 
-- **maxretry:** número de tentativas falhas antes do ban (5 é um bom valor)
+- **maxretry:** número de falhas de login antes do ban (5 é um bom valor)
 - **bantime:** duração do ban em segundos (3600 = 1 hora)
 - **findtime:** janela de tempo para contar as tentativas (600 = 10 minutos)
 
