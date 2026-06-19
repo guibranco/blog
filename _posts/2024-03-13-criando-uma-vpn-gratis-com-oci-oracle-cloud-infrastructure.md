@@ -5,8 +5,8 @@ description: "Passo a passo completo para criar sua própria VPN pessoal usando 
 date: 2024-03-13
 categories: [Infraestrutura]
 subcategories:
+  - "Infraestrutura/Cloud"
   - "Infraestrutura/DevOps"
-  - "Infraestrutura/Telecomunicações"
 tags: [always-free, cloud, free-tier, hospedagem, hosting, iaas, network, networking, oci, openvpn, oracle, provider, vpn, wireguard, pivpn, ubuntu, linux, ssh, ufw, fail2ban, seguranca, firewall, servidor]
 reading_time: 12
 image: /assets/img/posts/vpn.jpg
