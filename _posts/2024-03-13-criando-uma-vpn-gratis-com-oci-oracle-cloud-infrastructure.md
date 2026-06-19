@@ -66,7 +66,7 @@ Durante o cadastro, preste atenção nos seguintes pontos:
 
 <div class="callout callout-warn">
   <div class="callout-label">A escolha da região NÃO pode ser alterada depois</div>
-  Escolha o datacenter do país cujo IP você deseja ter. Se quiser um IP brasileiro, selecione <strong>Brazil East (São Paulo)</strong>. Para acessar serviços de UK (ex: jogos no XBOX/PlayStation), selecione um datacenter britânico. Essa decisão é permanente para a conta.
+  Escolha o datacenter do país cujo IP você deseja ter. Se quiser um IP brasileiro, selecione <strong>Brazil East (São Paulo)</strong>. Para acessar serviços do Reino Unido (ex.: jogos no Xbox/PlayStation), selecione um datacenter britânico. Essa decisão é permanente para a conta.
 </div>
 
 **Verificação do cartão:** uma cobrança de verificação será feita (menos de 10 unidades da moeda local — ex: R$ 3–7, €5–7, £5). O valor é estornado automaticamente após a validação.
