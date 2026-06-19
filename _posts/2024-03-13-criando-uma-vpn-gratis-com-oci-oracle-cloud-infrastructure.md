@@ -196,7 +196,7 @@ sudo crontab -e
 
 Adicione esta linha (executa todo domingo às 02h00):
 
-```
+```bash
 0 2 * * 0 apt-get update && apt-get upgrade -y && apt-get autoremove -y && apt-get autoclean
 ```
 
