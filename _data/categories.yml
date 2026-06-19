@@ -28,6 +28,8 @@
   slug: infraestrutura
   icon: "fas fa-server"
   subcategories:
+    - name: Cloud
+      slug: cloud
     - name: DevOps
       slug: devops
     - name: "Telecomunicações"
