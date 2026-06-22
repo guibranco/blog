@@ -2,20 +2,22 @@
 layout: null
 permalink: /topicos/
 ---
+{% assign _lang = site.lang | default: "pt-BR" %}
+{% assign _t = site.data.i18n[_lang] %}
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="{{ _lang }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tópicos — {{ site.title }}</title>
-  <meta name="description" content="Todos os tópicos abordados em {{ site.title }}">
+  <title>{{ _t.topics_title }} — {{ site.title }}</title>
+  <meta name="description" content="{{ _t.topics_title }} — {{ site.title }}">
   {% seo %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-
+  {% include analytics.html %}
 </head>
 <body>
 
@@ -25,10 +27,14 @@ permalink: /topicos/
   <div class="main">
 
     <section class="hero">
-      <p class="hero-eyebrow">// tópicos //</p>
-      <h1 class="hero-title">Todos os tópicos</h1>
+      <p class="hero-eyebrow" data-i18n="topics_eyebrow">{{ _t.topics_eyebrow }}</p>
       {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq %}
-      <p class="hero-desc">{{ all_tags | size }} tópicos em {{ site.posts | size }} artigos.</p>
+      <h1 class="hero-title" data-i18n="topics_title">{{ _t.topics_title }}</h1>
+      <p class="hero-desc">
+        {{ all_tags | size }} <span data-i18n="stat_topics">{{ _t.stat_topics }}</span>
+        <span data-i18n="topics_in">{{ _t.topics_in }}</span>
+        {{ site.posts | size }} <span data-i18n="stat_articles">{{ _t.stat_articles }}</span>.
+      </p>
     </section>
 
     <div class="content-wrap">
@@ -39,7 +45,7 @@ permalink: /topicos/
         <div class="article-card">
           <div class="empty-state">
             <div class="empty-glyph">∅</div>
-            <p>Nenhuma tag publicada ainda.</p>
+            <p data-i18n="empty_no_tags">{{ _t.empty_no_tags }}</p>
           </div>
         </div>
       {% else %}
@@ -47,8 +53,8 @@ permalink: /topicos/
         <!-- Card: nuvem de tags -->
         <div class="article-card article-card--tags">
           <div class="section-row">
-            <h2 class="section-title">Tópicos</h2>
-            <span class="section-meta">{{ all_tags | size }} tópicos</span>
+            <h2 class="section-title" data-i18n="topics">{{ _t.topics }}</h2>
+            <span class="section-meta">{{ all_tags | size }} <span data-i18n="stat_topics">{{ _t.stat_topics }}</span></span>
           </div>
           <div class="tags-index-grid">
             {% for tag in all_tags %}
@@ -71,20 +77,23 @@ permalink: /topicos/
         <!-- Card: artigos por tag -->
         <div class="article-card">
           <div class="section-row">
-            <h2 class="section-title">Por tag</h2>
+            <h2 class="section-title" data-i18n="topics_by_tag">{{ _t.topics_by_tag }}</h2>
           </div>
           {% for tag in all_tags %}
             {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
             <div class="tag-group">
               <div class="tag-group-header">
                 <a class="post-tag" href="{{ site.baseurl }}/topicos/{{ tag | slugify: "latin" }}/">#{{ tag }}</a>
-                <span class="tag-group-count">{{ tag_posts | size }} artigo{% if tag_posts.size != 1 %}s{% endif %}</span>
+                <span class="tag-group-count">
+                  {{ tag_posts | size }}
+                  <span data-i18n="{% if tag_posts.size != 1 %}articles_plural{% else %}article_singular{% endif %}">artigo{% if tag_posts.size != 1 %}s{% endif %}</span>
+                </span>
               </div>
               <ul class="tag-group-list">
                 {% for post in tag_posts %}
                 <li class="tag-group-item">
                   <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                  <span class="tag-group-item-date">{{ post.date | date: "%d/%m/%Y" }}</span>
+                  <span class="tag-group-item-date">{{ post.date | date: _t.date_short }}</span>
                 </li>
                 {% endfor %}
               </ul>

@@ -66,6 +66,12 @@ pt-BR:
   error_404_placeholder: "Digite o que procura…"
   error_404_search_page: "Página de busca"
   error_404_recent: "Artigos recentes"
+  topics_eyebrow: "// tópicos //"
+  topics_title: "Todos os tópicos"
+  stat_topics: "tópicos"
+  topics_in: "em"
+  topics_by_tag: "Por tag"
+  empty_no_tags: "Nenhuma tag publicada ainda."
 
 en:
   home: "Home"
@@ -135,3 +141,9 @@ en:
   error_404_placeholder: "Type what you're looking for…"
   error_404_search_page: "Search page"
   error_404_recent: "Recent articles"
+  topics_eyebrow: "// topics //"
+  topics_title: "All topics"
+  stat_topics: "topics"
+  topics_in: "across"
+  topics_by_tag: "By tag"
+  empty_no_tags: "No tags published yet."
