@@ -1,15 +1,17 @@
 {% if paginator.total_pages > 1 %}
 <nav class="pagination" aria-label="Navegação entre páginas">
   {% if paginator.previous_page %}
-    <a class="pagination-btn" href="{{ paginator.previous_page_path | relative_url }}">← Mais recentes</a>
+    <a class="pagination-btn" href="{{ paginator.previous_page_path | relative_url }}" data-i18n="pagination_newer">← Mais recentes</a>
   {% else %}
-    <span class="pagination-btn pagination-disabled">← Mais recentes</span>
+    <span class="pagination-btn pagination-disabled" data-i18n="pagination_newer">← Mais recentes</span>
   {% endif %}
-  <span class="pagination-info">Página {{ paginator.page }} de {{ paginator.total_pages }}</span>
+  <span class="pagination-info">
+    <span data-i18n="pagination_page">Página</span> {{ paginator.page }} <span data-i18n="pagination_of">de</span> {{ paginator.total_pages }}
+  </span>
   {% if paginator.next_page %}
-    <a class="pagination-btn" href="{{ paginator.next_page_path | relative_url }}">Mais antigos →</a>
+    <a class="pagination-btn" href="{{ paginator.next_page_path | relative_url }}" data-i18n="pagination_older">Mais antigos →</a>
   {% else %}
-    <span class="pagination-btn pagination-disabled">Mais antigos →</span>
+    <span class="pagination-btn pagination-disabled" data-i18n="pagination_older">Mais antigos →</span>
   {% endif %}
 </nav>
 {% endif %}

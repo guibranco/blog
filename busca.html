@@ -25,9 +25,9 @@ permalink: /busca/
   <div class="main">
 
     <section class="hero">
-      <p class="hero-eyebrow">// busca //</p>
-      <h1 class="hero-title" id="hero-title">Buscar artigos</h1>
-      <p class="hero-desc" id="hero-desc">Digite um termo para pesquisar em títulos, categorias, tópicos e conteúdo.</p>
+      <p class="hero-eyebrow" data-i18n="search_eyebrow">// busca //</p>
+      <h1 class="hero-title" id="hero-title" data-i18n="search_title">Buscar artigos</h1>
+      <p class="hero-desc" id="hero-desc" data-i18n="search_desc">Digite um termo para pesquisar em títulos, categorias, tópicos e conteúdo.</p>
     </section>
 
     <div class="content-wrap">
@@ -41,11 +41,13 @@ permalink: /busca/
             id="search-input"
             name="q"
             placeholder="Buscar artigos…"
+            data-i18n-placeholder="search_placeholder"
             autocomplete="off"
             autocorrect="off"
             spellcheck="false"
           >
-          <button type="button" class="search-clear" id="search-clear" aria-label="Limpar">
+          <button type="button" class="search-clear" id="search-clear"
+                  aria-label="Limpar" data-i18n-aria="search_clear">
             <i class="fas fa-times"></i>
           </button>
         </div>
@@ -57,17 +59,17 @@ permalink: /busca/
       <!-- States -->
       <div class="search-state" id="state-initial">
         <div class="empty-glyph">↑</div>
-        <p>Use o campo acima para buscar.</p>
+        <p data-i18n="search_initial">Use o campo acima para buscar.</p>
       </div>
 
       <div class="search-state" id="state-loading" style="display:none;">
         <div class="empty-glyph">…</div>
-        <p>Carregando índice de busca.</p>
+        <p data-i18n="search_loading">Carregando índice de busca.</p>
       </div>
 
       <div class="search-state" id="state-empty" style="display:none;">
         <div class="empty-glyph">∅</div>
-        <p>Nenhum resultado encontrado.</p>
+        <p data-i18n="search_empty">Nenhum resultado encontrado.</p>
       </div>
 
     </div>
@@ -177,6 +179,16 @@ permalink: /busca/
   {% include sidebar-script.html %}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
   <script>
+    // ── i18n helper ──
+    function getLang() {
+      try { return localStorage.getItem('preferred-lang') || window.__siteLang || 'pt-BR'; } catch(e) { return window.__siteLang || 'pt-BR'; }
+    }
+    function t(key) {
+      var i18n = window.__i18n || {};
+      var lang = getLang();
+      return (i18n[lang] && i18n[lang][key] !== undefined) ? i18n[lang][key] : key;
+    }
+
     // ── Search logic ──
     const input      = document.getElementById('search-input');
     const clearBtn   = document.getElementById('search-clear');
@@ -190,6 +202,7 @@ permalink: /busca/
     let searchIndex = null;
     let documents   = [];
     let indexReady  = false;
+    let activeQuery = '';
 
     // Read ?q= from URL on load
     const params = new URLSearchParams(window.location.search);
@@ -224,7 +237,9 @@ permalink: /busca/
     function renderResults(query, results) {
       if (results.length === 0) { showState('empty'); return; }
 
-      const header = `<p class="results-header"><strong>${results.length}</strong> resultado${results.length !== 1 ? 's' : ''} para "<strong>${query}</strong>"</p>`;
+      const resultWord = results.length !== 1 ? t('search_result_plural') : t('search_result_singular');
+      const forWord    = t('search_results_for');
+      const header = `<p class="results-header"><strong>${results.length}</strong> ${resultWord} ${forWord} "<strong>${query}</strong>"</p>`;
       const cards  = results.map((r, i) => {
         const doc     = documents.find(d => d.id === Number.parseInt(r.ref));
         if (!doc) return '';
@@ -254,7 +269,14 @@ permalink: /busca/
     }
 
     function runSearch(query) {
-      if (!query.trim()) { showState('initial'); clearBtn.classList.remove('visible'); return; }
+      activeQuery = query;
+      if (!query.trim()) {
+        showState('initial');
+        clearBtn.classList.remove('visible');
+        heroTitle.textContent = t('search_title');
+        heroDesc.textContent  = t('search_desc');
+        return;
+      }
       clearBtn.classList.add('visible');
 
       // Update URL without reload
@@ -264,7 +286,7 @@ permalink: /busca/
 
       // Update hero
       heroTitle.textContent = `"${query}"`;
-      heroDesc.textContent  = 'Resultados da busca';
+      heroDesc.textContent  = t('search_results_desc');
 
       if (!indexReady) { showState('loading'); return; }
 
@@ -272,7 +294,6 @@ permalink: /busca/
         const results = searchIndex.search(query + '~1'); // fuzzy
         renderResults(query, results);
       } catch(e) {
-        // If lunr throws on special chars, try without fuzzy
         try {
           const results = searchIndex.search(query);
           renderResults(query, results);

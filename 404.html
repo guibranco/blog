@@ -41,11 +41,11 @@ sitemap: true
       <div style="height:1px;background:rgba(255,255,255,.07);margin-bottom:1.25rem;"></div>
 
       <!-- Human message -->
-      <p style="
+      <p data-i18n="error_404_title" style="
         font-family: 'Playfair Display', serif; font-size: 1.15rem;
         color: rgba(250,249,246,.85); margin-bottom: .5rem;
       ">Página não encontrada</p>
-      <p style="
+      <p data-i18n="error_404_desc" style="
         font-family: 'Source Serif 4', serif; font-size: .875rem;
         color: rgba(250,249,246,.4); line-height: 1.65; margin-bottom: 0;
       ">O endereço solicitado não existe, pode ter sido movido ou o link está desatualizado.</p>
@@ -53,7 +53,7 @@ sitemap: true
 
     <!-- ── SEARCH BOX ── -->
     <div style="margin-bottom: 2.25rem;">
-      <p style="
+      <p data-i18n="error_404_search_label" style="
         font-family: 'JetBrains Mono', monospace;
         font-size: .59rem; letter-spacing: .14em; text-transform: uppercase;
         color: var(--ink-light); margin-bottom: .75rem;
@@ -66,6 +66,7 @@ sitemap: true
           name="q"
           id="search-404"
           placeholder="Digite o que procura…"
+          data-i18n-placeholder="error_404_placeholder"
           autocomplete="off"
           autofocus
           style="
@@ -92,7 +93,7 @@ sitemap: true
           cursor: pointer; white-space: nowrap;
           transition: opacity .2s;
         " onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
-          <i class="fas fa-search"></i> Buscar
+          <i class="fas fa-search"></i> <span data-i18n="search">Buscar</span>
         </button>
       </form>
     </div>
@@ -108,7 +109,7 @@ sitemap: true
         text-decoration: none; transition: background .2s, color .2s;
       " onmouseover="this.style.background='var(--accent)';this.style.color='#fff'"
          onmouseout="this.style.background='transparent';this.style.color='var(--accent)'">
-        <i class="fas fa-home"></i> Início
+        <i class="fas fa-home"></i> <span data-i18n="home">Início</span>
       </a>
       <a href="{{ site.baseurl }}/busca/" style="
         display: inline-flex; align-items: center; gap: .4rem;
@@ -119,13 +120,13 @@ sitemap: true
         text-decoration: none; transition: border-color .2s, color .2s;
       " onmouseover="this.style.borderColor='var(--ink-muted)';this.style.color='var(--ink)'"
          onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--ink-muted)'">
-        <i class="fas fa-search"></i> Página de busca
+        <i class="fas fa-search"></i> <span data-i18n="error_404_search_page">Página de busca</span>
       </a>
     </div>
 
     <!-- ── RECENT POSTS ── -->
     <div>
-      <p style="
+      <p data-i18n="error_404_recent" style="
         font-family: 'JetBrains Mono', monospace;
         font-size: .59rem; letter-spacing: .14em; text-transform: uppercase;
         color: var(--ink-light); margin-bottom: 1rem;
