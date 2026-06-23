@@ -41,7 +41,7 @@ Essa arquitetura é o padrão adotado aqui, não uma opção. Toda a pipeline e 
 - UFW configurado
 - Certbot instalado
 - Usuário `deploy` com chave SSH configurada
-- Diretório `/opt/webhooksHandler` criado
+- Diretório `/opt/app-name` criado
 
 ### No GitHub
 
@@ -88,10 +88,10 @@ dotnet --list-runtimes
 O deploy usa dois usuários distintos com responsabilidades separadas:
 
 - **`deploy`** — usado pelo GitHub Actions para fazer SSH e transferir arquivos
-- **`webhooksHandler`** — usuário de sistema sem shell, que executa a aplicação
+- **`app-name`** — usuário de sistema sem shell, que executa a aplicação
 
 ```bash
-APP=webhooksHandler
+APP=app-name
 
 # Usuário da aplicação — sem shell, sem home
 useradd --system --no-create-home --shell /usr/sbin/nologin $APP
@@ -116,7 +116,7 @@ chmod 750 /opt/${APP}-staging
 Na sua máquina local:
 
 ```bash
-ssh-keygen -t ed25519 -C "github-actions-deploy" -f ~/.ssh/deploy_webhookshandler -N ""
+ssh-keygen -t ed25519 -C "github-actions-deploy" -f ~/.ssh/deploy_app-name -N ""
 ```
 
 Copie a chave pública para o servidor. Em ambientes OCI o `ssh-copy-id` pode falhar antes do usuário `deploy` estar configurado — use o método manual:
@@ -137,7 +137,7 @@ Adicione o conteúdo da **chave privada** como secret `SSH_PRIVATE_KEY` no GitHu
 O usuário `deploy` precisa de `sudo` apenas para parar/iniciar os serviços e ajustar permissões. Nada além disso:
 
 ```bash
-APP=webhooksHandler
+APP=app-name
 
 cat > /etc/sudoers.d/${APP}-deploy << EOF
 deploy ALL=(ALL) NOPASSWD: /usr/bin/systemctl start ${APP}-1
@@ -164,7 +164,7 @@ visudo -c -f /etc/sudoers.d/${APP}-deploy
 Crie o arquivo de variáveis de ambiente que o systemd vai carregar em cada instância. As instâncias diferem apenas na porta:
 
 ```bash
-APP=webhooksHandler
+APP=app-name
 
 # Instância 1 — porta 5001
 cat > /opt/$APP/environment-1 << EOF
@@ -200,7 +200,7 @@ Crie um arquivo de serviço para cada instância. A diferença entre eles é a p
 ### Instância 1
 
 ```bash
-APP=webhooksHandler
+APP=app-name
 
 cat > /etc/systemd/system/${APP}-1.service << EOF
 [Unit]
@@ -292,10 +292,10 @@ systemctl status ${APP}-1 ${APP}-2
 Com duas instâncias em `:5001` e `:5002`, o Nginx atua como proxy reverso e distribui as requisições em round-robin.
 
 ```bash
-APP=webhooksHandler
+APP=app-name
 
 cat > /etc/nginx/sites-available/$APP << 'NGINXEOF'
-upstream webhookshandler_backend {
+upstream app-name_backend {
     # Round-robin automático entre as duas instâncias
     server 127.0.0.1:5001;
     server 127.0.0.1:5002;
@@ -339,7 +339,7 @@ server {
 
     # API — todas as rotas
     location / {
-        proxy_pass         http://webhookshandler_backend;
+        proxy_pass         http://app-name_backend;
         proxy_http_version 1.1;
         proxy_set_header   Connection        "";
         proxy_set_header   Host              $host;
@@ -353,7 +353,7 @@ server {
 
     # Health check — sem poluir os logs
     location /health {
-        proxy_pass         http://webhookshandler_backend;
+        proxy_pass         http://app-name_backend;
         proxy_http_version 1.1;
         proxy_set_header   Connection        "";
         proxy_set_header   Host              $host;
@@ -471,7 +471,7 @@ jobs:
 O deploy segue esta sequência:
 
 1. Build e publish no runner do GitHub Actions
-2. rsync dos artefatos para `/opt/webhooksHandler-staging/` (instâncias ainda servindo tráfego)
+2. rsync dos artefatos para `/opt/app-name-staging/` (instâncias ainda servindo tráfego)
 3. Rolling deploy da instância 1: stop → swap de arquivos → start → health check em `:5001`
 4. Se a instância 1 passou, rolling deploy da instância 2: stop → start → health check em `:5002`
 5. Health check final via Nginx (HTTPS público)
@@ -489,13 +489,13 @@ on:
 
 env:
   DOTNET_VERSION: '10.0.x'
-  PROJECT_PATH: 'src/WebhooksHandler/WebhooksHandler.csproj'
+  PROJECT_PATH: 'src/app-name/app-name.csproj'
   PUBLISH_DIR: './publish'
-  REMOTE_DIR: '/opt/webhooksHandler'
+  REMOTE_DIR: '/opt/app-name'
   SSH_USER: deploy
   SSH_HOST: ${{ secrets.SSH_HOST }}
-  SERVICE_1: webhooksHandler-1
-  SERVICE_2: webhooksHandler-2
+  SERVICE_1: app-name-1
+  SERVICE_2: app-name-2
 
 jobs:
   build-and-deploy:
@@ -537,13 +537,13 @@ jobs:
       - name: Upload release to staging
         run: |
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} \
-            "sudo mkdir -p /opt/webhooksHandler-staging && \
-             sudo chown deploy:deploy /opt/webhooksHandler-staging"
+            "sudo mkdir -p /opt/app-name-staging && \
+             sudo chown deploy:deploy /opt/app-name-staging"
 
           rsync -avz --delete \
             -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" \
             ${{ env.PUBLISH_DIR }}/ \
-            ${{ env.SSH_USER }}@${{ env.SSH_HOST }}:/opt/webhooksHandler-staging/
+            ${{ env.SSH_USER }}@${{ env.SSH_HOST }}:/opt/app-name-staging/
 
       # ── 6. Rolling deploy — instância 1 ──────────────────────────────────────
       - name: Rolling deploy — instance 1
@@ -552,15 +552,15 @@ jobs:
             set -e
 
             echo "==> Parando instância 1..."
-            sudo systemctl stop webhooksHandler-1
+            sudo systemctl stop app-name-1
 
             echo "==> Sincronizando arquivos do staging..."
-            sudo rsync -a --delete /opt/webhooksHandler-staging/ /opt/webhooksHandler/
-            sudo chown -R webhooksHandler:webhooksHandler /opt/webhooksHandler
-            sudo chmod -R 750 /opt/webhooksHandler
+            sudo rsync -a --delete /opt/app-name-staging/ /opt/app-name/
+            sudo chown -R app-name:app-name /opt/app-name
+            sudo chmod -R 750 /opt/app-name
 
             echo "==> Iniciando instância 1..."
-            sudo systemctl start webhooksHandler-1
+            sudo systemctl start app-name-1
 
             echo "==> Aguardando instância 1 em :5001..."
             for i in $(seq 1 12); do
@@ -584,10 +584,10 @@ jobs:
             set -e
 
             echo "==> Parando instância 2..."
-            sudo systemctl stop webhooksHandler-2
+            sudo systemctl stop app-name-2
 
             echo "==> Iniciando instância 2 (arquivos já no lugar)..."
-            sudo systemctl start webhooksHandler-2
+            sudo systemctl start app-name-2
 
             echo "==> Aguardando instância 2 em :5002..."
             for i in $(seq 1 12); do
@@ -608,7 +608,7 @@ jobs:
         if: always()
         run: |
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} \
-            "sudo rm -rf /opt/webhooksHandler-staging" || true
+            "sudo rm -rf /opt/app-name-staging" || true
 
       # ── 9. Health check final via Nginx ───────────────────────────────────────
       - name: Final health check
@@ -642,7 +642,7 @@ O artigo anterior usava `scp` com um arquivo `.tar.gz`. A abordagem com `rsync` 
 | Retomada | Não | Sim (`--partial`) |
 | Rollback manual | Requer manter o `.tar.gz` anterior | Staging permanece intacto até o cleanup |
 
-Com dois serviços lendo do mesmo `/opt/webhooksHandler/`, o fluxo via staging garante que a cópia dos arquivos acontece de forma completa antes de qualquer instância ser reiniciada.
+Com dois serviços lendo do mesmo `/opt/app-name/`, o fluxo via staging garante que a cópia dos arquivos acontece de forma completa antes de qualquer instância ser reiniciada.
 
 <div class="divider">· · ·</div>
 
@@ -670,15 +670,15 @@ Em instâncias OCI com Security List (padrão OCI), espelhe as regras na console
 ## 13. Checklist pós-deploy
 
 - [ ] DNS A record aponta para o IP correto da VPS
-- [ ] `systemctl status webhooksHandler-1` mostra `active (running)`
-- [ ] `systemctl status webhooksHandler-2` mostra `active (running)`
+- [ ] `systemctl status app-name-1` mostra `active (running)`
+- [ ] `systemctl status app-name-2` mostra `active (running)`
 - [ ] `curl -s https://seu-dominio.com/health` retorna HTTP 200
 - [ ] `curl -s http://127.0.0.1:5001/health` retorna 200 direto no Kestrel
 - [ ] `curl -s http://127.0.0.1:5002/health` retorna 200 direto no Kestrel
 - [ ] `certbot renew --dry-run` bem-sucedido
 - [ ] `nginx -t` sem warnings
 - [ ] UFW permite apenas portas 22, 80, 443
-- [ ] `/opt/webhooksHandler/environment-1` e `environment-2` com `chmod 640`
+- [ ] `/opt/app-name/environment-1` e `environment-2` com `chmod 640`
 - [ ] `ForwardedHeaders` configurado no `Program.cs`
 - [ ] Rolling restart testado manualmente: parar instância 1, verificar que instância 2 atende
 - [ ] GitHub Actions com badge verde na `main`
@@ -689,15 +689,15 @@ Em instâncias OCI com Security List (padrão OCI), espelhe as regras na console
 
 ```bash
 # Logs em tempo real
-journalctl -u webhooksHandler-1 -f
-journalctl -u webhooksHandler-2 -f
+journalctl -u app-name-1 -f
+journalctl -u app-name-2 -f
 
 # Status dos serviços
-sudo systemctl status webhooksHandler-1 webhooksHandler-2
+sudo systemctl status app-name-1 app-name-2
 
 # Restart manual de uma instância
-sudo systemctl restart webhooksHandler-1
-sudo systemctl restart webhooksHandler-2
+sudo systemctl restart app-name-1
+sudo systemctl restart app-name-2
 
 # Reload do Nginx (zero downtime — só recarrega config)
 sudo systemctl reload nginx
@@ -724,7 +724,7 @@ echo | openssl s_client -connect seu-dominio.com:443 2>/dev/null \
 certbot renew --force-renewal --nginx -d seu-dominio.com
 
 # Publish manual da aplicação (no runner ou localmente)
-dotnet publish src/WebhooksHandler/WebhooksHandler.csproj \
+dotnet publish src/app-name/app-name.csproj \
   --configuration Release \
   --self-contained false \
   --output ./publish
@@ -738,10 +738,10 @@ Substitua os placeholders pelos valores reais do seu projeto:
 
 | Placeholder | Exemplo | Significado |
 |---|---|---|
-| `webhooksHandler` | `pancake-api` | Nome do app — usado para usuário, diretório e serviços |
+| `app-name` | `pancake-api` | Nome do app — usado para usuário, diretório e serviços |
 | `seu-dominio.com` | `api.straccini.com` | Domínio apontando para a VPS |
 | `your-server-ip` | `152.67.xx.xx` | IP público da VPS |
-| `WebhooksHandler.csproj` | `Pancake.Api.csproj` | Arquivo de projeto para o publish |
-| `WebhooksHandler.dll` | `Pancake.Api.dll` | DLL de entrada compilada |
+| `app-name.csproj` | `Pancake.Api.csproj` | Arquivo de projeto para o publish |
+| `app-name.dll` | `Pancake.Api.dll` | DLL de entrada compilada |
 | `5001` | `5001` | Porta interna da instância 1 |
 | `5002` | `5002` | Porta interna da instância 2 |
