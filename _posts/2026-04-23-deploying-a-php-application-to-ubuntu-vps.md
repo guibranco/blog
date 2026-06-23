@@ -146,6 +146,11 @@ Copy the **public key** to the server:
 ssh-copy-id -i ~/.ssh/deploy_myapp.pub deploy@your-server-ip
 ```
 
+<div class="callout callout-warn">
+<p class="callout-label">⚠️ if ssh-copy-id fails</p>
+Cloud providers (OCI, AWS, Azure) typically provision VMs with a default <code>ubuntu</code> user and password authentication disabled, so <code>ssh-copy-id</code> targeting the <code>deploy</code> user may fail before that user exists or has SSH configured. Log in as <code>ubuntu</code> (or via the provider's web console) and use the manual steps below instead.
+</div>
+
 Or manually append it:
 
 ```bash

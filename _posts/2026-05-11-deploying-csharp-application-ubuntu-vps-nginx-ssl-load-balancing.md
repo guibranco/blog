@@ -114,6 +114,24 @@ Copy the public key to the server:
 ssh-copy-id -i ~/.ssh/deploy_myapp.pub deploy@your-server-ip
 ```
 
+<div class="callout callout-warn">
+<p class="callout-label">⚠️ if ssh-copy-id fails</p>
+Cloud providers (OCI, AWS, Azure) typically provision VMs with a default <code>ubuntu</code> user and password authentication disabled, so <code>ssh-copy-id</code> targeting the <code>deploy</code> user may fail before that user exists or has SSH configured. Log in as <code>ubuntu</code> (or via the provider's web console) and append the key manually instead.
+</div>
+
+**Manual alternative — run on the server as `ubuntu` or `root`:**
+
+```bash
+# Get your public key on your local machine first:
+# cat ~/.ssh/deploy_myapp.pub
+
+sudo mkdir -p /home/deploy/.ssh
+echo "PASTE_PUBLIC_KEY_HERE" | sudo tee -a /home/deploy/.ssh/authorized_keys
+sudo chmod 700 /home/deploy/.ssh
+sudo chmod 600 /home/deploy/.ssh/authorized_keys
+sudo chown -R deploy:deploy /home/deploy/.ssh
+```
+
 Add the **private key** as the `SSH_PRIVATE_KEY` GitHub Secret.
 
 ### Sudoers
