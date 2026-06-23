@@ -1,6 +1,7 @@
 ---
 layout: post
 lang: en
+render_with_liquid: false
 title: "Database migration with GitHub Actions"
 description: "How I built a GitHub Action to manage versioned SQL database migrations across MySQL, MariaDB, PostgreSQL and MSSQL — with dry-run, integrity checks, SHA-256 checksums and Docker-based testing, all from a CI/CD pipeline."
 date: 2023-12-14
