@@ -3,8 +3,9 @@ layout: post
 title: "18 serviços em 4 VMs de 1 GB: arquitetando no free tier sem sofrer"
 date: 2026-07-03 22:00:00 +0100
 categories: [infraestrutura]
-tags: [devops, linux, nginx, arquitetura, self-hosted, free-tier]
+tags: [devops, linux, nginx, arquitetura, self-hosted, free-tier, oracle-cloud, oci, ubuntu, php, dotnet, mariadb, redis, wireguard, hardening]
 lang: pt-BR
+reading_time: 9
 description: "Como distribuí quase vinte serviços PHP e .NET em quatro VMs gratuitas de 1 GB de RAM, com fila de mensagens, banco de dados, cache e hardening — sem estourar a memória."
 image: /assets/img/posts/diagrama-capa.svg
 ---
