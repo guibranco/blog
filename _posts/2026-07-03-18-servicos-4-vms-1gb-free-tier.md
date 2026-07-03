@@ -35,7 +35,7 @@ Recriei todas as VMs com a imagem **Canonical Ubuntu 24.04 Minimal** do catálog
 O erro clássico seria espalhar os serviços pelas máquinas até "caber". A abordagem que funcionou foi separar por **papel**: uma VM de borda, uma de dados e duas de aplicação — uma por runtime. Isso consolida os runtimes (um único pool PHP-FPM, uma única instalação do ASP.NET runtime), tira os dados da internet pública e dá a cada máquina um perfil de tuning coerente.
 
 <figure>
-  <img src="/assets/img/posts/diagrama-infraestrutura.svg" alt="Topologia da infraestrutura: VCN da OCI com sub-rede pública contendo a VM gateway e sub-rede privada com as VMs de dados, PHP e .NET" loading="lazy">
+  <img src="{{ site.baseurl }}/assets/img/posts/diagrama-infraestrutura.svg" alt="Topologia da infraestrutura: VCN da OCI com sub-rede pública contendo a VM gateway e sub-rede privada com as VMs de dados, PHP e .NET" loading="lazy">
   <figcaption>Topologia da VCN: só o gateway tem IP público. Todo o resto vive em sub-rede privada.</figcaption>
 </figure>
 
@@ -58,7 +58,7 @@ Aqui as restrições de memória decidiram quase tudo sozinhas.
 **MariaDB e Redis entraram**, ambos na vm2, ambos com rédea curta: um banco por aplicação no MariaDB com `innodb_buffer_pool_size` reduzido, e Redis com `maxmemory` fixado e política `allkeys-lru` para cache e rate limiting.
 
 <figure>
-  <img src="/assets/img/posts/diagrama-servicos.svg" alt="Camadas lógicas: consumidores passam pelo edge Nginx e chegam às camadas PHP e .NET, que dependem de MariaDB, Redis e LavinMQ" loading="lazy">
+  <img src="{{ site.baseurl }}assets/img/posts/diagrama-servicos.svg" alt="Camadas lógicas: consumidores passam pelo edge Nginx e chegam às camadas PHP e .NET, que dependem de MariaDB, Redis e LavinMQ" loading="lazy">
   <figcaption>A visão lógica: três origens de tráfego, um edge, dois runtimes, uma camada de dados compartilhada.</figcaption>
 </figure>
 
@@ -67,7 +67,7 @@ O fluxo assíncrono que esse desenho esconde é justamente o mais valioso: webho
 ## Quem roda onde
 
 <figure>
-  <img src="/assets/img/posts/diagrama-distribuicao.svg" alt="Mapa dos serviços por VM: gateway com Nginx e handler de webhooks; VM .NET com worker, cofre, bot de trading e APIs financeiras; VM PHP com ingestão de logs e APIs de dados; VM de dados com MariaDB, Redis e LavinMQ" loading="lazy">
+  <img src="{{ site.baseurl }}/assets/img/posts/diagrama-distribuicao.svg" alt="Mapa dos serviços por VM: gateway com Nginx e handler de webhooks; VM .NET com worker, cofre, bot de trading e APIs financeiras; VM PHP com ingestão de logs e APIs de dados; VM de dados com MariaDB, Redis e LavinMQ" loading="lazy">
   <figcaption>O mapa completo: cada serviço na máquina do seu runtime.</figcaption>
 </figure>
 
