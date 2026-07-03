@@ -1,0 +1,59 @@
+<svg width="100%" viewBox="0 0 680 430" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Camadas lógicas dos serviços</title>
+<desc>Consumidores no topo enviam trafego pelo edge Nginx para as camadas PHP e .NET, que dependem da camada de dados com MariaDB, Redis e LavinMQ.</desc>
+<style>
+.th{font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;font-size:14px;font-weight:500}
+.ts{font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;font-size:12px;font-weight:400}
+</style>
+<defs><marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<g>
+  <rect x="60" y="40" width="170" height="44" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text class="th" x="145" y="62" text-anchor="middle" dominant-baseline="central" fill="#444441">Webhooks (Git)</text>
+</g>
+<g>
+  <rect x="255" y="40" width="170" height="44" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text class="th" x="340" y="62" text-anchor="middle" dominant-baseline="central" fill="#444441">Portal e usuários</text>
+</g>
+<g>
+  <rect x="450" y="40" width="170" height="44" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text class="th" x="535" y="62" text-anchor="middle" dominant-baseline="central" fill="#444441">Clientes de API</text>
+</g>
+<line x1="145" y1="84" x2="300" y2="122" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow2)"/>
+<line x1="340" y1="84" x2="340" y2="122" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow2)"/>
+<line x1="535" y1="84" x2="380" y2="122" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow2)"/>
+<g>
+  <rect x="240" y="124" width="200" height="44" rx="8" fill="#EFF7E2" stroke="#76a432" stroke-width="0.5"/>
+  <text class="th" x="340" y="146" text-anchor="middle" dominant-baseline="central" fill="#3f5c15">Nginx edge (vm1)</text>
+</g>
+<line x1="310" y1="168" x2="200" y2="206" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow2)"/>
+<line x1="370" y1="168" x2="480" y2="206" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow2)"/>
+<g>
+  <rect x="90" y="208" width="220" height="56" rx="8" fill="#F3EAF6" stroke="#79378B" stroke-width="0.5"/>
+  <text class="th" x="200" y="226" text-anchor="middle" dominant-baseline="central" fill="#5e2b6c">Camada PHP (vm3)</text>
+  <text class="ts" x="200" y="246" text-anchor="middle" dominant-baseline="central" fill="#79378B">logs, APIs de dados</text>
+</g>
+<g>
+  <rect x="370" y="208" width="220" height="56" rx="8" fill="#F3EAF6" stroke="#79378B" stroke-width="0.5"/>
+  <text class="th" x="480" y="226" text-anchor="middle" dominant-baseline="central" fill="#5e2b6c">Camada .NET (vm4)</text>
+  <text class="ts" x="480" y="246" text-anchor="middle" dominant-baseline="central" fill="#79378B">bots e APIs financeiras</text>
+</g>
+<line x1="200" y1="264" x2="200" y2="302" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow2)"/>
+<line x1="480" y1="264" x2="480" y2="302" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow2)"/>
+<rect x="90" y="304" width="500" height="100" rx="12" fill="none" stroke="#888780" stroke-width="0.75" stroke-dasharray="6 4"/>
+<text class="th" x="110" y="326" fill="#444441">Camada de dados (vm2)</text>
+<g>
+  <rect x="110" y="340" width="140" height="48" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+  <text class="th" x="180" y="358" text-anchor="middle" dominant-baseline="central" fill="#712B13">MariaDB</text>
+  <text class="ts" x="180" y="376" text-anchor="middle" dominant-baseline="central" fill="#993C1D">um BD por app</text>
+</g>
+<g>
+  <rect x="270" y="340" width="140" height="48" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+  <text class="th" x="340" y="358" text-anchor="middle" dominant-baseline="central" fill="#712B13">Redis</text>
+  <text class="ts" x="340" y="376" text-anchor="middle" dominant-baseline="central" fill="#993C1D">cache e limites</text>
+</g>
+<g>
+  <rect x="430" y="340" width="140" height="48" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+  <text class="th" x="500" y="358" text-anchor="middle" dominant-baseline="central" fill="#712B13">LavinMQ</text>
+  <text class="ts" x="500" y="376" text-anchor="middle" dominant-baseline="central" fill="#993C1D">fila AMQP</text>
+</g>
+</svg>

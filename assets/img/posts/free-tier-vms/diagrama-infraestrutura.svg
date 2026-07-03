@@ -1,0 +1,52 @@
+<svg width="100%" viewBox="0 0 680 470" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Topologia da infraestrutura</title>
+<desc>Uma rede virtual com sub-rede publica (VM gateway) e sub-rede privada (VMs de dados, PHP e .NET). Trafego da internet e do admin entra pelo gateway.</desc>
+<style>
+.th{font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;font-size:14px;font-weight:500}
+.ts{font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;font-size:12px;font-weight:400}
+</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<g>
+  <rect x="140" y="40" width="140" height="44" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text class="th" x="210" y="62" text-anchor="middle" dominant-baseline="central" fill="#444441">Internet</text>
+</g>
+<g>
+  <rect x="400" y="40" width="140" height="44" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text class="th" x="470" y="62" text-anchor="middle" dominant-baseline="central" fill="#444441">Você (admin)</text>
+</g>
+<line x1="210" y1="84" x2="210" y2="163" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text class="ts" x="220" y="112" fill="#5F5E5A">HTTPS 443</text>
+<line x1="470" y1="84" x2="470" y2="163" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text class="ts" x="480" y="112" fill="#5F5E5A">WireGuard UDP 51820</text>
+<rect x="40" y="125" width="600" height="320" rx="16" fill="none" stroke="#888780" stroke-width="0.75" stroke-dasharray="6 4"/>
+<text class="th" x="56" y="147" fill="#444441">OCI VCN — 10.0.0.0/16</text>
+<g>
+  <rect x="70" y="165" width="540" height="100" rx="12" fill="#EFF7E2" stroke="#76a432" stroke-width="0.5"/>
+  <text class="th" x="90" y="190" fill="#3f5c15">Sub-rede pública — 10.0.0.0/24</text>
+</g>
+<g>
+  <rect x="200" y="203" width="280" height="50" rx="8" fill="#F3EAF6" stroke="#79378B" stroke-width="0.5"/>
+  <text class="th" x="340" y="222" text-anchor="middle" dominant-baseline="central" fill="#5e2b6c">vm1 — gateway</text>
+  <text class="ts" x="340" y="240" text-anchor="middle" dominant-baseline="central" fill="#79378B">Nginx TLS, WireGuard, Certbot</text>
+</g>
+<line x1="340" y1="253" x2="340" y2="293" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+<g>
+  <rect x="70" y="295" width="540" height="110" rx="12" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+  <text class="th" x="90" y="320" fill="#444441">Sub-rede privada — 10.0.1.0/24, sem IPs públicos</text>
+</g>
+<g>
+  <rect x="90" y="335" width="150" height="56" rx="8" fill="#F3EAF6" stroke="#79378B" stroke-width="0.5"/>
+  <text class="th" x="165" y="353" text-anchor="middle" dominant-baseline="central" fill="#5e2b6c">vm2 — dados</text>
+  <text class="ts" x="165" y="373" text-anchor="middle" dominant-baseline="central" fill="#79378B">BD, cache, fila</text>
+</g>
+<g>
+  <rect x="260" y="335" width="150" height="56" rx="8" fill="#F3EAF6" stroke="#79378B" stroke-width="0.5"/>
+  <text class="th" x="335" y="353" text-anchor="middle" dominant-baseline="central" fill="#5e2b6c">vm3 — apps PHP</text>
+  <text class="ts" x="335" y="373" text-anchor="middle" dominant-baseline="central" fill="#79378B">PHP-FPM + daemons</text>
+</g>
+<g>
+  <rect x="430" y="335" width="150" height="56" rx="8" fill="#F3EAF6" stroke="#79378B" stroke-width="0.5"/>
+  <text class="th" x="505" y="353" text-anchor="middle" dominant-baseline="central" fill="#5e2b6c">vm4 — apps .NET</text>
+  <text class="ts" x="505" y="373" text-anchor="middle" dominant-baseline="central" fill="#79378B">serviços Kestrel</text>
+</g>
+</svg>
