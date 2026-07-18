@@ -6,8 +6,8 @@ date: 2026-07-18
 lang: pt-BR
 categories: [career]
 tags: [mercado-de-trabalho, junior, pandemia, layoffs, llm, trabalho-remoto]
-cover: /assets/img/posts/2026/07/capa-tesoura-mercado-junior.svg
-image: /assets/img/posts/2026/07/capa-tesoura-mercado-junior-og.png
+cover: /assets/img/posts/capa-tesoura-mercado-junior.svg
+image: /assets/img/posts/capa-tesoura-mercado-junior-og.png
 ---
 
 <!-- Ajuste os caminhos das imagens conforme a estrutura de assets do blog -->
