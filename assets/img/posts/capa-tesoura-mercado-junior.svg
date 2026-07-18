@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" role="img" aria-label="A tesoura do mercado júnior: vagas em queda, candidatos em alta (2018–2026)">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F4F8FD"/>
+      <stop offset="1" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <linearGradient id="fillRed" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#DC2626" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#DC2626" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fillBlue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2563EB" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#2563EB" stop-opacity="0"/>
+    </linearGradient>
+    <style>
+      .draw { stroke-dasharray: 1600; stroke-dashoffset: 1600; animation: draw 2.8s cubic-bezier(.4,0,.2,1) forwards; }
+      .draw.d2 { animation-delay: .5s; }
+      .fade { opacity: 0; animation: fade .9s ease forwards; }
+      .f1 { animation-delay: 2.2s; } .f2 { animation-delay: 2.6s; } .f3 { animation-delay: 3.1s; }
+      .pulse { transform-origin: 690px 300px; animation: pulse 2.4s ease-in-out 3.2s infinite; opacity: 0; }
+      @keyframes draw { to { stroke-dashoffset: 0; } }
+      @keyframes fade { to { opacity: 1; } }
+      @keyframes pulse {
+        0% { opacity: .9; transform: scale(.6); }
+        70% { opacity: 0; transform: scale(2.2); }
+        100% { opacity: 0; transform: scale(2.2); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .draw { animation: none; stroke-dashoffset: 0; }
+        .fade { animation: none; opacity: 1; }
+        .pulse { animation: none; opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- fine grid -->
+  <g stroke="#E4EAF2" stroke-width="1">
+    <line x1="120" y1="140" x2="1090" y2="140"/>
+    <line x1="120" y1="230" x2="1090" y2="230"/>
+    <line x1="120" y1="320" x2="1090" y2="320"/>
+    <line x1="120" y1="410" x2="1090" y2="410"/>
+    <line x1="120" y1="500" x2="1090" y2="500"/>
+  </g>
+  <line x1="120" y1="500" x2="1090" y2="500" stroke="#C6D2E0" stroke-width="1.5"/>
+
+  <!-- year ticks -->
+  <g font-size="20" fill="#8A98A9" text-anchor="middle">
+    <text x="120" y="536">2018</text>
+    <text x="362" y="536">2020</text>
+    <text x="605" y="536">2022</text>
+    <text x="847" y="536">2024</text>
+    <text x="1090" y="536">2026</text>
+  </g>
+
+  <!-- subtle area fills -->
+  <path class="fade f2" d="M120,468 C280,455 340,430 440,352 C520,290 590,320 690,300 C820,275 960,190 1090,150 L1090,500 L120,500 Z" fill="url(#fillRed)"/>
+  <path class="fade f2" d="M120,332 C260,322 330,310 440,240 C520,190 580,235 660,300 C790,405 950,445 1090,458 L1090,500 L120,500 Z" fill="url(#fillBlue)"/>
+
+  <!-- blue: vagas (sobe até 2021, despenca) -->
+  <path class="draw" d="M120,332 C260,322 330,310 440,240 C520,190 580,235 660,300 C790,405 950,445 1090,458"
+        fill="none" stroke="#2563EB" stroke-width="7" stroke-linecap="round"/>
+  <!-- red: candidatos (só sobe) -->
+  <path class="draw d2" d="M120,468 C280,455 340,430 440,352 C520,290 590,320 690,300 C820,275 960,190 1090,150"
+        fill="none" stroke="#DC2626" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- crossing point -->
+  <circle class="pulse" cx="690" cy="300" r="14" fill="none" stroke="#8A98A9" stroke-width="2"/>
+  <circle class="fade f3" cx="690" cy="300" r="7" fill="#FFFFFF" stroke="#22303F" stroke-width="3"/>
+
+  <!-- line tags -->
+  <g class="fade f1">
+    <rect x="944" y="404" rx="15" width="146" height="34" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5"/>
+    <circle cx="966" cy="421" r="5" fill="#2563EB"/>
+    <text x="980" y="427" font-size="19" fill="#1D4ED8" font-weight="600">vagas jr.</text>
+  </g>
+  <g class="fade f1">
+    <rect x="920" y="112" rx="15" width="170" height="34" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.5"/>
+    <circle cx="942" cy="129" r="5" fill="#DC2626"/>
+    <text x="956" y="135" font-size="19" fill="#B91C1C" font-weight="600">candidatos</text>
+  </g>
+
+  <!-- headline -->
+  <g class="fade f3">
+    <text x="120" y="80" font-size="40" font-weight="800" fill="#22303F">A tesoura do mercado júnior</text>
+    <text x="120" y="112" font-size="21" fill="#7A8899">Vagas, candidatos e hype · 2018–2026</text>
+  </g>
+</svg>
