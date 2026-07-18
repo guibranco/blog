@@ -4,7 +4,7 @@ title: "A tesoura do mercado júnior: vagas, candidatos e hype (2019–2026)"
 description: "Com dados do Indeed, SignalFire, LinkedIn e layoffs.fyi: como as vagas de dev despencaram do pico de 2022, por que a fila de iniciantes explodiu — e por que a escassez sempre foi sênior, nunca júnior."
 date: 2026-07-18
 lang: pt-BR
-categories: [tecnologia, carreira]
+categories: [career]
 tags: [mercado-de-trabalho, junior, pandemia, layoffs, llm, trabalho-remoto]
 cover: /assets/img/posts/2026/07/capa-tesoura-mercado-junior.svg
 image: /assets/img/posts/2026/07/capa-tesoura-mercado-junior-og.png
@@ -27,7 +27,7 @@ Ou seja: **já havia mais gente que vaga no nível de entrada antes da pandemia*
 
 ## O ciclo completo: boom, pico e colapso das vagas
 
-![Índice de vagas de desenvolvimento de software no Indeed, 2019 a 2026](/assets/img/posts/2026/07/grafico-vagas-dev-indeed.svg)
+![Índice de vagas de desenvolvimento de software no Indeed, 2019 a 2026]({{ site.baseurl }}/assets/img/posts/grafico-vagas-dev-indeed.svg)
 
 O índice de vagas de desenvolvimento de software do Indeed (EUA, base 100 = fev/2020) conta o ciclo inteiro:
 
@@ -41,7 +41,7 @@ O índice de vagas de desenvolvimento de software do Indeed (EUA, base 100 = fev
 
 ## O colapso específico da porta de entrada
 
-![Recém-formados como percentual das contratações em Big Tech e startups, SignalFire](/assets/img/posts/2026/07/grafico-newgrads-signalfire.svg)
+![Recém-formados como percentual das contratações em Big Tech e startups, SignalFire]({{ site.baseurl }}/assets/img/posts/grafico-newgrads-signalfire.svg)
 
 Se o gráfico anterior mostra o mercado todo, este mostra a porta de entrada — e é aqui que a história fica feia. Segundo a SignalFire (que analisa movimentações de 650+ milhões de perfis no LinkedIn):
 
@@ -54,7 +54,7 @@ O reflexo aparece no desemprego: devs jovens (22–27 anos) nos EUA enfrentam ta
 
 ## Os layoffs: a correção que virou rotina
 
-![Demissões anuais em empresas de tecnologia segundo layoffs.fyi](/assets/img/posts/2026/07/grafico-layoffs-por-ano.svg)
+![Demissões anuais em empresas de tecnologia segundo layoffs.fyi]({{ site.baseurl }}/assets/img/posts/grafico-layoffs-por-ano.svg)
 
 Os números do layoffs.fyi dão a régua da correção: ~80 mil demitidos no susto de 2020, quase zero em 2021 (auge da contratação), 165 mil em 2022, o recorde de ~264 mil em 2023, 153 mil em 2024, ~124 mil em 2025 — e 2026 já passava de 90 mil em abril.
 
@@ -74,7 +74,7 @@ Os proxies reais desse afogamento: a busca por emprego em tech levando 5–6 mes
 
 ## Remoto: pouca vaga, metade das candidaturas
 
-![Fatia de vagas remotas versus fatia de candidaturas no LinkedIn](/assets/img/posts/2026/07/grafico-remoto-vagas-vs-candidaturas.svg)
+![Fatia de vagas remotas versus fatia de candidaturas no LinkedIn]({{ site.baseurl }}/assets/img/posts/grafico-remoto-vagas-vs-candidaturas.svg)
 
 O desequilíbrio do remoto é um dos dados mais impressionantes do ciclo:
 
