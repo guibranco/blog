@@ -107,10 +107,11 @@ pagination:
             <h2 class="section-title" data-i18n="section_featured_single">Destaque</h2>
           </div>
           {% assign featured = paginator.posts.first %}
+          {% assign _featured_image = featured.cover | default: featured.image %}
           <article class="featured-card">
             <div class="featured-image">
-              {% if featured.image %}
-                <img src="{{ featured.image | relative_url }}" alt="{{ featured.title }}">
+              {% if _featured_image %}
+                <img src="{{ _featured_image | relative_url }}" alt="{{ featured.title }}">
               {% else %}
                 <div class="featured-placeholder"><span>{{ featured.title | slice: 0 }}</span></div>
               {% endif %}

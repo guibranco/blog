@@ -35,8 +35,9 @@
     {% include breadcrumb.html %}
 
     <!-- Hero -->
-    {% if page.image %}
-    <header class="hero hero--with-image" style="background-image: url('{{ page.image | relative_url }}');">
+    {% assign _hero_image = page.cover | default: page.image %}
+    {% if _hero_image %}
+    <header class="hero hero--with-image" style="background-image: url('{{ _hero_image | relative_url }}');">
     {% else %}
     <header class="hero">
     {% endif %}

@@ -2,9 +2,10 @@
             {% assign _card_lang_t = site.data.i18n[_card_lang] %}
             {% assign _site_t = site.data.i18n[site.lang] %}
             <article class="post-card{% if include.featured %} post-card--featured{% endif %}">
+              {% assign _card_image = include.post.cover | default: include.post.image %}
               <a href="{{ include.post.url | relative_url }}" class="post-card-image" tabindex="-1" aria-hidden="true">
-                {% if include.post.image %}
-                  <img src="{{ include.post.image | relative_url }}" alt="{{ include.post.title }}">
+                {% if _card_image %}
+                  <img src="{{ _card_image | relative_url }}" alt="{{ include.post.title }}">
                 {% else %}
                   <div class="post-card-placeholder"><span>{{ include.post.title | slice: 0 }}</span></div>
                 {% endif %}

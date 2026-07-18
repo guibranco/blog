@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" role="img" aria-label="Recém-formados como % das contratações em tech">
+<rect width="860" height="460" rx="14" fill="#FBFCFE" stroke="#E3E9F0"/>
+<text x="64" y="34" font-size="20" font-weight="700" fill="#22303F">Recém-formados como % das contratações em tech</text>
+<text x="64" y="56" font-size="13" fill="#7A8899">SignalFire, State of Tech Talent · dados de 2019, 2023 e 2024</text>
+<line x1="64" y1="396.0" x2="836" y2="396.0" stroke="#E3E9F0"/>
+<text x="54" y="400.0" font-size="12" fill="#7A8899" text-anchor="end">0</text>
+<line x1="64" y1="304.6" x2="836" y2="304.6" stroke="#E3E9F0"/>
+<text x="54" y="308.6" font-size="12" fill="#7A8899" text-anchor="end">10</text>
+<line x1="64" y1="213.1" x2="836" y2="213.1" stroke="#E3E9F0"/>
+<text x="54" y="217.1" font-size="12" fill="#7A8899" text-anchor="end">20</text>
+<line x1="64" y1="121.7" x2="836" y2="121.7" stroke="#E3E9F0"/>
+<text x="54" y="125.7" font-size="12" fill="#7A8899" text-anchor="end">30</text>
+<text x="64.0" y="418" font-size="12" fill="#7A8899" text-anchor="middle">2019</text>
+<text x="450.0" y="418" font-size="12" fill="#7A8899" text-anchor="middle">2023</text>
+<text x="836.0" y="418" font-size="12" fill="#7A8899" text-anchor="middle">2024</text>
+<text x="18" y="236" font-size="12" fill="#7A8899" text-anchor="middle" transform="rotate(-90 18 236)">% das novas contratações</text>
+<polyline points="64.0,258.9 450.0,311.0 836.0,332.0" fill="none" stroke="#2563EB" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="64.0" cy="258.9" r="3.5" fill="#FBFCFE" stroke="#2563EB" stroke-width="2.5"/>
+<circle cx="450.0" cy="311.0" r="3.5" fill="#FBFCFE" stroke="#2563EB" stroke-width="2.5"/>
+<circle cx="836.0" cy="332.0" r="3.5" fill="#FBFCFE" stroke="#2563EB" stroke-width="2.5"/>
+<polyline points="64.0,121.7 450.0,334.7 836.0,341.1" fill="none" stroke="#9333EA" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="64.0" cy="121.7" r="3.5" fill="#FBFCFE" stroke="#9333EA" stroke-width="2.5"/>
+<circle cx="450.0" cy="334.7" r="3.5" fill="#FBFCFE" stroke="#9333EA" stroke-width="2.5"/>
+<circle cx="836.0" cy="341.1" r="3.5" fill="#FBFCFE" stroke="#9333EA" stroke-width="2.5"/>
+<line x1="64" y1="440" x2="90" y2="440" stroke="#2563EB" stroke-width="3" stroke-linecap="round"/>
+<text x="98" y="444" font-size="13" fill="#22303F">Big Tech</text>
+<line x1="202" y1="440" x2="228" y2="440" stroke="#9333EA" stroke-width="3" stroke-linecap="round"/>
+<text x="236" y="444" font-size="13" fill="#22303F">Startups (top VCs)</text>
+</svg>
