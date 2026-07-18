@@ -152,9 +152,12 @@ date: 2026-04-10
 categories: [Infraestrutura]
 tags: [docker, linux, automação]
 reading_time: 8
-image: /assets/img/posts/meu-artigo-cover.jpg   # opcional
+cover: /assets/img/posts/meu-artigo-cover.svg    # opcional — imagem usada no site (hero do post e card na listagem)
+image: /assets/img/posts/meu-artigo-cover.png    # opcional — imagem estática usada no Open Graph/Twitter card e no schema.org (via jekyll-seo-tag)
 ---
 ```
+
+Se apenas `image` for definido, ele é usado tanto no site quanto no Open Graph (comportamento antigo, ainda suportado). `cover` serve para permitir uma imagem animada (SVG) na página sem quebrar o preview em redes sociais, que exigem um raster estático.
 
 **3.** Escreva o conteúdo em Markdown. Componentes visuais customizados como callouts, blocos de código com syntax highlighting e cards podem ser usados diretamente com HTML inline.
 

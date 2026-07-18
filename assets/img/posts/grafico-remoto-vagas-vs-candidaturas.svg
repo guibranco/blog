@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" role="img" aria-label="Remoto: fatia das vagas vs. fatia das candidaturas">
+<rect width="860" height="460" rx="14" fill="#FBFCFE" stroke="#E3E9F0"/>
+<text x="64" y="34" font-size="20" font-weight="700" fill="#22303F">Remoto: fatia das vagas vs. fatia das candidaturas</text>
+<text x="64" y="56" font-size="13" fill="#7A8899">LinkedIn (EUA) · fev/2022, dez/2023 e 2025 (2025 = remoto + híbrido)</text>
+<line x1="64" y1="396.0" x2="836" y2="396.0" stroke="#E3E9F0"/>
+<text x="54" y="400.0" font-size="12" fill="#7A8899" text-anchor="end">0</text>
+<line x1="64" y1="304.6" x2="836" y2="304.6" stroke="#E3E9F0"/>
+<text x="54" y="308.6" font-size="12" fill="#7A8899" text-anchor="end">20</text>
+<line x1="64" y1="213.1" x2="836" y2="213.1" stroke="#E3E9F0"/>
+<text x="54" y="217.1" font-size="12" fill="#7A8899" text-anchor="end">40</text>
+<line x1="64" y1="121.7" x2="836" y2="121.7" stroke="#E3E9F0"/>
+<text x="54" y="125.7" font-size="12" fill="#7A8899" text-anchor="end">60</text>
+<text x="192.7" y="418" font-size="12" fill="#7A8899" text-anchor="middle">fev/2022</text>
+<rect x="146.7" y="307.3" width="40.0" height="88.7" rx="5" fill="#0891B2"/>
+<text x="166.7" y="300.3" font-size="12" font-weight="600" fill="#22303F" text-anchor="middle">19.4</text>
+<rect x="192.7" y="167.0" width="40.0" height="229.0" rx="5" fill="#DC2626"/>
+<text x="212.7" y="160.0" font-size="12" font-weight="600" fill="#22303F" text-anchor="middle">50.1</text>
+<text x="450.0" y="418" font-size="12" fill="#7A8899" text-anchor="middle">dez/2023</text>
+<rect x="404.0" y="350.3" width="40.0" height="45.7" rx="5" fill="#0891B2"/>
+<text x="424.0" y="343.3" font-size="12" font-weight="600" fill="#22303F" text-anchor="middle">10</text>
+<rect x="450.0" y="185.7" width="40.0" height="210.3" rx="5" fill="#DC2626"/>
+<text x="470.0" y="178.7" font-size="12" font-weight="600" fill="#22303F" text-anchor="middle">46</text>
+<text x="707.3" y="418" font-size="12" fill="#7A8899" text-anchor="middle">2025</text>
+<rect x="661.3" y="304.6" width="40.0" height="91.4" rx="5" fill="#0891B2"/>
+<text x="681.3" y="297.6" font-size="12" font-weight="600" fill="#22303F" text-anchor="middle">20</text>
+<rect x="707.3" y="121.7" width="40.0" height="274.3" rx="5" fill="#DC2626"/>
+<text x="727.3" y="114.7" font-size="12" font-weight="600" fill="#22303F" text-anchor="middle">60</text>
+<rect x="64" y="431" width="16" height="12" rx="3" fill="#0891B2"/>
+<text x="88" y="441" font-size="13" fill="#22303F">% das vagas anunciadas</text>
+<rect x="304" y="431" width="16" height="12" rx="3" fill="#DC2626"/>
+<text x="328" y="441" font-size="13" fill="#22303F">% das candidaturas recebidas</text>
+</svg>
