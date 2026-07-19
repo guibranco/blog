@@ -8,7 +8,8 @@ subcategories:
   - "Career/Mercado de Trabalho"
 tags: [mercado-de-trabalho, junior, pandemia, layoffs, llm, trabalho-remoto, carreira, tecnologia, contratacao, emprego, dev, big-tech, startups, sênior, inteligencia-artificial, remoto, hibrido, bootcamp]
 reading_time: 12
-image: /assets/img/posts/2026/07/capa-tesoura-mercado-junior-og.png
+cover: /assets/img/posts/capa-tesoura-mercado-junior.svg
+image: /assets/img/posts/capa-tesoura-mercado-junior-og.png
 ---
 
 <p class="lead">Se você tentou entrar na área de desenvolvimento nos últimos anos, sentiu na pele: processos com centenas de candidatos, busca de emprego levando de 5 a 6 meses e gente aplicando para 200+ posições antes de conseguir uma entrevista. O que aconteceu não foi um evento só — foi uma sequência: pandemia, dinheiro barato, boom de bootcamps, layoffs, retorno ao escritório e, por fim, as LLMs. Este artigo conta essa história com dados reais.</p>
