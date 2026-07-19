@@ -3,9 +3,7 @@ layout: post
 title: "A tesoura do mercado júnior: vagas, candidatos e hype (2019–2026)"
 description: "Com dados do Indeed, SignalFire, LinkedIn e layoffs.fyi: como as vagas de dev despencaram do pico de 2022, por que a fila de iniciantes explodiu — e por que a escassez sempre foi sênior, nunca júnior."
 date: 2026-07-18
-categories: [Career, Coding]
-subcategories:
-  - "Career/Mercado de Trabalho"
+categories: [Career]
 tags: [mercado-de-trabalho, junior, pandemia, layoffs, llm, trabalho-remoto, carreira, tecnologia, contratacao, emprego, dev, big-tech, startups, sênior, inteligencia-artificial, remoto, hibrido, bootcamp]
 reading_time: 12
 cover: /assets/img/posts/capa-tesoura-mercado-junior.svg
