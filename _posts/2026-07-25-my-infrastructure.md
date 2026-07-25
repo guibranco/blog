@@ -9,12 +9,12 @@ subcategories:
   - "DevOps/Cloud"
 tags: [oci, cloudamqp, vercel, github-pages, nginx, wireguard, homelab, self-hosting, infra, cloud, oracle, ssd-nodes, pivpn, rabbitmq, php, csharp, dotnet, github-actions, appveyor, healthchecks, uptimerobot, side-projects, portfolio]
 reading_time: 8
-image: /assets/img/infra-map.png
+image: /assets/img/posts/infra-map.png
 ---
 
 <p class="lead">I maintain a growing collection of side projects — a chat-style bot, a handful of small APIs, a couple of dashboards, and the odd legacy site I can't quite bring myself to retire. Over time these have spread across several hosting providers, and I recently sat down to draw the whole thing out. This post is a tour of that map: what runs where, and why.</p>
 
-![A diagram of my personal infrastructure across five hosting surfaces](/assets/img/infra-map.png)
+![A diagram of my personal infrastructure across five hosting surfaces](/assets/img/posts/infra-map.png)
 
 The map is organized by **provider**, and within each provider by **server**. On every server the ordering is deliberate: anything that isn't a web service — a background daemon, a scheduled script, a VPN — sits at the top, then the reverse proxy, then the HTTP APIs below it. Once you know that rule, you can read any box top-to-bottom and immediately tell what's exposed to the web and what isn't.
 
