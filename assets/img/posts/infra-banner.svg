@@ -1,0 +1,159 @@
+<svg viewBox="0 0 1200 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc" font-family="'JetBrains Mono','SFMono-Regular',Menlo,monospace">
+  <title id="ttl">Infrastructure overview</title>
+  <desc id="dsc">A personal software estate spread across shared hosting, Oracle Cloud VMs, a planned VPS, Vercel and GitHub Pages, with queue, VPN and monitoring flows.</desc>
+
+  <style>
+    .bg{fill:#16101a}
+    .region{fill:#211826;stroke:#4a3a52;stroke-width:1;rx:14}
+    .rlabel{fill:#97869c;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .node{fill:#2a1f30;stroke:#4a3a52;stroke-width:1}
+    .ntitle{fill:#ece2d6;font-size:13px;font-weight:700}
+    .nsub{fill:#97869c;font-size:10px}
+    .ext rect{fill:#16101a;stroke:#c05672;stroke-width:1}
+    .flow{fill:none;stroke-width:1.6;stroke-dasharray:6 7;animation:flow 1.1s linear infinite}
+    .flow.web{stroke:#c05672}
+    .flow.int{stroke:#8fb45e}
+    .flow.mq{stroke:#d9a441}
+    .flow.vpn{stroke:#7fb3c8}
+    .dot{animation:pulse 2.4s ease-in-out infinite}
+    .title{fill:#ece2d6;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em}
+    .title .a{fill:#c05672}
+    .sub{fill:#97869c;font-size:12px}
+    @keyframes flow{to{stroke-dashoffset:-13}}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+    @media (prefers-reduced-motion:reduce){.flow{animation:none}.dot{animation:none}.particle{display:none}}
+  </style>
+
+  <rect class="bg" x="0" y="0" width="1200" height="420"/>
+
+  <!-- heading -->
+  <text class="title" x="40" y="52">Infrastructure <tspan class="a">Map</tspan></text>
+  <text class="sub" x="40" y="74">five hosting surfaces · one small estate</text>
+
+  <!-- legend -->
+  <g transform="translate(770,44)" font-size="11">
+    <line x1="0" y1="-4" x2="22" y2="-4" stroke="#c05672" stroke-width="2" stroke-dasharray="5 5"/><text x="28" y="0" fill="#97869c">web</text>
+    <line x1="78" y1="-4" x2="100" y2="-4" stroke="#8fb45e" stroke-width="2" stroke-dasharray="5 5"/><text x="106" y="0" fill="#97869c">internal</text>
+    <line x1="182" y1="-4" x2="204" y2="-4" stroke="#d9a441" stroke-width="2" stroke-dasharray="5 5"/><text x="210" y="0" fill="#97869c">queue</text>
+    <line x1="266" y1="-4" x2="288" y2="-4" stroke="#7fb3c8" stroke-width="2" stroke-dasharray="5 5"/><text x="294" y="0" fill="#97869c">VPN</text>
+    <circle cx="352" cy="-4" r="4" fill="#8fb45e"/><text x="362" y="0" fill="#97869c">live</text>
+    <circle cx="404" cy="-4" r="4" fill="#d9a441"/><text x="414" y="0" fill="#97869c">planned</text>
+  </g>
+
+  <!-- ===== external actors (top row) ===== -->
+  <g class="ext">
+    <g transform="translate(40,104)">
+      <rect width="150" height="46" rx="10"/>
+      <text class="ntitle" x="14" y="21">Internet</text>
+      <text class="nsub" x="14" y="37">users · VPN peers</text>
+    </g>
+    <g transform="translate(210,104)">
+      <rect width="130" height="46" rx="10"/>
+      <text class="ntitle" x="14" y="21">GitHub</text>
+      <text class="nsub" x="14" y="37">webhooks · CI</text>
+    </g>
+    <g transform="translate(360,104)">
+      <rect width="150" height="46" rx="10"/>
+      <text class="ntitle" x="14" y="21">CloudAMQP</text>
+      <text class="nsub" x="14" y="37">LavinMQ broker</text>
+    </g>
+    <g transform="translate(530,104)">
+      <rect width="150" height="46" rx="10"/>
+      <text class="ntitle" x="14" y="21">healthchecks.io</text>
+      <text class="nsub" x="14" y="37">+ UptimeRobot</text>
+    </g>
+    <g transform="translate(700,104)">
+      <rect width="120" height="46" rx="10"/>
+      <text class="ntitle" x="14" y="21">AppVeyor</text>
+      <text class="nsub" x="14" y="37">CI / CD</text>
+    </g>
+  </g>
+
+  <!-- ===== region: shared hosting ===== -->
+  <rect class="region" x="40" y="190" width="250" height="196" rx="14"/>
+  <text class="rlabel" x="58" y="214">Shared hosting</text>
+  <g class="node"><rect x="58" y="228" width="214" height="40" rx="8"/></g>
+  <text class="ntitle" x="72" y="245">Portfolio · Bot · Docs</text>
+  <text class="nsub" x="72" y="260">PHP sites &amp; API BR</text>
+  <g class="node"><rect x="58" y="278" width="214" height="40" rx="8"/></g>
+  <text class="ntitle" x="72" y="295">Mail + Database</text>
+  <text class="nsub" x="72" y="310">MariaDB · ingestion</text>
+  <g class="node"><rect x="58" y="328" width="214" height="40" rx="8"/></g>
+  <text class="ntitle" x="72" y="345">Email ingest scripts</text>
+  <text class="nsub" x="72" y="360">forward to APIs</text>
+  <circle class="dot" cx="262" cy="204" r="4" fill="#8fb45e"/>
+
+  <!-- ===== region: OCI ===== -->
+  <rect class="region" x="320" y="190" width="360" height="196" rx="14"/>
+  <text class="rlabel" x="338" y="214">Oracle Cloud · 4 VMs</text>
+  <g class="node"><rect x="338" y="228" width="150" height="40" rx="8"/></g>
+  <text class="ntitle" x="352" y="245">NGINX + VPN</text>
+  <text class="nsub" x="352" y="260">entry &amp; tunnel</text>
+  <g class="node"><rect x="500" y="228" width="162" height="40" rx="8"/></g>
+  <text class="ntitle" x="514" y="245">Webhook ingest</text>
+  <text class="nsub" x="514" y="260">C# → queue</text>
+  <g class="node"><rect x="338" y="278" width="150" height="40" rx="8"/></g>
+  <text class="ntitle" x="352" y="295">Queue processor</text>
+  <text class="nsub" x="352" y="310">consumes · writes</text>
+  <g class="node"><rect x="500" y="278" width="162" height="40" rx="8"/></g>
+  <text class="ntitle" x="514" y="295">Trigger jobs</text>
+  <text class="nsub" x="514" y="310">scheduled cURL</text>
+  <g class="node"><rect x="338" y="328" width="324" height="40" rx="8"/></g>
+  <text class="ntitle" x="352" y="345">Service APIs</text>
+  <text class="nsub" x="352" y="360">logs · stocks · exchange · bookmarks …</text>
+  <circle class="dot" cx="652" cy="204" r="4" fill="#8fb45e"/>
+
+  <!-- ===== region: SSD Nodes (planned) ===== -->
+  <rect class="region" x="710" y="190" width="210" height="196" rx="14" stroke-dasharray="5 4"/>
+  <text class="rlabel" x="728" y="214">SSD Nodes · planned</text>
+  <g class="node"><rect x="728" y="228" width="174" height="40" rx="8" stroke-dasharray="5 4"/></g>
+  <text class="ntitle" x="742" y="245">Data platform</text>
+  <text class="nsub" x="742" y="260">Postgres · Redis · ES</text>
+  <g class="node"><rect x="728" y="278" width="174" height="40" rx="8" stroke-dasharray="5 4"/></g>
+  <text class="ntitle" x="742" y="295">Self-host broker</text>
+  <text class="nsub" x="742" y="310">LavinMQ</text>
+  <g class="node"><rect x="728" y="328" width="174" height="40" rx="8" stroke-dasharray="5 4"/></g>
+  <text class="ntitle" x="742" y="345">Finance · trading</text>
+  <text class="nsub" x="742" y="360">new APIs</text>
+  <circle class="dot" cx="892" cy="204" r="4" fill="#d9a441"/>
+
+  <!-- ===== region: Vercel + GitHub Pages ===== -->
+  <rect class="region" x="940" y="190" width="220" height="92" rx="14"/>
+  <text class="rlabel" x="958" y="214">Vercel</text>
+  <g class="node"><rect x="958" y="228" width="184" height="40" rx="8"/></g>
+  <text class="ntitle" x="972" y="245">Edge projects</text>
+  <text class="nsub" x="972" y="260">widgets · readme stats</text>
+  <circle class="dot" cx="1132" cy="204" r="4" fill="#8fb45e"/>
+
+  <rect class="region" x="940" y="294" width="220" height="92" rx="14"/>
+  <text class="rlabel" x="958" y="318">GitHub Pages</text>
+  <g class="node"><rect x="958" y="332" width="184" height="40" rx="8"/></g>
+  <text class="ntitle" x="972" y="349">Front-ends &amp; docs</text>
+  <text class="nsub" x="972" y="364">portfolio · blog · UIs</text>
+  <circle class="dot" cx="1132" cy="308" r="4" fill="#8fb45e"/>
+
+  <!-- ===== flows (gentle, mostly vertical to avoid mid-canvas crossings) ===== -->
+  <!-- internet -> shared hosting (web) -->
+  <path class="flow web" d="M110 150 C110 172,150 178,160 228"/>
+  <!-- internet -> OCI VPN (vpn) -->
+  <path class="flow vpn" d="M135 150 C230 178,360 190,400 228"/>
+  <!-- GitHub -> OCI webhook ingest (web) -->
+  <path class="flow web" d="M275 150 C400 175,540 195,570 228"/>
+  <!-- OCI ingest <-> CloudAMQP (queue) -->
+  <path class="flow mq" d="M560 228 C500 195,455 172,435 150"/>
+  <path class="flow mq" d="M420 150 C410 195,410 235,412 278"/>
+  <!-- OCI trigger jobs -> shared hosting (internal) -->
+  <path class="flow int" d="M500 300 C400 300,320 282,272 262"/>
+  <!-- OCI VPN -> shared DB (vpn) -->
+  <path class="flow vpn" d="M340 258 C305 270,288 282,272 298"/>
+  <!-- monitoring -> OCI (internal tone) -->
+  <path class="flow int" d="M600 150 C580 185,545 220,525 288"/>
+  <!-- AppVeyor -> OCI processor (web) -->
+  <path class="flow web" d="M755 150 C660 195,520 250,488 300"/>
+  <!-- Vercel <- internet (web), short hop from region edge -->
+  <path class="flow web" d="M175 127 C560 92,940 150,948 240"/>
+  <!-- GitHub Pages <- internet (web) -->
+  <path class="flow web" d="M165 127 C540 100,940 250,948 344"/>
+  <!-- GitHub Pages UIs -> OCI APIs (internal) -->
+  <path class="flow int" d="M940 356 C760 380,600 382,500 366"/>
+</svg>
