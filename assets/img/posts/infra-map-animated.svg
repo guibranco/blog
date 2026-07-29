@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg id="map" viewBox="0 0 1400 1700" xmlns="http://www.w3.org/2000/svg" aria-label="Infrastructure map">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap');
 :root {
     --bg:        #16101a;   /* wine-dark night */
     --panel:     #211826;
