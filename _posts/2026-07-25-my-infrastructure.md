@@ -9,15 +9,27 @@ subcategories:
   - "DevOps/Cloud"
 tags: [oci, cloudamqp, vercel, github-pages, nginx, wireguard, homelab, self-hosting, infra, cloud, oracle, ssd-nodes, pivpn, rabbitmq, php, csharp, dotnet, github-actions, appveyor, healthchecks, uptimerobot, side-projects, portfolio]
 reading_time: 8
+cover: /assets/img/posts/infra-banner.svg
 image: /assets/img/posts/infra-map.png
 ---
 
 <p class="lead">I maintain a growing collection of side projects — a chat-style bot, a handful of small APIs, a couple of dashboards, and the odd legacy site I can't quite bring myself to retire. Over time these have spread across several hosting providers, and I recently sat down to draw the whole thing out. This post is a tour of that map: what runs where, and why.</p>
 
-<img
-  src="{{ site.baseurl }}/assets/img/posts/infra-map.png"
-  alt="A diagram of my personal infrastructure across five hosting surfaces"
-  style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
+<figure style="margin:1.75rem auto;max-width:960px;">
+  <object
+    type="image/svg+xml"
+    data="{{ site.baseurl }}/assets/img/posts/infra-map-animated.svg"
+    aria-label="An animated diagram of my personal infrastructure across five hosting surfaces"
+    style="width:100%;display:block;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
+    <img
+      src="{{ site.baseurl }}/assets/img/posts/infra-map.png"
+      alt="A diagram of my personal infrastructure across five hosting surfaces"
+      style="width:100%;display:block;border-radius:8px;border:1px solid var(--border);">
+  </object>
+  <figcaption style="text-align:center;color:var(--text-muted);font-size:.85rem;margin-top:.6rem;">
+    The live map — traffic, queue, VPN and monitoring flows animate. Static image shown if your browser blocks SVG animation.
+  </figcaption>
+</figure>
 
 The map is organized by **provider**, and within each provider by **server**. On every server the ordering is deliberate: anything that isn't a web service — a background daemon, a scheduled script, a VPN — sits at the top, then the reverse proxy, then the HTTP APIs below it. Once you know that rule, you can read any box top-to-bottom and immediately tell what's exposed to the web and what isn't.
 
