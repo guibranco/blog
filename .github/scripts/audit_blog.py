@@ -24,6 +24,7 @@ TAGS_DIR     = ROOT / "topicos"
 CATS_DIR     = ROOT / "categorias"
 FEEDS_DIR    = ROOT / "feed"
 ASSETS_DIR   = ROOT / "assets"
+CATEGORIES_DATA_FILE = ROOT / "_data" / "categories.yml"
 SUMMARY_FILE = ROOT / "audit-report.md"
 
 REQUIRED_FRONT_MATTER = [
@@ -82,9 +83,15 @@ def slugify(text: str) -> str:
 
 
 def parse_front_matter(path: Path) -> tuple[dict, str]:
-    """Return (front_matter_dict, body_text) for a markdown file."""
+    """Return (front_matter_dict, body_text) for a markdown file.
+
+    Scalar and inline-list (`key: [a, b]`) values are stored as strings.
+    Block-style lists (`key:` followed by indented `- item` lines, as used
+    for `subcategories:`) are stored as a Python list of raw item strings.
+    """
     text = path.read_text(encoding='utf-8')
     fm, body, in_fm, fm_done = {}, [], False, False
+    pending_list_key = None
     for i, line in enumerate(text.splitlines(keepends=True)):
         if i == 0 and line.strip() == '---':
             in_fm = True
@@ -93,21 +100,104 @@ def parse_front_matter(path: Path) -> tuple[dict, str]:
             in_fm, fm_done = False, True
             continue
         if in_fm:
+            list_item = re.match(r'^\s+-\s*(.+)$', line)
+            if pending_list_key and list_item:
+                fm[pending_list_key].append(list_item.group(1).strip())
+                continue
+            pending_list_key = None
             m = re.match(r'^(\w+):\s*(.*)', line)
             if m:
-                fm[m.group(1)] = m.group(2).strip()
+                key, val = m.group(1), m.group(2).strip()
+                if val == '':
+                    pending_list_key = key
+                    fm[key] = []
+                else:
+                    fm[key] = val
         elif fm_done:
             body.append(line)
     return fm, ''.join(body)
 
 
-def extract_list_field(raw: str) -> list[str]:
-    """Parse `[foo, bar]` or a single YAML value into a list."""
+def extract_list_field(raw) -> list[str]:
+    """Parse `[foo, bar]`, a block-parsed list, or a single YAML value into a list."""
+    if isinstance(raw, list):
+        return [str(i).strip().strip('"').strip("'") for i in raw if str(i).strip()]
     raw = raw.strip()
     if raw.startswith('[') and raw.endswith(']'):
         items = raw[1:-1].split(',')
         return [i.strip().strip('"').strip("'") for i in items if i.strip()]
     return [raw.strip('"').strip("'")] if raw else []
+
+
+def load_categories_data() -> dict[str, dict]:
+    """Parse `_data/categories.yml` into {category_name: {"slug", "subcategories"}}.
+
+    `subcategories` maps subcategory name -> slug. A minimal hand-rolled
+    parser is used instead of PyYAML to avoid an extra CI dependency, since
+    the file has a fixed, simple structure.
+    """
+    if not CATEGORIES_DATA_FILE.exists():
+        return {}
+
+    def unquote(s: str) -> str:
+        s = s.strip()
+        if len(s) >= 2 and s[0] == s[-1] and s[0] in ('"', "'"):
+            return s[1:-1]
+        return s
+
+    categories: dict[str, dict] = {}
+    current = None
+    in_subs = False
+    pending_sub = None
+
+    for raw_line in CATEGORIES_DATA_FILE.read_text(encoding='utf-8').splitlines():
+        if not raw_line.strip():
+            continue
+        indent = len(raw_line) - len(raw_line.lstrip(' '))
+        line = raw_line.strip()
+
+        m = re.match(r'^-\s*name:\s*(.+)$', line)
+        if m and indent == 0:
+            name = unquote(m.group(1))
+            current = {"slug": "", "subcategories": {}}
+            categories[name] = current
+            in_subs = False
+            pending_sub = None
+            continue
+
+        if current is None:
+            continue
+
+        if indent == 2 and line.startswith('slug:'):
+            current["slug"] = unquote(line.split(':', 1)[1])
+            in_subs = False
+            continue
+        if indent == 2 and line.startswith('subcategories:'):
+            in_subs = True
+            continue
+
+        if in_subs:
+            m2 = re.match(r'^-\s*name:\s*(.+)$', line)
+            if m2 and indent == 4:
+                pending_sub = unquote(m2.group(1))
+                current["subcategories"][pending_sub] = ""
+                continue
+            if indent == 6 and line.startswith('slug:') and pending_sub is not None:
+                current["subcategories"][pending_sub] = unquote(line.split(':', 1)[1])
+                continue
+
+    return categories
+
+
+def local_asset_path(value: str) -> Path | None:
+    """Resolve a front matter image/cover value to a repo-relative path.
+
+    Returns None for external (http/https) URLs or empty values.
+    """
+    value = value.strip()
+    if not value or value.startswith("http://") or value.startswith("https://"):
+        return None
+    return ROOT / value.lstrip("/")
 
 
 def extract_external_images(body: str) -> list[str]:
@@ -180,10 +270,14 @@ def audit() -> tuple[dict, set, set]:
         "posts_without_reading_time": [],
         "broken_external_images":     [],   # {file, url, status}
         "skipped_external_images":    [],   # {file, url, reason}
+        "unregistered_categories":    [],   # {file, category}
+        "invalid_subcategories":      [],   # {file, subcategory, reason}
+        "missing_local_images":       [],   # {file, field, path}
     }
 
     all_tags: set[str] = set()
     all_cats: set[str] = set()
+    categories_data = load_categories_data()
 
     # url -> [(relative_file, front_matter_image)]
     url_to_posts: dict[str, list[tuple[str, bool]]] = defaultdict(list)
@@ -221,6 +315,49 @@ def audit() -> tuple[dict, set, set]:
             issues["posts_without_description"].append(rel)
         if "reading_time" not in fm:
             issues["posts_without_reading_time"].append(rel)
+
+        # Categories must be registered in _data/categories.yml (drives nav,
+        # breadcrumbs and schema.org markup — an unregistered category silently
+        # breaks those includes for the post).
+        for cat in cats:
+            if cat and cat not in categories_data:
+                issues["unregistered_categories"].append({"file": rel, "category": cat})
+                gh_error(rel, f"Category '{cat}' is not registered in _data/categories.yml")
+
+        # Subcategories are written as "Parent/Child" and must resolve to a
+        # parent category + subcategory pair that exists in categories.yml.
+        for subcat in extract_list_field(fm.get("subcategories", "")):
+            if "/" not in subcat:
+                issues["invalid_subcategories"].append({
+                    "file": rel, "subcategory": subcat,
+                    "reason": "expected format 'Category/Subcategory'",
+                })
+                gh_error(rel, f"Malformed subcategory '{subcat}' — expected 'Category/Subcategory'")
+                continue
+            parent, child = subcat.split("/", 1)
+            parent, child = parent.strip(), child.strip()
+            if parent not in categories_data:
+                issues["invalid_subcategories"].append({
+                    "file": rel, "subcategory": subcat,
+                    "reason": f"category '{parent}' is not registered in _data/categories.yml",
+                })
+                gh_error(rel, f"Subcategory '{subcat}' — category '{parent}' is not registered in _data/categories.yml")
+            elif child not in categories_data[parent]["subcategories"]:
+                issues["invalid_subcategories"].append({
+                    "file": rel, "subcategory": subcat,
+                    "reason": f"subcategory '{child}' is not registered under '{parent}' in _data/categories.yml",
+                })
+                gh_error(rel, f"Subcategory '{subcat}' is not registered under '{parent}' in _data/categories.yml")
+
+        # Local image/cover files referenced in front matter must exist in the branch.
+        for field in ("image", "cover"):
+            value = fm.get(field, "")
+            if not value:
+                continue
+            asset_path = local_asset_path(value)
+            if asset_path is not None and not asset_path.exists():
+                issues["missing_local_images"].append({"file": rel, "field": field, "path": value})
+                gh_error(rel, f"Missing local `{field}` file: {value}")
 
         # Collect external image URLs from body
         for url in extract_external_images(body):
@@ -294,6 +431,9 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
     total_errors = (
         len(issues["missing_tag_pages"]) +
         len(issues["missing_category_pages"]) +
+        len(issues["unregistered_categories"]) +
+        len(issues["invalid_subcategories"]) +
+        len(issues["missing_local_images"]) +
         len([i for i in issues["broken_external_images"] if i["location"] == "front matter image"])
     )
     total_warnings = (
@@ -339,6 +479,33 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
         lines.append("\n<details><summary>Fix template</summary>\n\n```yaml\n---\nlayout: category\ncategory: <Category Name>\npermalink: /categorias/<slug>/\n---\n```\n</details>")
     else:
         lines.append("✅ All category pages present.")
+    lines.append("")
+
+    # ── Categories/subcategories registered in _data/categories.yml ──────────
+    lines.append("## Categories & subcategories in _data/categories.yml\n")
+    if issues["unregistered_categories"] or issues["invalid_subcategories"]:
+        if issues["unregistered_categories"]:
+            lines.append(f"**{len(issues['unregistered_categories'])} category use(s) not registered:**\n")
+            for item in issues["unregistered_categories"]:
+                lines.append(f"- `{item['file']}` — category: `{item['category']}`")
+            lines.append("")
+        if issues["invalid_subcategories"]:
+            lines.append(f"**{len(issues['invalid_subcategories'])} invalid subcategory use(s):**\n")
+            for item in issues["invalid_subcategories"]:
+                lines.append(f"- `{item['file']}` — `{item['subcategory']}` — {item['reason']}")
+            lines.append("")
+    else:
+        lines.append("✅ All categories/subcategories are registered in _data/categories.yml.")
+    lines.append("")
+
+    # ── Local image/cover files ────────────────────────────────────────────────
+    lines.append("## Local image/cover files\n")
+    if issues["missing_local_images"]:
+        lines.append(f"**{len(issues['missing_local_images'])} missing file(s):**\n")
+        for item in issues["missing_local_images"]:
+            lines.append(f"- `{item['file']}` — `{item['field']}: {item['path']}` not found in branch")
+    else:
+        lines.append("✅ All local image/cover files exist in the branch.")
     lines.append("")
 
     # ── Feed files ────────────────────────────────────────────────────────────
@@ -424,6 +591,9 @@ def main():
     blocking = (
         len(issues["missing_tag_pages"]) +
         len(issues["missing_category_pages"]) +
+        len(issues["unregistered_categories"]) +
+        len(issues["invalid_subcategories"]) +
+        len(issues["missing_local_images"]) +
         len([i for i in issues["broken_external_images"]
              if i["location"] == "front matter image"])
     )

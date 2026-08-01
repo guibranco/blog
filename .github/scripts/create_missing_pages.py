@@ -27,6 +27,12 @@ ROOT       = Path(__file__).resolve().parents[2]
 CATS_DIR   = ROOT / "categorias"
 TAGS_DIR   = ROOT / "topicos"
 FEEDS_DIR  = ROOT / "feed"
+CATEGORIES_DATA_FILE = ROOT / "_data" / "categories.yml"
+
+# Icon assigned to auto-created top-level categories in _data/categories.yml.
+# Automation can't guess a meaningful icon, so this is a placeholder meant
+# to be reviewed and replaced by hand.
+DEFAULT_CATEGORY_ICON = "fas fa-folder"
 
 CATEGORY_LAYOUT       = "category"
 TAG_LAYOUT            = "tag"
@@ -155,6 +161,147 @@ def extract_subcat_pairs(fm: dict) -> list[tuple[str, str]]:
             _add(cat, sub)
 
     return pairs
+
+
+def _yaml_unquote(s: str) -> str:
+    s = s.strip()
+    if len(s) >= 2 and s[0] == s[-1] and s[0] in ('"', "'"):
+        return s[1:-1].replace('\\"', '"').replace('\\\\', '\\')
+    return s
+
+
+def _yaml_scalar(value: str) -> str:
+    """Render a YAML scalar, quoting it only when needed (matches the
+    existing style in _data/categories.yml: plain names are bare, names
+    with symbols or accents are double-quoted)."""
+    if re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9 \-]*', value):
+        return value
+    escaped = value.replace('\\', '\\\\').replace('"', '\\"')
+    return f'"{escaped}"'
+
+
+def parse_categories_yaml(text: str) -> list[dict]:
+    """Parse `_data/categories.yml` into an ordered list of category dicts:
+    [{"name", "slug", "icon", "subcategories": [{"name", "slug"}, ...]}, ...]
+
+    A minimal hand-rolled parser is used (instead of PyYAML) so the
+    round-tripped file keeps its exact original formatting/quoting style.
+    """
+    categories: list[dict] = []
+    current: dict | None = None
+    in_subs = False
+    pending_sub: dict | None = None
+
+    for raw_line in text.splitlines():
+        if not raw_line.strip():
+            continue
+        indent = len(raw_line) - len(raw_line.lstrip(' '))
+        line = raw_line.strip()
+
+        m = re.match(r'^-\s*name:\s*(.+)$', line)
+        if m and indent == 0:
+            current = {"name": _yaml_unquote(m.group(1)), "slug": "",
+                       "icon": "", "subcategories": []}
+            categories.append(current)
+            in_subs = False
+            pending_sub = None
+            continue
+
+        if current is None:
+            continue
+
+        if indent == 2 and line.startswith('slug:'):
+            current["slug"] = _yaml_unquote(line.split(':', 1)[1])
+            in_subs = False
+            continue
+        if indent == 2 and line.startswith('icon:'):
+            current["icon"] = _yaml_unquote(line.split(':', 1)[1])
+            continue
+        if indent == 2 and line.startswith('subcategories:'):
+            in_subs = True
+            continue
+
+        if in_subs:
+            m2 = re.match(r'^-\s*name:\s*(.+)$', line)
+            if m2 and indent == 4:
+                pending_sub = {"name": _yaml_unquote(m2.group(1)), "slug": ""}
+                current["subcategories"].append(pending_sub)
+                continue
+            if indent == 6 and line.startswith('slug:') and pending_sub is not None:
+                pending_sub["slug"] = _yaml_unquote(line.split(':', 1)[1])
+                continue
+
+    return categories
+
+
+def serialize_categories_yaml(categories: list[dict]) -> str:
+    """Render category dicts back into the file's original layout."""
+    blocks = []
+    for cat in categories:
+        lines = [
+            f"- name: {_yaml_scalar(cat['name'])}",
+            f"  slug: {cat['slug']}",
+            f"  icon: \"{cat['icon']}\"",
+        ]
+        subs = cat.get("subcategories") or []
+        if subs:
+            lines.append("  subcategories:")
+            for sub in subs:
+                lines.append(f"    - name: {_yaml_scalar(sub['name'])}")
+                lines.append(f"      slug: {sub['slug']}")
+        else:
+            lines.append("  subcategories: []")
+        blocks.append("\n".join(lines))
+    return "\n\n".join(blocks) + "\n"
+
+
+def sync_categories_data(
+    missing_cats:    dict[str, str],
+    missing_subcats: dict[tuple[str, str], tuple[str, str]],
+) -> tuple[list[tuple[str, str]], list[tuple[str, str, str, str]]]:
+    """
+    Add newly created categories/subcategories to _data/categories.yml so
+    the sidebar/breadcrumb/schema data stays in sync with the new pages.
+
+    Returns (added_categories, added_subcategories) as
+    [(name, slug)] / [(cat_name, cat_slug, sub_name, sub_slug)] for reporting.
+    """
+    text = CATEGORIES_DATA_FILE.read_text(encoding='utf-8') if CATEGORIES_DATA_FILE.exists() else ""
+    categories = parse_categories_yaml(text)
+    by_slug = {cat["slug"]: cat for cat in categories}
+
+    added_cats: list[tuple[str, str]] = []
+    added_subs: list[tuple[str, str, str, str]] = []
+
+    def _ensure_category(slug: str, original: str) -> dict:
+        cat = by_slug.get(slug)
+        if cat is None:
+            cat = {"name": original, "slug": slug, "icon": DEFAULT_CATEGORY_ICON, "subcategories": []}
+            categories.append(cat)
+            by_slug[slug] = cat
+            added_cats.append((original, slug))
+            print(
+                f"✅ Added to _data/categories.yml: category '{original}' "
+                f"(icon defaulted to '{DEFAULT_CATEGORY_ICON}' — please review)"
+            )
+        return cat
+
+    for slug, original in sorted(missing_cats.items()):
+        _ensure_category(slug, original)
+
+    for (cat_slug, sub_slug), (cat_original, sub_original) in sorted(missing_subcats.items()):
+        cat = _ensure_category(cat_slug, cat_original)
+        existing_sub_slugs = {s["slug"] for s in cat["subcategories"]}
+        if sub_slug not in existing_sub_slugs:
+            cat["subcategories"].append({"name": sub_original, "slug": sub_slug})
+            added_subs.append((cat_original, cat_slug, sub_original, sub_slug))
+            print(f"✅ Added to _data/categories.yml: subcategory '{sub_original}' under '{cat_original}'")
+
+    if added_cats or added_subs:
+        CATEGORIES_DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
+        CATEGORIES_DATA_FILE.write_text(serialize_categories_yaml(categories), encoding='utf-8')
+
+    return added_cats, added_subs
 
 
 def _xml_escape(text: str) -> str:
@@ -412,9 +559,14 @@ def build_pr_comment(
     created_subcats: list[tuple[str, str, str, str]],
     created_tags:    list[tuple[str, str]],
     created_feeds:   list[tuple[str, str, str]],
+    added_cat_data:  list[tuple[str, str]],
+    added_sub_data:  list[tuple[str, str, str, str]],
     post_files:      list[str],
 ) -> str:
-    total = len(created_cats) + len(created_subcats) + len(created_tags) + len(created_feeds)
+    total = (
+        len(created_cats) + len(created_subcats) + len(created_tags) + len(created_feeds)
+        + len(added_cat_data) + len(added_sub_data)
+    )
     posts_list = '\n'.join(f"- `{f}`" for f in post_files)
 
     lines = [
@@ -441,6 +593,17 @@ def build_pr_comment(
                 f"- `categorias/{cat_slug}/{sub_slug}.md` → **{cat_original} › {sub_original}** "
                 f"(`/categorias/{cat_slug}/{sub_slug}/`)"
             )
+        lines.append("")
+
+    if added_cat_data or added_sub_data:
+        lines.append(f"### 🗂️ _data/categories.yml ({len(added_cat_data) + len(added_sub_data)})\n")
+        for original, slug in added_cat_data:
+            lines.append(
+                f"- category **{original}** (`{slug}`, icon defaulted to "
+                f"`{DEFAULT_CATEGORY_ICON}` — please review)"
+            )
+        for cat_original, cat_slug, sub_original, sub_slug in added_sub_data:
+            lines.append(f"- subcategory **{cat_original} › {sub_original}** (`{sub_slug}`)")
         lines.append("")
 
     if created_feeds:
@@ -494,8 +657,17 @@ def main() -> None:
         missing_cats, missing_tags, missing_subcats
     )
 
-    total_created = len(created_cats) + len(created_subcats) + len(created_tags) + len(created_feeds)
-    comment = build_pr_comment(created_cats, created_subcats, created_tags, created_feeds, post_files)
+    print("\n📝 Syncing _data/categories.yml...")
+    added_cat_data, added_sub_data = sync_categories_data(missing_cats, missing_subcats)
+
+    total_created = (
+        len(created_cats) + len(created_subcats) + len(created_tags) + len(created_feeds)
+        + len(added_cat_data) + len(added_sub_data)
+    )
+    comment = build_pr_comment(
+        created_cats, created_subcats, created_tags, created_feeds,
+        added_cat_data, added_sub_data, post_files,
+    )
 
     write_output('created_count', str(total_created))
     write_output('pr_comment', comment)
