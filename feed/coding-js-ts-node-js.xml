@@ -10,8 +10,8 @@ permalink: /feed/coding-js-ts-node-js.xml
     <link>{{ site.url }}{{ site.baseurl }}/categorias/coding/js-ts-node-js/</link>
     <atom:link href="{{ site.url }}{{ site.baseurl }}/feed/coding-js-ts-node-js.xml" rel="self" type="application/rss+xml"/>
     <language>pt-BR</language>
-    {% assign _sub_posts = site.posts | where_exp: "p", "p.subcategories contains 'Coding/JS/TS & Node.JS'" %}
-    {% for post in _sub_posts limit: 20 %}
+    {% assign _sub_posts = site.posts | where_exp: "p", "p.subcategories contains 'Coding/JS/TS & Node.JS'" | limit: 20 %}
+    {% for post in _sub_posts %}
     <item>
       <title>{{ post.title | xml_escape }}</title>
       <link>{{ post.url | absolute_url }}</link>
