@@ -7,7 +7,7 @@ description: "How I built a GitHub Action to manage versioned SQL database migra
 date: 2023-12-14
 categories: [Coding, Infraestrutura]
 subcategories:
-  - "Coding/Database"
+  - "Coding/Databases"
   - "Infraestrutura/DevOps"
 tags: [database, github, github-actions, migration, sql, pipeline, testing, ci-cd, devops, mysql, mariadb, postgresql, mssql, schema, versioning, docker, shell-script, continuous-integration, infrastructure-as-code, gitops, db-migration, query-builder, orm, checksum, integrity]
 reading_time: 10
