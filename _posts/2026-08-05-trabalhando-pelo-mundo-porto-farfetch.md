@@ -195,10 +195,10 @@ E teve um personagem que não existe no vocabulário brasileiro do mesmo jeito: 
     <tr><th>Linha</th><th>Valor</th></tr>
   </thead>
   <tbody>
-    <tr><td>Serviços de consultoria — 20 dias</td><td>3.500,00 €</td></tr>
+    <tr><td>Serviços de consultoria — 20 dias</td><td>3.600,00 €</td></tr>
     <tr><td>Despesas</td><td>0,00 €</td></tr>
-    <tr><td><strong>Valor base</strong></td><td><strong>3.500,00 €</strong></td></tr>
-    <tr><td>Valor base com IVA (23%)</td><td>4.305,00 €</td></tr>
+    <tr><td><strong>Valor base</strong></td><td><strong>3.600,00 €</strong></td></tr>
+    <tr><td>Valor base com IVA (23%)</td><td>4.428,00 €</td></tr>
   </tbody>
 </table>
 
