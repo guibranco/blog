@@ -3,10 +3,11 @@ layout: post
 title: "A Map of My Infrastructure: How I Run a Dozen Side Projects on a Budget"
 description: "A walkthrough of the small, multi-provider estate that keeps my portfolio, bots, and APIs running — five hosting surfaces, a decoupled webhook pipeline, a VPN-gated database and two monitoring layers."
 date: 2026-07-25
-categories: [Infraestrutura, DevOps]
+categories: [Infraestrutura]
 subcategories:
   - "Infraestrutura/Self-Hosting"
-  - "DevOps/Cloud"
+  - "Infraestrutura/DevOps"
+  - "Infraestrutura/Cloud"
 tags: [oci, cloudamqp, vercel, github-pages, nginx, wireguard, homelab, self-hosting, infra, cloud, oracle, ssd-nodes, pivpn, rabbitmq, php, csharp, dotnet, github-actions, appveyor, healthchecks, uptimerobot, side-projects, portfolio]
 reading_time: 8
 cover: /assets/img/posts/infra-banner.svg
