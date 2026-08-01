@@ -1,7 +1,9 @@
 - name: Career
   slug: career
   icon: "fas fa-briefcase"
-  subcategories: []
+  subcategories:
+    - name: "Trabalho no Exterior"
+      slug: trabalho-no-exterior
 
 - name: Coding
   slug: coding
@@ -36,8 +38,6 @@
       slug: self-hosting
     - name: "Telecomunicações"
       slug: telecomunicacoes
-    - name: "Trabalho no Exterior"
-      slug: trabalho-no-exterior
 
 - name: Hobbies
   slug: hobbies
