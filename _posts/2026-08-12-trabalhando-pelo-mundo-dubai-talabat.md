@@ -84,7 +84,7 @@ Repare na ordem da última etapa: eu só conversei com quem seria meu gestor **d
 
 <div class="callout callout-tip">
   <div class="callout-label">Dois processos, duas filosofias</div>
-  Porto: duas conversas, zero código escrito, decisão em catorze dias. Dubai: quatro avaliações técnicas separadas, incluindo live coding e system design com quatro engenheiros diferentes. Nenhum dos dois é errado — mas o segundo diz muito mais sobre uma empresa que contrata em volume e precisa de um critério que escale. Se você está mirando o Golfo, prepare-se para <em>system design</em>: é a etapa que mais elimina gente com experiência de sobra.
+  Porto: duas conversas, zero código escrito, decisão em catorze dias. Dubai: duas etapas técnicas — live coding e system design —, com quatro engenheiros sêniores diferentes entre as duas. Nenhum dos dois é errado — mas o segundo diz muito mais sobre uma empresa que contrata em volume e precisa de um critério que escale. Se você está mirando o Golfo, prepare-se para <em>system design</em>: é a etapa que mais elimina gente com experiência de sobra.
 </div>
 
 <div class="callout callout-warn">
@@ -214,6 +214,11 @@ Essa foi a engenharia financeira menos óbvia de toda a mudança.
 <div class="callout callout-tip">
   <div class="callout-label">Por que o pagamento em dólar funciona nos Emirados</div>
   O dirham é <strong>atrelado ao dólar americano</strong> a uma paridade fixa mantida há décadas. Isso torna o pagamento em USD trivial para a empresa e previsível para você: não há risco cambial entre as duas moedas. É uma das razões pelas quais arranjos internacionais de pagamento são tão comuns por lá.
+</div>
+
+<div class="callout callout-warn">
+  <div class="callout-label">Isenção nos Emirados não é isenção no Brasil</div>
+  Vale separar as duas coisas. A ausência de imposto de renda dos Emirados é uma característica da relação entre o empregador e o governo <strong>local</strong> — ela não muda a sua condição de residente fiscal em outro país. Durante os quase seis meses em que morei no Brasil recebendo salário de uma empresa em Dubai, esse rendimento era de fonte estrangeira e, para a Receita Federal, tributável como tal. Isto não é orientação fiscal: se você vai receber salário do exterior morando no Brasil, procure um contador especializado em rendimento estrangeiro antes de montar o arranjo — as regras de residência fiscal e de tributação sobre remessas mudam com frequência.
 </div>
 
 <div class="personal-story">
@@ -356,7 +361,7 @@ Meus dois gestores foram um nigeriano — hoje morando em Portugal — e um arge
   <div class="section-title-wrap"><h2>O projeto e as tecnologias</h2></div>
 </div>
 
-O pano de fundo dos dois anos foi um só: **migração de arquitetura monolítica para microsserviços**. Todo o resto acontecia em cima disso.
+O pano de fundo dos dois anos foi um só: **migração de arquitetura monolítica para microsserviços**. O restante acontecia em cima disso.
 
 <div class="providers-grid">
   <div class="provider-card">
