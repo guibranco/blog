@@ -32,8 +32,12 @@
       slug: cloud
     - name: DevOps
       slug: devops
+    - name: Self-Hosting
+      slug: self-hosting
     - name: "Telecomunicações"
       slug: telecomunicacoes
+    - name: "Trabalho no Exterior"
+      slug: trabalho-no-exterior
 
 - name: Hobbies
   slug: hobbies
