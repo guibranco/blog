@@ -6,7 +6,8 @@ date: 2023-07-05
 categories: [Career]
 tags: [team-lead, tech-lead, lideranca, carreira, gestao-de-pessoas, engenharia-de-software]
 reading_time: 6
-image: /assets/img/posts/team-lead-vs-tech-lead.svg
+cover: /assets/img/posts/team-lead-vs-tech-lead.svg
+image: /assets/img/posts/team-lead-vs-tech-lead.png
 ---
 
 <p class="lead">Em equipes de desenvolvimento de software é comum encontrar os títulos de <strong>Team Lead</strong> e <strong>Tech Lead</strong> — e é ainda mais comum vê-los sendo usados como sinônimos. Apesar da semelhança no nome, são papéis com focos bem diferentes: um lidera pessoas, o outro lidera a técnica. Neste artigo, destrincho as responsabilidades e habilidades de cada um, e por que os dois são essenciais (e complementares) para uma equipe saudável.</p>
