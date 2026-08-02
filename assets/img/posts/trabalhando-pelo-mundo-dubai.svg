@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="1200" height="630" role="img" aria-label="Trabalhando pelo mundo 02 — Dubai: seis meses remoto antes do deserto">
+  <defs>
+    <style>
+      .mono { font-family: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace; }
+      .serif { font-family: 'Playfair Display', 'Source Serif 4', Georgia, serif; }
+      .sserif { font-family: 'Source Serif 4', Georgia, serif; }
+    </style>
+  </defs>
+
+  <rect x="-260" y="-160" width="1200" height="720" fill="#f5f0e8"/>
+
+  <rect x="56" y="52" width="568" height="1" fill="#e2dbd0"/>
+  <text class="mono" x="56" y="42" font-size="11" letter-spacing="2.4" fill="#b85c00">TRABALHANDO PELO MUNDO</text>
+  <text class="mono" x="624" y="42" font-size="11" letter-spacing="2.4" fill="#8a8078" text-anchor="end">02 / 03</text>
+
+  <rect x="56" y="82" width="46" height="5" fill="#b85c00"/>
+  <rect x="108" y="82" width="18" height="5" fill="#2d6a4f"/>
+  <rect x="132" y="82" width="8" height="5" fill="#e2dbd0"/>
+
+  <text class="serif" x="56" y="164" font-size="72" font-weight="700" fill="#1a1714">Dubai</text>
+  <text class="sserif" x="56" y="204" font-size="25" font-style="italic" fill="#5a534a">seis meses remoto antes do deserto</text>
+
+  <!-- rota concluida: SP -> Dubai, com escala de 6 meses no meio -->
+  <g transform="translate(56,246)">
+    <circle cx="4" cy="14" r="5" fill="#2d6a4f"/>
+    <path d="M4 14 C 110 -20, 300 -20, 420 14" fill="none" stroke="#b85c00" stroke-width="1.8" opacity="0.85"/>
+    <circle cx="420" cy="14" r="6.5" fill="#b85c00"/>
+    <text class="mono" x="0" y="34" font-size="10.5" letter-spacing="1.4" fill="#8a8078">SÃO PAULO</text>
+    <text class="mono" x="420" y="34" font-size="10.5" letter-spacing="1.4" fill="#8a8078" text-anchor="middle">DUBAI</text>
+    <text class="mono" x="212" y="-16" font-size="10" letter-spacing="1.2" fill="#8a8078" text-anchor="middle">6 MESES EM REMOTO</text>
+  </g>
+
+  <rect x="56" y="316" width="568" height="1" fill="#e2dbd0"/>
+
+  <text class="mono" x="56" y="340" font-size="11.5" letter-spacing="1.2" fill="#5a534a">TALABAT · DELIVERY HERO</text>
+  <text class="mono" x="56" y="358" font-size="11.5" letter-spacing="1.2" fill="#8a8078">Software Engineer · Groceries / qCommerce</text>
+  <text class="mono" x="624" y="340" font-size="11.5" letter-spacing="1.2" fill="#b85c00" text-anchor="end">MAI 2021 — MAR 2023</text>
+  <text class="mono" x="624" y="358" font-size="11.5" letter-spacing="1.2" fill="#8a8078" text-anchor="end">1 ano e 11 meses</text>
+</svg>
