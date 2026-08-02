@@ -10,7 +10,8 @@ subcategories:
   - "Infraestrutura/DevOps"
 tags: [csharp, dotnet, deploy, vps, ubuntu, nginx, github-actions, ci-cd, certbot, ssl, systemd, oci, healthchecks, swagger, background-worker, load-balancing, kestrel, linux, infraestrutura]
 reading_time: 15
-image: /assets/img/posts/csharp-deploy.svg
+cover: /assets/img/posts/csharp-deploy.svg
+image: /assets/img/posts/csharp-deploy.png
 ---
 
 <p class="lead">A step-by-step guide for deploying a .NET application — REST API, Swagger, HealthChecks and a long-running background worker — to an OCI Ubuntu VPS with Nginx acting as reverse proxy and load balancer, SSL provided by Let's Encrypt via Certbot.</p>

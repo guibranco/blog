@@ -10,7 +10,8 @@ subcategories:
   - "Infraestrutura/DevOps"
 tags: [php, deploy, vps, ubuntu, nginx, github-actions, ci-cd, certbot, ssl, systemd, websocket, mariadb, composer, linux, infraestrutura]
 reading_time: 12
-image: /assets/img/posts/php-deploy.svg
+cover: /assets/img/posts/php-deploy.svg
+image: /assets/img/posts/php-deploy.png
 ---
 
 <p class="lead">A step-by-step guide for deploying a long-running PHP application (with optional WebSocket support) to an Ubuntu VPS, using GitHub Actions for CI/CD.</p>

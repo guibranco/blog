@@ -10,7 +10,7 @@ subcategories:
   - "Infraestrutura/DevOps"
 tags: [dotnet, dotnet-framework, net-framework, github-actions, ci-cd, build, deploy, pipeline, yaml, msbuild, nuget, vstest, coverage, csharp, automacao, workflows, teste, testes, tests, testing]
 reading_time: 6
-image: /assets/img/posts/GitHubActionsLogo.webp
+image: /assets/img/posts/GitHubActionsLogo.png
 ---
 
 <p class="lead">In this article we cover the CI/CD process of a .NET Framework project using GitHub Actions to build, test, and run — from the first workflow file to a complete automated pipeline.</p>

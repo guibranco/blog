@@ -6,7 +6,8 @@ date: 2025-12-11
 categories: [Investments]
 tags: [desafio-52-semanas, poupanca, educacao-financeira, investimentos, financas-pessoais, habitos, economia, planejamento-financeiro]
 reading_time: 6
-image: /assets/img/posts/desafio-52-semanas.svg
+cover: /assets/img/posts/desafio-52-semanas.svg
+image: /assets/img/posts/desafio-52-semanas.png
 ---
 
 <p class="lead">O <strong>Desafio das 52 Semanas</strong> é uma estratégia simples de poupança progressiva que ajuda a criar o hábito de guardar dinheiro sem comprometer o orçamento. Profissionais de TI com boa renda mas sem experiência em investimentos podem aproveitar esse método como primeiro passo na educação financeira.</p>

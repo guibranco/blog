@@ -8,7 +8,8 @@ subcategories:
   - "Coding/Testing"
 tags: [dev, developer, desenvolvedor, qa, quality-assurance, automation, automation-engineer, software-engineer, testes, tests, teste, testes, user-acceptance, testing, unit-test, integration-test, load-test, e2e-test, uat, qa, qualidade, white-box, end-to-end, black-box, desenvolvedor, pirâmide-de-testes]
 reading_time: 6
-image: /assets/img/posts/dev-vs-qa-testes.svg
+cover: /assets/img/posts/dev-vs-qa-testes.svg
+image: /assets/img/posts/dev-vs-qa-testes.png
 ---
 
 <p class="lead">Uma dúvida muito comum entre desenvolvedores e times de QA é: quem é responsável por escrever quais testes? A resposta passa por entender dois conceitos fundamentais — caixa branca e caixa preta — e como cada papel no time se relaciona com eles.</p>
