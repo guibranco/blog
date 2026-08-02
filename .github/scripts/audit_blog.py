@@ -62,6 +62,12 @@ SKIP_DOMAINS = {
     "cdn.jsdelivr.net",
 }
 
+# `image:` feeds jekyll-seo-tag's og:image/twitter:image — social crawlers need
+# a raster format, SVG is not reliably rendered by Facebook/Twitter/LinkedIn.
+VALID_OG_IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif"}
+# `cover:` is the on-page hero graphic — any standard web image format is fine.
+VALID_COVER_EXTENSIONS = {".svg", ".png", ".jpg", ".jpeg", ".gif", ".webp"}
+
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def slugify(text: str) -> str:
@@ -200,6 +206,12 @@ def local_asset_path(value: str) -> Path | None:
     return ROOT / value.lstrip("/")
 
 
+def get_extension(value: str) -> str:
+    """Return the lowercase file extension of an image path/URL, ignoring any query/fragment."""
+    value = value.strip().split("?", 1)[0].split("#", 1)[0]
+    return Path(value).suffix.lower()
+
+
 def extract_external_images(body: str) -> list[str]:
     """Return all unique external image URLs found in post body."""
     urls = set()
@@ -273,6 +285,7 @@ def audit() -> tuple[dict, set, set]:
         "unregistered_categories":    [],   # {file, category}
         "invalid_subcategories":      [],   # {file, subcategory, reason}
         "missing_local_images":       [],   # {file, field, path}
+        "invalid_image_extensions":   [],   # {file, field, path, extension, expected}
     }
 
     all_tags: set[str] = set()
@@ -359,6 +372,38 @@ def audit() -> tuple[dict, set, set]:
                 issues["missing_local_images"].append({"file": rel, "field": field, "path": value})
                 gh_error(rel, f"Missing local `{field}` file: {value}")
 
+        # `image:` (og:image/twitter:image) must be a raster format social
+        # crawlers render; `cover:` (on-page hero) is expected to be an SVG.
+        image_value = fm.get("image", "")
+        if image_value:
+            ext = get_extension(image_value)
+            if ext not in VALID_OG_IMAGE_EXTENSIONS:
+                issues["invalid_image_extensions"].append({
+                    "file": rel, "field": "image", "path": image_value,
+                    "extension": ext or "(none)",
+                    "expected": "/".join(sorted(VALID_OG_IMAGE_EXTENSIONS)),
+                })
+                gh_error(
+                    rel,
+                    f"`image:` uses extension '{ext or '(none)'}' — Open Graph needs a raster "
+                    f"image ({'/'.join(sorted(VALID_OG_IMAGE_EXTENSIONS))}); use the SVG for `cover:` instead"
+                )
+
+        cover_value = fm.get("cover", "")
+        if cover_value:
+            ext = get_extension(cover_value)
+            if ext not in VALID_COVER_EXTENSIONS:
+                issues["invalid_image_extensions"].append({
+                    "file": rel, "field": "cover", "path": cover_value,
+                    "extension": ext or "(none)",
+                    "expected": "/".join(sorted(VALID_COVER_EXTENSIONS)),
+                })
+                gh_warning(
+                    rel,
+                    f"`cover:` uses extension '{ext or '(none)'}' — expected one of "
+                    f"{'/'.join(sorted(VALID_COVER_EXTENSIONS))}"
+                )
+
         # Collect external image URLs from body
         for url in extract_external_images(body):
             url_to_posts[url].append((rel, False))
@@ -434,14 +479,16 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
         len(issues["unregistered_categories"]) +
         len(issues["invalid_subcategories"]) +
         len(issues["missing_local_images"]) +
-        len([i for i in issues["broken_external_images"] if i["location"] == "front matter image"])
+        len([i for i in issues["broken_external_images"] if i["location"] == "front matter image"]) +
+        len([i for i in issues["invalid_image_extensions"] if i["field"] == "image"])
     )
     total_warnings = (
         len(issues["missing_feed_files"]) +
         len(issues["posts_without_image"]) +
         len(issues["posts_without_description"]) +
         len(issues["posts_without_reading_time"]) +
-        len([i for i in issues["broken_external_images"] if i["location"] == "body image"])
+        len([i for i in issues["broken_external_images"] if i["location"] == "body image"]) +
+        len([i for i in issues["invalid_image_extensions"] if i["field"] == "cover"])
     )
 
     post_count = len(list(POSTS_DIR.glob("*.md"))) if POSTS_DIR.exists() else 0
@@ -506,6 +553,20 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
             lines.append(f"- `{item['file']}` — `{item['field']}: {item['path']}` not found in branch")
     else:
         lines.append("✅ All local image/cover files exist in the branch.")
+    lines.append("")
+
+    # ── Image/cover extensions ────────────────────────────────────────────────
+    lines.append("## Image/cover formats\n")
+    if issues["invalid_image_extensions"]:
+        lines.append(f"**{len(issues['invalid_image_extensions'])} field(s) with an unexpected format:**\n")
+        for item in issues["invalid_image_extensions"]:
+            icon = "❌" if item["field"] == "image" else "⚠️"
+            lines.append(
+                f"- {icon} `{item['file']}` — `{item['field']}: {item['path']}` "
+                f"(found `{item['extension']}`, expected `{item['expected']}`)"
+            )
+    else:
+        lines.append("✅ All `image:`/`cover:` fields use the expected format.")
     lines.append("")
 
     # ── Feed files ────────────────────────────────────────────────────────────
@@ -595,7 +656,8 @@ def main():
         len(issues["invalid_subcategories"]) +
         len(issues["missing_local_images"]) +
         len([i for i in issues["broken_external_images"]
-             if i["location"] == "front matter image"])
+             if i["location"] == "front matter image"]) +
+        len([i for i in issues["invalid_image_extensions"] if i["field"] == "image"])
     )
     sys.exit(1 if blocking > 0 else 0)
 
