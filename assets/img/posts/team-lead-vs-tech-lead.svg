@@ -1,0 +1,42 @@
+<svg viewBox="0 0 680 400" width="1200" height="630" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Team Lead vs Tech Lead">
+  <!-- Background -->
+  <rect width="680" height="400" fill="#f5f0e8"/>
+
+  <!-- Top accent bars -->
+  <rect x="48" y="44" width="56" height="6" fill="#2d6a4f"/>
+  <rect x="110" y="44" width="24" height="6" fill="#b85c00"/>
+
+  <!-- Kicker -->
+  <text x="48" y="82" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="3" fill="#8a8078">CAREER · LIDERANÇA</text>
+
+  <!-- Title -->
+  <text x="48" y="136" font-family="'Playfair Display', Georgia, serif" font-size="44" font-weight="700" fill="#1a1714">Team Lead</text>
+  <text x="48" y="176" font-family="'Playfair Display', Georgia, serif" font-size="28" font-style="italic" fill="#8a8078">versus</text>
+  <text x="48" y="222" font-family="'Playfair Display', Georgia, serif" font-size="44" font-weight="700" fill="#1a1714">Tech Lead</text>
+
+  <!-- Subtitle -->
+  <text x="48" y="258" font-family="'Source Serif 4', Georgia, serif" font-size="15" fill="#5a534a">Dois papéis, dois focos: pessoas de um lado,</text>
+  <text x="48" y="280" font-family="'Source Serif 4', Georgia, serif" font-size="15" fill="#5a534a">técnica do outro — e por que o time precisa dos dois.</text>
+
+  <!-- Right column: two role cards -->
+  <!-- Team Lead card -->
+  <rect x="420" y="70" width="212" height="120" rx="10" fill="#faf9f6" stroke="#e2dbd0"/>
+  <rect x="420" y="70" width="6" height="120" rx="3" fill="#2d6a4f"/>
+  <text x="444" y="100" font-family="'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#2d6a4f">TEAM LEAD</text>
+  <text x="444" y="126" font-family="'Source Serif 4', Georgia, serif" font-size="13" fill="#1a1714">Pessoas · Prazos</text>
+  <text x="444" y="146" font-family="'Source Serif 4', Georgia, serif" font-size="13" fill="#1a1714">Comunicação</text>
+  <text x="444" y="166" font-family="'Source Serif 4', Georgia, serif" font-size="13" fill="#1a1714">Conflitos · Metas</text>
+
+  <!-- Tech Lead card -->
+  <rect x="420" y="210" width="212" height="120" rx="10" fill="#faf9f6" stroke="#e2dbd0"/>
+  <rect x="420" y="210" width="6" height="120" rx="3" fill="#b85c00"/>
+  <text x="444" y="240" font-family="'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#b85c00">TECH LEAD</text>
+  <text x="444" y="266" font-family="'Source Serif 4', Georgia, serif" font-size="13" fill="#1a1714">Arquitetura · Código</text>
+  <text x="444" y="286" font-family="'Source Serif 4', Georgia, serif" font-size="13" fill="#1a1714">Qualidade técnica</text>
+  <text x="444" y="306" font-family="'Source Serif 4', Georgia, serif" font-size="13" fill="#1a1714">Boas práticas</text>
+
+  <!-- Bottom rule + footer -->
+  <rect x="48" y="332" width="584" height="1" fill="#e2dbd0"/>
+  <text x="48" y="360" font-family="'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#8a8078">guilherme.stracini.com.br/blog</text>
+  <text x="632" y="360" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#8a8078">JUL 2023</text>
+</svg>
