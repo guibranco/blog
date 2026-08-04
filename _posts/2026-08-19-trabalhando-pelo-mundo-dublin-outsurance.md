@@ -181,7 +181,14 @@ Vale comparar como a ausência de diploma pesou em cada um dos três países:
 
 ### A papelada: uma linha só
 
-Toda a burocracia de chegada se resumiu a **um documento**: o **PPS number** — *Personal Public Service Number*, o identificador fiscal e de seguridade social irlandês, equivalente funcional do nosso CPF. Sem ele não se recebe salário, não se paga imposto corretamente nem se acessa serviço público.
+Toda a burocracia de chegada se resumiu a **um documento**: o **PPS number** — *Personal Public Service Number*, o identificador fiscal e de seguridade social irlandês, equivalente funcional do nosso CPF. Ele é o que destrava a **tributação correta** e o acesso a serviços públicos.
+
+Vale desfazer um mal-entendido comum: **não é que sem ele você fique sem receber**. O empregador consegue rodar a folha e pagar normalmente — só que sob o regime de *emergency tax*, em que a retenção é feita na alíquota mais alta e sem nenhum crédito fiscal aplicado. Quando o PPS sai e o emprego é registrado junto à Revenue, os créditos entram, e o que foi retido a mais volta pela própria folha nos meses seguintes.
+
+<div class="callout callout-warn">
+  <div class="callout-label">Resolva o PPS antes da primeira folha</div>
+  O prejuízo do <em>emergency tax</em> é temporário, mas não é pequeno: sem créditos fiscais, o desconto no contracheque é bem maior do que o normal, e isso acontece exatamente nas primeiras semanas — quando você está pagando acomodação temporária, depósito de aluguel e mobília. O dinheiro volta, mas volta depois. Trate o PPS e o registro do emprego como prioridade da primeira semana, não como pendência administrativa.
+</div>
 
 E foi isso. Sem visto, sem permissão de trabalho, sem cartão de residência, sem registro de imigração, sem prazo de processamento, sem advogado. Um número.
 
@@ -454,7 +461,7 @@ A forma do dia tem uma característica que eu passei a valorizar muito: **as reu
   <tbody>
     <tr><td>Manhã</td><td>Acordar, banho, deslocamento ao escritório — ou daily direto de casa, no dia remoto</td></tr>
     <tr><td>Depois da daily</td><td>Caminhada leve de uns 3 km</td></tr>
-    <tr><td>Manhã</td><td>Trabalho nas tarefas, com poucas interrupções</td></tr>
+    <tr><td>Restante da manhã</td><td>Trabalho nas tarefas, com poucas interrupções</td></tr>
     <tr><td>Almoço</td><td>Na região do escritório ou delivery</td></tr>
     <tr><td>Tarde</td><td>Reuniões e o resto das tarefas</td></tr>
     <tr><td>Fim da tarde</td><td>Corrida ou caminhada de treino, uns 10 km, depois do pico do escritório</td></tr>
@@ -599,21 +606,31 @@ Esse é o tópico que eu mais recomendo a qualquer brasileiro pensando em trabal
 
 <table class="compare-table">
   <thead>
-    <tr><th></th><th>CLT no Brasil</th><th>Irlanda</th></tr>
+    <tr><th></th><th>CLT no Brasil</th><th>Mínimo legal na Irlanda</th><th>Na OUTsurance</th></tr>
   </thead>
   <tbody>
-    <tr><td>Quantidade</td><td>30 dias corridos</td><td>24 dias úteis (2 por mês trabalhado)</td></tr>
-    <tr><td>Feriados</td><td>Nacionais e municipais</td><td>10 <em>bank holidays</em></td></tr>
-    <tr><td>Como se tira</td><td>De uma vez, ou parcelado em até 2 ou 3 períodos conforme a lei</td><td>Meio dia, um dia, ou blocos de 2 a 3 semanas</td></tr>
-    <tr><td>Como se pede</td><td>Negociação com o RH, período definido em comum acordo</td><td>Solicitação no próprio sistema, aprovada pelo gestor imediato</td></tr>
-    <tr><td>Quando o saldo aparece</td><td>Após 12 meses de período aquisitivo</td><td>Creditado no sistema na virada do ano</td></tr>
-    <tr><td>Progressão por tempo de casa</td><td>Não</td><td>Dias adicionais após alguns anos de empresa</td></tr>
+    <tr><td>Quantidade</td><td>30 dias corridos</td><td>4 semanas de trabalho — 20 dias para jornada de 5 dias</td><td>24 dias úteis (2 por mês trabalhado)</td></tr>
+    <tr><td>Feriados</td><td>Nacionais e municipais</td><td>10 feriados públicos, contados à parte das férias</td><td>Os mesmos 10</td></tr>
+    <tr><td>Quando começa a acumular</td><td>Após 12 meses de período aquisitivo</td><td>Desde o primeiro dia, sem carência</td><td>Saldo creditado na virada do ano</td></tr>
+    <tr><td>Ano de referência</td><td>Período aquisitivo individual</td><td>1º de abril a 31 de março, salvo se o contrato definir outro</td><td>Ano civil</td></tr>
+    <tr><td>Como se tira</td><td>De uma vez, ou parcelado em até 3 períodos</td><td>Agendamento pelo empregador; direito a 2 semanas ininterruptas após 8 meses trabalhados</td><td>Meio dia, um dia, ou blocos de 2 a 3 semanas</td></tr>
+    <tr><td>Como se pede</td><td>Negociação com o RH, período definido em comum acordo</td><td>Não definido em lei</td><td>Aviso mínimo de uma semana, aprovado pelo gestor imediato no próprio sistema</td></tr>
+    <tr><td>Saldo não usado</td><td>Deve ser pago; se vencido, em dobro</td><td>Não pode ser pago em dinheiro, salvo na rescisão</td><td>Até 4 dias passam para o ano seguinte; o excedente é perdido</td></tr>
   </tbody>
 </table>
 
+Repare na coluna do meio: **os 24 dias não são a regra irlandesa**. O piso legal na Irlanda é de quatro semanas de trabalho — 20 dias para quem cumpre cinco dias por semana —, e o empregador pode oferecer mais. Os quatro dias extras e a granularidade de meio dia são política desta empresa, escritas em contrato, não direitos garantidos por lei. Os 10 feriados públicos, esses sim, são estatutários e contam à parte.
+
 <div class="callout callout-warn">
-  <div class="callout-label">Cuidado com a comparação "30 contra 24"</div>
-  À primeira vista parece que o Brasil oferece mais. Mas os 30 dias da CLT são <strong>corridos</strong> — incluem fins de semana. Trinta dias corridos equivalem a mais ou menos <strong>21 ou 22 dias úteis</strong>, dependendo do dia em que começam. Os 24 daqui são <strong>úteis</strong>, e os 10 <em>bank holidays</em> vêm por fora. Na prática, o tempo de descanso é parecido ou até maior — a comparação direta dos números engana.
+  <div class="callout-label">Férias aqui são "use ou perca"</div>
+  Essa é a diferença que mais pega brasileiro desprevenido, e não tem a ver com quantidade. No Brasil, férias não gozadas <strong>têm que ser pagas</strong> — e em dobro, se vencerem. É um passivo do empregador.<br><br>
+  Aqui a lógica se inverte. Não se pode converter férias em dinheiro durante o contrato: só na rescisão. E o que sobra no fim do ano em geral <strong>não se acumula indefinidamente</strong> — no meu contrato, o teto de transporte para o ano seguinte é de quatro dias, e o que passar disso simplesmente se perde. As exceções são situações de afastamento, como licença médica ou parental.<br><br>
+  Consequência prática: planejar férias deixa de ser opcional. Se você chegar em novembro com dez dias no saldo, não vai receber por eles — vai ter que tirá-los ou abrir mão. É um incentivo desenhado para que as pessoas efetivamente descansem, e funciona.
+</div>
+
+<div class="callout callout-warn">
+  <div class="callout-label">Cuidado com a comparação "30 contra 20"</div>
+  À primeira vista parece que o Brasil oferece muito mais. Mas os 30 dias da CLT são <strong>corridos</strong> — incluem fins de semana. Trinta dias corridos equivalem a mais ou menos <strong>21 ou 22 dias úteis</strong>, dependendo do dia em que começam. O piso irlandês são 20 dias <strong>úteis</strong>, e os 10 feriados públicos vêm por fora, sem abater das férias. Na prática, o tempo de descanso garantido por lei nos dois países é mais parecido do que os números sugerem — e o que faz diferença de verdade é o que cada contrato oferece acima do mínimo.
 </div>
 
 Mas o ponto de verdade não é a quantidade. É a **granularidade**.
@@ -640,8 +657,10 @@ Na prática, o meu esquema é este:
 O combinado com o gestor acontece nos **1:1**, e é uma conversa, não um pedido formal. Férias longas se planejam com meses de folga justamente para permitir que o time se organize — o que, no fim, é o que torna a flexibilidade sustentável.
 
 <div class="callout callout-tip">
-  <div class="callout-label">Isso não é uma peculiaridade irlandesa</div>
-  Vale deixar claro, porque muita gente lê esse tipo de relato como sorte de empresa: <strong>esse modelo é comum fora do Brasil</strong>, não uma exclusividade daqui ou desta companhia. Saldo creditado, autosserviço no sistema, granularidade de meio dia e aprovação pelo gestor imediato são o padrão em boa parte da Europa. O modelo brasileiro de bloco corrido, com período aquisitivo e negociação com o RH, é que é a exceção.
+  <div class="callout-label">O que é lei e o que é prática desta empresa</div>
+  Vale separar as duas coisas, porque elas têm pesos diferentes.<br><br>
+  <strong>A quantidade tem base legal.</strong> A diretiva europeia de tempo de trabalho garante um piso de <strong>quatro semanas</strong> de férias remuneradas por ano em todo o bloco, contadas em semanas de trabalho — e vários países vão além desse mínimo. Segundo o Eurofound, a média negociada em acordos coletivos na União Europeia gira em torno de <strong>24 dias</strong>. Ou seja: os 24 dias úteis que eu tenho aqui não são generosidade excepcional, são aproximadamente a média europeia.<br><br>
+  <strong>Já a mecânica é prática de empregador.</strong> Saldo creditado na virada do ano, solicitação por autosserviço, granularidade de meio dia e aprovação pelo gestor imediato não são exigências de lei — é como funciona nesta empresa. Eu ouço relatos parecidos de conhecidos em outros países europeus, mas isso é impressão pessoal, não levantamento: se você estiver avaliando uma vaga, pergunte como o controle de férias funciona <em>naquela</em> empresa, porque varia.
 </div>
 
 <div class="divider">· · ·</div>
@@ -669,7 +688,7 @@ O combinado com o gestor acontece nos **1:1**, e é uma conversa, não um pedido
     <tr><td>Setor</td><td>E-commerce de luxo</td><td>Delivery / qCommerce</td><td>Seguros</td></tr>
     <tr><td>Nuvem e mensageria</td><td>Kafka, Cassandra, Elasticsearch</td><td>AWS SQS e Lambda</td><td>Azure, Service Bus, Cosmos DB</td></tr>
     <tr><td>Ritmo</td><td>Calmo</td><td>Elevado</td><td>Calmo</td></tr>
-    <tr><td>Férias</td><td>—</td><td>Conforme a lei dos Emirados</td><td>24 dias úteis + 10 feriados, com granularidade de meio dia</td></tr>
+    <tr><td>Férias</td><td>—</td><td>Conforme a lei dos Emirados</td><td>Piso legal de 20 dias úteis + 10 feriados; 24 dias por contrato</td></tr>
     <tr><td>Imposto de renda</td><td>Sim</td><td>Não</td><td>Sim</td></tr>
   </tbody>
 </table>
@@ -696,6 +715,26 @@ O combinado com o gestor acontece nos **1:1**, e é uma conversa, não um pedido
     <li>
       Irish Immigration. <strong>Registration and residence permission.</strong>
       <a href="https://www.irishimmigration.ie/" target="_blank">irishimmigration.ie</a>
+    </li>
+    <li>
+      Revenue (Irlanda). <strong>PAYE Regulations — Emergency Tax.</strong>
+      <a href="https://www.revenue.ie/en/tax-professionals/tdm/income-tax-capital-gains-tax-corporation-tax/part-42/42-04-24a-20210125165645.pdf" target="_blank">revenue.ie</a>
+    </li>
+    <li>
+      Citizens Information (Irlanda). <strong>Annual leave — Organisation of Working Time Act 1997.</strong>
+      <a href="https://www.citizensinformation.ie/en/employment/employment-rights-and-conditions/leave-and-holidays/annual-leave/" target="_blank">citizensinformation.ie</a>
+    </li>
+    <li>
+      Workplace Relations Commission (Irlanda). <strong>Annual leave.</strong>
+      <a href="https://www.workplacerelations.ie/en/what_you_should_know/leave/annual-leave/" target="_blank">workplacerelations.ie</a>
+    </li>
+    <li>
+      União Europeia. <strong>Diretiva 2003/88/CE — tempo de trabalho e férias anuais remuneradas.</strong>
+      <a href="https://europa.eu/youreurope/business/human-resources/general-employment-terms-conditions/working-hours/index_en.htm" target="_blank">europa.eu</a>
+    </li>
+    <li>
+      Eurofound. <strong>Balancing the clock: How Europe works and rests.</strong>
+      <a href="https://www.eurofound.europa.eu/en/publications/all/balancing-the-clock-how-europe-works-and-rests" target="_blank">eurofound.europa.eu</a>
     </li>
   </ol>
 </div>
