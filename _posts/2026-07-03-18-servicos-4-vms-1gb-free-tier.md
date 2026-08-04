@@ -7,7 +7,8 @@ tags: [devops, linux, nginx, arquitetura, self-hosted, free-tier, oracle-cloud, 
 lang: pt-BR
 reading_time: 9
 description: "Como distribuí quase vinte serviços PHP e .NET em quatro VMs gratuitas de 1 GB de RAM, com fila de mensagens, banco de dados, cache e hardening — sem estourar a memória."
-image: /assets/img/posts/diagrama-capa.svg
+cover: /assets/img/posts/diagrama-capa.svg
+image: /assets/img/posts/diagrama-capa.png
 ---
 
 Todo desenvolvedor com projetos pessoais chega nessa encruzilhada: os serviços se multiplicam — APIs, bots, dashboards, workers — e a conta da nuvem não pode multiplicar junto. No meu caso, o inventário chegou a **18 serviços**, entre PHP e C#/.NET, e a plataforma escolhida foi a **Oracle Cloud Infrastructure (OCI)**, rodando em **quatro instâncias VM.Standard.E2.1.Micro** — o shape AMD do free tier, com 1/8 de OCPU (burstável) e 1 GB de RAM cada.

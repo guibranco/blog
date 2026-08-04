@@ -6,7 +6,8 @@ date: 2026-05-22
 categories: [Investments]
 tags: [independencia-financeira, reserva-de-emergencia, aposentadoria, investimentos, lci, lca, tesouro-direto, previdencia-privada, renda-fixa, renda-variavel, fiis, criptomoedas, educacao-financeira]
 reading_time: 14
-image: /assets/img/posts/independencia-financeira.svg
+cover: /assets/img/posts/independencia-financeira.svg
+image: /assets/img/posts/independencia-financeira.png
 ---
 
 <p class="lead">Independência financeira não é um destino — é um processo. Começa com escolhas simples e consistentes, tomadas antes de você precisar delas. Neste artigo compartilho dados reais do mercado, e ao longo de cada seção um box separado com o que funcionou na <strong>minha vida pessoal</strong>. O que deu certo para mim pode não ser o ideal para você — use como referência, não como receita.</p>

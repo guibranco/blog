@@ -7,7 +7,8 @@ date: 2025-07-17
 categories: [Investments]
 tags: [apostas, bet365, odds, arbitrage, probabilidade, futebol, esportes, sure-bet, matematica-financeira]
 reading_time: 6
-image: /assets/img/posts/betting-odds-arbitrage.svg
+cover: /assets/img/posts/betting-odds-arbitrage.svg
+image: /assets/img/posts/betting-odds-arbitrage.png
 ---
 
 <p class="lead">Odds in betting represent the probability of an outcome occurring and determine how much you can win from a wager. Understanding how they work is the first step to betting smarter — and spotting the rare opportunities where the math works in your favour.</p>
