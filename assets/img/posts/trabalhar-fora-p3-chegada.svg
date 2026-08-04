@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="680" height="400" role="img" aria-label="Parte 3: currículo, chegada e primeiros meses">
+  <defs>
+    <style>
+      .bg    { fill: #f5f0e8; }
+      .rule  { stroke: #d9d0c2; stroke-width: 1; }
+      .axis  { stroke: #c9bfae; stroke-width: 1; }
+      .kicker{ font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2.4px; fill: #b85c00; }
+      .meta  { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 1.4px; fill: #8a8078; }
+      .title { font-family: 'Playfair Display', Georgia, serif; font-size: 44px; font-weight: 700; fill: #1a1714; }
+      .titleAlt { font-family: 'Playfair Display', Georgia, serif; font-size: 44px; font-weight: 400; font-style: italic; fill: #2d6a4f; }
+      .sub   { font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; fill: #5a534a; }
+      .caption { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 1.3px; fill: #8a8078; }
+      .barval{ font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: #5a534a; }
+      .barlbl{ font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1.2px; fill: #1a1714; }
+      .legend{ font-family: 'JetBrains Mono', monospace; font-size: 8.5px; letter-spacing: 0.8px; fill: #8a8078; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="680" height="400"/>
+  <rect x="0" y="0" width="7" height="400" fill="#2d6a4f"/>
+  <rect x="7" y="0" width="3" height="400" fill="#b85c00"/>
+
+  <text class="kicker" x="46" y="52">CARREIRA · PARTE 3 DE 3</text>
+  <text class="meta" x="634" y="52" text-anchor="end">guilherme.stracini.com.br</text>
+  <line class="rule" x1="46" y1="66" x2="634" y2="66"/>
+
+  <text class="title" x="46" y="124">Currículo,</text>
+  <text class="titleAlt" x="46" y="172">chegada e o resto</text>
+
+  <text class="sub" x="46" y="210">O CV que funciona lá fora, os primeiros meses</text>
+  <text class="sub" x="46" y="231">em Dublin e o que não cabe no post do LinkedIn.</text>
+
+  <line class="rule" x1="46" y1="278" x2="634" y2="278"/>
+
+  <text class="caption" x="46" y="299">OS PRIMEIROS 40 DIAS — CHEGADA EM DUBLIN</text>
+  <line class="axis" x1="46" y1="350" x2="469" y2="350"/>
+  <circle cx="46" cy="350" r="5" fill="#2d6a4f"/>
+  <text class="barval" x="48" y="337" text-anchor="start">DIA 1</text>
+  <text class="legend" x="48" y="373" text-anchor="start">HOSTEL</text>
+  <circle cx="187" cy="350" r="5" fill="#2d6a4f"/>
+  <text class="barval" x="187" y="337" text-anchor="middle">SEM. 1–2</text>
+  <text class="legend" x="187" y="373" text-anchor="middle">PPS NUMBER</text>
+  <circle cx="328" cy="350" r="5" fill="#2d6a4f"/>
+  <text class="barval" x="328" y="337" text-anchor="middle">~40 DIAS</text>
+  <text class="legend" x="328" y="373" text-anchor="middle">3 AIRBNBS</text>
+  <circle cx="469" cy="350" r="5" fill="#b85c00"/>
+  <text class="barval" x="467" y="337" text-anchor="end">MÊS 2</text>
+  <text class="legend" x="467" y="373" text-anchor="end">CONTRATO</text>
+</svg>

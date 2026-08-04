@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="680" height="400" role="img" aria-label="Parte 2: a conta que ninguém faz">
+  <defs>
+    <style>
+      .bg    { fill: #f5f0e8; }
+      .rule  { stroke: #d9d0c2; stroke-width: 1; }
+      .axis  { stroke: #c9bfae; stroke-width: 1; }
+      .kicker{ font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2.4px; fill: #b85c00; }
+      .meta  { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 1.4px; fill: #8a8078; }
+      .title { font-family: 'Playfair Display', Georgia, serif; font-size: 44px; font-weight: 700; fill: #1a1714; }
+      .titleAlt { font-family: 'Playfair Display', Georgia, serif; font-size: 44px; font-weight: 400; font-style: italic; fill: #2d6a4f; }
+      .sub   { font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; fill: #5a534a; }
+      .caption { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 1.3px; fill: #8a8078; }
+      .barval{ font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: #5a534a; }
+      .barlbl{ font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1.2px; fill: #1a1714; }
+      .legend{ font-family: 'JetBrains Mono', monospace; font-size: 8.5px; letter-spacing: 0.8px; fill: #8a8078; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="680" height="400"/>
+  <rect x="0" y="0" width="7" height="400" fill="#2d6a4f"/>
+  <rect x="7" y="0" width="3" height="400" fill="#b85c00"/>
+
+  <text class="kicker" x="46" y="52">CARREIRA · PARTE 2 DE 3</text>
+  <text class="meta" x="634" y="52" text-anchor="end">guilherme.stracini.com.br</text>
+  <line class="rule" x1="46" y1="66" x2="634" y2="66"/>
+
+  <text class="title" x="46" y="124">A conta que</text>
+  <text class="titleAlt" x="46" y="172">ninguém faz</text>
+
+  <text class="sub" x="46" y="210">Por que o salário bruto mente — moradia, impostos</text>
+  <text class="sub" x="46" y="231">e os subsídios invisíveis que você perde ao sair.</text>
+
+  <line class="rule" x1="46" y1="278" x2="634" y2="278"/>
+
+  <text class="caption" x="46" y="299">ALUGUEL MENSAL — DUBAI EM US$, DUBLIN EM €</text>
+  <rect x="46" y="343.6" width="34" height="34.4" fill="#2d6a4f" opacity="1.0"/>
+  <text class="barval" x="63" y="338" text-anchor="middle">1.000</text>
+  <text class="barlbl" x="63" y="392" text-anchor="middle">DXB</text>
+  <rect x="112" y="316.0" width="34" height="62.0" fill="#b85c00" opacity="1.0"/>
+  <text class="barval" x="129" y="310" text-anchor="middle">1.800</text>
+  <text class="barlbl" x="129" y="392" text-anchor="middle">D18</text>
+  <rect x="178" y="336.7" width="34" height="41.3" fill="#2d6a4f" opacity="0.62"/>
+  <text class="barval" x="195" y="331" text-anchor="middle">1.200</text>
+  <text class="barlbl" x="195" y="392" text-anchor="middle">D06</text>
+  <rect x="244" y="336.8" width="34" height="41.2" fill="#2d6a4f" opacity="0.48"/>
+  <text class="barval" x="261" y="331" text-anchor="middle">1.195</text>
+  <text class="barlbl" x="261" y="392" text-anchor="middle">D08</text>
+  <line class="axis" x1="46" y1="378.5" x2="278" y2="378.5"/>
+  <text class="legend" x="634" y="326" text-anchor="end">DXB · DUBAI, JLT — APTO INTEIRO (US$)</text>
+  <text class="legend" x="634" y="342" text-anchor="end">D18 · CHERRYWOOD — ESTÚDIO</text>
+  <text class="legend" x="634" y="358" text-anchor="end">D06 · RATHMINES — DIVIDIDO</text>
+  <text class="legend" x="634" y="374" text-anchor="end">D08 · THE LIBERTIES — DIVIDIDO</text>
+</svg>
