@@ -7,7 +7,7 @@ categories: [Career]
 subcategories:
   - "Career/Trabalho no Exterior"
 tags: [trabalho-no-exterior, dublin, irlanda, carreira-internacional, expatriado, outsurance, seguros, insurtech, relocation, critical-skills, visto-de-trabalho, csharp, dotnet, azure, azure-devops, cosmos-db, service-bus, fintech, billing, hibrido, europa]
-reading_time: 20
+reading_time: 29
 cover: /assets/img/posts/trabalhando-pelo-mundo-dublin.svg
 image: /assets/img/posts/trabalhando-pelo-mundo-dublin.png
 series: trabalhando-pelo-mundo
@@ -192,10 +192,20 @@ E foi isso. Sem visto, sem permissão de trabalho, sem cartão de residência, s
 
 E cabe repetir, porque a coincidência confunde: o passaporte português veio por **questão familiar**, por descendência. Ele não tem nenhuma relação com eu ter trabalhado para uma empresa portuguesa em 2020 — aquele contrato, aliás, terminou justamente sem que eu chegasse a morar lá.
 
-<!-- TODO opcional, se quiser enriquecer:
-     - Abertura de conta bancária irlandesa
-     - Como foi encontrar apartamento em Dublin em 2023 (mercado notoriamente difícil)
-     - A empresa ofereceu apoio de relocação (voo, acomodação inicial)? -->
+### Bancos: quase nada mudou
+
+O sistema financeiro foi outra transição sem atrito, e por um motivo que vale registrar: **eu já chegava equipado**. As contas em fintechs internacionais que eu usava desde Dubai — Wise e Revolut — continuaram funcionando normalmente, agora em euro. O cartão internacional do meu banco brasileiro também seguiu operando sem problema.
+
+A conta irlandesa veio depois e sem drama: abri no **Bank of Ireland pelo aplicativo**, assim que saiu o PPS number. Sem agência, sem fila, sem comprovante de endereço presencial.
+
+<div class="callout callout-tip">
+  <div class="callout-label">Fintech internacional resolve a fase de transição</div>
+  Esse é um conselho que vale para qualquer mudança de país: chegue com uma conta multimoeda já ativa e com histórico. Ela cobre exatamente a janela mais difícil — quando você ainda não tem identificação fiscal local, nem comprovante de endereço, nem conta no país, mas já precisa pagar hotel, Airbnb e depósito de aluguel. Foi assim em Dubai e foi assim aqui.
+</div>
+
+### O apoio da empresa
+
+A OUTsurance cobriu o **voo** e uma **acomodação inicial**. Não é um pacote de expatriação completo, mas resolve as duas despesas que mais pesam no primeiro momento — e, somado à ausência total de custo com visto, tornou essa a mudança mais barata das três.
 
 <div class="divider">· · ·</div>
 
@@ -249,6 +259,26 @@ O que houve foi moradia temporária. E aqui a comparação com o capítulo anter
 <div class="callout callout-warn">
   <div class="callout-label">Alugar em Dublin é o gargalo real da mudança</div>
   Repare que foram <strong>seis semanas e quatro endereços</strong> até assinar um contrato de aluguel. Isso não é desorganização: é como o mercado imobiliário de Dublin funciona, com oferta apertada e concorrência alta em cada visita. Se você está planejando mudar para cá, orce moradia temporária por bem mais tempo do que parece razoável, e não conte com resolver isso na primeira semana.
+</div>
+
+### O condomínio da empresa
+
+O apartamento que eu aluguei ficava num complexo **de frente para o escritório** — e a indicação veio de dentro da própria empresa, informalmente. Não foi ação da companhia: era simplesmente onde os colegas já moravam, e o contato circulava boca a boca.
+
+E moravam mesmo. Na época, praticamente todo mundo que tinha vindo da **África do Sul e da Austrália** estava ali — não só o pessoal de tecnologia. Um complexo de três prédios, com estúdios e apartamentos de um a quatro quartos, abrigando desde analista júnior até o CEO.
+
+<div class="personal-story">
+  <div class="personal-story-label">
+    <i class="fas fa-user-circle"></i> Minha experiência — a vila corporativa que se dissolveu
+  </div>
+  <p>Três anos depois, restam ali umas três ou quatro pessoas da empresa. O condomínio esvaziou por razões acumuladas: <strong>custo alto</strong>, manutenção demorada quando necessária, e distância do centro.</p>
+  <p>Não foi por falta de estrutura. O complexo já tinha quase tudo quando eu cheguei — barbearia, restaurante mexicano, academia com aulas de dança, e um supermercado de conveniência ali perto. Depois disso vieram um mercado maior, na segunda metade de 2024, e uma padaria, em 2026. Ou seja: o entorno só melhorou ao longo desses três anos, e ainda assim quase todo mundo saiu. O que pesou foi o custo e a localização, não a falta de comodidade.</p>
+</div>
+
+<div class="callout callout-tip">
+  <div class="callout-label">Morar onde os colegas moram: ótimo no começo, limitante depois</div>
+  Chegar num país onde você não conhece a cidade e cair num prédio cheio de gente da sua empresa resolve muita coisa de uma vez: você aprende como funciona o aluguel local, tem com quem dividir dúvida burocrática e não janta sozinho na primeira semana. É um atalho legítimo — e foi o meu.<br><br>
+  O que a experiência mostrou é que ele tem prazo de validade. Depois de alguns meses, morar de frente para o escritório, cercado das mesmas pessoas com quem você trabalha, deixa de ser conveniência e passa a ser um limite — na cidade que você conhece, nas amizades que você faz, e na separação entre trabalho e vida. Não por acaso, quase todo mundo acabou saindo.
 </div>
 
 ### A vida social começou antes da casa
@@ -451,11 +481,86 @@ O treino de fim de tarde acontece **depois do pico do escritório** — o comple
 
 O deslocamento fora de pico, nas duas pontas, é uma escolha deliberada e é possível justamente porque o trabalho permite. Em cidades onde o transporte lota, meia hora de flexibilidade no horário vale mais que qualquer benefício de folheto.
 
-<!-- TODO opcional, se quiser fechar de vez:
-     - Cerimônias: sprint de quantas semanas? Planning, refinement, retro?
-     - Tamanho e composição do time — nacionalidades, comparação com Dubai
-     - Existe escala de plantão aqui? (contraste forte com o capítulo anterior)
-     - A empresa é sul-africana com operação na Austrália — como o fuso afeta as reuniões? -->
+### As cerimônias
+
+A carga de reuniões é leve, e isso é parte importante do que faz o ritmo ser calmo.
+
+<table class="compare-table">
+  <thead>
+    <tr><th>Frequência</th><th>Cerimônia</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Diária</td><td>Daily de 25 minutos</td></tr>
+    <tr><td>Semanal</td><td><em>Tech planning</em>, uma hora</td></tr>
+    <tr><td>Quinzenal</td><td>Sessão de priorização</td></tr>
+    <tr><td>Quinzenal</td><td><em>Catch-up</em> com o CTO, normalmente após a planning</td></tr>
+    <tr><td>Quinzenal</td><td>1:1 com o gestor direto</td></tr>
+    <tr><td>Mensal</td><td>Reunião de toda a TI — retrospectiva do mês, números da empresa e o que vem pela frente</td></tr>
+  </tbody>
+</table>
+
+A daily tem 25 minutos reservados, mas na prática oscila bastante: às vezes acaba em oito ou dez, às vezes estica para quarenta. Eu prefiro assim a um cronômetro rígido — o tempo alocado é um teto, não uma meta.
+
+<div class="callout callout-tip">
+  <div class="callout-label">A vantagem de empresa média que ninguém coloca no anúncio da vaga</div>
+  Eu tenho um <em>catch-up</em> quinzenal com o <strong>CTO</strong> — que acumula o papel global e o da operação irlandesa. E, quando eu entrei, o meu 1:1 mensal era <strong>diretamente com ele</strong>, porque ele atuava também como gestor direto da área.<br><br>
+  Compare com os capítulos anteriores: na Farfetch havia diretor de engenharia, head do domínio, engineering manager de cluster e group product manager acima de mim. Na Talabat, um VP de Engenharia que eu vi uma única vez, numa entrevista. Numa empresa média, a distância entre quem escreve o código e quem decide a direção é curta o suficiente para caber numa conversa de quinze em quinze dias. É um benefício real, e não aparece em nenhuma descrição de vaga.
+</div>
+
+Hoje eu reporto ao antigo arquiteto de soluções, que passou a *head* de desenvolvimento e suporte, e o 1:1 é quinzenal.
+
+### A estrutura do time
+
+A TI se divide em **dois times**, cada um responsável por determinadas partes do sistema, com **três a cinco desenvolvedores** cada. Alguns papéis são **compartilhados** entre os dois: dois QAs e engenheiros de automação, um analista de negócios e um analista de suporte.
+
+O contraste com Dubai é instrutivo:
+
+<table class="compare-table">
+  <thead>
+    <tr><th></th><th>Talabat (Dubai)</th><th>OUTsurance (Dublin)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Unidade</td><td>Squad</td><td>Time</td></tr>
+    <tr><td>Engenheiros</td><td>3 a 6</td><td>3 a 5</td></tr>
+    <tr><td>Gestão</td><td>Engineering manager por squad</td><td>Gestão comum aos dois times</td></tr>
+    <tr><td>Produto</td><td>PM dividido entre squads da mesma tribo</td><td>Analista de negócios compartilhado</td></tr>
+    <tr><td>Qualidade</td><td>Time central de QA; as tarefas da squad eram testadas entre nós mesmos</td><td>QAs e engenheiros de automação compartilhados entre os times</td></tr>
+  </tbody>
+</table>
+
+O tamanho da célula de engenharia é praticamente idêntico — três a seis contra três a cinco. O que muda é tudo em volta: em Dubai, cada squad tinha seu próprio gestor e disputava a atenção de um PM repartido entre várias; aqui, dois times menores dividem a mesma estrutura de apoio.
+
+### Fusos: África do Sul perto, Austrália longe
+
+A OUTsurance é sul-africana e opera também na Austrália, o que poderia significar um calendário caótico. Na prática, não é.
+
+<div class="providers-grid">
+  <div class="provider-card">
+    <div class="provider-name"><i class="fas fa-location-dot"></i> África do Sul — a matriz</div>
+    <div class="provider-detail">Reuniões frequentes, e sem dor: uma ou duas horas de diferença conforme a época do ano. É onde ficam o time de dados que nos atende e as áreas de infraestrutura e segurança.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name"><i class="fas fa-clock"></i> Austrália</div>
+    <div class="provider-detail">Raras, e quando acontecem ficam no começo do dia — geralmente antes das 8h da manhã, único horário em que as duas pontas se encontram acordadas.</div>
+  </div>
+</div>
+
+<div class="callout callout-tip">
+  <div class="callout-label">Nem toda empresa multinacional cobra o mesmo preço de fuso</div>
+  Vale reparar na diferença em relação ao capítulo anterior. Trabalhar do Brasil para Dubai custava sete horas e me colocava de pé às 3h da manhã, todo dia. Aqui, a operação com quem eu mais interajo está a uma ou duas horas, e a que está a nove ou dez horas quase não aparece na minha agenda. <strong>O que importa não é quantos fusos a empresa atravessa — é onde está o time com quem você trabalha de fato.</strong>
+</div>
+
+### Os rituais sociais
+
+Dois hábitos que eu gosto e que custam quase nada:
+
+Um **café semanal** do time de TI, na cafeteria do complexo — só uma bebida, sem pauta. E um **happy hour mensal**, fora do horário de trabalho, em local escolhido pelo próprio time, e **não obrigatório**.
+
+<div class="callout callout-tip">
+  <div class="callout-label">Confraternização opcional é o detalhe que separa cultura de encenação</div>
+  Em Dubai, o happy hour era pago pela empresa, com comida e narguilé por conta da casa — e algumas vezes a retrospectiva do sprint acontecia no bar. Aqui é mais simples e mais sóbrio: o time escolhe o lugar, cada um paga o seu, e quem não quiser ir não vai.<br><br>
+  O formato importa menos que a última parte. Evento social que acontece fora do expediente e é tratado como opcional respeita quem tem filho, quem mora longe, quem não bebe e quem simplesmente quer ir para casa. Convivência que precisa ser obrigatória para acontecer não é convivência.
+</div>
 
 <div class="divider">· · ·</div>
 
@@ -555,7 +660,7 @@ O combinado com o gestor acontece nos **1:1**, e é uma conversa, não um pedido
     <tr><td>Período</td><td>Dez/2020 – Mai/2021</td><td>Mai/2021 – Mar/2023</td><td>Desde Abr/2023</td></tr>
     <tr><td>Duração</td><td>6 meses</td><td>1 ano e 11 meses</td><td>3 anos e contando</td></tr>
     <tr><td>Como cheguei</td><td>LinkedIn, recrutador me procurou</td><td>LinkedIn, recrutador me procurou</td><td>Indicação de recrutador</td></tr>
-    <tr><td>Moradia temporária</td><td>—</td><td>47 dias em dois hotéis, pagos pela empresa</td><td>43 dias entre hostel e Airbnbs</td></tr>
+    <tr><td>Moradia temporária</td><td>—</td><td>47 dias em dois hotéis, pagos pela empresa</td><td>43 dias entre hostel e Airbnbs, com apoio inicial da empresa</td></tr>
     <tr><td>Etapas do processo</td><td>2 conversas</td><td>6 etapas</td><td>Triagem + teste online</td></tr>
     <tr><td>Teste técnico</td><td><span class="cross">✗</span></td><td><span class="check">✓</span> live coding e system design</td><td><span class="check">✓</span> algoritmos online</td></tr>
     <tr><td>Vínculo</td><td>Recibos verdes, via consultoria</td><td>Empregado direto</td><td>Empregado direto</td></tr>
