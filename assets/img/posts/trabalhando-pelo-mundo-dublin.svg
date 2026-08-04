@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="1200" height="630" role="img" aria-label="Trabalhando pelo mundo 03 — Dublin: cheguei num domingo, comecei na segunda">
+  <defs>
+    <style>
+      .mono { font-family: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace; }
+      .serif { font-family: 'Playfair Display', 'Source Serif 4', Georgia, serif; }
+      .sserif { font-family: 'Source Serif 4', Georgia, serif; }
+    </style>
+  </defs>
+
+  <rect x="-260" y="-160" width="1200" height="720" fill="#f5f0e8"/>
+
+  <rect x="56" y="52" width="568" height="1" fill="#e2dbd0"/>
+  <text class="mono" x="56" y="42" font-size="11" letter-spacing="2.4" fill="#b85c00">TRABALHANDO PELO MUNDO</text>
+  <text class="mono" x="624" y="42" font-size="11" letter-spacing="2.4" fill="#8a8078" text-anchor="end">03 / 03</text>
+
+  <rect x="56" y="82" width="46" height="5" fill="#2d6a4f"/>
+  <rect x="108" y="82" width="18" height="5" fill="#2d6a4f"/>
+  <rect x="132" y="82" width="8" height="5" fill="#b85c00"/>
+
+  <text class="serif" x="56" y="164" font-size="72" font-weight="700" fill="#1a1714">Dublin</text>
+  <text class="sserif" x="56" y="204" font-size="25" font-style="italic" fill="#5a534a">cheguei no domingo, comecei na segunda</text>
+
+  <!-- percurso completo da serie: SP -> Porto (nunca alcancado) -> Dubai -> Dublin -->
+  <g transform="translate(56,250)">
+    <path d="M4 10 C 90 -14, 200 -14, 286 10" fill="none" stroke="#c8bfb2" stroke-width="1.4"/>
+    <path d="M286 10 C 330 -12, 380 -12, 420 10" fill="none" stroke="#2d6a4f" stroke-width="2"/>
+    <path d="M4 10 C 70 -34, 130 -38, 150 -30" fill="none" stroke="#c8bfb2" stroke-width="1.2" stroke-dasharray="4 4"/>
+    <circle cx="152" cy="-30" r="5" fill="none" stroke="#c8bfb2" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <text class="mono" x="164" y="-27" font-size="9.5" letter-spacing="1" fill="#a89e92">PORTO</text>
+
+    <circle cx="4" cy="10" r="4.5" fill="#c8bfb2"/>
+    <circle cx="286" cy="10" r="4.5" fill="#c8bfb2"/>
+    <circle cx="420" cy="10" r="7" fill="#2d6a4f"/>
+
+    <text class="mono" x="4" y="30" font-size="10" letter-spacing="1.2" fill="#a89e92" text-anchor="middle">SÃO PAULO</text>
+    <text class="mono" x="286" y="30" font-size="10" letter-spacing="1.2" fill="#a89e92" text-anchor="middle">DUBAI</text>
+    <text class="mono" x="420" y="30" font-size="10" letter-spacing="1.2" fill="#5a534a" text-anchor="middle">DUBLIN</text>
+  </g>
+
+  <rect x="56" y="316" width="568" height="1" fill="#e2dbd0"/>
+
+  <text class="mono" x="56" y="340" font-size="11.5" letter-spacing="1.2" fill="#5a534a">OUTSURANCE</text>
+  <text class="mono" x="56" y="358" font-size="11.5" letter-spacing="1.2" fill="#8a8078">Senior Software Engineer · Finance &amp; Billing</text>
+  <text class="mono" x="624" y="340" font-size="11.5" letter-spacing="1.2" fill="#b85c00" text-anchor="end">DESDE ABR 2023</text>
+  <text class="mono" x="624" y="358" font-size="11.5" letter-spacing="1.2" fill="#8a8078" text-anchor="end">3 anos e contando</text>
+</svg>
