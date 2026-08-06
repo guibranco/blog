@@ -106,7 +106,7 @@ pagination:
           <div class="section-row">
             <h2 class="section-title" data-i18n="section_featured_single">Destaque</h2>
           </div>
-          {% assign featured = paginator.posts.first %}
+          {% assign featured = site.posts.first %}
           {% assign _featured_image = featured.cover | default: featured.image %}
           <article class="featured-card">
             <div class="featured-image">
@@ -138,18 +138,13 @@ pagination:
         </div>
         {% endif %}
 
-        {% if paginator.page == 1 %}
-          {% assign other_posts = paginator.posts | shift %}
-        {% else %}
-          {% assign other_posts = paginator.posts %}
-        {% endif %}
-        {% if other_posts.size > 0 %}
+        {% if paginator.posts.size > 0 %}
         <div class="article-card">
           <div class="section-row">
             <h2 class="section-title" data-i18n="section_all_articles">Todos os artigos</h2>
           </div>
           <div class="posts-grid">
-            {% for post in other_posts %}
+            {% for post in paginator.posts %}
             {% include post-card.html post=post %}
             {% endfor %}
           </div>
