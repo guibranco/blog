@@ -5,7 +5,7 @@ description: "Dividir o código em dois repositórios é uma decisão de logíst
 date: 2026-08-11
 categories: [Coding]
 subcategories:
-  - "Coding/Arquitetura"
+  - "Coding/Architecture"
 tags: [arquitetura, microservicos, monolito, monorepo, deploy, boas-praticas]
 reading_time: 13
 cover: /assets/img/posts/repositorio-nao-e-arquitetura.svg
@@ -320,7 +320,7 @@ O Google mantém a esmagadora maioria do próprio código num repositório únic
     </li>
     <li>
       Potvin, R.; Levenberg, J. <strong>Why Google Stores Billions of Lines of Code in a Single Repository.</strong> Communications of the ACM, v. 59, n. 7, 2016.
-      <a href="https://cacm.acm.org/research/why-google-stores-billions-of-lines-of-code-in-a-single-repository/" target="_blank">cacm.acm.org</a>
+      <a href="https://research.google/pubs/why-google-stores-billions-of-lines-of-code-in-a-single-repository/" target="_blank">research.google</a>
     </li>
     <li>
       Westeinde, K. <strong>Deconstructing the Monolith: Designing Software that Maximizes Developer Productivity.</strong> Shopify Engineering.
@@ -328,7 +328,7 @@ O Google mantém a esmagadora maioria do próprio código num repositório únic
     </li>
     <li>
       Segment Engineering. <strong>Goodbye Microservices: From 100s of problem children to 1 superstar.</strong>
-      <a href="https://segment.com/blog/goodbye-microservices/" target="_blank">segment.com</a>
+      <a href="https://www.twilio.com/en-us/blog/developers/best-practices/goodbye-microservices" target="_blank">twilio.com</a>
     </li>
     <li>
       Newman, S. <strong>Building Microservices: Designing Fine-Grained Systems.</strong> 2. ed. O'Reilly Media, 2021.
