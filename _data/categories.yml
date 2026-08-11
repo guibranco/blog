@@ -4,11 +4,12 @@
   subcategories:
     - name: "Trabalho no Exterior"
       slug: trabalho-no-exterior
-
 - name: Coding
   slug: coding
   icon: "fas fa-code"
   subcategories:
+    - name: Architecture
+      slug: architecture
     - name: "C#"
       slug: csharp
     - name: Databases
@@ -25,7 +26,6 @@
       slug: testing
     - name: "Tips & Tricks"
       slug: tips-tricks
-
 - name: Infraestrutura
   slug: infraestrutura
   icon: "fas fa-server"
@@ -38,7 +38,6 @@
       slug: self-hosting
     - name: "Telecomunicações"
       slug: telecomunicacoes
-
 - name: Hobbies
   slug: hobbies
   icon: "fas fa-gamepad"
@@ -47,7 +46,6 @@
       slug: lego
     - name: "Travel & Places"
       slug: travel-places
-
 - name: Investments
   slug: investments
   icon: "fas fa-chart-line"
