@@ -14,14 +14,10 @@
       slug: csharp
     - name: Databases
       slug: databases
-    - name: "JS/TS & Node.JS"
-      slug: js-ts-node-js
     - name: PHP
       slug: php
     - name: Python
       slug: python
-    - name: Rust
-      slug: rust
     - name: Testing
       slug: testing
     - name: "Tips & Tricks"
