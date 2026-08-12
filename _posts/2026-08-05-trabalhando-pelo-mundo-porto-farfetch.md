@@ -36,8 +36,6 @@ No papel, inclusive, o modelo era **híbrido**: eu deveria estar no escritório 
   <div class="section-title-wrap"><h2>De onde eu vinha</h2></div>
 </div>
 
-<!-- TODO opcional: se quiser, dá para detalhar mais o escopo do time de projetos especiais. -->
-
 Antes do Porto eu estava no **Banco BS2**, contratado via **K2 Partnering** — ou seja, o modelo consultoria não era novidade para mim. Entrei em julho de 2019, na tribo de **B2B**, na squad de **API Banking**: desenvolvimento do produto de *banking as a service* do banco (devs.bs2.com), incluindo o projeto de open banking, com APIs e serviços em C# .NET Core, Dapper, Entity Framework e DDD, sistemas distribuídos em RabbitMQ, deploy em Docker, e cerimônias ágeis sobre Team Foundation Server.
 
 Em março de 2020 passei para o **time de projetos especiais**, sediado em Belo Horizonte, já dentro da divisão de serviços financeiros do banco. Cheguei a me mudar de fato — e voltei uma semana depois, quando a quarentena fechou tudo. O time inteiro foi para o remoto e, desse jeito, meio no improviso, nós implementamos o **SPI/PIX**, o sistema de pagamentos instantâneos do Banco Central. O escopo incluía mensageria **ISO 20022** — ADMI (administração), CAMT (gestão de caixa), PACS (compensação e liquidação de pagamentos) e REDA (dados de referência) —, a arquitetura das soluções de **PIX Direto e PIX Indireto** dentro do BS2, e o sistema de contabilização dos parceiros de PIX Indireto, além de suporte direto a clientes internos no processo de integração. A stack seguia em C# .NET Core, Dapper, Entity Framework e DDD, com sistemas distribuídos em RabbitMQ, deploy em Docker e as mesmas cerimônias de Scrum/Kanban — agora sobre **Azure DevOps**. Foi um período corrido: o Banco Central com prazo fechado, o país inteiro esperando, e um time distribuído construindo integração de pagamento instantâneo de dentro de casa.
@@ -78,13 +76,6 @@ Levei **um ou dois dias** para responder. Não foi jogo de negociação — foi 
 </div>
 
 O valor combinado ficou em **180 € por dia + IVA**, em recibos verdes, considerando 21 dias úteis por mês.
-
-<!-- TODO: inserir screenshot da conversa do LinkedIn com a recrutadora.
-     Usar o padrão de <img> do blog:
-<img src="{{ site.baseurl }}/assets/img/posts/porto-linkedin-recrutadora.png"
-     alt="Conversa no LinkedIn com a recrutadora da Multivision"
-     style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
--->
 
 ### As etapas
 
@@ -210,12 +201,6 @@ E teve um personagem que não existe no vocabulário brasileiro do mesmo jeito: 
     <tr><td>Valor base com IVA (23%)</td><td>4.428,00 €</td></tr>
   </tbody>
 </table>
-
-<!-- TODO: inserir screenshot de um dos recibos verdes emitidos.
-<img src="{{ site.baseurl }}/assets/img/posts/porto-recibo-verde.png"
-     alt="Exemplo de recibo verde emitido"
-     style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
--->
 
 ### Quanto custaria morar no Porto
 
