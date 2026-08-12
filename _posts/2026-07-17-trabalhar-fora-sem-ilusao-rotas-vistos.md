@@ -5,7 +5,7 @@ description: "As três rotas para trabalhar fora — visto local, remoto e trans
 date: 2026-07-17
 categories: [Career]
 subcategories:
-  - "Career/Trabalho no Exterior"
+  - "Career/Working Abroad"
 tags: [trabalho-no-exterior, visto-de-trabalho, carreira-internacional, irlanda, critical-skills-permit, eu-blue-card]
 reading_time: 9
 cover: /assets/img/posts/trabalhar-fora-p1-rotas-vistos.svg

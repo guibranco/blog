@@ -1,4 +1,4 @@
 ---
-redirect_to: /blog/categorias/infraestrutura/telecomunicacoes/
+redirect_to: /blog/categorias/infrastructure/telecommunications/
 permalink: /categorias/telecomunicacoes/
 ---

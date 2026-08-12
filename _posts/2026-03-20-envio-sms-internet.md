@@ -3,9 +3,9 @@ layout: post
 title: "Envio de SMS pela Internet: Da API ao Smartphone como Gateway"
 description: "Quatro abordagens para enviar SMS programaticamente — do serviço em nuvem ao modem físico atrás da sua mesa."
 date: 2026-03-20
-categories: [Infraestrutura]
+categories: [Infrastructure]
 subcategories:
-  - "Infraestrutura/Telecomunicações"
+  - "Infrastructure/Telecommunications"
 tags: [sms, api, gsm, android, twilio, gateway, simbox, php, iot, automação]
 reading_time: 12
 image: /assets/img/posts/envio-sms-internet.png

@@ -58,9 +58,9 @@ blog/                                # nome do repositório
 │   ├── coding.md
 │   ├── devops.md
 │   ├── hobbies.md
-│   ├── infraestrutura.md
+│   ├── infrastructure.md
 │   ├── investments.md
-│   ├── telecomunicacoes.md
+│   ├── telecommunications.md
 │   ├── testing.md
 │   └── travel-places.md
 │
@@ -72,9 +72,9 @@ blog/                                # nome do repositório
 │   ├── coding.xml
 │   ├── devops.xml
 │   ├── hobbies.xml
-│   ├── infraestrutura.xml
+│   ├── infrastructure.xml
 │   ├── investments.xml
-│   ├── telecomunicacoes.xml
+│   ├── telecommunications.xml
 │   ├── testing.xml
 │   └── travel-places.xml
 │
@@ -123,9 +123,9 @@ A categoria declarada no campo `category:` deve ser idêntica à usada no front 
 | Coding | `categorias/coding.md` | `/categorias/coding/` |
 | DevOps | `categorias/devops.md` | `/categorias/devops/` |
 | Hobbies | `categorias/hobbies.md` | `/categorias/hobbies/` |
-| Infraestrutura | `categorias/infraestrutura.md` | `/categorias/infraestrutura/` |
+| Infrastructure | `categorias/infrastructure.md` | `/categorias/infrastructure/` |
 | Investments | `categorias/investments.md` | `/categorias/investments/` |
-| Telecomunicações | `categorias/telecomunicacoes.md` | `/categorias/telecomunicacoes/` |
+| Telecommunications | `categorias/telecommunications.md` | `/categorias/telecommunications/` |
 | Testing | `categorias/testing.md` | `/categorias/testing/` |
 | Travel Places | `categorias/travel-places.md` | `/categorias/travel-places/` |
 
@@ -149,7 +149,7 @@ layout: post
 title: "Título do artigo"
 description: "Resumo em uma linha para SEO e cards."
 date: 2026-04-10
-categories: [Infraestrutura]
+categories: [Infrastructure]
 tags: [docker, linux, automação]
 reading_time: 8
 cover: /assets/img/posts/meu-artigo-cover.svg    # opcional — imagem usada no site (hero do post e card na listagem)

@@ -5,7 +5,7 @@ description: "O CV que funciona fora do Brasil, os primeiros quarenta dias em Du
 date: 2026-07-31
 categories: [Career]
 subcategories:
-  - "Career/Trabalho no Exterior"
+  - "Career/Working Abroad"
 tags: [trabalho-no-exterior, curriculo, dublin, irlanda, pps-number, adaptacao]
 reading_time: 10
 cover: /assets/img/posts/trabalhar-fora-p3-chegada.svg

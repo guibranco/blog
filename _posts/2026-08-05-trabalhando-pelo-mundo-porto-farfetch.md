@@ -5,7 +5,7 @@ description: "Contratado via LinkedIn por uma consultoria portuguesa para atuar 
 date: 2026-08-05
 categories: [Career]
 subcategories:
-  - "Career/Trabalho no Exterior"
+  - "Career/Working Abroad"
 tags: [trabalho-no-exterior, portugal, porto, carreira-internacional, expatriado, farfetch, consultoria, recibos-verdes, tech-visa, remoto, csharp, dotnet, elasticsearch, kafka, cassandra, search, e-commerce, entrevista, processo-seletivo, salario, relocation]
 reading_time: 21
 cover: /assets/img/posts/trabalhando-pelo-mundo-porto.svg

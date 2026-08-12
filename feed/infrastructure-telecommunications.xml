@@ -1,6 +1,6 @@
 ---
 layout: null
-permalink: /feed/telecomunicacoes.xml
+permalink: /feed/infrastructure-telecommunications.xml
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -8,7 +8,7 @@ permalink: /feed/telecomunicacoes.xml
     <title>{{ site.title | xml_escape }} — Infrastructure › Telecommunications</title>
     <description>Artigos sobre Telecommunications em {{ site.title | xml_escape }}</description>
     <link>{{ site.url }}{{ site.baseurl }}/categorias/infrastructure/telecommunications/</link>
-    <atom:link href="{{ site.url }}{{ site.baseurl }}/feed/telecomunicacoes.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="{{ site.url }}{{ site.baseurl }}/feed/infrastructure-telecommunications.xml" rel="self" type="application/rss+xml"/>
     <language>pt-BR</language>
     {% assign _sub_posts = site.posts | where_exp: "p", "p.subcategories contains 'Infrastructure/Telecommunications'" | limit: 20 %}
     {% for post in _sub_posts %}

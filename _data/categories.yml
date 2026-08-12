@@ -2,8 +2,8 @@
   slug: career
   icon: "fas fa-briefcase"
   subcategories:
-    - name: "Trabalho no Exterior"
-      slug: trabalho-no-exterior
+    - name: "Working Abroad"
+      slug: working-abroad
 - name: Coding
   slug: coding
   icon: "fas fa-code"
@@ -22,8 +22,8 @@
       slug: testing
     - name: "Tips & Tricks"
       slug: tips-tricks
-- name: Infraestrutura
-  slug: infraestrutura
+- name: Infrastructure
+  slug: infrastructure
   icon: "fas fa-server"
   subcategories:
     - name: Cloud
@@ -32,8 +32,8 @@
       slug: devops
     - name: Self-Hosting
       slug: self-hosting
-    - name: "Telecomunicações"
-      slug: telecomunicacoes
+    - name: Telecommunications
+      slug: telecommunications
 - name: Hobbies
   slug: hobbies
   icon: "fas fa-gamepad"

@@ -4,10 +4,10 @@ lang: en
 title: "Using GitHub Actions to create a .NET Framework pipeline: Build, test, and deploy"
 description: "A step-by-step guide to setting up a CI/CD pipeline for a .NET Framework project using GitHub Actions — build, test with VSTest, restore NuGet packages, and run the application automatically."
 date: 2023-08-12
-categories: [Coding, Infraestrutura]
+categories: [Coding, Infrastructure]
 subcategories:
   - "Coding/Testing"
-  - "Infraestrutura/DevOps"
+  - "Infrastructure/DevOps"
 tags: [dotnet, dotnet-framework, net-framework, github-actions, ci-cd, build, deploy, pipeline, yaml, msbuild, nuget, vstest, coverage, csharp, automacao, workflows, teste, testes, tests, testing]
 reading_time: 6
 image: /assets/img/posts/GitHubActionsLogo.png

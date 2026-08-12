@@ -5,7 +5,7 @@ description: "Aluguéis reais em Dublin e Dubai, o subsídio invisível que voc�
 date: 2026-07-24
 categories: [Career]
 subcategories:
-  - "Career/Trabalho no Exterior"
+  - "Career/Working Abroad"
 tags: [trabalho-no-exterior, custo-de-vida, dublin, dubai, carne-leao, trabalho-remoto]
 reading_time: 9
 cover: /assets/img/posts/trabalhar-fora-p2-conta-real.svg

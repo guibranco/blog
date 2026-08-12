@@ -5,9 +5,9 @@ render_with_liquid: false
 title: "Deploy de aplicação C# .NET 10 em VPS Ubuntu com Nginx, SSL e rolling deploy"
 description: "Guia completo para publicar uma aplicação .NET 10 em uma VPS OCI Ubuntu usando GitHub Actions, rsync, duas instâncias com load balancing no Nginx e deploy sem downtime."
 date: 2026-06-23
-categories: [Infraestrutura]
+categories: [Infrastructure]
 subcategories:
-  - "Infraestrutura/DevOps"
+  - "Infrastructure/DevOps"
 tags: [csharp, dotnet, dotnet10, deploy, vps, ubuntu, nginx, github-actions, ci-cd, certbot, ssl, systemd, oci, healthchecks, load-balancing, kestrel, rsync, rolling-deploy, linux, infraestrutura, zero-downtime]
 reading_time: 18
 image: /assets/img/posts/csharp-deploy-dotnet10.png

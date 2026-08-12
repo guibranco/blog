@@ -5,7 +5,7 @@ description: "Uma mensagem no LinkedIn que ficou cinco semanas sem resposta viro
 date: 2026-08-12
 categories: [Career]
 subcategories:
-  - "Career/Trabalho no Exterior"
+  - "Career/Working Abroad"
 tags: [trabalho-no-exterior, dubai, emirados-arabes-unidos, carreira-internacional, expatriado, talabat, delivery-hero, remoto, relocation, visto-de-trabalho, csharp, dotnet, aws, postgresql, sql-server, golang, microsservicos, ddd, tdd, qcommerce, on-call, salario, imposto]
 reading_time: 26
 cover: /assets/img/posts/trabalhando-pelo-mundo-dubai.svg

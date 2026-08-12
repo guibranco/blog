@@ -1,9 +1,10 @@
 ---
 layout: category
-category: Infraestrutura
+category: Infrastructure
 subcategory: DevOps
-permalink: /categorias/infraestrutura/devops/
+permalink: /categorias/infrastructure/devops/
 redirect_from:
   - /categorias/devops/
   - /categorias/coding/devops/
+  - /categorias/infraestrutura/devops/
 ---

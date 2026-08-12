@@ -5,10 +5,10 @@ render_with_liquid: false
 title: "Database migration with GitHub Actions"
 description: "How I built a GitHub Action to manage versioned SQL database migrations across MySQL, MariaDB, PostgreSQL and MSSQL — with dry-run, integrity checks, SHA-256 checksums and Docker-based testing, all from a CI/CD pipeline."
 date: 2023-12-14
-categories: [Coding, Infraestrutura]
+categories: [Coding, Infrastructure]
 subcategories:
   - "Coding/Databases"
-  - "Infraestrutura/DevOps"
+  - "Infrastructure/DevOps"
 tags: [database, github, github-actions, migration, sql, pipeline, testing, ci-cd, devops, mysql, mariadb, postgresql, mssql, schema, versioning, docker, shell-script, continuous-integration, infrastructure-as-code, gitops, db-migration, query-builder, orm, checksum, integrity]
 reading_time: 10
 image: /assets/img/posts/database-migration.jpg

@@ -5,9 +5,9 @@ render_with_liquid: false
 title: "Deploying a PHP Application to Ubuntu VPS"
 description: "A step-by-step guide for deploying a long-running PHP application with optional WebSocket support to an Ubuntu VPS, using GitHub Actions for CI/CD, Nginx, Certbot and systemd."
 date: 2026-04-23
-categories: [Infraestrutura]
+categories: [Infrastructure]
 subcategories:
-  - "Infraestrutura/DevOps"
+  - "Infrastructure/DevOps"
 tags: [php, deploy, vps, ubuntu, nginx, github-actions, ci-cd, certbot, ssl, systemd, websocket, mariadb, composer, linux, infraestrutura]
 reading_time: 12
 cover: /assets/img/posts/php-deploy.svg
