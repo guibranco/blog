@@ -36,6 +36,8 @@ No papel, inclusive, o modelo era **híbrido**: eu deveria estar no escritório 
   <div class="section-title-wrap"><h2>De onde eu vinha</h2></div>
 </div>
 
+<!-- TODO opcional: se quiser, dá para detalhar mais o escopo do time de projetos especiais. -->
+
 Antes do Porto eu estava no **Banco BS2**, contratado via **K2 Partnering** — ou seja, o modelo consultoria não era novidade para mim. Entrei em julho de 2019, na tribo de **B2B**, na squad de **API Banking**: desenvolvimento do produto de *banking as a service* do banco (devs.bs2.com), incluindo o projeto de open banking, com APIs e serviços em C# .NET Core, Dapper, Entity Framework e DDD, sistemas distribuídos em RabbitMQ, deploy em Docker, e cerimônias ágeis sobre Team Foundation Server.
 
 Em março de 2020 passei para o **time de projetos especiais**, sediado em Belo Horizonte, já dentro da divisão de serviços financeiros do banco. Cheguei a me mudar de fato — e voltei uma semana depois, quando a quarentena fechou tudo. O time inteiro foi para o remoto e, desse jeito, meio no improviso, nós implementamos o **SPI/PIX**, o sistema de pagamentos instantâneos do Banco Central. O escopo incluía mensageria **ISO 20022** — ADMI (administração), CAMT (gestão de caixa), PACS (compensação e liquidação de pagamentos) e REDA (dados de referência) —, a arquitetura das soluções de **PIX Direto e PIX Indireto** dentro do BS2, e o sistema de contabilização dos parceiros de PIX Indireto, além de suporte direto a clientes internos no processo de integração. A stack seguia em C# .NET Core, Dapper, Entity Framework e DDD, com sistemas distribuídos em RabbitMQ, deploy em Docker e as mesmas cerimônias de Scrum/Kanban — agora sobre **Azure DevOps**. Foi um período corrido: o Banco Central com prazo fechado, o país inteiro esperando, e um time distribuído construindo integração de pagamento instantâneo de dentro de casa.
@@ -76,6 +78,13 @@ Levei **um ou dois dias** para responder. Não foi jogo de negociação — foi 
 </div>
 
 O valor combinado ficou em **180 € por dia + IVA**, em recibos verdes, considerando 21 dias úteis por mês.
+
+<!-- TODO: inserir screenshot da conversa do LinkedIn com a recrutadora.
+     Usar o padrão de <img> do blog:
+<img src="{{ site.baseurl }}/assets/img/posts/porto-linkedin-recrutadora.png"
+     alt="Conversa no LinkedIn com a recrutadora da Multivision"
+     style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
+-->
 
 ### As etapas
 
@@ -201,6 +210,12 @@ E teve um personagem que não existe no vocabulário brasileiro do mesmo jeito: 
     <tr><td>Valor base com IVA (23%)</td><td>4.428,00 €</td></tr>
   </tbody>
 </table>
+
+<!-- TODO: inserir screenshot de um dos recibos verdes emitidos.
+<img src="{{ site.baseurl }}/assets/img/posts/porto-recibo-verde.png"
+     alt="Exemplo de recibo verde emitido"
+     style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
+-->
 
 ### Quanto custaria morar no Porto
 
@@ -446,16 +461,24 @@ Em **4 de março** ela mandou um follow-up dizendo que não tinha tido retorno e
 
 ### A conta que decidiu
 
-A resposta longa exige explicar uma configuração que eu tinha naquele momento e que não é óbvia. Além do contrato com a Multivision, eu tinha em paralelo um contrato **part-time remoto** com a **Grace Kennedy Financial Group** — o maior grupo financeiro da Jamaica e do Caribe —, via a agência de recrutamento **The Bridge Social**, entre fevereiro e maio de 2021. Dois vínculos de **Senior Software Engineer / .NET Developer** ao mesmo tempo — um full-time, o outro part-time.
+A resposta longa exige explicar a configuração que eu tinha naquele momento, que não era nada convencional. Eu acumulava **dois contratos ao mesmo tempo**, os dois de sênior, os dois remotos, os dois via consultoria:
 
-<div class="callout callout-tip">
-  <div class="callout-label">A conta real</div>
-  Mesmo somando os dois rendimentos — o full-time da Farfetch/Multivision e o part-time da Grace Kennedy —, o total ainda ficava abaixo do que a Talabat oferecia. E a vaga de Dubai não era nem de sênior — a carta de oferta trazia <strong>Software Engineer II, grade IC2</strong>, um degrau abaixo na escada de carreira de lá.
+<div class="providers-grid">
+  <div class="provider-card">
+    <div class="provider-name"><i class="fas fa-gem"></i> Farfetch, via Multivision</div>
+    <div class="provider-detail">Recibos verdes, empresa portuguesa, com mudança para o Porto no horizonte. Dezembro de 2020 a maio de 2021.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name"><i class="fas fa-building-columns"></i> Grupo financeiro jamaicano, via consultoria chilena</div>
+    <div class="provider-detail">Contrato PJ entre o meu CNPJ brasileiro e a consultoria, valor acordado em dólar e pago mensalmente em reais mediante nota fiscal. Fevereiro a maio de 2021.</div>
+  </div>
 </div>
 
-Some a isso o segundo fator: os **Emirados Árabes Unidos não cobram imposto de renda sobre salário**. Enquanto em recibos verdes eu arcaria com IRS, Segurança Social e contabilista, no Dubai bruto e líquido eram praticamente a mesma coisa.
+Eu tinha acabado de sair do banco onde estava desde 2019 e, em vez de procurar um substituto, empilhei dois contratos parciais em paralelo — um arranjo que só existe porque ambos eram remotos e nenhum dos dois era, ainda, uma mudança de país concretizada.
 
-Vale registrar o que **não** estava em jogo: o contrato com a Grace Kennedy era part-time, remoto, e não envolvia qualquer plano de mudança para o Caribe — era renda extra, não um caminho de carreira. Terminou junto com a Farfetch, em maio de 2021.
+E, mesmo somados, os dois ficavam abaixo do que Dubai oferecia. Isso é o que torna a conta constrangedora: a vaga dos Emirados não era nem de sênior — a carta de oferta trazia **Software Engineer II, grade IC2**, um degrau abaixo na escada de carreira de lá.
+
+Some a isso o segundo fator: os **Emirados Árabes Unidos não cobram imposto de renda sobre salário**. Enquanto em recibos verdes eu arcaria com IRS, Segurança Social e contabilista, no Dubai bruto e líquido eram praticamente a mesma coisa.
 
 <div class="divider">· · ·</div>
 
@@ -467,7 +490,7 @@ Se eu já estivesse morando em Portugal, provavelmente teria dito não. Depois d
 
 **A mudança que nunca aconteceu foi exatamente o que permitiu a mudança que aconteceu.** É irônico, mas é assim que funciona: o custo de mudar de rumo cresce muito rápido depois que você assina o contrato de aluguel.
 
-Quando a viagem para Dubai finalmente se concretizou, eu encerrei os dois vínculos — o de recibos verdes com a Multivision e o part-time remoto com a Grace Kennedy, onde fiquei quatro meses.
+Em maio de 2021 os dois contratos se encerraram — o de recibos verdes com a Multivision e o PJ com a consultoria chilena — e eu comecei na Talabat.
 
 <div class="personal-story">
   <div class="personal-story-label">
@@ -489,24 +512,24 @@ Quando a viagem para Dubai finalmente se concretizou, eu encerrei os dois víncu
     <tr><th>Quando</th><th>O quê</th></tr>
   </thead>
   <tbody>
-    <tr><td>Julho de 2019</td><td>Entrada no Banco BS2 via K2 Partnering — squad de API Banking, tribo B2B, São Paulo</td></tr>
-    <tr><td>Março de 2020</td><td>Passagem para o time de projetos especiais (BH) — mudança de uma semana e volta para SP pela quarentena</td></tr>
+    <tr><td>Julho de 2019</td><td>Entrada no Banco BS2 via K2 Partnering — BU PJ, São Paulo</td></tr>
+    <tr><td>Abril de 2020</td><td>Time de projetos especiais (BH) — mudança de uma semana e volta para SP pela quarentena</td></tr>
     <tr><td>2020</td><td>Implementação do SPI/PIX, com o time todo em remoto</td></tr>
     <tr><td>03/11/2020</td><td>Primeiro contato da recrutadora da Multivision no LinkedIn</td></tr>
     <tr><td>12 e 17/11/2020</td><td>Entrevistas com a Farfetch — técnica e com o líder técnico</td></tr>
     <tr><td>17/11/2020</td><td>Proposta aceita, por telefone</td></tr>
     <tr><td>Dezembro de 2020</td><td>Documentação, onboarding virtual e início no time Scouts</td></tr>
     <tr><td>Dezembro de 2020</td><td>NIF, contabilista e planejamento da mudança para o Porto</td></tr>
+    <tr><td>Janeiro de 2021</td><td>Fim do contrato com o Banco BS2, via K2 Partnering</td></tr>
     <tr><td>12/01/2021</td><td>A recrutadora que conduziu meu processo deixa a Multivision</td></tr>
     <tr><td>26/01/2021</td><td>Primeira mensagem da Talabat no LinkedIn — que eu não respondi</td></tr>
-    <tr><td>Fevereiro de 2021</td><td>Início do contrato part-time remoto com a Grace Kennedy Financial Group (Jamaica), via The Bridge Social — em paralelo com a Farfetch</td></tr>
+    <tr><td>Fevereiro de 2021</td><td>Início do segundo contrato paralelo — grupo financeiro jamaicano, via consultoria chilena</td></tr>
     <tr><td>04/03/2021</td><td>Follow-up da recrutadora de Dubai — dessa vez eu respondo</td></tr>
     <tr><td>17/03/2021</td><td>Primeira call com a Talabat</td></tr>
     <tr><td>21/04/2021</td><td>Carta de oferta da Talabat — válida por três dias úteis</td></tr>
     <tr><td>Abril–Maio de 2021</td><td>Comunicação de saída dos dois vínculos, já com o contrato assinado</td></tr>
-    <tr><td>Maio de 2021</td><td>Fim da passagem pela Farfetch e do contrato com a Grace Kennedy — sem nunca ter me mudado para Portugal</td></tr>
+    <tr><td>Maio de 2021</td><td>Fim dos dois contratos paralelos — sem nunca ter me mudado para Portugal</td></tr>
     <tr><td>30/05/2021</td><td>Primeiro dia na Talabat — ainda remoto, do Brasil</td></tr>
-    <tr><td>14/06/2021</td><td>Início de um novo contrato CLT paralelo (filial brasileira de empresa americana) — já durante os primeiros meses remotos na Talabat, sem relação com a decisão do Porto</td></tr>
   </tbody>
 </table>
 
