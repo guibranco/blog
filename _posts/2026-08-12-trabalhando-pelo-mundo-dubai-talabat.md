@@ -595,15 +595,15 @@ Saí da Talabat em **março de 2023** e mudei para Dublin em **23 de abril de 20
   <ol class="references-list">
     <li>
       Talabat. <strong>About us.</strong>
-      <a href="https://www.talabat.com/" target="_blank">talabat.com</a>
+      <a href="https://corporate.talabat.com/about/" target="_blank">talabat.com</a>
     </li>
     <li>
       Delivery Hero. <strong>Our brands.</strong>
-      <a href="https://www.deliveryhero.com/" target="_blank">deliveryhero.com</a>
+      <a href="https://www.deliveryhero.com/brands-countries/" target="_blank">deliveryhero.com</a>
     </li>
     <li>
       U.AE — Portal oficial do Governo dos Emirados Árabes Unidos. <strong>Working hours and leaves.</strong>
-      <a href="https://u.ae/" target="_blank">u.ae</a>
+      <a href="https://u.ae/en/information-and-services/jobs/employment-in-the-private-sector/working-hours" target="_blank">u.ae</a>
     </li>
   </ol>
 </div>
