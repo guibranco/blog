@@ -461,24 +461,16 @@ Em **4 de março** ela mandou um follow-up dizendo que não tinha tido retorno e
 
 ### A conta que decidiu
 
-A resposta longa exige explicar a configuração que eu tinha naquele momento, que não era nada convencional. Eu acumulava **dois contratos ao mesmo tempo**, os dois de sênior, os dois remotos, os dois via consultoria:
+A resposta longa exige explicar uma configuração que eu tinha naquele momento e que não é óbvia. Além do contrato com a Multivision, eu tinha em paralelo um contrato **part-time remoto** com a **Grace Kennedy Financial Group** — o maior grupo financeiro da Jamaica e do Caribe —, via a agência de recrutamento **The Bridge Social**, entre fevereiro e maio de 2021. Dois vínculos de **Senior Software Engineer / .NET Developer** ao mesmo tempo — um full-time, o outro part-time.
 
-<div class="providers-grid">
-  <div class="provider-card">
-    <div class="provider-name"><i class="fas fa-gem"></i> Farfetch, via Multivision</div>
-    <div class="provider-detail">Recibos verdes, empresa portuguesa, com mudança para o Porto no horizonte. Dezembro de 2020 a maio de 2021.</div>
-  </div>
-  <div class="provider-card">
-    <div class="provider-name"><i class="fas fa-building-columns"></i> Grupo financeiro jamaicano, via consultoria chilena</div>
-    <div class="provider-detail">Contrato PJ entre o meu CNPJ brasileiro e a consultoria, valor acordado em dólar e pago mensalmente em reais mediante nota fiscal. Fevereiro a maio de 2021.</div>
-  </div>
+<div class="callout callout-tip">
+  <div class="callout-label">A conta real</div>
+  Mesmo somando os dois rendimentos — o full-time da Farfetch/Multivision e o part-time da Grace Kennedy —, o total ainda ficava abaixo do que a Talabat oferecia. E a vaga de Dubai não era nem de sênior — a carta de oferta trazia <strong>Software Engineer II, grade IC2</strong>, um degrau abaixo na escada de carreira de lá.
 </div>
 
-Eu tinha acabado de sair do banco onde estava desde 2019 e, em vez de procurar um substituto, empilhei dois contratos parciais em paralelo — um arranjo que só existe porque ambos eram remotos e nenhum dos dois era, ainda, uma mudança de país concretizada.
-
-E, mesmo somados, os dois ficavam abaixo do que Dubai oferecia. Isso é o que torna a conta constrangedora: a vaga dos Emirados não era nem de sênior — a carta de oferta trazia **Software Engineer II, grade IC2**, um degrau abaixo na escada de carreira de lá.
-
 Some a isso o segundo fator: os **Emirados Árabes Unidos não cobram imposto de renda sobre salário**. Enquanto em recibos verdes eu arcaria com IRS, Segurança Social e contabilista, no Dubai bruto e líquido eram praticamente a mesma coisa.
+
+Vale registrar o que **não** estava em jogo: o contrato com a Grace Kennedy era part-time, remoto, e não envolvia qualquer plano de mudança para o Caribe — era renda extra, não um caminho de carreira. Terminou junto com a Farfetch, em maio de 2021.
 
 <div class="divider">· · ·</div>
 
@@ -490,7 +482,7 @@ Se eu já estivesse morando em Portugal, provavelmente teria dito não. Depois d
 
 **A mudança que nunca aconteceu foi exatamente o que permitiu a mudança que aconteceu.** É irônico, mas é assim que funciona: o custo de mudar de rumo cresce muito rápido depois que você assina o contrato de aluguel.
 
-Em maio de 2021 os dois contratos se encerraram — o de recibos verdes com a Multivision e o PJ com a consultoria chilena — e eu comecei na Talabat.
+Quando a viagem para Dubai finalmente se concretizou, eu encerrei os dois vínculos — o de recibos verdes com a Multivision e o part-time remoto com a Grace Kennedy, onde fiquei quatro meses.
 
 <div class="personal-story">
   <div class="personal-story-label">
@@ -512,24 +504,24 @@ Em maio de 2021 os dois contratos se encerraram — o de recibos verdes com a Mu
     <tr><th>Quando</th><th>O quê</th></tr>
   </thead>
   <tbody>
-    <tr><td>Julho de 2019</td><td>Entrada no Banco BS2 via K2 Partnering — BU PJ, São Paulo</td></tr>
-    <tr><td>Abril de 2020</td><td>Time de projetos especiais (BH) — mudança de uma semana e volta para SP pela quarentena</td></tr>
+    <tr><td>Julho de 2019</td><td>Entrada no Banco BS2 via K2 Partnering — squad de API Banking, tribo B2B, São Paulo</td></tr>
+    <tr><td>Março de 2020</td><td>Passagem para o time de projetos especiais (BH) — mudança de uma semana e volta para SP pela quarentena</td></tr>
     <tr><td>2020</td><td>Implementação do SPI/PIX, com o time todo em remoto</td></tr>
     <tr><td>03/11/2020</td><td>Primeiro contato da recrutadora da Multivision no LinkedIn</td></tr>
     <tr><td>12 e 17/11/2020</td><td>Entrevistas com a Farfetch — técnica e com o líder técnico</td></tr>
     <tr><td>17/11/2020</td><td>Proposta aceita, por telefone</td></tr>
     <tr><td>Dezembro de 2020</td><td>Documentação, onboarding virtual e início no time Scouts</td></tr>
     <tr><td>Dezembro de 2020</td><td>NIF, contabilista e planejamento da mudança para o Porto</td></tr>
-    <tr><td>Janeiro de 2021</td><td>Fim do contrato com o Banco BS2, via K2 Partnering</td></tr>
     <tr><td>12/01/2021</td><td>A recrutadora que conduziu meu processo deixa a Multivision</td></tr>
     <tr><td>26/01/2021</td><td>Primeira mensagem da Talabat no LinkedIn — que eu não respondi</td></tr>
-    <tr><td>Fevereiro de 2021</td><td>Início do segundo contrato paralelo — grupo financeiro jamaicano, via consultoria chilena</td></tr>
+    <tr><td>Fevereiro de 2021</td><td>Início do contrato part-time remoto com a Grace Kennedy Financial Group (Jamaica), via The Bridge Social — em paralelo com a Farfetch</td></tr>
     <tr><td>04/03/2021</td><td>Follow-up da recrutadora de Dubai — dessa vez eu respondo</td></tr>
     <tr><td>17/03/2021</td><td>Primeira call com a Talabat</td></tr>
     <tr><td>21/04/2021</td><td>Carta de oferta da Talabat — válida por três dias úteis</td></tr>
     <tr><td>Abril–Maio de 2021</td><td>Comunicação de saída dos dois vínculos, já com o contrato assinado</td></tr>
-    <tr><td>Maio de 2021</td><td>Fim dos dois contratos paralelos — sem nunca ter me mudado para Portugal</td></tr>
+    <tr><td>Maio de 2021</td><td>Fim da passagem pela Farfetch e do contrato com a Grace Kennedy — sem nunca ter me mudado para Portugal</td></tr>
     <tr><td>30/05/2021</td><td>Primeiro dia na Talabat — ainda remoto, do Brasil</td></tr>
+    <tr><td>14/06/2021</td><td>Início de um novo contrato CLT paralelo (filial brasileira de empresa americana) — já durante os primeiros meses remotos na Talabat, sem relação com a decisão do Porto</td></tr>
   </tbody>
 </table>
 
