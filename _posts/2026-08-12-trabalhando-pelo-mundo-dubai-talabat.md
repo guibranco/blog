@@ -34,9 +34,9 @@ Este é o segundo post da série sobre os lugares onde trabalhei mudando de paí
   <div class="section-title-wrap"><h2>De onde eu vinha</h2></div>
 </div>
 
-Eu tinha acabado de sair do banco onde trabalhei desde 2019 e, em vez de procurar um substituto, estava acumulando **dois contratos parciais em paralelo** — os dois remotos, os dois de sênior, os dois via consultoria: a **Farfetch** por uma consultoria portuguesa, em recibos verdes, com a mudança para o Porto sendo planejada; e um **grupo financeiro jamaicano**, por uma consultoria chilena, em contrato PJ pago em reais contra nota fiscal.
+Eu tinha acabado de sair do Banco BS2, onde trabalhei desde 2019 via K2 Partnering, e estava acumulando **dois contratos ao mesmo tempo**, ambos remotos e ambos como Senior Software Engineer: a **Farfetch**, full-time, via a consultoria portuguesa Multivision, em recibos verdes, com a mudança para o Porto sendo planejada; e a **Grace Kennedy Financial Group** — o maior grupo financeiro da Jamaica e do Caribe —, part-time, via a agência de recrutamento The Bridge Social.
 
-O capítulo anterior explica a conta em detalhe, mas o resumo é este: as duas posições **somadas** ainda ficavam abaixo do que Dubai oferecia por uma vaga um degrau abaixo na escada de carreira — a carta de oferta trazia Software Engineer II, grade IC2.
+O capítulo anterior explica a conta em detalhe, mas o resumo é este: os dois rendimentos **somados** ainda ficavam abaixo do que Dubai oferecia por uma vaga um degrau abaixo na escada de carreira — a carta de oferta trazia Software Engineer II, grade IC2.
 
 O fato de eu ainda não ter me mudado para Portugal foi o que tornou tudo possível. Não havia contrato de aluguel, mudança despachada nem vida montada para desfazer.
 
@@ -248,7 +248,7 @@ Aterrissei em Dubai por volta das **19h do dia 27**. Corri para o hotel, larguei
 
 ### Os empregos que a mudança encerrou
 
-Durante o período em remoto do Brasil, eu não estava só na Talabat. Em **junho de 2021** eu somei um contrato **CLT com a filial brasileira de uma empresa americana** — e havia ainda uma terceira frente, também parcial, num projeto de open banking. Foi a fase em que acumulei três vínculos ao mesmo tempo.
+Durante o período em remoto do Brasil, eu não estava só na Talabat. Em **14 de junho de 2021** eu somei um contrato **CLT com a filial brasileira de uma empresa americana** — e havia ainda uma terceira frente, também parcial, num projeto de open banking. Foi a fase em que acumulei três vínculos ao mesmo tempo.
 
 O contrato americano tem um detalhe que vale contar, porque é a melhor lição prática desta série sobre trabalho remoto internacional. O salário era acima da média de sênior no Brasil e muito abaixo da média de sênior nos Estados Unidos — o clássico **salário LATAM**: a empresa paga acima do mercado local e bem abaixo do mercado dela. E isso não era acidente, estava escrito no contrato. Exigia-se que eu estivesse **na América Latina**, por dois motivos declarados: fuso horário e custo de vida.
 
@@ -569,7 +569,7 @@ Saí da Talabat em **março de 2023** e mudei para Dublin em **23 de abril de 20
     <tr><td>Abr–Mai/2021</td><td>Desligamento dos dois contratos paralelos</td></tr>
     <tr><td>30/05/2021</td><td>Primeiro dia na Talabat — remoto, do Brasil, acordando às 4h</td></tr>
     <tr><td>Mai–Dez/2021</td><td>Squad Grocery Fulfillment</td></tr>
-    <tr><td>Jun–Nov/2021</td><td>Contrato CLT paralelo com filial brasileira de empresa americana, encerrado pela mudança</td></tr>
+    <tr><td>14/06/2021</td><td>Início do contrato CLT paralelo com filial brasileira de empresa americana — encerrado pela mudança, em novembro</td></tr>
     <tr><td>26/11/2021</td><td>Voo de Guarulhos para Dubai, pago pela empresa</td></tr>
     <tr><td>27/11/2021</td><td>Pouso em Dubai às 19h — e final da Libertadores num bar, à noite</td></tr>
     <tr><td>28/11/2021</td><td>Primeiro dia no escritório, um domingo</td></tr>
@@ -595,15 +595,15 @@ Saí da Talabat em **março de 2023** e mudei para Dublin em **23 de abril de 20
   <ol class="references-list">
     <li>
       Talabat. <strong>About us.</strong>
-      <a href="https://corporate.talabat.com/about/" target="_blank">talabat.com</a>
+      <a href="https://www.talabat.com/" target="_blank">talabat.com</a>
     </li>
     <li>
       Delivery Hero. <strong>Our brands.</strong>
-      <a href="https://www.deliveryhero.com/brands-countries/" target="_blank">deliveryhero.com</a>
+      <a href="https://www.deliveryhero.com/" target="_blank">deliveryhero.com</a>
     </li>
     <li>
       U.AE — Portal oficial do Governo dos Emirados Árabes Unidos. <strong>Working hours and leaves.</strong>
-      <a href="https://u.ae/en/information-and-services/jobs/employment-in-the-private-sector/working-hours" target="_blank">u.ae</a>
+      <a href="https://u.ae/" target="_blank">u.ae</a>
     </li>
   </ol>
 </div>
