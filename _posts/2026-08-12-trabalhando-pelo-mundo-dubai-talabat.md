@@ -204,12 +204,18 @@ Essa foi a engenharia financeira menos óbvia de toda a mudança.
     <tr><th>Fase</th><th>Como o dinheiro chegava</th></tr>
   </thead>
   <tbody>
-    <tr><td>Primeiros ~2 meses</td><td>Pagamento em <strong>dólar</strong> para conta empresarial nas Ilhas Cayman, via banco correspondente americano. Bastou informar IBAN e BIC/SWIFT.</td></tr>
+    <tr><td>Primeiros ~2 meses</td><td>Pagamento em <strong>dólar</strong> na <strong>conta global</strong> da minha empresa, oferecida pelo meu banco brasileiro. Bastou informar IBAN e BIC/SWIFT.</td></tr>
     <tr><td>Restante do remoto</td><td>Migrei para minha conta em <strong>Portugal</strong>, aberta ainda na época da Farfetch, e de lá remetia ao Brasil — por transferência direta ou comprando criptomoeda em corretora.</td></tr>
     <tr><td>Primeiro mês em Dubai</td><td><strong>Em dinheiro vivo</strong>, retirado numa casa de câmbio local.</td></tr>
     <tr><td>Depois disso</td><td>Conta bancária local, aberta numa agência em Dubai.</td></tr>
   </tbody>
 </table>
+
+<div class="callout callout-tip">
+  <div class="callout-label">Conta global não é offshore</div>
+  Vale desfazer a confusão, porque o vocabulário atrapalha. A <strong>conta global</strong> é um produto bancário comum: o seu banco brasileiro abre para você uma conta em moeda estrangeira e usa uma instituição no exterior como intermediária para liquidar as ordens. No meu caso, a intermediação passava por uma praça financeira do Caribe e por um banco correspondente americano — arranjo padrão de <em>correspondent banking</em>, que é como praticamente toda transferência internacional funciona.<br><br>
+  Isso não tem nenhuma relação com "abrir uma offshore". É uma conta contratada num banco brasileiro, sujeita às regras do Banco Central, informada à Receita Federal como qualquer outra e declarada normalmente. A estrutura de correspondentes é da instituição, não sua — você só vê um IBAN e um SWIFT.
+</div>
 
 <div class="callout callout-tip">
   <div class="callout-label">Por que o pagamento em dólar funciona nos Emirados</div>
@@ -242,7 +248,9 @@ Aterrissei em Dubai por volta das **19h do dia 27**. Corri para o hotel, larguei
   <div class="personal-story-label">
     <i class="fas fa-user-circle"></i> Minha experiência — chegar e já ter para onde ir
   </div>
-  <p>Menos de três horas depois de pousar num país onde eu nunca tinha estado, eu estava num bar assistindo meu time ganhar a Libertadores, ao lado de alguém que eu só conhecia de grupo de WhatsApp. Os grupos de brasileiros no exterior são muito subestimados: eles resolvem, em uma tarde, o problema que costuma levar meses — ter uma pessoa para chamar.</p>
+  <p>Menos de três horas depois de pousar num país onde eu nunca tinha estado, eu estava num bar assistindo meu time ganhar a Libertadores, ao lado de alguém que eu só conhecia de grupo de WhatsApp.</p>
+  <p>E tem um detalhe que melhora a história: o cara era <strong>corintiano</strong>. Ou seja, eu comemorei o título do Palmeiras sentado ao lado do maior rival — alguém que, naquela noite, torcia com todas as forças pelo Flamengo. A doze mil quilômetros de casa, num bar em Dubai, a rivalidade continuava intacta e o encontro aconteceu mesmo assim.</p>
+  <p>Os grupos de brasileiros no exterior são muito subestimados: eles resolvem, em uma tarde, o problema que costuma levar meses — ter uma pessoa para chamar. E resolvem sem filtro de time, de cidade ou de qualquer outra coisa: lá fora, o que aproxima é a origem comum, e o resto vira piada de bar.</p>
   <p>Aquilo era sábado. No <strong>domingo</strong> eu já estava no escritório: a semana útil nos Emirados ia de domingo a quinta.</p>
 </div>
 
