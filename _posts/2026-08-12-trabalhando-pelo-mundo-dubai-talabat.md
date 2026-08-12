@@ -84,7 +84,7 @@ Repare na ordem da última etapa: eu só conversei com quem seria meu gestor **d
 
 <div class="callout callout-tip">
   <div class="callout-label">Dois processos, duas filosofias</div>
-  Porto: duas conversas, zero código escrito, decisão em catorze dias. Dubai: quatro avaliações técnicas separadas, incluindo live coding e system design com quatro engenheiros diferentes. Nenhum dos dois é errado — mas o segundo diz muito mais sobre uma empresa que contrata em volume e precisa de um critério que escale. Se você está mirando o Golfo, prepare-se para <em>system design</em>: é a etapa que mais elimina gente com experiência de sobra.
+  Porto: duas conversas, zero código escrito, decisão em catorze dias. Dubai: duas avaliações técnicas separadas — live coding e system design —, com quatro engenheiros sêniores diferentes entre as duas. Nenhum dos dois é errado — mas o segundo diz muito mais sobre uma empresa que contrata em volume e precisa de um critério que escale. Se você está mirando o Golfo, prepare-se para <em>system design</em>: é a etapa que mais elimina gente com experiência de sobra.
 </div>
 
 <div class="callout callout-warn">
