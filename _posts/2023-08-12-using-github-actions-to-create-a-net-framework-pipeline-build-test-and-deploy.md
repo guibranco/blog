@@ -7,6 +7,7 @@ date: 2023-08-12
 categories: [Coding, Infrastructure]
 subcategories:
   - "Coding/Testing"
+  - "Coding/C#"
   - "Infrastructure/DevOps"
 tags: [dotnet, dotnet-framework, net-framework, github-actions, ci-cd, build, deploy, pipeline, yaml, msbuild, nuget, vstest, coverage, csharp, automacao, workflows, teste, testes, tests, testing]
 reading_time: 6

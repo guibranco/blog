@@ -5,8 +5,9 @@ render_with_liquid: false
 title: "Deploying a C# Application to Ubuntu VPS with Nginx, SSL and Load Balancing"
 description: "Step-by-step guide for deploying a .NET application — API, Swagger, HealthChecks and background worker — to an OCI Ubuntu VPS using Nginx as reverse proxy with load balancing and Certbot SSL."
 date: 2026-05-11
-categories: [Infrastructure]
+categories: [Coding, Infrastructure]
 subcategories:
+  - "Coding/C#"
   - "Infrastructure/DevOps"
 tags: [csharp, dotnet, deploy, vps, ubuntu, nginx, github-actions, ci-cd, certbot, ssl, systemd, oci, healthchecks, swagger, background-worker, load-balancing, kestrel, linux, infraestrutura]
 reading_time: 15

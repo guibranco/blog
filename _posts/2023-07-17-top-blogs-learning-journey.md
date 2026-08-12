@@ -7,6 +7,7 @@ date: 2023-07-17
 categories: [Career, Coding]
 subcategories:
   - "Coding/Tips & Tricks"
+  - "Coding/C#"
 tags: [blogs, aprendizado, recursos, csharp, dotnet, clean-code, carreira, software-engineering, leitura]
 reading_time: 3
 image: /assets/img/posts/blogs.jpg

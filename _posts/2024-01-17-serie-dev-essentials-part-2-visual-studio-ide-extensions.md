@@ -7,6 +7,7 @@ date: 2024-01-17
 categories: [Coding]
 subcategories:
   - "Coding/Tips & Tricks"
+  - "Coding/C#"
 tags: [dotnet, visual-studio, extensions, produtividade, csharp, setup, devtools]
 series: dev-essentials
 series_title: "Dev Essentials"

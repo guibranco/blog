@@ -7,6 +7,7 @@ date: 2024-01-17
 categories: [Coding]
 subcategories:
   - "Coding/Tips & Tricks"
+  - "Coding/C#"
 tags: [dotnet, setup, software, tools, visual-studio, visual-studio-code, produtividade, devtools, docker, git, postman, insomnia, nodejs, php, python, rust]
 reading_time: 3
 image: /assets/img/posts/setup-scaled.jpg

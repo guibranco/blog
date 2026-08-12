@@ -7,6 +7,7 @@ date: 2025-12-11
 categories: [Coding, Infrastructure]
 subcategories:
   - "Coding/Tips & Tricks"
+  - "Coding/C#"
   - "Infrastructure/DevOps"
 tags: [uuid, primary-key, database, sql, performance, b-tree, uuidv7, ulid, arquitetura, backend, csharp, dotnet]
 reading_time: 7
