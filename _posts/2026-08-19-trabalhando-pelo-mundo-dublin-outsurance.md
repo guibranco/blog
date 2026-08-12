@@ -6,8 +6,8 @@ date: 2026-08-19
 categories: [Career]
 subcategories:
   - "Career/Trabalho no Exterior"
-tags: [trabalho-no-exterior, dublin, irlanda, carreira-internacional, expatriado, outsurance, seguros, insurtech, relocation, critical-skills, visto-de-trabalho, csharp, dotnet, azure, azure-devops, cosmos-db, service-bus, fintech, billing, hibrido, europa]
-reading_time: 29
+tags: [trabalho-no-exterior, dublin, irlanda, carreira-internacional, expatriado, outsurance, seguros, insurtech, relocation, cidadania-europeia, csharp, dotnet, azure, azure-devops, cosmos-db, service-bus, terraform, iso-20022, fintech, billing, hibrido, europa]
+reading_time: 31
 cover: /assets/img/posts/trabalhando-pelo-mundo-dublin.svg
 image: /assets/img/posts/trabalhando-pelo-mundo-dublin.png
 series: trabalhando-pelo-mundo
@@ -26,7 +26,7 @@ Aqui não houve intervalo nenhum. E, diferente dos outros dois, esse capítulo a
 
 <div class="callout callout-tip">
   <div class="callout-label">O que você vai encontrar aqui</div>
-  Um processo seletivo inteiro conduzido de outro continente, o visto de trabalho irlandês, o que significa construir um sistema financeiro do zero para uma operação nova, o modelo presencial flexível de quatro dias — e o balanço dos três países.
+  Um processo seletivo inteiro conduzido de outro continente, por que eu não precisei de visto nenhum, o que significa construir um sistema financeiro do zero para uma operação nova, o modelo presencial flexível de quatro dias — e o balanço dos três países.
 </div>
 
 <div class="divider">· · ·</div>
@@ -36,7 +36,7 @@ Aqui não houve intervalo nenhum. E, diferente dos outros dois, esse capítulo a
   <div class="section-title-wrap"><h2>De onde eu vinha</h2></div>
 </div>
 
-Eu estava em Dubai havia quase dois anos, na Talabat. O capítulo anterior detalha os motivos da saída, mas o resumo são quatro coisas que se acumularam: o projeto tinha deixado de me interessar, o plantão não remunerado desgastava, a empresa voltou ao presencial de cinco dias avisando com dois dias de antecedência, e o escritório havia mudado para um endereço mais longe e mais caro de alcançar.
+Eu estava na Talabat havia quase dois anos — e morando em Dubai havia um ano e meio, já que os primeiros seis meses foram remotos, do Brasil. O capítulo anterior detalha os motivos da saída, mas o resumo são quatro coisas que se acumularam: o projeto tinha deixado de me interessar, o plantão não remunerado desgastava, a empresa voltou ao presencial de cinco dias avisando com dois dias de antecedência, e o escritório havia mudado para um endereço mais longe e mais caro de alcançar.
 
 Faltava só o empurrão. Ele veio em **fevereiro de 2023**, e não veio de uma vaga.
 
@@ -321,7 +321,7 @@ A **OUTsurance** é uma seguradora sul-africana. Quando eu entrei, a empresa já
   </div>
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-building"></i> Tamanho</div>
-    <div class="provider-detail">Média — bem menor que a Farfetch e a Talabat</div>
+    <div class="provider-detail">Cerca de 150 funcionários só na Irlanda — bem menor que a Farfetch e a Talabat</div>
   </div>
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-handshake"></i> Vínculo</div>
@@ -364,11 +364,11 @@ O escopo tem três frentes:
   </div>
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-file-invoice-dollar"></i> Informação contábil e regulatória</div>
-    <div class="provider-detail">Gerar os dados contábeis e financeiros usados internamente e reportados a órgãos do governo.</div>
+    <div class="provider-detail">Gerar os dados contábeis e financeiros usados internamente e reportados a órgãos do governo, apoiados por um <em>shadow ledger</em> — um razão paralelo que espelha os lançamentos para conferência.</div>
   </div>
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-building-columns"></i> Integrações</div>
-    <div class="provider-detail">Conexão com gateways de pagamento e bancos locais.</div>
+    <div class="provider-detail">Gateways de pagamento e bancos locais, cobrindo cartão de crédito e débito direto, além da conexão com o portal de administração de apólices.</div>
   </div>
 </div>
 
@@ -386,25 +386,46 @@ O escopo tem três frentes:
   </div>
   <div class="provider-card">
     <div class="provider-name"><i class="fab fa-microsoft"></i> Azure</div>
-    <div class="provider-detail">Nuvem da operação, depois de dois anos de AWS em Dubai.</div>
+    <div class="provider-detail">Nuvem da operação, com Container Apps e Container App Jobs — de volta ao ecossistema Microsoft depois de dois anos de AWS em Dubai.</div>
   </div>
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-database"></i> Cosmos DB</div>
-    <div class="provider-detail">Banco distribuído, primeira vez que eu trabalhei com ele em produção.</div>
+    <div class="provider-detail">Banco distribuído, o mesmo que eu já tinha usado nos contratos paralelos de 2021.</div>
   </div>
   <div class="provider-card">
-    <div class="provider-name"><i class="fas fa-stream"></i> Service Bus</div>
-    <div class="provider-detail">Mensageria — o papel que o Kafka ocupava no Porto e o SQS em Dubai.</div>
+    <div class="provider-name"><i class="fas fa-stream"></i> Service Bus, NServiceBus e RabbitMQ</div>
+    <div class="provider-detail">Mensageria e orquestração — o papel que o Kafka ocupava no Porto e o SQS em Dubai.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name"><i class="fas fa-diagram-project"></i> Saga pattern</div>
+    <div class="provider-detail">Coordenação de transações distribuídas — indispensável quando cada passo de uma cobrança vive num serviço diferente.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name"><i class="fas fa-cubes"></i> Terraform</div>
+    <div class="provider-detail">Infraestrutura como código, montada junto com a operação.</div>
   </div>
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-infinity"></i> Azure DevOps</div>
-    <div class="provider-detail">Repositório, board e esteira de CI/CD num só lugar.</div>
+    <div class="provider-detail">Repositório, board e esteira de CI/CD num só lugar, com cerimônias de Scrum e Kanban por cima.</div>
   </div>
 </div>
 
 <div class="callout callout-tip">
   <div class="callout-label">A mesma arquitetura, três ecossistemas</div>
-  Olhando os três empregos em conjunto, a forma é quase idêntica: serviços em C#, um banco distribuído e uma camada de mensageria. O que muda é o fornecedor — Cassandra e Kafka no Porto, AWS SQS e Lambda em Dubai, Cosmos DB e Service Bus em Dublin. É um bom argumento contra estudar ferramenta em vez de conceito: quem entende mensageria troca de Kafka para SQS para Service Bus em semanas; quem decorou a API de uma delas recomeça do zero.
+  Olhando os três empregos em conjunto, a forma é quase idêntica: serviços em C#, um banco distribuído e uma camada de mensageria. O que muda é o fornecedor — Cassandra e Kafka no Porto, AWS SQS e Lambda em Dubai, Cosmos DB e Service Bus em Dublin. É um bom argumento contra estudar ferramenta em vez de conceito: quem entende mensageria troca de Kafka para SQS para Service Bus em semanas; quem decorou a API de uma delas recomeça do zero.<br><br>
+  E as ferramentas voltam. Cosmos DB e Azure Service Bus eu já tinha usado em 2021, nos contratos paralelos que aparecem no primeiro capítulo — e reencontrei os dois aqui, dois anos depois, num domínio completamente diferente. Carreira não é uma linha reta de tecnologias novas; é um repertório que você reusa em contextos que não dava para prever.
+</div>
+
+### ISO 20022: o mesmo padrão, do outro lado do mundo
+
+Tem um detalhe que só ficou visível quando eu montei esta série. Lá no primeiro capítulo, no Banco BS2, eu trabalhei com mensageria **ISO 20022** para construir o PIX — ADMI, CAMT, PACS e REDA, o vocabulário do Banco Central brasileiro para pagamentos instantâneos.
+
+Aqui na Irlanda, três anos e dois países depois, eu voltei ao mesmo padrão: mensagens **PAIN**, de *Payments Initiation*, para iniciar cobranças junto aos bancos locais.
+
+<div class="callout callout-tip">
+  <div class="callout-label">Padrões internacionais são o passaporte técnico</div>
+  ISO 20022 é o padrão global de mensageria financeira, e é exatamente por isso que aprendê-lo no Brasil valeu na Irlanda. Um sistema de pagamento instantâneo brasileiro e uma cobrança de apólice irlandesa não têm nada em comum de negócio — mas falam o mesmo dialeto de mensagem.<br><br>
+  Se você trabalha com algo que tem norma internacional — ISO 20022 em finanças, HL7/FHIR em saúde, EDI em logística —, esse conhecimento atravessa fronteiras muito melhor do que qualquer framework. É a parte do currículo que não precisa de tradução.
 </div>
 
 ### As primeiras entregas
@@ -686,7 +707,7 @@ O combinado com o gestor acontece nos **1:1**, e é uma conversa, não um pedido
     <tr><td>Imigração</td><td>Tech Visa (não chegou a sair)</td><td>Visto patrocinado pelo empregador</td><td>Cidadania europeia — sem visto</td></tr>
     <tr><td>Cheguei a morar lá</td><td><span class="cross">✗</span></td><td><span class="check">✓</span> após ~6 meses remoto</td><td><span class="check">✓</span> imediatamente</td></tr>
     <tr><td>Setor</td><td>E-commerce de luxo</td><td>Delivery / qCommerce</td><td>Seguros</td></tr>
-    <tr><td>Nuvem e mensageria</td><td>Kafka, Cassandra, Elasticsearch</td><td>AWS SQS e Lambda</td><td>Azure, Service Bus, Cosmos DB</td></tr>
+    <tr><td>Nuvem e mensageria</td><td>Kafka, Cassandra, Elasticsearch</td><td>AWS SQS e Lambda</td><td>Azure, Service Bus, NServiceBus, Cosmos DB</td></tr>
     <tr><td>Ritmo</td><td>Calmo</td><td>Elevado</td><td>Calmo</td></tr>
     <tr><td>Férias</td><td>—</td><td>Conforme a lei dos Emirados</td><td>Piso legal de 20 dias úteis + 10 feriados; 24 dias por contrato</td></tr>
     <tr><td>Imposto de renda</td><td>Sim</td><td>Não</td><td>Sim</td></tr>
