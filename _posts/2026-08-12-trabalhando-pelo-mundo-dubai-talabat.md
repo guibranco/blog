@@ -34,9 +34,9 @@ Este é o segundo post da série sobre os lugares onde trabalhei mudando de paí
   <div class="section-title-wrap"><h2>De onde eu vinha</h2></div>
 </div>
 
-Eu estava com dois contratos ativos: alocado na **Farfetch** via consultoria portuguesa, em recibos verdes, com a mudança para o Porto sendo planejada; e, em paralelo, num contrato **CLT** com a filial brasileira de uma empresa americana.
+Eu tinha acabado de sair do banco onde trabalhei desde 2019 e, em vez de procurar um substituto, estava acumulando **dois contratos parciais em paralelo** — os dois remotos, os dois de sênior, os dois via consultoria: a **Farfetch** por uma consultoria portuguesa, em recibos verdes, com a mudança para o Porto sendo planejada; e um **grupo financeiro jamaicano**, por uma consultoria chilena, em contrato PJ pago em reais contra nota fiscal.
 
-O capítulo anterior explica a conta em detalhe, mas o resumo é este: nenhum dos dois sobrevivia a uma mudança de país — o CLT exigia residência legal no Brasil, e o de Portugal só fazia sentido morando lá. E as duas posições, ambas de sênior, **somadas** ainda ficavam abaixo do que Dubai oferecia por uma vaga um degrau abaixo na escada de carreira.
+O capítulo anterior explica a conta em detalhe, mas o resumo é este: as duas posições **somadas** ainda ficavam abaixo do que Dubai oferecia por uma vaga um degrau abaixo na escada de carreira — a carta de oferta trazia Software Engineer II, grade IC2.
 
 O fato de eu ainda não ter me mudado para Portugal foi o que tornou tudo possível. Não havia contrato de aluguel, mudança despachada nem vida montada para desfazer.
 
@@ -84,7 +84,7 @@ Repare na ordem da última etapa: eu só conversei com quem seria meu gestor **d
 
 <div class="callout callout-tip">
   <div class="callout-label">Dois processos, duas filosofias</div>
-  Porto: duas conversas, zero código escrito, decisão em catorze dias. Dubai: duas etapas técnicas — live coding e system design —, com quatro engenheiros sêniores diferentes entre as duas. Nenhum dos dois é errado — mas o segundo diz muito mais sobre uma empresa que contrata em volume e precisa de um critério que escale. Se você está mirando o Golfo, prepare-se para <em>system design</em>: é a etapa que mais elimina gente com experiência de sobra.
+  Porto: duas conversas, zero código escrito, decisão em catorze dias. Dubai: quatro avaliações técnicas separadas, incluindo live coding e system design com quatro engenheiros diferentes. Nenhum dos dois é errado — mas o segundo diz muito mais sobre uma empresa que contrata em volume e precisa de um critério que escale. Se você está mirando o Golfo, prepare-se para <em>system design</em>: é a etapa que mais elimina gente com experiência de sobra.
 </div>
 
 <div class="callout callout-warn">
@@ -216,11 +216,6 @@ Essa foi a engenharia financeira menos óbvia de toda a mudança.
   O dirham é <strong>atrelado ao dólar americano</strong> a uma paridade fixa mantida há décadas. Isso torna o pagamento em USD trivial para a empresa e previsível para você: não há risco cambial entre as duas moedas. É uma das razões pelas quais arranjos internacionais de pagamento são tão comuns por lá.
 </div>
 
-<div class="callout callout-warn">
-  <div class="callout-label">Isenção nos Emirados não é isenção no Brasil</div>
-  Vale separar as duas coisas. A ausência de imposto de renda dos Emirados é uma característica da relação entre o empregador e o governo <strong>local</strong> — ela não muda a sua condição de residente fiscal em outro país. Durante os quase seis meses em que morei no Brasil recebendo salário de uma empresa em Dubai, esse rendimento era de fonte estrangeira e, para a Receita Federal, tributável como tal. Isto não é orientação fiscal: se você vai receber salário do exterior morando no Brasil, procure um contador especializado em rendimento estrangeiro antes de montar o arranjo — as regras de residência fiscal e de tributação sobre remessas mudam com frequência.
-</div>
-
 <div class="personal-story">
   <div class="personal-story-label">
     <i class="fas fa-user-circle"></i> Minha experiência — o salário que chegou em espécie
@@ -250,6 +245,23 @@ Aterrissei em Dubai por volta das **19h do dia 27**. Corri para o hotel, larguei
   <p>Menos de três horas depois de pousar num país onde eu nunca tinha estado, eu estava num bar assistindo meu time ganhar a Libertadores, ao lado de alguém que eu só conhecia de grupo de WhatsApp. Os grupos de brasileiros no exterior são muito subestimados: eles resolvem, em uma tarde, o problema que costuma levar meses — ter uma pessoa para chamar.</p>
   <p>Aquilo era sábado. No <strong>domingo</strong> eu já estava no escritório: a semana útil nos Emirados ia de domingo a quinta.</p>
 </div>
+
+### Os empregos que a mudança encerrou
+
+Durante o período em remoto do Brasil, eu não estava só na Talabat. Em **junho de 2021** eu somei um contrato **CLT com a filial brasileira de uma empresa americana** — e havia ainda uma terceira frente, também parcial, num projeto de open banking. Foi a fase em que acumulei três vínculos ao mesmo tempo.
+
+O contrato americano tem um detalhe que vale contar, porque é a melhor lição prática desta série sobre trabalho remoto internacional. O salário era acima da média de sênior no Brasil e muito abaixo da média de sênior nos Estados Unidos — o clássico **salário LATAM**: a empresa paga acima do mercado local e bem abaixo do mercado dela. E isso não era acidente, estava escrito no contrato. Exigia-se que eu estivesse **na América Latina**, por dois motivos declarados: fuso horário e custo de vida.
+
+<div class="callout callout-warn">
+  <div class="callout-label">A cláusula que ninguém lê com atenção</div>
+  Contratos de "remoto internacional" quase sempre trazem uma restrição geográfica. Não é burocracia decorativa: é o que sustenta a faixa salarial. Se você pretende mudar de país em algum momento, essa cláusula precisa ser a primeira coisa que você lê — porque ela decide se aquele emprego sobrevive ou não à sua mudança.
+</div>
+
+Sendo CLT, eu precisava estar **legalmente residindo no Brasil**. Manter o vínculo morando em Dubai era impraticável: além do fuso, a empresa poderia me convocar ao escritório de São Paulo a qualquer momento. Vale registrar também o que aquele contrato **não** oferecia: nenhuma previsão de mudança para os Estados Unidos, nenhum patrocínio de visto. Não era caminho para lugar nenhum — era um emprego remoto com teto geográfico embutido.
+
+Então o embarque de novembro resolveu a questão sozinho. **A mudança encerrou os contratos que dependiam de eu estar no Brasil**, e eu fiquei só com a Talabat.
+
+<div class="divider">· · ·</div>
 
 ### Primeiro mês: presencial por necessidade
 
@@ -361,7 +373,7 @@ Meus dois gestores foram um nigeriano — hoje morando em Portugal — e um arge
   <div class="section-title-wrap"><h2>O projeto e as tecnologias</h2></div>
 </div>
 
-O pano de fundo dos dois anos foi um só: **migração de arquitetura monolítica para microsserviços**. O restante acontecia em cima disso.
+O pano de fundo dos dois anos foi um só: **migração de arquitetura monolítica para microsserviços**. Todo o resto acontecia em cima disso.
 
 <div class="providers-grid">
   <div class="provider-card">
@@ -554,9 +566,10 @@ Saí da Talabat em **março de 2023** e mudei para Dublin em **23 de abril de 20
     <tr><td>17/03/2021</td><td>Primeira call com a Talabat</td></tr>
     <tr><td>Mar–Abr/2021</td><td>Seis etapas: screening, RH, live coding, system design, VP de Engenharia e alocação</td></tr>
     <tr><td>21/04/2021</td><td>Carta de oferta, válida por três dias úteis</td></tr>
-    <tr><td>Abr–Mai/2021</td><td>Desligamento da Farfetch e do contrato CLT</td></tr>
+    <tr><td>Abr–Mai/2021</td><td>Desligamento dos dois contratos paralelos</td></tr>
     <tr><td>30/05/2021</td><td>Primeiro dia na Talabat — remoto, do Brasil, acordando às 4h</td></tr>
     <tr><td>Mai–Dez/2021</td><td>Squad Grocery Fulfillment</td></tr>
+    <tr><td>Jun–Nov/2021</td><td>Contrato CLT paralelo com filial brasileira de empresa americana, encerrado pela mudança</td></tr>
     <tr><td>26/11/2021</td><td>Voo de Guarulhos para Dubai, pago pela empresa</td></tr>
     <tr><td>27/11/2021</td><td>Pouso em Dubai às 19h — e final da Libertadores num bar, à noite</td></tr>
     <tr><td>28/11/2021</td><td>Primeiro dia no escritório, um domingo</td></tr>
@@ -582,15 +595,15 @@ Saí da Talabat em **março de 2023** e mudei para Dublin em **23 de abril de 20
   <ol class="references-list">
     <li>
       Talabat. <strong>About us.</strong>
-      <a href="https://corporate.talabat.com/about/" target="_blank">talabat.com</a>
+      <a href="https://www.talabat.com/" target="_blank">talabat.com</a>
     </li>
     <li>
       Delivery Hero. <strong>Our brands.</strong>
-      <a href="https://www.deliveryhero.com/brands-countries/" target="_blank">deliveryhero.com</a>
+      <a href="https://www.deliveryhero.com/" target="_blank">deliveryhero.com</a>
     </li>
     <li>
       U.AE — Portal oficial do Governo dos Emirados Árabes Unidos. <strong>Working hours and leaves.</strong>
-      <a href="https://u.ae/en/information-and-services/jobs/employment-in-the-private-sector/working-hours" target="_blank">u.ae</a>
+      <a href="https://u.ae/" target="_blank">u.ae</a>
     </li>
   </ol>
 </div>
