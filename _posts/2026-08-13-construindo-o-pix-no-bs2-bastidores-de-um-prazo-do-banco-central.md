@@ -263,7 +263,7 @@ Vale registrar uma coisa que só ficou clara com os anos: a capacidade de partic
     </li>
     <li>
       Banco Central do Brasil. <strong>Carta Circular nº 4.055, de 25 de maio de 2020 — cronograma dos testes de homologação dos participantes diretos no SPI.</strong>
-      <a href="https://www.legisweb.com.br/legislacao/?id=396000" target="_blank">legisweb.com.br</a>
+      <a href="https://normativos.bcb.gov.br/Lists/Normativos/Attachments/51046/C_Circ_4055_v1_O.pdf" target="_blank">normativos.bcb.gov.br</a>
     </li>
     <li>
       Banco Central do Brasil. <strong>Divulgação do Sistema de Pagamentos Instantâneos (SPI) — princípios para infraestruturas do mercado financeiro.</strong>
