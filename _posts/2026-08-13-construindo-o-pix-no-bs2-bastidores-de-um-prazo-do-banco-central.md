@@ -8,12 +8,11 @@ subcategories:
   - "Career/Behind the Scenes"
 tags: [pix, banco-central, central-bank, carreira, career, sistemas-financeiros, financial-systems, plantao, on-call, bastidores]
 medium_tags: [pix, fintech, career, on-call, brazil]
-reading_time: 23
+reading_time: 24
 cover: /assets/img/posts/pix-bs2-bastidores.svg
 image: /assets/img/posts/pix-bs2-bastidores.png
 series: pix-bs2
-series_title: "PIX no BS2"
-series_part: 1
+series_order: 1
 ---
 
 <p class="lead">Em abril de 2020 eu saí de um time B2B em São Paulo e entrei no time de projetos especiais do core bancário. A primeira coisa que me contaram na nova mesa foi que o Banco Central tinha marcado o lançamento do PIX para novembro. Não era uma meta de roadmap. Era uma data.</p>
@@ -41,7 +40,7 @@ A estrutura era dividida em **BUs** — *business units*, ou tribos —, e cada 
 
 Eu estava na squad de BaaS e API banking, dentro da BU PJ. Ou seja: o lugar para onde eu queria ir ficava a quase 600 quilômetros de onde eu trabalhava, e não por acaso — era assim que o banco estava organizado.
 
-E eu queria ir. Já tinha manifestado interesse em atuar no core bancário antes de existir qualquer conversa sobre PIX. Meu alvo, na verdade, era o **SPB**, que na época cuidava de TED e DOC. Eu queria entender como o dinheiro sai de uma instituição e entra em outra de verdade, no nível do protocolo. Não fazia ideia de que existia um SPI, muito menos de que ele estava sendo construído naquele momento.
+E eu queria ir. Já tinha manifestado interesse em atuar no core bancário antes de existir qualquer conversa sobre PIX. Meu alvo, na verdade, era o **SPB — o Sistema de Pagamentos Brasileiro**, que na época era por onde passavam TED e DOC. Eu queria entender como o dinheiro sai de uma instituição e entra em outra de verdade, no nível do protocolo. Não fazia ideia de que existia um **SPI — o Sistema de Pagamentos Instantâneos**, a infraestrutura sobre a qual o PIX ia rodar —, muito menos de que ele estava sendo construído naquele momento.
 
 Ajudou que aquele não era um destino cheio de estranhos. O head de serviços financeiros era mineiro, mas vinha de ter sido PO da área de internet banking do braço PJ em São Paulo — eu já o conhecia da mesma BU, ainda que de outra squad. E o diretor de TI era o antigo head de tecnologia daquele mesmo braço PJ, promovido a CIO no começo de 2020. As duas pessoas que decidiam sobre o projeto tinham saído da estrutura de onde eu vinha.
 
@@ -135,33 +134,35 @@ Repare no espaço entre agosto e outubro. A especificação técnica definitiva 
 
 Vale começar pelo estado em que eu encontrei o time, porque ele não era o time que entregou o PIX.
 
-Quando cheguei, em abril, projetos especiais tinha **eu, mais um desenvolvedor, um arquiteto, dois analistas de negócio, um especialista não técnico e um head**. Poucas semanas depois, os dois analistas e o head foram desligados, e o especialista assumiu a coordenação. Sobraram o arquiteto e nós dois, olhando para um prazo publicado pelo Banco Central.
+Quando cheguei, projetos especiais tinha **eu, mais um desenvolvedor, um arquiteto, dois analistas de negócio, um especialista financeiro e um head**. Poucas semanas depois, os dois analistas e o head foram desligados, e o especialista assumiu a coordenação. Sobraram o arquiteto e nós dois, olhando para um prazo publicado pelo Banco Central.
+
+Vale traduzir esses dois cargos, porque eles não têm equivalente óbvio no vocabulário de quem trabalha em produto digital. O **especialista financeiro** acumulava a função de gerente de projetos: era quem entendia do negócio bancário e ao mesmo tempo tocava cronograma, escopo e dependências. Não havia papel de agile, product owner ou scrum master ali — aquela era uma cultura de projeto tradicional, com gerente e plano, não de squad com cerimônia. E **head**, no organograma do banco, era o gerente ou superintendente do departamento, responsável pelo time e pelo projeto perante a diretoria.
 
 O time foi remontado durante o projeto. Entraram mais quatro desenvolvedores ao longo dos meses — alguns vinham de fora e já tinham trabalhado com gente dali em outros bancos, e um veio do próprio core, com experiência em conta corrente, débito e crédito. Esse último detalhe não é acessório: ter alguém que já sabia como o dinheiro se move dentro da instituição vale mais, num projeto desses, do que qualquer familiaridade com a especificação nova, porque a especificação todo mundo ia ter que aprender do zero de qualquer jeito.
 
 <div class="callout callout-tip">
   <div class="callout-label">A formação final</div>
-  Seis desenvolvedores — quatro sêniores e dois plenos —, um arquiteto, um head (o antigo especialista) e um analista de negócio recontratado, acumulando o papel de analista com o de agile do time. Mais o apoio permanente de uma piloto, que com o tempo passou a fazer mais parte do time do PIX do que da operação de onde ela vinha.
+  Seis desenvolvedores — <strong>três sêniores e três plenos</strong> —, um arquiteto, um head (o antigo especialista financeiro) e um analista de negócio recontratado, acumulando o papel de analista com o de agile do time. Mais o apoio permanente de uma piloto de reserva, que com o tempo passou a fazer mais parte do time do PIX do que da operação de onde ela vinha.
 </div>
 
-A divisão foi por domínio, não por camada. Cada frente era dona de uma fatia funcional de ponta a ponta, e a composição era regular: **um sênior e um pleno por frente**. A única exceção era a borda da RSFN, que ficou praticamente inteira com o arquiteto — o profissional mais sênior do time — trabalhando sozinho.
+A divisão foi por domínio, não por camada. Cada frente era dona de uma fatia funcional de ponta a ponta, e a conta fechava exatamente: **três frentes, cada uma com um sênior e um pleno**. A borda da RSFN não entrava nessa conta — ela ficou praticamente inteira com o arquiteto, o profissional mais sênior do time, trabalhando sozinho.
 
 <div class="providers-grid">
   <div class="provider-card">
     <div class="provider-name">Chaves e diretório</div>
-    <div class="provider-detail">Uma pessoa responsável pelo DICT: registro, alteração, exclusão, consulta de vínculo, reivindicação de posse e portabilidade. O primeiro entregável a ir para produção, em 5 de outubro.</div>
+    <div class="provider-detail"><strong>Um sênior e um pleno.</strong> Registro, alteração, exclusão, consulta de vínculo, reivindicação de posse e portabilidade de chave no DICT. O primeiro entregável a ir para produção, em 5 de outubro.</div>
   </div>
   <div class="provider-card">
     <div class="provider-name">Recebimento e contestação</div>
-    <div class="provider-detail">Uma pessoa responsável pelo outro lado do fluxo: crédito na conta do recebedor, comprovante, devolução e o tratamento das contestações.</div>
+    <div class="provider-detail"><strong>Um sênior e um pleno.</strong> O outro lado do fluxo: crédito na conta do recebedor, comprovante, devolução e tratamento das contestações.</div>
   </div>
   <div class="provider-card">
     <div class="provider-name">Borda RSFN</div>
-    <div class="provider-detail">O arquiteto, sozinho, cuidando da comunicação direta com o BACEN, do XML e da tradução para o barramento interno. Único ponto do time sem par.</div>
+    <div class="provider-detail"><strong>O arquiteto, sozinho.</strong> Toda a comunicação direta com o BACEN pela RSFN: o XML assinado, o transporte, os certificados e a tradução para o barramento interno. Único ponto do time sem par.</div>
   </div>
   <div class="provider-card">
     <div class="provider-name">Iniciação e PIX Indireto</div>
-    <div class="provider-detail">A minha parte: fazer o pagamento sair, e permitir que outras instituições fizessem pagamentos saírem através da gente. O detalhamento técnico das duas está na <a href="{{ site.baseurl }}/artigos/arquitetura-do-pix-por-dentro-spi-iso-20022-dez-segundos/">segunda parte da série</a>.</div>
+    <div class="provider-detail"><strong>Um sênior e um pleno</strong> — o sênior era eu. Fazer o pagamento sair, e permitir que outras instituições fizessem pagamentos saírem através da gente. O detalhamento técnico das duas está na <a href="{{ site.baseurl }}/artigos/arquitetura-do-pix-por-dentro-spi-iso-20022-dez-segundos/">segunda parte da série</a>.</div>
   </div>
 </div>
 
@@ -173,10 +174,10 @@ A terceira era a função que mais me surpreendeu: uma **piloto de reserva**. É
 
 <div class="callout callout-tip">
   <div class="callout-label">O requisito que não é de software</div>
-  Uma transação PIX não liquida sem saldo na Conta PI do participante, por mais correto que o seu código esteja. Alguém precisa provisionar essa liquidez 24 horas por dia, sete dias por semana, num sistema que — ao contrário do SPB tradicional — não fecha à noite nem no fim de semana. Nenhuma quantidade de arquitetura resolve isso.
+  A <strong>Conta PI</strong> é a conta de Pagamentos Instantâneos que cada participante direto mantém no Banco Central, separada da conta de Reservas Bancárias usada no SPB. É contra o saldo dela que o SPI liquida, transação a transação, e é ela que o participante precisa abastecer antecipadamente — inclusive de madrugada e no fim de semana, quando o PIX opera e o SPB não. Uma transação PIX não liquida sem saldo ali, por mais correto que o seu código esteja. Alguém precisa provisionar essa liquidez 24 horas por dia, sete dias por semana, num sistema que — ao contrário do SPB tradicional — não fecha à noite nem no fim de semana. Nenhuma quantidade de arquitetura resolve isso.
 </div>
 
-Na época eu achei que aquilo fosse um improviso nosso — alguém do SPB emprestado ao PIX. Não era. A função de piloto de reserva do SPI se consolidou como cargo próprio no mercado brasileiro. Anúncios de vaga para a posição descrevem exatamente esse escopo: domínio operacional do STR **e** do SPI, monitoramento de saldo intradiário via RSFN, contingência e tratamento de devoluções e MED. Há inclusive provedores que vendem, como diferencial para participantes indiretos, um piloto de reservas próprio, sem depender do piloto de reservas do liquidante direto.
+Na época eu achei que aquilo fosse um improviso nosso — alguém do SPB (TED e DOC) emprestado ao SPI (PIX). Não era. A função de piloto de reserva do SPI se consolidou como cargo próprio no mercado brasileiro. Anúncios de vaga para a posição descrevem exatamente esse escopo: domínio operacional do STR, no SPB, **e** do SPI, monitoramento de saldo intradiário via RSFN, contingência e tratamento de devoluções e MED. Há inclusive provedores que vendem, como diferencial para participantes indiretos, um piloto de reservas próprio, sem depender do piloto de reservas do liquidante direto.
 
 Vale distinguir duas coisas que eu confundia. O que a norma exige na adesão ao PIX é a indicação de um **diretor estatutário** responsável perante o Banco Central pelas questões do SPI — isso é governança. O piloto de reserva é **função operacional**, criada pela necessidade concreta de manter liquidez numa conta que liquida 24 horas por dia. Uma coisa responde ao regulador; a outra impede que a transação seja rejeitada às três da manhã de domingo.
 
@@ -221,7 +222,7 @@ Não foi imposto. A escala foi apresentada, discutida, questionada e **votada an
 
 Essa diferença tinha um componente geográfico que eu só entendi com o tempo. **Todas as consultorias do time eram de Belo Horizonte, e todas contratavam em CLT.** As consultorias e os prestadores de São Paulo, de onde eu vinha, preferiam quase sempre o modelo PJ. Não era coincidência: era cultura regional de contratação em tecnologia naquele momento.
 
-Vale separar as duas camadas dessa história. Do ponto de vista estritamente legal, contratar em CLT é o caminho correto e sem zona cinzenta — a pejotização de trabalho subordinado é justamente o ponto contestado. Do ponto de vista de quem estava sendo contratado, em São Paulo a prática já era costume consolidado, e eu preferia o modelo PJ — e ainda prefiro, **desde que o valor seja coerente com o que ele custa em direitos abdicados**. Essa ressalva não é decorativa: PJ com valor de CLT é só CLT sem férias, sem 13º, sem FGTS e sem estabilidade.
+Vale separar as duas camadas dessa história. Do ponto de vista estritamente legal, contratar em CLT é o caminho correto e sem zona cinzenta — a pejotização de trabalho subordinado é justamente o ponto contestado. Do ponto de vista de quem estava sendo contratado, em São Paulo a prática já era costume consolidado, e eu preferia o modelo PJ — assunto que eu destrincho com calma em <a href="{{ site.baseurl }}/artigos/clt-vs-pj-qual-escolher/">CLT ou PJ: qual escolher</a> — — e ainda prefiro, **desde que o valor seja coerente com o que ele custa em direitos abdicados**. Essa ressalva não é decorativa: PJ com valor de CLT é só CLT sem férias, sem 13º, sem FGTS e sem estabilidade.
 
 <div class="divider">· · ·</div>
 

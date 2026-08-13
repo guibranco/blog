@@ -8,12 +8,11 @@ subcategories:
   - "Coding/Architecture"
 tags: [pix, arquitetura, architecture, iso-20022, dotnet, rabbitmq, sistemas-financeiros, financial-systems, banco-central, central-bank]
 medium_tags: [pix, software-architecture, dotnet, rabbitmq, fintech]
-reading_time: 19
+reading_time: 20
 cover: /assets/img/posts/pix-arquitetura-capa.svg
 image: /assets/img/posts/pix-arquitetura-capa.png
 series: pix-bs2
-series_title: "PIX no BS2"
-series_part: 2
+series_order: 2
 ---
 
 <p class="lead">O PIX é um dos poucos sistemas em que a latência aceitável está publicada em norma, por percentil, e auditada mensalmente. Este texto é sobre o que isso faz com a arquitetura de quem precisa caber ali dentro — do lado do Banco Central e do lado de um participante direto.</p>
@@ -39,8 +38,8 @@ O PIX não é um sistema único. São dois sistemas principais, com papéis bem 
 
 <div class="providers-grid">
   <div class="provider-card">
-    <div class="provider-name">SPI — Sistema de Pagamentos Instantâneos</div>
-    <div class="provider-detail">Onde o dinheiro se move. Liquida transação a transação, sem janela de fechamento e sem ciclo de compensação. Cada participante direto mantém uma <strong>Conta PI</strong> no BC, e a transação só acontece se houver saldo nela.</div>
+    <div class="provider-name">SPI — Sistema de Pagamentos Instantâneos (o PIX)</div>
+    <div class="provider-detail">Onde o dinheiro se move. Liquida transação a transação, sem janela de fechamento e sem ciclo de compensação. Cada participante direto mantém uma <strong>Conta PI</strong> no BC, e a transação só acontece se houver saldo nela — ver o quadro abaixo.</div>
     <div class="provider-price">Mensageria ISO 20022 em XML</div>
   </div>
   <div class="provider-card">
@@ -48,6 +47,13 @@ O PIX não é um sistema único. São dois sistemas principais, com papéis bem 
     <div class="provider-detail">Onde as identidades são resolvidas. Guarda o vínculo entre chave (CPF/CNPJ, e-mail, telefone, chave aleatória) e conta transacional. Inclui reivindicação de posse e portabilidade de chave.</div>
     <div class="provider-price">Operado pelo próprio BC</div>
   </div>
+</div>
+
+<div class="callout callout-tip">
+  <div class="callout-label">O que é a Conta PI, e por que ela muda tudo</div>
+  <p>No <strong>SPB — Sistema de Pagamentos Brasileiro</strong>, por onde passam TED e DOC, os bancos liquidam contra a conta de <em>Reservas Bancárias</em> no Banco Central, dentro de grades de horário e com o sistema fechando à noite e no fim de semana.</p>
+  <p>O <strong>SPI</strong>, arranjo sobre o qual o PIX roda, criou uma conta separada para isso: a <strong>Conta PI</strong>, de Pagamentos Instantâneos. Cada participante direto mantém a sua no BC e a abastece antecipadamente, transferindo saldo da conta de Reservas. É contra ela que o SPI debita e credita, transação a transação, sem compensação e sem ciclo de fechamento.</p>
+  <p>A consequência prática é dura: <strong>não existe cheque especial no SPI</strong>. Se a Conta PI não tem saldo no instante da ordem, a transação não liquida — não importa quanto o cliente tenha na conta corrente dele nem quão correto esteja o seu código. Provisionar essa liquidez 24 horas por dia, sete dias por semana, vira função operacional permanente.</p>
 </div>
 
 A comunicação com essa infraestrutura acontece exclusivamente pela **RSFN** — a Rede do Sistema Financeiro Nacional. Rede dedicada, fora da internet pública, com autenticação por certificado ICP-Brasil e validação de formato e assinatura em cada mensagem.
