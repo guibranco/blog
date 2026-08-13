@@ -172,9 +172,9 @@ def _yaml_unquote(s: str) -> str:
 
 def _yaml_scalar(value: str) -> str:
     """Render a YAML scalar, quoting it only when needed (matches the
-    existing style in _data/categories.yml: plain names are bare, names
-    with symbols or accents are double-quoted)."""
-    if re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9 \-]*', value):
+    existing style in _data/categories.yml: single-word names are bare,
+    names containing a space or symbols are double-quoted)."""
+    if re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9\-]*', value):
         return value
     escaped = value.replace('\\', '\\\\').replace('"', '\\"')
     return f'"{escaped}"'
@@ -252,7 +252,7 @@ def serialize_categories_yaml(categories: list[dict]) -> str:
         else:
             lines.append("  subcategories: []")
         blocks.append("\n".join(lines))
-    return "\n\n".join(blocks) + "\n"
+    return "\n".join(blocks) + "\n"
 
 
 def sync_categories_data(
@@ -395,18 +395,24 @@ def write_output(key: str, value: str) -> None:
 
 # ── Core logic ────────────────────────────────────────────────────────────────
 
-def collect_missing(post_files: list[str]) -> tuple[dict, dict, dict]:
+def collect_missing(post_files: list[str]) -> tuple[dict, dict, dict, dict, dict]:
     """
-    Return three dicts of items that need pages created:
-        missing_cats:    {slug: original_name}
-        missing_tags:    {slug: original_name}
-        missing_subcats: {(cat_slug, sub_slug): (cat_original, sub_original)}
+    Return five dicts of items that need creating. Page existence and feed
+    existence are checked independently — a category/subcategory can have
+    its page already but be missing its feed (or vice versa), and each gap
+    is tracked and filled separately:
+        missing_cats:         {slug: original_name}                          — page missing
+        missing_tags:         {slug: original_name}                          — page missing
+        missing_subcats:      {(cat_slug, sub_slug): (cat_original, sub_original)}  — page missing
+        missing_cat_feeds:    {slug: original_name}                          — feed missing
+        missing_subcat_feeds: {(cat_slug, sub_slug): (cat_original, sub_original)}  — feed missing
     """
     for d in (CATS_DIR, TAGS_DIR, FEEDS_DIR):
         d.mkdir(parents=True, exist_ok=True)
 
-    existing_cats = {f.stem for f in CATS_DIR.glob("*.md")}
-    existing_tags = {f.stem for f in TAGS_DIR.glob("*.md")}
+    existing_cats  = {f.stem for f in CATS_DIR.glob("*.md")}
+    existing_tags  = {f.stem for f in TAGS_DIR.glob("*.md")}
+    existing_feeds = {f.stem for f in FEEDS_DIR.glob("*.xml")}
 
     # Subcategory pages live in categorias/{cat_slug}/{sub_slug}.md
     existing_subcats: set[tuple[str, str]] = set()
@@ -415,9 +421,11 @@ def collect_missing(post_files: list[str]) -> tuple[dict, dict, dict]:
             for f in cat_dir.glob("*.md"):
                 existing_subcats.add((cat_dir.name, f.stem))
 
-    missing_cats:    dict[str, str]                         = {}
-    missing_tags:    dict[str, str]                         = {}
-    missing_subcats: dict[tuple[str, str], tuple[str, str]] = {}
+    missing_cats:         dict[str, str]                         = {}
+    missing_tags:         dict[str, str]                         = {}
+    missing_subcats:      dict[tuple[str, str], tuple[str, str]] = {}
+    missing_cat_feeds:    dict[str, str]                         = {}
+    missing_subcat_feeds: dict[tuple[str, str], tuple[str, str]] = {}
 
     for post_file in post_files:
         path = Path(post_file)
@@ -443,6 +451,8 @@ def collect_missing(post_files: list[str]) -> tuple[dict, dict, dict]:
             slug = slugify(cat)
             if slug not in existing_cats and slug not in missing_cats:
                 missing_cats[slug] = cat
+            if slug not in existing_feeds and slug not in missing_cat_feeds:
+                missing_cat_feeds[slug] = cat
 
         for cat_original, sub_original in pairs:
             cat_slug = slugify(cat_original)
@@ -450,6 +460,9 @@ def collect_missing(post_files: list[str]) -> tuple[dict, dict, dict]:
             key = (cat_slug, sub_slug)
             if key not in existing_subcats and key not in missing_subcats:
                 missing_subcats[key] = (cat_original, sub_original)
+            feed_stem = f"{cat_slug}-{sub_slug}"
+            if feed_stem not in existing_feeds and key not in missing_subcat_feeds:
+                missing_subcat_feeds[key] = (cat_original, sub_original)
 
         for tag in tags:
             if not tag:
@@ -458,83 +471,89 @@ def collect_missing(post_files: list[str]) -> tuple[dict, dict, dict]:
             if slug not in existing_tags and slug not in missing_tags:
                 missing_tags[slug] = tag
 
-    return missing_cats, missing_tags, missing_subcats
+    return missing_cats, missing_tags, missing_subcats, missing_cat_feeds, missing_subcat_feeds
 
 
 def create_pages(
-    missing_cats:    dict[str, str],
-    missing_tags:    dict[str, str],
-    missing_subcats: dict[tuple[str, str], tuple[str, str]],
+    missing_cats:         dict[str, str],
+    missing_tags:         dict[str, str],
+    missing_subcats:      dict[tuple[str, str], tuple[str, str]],
+    missing_cat_feeds:    dict[str, str],
+    missing_subcat_feeds: dict[tuple[str, str], tuple[str, str]],
 ) -> tuple[list, list, list, list]:
     """
     Create missing category pages, subcategory pages, tag pages, and RSS feeds.
+    Page creation and feed creation are independent: a category/subcategory
+    may need only its page, only its feed, or both.
     Returns (created_cats, created_subcats, created_tags, created_feeds).
     """
-    existing_feeds = {f.stem for f in FEEDS_DIR.glob("*.xml")}
-
     created_cats:    list[tuple[str, str]]           = []
     created_subcats: list[tuple[str, str, str, str]] = []
     created_tags:    list[tuple[str, str]]           = []
     created_feeds:   list[tuple[str, str, str]]      = []  # (label, slug, path)
 
-    for slug, original in sorted(missing_cats.items()):
-        # Category page
-        cat_path = CATS_DIR / f"{slug}.md"
-        cat_path.write_text(
-            f"---\n"
-            f"layout: {CATEGORY_LAYOUT}\n"
-            f"category: {original}\n"
-            f"permalink: {CATEGORY_PERMALINK.format(slug=slug)}\n"
-            f"pagination:\n"
-            f"  enabled: true\n"
-            f"  per_page: 10\n"
-            f"  sort_field: date\n"
-            f"  sort_reverse: true\n"
-            f"  category: {original}\n"
-            f"---\n",
-            encoding='utf-8',
-        )
-        created_cats.append((original, slug))
-        print(f"✅ Created: categorias/{slug}.md  (category: {original})")
+    cat_slugs = sorted(set(missing_cats) | set(missing_cat_feeds))
+    for slug in cat_slugs:
+        original = missing_cats.get(slug, missing_cat_feeds.get(slug))
 
-        # RSS feed for this category
-        if slug not in existing_feeds:
+        if slug in missing_cats:
+            cat_path = CATS_DIR / f"{slug}.md"
+            cat_path.write_text(
+                f"---\n"
+                f"layout: {CATEGORY_LAYOUT}\n"
+                f"category: {original}\n"
+                f"permalink: {CATEGORY_PERMALINK.format(slug=slug)}\n"
+                f"pagination:\n"
+                f"  enabled: true\n"
+                f"  per_page: 10\n"
+                f"  sort_field: date\n"
+                f"  sort_reverse: true\n"
+                f"  category: {original}\n"
+                f"---\n",
+                encoding='utf-8',
+            )
+            created_cats.append((original, slug))
+            print(f"✅ Created: categorias/{slug}.md  (category: {original})")
+
+        if slug in missing_cat_feeds:
             feed_path = FEEDS_DIR / f"{slug}.xml"
             feed_path.write_text(feed_template(original, slug), encoding='utf-8')
-            existing_feeds.add(slug)
             created_feeds.append((original, slug, f"feed/{slug}.xml"))
             print(f"✅ Created: feed/{slug}.xml  (category: {original})")
 
-    for (cat_slug, sub_slug), (cat_original, sub_original) in sorted(missing_subcats.items()):
-        # Ensure parent directory exists
-        subcat_dir = CATS_DIR / cat_slug
-        subcat_dir.mkdir(exist_ok=True)
+    subcat_keys = sorted(set(missing_subcats) | set(missing_subcat_feeds))
+    for cat_slug, sub_slug in subcat_keys:
+        key = (cat_slug, sub_slug)
+        cat_original, sub_original = missing_subcats.get(key, missing_subcat_feeds.get(key))
 
-        sub_path = subcat_dir / f"{sub_slug}.md"
-        permalink = SUBCATEGORY_PERMALINK.format(cat_slug=cat_slug, sub_slug=sub_slug)
-        # No pagination block: the category layout filters posts via Liquid directly,
-        # which correctly handles the subcategories array field.
-        sub_path.write_text(
-            f"---\n"
-            f"layout: {CATEGORY_LAYOUT}\n"
-            f"category: {cat_original}\n"
-            f"subcategory: {sub_original}\n"
-            f"permalink: {permalink}\n"
-            f"---\n",
-            encoding='utf-8',
-        )
-        created_subcats.append((cat_original, cat_slug, sub_original, sub_slug))
-        print(f"✅ Created: categorias/{cat_slug}/{sub_slug}.md  ({cat_original} › {sub_original})")
+        if key in missing_subcats:
+            # Ensure parent directory exists
+            subcat_dir = CATS_DIR / cat_slug
+            subcat_dir.mkdir(exist_ok=True)
 
-        # RSS feed for this subcategory
-        feed_stem = f"{cat_slug}-{sub_slug}"
-        if feed_stem not in existing_feeds:
+            sub_path = subcat_dir / f"{sub_slug}.md"
+            permalink = SUBCATEGORY_PERMALINK.format(cat_slug=cat_slug, sub_slug=sub_slug)
+            # No pagination block: the category layout filters posts via Liquid directly,
+            # which correctly handles the subcategories array field.
+            sub_path.write_text(
+                f"---\n"
+                f"layout: {CATEGORY_LAYOUT}\n"
+                f"category: {cat_original}\n"
+                f"subcategory: {sub_original}\n"
+                f"permalink: {permalink}\n"
+                f"---\n",
+                encoding='utf-8',
+            )
+            created_subcats.append((cat_original, cat_slug, sub_original, sub_slug))
+            print(f"✅ Created: categorias/{cat_slug}/{sub_slug}.md  ({cat_original} › {sub_original})")
+
+        if key in missing_subcat_feeds:
+            feed_stem = f"{cat_slug}-{sub_slug}"
             feed_path = FEEDS_DIR / f"{feed_stem}.xml"
             feed_path.write_text(
                 subcategory_feed_template(cat_original, cat_slug, sub_original, sub_slug),
                 encoding='utf-8',
             )
-            existing_feeds.add(feed_stem)
             created_feeds.append((f"{cat_original} › {sub_original}", feed_stem, f"feed/{feed_stem}.xml"))
             print(f"✅ Created: feed/{feed_stem}.xml  ({cat_original} › {sub_original})")
 
@@ -643,18 +662,23 @@ def main() -> None:
 
     print(f"\n🔍 Scanning {len(post_files)} post file(s) for missing pages...\n")
 
-    missing_cats, missing_tags, missing_subcats = collect_missing(post_files)
+    missing_cats, missing_tags, missing_subcats, missing_cat_feeds, missing_subcat_feeds = (
+        collect_missing(post_files)
+    )
 
-    total_missing = len(missing_cats) + len(missing_tags) + len(missing_subcats)
+    total_missing = (
+        len(missing_cats) + len(missing_tags) + len(missing_subcats)
+        + len(missing_cat_feeds) + len(missing_subcat_feeds)
+    )
     if total_missing == 0:
-        print("\n✅ All category, subcategory and tag pages already exist — nothing to create.")
+        print("\n✅ All category, subcategory, tag pages and feeds already exist — nothing to create.")
         write_output('created_count', '0')
         write_output('pr_comment', '')
         return
 
     print(f"\n📝 Creating missing pages...")
     created_cats, created_subcats, created_tags, created_feeds = create_pages(
-        missing_cats, missing_tags, missing_subcats
+        missing_cats, missing_tags, missing_subcats, missing_cat_feeds, missing_subcat_feeds
     )
 
     print("\n📝 Syncing _data/categories.yml...")

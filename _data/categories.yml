@@ -2,6 +2,8 @@
   slug: career
   icon: "fas fa-briefcase"
   subcategories:
+    - name: "Behind the Scenes"
+      slug: behind-the-scenes
     - name: "Working Abroad"
       slug: working-abroad
 - name: Coding

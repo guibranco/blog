@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="900" height="560" role="img" aria-label="Arquitetura simplificada do PIX em um participante direto">
+  <rect width="900" height="560" fill="#f5f0e8"/>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5"
+         markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5a534a"/></marker></defs>
+  <rect x="16" y="28" width="868" height="118" rx="6" fill="#ffffff" opacity=".55" stroke="#d8cfc2" stroke-width="1"/>
+  <text x="28" y="44" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.2" fill="#b85c00">APLICAÇÕES</text>
+  <text x="872" y="44" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">app / internet banking / API</text>
+  <rect x="16" y="162" width="868" height="208" rx="6" fill="#ffffff" opacity=".55" stroke="#d8cfc2" stroke-width="1"/>
+  <text x="28" y="178" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.2" fill="#b85c00">PLATAFORMA PIX DO BANCO</text>
+  <text x="872" y="178" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">.NET · RabbitMQ · MS SQL · CouchDB</text>
+  <rect x="16" y="392" width="868" height="74" rx="6" fill="#ffffff" opacity=".55" stroke="#d8cfc2" stroke-width="1"/>
+  <text x="28" y="408" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.2" fill="#b85c00">BORDA RSFN</text>
+  <text x="872" y="408" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">tradução XML ISO 20022 · mTLS · ICP-Brasil</text>
+  <rect x="16" y="492" width="868" height="56" rx="6" fill="#ffffff" opacity=".55" stroke="#d8cfc2" stroke-width="1"/>
+  <text x="28" y="508" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.2" fill="#b85c00">BANCO CENTRAL</text>
+  <text x="872" y="508" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">SPI · DICT</text>
+  <text x="16" y="18" font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="1.4" fill="#5a534a">ARQUITETURA SIMPLIFICADA — PIX EM UM PARTICIPANTE DIRETO (2020)</text>
+  <rect x="40" y="52" width="150" height="48" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
+  <rect x="40" y="52" width="3.5" height="48" rx="1.5" fill="#2d6a4f"/>
+  <text x="117.0" y="73.0" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">App / IB</text>
+  <text x="117.0" y="89.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">iniciação pelo cliente</text>
+  <rect x="220" y="52" width="150" height="48" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
+  <rect x="220" y="52" width="3.5" height="48" rx="1.5" fill="#2d6a4f"/>
+  <text x="297.0" y="73.0" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">APIs do banco</text>
+  <text x="297.0" y="89.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">PJ e parceiros</text>
+  <rect x="400" y="52" width="190" height="48" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
+  <rect x="400" y="52" width="3.5" height="48" rx="1.5" fill="#b85c00"/>
+  <text x="497.0" y="73.0" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">PSPs indiretos</text>
+  <text x="497.0" y="89.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">n instituições · 1 ISPB cada</text>
+  <rect x="620" y="52" width="150" height="48" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
+  <rect x="620" y="52" width="3.5" height="48" rx="1.5" fill="#2d6a4f"/>
+  <text x="697.0" y="73.0" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">Backoffice</text>
+  <text x="697.0" y="89.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">gestão e suporte</text>
+  <rect x="40" y="196" width="170" height="56" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
+  <rect x="40" y="196" width="3.5" height="56" rx="1.5" fill="#2d6a4f"/>
+  <text x="127.0" y="221.0" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">Iniciação de pagamento</text>
+  <text x="127.0" y="237.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">chave · manual · QR Code</text>
+  <rect x="232" y="196" width="150" height="56" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
+  <rect x="232" y="196" width="3.5" height="56" rx="1.5" fill="#2d6a4f"/>
+  <text x="309.0" y="221.0" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">Recebimento</text>
+  <text x="309.0" y="237.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">crédito e devolução</text>
+  <rect x="404" y="196" width="130" height="56" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
+  <rect x="404" y="196" width="3.5" height="56" rx="1.5" fill="#2d6a4f"/>
+  <text x="471.0" y="221.0" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">DICT</text>
+  <text x="471.0" y="237.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">chaves e vínculos</text>
+  <rect x="556" y="196" width="150" height="56" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
+  <rect x="556" y="196" width="3.5" height="56" rx="1.5" fill="#b85c00"/>
+  <text x="633.0" y="221.0" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">Orquestração indireta</text>
+  <text x="633.0" y="237.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">cadastro e roteamento</text>
+  <rect x="728" y="196" width="130" height="56" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
+  <rect x="728" y="196" width="3.5" height="56" rx="1.5" fill="#2d6a4f"/>
+  <text x="795.0" y="221.0" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">Conciliação</text>
+  <text x="795.0" y="237.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">status e estorno</text>
+  <rect x="40" y="278" width="818" height="30" rx="4" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
+  <rect x="40" y="278" width="3.5" height="30" rx="1.5" fill="#2d6a4f"/>
+  <text x="449" y="297" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">Barramento de mensagens — RabbitMQ</text>
+  <rect x="40" y="322" width="200" height="46" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
+  <rect x="40" y="322" width="3.5" height="46" rx="1.5" fill="#2d6a4f"/>
+  <text x="142.0" y="342.0" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">MS SQL Server</text>
+  <text x="142.0" y="358.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">estado transacional</text>
+  <rect x="262" y="322" width="200" height="46" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
+  <rect x="262" y="322" width="3.5" height="46" rx="1.5" fill="#2d6a4f"/>
+  <text x="364.0" y="342.0" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">CouchDB</text>
+  <text x="364.0" y="358.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">documentos e payloads</text>
+  <rect x="484" y="322" width="200" height="46" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
+  <rect x="484" y="322" width="3.5" height="46" rx="1.5" fill="#2d6a4f"/>
+  <text x="586.0" y="342.0" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">Serviço de débito/crédito</text>
+  <text x="586.0" y="358.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">core de conta corrente</text>
+  <rect x="706" y="322" width="152" height="46" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
+  <rect x="706" y="322" width="3.5" height="46" rx="1.5" fill="#2d6a4f"/>
+  <text x="784.0" y="342.0" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">Idempotência</text>
+  <text x="784.0" y="358.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">EndToEndId</text>
+  <rect x="300" y="412" width="300" height="46" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
+  <rect x="300" y="412" width="3.5" height="46" rx="1.5" fill="#2d6a4f"/>
+  <text x="452.0" y="432.0" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">Gateway de mensageria RSFN</text>
+  <text x="452.0" y="448.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">XML assinado &lt;-&gt; fila interna</text>
+  <rect x="230" y="505" width="190" height="40" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
+  <rect x="230" y="505" width="3.5" height="40" rx="1.5" fill="#b85c00"/>
+  <text x="327.0" y="522.0" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">SPI</text>
+  <text x="327.0" y="538.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">liquidação · Conta PI</text>
+  <rect x="480" y="505" width="190" height="40" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
+  <rect x="480" y="505" width="3.5" height="40" rx="1.5" fill="#b85c00"/>
+  <text x="577.0" y="522.0" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">DICT (BCB)</text>
+  <text x="577.0" y="538.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">diretório de chaves</text>
+  <line x1="115" y1="100" x2="115" y2="196" stroke="#5a534a" stroke-width="1.4" marker-end="url(#ah)"/>
+  <line x1="295" y1="100" x2="300" y2="196" stroke="#5a534a" stroke-width="1.4" marker-end="url(#ah)"/>
+  <line x1="495" y1="100" x2="620" y2="196" stroke="#5a534a" stroke-width="1.4" marker-end="url(#ah)" stroke-dasharray="5 4"/>
+  <line x1="695" y1="100" x2="790" y2="196" stroke="#5a534a" stroke-width="1.4" marker-end="url(#ah)" stroke-dasharray="5 4"/>
+  <line x1="449" y1="252" x2="449" y2="278" stroke="#5a534a" stroke-width="1.4" marker-end="url(#ah)"/>
+  <line x1="449" y1="368" x2="449" y2="412" stroke="#5a534a" stroke-width="1.4" marker-end="url(#ah)"/>
+  <text x="544" y="386" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">pacs.008 / pacs.002</text>
+  <line x1="400" y1="458" x2="330" y2="505" stroke="#5a534a" stroke-width="1.4" marker-end="url(#ah)"/>
+  <text x="349" y="476" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">XML</text>
+  <line x1="520" y1="458" x2="570" y2="505" stroke="#5a534a" stroke-width="1.4" marker-end="url(#ah)"/>
+  <text x="563" y="476" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">REST</text>
+  <text x="16" y="550" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">Diagrama conceitual redesenhado para este artigo — não representa nomes, módulos ou topologia interna de nenhuma instituição.</text>
+</svg>

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 522" width="900" height="522" role="img" aria-label="Gráfico de barras dos acordos de nível de serviço do Manual de Tempos do Pix, comparando percentis de cada etapa do ciclo de liquidação">
+  <rect width="900" height="522" fill="#f5f0e8"/>
+  <text x="20" y="26" font-family="Source Serif 4, Georgia, serif" font-size="15" font-weight="600" fill="#1a1714">Manual de Tempos do Pix — acordos de nível de serviço, por percentil</text>
+  <text x="20" y="44" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">quanto tempo cada etapa do ciclo de liquidação pode levar, medida em percentis e não em média</text>
+  <line x1="20" y1="56" x2="880" y2="56" stroke="#d8cfc2" stroke-width="1"/>
+  <rect x="20" y="70" width="10" height="10" rx="2" fill="#2d6a4f"/>
+  <text x="36" y="79" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">obrigação do participante</text>
+  <rect x="201.0" y="70" width="10" height="10" rx="2" fill="#b85c00"/>
+  <text x="217.0" y="79" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">obrigação do Banco Central</text>
+  <rect x="387.4" y="70" width="10" height="10" rx="2" fill="#a8c9b6"/>
+  <text x="403.4" y="79" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">percentil alto (P95 / P99)</text>
+  <line x1="322.0" y1="110" x2="322.0" y2="394" stroke="#d8cfc2" stroke-width="1" opacity="0.9"/>
+  <text x="322.0" y="104" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#8a8078">0s</text>
+  <line x1="369.6" y1="110" x2="369.6" y2="394" stroke="#d8cfc2" stroke-width="0.6" opacity="0.55"/>
+  <line x1="417.2" y1="110" x2="417.2" y2="394" stroke="#d8cfc2" stroke-width="0.6" opacity="0.55"/>
+  <text x="417.2" y="104" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#8a8078">2s</text>
+  <line x1="464.8" y1="110" x2="464.8" y2="394" stroke="#d8cfc2" stroke-width="0.6" opacity="0.55"/>
+  <line x1="512.4" y1="110" x2="512.4" y2="394" stroke="#d8cfc2" stroke-width="0.6" opacity="0.55"/>
+  <text x="512.4" y="104" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#8a8078">4s</text>
+  <line x1="560.0" y1="110" x2="560.0" y2="394" stroke="#d8cfc2" stroke-width="1" opacity="0.9"/>
+  <line x1="607.6" y1="110" x2="607.6" y2="394" stroke="#d8cfc2" stroke-width="0.6" opacity="0.55"/>
+  <text x="607.6" y="104" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#8a8078">6s</text>
+  <line x1="655.2" y1="110" x2="655.2" y2="394" stroke="#d8cfc2" stroke-width="0.6" opacity="0.55"/>
+  <line x1="702.8" y1="110" x2="702.8" y2="394" stroke="#d8cfc2" stroke-width="0.6" opacity="0.55"/>
+  <text x="702.8" y="104" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#8a8078">8s</text>
+  <line x1="750.4" y1="110" x2="750.4" y2="394" stroke="#d8cfc2" stroke-width="0.6" opacity="0.55"/>
+  <line x1="798.0" y1="110" x2="798.0" y2="394" stroke="#d8cfc2" stroke-width="1" opacity="0.9"/>
+  <text x="798.0" y="104" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#8a8078">10s</text>
+  <text x="308" y="128" text-anchor="end" font-family="Source Serif 4, Georgia, serif" font-size="11.5" font-weight="400" fill="#1a1714">Iniciação pelo PSP do pagador</text>
+  <text x="308" y="141" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">t1 - t0'</text>
+  <rect x="322" y="117.5" width="71.4" height="17" rx="3" fill="#a8c9b6"/>
+  <rect x="322" y="117.5" width="42.8" height="17" rx="3" fill="#2d6a4f"/>
+  <text x="401.4" y="130.0" font-family="JetBrains Mono, monospace" font-size="9" fill="#2d6a4f">P50 0,9s · P95 1,5s</text>
+  <text x="308" y="168" text-anchor="end" font-family="Source Serif 4, Georgia, serif" font-size="11.5" font-weight="400" fill="#1a1714">Autorização pelo PSP do recebedor</text>
+  <text x="308" y="181" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">t3' - t2</text>
+  <rect x="322" y="157.5" width="109.5" height="17" rx="3" fill="#a8c9b6"/>
+  <rect x="322" y="157.5" width="66.6" height="17" rx="3" fill="#2d6a4f"/>
+  <text x="380.6" y="170.0" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9" fill="#ffffff">P50 1,4s</text>
+  <text x="439.5" y="170.0" font-family="JetBrains Mono, monospace" font-size="9" fill="#2d6a4f">P95 2,3s</text>
+  <text x="308" y="208" text-anchor="end" font-family="Source Serif 4, Georgia, serif" font-size="11.5" font-weight="400" fill="#1a1714">Consulta ao DICT, visão do usuário</text>
+  <text x="308" y="221" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">informado pelo participante</text>
+  <rect x="322" y="197.5" width="95.2" height="17" rx="3" fill="#a8c9b6"/>
+  <text x="425.2" y="210.0" font-family="JetBrains Mono, monospace" font-size="9" fill="#2d6a4f">P99 2,0s</text>
+  <rect x="16" y="235" width="868" height="36" rx="4" fill="#ffffff" opacity=".7"/>
+  <text x="308" y="248" text-anchor="end" font-family="Source Serif 4, Georgia, serif" font-size="11.5" font-weight="600" fill="#1a1714">Experiência do usuário pagador</text>
+  <text x="308" y="261" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">t6a - t0'</text>
+  <rect x="322" y="237.5" width="476.0" height="17" rx="3" fill="#a8c9b6"/>
+  <rect x="322" y="237.5" width="285.6" height="17" rx="3" fill="#2d6a4f"/>
+  <text x="599.6" y="250.0" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9" fill="#ffffff">P50 6,0s</text>
+  <text x="806.0" y="250.0" font-family="JetBrains Mono, monospace" font-size="9" fill="#2d6a4f">P99 10,0s</text>
+  <text x="308" y="288" text-anchor="end" font-family="Source Serif 4, Georgia, serif" font-size="11.5" font-weight="400" fill="#1a1714">Tempo dispendido dentro do SPI</text>
+  <text x="308" y="301" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">(t2 - t1') + (t5a - t3')</text>
+  <rect x="322" y="277.5" width="219.0" height="17" rx="3" fill="#e8c49a"/>
+  <rect x="322" y="277.5" width="133.3" height="17" rx="3" fill="#b85c00"/>
+  <text x="447.3" y="290.0" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9" fill="#ffffff">P50 2,8s</text>
+  <text x="549.0" y="290.0" font-family="JetBrains Mono, monospace" font-size="9" fill="#b85c00">P99 4,6s</text>
+  <text x="308" y="328" text-anchor="end" font-family="Source Serif 4, Georgia, serif" font-size="11.5" font-weight="400" fill="#1a1714">Consulta de chaves no DICT</text>
+  <text x="308" y="341" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">indicador do próprio DICT</text>
+  <rect x="322" y="317.5" width="47.6" height="17" rx="3" fill="#e8c49a"/>
+  <text x="377.6" y="330.0" font-family="JetBrains Mono, monospace" font-size="9" fill="#b85c00">P99 1,0s</text>
+  <text x="308" y="368" text-anchor="end" font-family="Source Serif 4, Georgia, serif" font-size="11.5" font-weight="400" fill="#1a1714">Atualização de chaves no DICT</text>
+  <text x="308" y="381" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">indicador do próprio DICT</text>
+  <rect x="322" y="357.5" width="238.0" height="17" rx="3" fill="#e8c49a"/>
+  <text x="568.0" y="370.0" font-family="JetBrains Mono, monospace" font-size="9" fill="#b85c00">P99 5,0s</text>
+  <rect x="322" y="406" width="476" height="26" rx="4" fill="#fdf4e8" stroke="#b85c00" stroke-width="1.1" stroke-dasharray="5 4"/>
+  <text x="560" y="424" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#b85c00">teto duro: 40s no canal primário — acima disso o SPI rejeita (fora de escala)</text>
+  <text x="308" y="424" text-anchor="end" font-family="Source Serif 4, Georgia, serif" font-size="11.5" font-weight="600" fill="#1a1714">Limite máximo da transação</text>
+  <line x1="20" y1="446" x2="880" y2="446" stroke="#d8cfc2" stroke-width="1"/>
+  <text x="20" y="460" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">Os "10 segundos" do Pix são o P99 da experiência do usuário pagador; a mediana pactuada é 6s. Os percentis dos participantes são apurados mensalmente.</text>
+  <text x="20" y="475" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">Fonte: Banco Central do Brasil, Manual de Tempos do Pix, versão 7.0 — seções 1.1, 4.1.1, 4.1.2, 4.2.2 e 6. Valores vigentes na versão consultada;</text>
+  <text x="20" y="489" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">a versão 1.0 do manual é de 11/8/2020 e os indicadores foram revisados desde então. bcb.gov.br/content/estabilidadefinanceira/pix/Regulamento_Pix/IX_ManualdeTemposdoPix.pdf</text>
+</svg>
