@@ -28,7 +28,7 @@ image: /assets/img/posts/pix-bs2-bastidores.png
 
 Eu estava num time B2B em São Paulo. Era um trabalho confortável no sentido em que a régua era conhecida: cliente pedia, a gente entregava, o prazo era negociável na margem.
 
-O convite foi para o time de **projetos especiais** dentro de serviços financeiros — o core bancário. Na prática isso significa a camada onde a conta corrente existe de verdade: débito, crédito, saldo, lançamento, conciliação. É a parte do banco onde ninguém aplaude quando funciona e todo mundo aparece quando não funciona.
+O convite foi para o time de **projetos especiais** dentro de serviços financeiros — o core bancário. Na prática, isso significa a camada onde a conta corrente existe de verdade: débito, crédito, saldo, lançamento, conciliação. É a parte do banco onde ninguém aplaude quando funciona e todo mundo aparece quando não funciona.
 
 A diferença cultural entre os dois mundos foi imediata. No B2B, um bug ruim é um cliente irritado. No core, um bug ruim é dinheiro no lugar errado — e, com o PIX, dinheiro no lugar errado em menos de dez segundos, sem janela de estorno automático, no fim de semana, às três da manhã.
 
@@ -86,7 +86,7 @@ Repare no espaço entre agosto e outubro. A especificação técnica definitiva 
 
 Vale começar por aqui porque tudo do lado do banco é consequência disso.
 
-O PIX não é um sistema. São dois principais, com papéis bem separados:
+O PIX não é um sistema único. São dois sistemas principais, com papéis bem separados:
 
 <div class="providers-grid">
   <div class="provider-card">
@@ -186,14 +186,14 @@ O fluxo do caso interbancário, simplificado — a barra inferior mostra o orça
 
 <img
   src="{{ site.baseurl }}/assets/img/posts/pix-fluxo-iniciacao.svg"
-  alt="Diagrama de sequência do fluxo de iniciação de um PIX interbancário: o cliente inicia por chave, QR Code ou dados manuais; o banco consulta o DICT, valida limites, gera o EndToEndId e debita o pagador; a ordem vai ao barramento, a borda RSFN monta a pacs.008 para o SPI, que a repassa ao PSP recebedor; o aceite volta como pacs.002 até a confirmação ao cliente. Em caso de recusa ou timeout, o débito é estornado de forma idempotente pelo EndToEndId."
+  alt="Diagrama de sequência do fluxo de iniciação de um PIX interbancário: o cliente inicia por chave, QR Code ou dados manuais; o banco consulta o DICT, valida limites, gera o EndToEndId e debita o pagador; a ordem vai ao barramento, a borda RSFN monta a pacs.008 para o SPI, que a repassa ao PSP recebedor; o aceite volta como pacs.002 até a confirmação ao cliente. Ausência de pacs.002 dentro do prazo não é recusa: o caminho é consultar o status e reconciliar. O estorno, idempotente pelo EndToEndId, vale para rejeição definitiva ou para transação reconciliada como não liquidada."
   style="width:100%;max-width:900px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
 
 O detalhe que consome mais tempo de engenharia não está no caminho feliz. Está nas duas últimas linhas.
 
 <div class="callout callout-warn">
   <div class="callout-label">O problema difícil da iniciação</div>
-  Você debita antes de saber se o pagamento vai passar. Se debitar depois, corre o risco de mandar dinheiro que não existe. Então todo caminho que não termina em confirmação tem que terminar em estorno — e cada estorno precisa ser idempotente, porque a resposta pode chegar atrasada, duplicada, ou chegar depois de você já ter desistido de esperar. Um estorno executado duas vezes é dinheiro criado do nada.
+  Você debita antes de saber se o pagamento vai passar. Se debitar depois, corre o risco de mandar dinheiro que não existe. A armadilha é tratar silêncio como recusa: se a <code>pacs.002</code> não chegou dentro do prazo, você não sabe se a transação falhou ou se liquidou e a resposta se perdeu. Nesse estado, o caminho é consultar o status e reconciliar, não estornar. O estorno fica reservado para rejeição definitiva ou para a transação que a reconciliação confirmou como não liquidada — e precisa ser idempotente, porque a resposta pode chegar atrasada ou duplicada. Um estorno executado duas vezes é dinheiro criado do nada; um estorno executado em cima de um PIX que liquidou é dinheiro pago duas vezes.
 </div>
 
 É por isso que o `EndToEndId` deixa de ser um campo de protocolo e vira a espinha dorsal do desenho interno: ele é a chave de idempotência de tudo. Toda operação em cima de uma transação — confirmar, estornar, consultar, conciliar — se ancora nele. Se você errar isso, o sistema funciona lindamente em homologação e produz divergência de conciliação no primeiro fim de semana de produção.
@@ -230,7 +230,7 @@ O que eu construí foi esse lado: todo o **cadastro e controle dos PSPs indireto
 
 Escrever software que outras instituições financeiras consomem muda o padrão de qualidade de um jeito difícil de explicar para quem nunca fez. Não existe "a gente corrige na próxima sprint". Existe uma instituição inteira cuja operação parou.
 
-Vale registrar uma coisa que só ficou clara com os anos: a capacidade de participante indireto foi construída ali, em 2020, mas o produto comercial com esse nome só foi anunciado publicamente bem depois — a própria comunicação do banco menciona que o projeto chegou a ser engavetado por questões de responsabilidade regulatória antes de ser retomado. É uma lição sobre a diferença entre *estar pronto* e *ser lançado*, e sobre não medir o valor do que você construiu pela data em que apareceu no site.
+Vale registrar uma coisa que só ficou clara com os anos: a capacidade de participante indireto foi construída ali, em 2020, mas o produto comercial com esse nome só foi anunciado publicamente bem depois — segundo reportagem da Finsiders publicada no lançamento, um executivo do banco afirmou que o projeto chegou a ser engavetado por questões de responsabilidade regulatória antes de ser retomado. É uma lição sobre a diferença entre *estar pronto* e *ser lançado*, e sobre não medir o valor do que você construiu pela data em que apareceu no site.
 
 <div class="section-header">
   <div class="section-num">08</div>
@@ -280,6 +280,10 @@ Vale registrar uma coisa que só ficou clara com os anos: a capacidade de partic
     <li>
       Convergência Digital. <strong>Banco Central elege open source e nuvem como bases da infraestrutura do PIX (Apache Kafka / Red Hat AMQ Streams).</strong>
       <a href="https://convergenciadigital.com.br/especial/cloud/banco-central-elege-open-source-e-nuvem-como-bases-da-infraestrutura-do-pix/" target="_blank">convergenciadigital.com.br</a>
+    </li>
+    <li>
+      Finsiders Brasil. <strong>A nova aposta do BS2 para ampliar sua atuação no Pix — lançamento do Pix Indireto e o período em que o projeto ficou engavetado.</strong>
+      <a href="https://finsidersbrasil.com.br/reportagem-exclusiva-fintechs/a-nova-aposta-do-bs2-para-ampliar-sua-atuacao-no-pix/" target="_blank">finsidersbrasil.com.br</a>
     </li>
     <li>
       Banco BS2. <strong>Participantes indiretos no Pix: entenda a regra e o modelo de liquidação via participante direto.</strong>

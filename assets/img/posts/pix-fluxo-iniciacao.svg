@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" width="900" height="650" role="img" aria-label="Diagrama de sequencia animado do fluxo de iniciacao de um PIX interbancario: cliente, banco pagador, DICT, borda RSFN, SPI e PSP recebedor">
-  <rect width="900" height="650" fill="#f5f0e8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 670" width="900" height="670" role="img" aria-label="Diagrama de sequencia animado do fluxo de iniciacao de um PIX interbancario: cliente, banco pagador, DICT, borda RSFN, SPI e PSP recebedor">
+  <rect width="900" height="670" fill="#f5f0e8"/>
   <defs>
     <marker id="fw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
       <path d="M0,0 L10,5 L0,10 z" fill="#2d6a4f"/></marker>
@@ -13,32 +13,32 @@
   <rect x="13" y="44" width="3.5" height="42" rx="1.5" fill="#2d6a4f"/>
   <text x="82" y="63" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">Cliente</text>
   <text x="82" y="77" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">app do banco</text>
-  <line x1="80" y1="92" x2="80" y2="556" stroke="#d8cfc2" stroke-width="1.2" stroke-dasharray="3 4"/>
+  <line x1="80" y1="92" x2="80" y2="516" stroke="#d8cfc2" stroke-width="1.2" stroke-dasharray="3 4"/>
   <rect x="161" y="44" width="134" height="42" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
   <rect x="161" y="44" width="3.5" height="42" rx="1.5" fill="#2d6a4f"/>
   <text x="230" y="63" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">Iniciação</text>
   <text x="230" y="77" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">banco pagador</text>
-  <line x1="228" y1="92" x2="228" y2="556" stroke="#d8cfc2" stroke-width="1.2" stroke-dasharray="3 4"/>
+  <line x1="228" y1="92" x2="228" y2="516" stroke="#d8cfc2" stroke-width="1.2" stroke-dasharray="3 4"/>
   <rect x="309" y="44" width="134" height="42" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
   <rect x="309" y="44" width="3.5" height="42" rx="1.5" fill="#b85c00"/>
   <text x="378" y="63" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">DICT</text>
   <text x="378" y="77" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">diretório · BCB</text>
-  <line x1="376" y1="92" x2="376" y2="556" stroke="#d8cfc2" stroke-width="1.2" stroke-dasharray="3 4"/>
+  <line x1="376" y1="92" x2="376" y2="516" stroke="#d8cfc2" stroke-width="1.2" stroke-dasharray="3 4"/>
   <rect x="457" y="44" width="134" height="42" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
   <rect x="457" y="44" width="3.5" height="42" rx="1.5" fill="#2d6a4f"/>
   <text x="526" y="63" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">Borda RSFN</text>
   <text x="526" y="77" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">gateway XML</text>
-  <line x1="524" y1="92" x2="524" y2="556" stroke="#d8cfc2" stroke-width="1.2" stroke-dasharray="3 4"/>
+  <line x1="524" y1="92" x2="524" y2="516" stroke="#d8cfc2" stroke-width="1.2" stroke-dasharray="3 4"/>
   <rect x="605" y="44" width="134" height="42" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
   <rect x="605" y="44" width="3.5" height="42" rx="1.5" fill="#b85c00"/>
   <text x="674" y="63" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">SPI</text>
   <text x="674" y="77" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">liquidação · BCB</text>
-  <line x1="672" y1="92" x2="672" y2="556" stroke="#d8cfc2" stroke-width="1.2" stroke-dasharray="3 4"/>
+  <line x1="672" y1="92" x2="672" y2="516" stroke="#d8cfc2" stroke-width="1.2" stroke-dasharray="3 4"/>
   <rect x="753" y="44" width="134" height="42" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1.2"/>
   <rect x="753" y="44" width="3.5" height="42" rx="1.5" fill="#2d6a4f"/>
   <text x="822" y="63" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">PSP recebedor</text>
   <text x="822" y="77" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">destino</text>
-  <line x1="820" y1="92" x2="820" y2="556" stroke="#d8cfc2" stroke-width="1.2" stroke-dasharray="3 4"/>
+  <line x1="820" y1="92" x2="820" y2="516" stroke="#d8cfc2" stroke-width="1.2" stroke-dasharray="3 4"/>
   <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.35s" begin="loop.begin+0.4s;loop.repeat+0.4s" fill="freeze"/><animate attributeName="opacity" values="1;0" dur="0.45s" begin="loop.begin+12.3s;loop.repeat+12.3s" fill="freeze"/><line x1="89" y1="118" x2="219" y2="118" stroke="#2d6a4f" stroke-width="1.6" marker-end="url(#fw)"/><text x="154" y="110" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#2d6a4f">iniciação: chave · QR Code · manual</text></g>
   <circle cx="89" cy="118" r="4.2" fill="#2d6a4f" opacity="0"><animate attributeName="cx" from="89" to="219" dur="0.75s" begin="loop.begin+0.6000000000000001s;loop.repeat+0.6000000000000001s" fill="freeze"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.82;1" dur="0.75s" begin="loop.begin+0.6000000000000001s;loop.repeat+0.6000000000000001s"/></circle>
   <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.35s" begin="loop.begin+1.5s;loop.repeat+1.5s" fill="freeze"/><animate attributeName="opacity" values="1;0" dur="0.45s" begin="loop.begin+12.3s;loop.repeat+12.3s" fill="freeze"/><line x1="237" y1="154" x2="367" y2="154" stroke="#2d6a4f" stroke-width="1.6" marker-end="url(#fw)"/><text x="302" y="146" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#2d6a4f">consulta de chave</text></g>
@@ -61,26 +61,26 @@
   <circle cx="219" cy="506" r="4.2" fill="#2d6a4f" opacity="0"><animate attributeName="cx" from="219" to="89" dur="0.75s" begin="loop.begin+9.6s;loop.repeat+9.6s" fill="freeze"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.82;1" dur="0.75s" begin="loop.begin+9.6s;loop.repeat+9.6s"/></circle>
   <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.35s" begin="loop.begin+3.2s;loop.repeat+3.2s" fill="freeze"/><animate attributeName="opacity" values="1;0" dur="0.45s" begin="loop.begin+12.3s;loop.repeat+12.3s" fill="freeze"/><path d="M237,222 H324 V256 H237" fill="none" stroke="#2d6a4f" stroke-width="1.6" marker-end="url(#fw)"/><text x="338" y="230" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#2d6a4f">valida limites · gera EndToEndId</text><text x="338" y="246" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#2d6a4f">debita a conta do pagador</text></g>
   <circle cx="237" cy="222" r="4.2" fill="#2d6a4f" opacity="0"><animateMotion dur="1s" begin="loop.begin+3.4000000000000004s;loop.repeat+3.4000000000000004s" fill="freeze" path="M0,0 H87 V34 H-87"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="1s" begin="loop.begin+3.4000000000000004s;loop.repeat+3.4000000000000004s"/></circle>
-  <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.35s" begin="loop.begin+10.2s;loop.repeat+10.2s" fill="freeze"/><animate attributeName="opacity" values="1;0" dur="0.45s" begin="loop.begin+12.3s;loop.repeat+12.3s" fill="freeze"/><rect x="200" y="530" width="500" height="44" rx="5" fill="#fdf4e8" stroke="#b85c00" stroke-width="1.2" stroke-dasharray="5 4"/><text x="450" y="549" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12" font-weight="600" fill="#b85c00">Recusa, erro ou timeout</text><text x="450" y="565" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">estorno do débito, idempotente pelo EndToEndId</text></g>
-  <rect x="20" y="606" width="860" height="8" rx="4" fill="#e6ddd0"/>
-  <rect x="20" y="606" width="0" height="8" rx="4" fill="#2d6a4f" opacity=".55"><animate attributeName="width" values="0;860" dur="10s" begin="loop.begin+0.4s;loop.repeat+0.4s" fill="freeze"/><animate attributeName="opacity" values="0.55;0" dur="0.45s" begin="loop.begin+12.3s;loop.repeat+12.3s" fill="freeze"/></rect>
-  <line x1="20" y1="616" x2="20" y2="620" stroke="#d8cfc2" stroke-width="1"/>
-  <text x="20" y="632" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">0s</text>
-  <line x1="106" y1="616" x2="106" y2="620" stroke="#d8cfc2" stroke-width="1"/>
-  <line x1="192" y1="616" x2="192" y2="620" stroke="#d8cfc2" stroke-width="1"/>
-  <text x="192" y="632" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">2s</text>
-  <line x1="278" y1="616" x2="278" y2="620" stroke="#d8cfc2" stroke-width="1"/>
-  <line x1="364" y1="616" x2="364" y2="620" stroke="#d8cfc2" stroke-width="1"/>
-  <text x="364" y="632" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">4s</text>
-  <line x1="450" y1="616" x2="450" y2="620" stroke="#d8cfc2" stroke-width="1"/>
-  <line x1="536" y1="616" x2="536" y2="620" stroke="#d8cfc2" stroke-width="1"/>
-  <text x="536" y="632" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">6s</text>
-  <line x1="622" y1="616" x2="622" y2="620" stroke="#d8cfc2" stroke-width="1"/>
-  <line x1="708" y1="616" x2="708" y2="620" stroke="#d8cfc2" stroke-width="1"/>
-  <text x="708" y="632" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">8s</text>
-  <line x1="794" y1="616" x2="794" y2="620" stroke="#d8cfc2" stroke-width="1"/>
-  <line x1="880" y1="616" x2="880" y2="620" stroke="#d8cfc2" stroke-width="1"/>
-  <text x="880" y="632" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">10s</text>
-  <text x="20" y="598" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">orçamento de latência declarado pelo BC · animação ilustrativa, não é medição real</text>
+  <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.35s" begin="loop.begin+10.2s;loop.repeat+10.2s" fill="freeze"/><animate attributeName="opacity" values="1;0" dur="0.45s" begin="loop.begin+12.3s;loop.repeat+12.3s" fill="freeze"/><rect x="150" y="522" width="600" height="66" rx="5" fill="#fdf4e8" stroke="#b85c00" stroke-width="1.2" stroke-dasharray="5 4"/><text x="450" y="541" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12" font-weight="600" fill="#b85c00">Ausência de resposta não é recusa</text><text x="450" y="559" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">sem pacs.002 no prazo -&gt; consulta de status e reconciliação</text><text x="450" y="575" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">rejeição definitiva ou não liquidado -&gt; estorno idempotente pelo EndToEndId</text></g>
+  <rect x="20" y="626" width="860" height="8" rx="4" fill="#e6ddd0"/>
+  <rect x="20" y="626" width="0" height="8" rx="4" fill="#2d6a4f" opacity=".55"><animate attributeName="width" values="0;860" dur="10s" begin="loop.begin+0.4s;loop.repeat+0.4s" fill="freeze"/><animate attributeName="opacity" values="0.55;0" dur="0.45s" begin="loop.begin+12.3s;loop.repeat+12.3s" fill="freeze"/></rect>
+  <line x1="20" y1="636" x2="20" y2="640" stroke="#d8cfc2" stroke-width="1"/>
+  <text x="20" y="652" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">0s</text>
+  <line x1="106" y1="636" x2="106" y2="640" stroke="#d8cfc2" stroke-width="1"/>
+  <line x1="192" y1="636" x2="192" y2="640" stroke="#d8cfc2" stroke-width="1"/>
+  <text x="192" y="652" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">2s</text>
+  <line x1="278" y1="636" x2="278" y2="640" stroke="#d8cfc2" stroke-width="1"/>
+  <line x1="364" y1="636" x2="364" y2="640" stroke="#d8cfc2" stroke-width="1"/>
+  <text x="364" y="652" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">4s</text>
+  <line x1="450" y1="636" x2="450" y2="640" stroke="#d8cfc2" stroke-width="1"/>
+  <line x1="536" y1="636" x2="536" y2="640" stroke="#d8cfc2" stroke-width="1"/>
+  <text x="536" y="652" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">6s</text>
+  <line x1="622" y1="636" x2="622" y2="640" stroke="#d8cfc2" stroke-width="1"/>
+  <line x1="708" y1="636" x2="708" y2="640" stroke="#d8cfc2" stroke-width="1"/>
+  <text x="708" y="652" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">8s</text>
+  <line x1="794" y1="636" x2="794" y2="640" stroke="#d8cfc2" stroke-width="1"/>
+  <line x1="880" y1="636" x2="880" y2="640" stroke="#d8cfc2" stroke-width="1"/>
+  <text x="880" y="652" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">10s</text>
+  <text x="20" y="618" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">orçamento de latência declarado pelo BC · animação ilustrativa, não é medição real</text>
   <rect x="0" y="0" width="1" height="1" fill="none" opacity="0"><animate id="loop" attributeName="opacity" values="0;0" dur="13.0s" repeatCount="indefinite"/></rect>
 </svg>
