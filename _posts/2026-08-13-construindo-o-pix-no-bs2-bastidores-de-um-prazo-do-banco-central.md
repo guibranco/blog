@@ -9,7 +9,7 @@ subcategories:
   - "Coding/Architecture"
 tags: [pix, banco-central, central-bank, arquitetura, architecture, sistemas-financeiros, financial-systems, dotnet, rabbitmq, iso-20022, carreira, career]
 medium_tags: [pix, fintech, software-architecture, dotnet, career]
-reading_time: 14
+reading_time: 22
 cover: /assets/img/posts/pix-bs2-bastidores.svg
 image: /assets/img/posts/pix-bs2-bastidores.png
 ---
@@ -109,15 +109,107 @@ Do lado da infraestrutura do próprio BC, a escolha foi pública e interessante:
 
 <div class="callout callout-tip">
   <div class="callout-label">O detalhe que dita o resto</div>
-  A meta declarada era liquidação em até <strong>dez segundos</strong>, 24 horas por dia, todos os dias. Não é só um número de marketing: é o orçamento de latência que você tem para consultar diretório, validar, debitar, montar mensagem, assinar, enviar e tratar a resposta. Todo o resto da arquitetura interna do banco existe para caber nesse orçamento.
+  Tudo isso roda 24 horas por dia, todos os dias, sem janela de fechamento. E o "dez segundos" que virou slogan do PIX não é uma meta vaga: é um percentil publicado em norma, com o ciclo inteiro fatiado em marcos temporais medidos por cada participante. É esse orçamento que dita a arquitetura interna do banco — vale olhar os números antes de olhar a solução.
 </div>
 
 <div class="section-header">
   <div class="section-num">04</div>
+  <div class="section-title-wrap"><h2>O orçamento de latência, em números</h2></div>
+</div>
+
+O Banco Central não pediu "seja rápido". Ele publicou o **Manual de Tempos do Pix**, que fatia o ciclo de liquidação em marcos e define acordo de nível de serviço **por percentil** sobre a diferença entre eles. Os marcos são estes: `t0'` é quando o PSP do pagador recebe a confirmação do usuário; `t1` é quando ele cria a `pacs.008` — medido **antes** da assinatura; `t1'` é quando o SPI recebe a requisição; `t2` é quando o SPI disponibiliza a mensagem ao PSP do recebedor; `t3'` é quando o SPI recebe a `pacs.002`; `t4` é a liquidação, a troca de saldos entre as Contas PI; `t5a` é quando a `pacs.002` fica disponível para o pagador; e `t6a` é quando o pagador é notificado.
+
+<div class="callout callout-warn">
+  <div class="callout-label">Estes são os números vigentes hoje, não os de 2020</div>
+  A primeira versão do Manual de Tempos saiu em 11 de agosto de 2020, no meio do projeto, e o documento já passou por sete revisões. Algumas mudaram bastante a régua: em julho de 2021 vários indicadores tiveram o percentil reduzido de 99% para 95%, e as metas de disponibilidade foram revistas. A tabela abaixo é a foto atual, útil para entender a forma do problema — não é a régua exata que estava na nossa mesa.
+</div>
+
+<table class="compare-table">
+  <thead>
+    <tr><th>Indicador</th><th>Percentil</th><th>Tempo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Iniciação pelo PSP do pagador (<code>t1 − t0'</code>)</td><td>P50</td><td>0,9 s</td></tr>
+    <tr><td>Iniciação pelo PSP do pagador (<code>t1 − t0'</code>)</td><td>P95</td><td>1,5 s</td></tr>
+    <tr><td>Autorização pelo PSP do recebedor (<code>t3' − t2</code>)</td><td>P50</td><td>1,4 s</td></tr>
+    <tr><td>Autorização pelo PSP do recebedor (<code>t3' − t2</code>)</td><td>P95</td><td>2,3 s</td></tr>
+    <tr><td><strong>Experiência do usuário pagador (<code>t6a − t0'</code>)</strong></td><td>P50</td><td>6,0 s</td></tr>
+    <tr><td><strong>Experiência do usuário pagador (<code>t6a − t0'</code>)</strong></td><td>P99</td><td>10,0 s</td></tr>
+    <tr><td>Consulta ao DICT, visão do usuário</td><td>P99</td><td>2,0 s</td></tr>
+    <tr><td>Tempo dentro do SPI (<code>t2 − t1'</code>) + (<code>t5a − t3'</code>)</td><td>P50</td><td>2,8 s</td></tr>
+    <tr><td>Tempo dentro do SPI (<code>t2 − t1'</code>) + (<code>t5a − t3'</code>)</td><td>P99</td><td>4,6 s</td></tr>
+    <tr><td>Consulta de chaves no DICT, lado do BC</td><td>P99</td><td>1,0 s</td></tr>
+    <tr><td>Atualização de chaves no DICT, lado do BC</td><td>P99</td><td>5,0 s</td></tr>
+  </tbody>
+</table>
+
+Vale parar na linha em negrito. Os "dez segundos" que viraram slogan do PIX são o **P99 da experiência do usuário pagador** — a mediana pactuada é 6 segundos. E existe um teto duro por cima de tudo: um PIX enviado ao canal primário de mensagens tem limite máximo de **40 segundos** entre a ordem do usuário e a liquidação. Passou disso, o próprio SPI rejeita a transação e comunica os participantes.
+
+<div class="callout callout-tip">
+  <div class="callout-label">Percentil não é média, e a diferença é o projeto inteiro</div>
+  Uma média de 1,2 segundo esconde uma cauda horrível. Um P95 de 1,5 segundo, não. O P95 é onde moram pausa de garbage collector, reconexão de conexão de fila, cold start de processo, retry de DNS, lock de tabela em pico e o primeiro request depois de um deploy. Projetar para a média te dá um sistema que passa em homologação; projetar para a cauda te dá um sistema que passa em auditoria.
+</div>
+
+Do lado do participante, o roteiro de participação direta no SPI é ainda mais específico: a instituição precisa **consumir em até 200 milissegundos no mínimo 99% das mensagens** `pacs.008` e `pacs.002` que o SPI disponibiliza. Repare no verbo — as mensagens são disponibilizadas e você as consome. Isso empurra a arquitetura para um modelo de consumo contínuo e agressivo, não de espera passiva.
+
+E havia o teste de capacidade, que na nossa época estava na Carta Circular 4.055: enviar mensagens `pacs.008` distribuídas uniformemente ao longo de dez minutos — 10 mil, 20 mil ou 40 mil, conforme a faixa de contas transacionais do PSP — e depois receber o mesmo volume, acatando cada uma com sua `pacs.002`. Não é um teste que você passa raspando: ou a arquitetura absorve, ou você reprova e agenda de novo com o BC.
+
+<div class="callout callout-warn">
+  <div class="callout-label">O requisito que ninguém vê chegando</div>
+  Para apurar esses indicadores, o Manual de Tempos exige que os relógios dos servidores dentro da instituição estejam sincronizados a ponto de não distorcer a medição — e proíbe usar relógios de instituições diferentes na apuração, justamente porque uma pequena diferença já falsearia o número. Ou seja: sincronização de tempo deixa de ser detalhe de infraestrutura e vira item de conformidade. Foi a primeira vez que eu vi NTP virar assunto de reunião com jurídico.
+</div>
+
+E, fechando o pacote, há meta de disponibilidade por porte: hoje as categorias vão de 99,5% para os maiores participantes a 95,0% para os menores, com o BC se comprometendo com 99,9% no SPI. Como o índice do participante direto **inclui as transações dos indiretos que ele liquida**, a disponibilidade de quem usa a sua infraestrutura entra na sua nota. Guarde essa frase para a seção do PIX Indireto.
+
+<div class="section-header">
+  <div class="section-num">05</div>
   <div class="section-title-wrap"><h2>A arquitetura do lado do banco</h2></div>
 </div>
 
 Do lado de dentro, a plataforma foi construída em **.NET**, com **RabbitMQ** como barramento de mensagens, **MS SQL Server** para o estado transacional e **CouchDB** para documentos e payloads — as representações inteiras de cobranças, QR Codes e mensagens, que não cabem confortavelmente num modelo relacional normalizado e que você precisa guardar exatamente como chegaram, para auditoria.
+
+### Por que .NET
+
+A resposta honesta é a menos glamourosa: **porque já era a stack do banco e o time inteiro era .NET**. Não houve prova de conceito, benchmark comparativo nem estudo de linguagem. Havia sete meses e um prazo publicado em norma.
+
+Isso não é preguiça de arquitetura, é aritmética. Trocar de stack num projeto com data fixa significa gastar as primeiras semanas em curva de aprendizado, ferramental, pipeline, padrão de log, biblioteca de acesso a dados e — o mais caro — na descoberta dos modos de falha que a equipe ainda não conhece. Num sistema onde o P95 é requisito auditável, você não quer estar aprendendo o comportamento do coletor de lixo da plataforma nova em novembro. A stack que o time domina tem uma vantagem que nenhum benchmark mede: quando algo trava em produção às três da manhã, alguém sabe onde olhar.
+
+<div class="callout callout-tip">
+  <div class="callout-label">A regra que eu tiraria daqui</div>
+  Prazo externo e curto é o pior momento possível para adotar tecnologia nova. A escolha "chata" — o que o time já roda, já monitora e já sabe depurar — quase sempre vence a escolha "certa" nesse contexto. Guarde a migração de stack para quando o cronograma for seu.
+</div>
+
+### Por que uma fila, e por que RabbitMQ
+
+Aqui a decisão foi de forma, não de marca. O que o problema pedia era um **barramento de mensagens**, por quatro razões que vêm direto das restrições das seções anteriores.
+
+<div class="providers-grid">
+  <div class="provider-card">
+    <div class="provider-name">Isolar a borda que muda por decreto</div>
+    <div class="provider-detail">A fila é o contrato interno estável entre os serviços de domínio e o gateway RSFN. Correção de schema publicada pelo BC bate na borda, não nos cinco serviços atrás dela.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">24/7 sem janela de manutenção</div>
+    <div class="provider-detail">O sistema não pode parar para deploy. Com a fila no meio, derrubar um consumidor não derruba o fluxo: as mensagens se acumulam e são drenadas quando ele volta. Sem fila, cada restart vira erro na cara do cliente.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">Contrapressão e retentativa de graça</div>
+    <div class="provider-detail">Pico de volume vira profundidade de fila, não conexão recusada. E o par <em>dead-letter queue</em> mais retentativa com espera crescente resolve, com configuração, o que em chamada síncrona vira código de resiliência espalhado.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">Escala horizontal para o teste de capacidade</div>
+    <div class="provider-detail">Consumidores concorrentes na mesma fila são a forma mais barata de multiplicar vazão. Quarenta mil <code>pacs.008</code> em dez minutos é um problema de quantidade de consumidores, não de otimização de código.</div>
+  </div>
+</div>
+
+RabbitMQ especificamente porque roteamento era o que faltava. O tráfego não é um fluxo único: são `pacs.008` de saída, `pacs.008` de entrada, `pacs.002` nos dois sentidos, devoluções, mensagens de cadastro e avisos operacionais. Um *exchange* com chave de roteamento resolve isso declarativamente — cada tipo de mensagem chega no consumidor certo sem que ninguém escreva um `switch` gigante no meio do caminho. Some a isso que era um broker que o banco já operava, e a decisão praticamente se toma sozinha.
+
+<div class="callout callout-warn">
+  <div class="callout-label">O que a fila não resolve, e que morde depois</div>
+  Broker não te dá entrega exatamente uma vez nem ordem global — te dá <em>pelo menos uma vez</em> e ordem apenas dentro de uma fila. Toda a correção do sistema volta a depender da idempotência ancorada no <code>EndToEndId</code>. E há um custo real de latência: cada salto pela fila gasta milissegundos de um orçamento em que o P50 da iniciação é 0,9 segundo. Por isso nem tudo vira mensagem — o que está no caminho síncrono da resposta ao usuário, como a consulta de chave, paga o preço de ser síncrono; o que pode ser assíncrono, como o trânsito até a borda, ganha a fila.
+</div>
+
+A divisão entre os dois bancos de dados segue a mesma lógica de "cada coisa no lugar onde ela é barata". SQL Server guarda o que precisa de transação, restrição e saldo consistente: estado da operação, débito, crédito, conciliação. CouchDB guarda o que é documento — a mensagem como chegou, o payload do QR Code, a cobrança inteira. Esse material tem formato que evolui com o manual do BC, e normalizar isso em tabela é assinar um contrato de migração de schema a cada revisão. Como documento, uma versão nova simplesmente convive com a antiga, e a auditoria continua conseguindo ler o que foi trafegado exatamente como foi trafegado.
 
 <img
   src="{{ site.baseurl }}/assets/img/posts/pix-bs2-arquitetura.svg"
@@ -134,7 +226,7 @@ Isso parece um detalhe de organograma e é, na verdade, o que tornou o prazo vi�
 </div>
 
 <div class="section-header">
-  <div class="section-num">05</div>
+  <div class="section-num">06</div>
   <div class="section-title-wrap"><h2>Quem fez o quê</h2></div>
 </div>
 
@@ -160,7 +252,7 @@ O time era pequeno para o tamanho do escopo, e a divisão foi por domínio, não
 </div>
 
 <div class="section-header">
-  <div class="section-num">06</div>
+  <div class="section-num">07</div>
   <div class="section-title-wrap"><h2>Iniciação de pagamentos</h2></div>
 </div>
 
@@ -199,7 +291,7 @@ O detalhe que consome mais tempo de engenharia não está no caminho feliz. Est�
 É por isso que o `EndToEndId` deixa de ser um campo de protocolo e vira a espinha dorsal do desenho interno: ele é a chave de idempotência de tudo. Toda operação em cima de uma transação — confirmar, estornar, consultar, conciliar — se ancora nele. Se você errar isso, o sistema funciona lindamente em homologação e produz divergência de conciliação no primeiro fim de semana de produção.
 
 <div class="section-header">
-  <div class="section-num">07</div>
+  <div class="section-num">08</div>
   <div class="section-title-wrap"><h2>PIX Indireto: virar infraestrutura de outra pessoa</h2></div>
 </div>
 
@@ -233,7 +325,7 @@ Escrever software que outras instituições financeiras consomem muda o padrão 
 Vale registrar uma coisa que só ficou clara com os anos: a capacidade de participante indireto foi construída ali, em 2020, mas o produto comercial com esse nome só foi anunciado publicamente bem depois — segundo reportagem da Finsiders publicada no lançamento, um executivo do banco afirmou que o projeto chegou a ser engavetado por questões de responsabilidade regulatória antes de ser retomado. É uma lição sobre a diferença entre *estar pronto* e *ser lançado*, e sobre não medir o valor do que você construiu pela data em que apareceu no site.
 
 <div class="section-header">
-  <div class="section-num">08</div>
+  <div class="section-num">09</div>
   <div class="section-title-wrap"><h2>O que eu levei desse projeto</h2></div>
 </div>
 
@@ -264,6 +356,14 @@ Vale registrar uma coisa que só ficou clara com os anos: a capacidade de partic
     <li>
       Banco Central do Brasil. <strong>Carta Circular nº 4.055, de 25 de maio de 2020 — cronograma dos testes de homologação dos participantes diretos no SPI.</strong>
       <a href="https://normativos.bcb.gov.br/Lists/Normativos/Attachments/51046/C_Circ_4055_v1_O.pdf" target="_blank">normativos.bcb.gov.br</a>
+    </li>
+    <li>
+      Banco Central do Brasil. <strong>Manual de Tempos do Pix — limites máximos de tempo e indicadores de acordo de nível de serviço por percentil.</strong>
+      <a href="https://www.bcb.gov.br/content/estabilidadefinanceira/pix/Regulamento_Pix/IX_ManualdeTemposdoPix.pdf" target="_blank">bcb.gov.br</a>
+    </li>
+    <li>
+      Banco Central do Brasil. <strong>Roteiro para participação direta no SPI e abertura de Conta PI — requisitos de consumo de mensagens e testes de capacidade.</strong>
+      <a href="https://www.bcb.gov.br/content/estabilidadefinanceira/sistemapagamentosinstantaneos_docs/Roteiro_para_Participacao_Direta_no_SPI_e_abertura_de_Conta_PI.pdf" target="_blank">bcb.gov.br</a>
     </li>
     <li>
       Banco Central do Brasil. <strong>Divulgação do Sistema de Pagamentos Instantâneos (SPI) — princípios para infraestruturas do mercado financeiro.</strong>
