@@ -11,7 +11,8 @@ reading_time: 9
 cover: /assets/img/posts/trabalhar-fora-p1-rotas-vistos.svg
 image: /assets/img/posts/trabalhar-fora-p1-rotas-vistos.png
 series: trabalhar-fora-sem-ilusao
-series_order: 1
+series_title: "Trabalhar fora sem ilusão"
+series_part: 1
 medium_tags: [career, immigration, tech-jobs, ireland, remote-work]
 ---
 

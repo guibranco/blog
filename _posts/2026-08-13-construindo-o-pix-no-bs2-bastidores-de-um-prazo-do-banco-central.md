@@ -12,7 +12,8 @@ reading_time: 23
 cover: /assets/img/posts/pix-bs2-bastidores.svg
 image: /assets/img/posts/pix-bs2-bastidores.png
 series: pix-bs2
-series_order: 1
+series_title: "PIX no BS2"
+series_part: 1
 ---
 
 <p class="lead">Em abril de 2020 eu saí de um time B2B em São Paulo e entrei no time de projetos especiais do core bancário. A primeira coisa que me contaram na nova mesa foi que o Banco Central tinha marcado o lançamento do PIX para novembro. Não era uma meta de roadmap. Era uma data.</p>

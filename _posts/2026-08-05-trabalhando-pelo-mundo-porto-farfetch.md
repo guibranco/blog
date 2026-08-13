@@ -11,7 +11,8 @@ reading_time: 21
 cover: /assets/img/posts/trabalhando-pelo-mundo-porto.svg
 image: /assets/img/posts/trabalhando-pelo-mundo-porto.png
 series: trabalhando-pelo-mundo
-series_order: 1
+series_title: "Trabalhando pelo mundo"
+series_part: 1
 location:
   lat: 41.1579
   lng: -8.6291

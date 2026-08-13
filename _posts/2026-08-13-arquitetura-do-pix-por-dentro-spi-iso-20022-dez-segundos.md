@@ -12,7 +12,8 @@ reading_time: 19
 cover: /assets/img/posts/pix-arquitetura-capa.svg
 image: /assets/img/posts/pix-arquitetura-capa.png
 series: pix-bs2
-series_order: 2
+series_title: "PIX no BS2"
+series_part: 2
 ---
 
 <p class="lead">O PIX é um dos poucos sistemas em que a latência aceitável está publicada em norma, por percentil, e auditada mensalmente. Este texto é sobre o que isso faz com a arquitetura de quem precisa caber ali dentro — do lado do Banco Central e do lado de um participante direto.</p>

@@ -72,6 +72,8 @@ pt-BR:
   topics_in: "em"
   topics_by_tag: "Por tag"
   empty_no_tags: "Nenhuma tag publicada ainda."
+  series_part_label: "Parte"
+  series_of_label: "de"
 
 en:
   home: "Home"
@@ -147,3 +149,5 @@ en:
   topics_in: "across"
   topics_by_tag: "By tag"
   empty_no_tags: "No tags published yet."
+  series_part_label: "Part"
+  series_of_label: "of"
