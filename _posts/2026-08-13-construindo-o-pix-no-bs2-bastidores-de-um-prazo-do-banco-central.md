@@ -140,7 +140,7 @@ A terceira era a função que mais me surpreendeu: uma **piloto de reserva**. É
   Uma transação PIX não liquida sem saldo na Conta PI do participante, por mais correto que o seu código esteja. Alguém precisa provisionar essa liquidez 24 horas por dia, sete dias por semana, num sistema que — ao contrário do SPB tradicional — não fecha à noite nem no fim de semana. Nenhuma quantidade de arquitetura resolve isso.
 </div>
 
-Na época eu achei que aquilo fosse um improviso nosso — alguém do SPB emprestado ao PIX. Não era. A função de piloto de reserva do SPI se consolidou como cargo próprio no mercado brasileiro: hoje existem vagas abertas de piloto de reserva pedindo explicitamente domínio operacional do STR **e** do SPI, monitoramento de saldo intradiário via RSFN, contingência e tratamento de devoluções e MED. Há inclusive provedores que vendem, como diferencial para participantes indiretos, um piloto de reservas próprio, sem depender do piloto de reservas do liquidante direto.
+Na época eu achei que aquilo fosse um improviso nosso — alguém do SPB emprestado ao PIX. Não era. A função de piloto de reserva do SPI se consolidou como cargo próprio no mercado brasileiro. Anúncios de vaga para a posição descrevem exatamente esse escopo: domínio operacional do STR **e** do SPI, monitoramento de saldo intradiário via RSFN, contingência e tratamento de devoluções e MED. Há inclusive provedores que vendem, como diferencial para participantes indiretos, um piloto de reservas próprio, sem depender do piloto de reservas do liquidante direto.
 
 Vale distinguir duas coisas que eu confundia. O que a norma exige na adesão ao PIX é a indicação de um **diretor estatutário** responsável perante o Banco Central pelas questões do SPI — isso é governança. O piloto de reserva é **função operacional**, criada pela necessidade concreta de manter liquidez numa conta que liquida 24 horas por dia. Uma coisa responde ao regulador; a outra impede que a transação seja rejeitada às três da manhã de domingo.
 
@@ -272,7 +272,7 @@ Um número dessa etapa vale ser posto ao lado do <a href="{{ site.baseurl }}/art
       <a href="https://www.jdconsultores.com.br/piloto-de-reserva-bancaria/" target="_blank">jdconsultores.com.br</a>
     </li>
     <li>
-      Conta Simples. <strong>Vaga de analista sênior de tesouraria (piloto de reserva) — domínio operacional do STR e do SPI, saldo intradiário via RSFN, contingência, devoluções e MED.</strong>
+      Conta Simples. <strong>Anúncio de vaga de analista sênior de tesouraria (piloto de reserva) — domínio operacional do STR e do SPI, saldo intradiário via RSFN, contingência, devoluções e MED. Anúncios de vaga saem do ar; consultado em agosto de 2026.</strong>
       <a href="https://contasimples.gupy.io/jobs/11034137?jobBoardSource=gupy_public_page" target="_blank">contasimples.gupy.io</a>
     </li>
     <li>

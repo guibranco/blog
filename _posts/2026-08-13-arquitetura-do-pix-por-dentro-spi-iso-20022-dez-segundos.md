@@ -8,7 +8,7 @@ subcategories:
   - "Coding/Architecture"
 tags: [pix, arquitetura, architecture, iso-20022, dotnet, rabbitmq, sistemas-financeiros, financial-systems, banco-central, central-bank]
 medium_tags: [pix, software-architecture, dotnet, rabbitmq, fintech]
-reading_time: 18
+reading_time: 19
 cover: /assets/img/posts/pix-arquitetura-capa.svg
 image: /assets/img/posts/pix-arquitetura-capa.png
 series: pix-bs2
@@ -103,7 +103,7 @@ Vale parar na linha em negrito. Os "dez segundos" que viraram slogan do PIX são
   Uma média de 1,2 segundo esconde uma cauda horrível. Um P95 de 1,5 segundo, não. O P95 é onde moram pausa de garbage collector, reconexão de conexão de fila, cold start de processo, retry de DNS, lock de tabela em pico e o primeiro request depois de um deploy. Projetar para a média te dá um sistema que passa em homologação; projetar para a cauda te dá um sistema que passa em auditoria.
 </div>
 
-Do lado do participante, o roteiro de participação direta no SPI é ainda mais específico: a instituição precisa **consumir em até 200 milissegundos no mínimo 99% das mensagens** `pacs.008` e `pacs.002` que o SPI disponibiliza. Repare no verbo — as mensagens são disponibilizadas e você as consome. Isso empurra a arquitetura para um modelo de consumo contínuo e agressivo, não de espera passiva.
+Do lado do participante, o roteiro de participação direta traz um número que **não é um acordo de nível de serviço permanente, e sim critério de aprovação no teste de capacidade**: durante o teste, a instituição precisava consumir em até 200 milissegundos no mínimo 99% das mensagens `pacs.008` e `pacs.002` disponibilizadas pelo SPI, além de demonstrar recebimento de pelo menos 50% das ordens em 1,4 segundo e 95% em 2,3 segundos. Ainda assim, o número diz muito sobre o desenho esperado. Repare no verbo: as mensagens são *disponibilizadas* e você as *consome*. Isso empurra a arquitetura para um modelo de consumo contínuo e agressivo, não de espera passiva.
 
 E havia o teste de capacidade, que na nossa época estava na Carta Circular 4.055: enviar mensagens `pacs.008` distribuídas uniformemente ao longo de dez minutos — 10 mil, 20 mil ou 40 mil, conforme a faixa de contas transacionais do PSP — e depois receber o mesmo volume, acatando cada uma com sua `pacs.002`. Não é um teste que você passa raspando: ou a arquitetura absorve, ou você reprova e agenda de novo com o BC.
 
@@ -112,7 +112,7 @@ E havia o teste de capacidade, que na nossa época estava na Carta Circular 4.05
   Para apurar esses indicadores, o Manual de Tempos exige que os relógios dos servidores dentro da instituição estejam sincronizados a ponto de não distorcer a medição — e proíbe usar relógios de instituições diferentes na apuração, justamente porque uma pequena diferença já falsearia o número. Ou seja: sincronização de tempo deixa de ser detalhe de infraestrutura e vira item de conformidade. Foi a primeira vez que eu vi NTP virar assunto de reunião com jurídico.
 </div>
 
-E, fechando o pacote, há meta de disponibilidade por porte: hoje as categorias vão de 99,5% para os maiores participantes a 95,0% para os menores, com o BC se comprometendo com 99,9% no SPI. Como o índice do participante direto **inclui as transações dos indiretos que ele liquida**, a disponibilidade de quem usa a sua infraestrutura entra na sua nota. Guarde essa frase para a seção do PIX Indireto.
+E, fechando o pacote, há meta de disponibilidade por categoria — e a categoria não é definida por porte da instituição, e sim pela **participação do participante no total de transações Pix liquidadas no SPI no ano anterior**. As faixas atuais vão de 99,5% para quem responde por mais de 2% do total a 95,0% para os demais, com o BC se comprometendo com 99,9% no SPI. Como o índice do participante direto **inclui as transações dos indiretos que ele liquida**, a disponibilidade de quem usa a sua infraestrutura entra na sua nota. Guarde essa frase para a seção do PIX Indireto.
 
 <div class="section-header">
   <div class="section-num">03</div>
@@ -147,7 +147,7 @@ Aqui a decisão foi de forma, não de marca. O que o problema pedia era um **bar
   </div>
   <div class="provider-card">
     <div class="provider-name">Contrapressão e retentativa de graça</div>
-    <div class="provider-detail">Pico de volume vira profundidade de fila, não conexão recusada. E o par <em>dead-letter queue</em> mais retentativa com espera crescente resolve, com configuração, o que em chamada síncrona vira código de resiliência espalhado.</div>
+    <div class="provider-detail">Pico de volume vira profundidade de fila, não conexão recusada. O broker entrega as <em>primitivas</em> — <em>dead-letter exchange</em>, TTL, reentrega —, não uma política pronta: limite de tentativas, espera crescente, tratamento de mensagem venenosa e garantia de encaminhamento continuam sendo decisão de topologia, de configuração e de código seu. E, como a reentrega é o mecanismo, a idempotência segue obrigatória.</div>
   </div>
   <div class="provider-card">
     <div class="provider-name">Escala horizontal para o teste de capacidade</div>
@@ -194,7 +194,12 @@ Uma coisa que eu não esperava era quanto do trabalho não tinha nada a ver com 
   <p>Anos depois, na Irlanda, me vi fazendo exatamente a mesma coisa: um ledger paralelo de conciliação cujo produto final é um CSV alimentando o ERP financeiro da empresa. Mudou o país, o setor, a moeda e a stack. Não mudou o padrão — <strong>o sistema transacional mais moderno do mundo ainda precisa entregar a verdade dele, todo dia, num formato que a área financeira consiga abrir</strong>. Hoje eu trato esse tipo de tarefa como integração de primeira classe, não como sobra de sprint.</p>
 </div>
 
-A divisão entre os dois bancos de dados segue a mesma lógica de "cada coisa no lugar onde ela é barata". SQL Server guarda o que precisa de transação, restrição e saldo consistente: estado da operação, débito, crédito, conciliação. CouchDB guarda o que é documento — a mensagem como chegou, o payload do QR Code, a cobrança inteira. Esse material tem formato que evolui com o manual do BC, e normalizar isso em tabela é assinar um contrato de migração de schema a cada revisão. Como documento, uma versão nova simplesmente convive com a antiga, e a auditoria continua conseguindo ler o que foi trafegado exatamente como foi trafegado.
+A divisão entre os dois bancos de dados segue a mesma lógica de "cada coisa no lugar onde ela é barata". SQL Server guarda o que precisa de transação, restrição e saldo consistente: estado da operação, débito, crédito, conciliação. CouchDB guarda o que é documento — a mensagem como chegou, o payload do QR Code, a cobrança inteira. Esse material tem formato que evolui com o manual do BC, e normalizar isso em tabela é assinar um contrato de migração de schema a cada revisão. Sem schema fixo, um payload no formato novo convive com um no formato antigo sem migração.
+
+<div class="callout callout-warn">
+  <div class="callout-label">Onde é fácil errar aqui</div>
+  Não confunda a revisão interna do CouchDB com histórico de auditoria. O <code>_rev</code> existe para controle de concorrência e resolução de conflito na replicação — não é versionamento de aplicação, e as revisões antigas são descartadas na compactação. Quem depende disso para auditoria descobre o problema no pior momento possível. O padrão correto é <strong>persistir cada payload recebido como documento imutável, com identificador próprio</strong>, e definir explicitamente política de retenção e de compactação para garantir que o conteúdo exigido pela auditoria continue existindo.
+</div>
 
 <img
   src="{{ site.baseurl }}/assets/img/posts/pix-bs2-arquitetura.svg"
