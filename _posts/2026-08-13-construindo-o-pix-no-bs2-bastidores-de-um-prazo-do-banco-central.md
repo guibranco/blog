@@ -8,7 +8,7 @@ subcategories:
   - "Career/Behind the Scenes"
 tags: [pix, banco-central, central-bank, carreira, career, sistemas-financeiros, financial-systems, plantao, on-call, bastidores]
 medium_tags: [pix, fintech, career, on-call, brazil]
-reading_time: 19
+reading_time: 23
 cover: /assets/img/posts/pix-bs2-bastidores.svg
 image: /assets/img/posts/pix-bs2-bastidores.png
 series: pix-bs2
@@ -34,29 +34,64 @@ series_order: 1
 
 Eu estava num time B2B em São Paulo. Era um trabalho confortável no sentido em que a régua era conhecida: cliente pedia, a gente entregava, o prazo era negociável na margem.
 
-Eu era da squad de BaaS e API banking, dentro da BU de Pessoa Jurídica. O convite foi para o time de **projetos especiais** dentro de serviços financeiros — o core bancário. Na prática, isso significa a camada onde a conta corrente existe de verdade: débito, crédito, saldo, lançamento, conciliação. É a parte do banco onde ninguém aplaude quando funciona e todo mundo aparece quando não funciona.
+Antes de contar como saí dele, preciso explicar a geografia do banco, porque ela é metade da história.
+
+A estrutura era dividida em **BUs** — *business units*, ou tribos —, e cada uma tinha marketing, comercial, produto e engenharia próprios. A BU de Pessoa Jurídica, onde eu estava, era inteiramente baseada em São Paulo, do marketing à engenharia, assim como as BUs de câmbio e investimentos. Em Belo Horizonte ficavam a BU de Pessoa Física e **todo o resto do banco**: o core bancário — com serviços financeiros dentro dele — e a estrutura de apoio, do financeiro e da tesouraria ao RH, ao marketing institucional e à publicidade.
+
+Eu estava na squad de BaaS e API banking, dentro da BU PJ. Ou seja: o lugar para onde eu queria ir ficava a quase 600 quilômetros de onde eu trabalhava, e não por acaso — era assim que o banco estava organizado.
+
+E eu queria ir. Já tinha manifestado interesse em atuar no core bancário antes de existir qualquer conversa sobre PIX. Meu alvo, na verdade, era o **SPB**, que na época cuidava de TED e DOC. Eu queria entender como o dinheiro sai de uma instituição e entra em outra de verdade, no nível do protocolo. Não fazia ideia de que existia um SPI, muito menos de que ele estava sendo construído naquele momento.
+
+Ajudou que aquele não era um destino cheio de estranhos. O head de serviços financeiros era mineiro, mas vinha de ter sido PO da área de internet banking do braço PJ em São Paulo — eu já o conhecia da mesma BU, ainda que de outra squad. E o diretor de TI era o antigo head de tecnologia daquele mesmo braço PJ, promovido a CIO no começo de 2020. As duas pessoas que decidiam sobre o projeto tinham saído da estrutura de onde eu vinha.
+
+### O convite apareceu numa conversa de demissão
+
+Esta é a parte que eu conto em conversa de carreira e que não cabe em currículo nenhum.
+
+Eu tinha recebido uma proposta externa de uma adquirente da Faria Lima. Salário maior. Mas a vaga era em Java, uma tecnologia que eu não usava — seria trocar de empresa e de stack ao mesmo tempo. Marquei uma conversa com o diretor de TI para **pedir demissão**.
+
+Foi nessa conversa que o convite apareceu: um time em Belo Horizonte, dentro do core, num projeto que ele ainda não podia detalhar. Não era contraproposta genérica de salário. Era exatamente a coisa que eu tinha dito que queria, oferecida no momento exato em que eu estava saindo pela porta.
+
+<div class="callout callout-tip">
+  <div class="callout-label">Três coisas que eu tiraria daqui</div>
+  <p>Dizer em voz alta, com antecedência e para as pessoas certas, para onde você quer ir muda o que te oferecem quando algo surge. Se eu nunca tivesse falado do core, aquele convite não teria como existir.</p>
+  <p>Oportunidade grande raramente vem de processo seletivo interno bem divulgado. Vem de quem já viu você trabalhar e precisa de gente rápido — e as pessoas com quem você trabalhou há dois anos são o pipeline de vagas mais confiável que você tem.</p>
+  <p>E a menos confortável: a conversa de saída costuma ser a primeira em que a empresa escuta você com atenção total. Isso é falha de gestão, não estratégia sua. Vale saber que acontece, e é péssimo motivo para pedir demissão de blefe — porque às vezes aceitam.</p>
+</div>
+
+Aceitei. E, como o interesse era anterior, mudar para BH não me pareceu castigo — o que não impediu que algumas pessoas da BU PJ em São Paulo me perguntassem, com preocupação sincera, se eu tinha **pedido** para ir ou se aquilo tinha sido **imposto**. Sair de São Paulo para Belo Horizonte, na cabeça de boa parte do mercado de tecnologia paulistano, só podia ser punição.
+
+O time era o de **projetos especiais** dentro de serviços financeiros. Na prática, isso significa a camada onde a conta corrente existe de verdade: débito, crédito, saldo, lançamento, conciliação. É a parte do banco onde ninguém aplaude quando funciona e todo mundo aparece quando não funciona.
 
 A diferença cultural entre os dois mundos foi imediata. No B2B, um bug ruim é um cliente irritado. No core, um bug ruim é dinheiro no lugar errado — e, com o PIX, dinheiro no lugar errado em menos de dez segundos, sem janela de estorno automático, no fim de semana, às três da manhã.
 
-Ajudou que a mudança não foi para o meio de estranhos. O head de serviços financeiros era mineiro, mas vinha de ter sido PO da área de internet banking do braço PJ em São Paulo — eu já o conhecia da mesma BU, ainda que de outra squad. E o diretor de TI era o antigo head de tecnologia daquele mesmo braço PJ, promovido a CIO no começo de 2020. Ou seja: as duas pessoas que decidiam sobre o projeto tinham saído da estrutura de onde eu vinha. Isso não me deu o convite, mas explica por que ele chegou até mim.
-
-<div class="callout callout-tip">
-  <div class="callout-label">Uma observação de carreira</div>
-  Oportunidade grande raramente vem de processo seletivo interno bem divulgado. Vem de alguém que já viu você trabalhar e precisa de gente rápido. As pessoas com quem você trabalhou há dois anos são o seu pipeline de vagas mais confiável — e você não controla quando elas vão precisar de você, só se elas vão se lembrar.
-</div>
-
-E tudo isso acontecendo em abril de 2020. Segunda quinzena da primeira onda da pandemia, escritório fechado, time inteiro remoto de um dia para o outro, num projeto que ninguém tinha feito antes porque o sistema ainda não existia em lugar nenhum do mundo naquele formato.
+E tudo isso acontecendo em 2020, na primeira onda da pandemia — num projeto que ninguém tinha feito antes porque o sistema ainda não existia em lugar nenhum do mundo naquele formato. A mudança de mesa e o fechamento dos escritórios aconteceram, literalmente, na mesma semana.
 
 <div class="divider">· · ·</div>
 
+### A semana em Belo Horizonte
+
+Eu ia me mudar no domingo. Perdi o voo. Cheguei em Belo Horizonte na manhã de segunda-feira e fui direto para o escritório novo à tarde.
+
+O banco ocupava uma torre na cidade, mas o time de projetos especiais não estava em nenhum dos andares de escritório: estávamos numa **sala temporária no térreo**. Provavelmente por falta de espaço lá em cima, e por sermos um time novo, emergente e urgente ao mesmo tempo. Guardei aquela imagem por anos — o projeto que se tornaria o mais estratégico do banco começou numa sala emprestada no térreo, com gente que tinha acabado de se conhecer.
+
+Na segunda à noite, pelos grupos de WhatsApp, ficamos sabendo que o time de São Paulo tinha ido para home office. Sobre Belo Horizonte, nada. Terça foi um dia de trabalho absolutamente normal: escritório cheio, e almoço num restaurante típico mineiro, o único por ali. Terça à noite chegou o aviso de que, a partir de quarta, BH também ficaria em casa.
+
+Quarta-feira eu já trabalhava do AirBnB.
+
+Foi nesse dia que troquei mensagens com o diretor de TI para entender o que ele achava — se eu ficava ou voltava. Ele era de São Paulo, morava lá com a família e passava só a semana em BH, então o dilema era exatamente o mesmo, com dez anos a mais de bagagem. O conselho foi voltar durante a quarentena. A conta era prática: aquilo supostamente duraria quarenta dias, eu não conseguiria procurar nem alugar nada naquela situação, e ficar significava queimar dinheiro em AirBnB para trabalhar sozinho num apartamento vazio. A gente estimava o prazo olhando para os países que já estavam confinados na época — o que, em retrospecto, foi o palpite mais otimista de todos.
+
+Arrumei as coisas, avisei o head do time e o especialista que mais tarde assumiria o lugar dele, e peguei um táxi para o aeroporto ainda na quarta, com medo de não conseguir táxi nenhum de madrugada. Meu voo era quinta, às cinco da manhã.
+
+Na quinta-feira eu já estava trabalhando de São Paulo. E fiquei remoto dali em diante, sem interrupção, até sair do banco em 2021.
+
 <div class="personal-story">
   <div class="personal-story-label">
-    <i class="fas fa-user-circle"></i> Minha experiência — a semana em Belo Horizonte
+    <i class="fas fa-user-circle"></i> Minha experiência — a mudança que nunca aconteceu
   </div>
-  <p>O time de core ficava em Belo Horizonte. A conversa inicial incluía mudança: eu iria de São Paulo para BH e o projeto seria tocado de lá.</p>
-  <p>Cheguei a ir. Uma semana num AirBnB, conhecendo o time presencialmente, entendendo o sistema, mapeando quem sabia o quê. E voltei para São Paulo.</p>
-  <p>A mudança nunca aconteceu. Entre a pandemia, que tornou o argumento de "estar junto" muito mais fraco, e o fato de que o projeto começou a andar mesmo assim, a proposta simplesmente perdeu urgência e nunca mais foi retomada. Trabalhei no PIX de São Paulo, remoto, com o time em BH — o que, em 2020, ainda parecia uma concessão e não o padrão.</p>
-  <p>Olhando de hoje, com quase seis anos morando fora, aquela semana de AirBnB foi um ensaio muito barato de uma coisa que eu faria de verdade depois: chegar num lugar onde você não conhece ninguém, ter uma semana para entender como as coisas funcionam e decidir se fica.</p>
+  <p>Foram dois dias de escritório e uma passagem de volta. A mudança para Belo Horizonte, que em março era a grande decisão de vida do ano, simplesmente evaporou: a pandemia derrubou o argumento de "estar junto", o projeto começou a andar mesmo assim, e a proposta nunca mais foi retomada.</p>
+  <p>Construí o PIX inteiro de São Paulo, remoto, com o time em BH — o que em 2020 ainda parecia uma concessão excepcional e não o padrão.</p>
+  <p>Olhando de hoje, com anos morando fora, aquela semana foi um ensaio muito barato de uma coisa que eu faria de verdade depois: chegar num lugar onde você não conhece ninguém, ter poucos dias para entender como as coisas funcionam e decidir se fica. A diferença é que, das outras vezes, não teve voo de volta na quinta.</p>
 </div>
 
 <div class="section-header">
