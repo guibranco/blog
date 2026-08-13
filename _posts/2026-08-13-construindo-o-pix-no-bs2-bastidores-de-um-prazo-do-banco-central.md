@@ -143,6 +143,11 @@ O Banco Central não pediu "seja rápido". Ele publicou o **Manual de Tempos do 
   </tbody>
 </table>
 
+<img
+  src="{{ site.baseurl }}/assets/img/posts/pix-manual-de-tempos.svg"
+  alt="Gráfico de barras dos acordos de nível de serviço do Manual de Tempos do Pix. Obrigações do participante: iniciação pelo PSP do pagador, 0,9s no P50 e 1,5s no P95; autorização pelo PSP do recebedor, 1,4s no P50 e 2,3s no P95; consulta ao DICT na visão do usuário, 2,0s no P99; experiência do usuário pagador, 6,0s no P50 e 10,0s no P99. Obrigações do Banco Central: tempo dentro do SPI, 2,8s no P50 e 4,6s no P99; consulta de chaves no DICT, 1,0s no P99; atualização de chaves no DICT, 5,0s no P99. Acima de tudo, um teto duro de 40 segundos no canal primário, além do qual o SPI rejeita a transação."
+  style="width:100%;max-width:900px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
+
 Vale parar na linha em negrito. Os "dez segundos" que viraram slogan do PIX são o **P99 da experiência do usuário pagador** — a mediana pactuada é 6 segundos. E existe um teto duro por cima de tudo: um PIX enviado ao canal primário de mensagens tem limite máximo de **40 segundos** entre a ordem do usuário e a liquidação. Passou disso, o próprio SPI rejeita a transação e comunica os participantes.
 
 <div class="callout callout-tip">
