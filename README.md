@@ -6,7 +6,7 @@
 
 Publicado via [Jekyll](https://jekyllrb.com/) · Hospedado via [GitHub Pages](https://pages.github.com/) · Zero custo de servidor
 
-[![Deploy](https://github.com/guibranco/blog/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/guibranco/blog/actions)
+[![Deploy](https://github.com/guibranco/blog/actions/workflows/deploy.yml/badge.svg)](https://github.com/guibranco/blog/actions/workflows/deploy.yml)
 [![Jekyll](https://img.shields.io/badge/Jekyll-4.x-red?logo=jekyll&logoColor=white)](https://jekyllrb.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
