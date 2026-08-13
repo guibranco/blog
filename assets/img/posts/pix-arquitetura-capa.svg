@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="1200" height="706" role="img" aria-label="A arquitetura do PIX vista por dentro">
+  <rect width="680" height="400" fill="#0f0e0c"/>
+  <line x1="34" y1="0" x2="34" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="68" y1="0" x2="68" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="102" y1="0" x2="102" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="136" y1="0" x2="136" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="170" y1="0" x2="170" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="204" y1="0" x2="204" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="238" y1="0" x2="238" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="272" y1="0" x2="272" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="306" y1="0" x2="306" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="340" y1="0" x2="340" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="374" y1="0" x2="374" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="408" y1="0" x2="408" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="442" y1="0" x2="442" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="476" y1="0" x2="476" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="510" y1="0" x2="510" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="544" y1="0" x2="544" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="578" y1="0" x2="578" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="612" y1="0" x2="612" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="646" y1="0" x2="646" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="0" y1="34" x2="680" y2="34" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="0" y1="68" x2="680" y2="68" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="0" y1="102" x2="680" y2="102" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="0" y1="136" x2="680" y2="136" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="0" y1="170" x2="680" y2="170" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="0" y1="204" x2="680" y2="204" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="0" y1="238" x2="680" y2="238" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="0" y1="272" x2="680" y2="272" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="0" y1="306" x2="680" y2="306" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="0" y1="340" x2="680" y2="340" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <line x1="0" y1="374" x2="680" y2="374" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+  <defs><radialGradient id="glow" cx="0.12" cy="0.12" r="0.7">
+      <stop offset="0%" stop-color="#93c97a" stop-opacity="0.13"/>
+      <stop offset="100%" stop-color="#93c97a" stop-opacity="0"/>
+    </radialGradient></defs>
+  <rect width="680" height="400" fill="url(#glow)"/>
+  <text x="46.0" y="50" font-family="JetBrains Mono, monospace" font-size="11.5" fill="#93c97a" letter-spacing="1.6">// participante direto · plataforma</text>
+  <text x="634.0" y="50" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11.5" fill="#e8a33d" letter-spacing="1.6">BS2 · 2020</text>
+  <line x1="46.0" y1="64" x2="634.0" y2="64" stroke="#2a2621" stroke-width="1.0"/>
+  <text x="46.0" y="150" font-family="Playfair Display, Georgia, serif" font-size="54.0" font-weight="700" fill="#f5f0e8">A arquitetura do PIX</text>
+  <text x="46.0" y="202" font-family="Playfair Display, Georgia, serif" font-size="54.0" font-weight="700" fill="#93c97a">vista por dentro</text>
+  <rect x="46.0" y="224" width="58" height="3.0" fill="#e8a33d"/>
+  <text x="46.0" y="258" font-family="Source Serif 4, Georgia, serif" font-size="15.0" fill="#8a8078">SPI, ISO 20022 e um orçamento de dez segundos</text>
+  <rect x="46" y="296" width="44" height="20" rx="3.0" fill="none" stroke="#2a2621" stroke-width="1.0"/>
+  <text x="68" y="310" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10.0" fill="#8a8078">.NET</text>
+  <rect x="98" y="296" width="71" height="20" rx="3.0" fill="none" stroke="#2a2621" stroke-width="1.0"/>
+  <text x="133" y="310" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10.0" fill="#8a8078">RabbitMQ</text>
+  <rect x="177" y="296" width="57" height="20" rx="3.0" fill="none" stroke="#2a2621" stroke-width="1.0"/>
+  <text x="206" y="310" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10.0" fill="#8a8078">MS SQL</text>
+  <rect x="242" y="296" width="64" height="20" rx="3.0" fill="none" stroke="#2a2621" stroke-width="1.0"/>
+  <text x="274" y="310" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10.0" fill="#8a8078">CouchDB</text>
+  <rect x="314" y="296" width="78" height="20" rx="3.0" fill="none" stroke="#2a2621" stroke-width="1.0"/>
+  <text x="354" y="310" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10.0" fill="#8a8078">ISO 20022</text>
+  <rect x="401" y="296" width="71" height="20" rx="3.0" fill="none" stroke="#2a2621" stroke-width="1.0"/>
+  <text x="436" y="310" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10.0" fill="#8a8078">pacs.008</text>
+  <rect x="480" y="296" width="44" height="20" rx="3.0" fill="none" stroke="#2a2621" stroke-width="1.0"/>
+  <text x="502" y="310" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10.0" fill="#8a8078">DICT</text>
+  <rect x="531" y="296" width="37" height="20" rx="3.0" fill="none" stroke="#2a2621" stroke-width="1.0"/>
+  <text x="550" y="310" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10.0" fill="#8a8078">SPI</text>
+  <line x1="46.0" y1="354" x2="634.0" y2="354" stroke="#2a2621" stroke-width="1.5"/>
+  <circle cx="46" cy="354" r="2.8" fill="#93c97a"/>
+  <text x="46" y="374" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.0" fill="#8a8078" letter-spacing="0.8">0s</text>
+  <circle cx="130" cy="354" r="2.8" fill="#93c97a"/>
+  <text x="130" y="374" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.0" fill="#8a8078" letter-spacing="0.8">1s</text>
+  <circle cx="214" cy="354" r="2.8" fill="#93c97a"/>
+  <text x="214" y="374" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.0" fill="#8a8078" letter-spacing="0.8">2s</text>
+  <circle cx="298" cy="354" r="2.8" fill="#93c97a"/>
+  <text x="298" y="374" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.0" fill="#8a8078" letter-spacing="0.8">4s</text>
+  <circle cx="382" cy="354" r="2.8" fill="#93c97a"/>
+  <text x="382" y="374" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.0" fill="#8a8078" letter-spacing="0.8">6s</text>
+  <circle cx="466" cy="354" r="2.8" fill="#93c97a"/>
+  <text x="466" y="374" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.0" fill="#8a8078" letter-spacing="0.8">8s</text>
+  <circle cx="550" cy="354" r="2.8" fill="#93c97a"/>
+  <text x="550" y="374" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.0" fill="#8a8078" letter-spacing="0.8">9s</text>
+  <circle cx="634" cy="354" r="9.0" fill="#e8a33d" opacity=".18"/>
+  <circle cx="634" cy="354" r="5.0" fill="#e8a33d"/>
+  <text x="634" y="374" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.0" fill="#e8a33d" letter-spacing="0.8">10s</text>
+  <text x="634" y="340" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10.0" fill="#e8a33d">P99 · experiência do pagador</text>
+</svg>
