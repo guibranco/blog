@@ -9,7 +9,7 @@ subcategories:
   - "Coding/Architecture"
 tags: [pix, banco-central, central-bank, arquitetura, architecture, sistemas-financeiros, financial-systems, dotnet, rabbitmq, iso-20022, carreira, career]
 medium_tags: [pix, fintech, software-architecture, dotnet, career]
-reading_time: 22
+reading_time: 31
 cover: /assets/img/posts/pix-bs2-bastidores.svg
 image: /assets/img/posts/pix-bs2-bastidores.png
 ---
@@ -218,7 +218,7 @@ A divisão entre os dois bancos de dados segue a mesma lógica de "cada coisa no
 
 <img
   src="{{ site.baseurl }}/assets/img/posts/pix-bs2-arquitetura.svg"
-  alt="Diagrama conceitual da arquitetura de PIX em um participante direto: canais, serviços de iniciação, recebimento, DICT e orquestração indireta sobre um barramento RabbitMQ, com um gateway de mensageria na borda da RSFN falando com SPI e DICT"
+  alt="Diagrama conceitual da arquitetura de PIX em um participante direto. Camada de canais: app, APIs, PSPs indiretos e backoffice. Camada de plataforma: iniciação, recebimento, DICT, orquestração indireta e conciliação sobre um barramento RabbitMQ. Camada de dados e sistemas internos: MS SQL Server, CouchDB, controle de idempotência e core de conta corrente, e abaixo antifraude, PLD e AML, controladoria com balancete e fechamento, e relatórios de operações para auditoria. Abaixo, o gateway de mensageria na borda da RSFN, falando com o SPI e o DICT do Banco Central."
   style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
 
 A decisão estrutural mais importante foi separar a **borda da RSFN** do resto. Um arquiteto cuidava exclusivamente da comunicação direta com o BACEN: tudo que estava à frente dos nossos serviços, o XML assinado, o transporte, os certificados, a tradução daquilo para uma mensagem que entrava no nosso RabbitMQ.
@@ -235,7 +235,7 @@ Isso parece um detalhe de organograma e é, na verdade, o que tornou o prazo vi�
   <div class="section-title-wrap"><h2>Quem fez o quê</h2></div>
 </div>
 
-O time era pequeno para o tamanho do escopo, e a divisão foi por domínio, não por camada. Cada pessoa era dona de uma fatia funcional de ponta a ponta.
+O time era pequeno para o tamanho do escopo, e a divisão foi por domínio, não por camada. Cada frente era dona de uma fatia funcional de ponta a ponta, e a composição era regular: **um sênior e um pleno por frente**. A única exceção era a borda da RSFN, que ficou praticamente inteira com o arquiteto — o profissional mais sênior do time — trabalhando sozinho.
 
 <div class="providers-grid">
   <div class="provider-card">
@@ -248,13 +248,26 @@ O time era pequeno para o tamanho do escopo, e a divisão foi por domínio, não
   </div>
   <div class="provider-card">
     <div class="provider-name">Borda RSFN</div>
-    <div class="provider-detail">Um arquiteto cuidando da comunicação direta com o BACEN, do XML e da tradução para o barramento interno.</div>
+    <div class="provider-detail">O arquiteto, sozinho, cuidando da comunicação direta com o BACEN, do XML e da tradução para o barramento interno. Único ponto do time sem par.</div>
   </div>
   <div class="provider-card">
     <div class="provider-name">Iniciação e PIX Indireto</div>
     <div class="provider-detail">A minha parte: fazer o pagamento sair, e permitir que outras instituições fizessem pagamentos saírem através da gente.</div>
   </div>
 </div>
+
+Fora da engenharia havia mais três pessoas, e demorei a entender que elas não eram overhead — eram parte do sistema.
+
+Dois **analistas de negócio** traduziam manual do BC em requisito. Isso parece função de cerimônia até você tentar ler o Manual de Padrões para Iniciação e descobrir que a resposta para "o que acontece se a chave existir mas a conta estiver encerrada" está espalhada em três documentos e um catálogo de erros. Ter alguém cuja função é ser dono dessa leitura poupou o time de descobrir divergência de interpretação em homologação.
+
+A terceira era a função que mais me surpreendeu: uma **piloto**. É um cargo técnico da área financeira, não de engenharia — no mercado a figura clássica é a de piloto de reserva bancária, quem acompanha em tempo real cada débito e crédito na reserva da instituição e garante que haja liquidez para honrar as obrigações dentro das grades de horário do Banco Central. Com o PIX, essa responsabilidade ganhou uma conta nova: a Conta PI.
+
+<div class="callout callout-tip">
+  <div class="callout-label">O requisito que não é de software</div>
+  Uma transação PIX não liquida sem saldo na Conta PI do participante, por mais correto que o seu código esteja. Alguém precisa provisionar essa liquidez 24 horas por dia, sete dias por semana, num sistema que — ao contrário do SPB tradicional — não fecha à noite nem no fim de semana. Nenhuma quantidade de arquitetura resolve isso.
+</div>
+
+Aqui vale uma ressalva de memória: até onde eu sei, não existe exigência formal de "piloto do SPI" como existe a figura consagrada do piloto no SPB. O que a norma pede na adesão ao PIX é a indicação de um diretor estatutário responsável perante o Banco Central pelas questões do SPI. A pessoa que operava como piloto do SPI no nosso caso era alguém do SPB assumindo a função por necessidade operacional, não por obrigação regulatória — mas essa é a minha leitura de quem estava do lado da engenharia, e pode haver norma que eu não conheço.
 
 <div class="section-header">
   <div class="section-num">07</div>
@@ -331,6 +344,82 @@ Vale registrar uma coisa que só ficou clara com os anos: a capacidade de partic
 
 <div class="section-header">
   <div class="section-num">09</div>
+  <div class="section-title-wrap"><h2>Plantão: a primeira vez que fiquei de sobreaviso</h2></div>
+</div>
+
+Um sistema que liquida 24 horas por dia, sete dias por semana, não tem noite. Essa frase é óbvia no papel e brutal na prática: significa que alguém precisa estar acordável às três da manhã de domingo. Foi a primeira vez na minha carreira que entrei numa escala de sobreaviso.
+
+O desenho do pareamento foi a parte mais inteligente. Ficávamos **em duplas, de preferência com pessoas de duas frentes diferentes**, e cada um precisava ter conhecimento básico das outras duas frentes. A lógica é direta: às três da manhã você não quer descobrir que o único problema possível é exatamente o da frente que ninguém da dupla conhece. Não era rodízio de especialista, era cobertura cruzada deliberada.
+
+<table class="compare-table">
+  <thead>
+    <tr><th>Regime</th><th>Jornada</th><th>Sobreaviso no dia útil</th><th>Fim de semana</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>PJ (meu caso)</td><td>8 h</td><td>16 h</td><td>24 h</td></tr>
+    <tr><td>CLT</td><td>9 h — 8 de trabalho e 1 de almoço</td><td>15 h</td><td>24 h</td></tr>
+  </tbody>
+</table>
+
+A semana de plantão começava à meia-noite de sábado para domingo e terminava às 23h59min59s do sábado seguinte. Sete dias corridos de disponibilidade, com os fins de semana cobertos integralmente.
+
+A recomendação era ficar perto do notebook ou andar com ele, e evitar lugares de onde não desse para atuar. Na prática, era uma semana sem cinema, sem viagem, sem trilha, sem nada que te deixasse longe de uma tomada e de uma conexão decente. E aqui vem a parte que eu acho importante registrar, porque muita empresa faz o oposto: **isso era remunerado**. O sobreaviso pagava por si só, e o acionamento pagava a mais.
+
+<div class="callout callout-tip">
+  <div class="callout-label">Os números do meu contrato</div>
+  Um terço do valor-hora por hora de sobreaviso, e uma vez e meia o valor-hora em caso de acionamento fora do horário de trabalho. Vale notar que o primeiro número não saiu do nada: a CLT define, no artigo 244, §2º, que as horas de sobreaviso são contadas à razão de um terço do salário normal — regra originalmente dos ferroviários, estendida às demais categorias pela Súmula 428 do TST, que reconhece o sobreaviso de quem fica em regime de plantão aguardando chamado por meio telemático. Meu contrato era PJ, mas o parâmetro veio da lei.
+</div>
+
+Não foi imposto. A escala foi apresentada, discutida, questionada e **votada antes de entrar em operação**, e os valores foram negociados diretamente com as respectivas consultorias. Isso parece detalhe e não é: em muito lugar, plantão aparece como "expectativa da senioridade" e nunca vira linha em contrato. Ser pago para ficar em casa numa semana, e mais ainda para trabalhar de madrugada, é o mínimo que torna a coisa sustentável.
+
+<div class="personal-story">
+  <div class="personal-story-label">
+    <i class="fas fa-user-circle"></i> Minha experiência — explicando ao RH do banco
+  </div>
+  <p>Eu era o único PJ do time do PIX. Todos os outros também eram terceirizados, mas contratados em regime CLT pelas suas respectivas consultorias.</p>
+  <p>Numa semana de plantão, lancei 16 horas de sobreaviso por dia na planilha. O sistema esperava 15. Resultado: recebi um questionamento do RH do próprio banco, e tive que ser eu — o PJ, terceiro, de fora — a explicar ao RH da instituição por que o meu número era diferente do dos meus colegas. A conta era simples: os CLTs tinham jornada de 9 horas porque a hora de almoço entra na janela, e eu, PJ, não tinha intervalo contratual, então trabalhava 8 e ficava disponível 16.</p>
+  <p>Era uma diferença de um único número numa planilha, mas ela expunha duas relações de trabalho distintas convivendo no mesmo time. E tinha sido conferida com a minha consultoria antes.</p>
+</div>
+
+Essa diferença tinha um componente geográfico que eu só entendi com o tempo. **Todas as consultorias do time eram de Belo Horizonte, e todas contratavam em CLT.** As consultorias e os prestadores de São Paulo, de onde eu vinha, preferiam quase sempre o modelo PJ. Não era coincidência: era cultura regional de contratação em tecnologia naquele momento.
+
+Vale separar as duas camadas dessa história. Do ponto de vista estritamente legal, contratar em CLT é o caminho correto e sem zona cinzenta — a pejotização de trabalho subordinado é justamente o ponto contestado. Do ponto de vista de quem estava sendo contratado, em São Paulo a prática já era costume consolidado, e eu preferia o modelo PJ — e ainda prefiro, **desde que o valor seja coerente com o que ele custa em direitos abdicados**. Essa ressalva não é decorativa: PJ com valor de CLT é só CLT sem férias, sem 13º, sem FGTS e sem estabilidade.
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">10</div>
+  <div class="section-title-wrap"><h2>O mercado inteiro no mesmo grupo de WhatsApp</h2></div>
+</div>
+
+Se eu tivesse que escolher a coisa mais atípica daquele projeto, não seria técnica. Seria o fato de que **os concorrentes conversavam entre si, todos os dias, em grupos de WhatsApp**.
+
+Não era um grupo. Eram vários, com gente de instituições financeiras e instituições de pagamento diferentes, e neles se discutia o que o manual do Banco Central queria dizer numa passagem ambígua, que código de erro o SPI devolvia numa situação específica, se alguém já tinha conseguido passar em determinada etapa de teste, o que o BC tinha respondido a uma dúvida formal. Havia também eventos online promovidos pelos próprios PSPs, para alinhar expectativas e planejamento com o que estava sendo determinado pelo regulador.
+
+<div class="callout callout-tip">
+  <div class="callout-label">Por que a colaboração fazia sentido econômico</div>
+  Ninguém ganhava nada com o vizinho falhando. Um sistema de pagamentos instantâneos só tem valor se a rede inteira funciona — um PIX que sai do meu banco precisa chegar no banco do outro. A concorrência real estava no produto, na tarifa e na experiência; a interpretação da norma era custo comum. Foi a demonstração mais clara que eu já vi de que colaborar e competir não são opostos.
+</div>
+
+E, para nós, aquilo virou networking de um tipo que não se constrói em conferência. Você passa meses resolvendo um problema difícil junto com pessoas de outras empresas, sob a mesma pressão, e sai dali sabendo quem é bom, quem responde e quem entende do assunto. Boa parte das conexões profissionais que eu levei do Brasil vieram daqueles grupos.
+
+### Primeiro homologado, e a semana seguinte no LinkedIn
+
+A homologação junto ao Banco Central tinha três etapas: teste de capacidade e performance, teste de funcionalidade do registro de chaves e aprovação do novo projeto do aplicativo — aquele mesmo anteprojeto da Carta-Circular 4.056 que abriu este texto. O banco passou nas três e a notícia saiu no fim de setembro e no começo de outubro de 2020: primeira instituição financeira digital com plataforma PIX totalmente homologada pelo Bacen.
+
+Um número dessa etapa vale ser posto ao lado do gráfico da seção 04. O teste de performance de liquidação exigia responder em até 2,3 segundos. A plataforma respondeu em 242 milissegundos — cerca de dez vezes abaixo do exigido. É exatamente a linha "autorização pelo PSP do recebedor, P95, 2,3 s" daquela tabela, vista do lado de quem estava sendo medido.
+
+<div class="personal-story">
+  <div class="personal-story-label">
+    <i class="fas fa-user-circle"></i> Minha experiência — o efeito colateral da notícia
+  </div>
+  <p>Na semana em que a notícia foi publicada, praticamente todo mundo do time recebeu convite de entrevista no LinkedIn. E não eram abordagens genéricas de recrutador: eram propostas tentadoras, de empresas que sabiam exatamente o que aquele time tinha acabado de fazer.</p>
+  <p>Foi a primeira vez que eu vi, na prática, o mercado precificar uma linha de currículo em tempo real. Ninguém tinha ficado melhor como engenheiro em sete dias. O que mudou foi a prova pública de que aquele grupo tinha entregue algo difícil, com prazo regulatório, antes de todo mundo.</p>
+  <p>Guardo isso como a lição mais desconfortável do projeto: competência é necessária, mas é a evidência verificável dela que abre porta. Trabalhar em coisa que aparece — ou em coisa cujo resultado alguém consegue conferir — muda a sua carreira mais rápido do que trabalhar bem em silêncio.</p>
+</div>
+
+<div class="section-header">
+  <div class="section-num">11</div>
   <div class="section-title-wrap"><h2>O que eu levei desse projeto</h2></div>
 </div>
 
@@ -341,8 +430,6 @@ Vale registrar uma coisa que só ficou clara com os anos: a capacidade de partic
 **Em sistema financeiro, o caminho de exceção é o produto.** Confirmação é fácil. Timeout, resposta duplicada, resposta tardia, estorno de estorno — é aí que mora o trabalho, e é aí que mora o dinheiro.
 
 **Idempotência não é otimização.** Num sistema onde a mesma mensagem pode chegar duas vezes por desenho da rede, ela é a diferença entre um sistema correto e um sistema que cria dinheiro.
-
-**Trabalhar com o resto do mercado ao mesmo tempo é raro.** Todo banco do país estava construindo a mesma coisa, contra o mesmo prazo, contra a mesma especificação. Os fóruns técnicos do período tinham um clima de cooperação que eu nunca mais vi em nenhum outro projeto — porque ninguém ganhava nada com o vizinho falhando.
 
 <div class="conclusion">
   <h2>Cinco anos depois</h2>
@@ -385,6 +472,18 @@ Vale registrar uma coisa que só ficou clara com os anos: a capacidade de partic
     <li>
       Convergência Digital. <strong>Banco Central elege open source e nuvem como bases da infraestrutura do PIX (Apache Kafka / Red Hat AMQ Streams).</strong>
       <a href="https://convergenciadigital.com.br/especial/cloud/banco-central-elege-open-source-e-nuvem-como-bases-da-infraestrutura-do-pix/" target="_blank">convergenciadigital.com.br</a>
+    </li>
+    <li>
+      TudoCelular. <strong>BS2 é o primeiro banco digital totalmente homologado pelo Bacen para o PIX — aprovação nas três fases de teste.</strong>
+      <a href="https://www.tudocelular.com/seguranca/noticias/n164085/pix-banco-bs2-primeiro-digital-homologado-bacen-banco-central.html" target="_blank">tudocelular.com</a>
+    </li>
+    <li>
+      Seu Crédito Digital. <strong>PIX: BS2 é o primeiro banco aprovado no teste de performance do Banco Central — 242 ms contra o limite de 2,3 segundos.</strong>
+      <a href="https://seucreditodigital.com.br/pix-bs2-e-o-primeiro-banco-aprovado-no-teste-de-performance-do-banco-central/" target="_blank">seucreditodigital.com.br</a>
+    </li>
+    <li>
+      Tribunal Superior do Trabalho. <strong>Nova redação da Súmula 428 reconhece sobreaviso em escala com celular — aplicação analógica do art. 244, §2º da CLT.</strong>
+      <a href="https://www.tst.jus.br/noticias/-/asset_publisher/89Dk/content/nova-redacao-da-sumula-428-reconhece-sobreaviso-em-escala-com-celular" target="_blank">tst.jus.br</a>
     </li>
     <li>
       Finsiders Brasil. <strong>A nova aposta do BS2 para ampliar sua atuação no Pix — lançamento do Pix Indireto e o período em que o projeto ficou engavetado.</strong>
