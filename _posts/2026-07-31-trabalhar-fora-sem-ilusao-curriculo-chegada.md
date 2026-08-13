@@ -11,7 +11,8 @@ reading_time: 10
 cover: /assets/img/posts/trabalhar-fora-p3-chegada.svg
 image: /assets/img/posts/trabalhar-fora-p3-chegada.png
 series: trabalhar-fora-sem-ilusao
-series_order: 3
+series_title: "Trabalhar fora sem ilusão"
+series_part: 3
 medium_tags: [career, immigration, tech-jobs, ireland, remote-work]
 ---
 

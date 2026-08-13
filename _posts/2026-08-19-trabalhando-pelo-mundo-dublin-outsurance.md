@@ -11,7 +11,8 @@ reading_time: 31
 cover: /assets/img/posts/trabalhando-pelo-mundo-dublin.svg
 image: /assets/img/posts/trabalhando-pelo-mundo-dublin.png
 series: trabalhando-pelo-mundo
-series_order: 3
+series_title: "Trabalhando pelo mundo"
+series_part: 3
 location:
   lat: 53.3498
   lng: -6.2603

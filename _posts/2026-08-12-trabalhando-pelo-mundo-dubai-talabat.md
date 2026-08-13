@@ -11,7 +11,8 @@ reading_time: 26
 cover: /assets/img/posts/trabalhando-pelo-mundo-dubai.svg
 image: /assets/img/posts/trabalhando-pelo-mundo-dubai.png
 series: trabalhando-pelo-mundo
-series_order: 2
+series_title: "Trabalhando pelo mundo"
+series_part: 2
 location:
   lat: 25.2048
   lng: 55.2708

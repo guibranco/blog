@@ -11,7 +11,8 @@ reading_time: 9
 cover: /assets/img/posts/trabalhar-fora-p2-conta-real.svg
 image: /assets/img/posts/trabalhar-fora-p2-conta-real.png
 series: trabalhar-fora-sem-ilusao
-series_order: 2
+series_title: "Trabalhar fora sem ilusão"
+series_part: 2
 medium_tags: [career, immigration, tech-jobs, ireland, remote-work]
 ---
 
