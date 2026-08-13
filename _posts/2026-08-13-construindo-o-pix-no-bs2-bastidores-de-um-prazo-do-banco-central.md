@@ -182,23 +182,12 @@ E dois destinos possíveis, que parecem o mesmo produto para o cliente e são co
   </tbody>
 </table>
 
-O fluxo do caso interbancário, simplificado:
+O fluxo do caso interbancário, simplificado — a barra inferior mostra o orçamento de dez segundos correndo em paralelo:
 
-```text
-[origem: chave | manual | QR Code]
-        │
-        ├─► resolve destino (DICT, quando aplicável)
-        ├─► consiste dados e valida limites
-        ├─► gera EndToEndId  ← identidade da transação daqui até o fim
-        ├─► debita a conta do pagador
-        ├─► publica ordem no barramento
-        │        └─► borda: monta e assina pacs.008 ──► SPI
-        │
-        ├─◄ pacs.002 (status)
-        │
-        ├─ confirmado ──► liquida, gera comprovante, notifica
-        └─ recusado/timeout ──► estorno do débito, notifica
-```
+<img
+  src="{{ site.baseurl }}/assets/img/posts/pix-fluxo-iniciacao.svg"
+  alt="Diagrama de sequência do fluxo de iniciação de um PIX interbancário: o cliente inicia por chave, QR Code ou dados manuais; o banco consulta o DICT, valida limites, gera o EndToEndId e debita o pagador; a ordem vai ao barramento, a borda RSFN monta a pacs.008 para o SPI, que a repassa ao PSP recebedor; o aceite volta como pacs.002 até a confirmação ao cliente. Em caso de recusa ou timeout, o débito é estornado de forma idempotente pelo EndToEndId."
+  style="width:100%;max-width:900px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
 
 O detalhe que consome mais tempo de engenharia não está no caminho feliz. Está nas duas últimas linhas.
 
@@ -261,7 +250,7 @@ Vale registrar uma coisa que só ficou clara com os anos: a capacidade de partic
 <div class="conclusion">
   <h2>Cinco anos depois</h2>
   <p>O PIX virou infraestrutura pública invisível. Ninguém mais lembra que aquilo era um projeto com risco de não sair, e é exatamente esse o sinal de que deu certo: sistema financeiro bem-feito é aquele em que ninguém pensa.</p>
-  <p>Do meu lado, foi o projeto que mais me ensinou por unidade de tempo em toda a carreira no Brasil. Não pela stack — .NET, RabbitMQ e SQL Server eu já conhecia — mas pela combinação de prazo inegociável, especificação em movimento e consequência real do erro. Um mês depois do lançamento eu embarquei para o Porto — a primeira vez que saí do Brasil para trabalhar<!-- TODO: linkar Post #1 da série "Trabalhando pelo mundo" (Farfetch/Porto) -->, e boa parte da confiança para aceitar aquilo veio de ter atravessado 2020 dentro do core de um banco.</p>
+  <p>Do meu lado, foi o projeto que mais me ensinou por unidade de tempo em toda a carreira no Brasil. Não pela stack — .NET, RabbitMQ e SQL Server eu já conhecia — mas pela combinação de prazo inegociável, especificação em movimento e consequência real do erro. Um mês depois do lançamento eu embarquei para o Porto — <a href="{{ site.baseurl }}/artigos/trabalhando-pelo-mundo-porto-farfetch/">a primeira vez que saí do Brasil para trabalhar</a>, e boa parte da confiança para aceitar aquilo veio de ter atravessado 2020 dentro do core de um banco.</p>
   <p>E a mudança para Belo Horizonte, que era a grande decisão de vida em abril, virou uma semana de AirBnB e uma passagem de volta. Às vezes a mudança importante do ano não é a que estava no plano.</p>
 </div>
 

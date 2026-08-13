@@ -172,9 +172,9 @@ def _yaml_unquote(s: str) -> str:
 
 def _yaml_scalar(value: str) -> str:
     """Render a YAML scalar, quoting it only when needed (matches the
-    existing style in _data/categories.yml: plain names are bare, names
-    with symbols or accents are double-quoted)."""
-    if re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9 \-]*', value):
+    existing style in _data/categories.yml: single-word names are bare,
+    names containing a space or symbols are double-quoted)."""
+    if re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9\-]*', value):
         return value
     escaped = value.replace('\\', '\\\\').replace('"', '\\"')
     return f'"{escaped}"'
@@ -252,7 +252,7 @@ def serialize_categories_yaml(categories: list[dict]) -> str:
         else:
             lines.append("  subcategories: []")
         blocks.append("\n".join(lines))
-    return "\n\n".join(blocks) + "\n"
+    return "\n".join(blocks) + "\n"
 
 
 def sync_categories_data(
