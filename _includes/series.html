@@ -11,7 +11,7 @@
 <div class="series-banner">
   <div class="series-banner-header">
     <span class="series-banner-label"><i class="fas fa-layer-group"></i> {{ page.series_title }}</span>
-    <span class="series-banner-progress">{{ _t.series_part_label }} {{ page.series_part }} {{ _t.series_of_label }} {{ series_total }}</span>
+    <span class="series-banner-progress"><span data-i18n="series_part_label">{{ _t.series_part_label }}</span> {{ page.series_part }} <span data-i18n="series_of_label">{{ _t.series_of_label }}</span> {{ series_total }}</span>
   </div>
 
   <div class="series-toc">
@@ -27,7 +27,7 @@
     {% if prev_i >= 0 %}
       {% assign prev_post = series_posts[prev_i] %}
       <a class="series-nav-link series-nav-prev" href="{{ prev_post.url | relative_url }}">
-        <span class="series-nav-dir">← {{ _t.series_part_label }} {{ prev_post.series_part }}</span>
+        <span class="series-nav-dir">← <span data-i18n="series_part_label">{{ _t.series_part_label }}</span> {{ prev_post.series_part }}</span>
         <span class="series-nav-title">{{ prev_post.title }}</span>
       </a>
     {% else %}
@@ -36,7 +36,7 @@
     {% if next_i < series_total %}
       {% assign next_post = series_posts[next_i] %}
       <a class="series-nav-link series-nav-next" href="{{ next_post.url | relative_url }}">
-        <span class="series-nav-dir">{{ _t.series_part_label }} {{ next_post.series_part }} →</span>
+        <span class="series-nav-dir"><span data-i18n="series_part_label">{{ _t.series_part_label }}</span> {{ next_post.series_part }} →</span>
         <span class="series-nav-title">{{ next_post.title }}</span>
       </a>
     {% else %}

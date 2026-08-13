@@ -1128,6 +1128,8 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
   .series-nav-next { text-align: left; }
   .series-banner-header { flex-direction: column; align-items: flex-start; gap: .4rem; }
 }
+.series-index-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+.series-index-item { border-radius: 12px; }
 
 /* ── Tags pages ────────────────────────────────────────────────────────────── */
 .section-meta {

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+{% include resolve-lang.html %}
+<html lang="{{ _lang }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tópico: {{ page.tag }} — {{ site.title }}</title>
-  <meta name="description" content="Artigos sobre o tópico {{ page.tag }} em {{ site.title }}">
+  <title>{{ _t.tag_title_prefix }}: {{ page.tag }} — {{ site.title }}</title>
+  <meta name="description" content="{{ _t.articles_about_topic_label }} {{ page.tag }} {{ _t.meta_in_label }} {{ site.title }}">
   {% seo %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">

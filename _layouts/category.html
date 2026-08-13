@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+{% include resolve-lang.html %}
+<html lang="{{ _lang }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% if page.subcategory %}
   <title>{{ page.subcategory }} · {{ page.category }} — {{ site.title }}</title>
-  <meta name="description" content="Artigos sobre {{ page.subcategory }} em {{ site.title }}">
+  <meta name="description" content="{{ _t.articles_about_label }} {{ page.subcategory }} {{ _t.meta_in_label }} {{ site.title }}">
   {% else %}
   <title>{{ page.category }} — {{ site.title }}</title>
-  <meta name="description" content="Artigos sobre {{ page.category }} em {{ site.title }}">
+  <meta name="description" content="{{ _t.articles_about_label }} {{ page.category }} {{ _t.meta_in_label }} {{ site.title }}">
   {% endif %}
   {% seo %}
 
