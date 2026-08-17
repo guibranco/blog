@@ -11,7 +11,8 @@ medium_tags: [pix, fintech, career, on-call, brazil]
 reading_time: 24
 cover: /assets/img/posts/pix-bs2-bastidores.svg
 image: /assets/img/posts/pix-bs2-bastidores.png
-series_title: pix-bs2
+series: pix-bs2
+series_title: Desenvolvendo o PIX
 series_part: 1
 ---
 
