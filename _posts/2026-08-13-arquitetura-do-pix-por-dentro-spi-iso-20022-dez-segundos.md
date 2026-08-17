@@ -11,7 +11,8 @@ medium_tags: [pix, software-architecture, dotnet, rabbitmq, fintech]
 reading_time: 20
 cover: /assets/img/posts/pix-arquitetura-capa.svg
 image: /assets/img/posts/pix-arquitetura-capa.png
-series_title: pix-bs2
+series: pix-bs2
+series_title: Desenvolvendo o PIX
 series_part: 2
 ---
 
