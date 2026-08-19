@@ -27,7 +27,7 @@ image: /assets/img/posts/coding-desktop.jpg
 
 - Muitas empresas ainda pedem diploma ou que pelo menos esteja cursando, muitas outras não. Você vai concorrer com essa galera, então se não vai fazer o curso superior, precisa se destacar de outra forma.
 
-- Salário de primeiro emprego varia de R$ 1,5k (ou o SM vigente — SM = salário mínimo) até uns R$ 3k (se for CLT; se for PJ, multiplique por 1,8). A partir do segundo emprego, sendo júnior, você vai receber entre R$ 2k e R$ 4,5k. Você vai ser júnior em média de 3 a 5 anos, só então vai virar pleno — desconsiderando empresas pequenas que promovem ano a ano com pequenos aumentos só para alimentar o ego e segurar o funcionário com salário baixo. Existem vagas de JR de R$ 6,5k CLT, mas esse tipo de vaga geralmente não é para primeiro emprego nem para pessoas preocupadas com emprego/salário — são para quem já estuda programação desde a infância/adolescência e faz por amor à área.
+- Salário de primeiro emprego varia de R$ 1,5k (ou o SM vigente — SM = salário mínimo) até uns R$ 3k (se for CLT; [se for PJ, multiplique por 1,8](/blog/artigos/clt-vs-pj-qual-devo-escolher/)). A partir do segundo emprego, sendo júnior, você vai receber entre R$ 2k e R$ 4,5k. Você vai ser júnior em média de 3 a 5 anos, só então vai virar pleno — desconsiderando empresas pequenas que promovem ano a ano com pequenos aumentos só para alimentar o ego e segurar o funcionário com salário baixo. Existem vagas de JR de R$ 6,5k CLT, mas esse tipo de vaga geralmente não é para primeiro emprego nem para pessoas preocupadas com emprego/salário — são para quem já estuda programação desde a infância/adolescência e faz por amor à área.
 
 - Senioridade não é definida por **QUANTIDADE** e sim por **QUALIDADE**.
 

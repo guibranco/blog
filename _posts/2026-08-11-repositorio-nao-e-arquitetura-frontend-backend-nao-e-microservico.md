@@ -291,7 +291,7 @@ O Google mantém a esmagadora maioria do próprio código num repositório únic
   <div class="personal-story-label">
     <i class="fas fa-user-circle"></i> Minha experiência — os dois extremos
   </div>
-  <p>Nos últimos anos trabalhei em três empresas fora do Brasil, em domínios bem diferentes: moda de luxo, delivery e seguros. Passei por monorepo com dezenas de serviços dentro e por polirepo com dezenas de repositórios, e a conclusão foi a mesma nos dois casos: o layout do repositório nunca foi o que determinou se dava pra entregar rápido.</p>
+  <p>Nos últimos anos trabalhei em três empresas fora do Brasil, em domínios bem diferentes: [moda de luxo](/blog/artigos/trabalhando-pelo-mundo-porto-farfetch/), [delivery](/blog/artigos/trabalhando-pelo-mundo-dubai-talabat/) e [seguros](/blog/artigos/trabalhando-pelo-mundo-dublin-outsurance/). Passei por monorepo com dezenas de serviços dentro e por polirepo com dezenas de repositórios, e a conclusão foi a mesma nos dois casos: o layout do repositório nunca foi o que determinou se dava pra entregar rápido.</p>
   <p>O que determinou foi sempre a resposta a uma pergunta só — <em>eu consigo subir minha mudança em produção sem depender do calendário de outro time?</em> Onde a resposta era sim, o dia era bom, independentemente de o código estar em um repositório ou em trinta. Onde era não, a quantidade de repositórios só mudava quantos PRs eu precisava abrir para o mesmo bloqueio.</p>
   <p>E vi o monólito distribuído de perto: adicionar um campo em um payload exigia coordenar mudanças em vários repositórios, com uma ordem obrigatória de deploy e uma janela combinada. No papel, era arquitetura de microserviços. Na prática, era um monólito com latência de rede embutida.</p>
 </div>

@@ -12,7 +12,7 @@ cover: /assets/img/posts/dev-vs-qa-testes.svg
 image: /assets/img/posts/dev-vs-qa-testes.png
 ---
 
-<p class="lead">Uma dúvida muito comum entre desenvolvedores e times de QA é: quem é responsável por escrever quais testes? A resposta passa por entender dois conceitos fundamentais — caixa branca e caixa preta — e como cada papel no time se relaciona com eles.</p>
+<p class="lead">Uma dúvida muito comum entre desenvolvedores e times de QA é: quem é responsável por escrever quais testes? A resposta passa por entender dois conceitos fundamentais — caixa branca e caixa preta — e como cada papel no time se relaciona com eles. Se você ainda não tem clareza sobre o que diferencia unit test, integration test, load test e E2E, vale ler antes [Testes automatizados: os diferentes tipos de testes de software](/blog/artigos/testes-automatizados-os-diferentes-tipos-de-testes-de-software/) — aqui o foco é de quem é a responsabilidade por cada um.</p>
 
 <div class="divider">· · ·</div>
 

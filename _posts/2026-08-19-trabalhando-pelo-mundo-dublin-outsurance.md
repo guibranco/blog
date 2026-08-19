@@ -419,7 +419,7 @@ O escopo tem três frentes:
 
 ### ISO 20022: o mesmo padrão, do outro lado do mundo
 
-Tem um detalhe que só ficou visível quando eu montei esta série. Lá no primeiro capítulo, no Banco BS2, eu trabalhei com mensageria **ISO 20022** para construir o PIX — ADMI, CAMT, PACS e REDA, o vocabulário do Banco Central brasileiro para pagamentos instantâneos.
+Tem um detalhe que só ficou visível quando eu montei esta série. Lá no primeiro capítulo, no Banco BS2, eu trabalhei com mensageria **ISO 20022** para [construir o PIX]({{ site.baseurl }}/artigos/arquitetura-do-pix-por-dentro-spi-iso-20022-dez-segundos/) — ADMI, CAMT, PACS e REDA, o vocabulário do Banco Central brasileiro para pagamentos instantâneos.
 
 Aqui na Irlanda, três anos e dois países depois, eu voltei ao mesmo padrão: mensagens **PAIN**, de *Payments Initiation*, para iniciar cobranças junto aos bancos locais.
 

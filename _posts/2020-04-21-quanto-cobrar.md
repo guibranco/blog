@@ -221,7 +221,7 @@ Acima do nível sênior, as faixas se abrem por stack. Dados de processos seleti
   </div>
 </div>
 
-A versão original deste post recomendava multiplicar o salário CLT por 1,7 a 1,8 para chegar ao equivalente PJ. Esse número precisa de duas correções importantes.
+A versão original deste post recomendava multiplicar o salário CLT por 1,7 a 1,8 para chegar ao equivalente PJ. Esse número precisa de duas correções importantes — a conta completa, com todos os encargos e o Fator R, está em [CLT, PJ ou MEI: qual devo escolher](/blog/artigos/clt-vs-pj-qual-devo-escolher/); aqui vai o resumo aplicado à precificação.
 
 **Primeira: o que você precisa para empatar.** Um salário CLT não é só o valor bruto na carteira. Ele carrega 13º, férias com adicional de um terço, FGTS e benefícios. Do lado PJ, você ainda paga DAS, INSS sobre pró-labore e contador. Somando tudo, para um pleno em São Paulo, a conta fica assim:
 
@@ -303,7 +303,7 @@ Juntando tudo — mediana de mercado em São Paulo, reposição de encargos e ho
   <div class="personal-story-label">
     <i class="fas fa-user-circle"></i> Minha experiência — PJ alocado, não freelancer
   </div>
-  <p>Entre julho de 2019 e janeiro de 2021 eu trabalhei no <strong>Banco BS2</strong> como PJ, contratado através da <strong>K2 Partnering</strong>. Comecei na squad de API Banking, na tribo de B2B, em São Paulo, e em março de 2020 passei para o time de projetos especiais — o time que implementou o SPI/PIX, com todo mundo em remoto por causa da quarentena.</p>
+  <p>Entre julho de 2019 e janeiro de 2021 eu trabalhei no <strong>Banco BS2</strong> como PJ, contratado através da <strong>K2 Partnering</strong>. Comecei na squad de API Banking, na tribo de B2B, em São Paulo, e em março de 2020 passei para o time de projetos especiais — o time que implementou o <a href="{{ site.baseurl }}/artigos/construindo-o-pix-no-bs2-bastidores-de-um-prazo-do-banco-central/">SPI/PIX</a>, com todo mundo em remoto por causa da quarentena.</p>
   <p>É exatamente a coluna do meio da tabela acima: alocação contínua, mês cheio faturado, sem prospecção e sem proposta nova a cada projeto. E a referência que valia para o meu contrato era a mesma deste post — eu recebia <strong>o equivalente a um sênior de São Paulo</strong>. Não era um número tirado do meu custo de vida; era a faixa de mercado CLT convertida para PJ.</p>
   <p>Vale o registro de que havia uma consultoria no meio do caminho. Quando você entra via parceiro, o valor-hora que chega até você já passou pela margem de outra empresa — e essa margem é invisível na negociação. Saber a faixa de mercado do seu nível é o que te diz se a proposta que chegou é boa ou se é só o que sobrou.</p>
 </div>

@@ -52,7 +52,7 @@ The estate spans five hosting surfaces, each chosen for what it's genuinely good
 
   <div class="provider-card">
     <div class="provider-name">Oracle Cloud (OCI) — 4 Always-Free VMs</div>
-    <div class="provider-detail">Four single-core always-free instances doing the heavy lifting for anything needing a real Linux box. Each is a focused, single-purpose worker: VPN gateway, webhook ingestion, queue consumer, scheduled trigger and newer APIs. Every VM runs its own NGINX as the front door.</div>
+    <div class="provider-detail">Four single-core always-free instances doing the heavy lifting for anything needing a real Linux box. Each is a focused, single-purpose worker: VPN gateway, webhook ingestion, queue consumer, scheduled trigger and newer APIs. Every VM runs its own NGINX as the front door — the full breakdown of what runs where is in [18 serviços em 4 VMs de 1 GB](/blog/artigos/18-servicos-4-vms-1gb-free-tier/).</div>
   </div>
 
   <div class="provider-card">
@@ -80,7 +80,7 @@ The estate spans five hosting surfaces, each chosen for what it's genuinely good
   <div class="section-title-wrap"><h2>Webhook processing, decoupled</h2></div>
 </div>
 
-When something happens on GitHub, the delivery lands on a C# ingestion service on one of the VMs. That service does almost nothing except validate the payload and drop it onto a message queue hosted on **CloudAMQP** (their free tier runs a LavinMQ broker — I actually have several instances spread across regions). A separate processor on a *different* VM consumes from the queue and writes the result to the database.
+When something happens on GitHub, the delivery lands on a C# ingestion service on one of the VMs. That service does almost nothing except validate the payload and drop it onto a message queue hosted on [**CloudAMQP**](/blog/artigos/rabbitmq-gratuito-cloudamqp/) (their free tier runs a LavinMQ broker — I actually have several instances spread across regions). A separate processor on a *different* VM consumes from the queue and writes the result to the database.
 
 <div class="callout callout-tip">
   <div class="callout-label">Why the split?</div>
@@ -119,7 +119,7 @@ The database never accepts connections from the open internet. Instead, a **Wire
   <div class="section-title-wrap"><h2>CI/CD from two directions</h2></div>
 </div>
 
-Continuous integration runs through both **GitHub Actions** and **AppVeyor** — the latter as a complementary pipeline that still notifies one of my legacy webhook handlers when builds complete. Belt and braces.
+Continuous integration runs through both **GitHub Actions** and [**AppVeyor**](/blog/artigos/appveyor-vs-github-actions/) — the latter as a complementary pipeline that still notifies one of my legacy webhook handlers when builds complete. Belt and braces.
 
 <table class="compare-table">
   <thead>

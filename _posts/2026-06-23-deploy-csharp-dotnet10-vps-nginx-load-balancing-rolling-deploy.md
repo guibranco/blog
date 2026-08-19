@@ -633,7 +633,7 @@ jobs:
 
 ## 11. Por que rsync em vez de scp ou tar?
 
-O artigo anterior usava `scp` com um arquivo `.tar.gz`. A abordagem com `rsync` tem vantagens práticas em um cenário com staging:
+[O artigo anterior](/blog/artigos/deploying-csharp-application-ubuntu-vps-nginx-ssl-load-balancing/) usava `scp` com um arquivo `.tar.gz`. A abordagem com `rsync` tem vantagens práticas em um cenário com staging:
 
 | | scp + tar | rsync |
 |---|---|---|
