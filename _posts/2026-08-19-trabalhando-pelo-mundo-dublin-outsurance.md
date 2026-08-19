@@ -5,14 +5,13 @@ description: "Entrevista, teste técnico e contrato feitos inteiramente por vide
 date: 2026-08-19
 categories: [Career]
 subcategories:
-  - "Career/Working Abroad"
-tags: [trabalho-no-exterior, dublin, irlanda, carreira-internacional, expatriado, outsurance, seguros, insurtech, relocation, critical-skills, visto-de-trabalho, cidadania-europeia, csharp, dotnet, azure, azure-devops, cosmos-db, service-bus, terraform, iso-20022, fintech, billing, hibrido, europa]
+  - "Career/Trabalho no Exterior"
+tags: [trabalho-no-exterior, dublin, irlanda, carreira-internacional, expatriado, outsurance, seguros, insurtech, relocation, cidadania-europeia, csharp, dotnet, azure, azure-devops, cosmos-db, service-bus, terraform, iso-20022, fintech, billing, hibrido, europa]
 reading_time: 31
 cover: /assets/img/posts/trabalhando-pelo-mundo-dublin.svg
 image: /assets/img/posts/trabalhando-pelo-mundo-dublin.png
 series: trabalhando-pelo-mundo
-series_title: "Trabalhando pelo mundo"
-series_part: 3
+series_order: 3
 location:
   lat: 53.3498
   lng: -6.2603
@@ -657,6 +656,13 @@ Repare na coluna do meio: **os 24 dias não são a regra irlandesa**. O piso leg
 
 Mas o ponto de verdade não é a quantidade. É a **granularidade**.
 
+E vale um parêntese sobre o primeiro capítulo, porque ele é o extremo oposto desta discussão. Em **recibos verdes**, no Porto, eu não tinha férias — nem pagas, nem contadas. Os dias que eu quisesse tirar eram acordados com a consultoria e com o cliente, e como a remuneração era **por dia trabalhado**, cada dia de descanso saía direto do faturamento do mês. Descansar tinha preço, e o preço era o próprio salário daquele dia.
+
+<div class="callout callout-warn">
+  <div class="callout-label">O custo invisível do PJ que ninguém coloca na planilha</div>
+  Quando se compara uma proposta CLT com uma PJ ou de recibos verdes, o número bruto do contrato PJ parece muito maior. Parte dessa diferença não é ganho: é o preço das coisas que o outro regime dá de graça. Vinte e quatro dias de férias remuneradas equivalem a mais de um mês de faturamento que você <em>não</em> vai emitir. Some feriados, licença médica e décimo terceiro, e a distância entre os dois números encolhe bem mais do que parece à primeira vista.
+</div>
+
 Aqui eu posso tirar **meio dia**. Ou um dia solto. Ou dois. Ou três semanas seguidas. O saldo é meu e eu gasto como quiser, desde que combine com o time. Isso muda completamente a relação com o descanso: férias deixam de ser um evento anual que exige planejamento de meses e viram um recurso que você administra ao longo do ano.
 
 Na prática, o meu esquema é este:
@@ -710,7 +716,7 @@ O combinado com o gestor acontece nos **1:1**, e é uma conversa, não um pedido
     <tr><td>Setor</td><td>E-commerce de luxo</td><td>Delivery / qCommerce</td><td>Seguros</td></tr>
     <tr><td>Nuvem e mensageria</td><td>Kafka, Cassandra, Elasticsearch</td><td>AWS SQS e Lambda</td><td>Azure, Service Bus, NServiceBus, Cosmos DB</td></tr>
     <tr><td>Ritmo</td><td>Calmo</td><td>Elevado</td><td>Calmo</td></tr>
-    <tr><td>Férias</td><td>—</td><td>Conforme a lei dos Emirados</td><td>Piso legal de 20 dias úteis + 10 feriados; 24 dias por contrato</td></tr>
+    <tr><td>Férias</td><td>Não pagas — dias acordados com consultoria e cliente, e descontados do faturamento</td><td>Conforme a lei dos Emirados</td><td>20 dias úteis pela lei, 24 pela empresa, mais 10 feriados</td></tr>
     <tr><td>Imposto de renda</td><td>Sim</td><td>Não</td><td>Sim</td></tr>
   </tbody>
 </table>
