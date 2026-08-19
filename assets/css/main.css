@@ -981,7 +981,9 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 @media (max-width: 1060px) {
   .posts-grid { grid-template-columns: 1fr; }
   .featured-card { grid-template-columns: 1fr; }
-  .featured-placeholder { min-height: 180px; }
+  .featured-image { aspect-ratio: 16 / 9; min-height: 0; height: auto; }
+  .featured-image img { object-fit: contain; }
+  .featured-placeholder { aspect-ratio: 16 / 9; min-height: 0; height: auto; }
 }
 
 @media (max-width: 768px) {
