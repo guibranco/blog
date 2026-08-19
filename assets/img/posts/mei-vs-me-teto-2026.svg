@@ -43,6 +43,6 @@
   <text x="58" y="310" font-family="Source Serif 4, Georgia, serif" font-size="14" fill="#1a1714">de faturamento. E, ainda assim, <tspan font-weight="700">indisponível para quem escreve código.</tspan></text>
 
   <line x1="40" y1="346" x2="640" y2="346" stroke="#e2dbd0" stroke-width="1"/>
-  <text x="40" y="366" font-family="Source Serif 4, Georgia, serif" font-size="11.5" fill="#5a534a">ME: DAS de 6% (Anexo III com Fator R ≥ 28%), contador R$ 250/mês, taxas R$ 30/mês, pró-labore de 28% da receita</text>
-  <text x="40" y="381" font-family="Source Serif 4, Georgia, serif" font-size="11.5" fill="#5a534a">com INSS de 11%. MEI: DAS de R$ 86,05/mês (serviços). Nenhum dos dois paga IRRF sobre o pró-labore em 2026.</text>
+  <text x="40" y="366" font-family="Source Serif 4, Georgia, serif" font-size="11.5" fill="#5a534a">ME: DAS de 6% (Anexo III, com Fator R de 28% ou mais), contador R$ 250/mês, taxas R$ 30/mês, pró-labore de 28% da</text>
+  <text x="40" y="381" font-family="Source Serif 4, Georgia, serif" font-size="11.5" fill="#5a534a">receita com INSS de 11%. MEI: DAS de R$ 86,05/mês (serviços). Nenhum dos dois paga IRRF sobre o pró-labore.</text>
 </svg>
