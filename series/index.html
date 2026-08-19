@@ -60,7 +60,13 @@ permalink: /series/
               </div>
               <div class="series-toc">
                 {% for sp in s_posts %}
+                {% assign _sp_thumb = sp.cover | default: sp.image %}
                 <a class="series-toc-item" href="{{ sp.url | relative_url }}">
+                  {% if _sp_thumb %}
+                  <img class="series-toc-thumb" src="{{ _sp_thumb | relative_url }}" alt="" loading="lazy">
+                  {% else %}
+                  <span class="series-toc-thumb series-toc-thumb--placeholder"></span>
+                  {% endif %}
                   <span class="series-toc-num">{{ sp.series_part }}</span>
                   <span class="series-toc-title">{{ sp.title }}</span>
                 </a>

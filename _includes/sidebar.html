@@ -53,18 +53,23 @@
     {% endif %}
 
     <nav class="sidebar-nav">
-      <ul>
+      <ul class="sidebar-nav-group">
         <li>
           <a href="{{ site.baseurl }}/"{% if include.active_page == "home" %} class="active"{% endif %}>
             <i class="fas fa-home"></i> <span data-i18n="home">Início</span>
           </a>
         </li>
+      </ul>
 
-        {% for cat in site.data.categories %}
+      <p class="sidebar-nav-heading" data-i18n="categories_title">Categorias</p>
+      <ul class="sidebar-nav-group sidebar-nav-categories">
+        {% assign sorted_categories = site.data.categories | sort: "name" %}
+        {% for cat in sorted_categories %}
           {% assign cat_is_open = false %}
           {% if page.category == cat.name %}{% assign cat_is_open = true %}{% endif %}
           {% if page.categories contains cat.name %}{% assign cat_is_open = true %}{% endif %}
-          {% for sub in cat.subcategories %}
+          {% assign sorted_subs = cat.subcategories | sort: "name" %}
+          {% for sub in sorted_subs %}
             {% if page.subcategory == sub.name %}{% assign cat_is_open = true %}{% endif %}
           {% endfor %}
 
@@ -79,7 +84,7 @@
               <i class="fas fa-chevron-right chevron"></i>
             </button>
             <ul class="submenu">
-              {% for sub in cat.subcategories %}
+              {% for sub in sorted_subs %}
               <li>
                 <a href="{{ site.baseurl }}/categorias/{{ cat.slug }}/{{ sub.slug }}/"
                    {% if page.subcategory == sub.name %}class="active"{% endif %}>
@@ -100,7 +105,9 @@
           </li>
           {% endif %}
         {% endfor %}
+      </ul>
 
+      <ul class="sidebar-nav-group sidebar-nav-more">
         <li>
           <a href="{{ site.baseurl }}/topicos/"{% if include.active_page == "topics" %} class="active"{% endif %}>
             <i class="fas fa-tags"></i> <span data-i18n="topics">Tópicos</span>

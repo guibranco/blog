@@ -67,7 +67,8 @@
         <h2 class="section-title" data-i18n="subcategories_title">Subcategorias</h2>
       </div>
       <div class="subcats-grid">
-        {% for sub in _cat_nav.subcategories %}
+        {% assign _sorted_subs = _cat_nav.subcategories | sort: "name" %}
+        {% for sub in _sorted_subs %}
           {% assign _sub_count = 0 %}
           {% assign _sub_full = page.category | append: "/" | append: sub.name %}
           {% for post in site.posts %}
