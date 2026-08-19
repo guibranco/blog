@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="1200" height="706">
+<rect width="680" height="400" fill="#f5f0e8"/>
+<rect x="0" y="0" width="680" height="5" fill="#b85c00"/>
+<text x="40" y="52" font-family="Playfair Display, Georgia, serif" font-size="25" font-weight="700" fill="#1a1714">A pegadinha das horas faturáveis</text>
+<text x="40" y="76" font-family="JetBrains Mono, Menlo, monospace" font-size="10.5" fill="#b85c00" letter-spacing="1.1">168 H DISPON&#205;VEIS NO M&#202;S PJ &#183; QUANTAS VOC&#202; COBRA?</text>
+<line x1="40" y1="92" x2="640" y2="92" stroke="#ddd4c6" stroke-width="1"/>
+<text x="40" y="128" font-family="Source Serif 4, Georgia, serif" font-size="13" fill="#5a534a">Um m&#234;s PJ tem 168 horas &#8212; mas s&#243; parte delas vira nota fiscal.</text>
+<rect x="40.0" y="150" width="462.3" height="64" rx="3" fill="#2d6a4f"/>
+<text x="272.1" y="188" font-family="JetBrains Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#f5f0e8" text-anchor="middle">130h</text>
+<rect x="504.3" y="150" width="40.9" height="64" rx="3" fill="#a8c4b3"/>
+<text x="525.7" y="188" font-family="JetBrains Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#1a1714" text-anchor="middle">12h</text>
+<rect x="547.1" y="150" width="33.7" height="64" rx="3" fill="#f0dcc4"/>
+<rect x="582.9" y="150" width="26.6" height="64" rx="3" fill="#e3c9a8"/>
+<rect x="611.4" y="150" width="26.6" height="64" rx="3" fill="#d9d2c6"/>
+<rect x="40" y="239" width="10" height="10" rx="2" fill="#2d6a4f"/>
+<text x="57" y="248" font-family="Source Serif 4, Georgia, serif" font-size="13" fill="#1a1714">Horas faturáveis</text>
+<text x="312" y="248" font-family="JetBrains Mono, Menlo, monospace" font-size="11.5" font-weight="700" fill="#5a534a" text-anchor="end">130 h</text>
+<rect x="40" y="265" width="10" height="10" rx="2" fill="#a8c4b3"/>
+<text x="57" y="274" font-family="Source Serif 4, Georgia, serif" font-size="13" fill="#1a1714">Prospec&#231;&#227;o e propostas</text>
+<text x="312" y="274" font-family="JetBrains Mono, Menlo, monospace" font-size="11.5" font-weight="700" fill="#5a534a" text-anchor="end">12 h</text>
+<rect x="40" y="291" width="10" height="10" rx="2" fill="#f0dcc4"/>
+<text x="57" y="300" font-family="Source Serif 4, Georgia, serif" font-size="13" fill="#1a1714">Reuni&#245;es n&#227;o faturadas</text>
+<text x="312" y="300" font-family="JetBrains Mono, Menlo, monospace" font-size="11.5" font-weight="700" fill="#5a534a" text-anchor="end">10 h</text>
+<rect x="360" y="239" width="10" height="10" rx="2" fill="#e3c9a8"/>
+<text x="377" y="248" font-family="Source Serif 4, Georgia, serif" font-size="13" fill="#1a1714">Admin, NF e contabilidade</text>
+<text x="632" y="248" font-family="JetBrains Mono, Menlo, monospace" font-size="11.5" font-weight="700" fill="#5a534a" text-anchor="end">8 h</text>
+<rect x="360" y="265" width="10" height="10" rx="2" fill="#d9d2c6"/>
+<text x="377" y="274" font-family="Source Serif 4, Georgia, serif" font-size="13" fill="#1a1714">Estudo e atualiza&#231;&#227;o</text>
+<text x="632" y="274" font-family="JetBrains Mono, Menlo, monospace" font-size="11.5" font-weight="700" fill="#5a534a" text-anchor="end">8 h</text>
+<line x1="40" y1="336" x2="640" y2="336" stroke="#ddd4c6" stroke-width="1.5"/>
+<text x="40" y="362" font-family="Source Serif 4, Georgia, serif" font-size="13.5" fill="#1a1714">Cobrar como se fossem 168 h embute um <tspan font-weight="700" fill="#b85c00">desconto de 23%</tspan> que ningu&#233;m pediu.</text>
+<text x="40" y="382" font-family="JetBrains Mono, Menlo, monospace" font-size="9" fill="#8a8078">distribui&#231;&#227;o ilustrativa &#8212; me&#231;a as suas pr&#243;prias horas por 3 meses antes de fixar o n&#250;mero</text>
+</svg>

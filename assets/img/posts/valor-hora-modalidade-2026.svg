@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="1200" height="706">
+<rect width="680" height="400" fill="#f5f0e8"/>
+<rect x="0" y="0" width="680" height="5" fill="#2d6a4f"/>
+<text x="40" y="52" font-family="Playfair Display, Georgia, serif" font-size="25" font-weight="700" fill="#1a1714">O mesmo profissional, dois valores-hora</text>
+<text x="40" y="76" font-family="JetBrains Mono, Menlo, monospace" font-size="10.5" fill="#b85c00" letter-spacing="1.1">ALOCA&#199;&#195;O CONT&#205;NUA vs. PROJETO AVULSO &#183; SP 2026</text>
+<line x1="40" y1="92" x2="640" y2="92" stroke="#ddd4c6" stroke-width="1"/>
+<rect x="69" y="276.5" width="42" height="43.5" rx="3" fill="#cfe3d8"/>
+<text x="90" y="268.5" font-family="JetBrains Mono, Menlo, monospace" font-size="11" font-weight="700" fill="#2d6a4f" text-anchor="middle">R$ 68</text>
+<rect x="117" y="263.7" width="42" height="56.3" rx="3" fill="#2d6a4f"/>
+<text x="138" y="255.7" font-family="JetBrains Mono, Menlo, monospace" font-size="11" font-weight="700" fill="#2d6a4f" text-anchor="middle">R$ 88</text>
+<text x="115" y="340" font-family="Source Serif 4, Georgia, serif" font-size="14" font-weight="600" fill="#1a1714" text-anchor="middle">Júnior</text>
+<rect x="214" y="249.1" width="42" height="70.9" rx="3" fill="#cfe3d8"/>
+<text x="235" y="241.1" font-family="JetBrains Mono, Menlo, monospace" font-size="11" font-weight="700" fill="#2d6a4f" text-anchor="middle">R$ 110</text>
+<rect x="262" y="228.3" width="42" height="91.7" rx="3" fill="#2d6a4f"/>
+<text x="283" y="220.3" font-family="JetBrains Mono, Menlo, monospace" font-size="11" font-weight="700" fill="#2d6a4f" text-anchor="middle">R$ 143</text>
+<text x="260" y="340" font-family="Source Serif 4, Georgia, serif" font-size="14" font-weight="600" fill="#1a1714" text-anchor="middle">Pleno</text>
+<rect x="359" y="229.1" width="42" height="90.9" rx="3" fill="#cfe3d8"/>
+<text x="380" y="221.1" font-family="JetBrains Mono, Menlo, monospace" font-size="11" font-weight="700" fill="#2d6a4f" text-anchor="middle">R$ 141</text>
+<rect x="407" y="202.6" width="42" height="117.4" rx="3" fill="#2d6a4f"/>
+<text x="428" y="194.6" font-family="JetBrains Mono, Menlo, monospace" font-size="11" font-weight="700" fill="#2d6a4f" text-anchor="middle">R$ 183</text>
+<text x="405" y="340" font-family="Source Serif 4, Georgia, serif" font-size="14" font-weight="600" fill="#1a1714" text-anchor="middle">Sênior</text>
+<rect x="504" y="194.3" width="42" height="125.7" rx="3" fill="#cfe3d8"/>
+<text x="525" y="186.3" font-family="JetBrains Mono, Menlo, monospace" font-size="11" font-weight="700" fill="#2d6a4f" text-anchor="middle">R$ 196</text>
+<rect x="552" y="157.5" width="42" height="162.5" rx="3" fill="#2d6a4f"/>
+<text x="573" y="149.5" font-family="JetBrains Mono, Menlo, monospace" font-size="11" font-weight="700" fill="#2d6a4f" text-anchor="middle">R$ 253</text>
+<text x="550" y="340" font-family="Source Serif 4, Georgia, serif" font-size="14" font-weight="600" fill="#1a1714" text-anchor="middle">Especialista</text>
+<line x1="40" y1="320" x2="640" y2="320" stroke="#ddd4c6" stroke-width="1.5"/>
+<rect x="40" y="356" width="10" height="10" rx="2" fill="#cfe3d8"/>
+<text x="56" y="365" font-family="JetBrains Mono, Menlo, monospace" font-size="9" fill="#5a534a">PJ alocado full-time &#183; 168 h/m&#234;s faturadas</text>
+<rect x="300" y="356" width="10" height="10" rx="2" fill="#2d6a4f"/>
+<text x="316" y="365" font-family="JetBrains Mono, Menlo, monospace" font-size="9" fill="#5a534a">freelancer por projeto &#183; 130 h/m&#234;s faturáveis</text>
+<text x="640" y="385" font-family="JetBrains Mono, Menlo, monospace" font-size="8.5" fill="#8a8078" text-anchor="end">base: medianas Robert Half SP 2026 + reposi&#231;&#227;o de encargos</text>
+</svg>
