@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="680" height="400" role="img" aria-label="Comparação entre o multiplicador de custo do empregador e o multiplicador de equivalência do trabalhador PJ em 2026">
+  <rect width="680" height="400" fill="#f5f0e8"/>
+
+  <text x="40" y="34" font-family="Playfair Display, Georgia, serif" font-size="19" font-weight="700" fill="#1a1714">Dois multiplicadores diferentes — e a negociação mora no meio</text>
+  <text x="40" y="52" font-family="Source Serif 4, Georgia, serif" font-size="12.5" fill="#5a534a">Quanto o CLT custa à empresa × quanto o PJ precisa faturar para empatar (números de 2026)</text>
+
+  <g font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">
+    <rect x="40" y="62" width="11" height="11" fill="#2d6a4f"/>
+    <text x="57" y="72" fill="#5a534a">Custo do CLT p/ a empresa</text>
+    <rect x="228" y="62" width="11" height="11" fill="#b85c00"/>
+    <text x="245" y="72" fill="#5a534a">PJ equivalente (12 meses)</text>
+    <rect x="410" y="62" width="11" height="11" fill="#c9a227"/>
+    <text x="427" y="72" fill="#5a534a">PJ com 1 mês de férias real</text>
+  </g>
+
+  <g stroke="#e2dbd0" stroke-width="1">
+    <line x1="80" y1="70" x2="640" y2="70"/>
+    <line x1="80" y1="127.5" x2="640" y2="127.5"/>
+    <line x1="80" y1="185" x2="640" y2="185"/>
+    <line x1="80" y1="242.5" x2="640" y2="242.5"/>
+  </g>
+  <line x1="80" y1="300" x2="640" y2="300" stroke="#8a8078" stroke-width="1.5"/>
+
+  <g font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#8a8078" text-anchor="end">
+    <text x="70" y="74">2,00×</text>
+    <text x="70" y="131.5">1,75×</text>
+    <text x="70" y="189">1,50×</text>
+    <text x="70" y="246.5">1,25×</text>
+    <text x="70" y="304">1,00×</text>
+  </g>
+
+  <g>
+    <rect x="105" y="86.1" width="40" height="213.9" fill="#2d6a4f"/>
+    <rect x="155" y="175.8" width="40" height="124.2" fill="#b85c00"/>
+    <rect x="205" y="143.6" width="40" height="156.4" fill="#c9a227"/>
+    <rect x="285" y="118.3" width="40" height="181.7" fill="#2d6a4f"/>
+    <rect x="335" y="242.5" width="40" height="57.5" fill="#b85c00"/>
+    <rect x="385" y="217.2" width="40" height="82.8" fill="#c9a227"/>
+    <rect x="465" y="132.1" width="40" height="167.9" fill="#2d6a4f"/>
+    <rect x="515" y="244.8" width="40" height="55.2" fill="#b85c00"/>
+    <rect x="565" y="217.2" width="40" height="82.8" fill="#c9a227"/>
+  </g>
+
+  <g font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#1a1714" text-anchor="middle">
+    <text x="125" y="80">1,93</text>
+    <text x="175" y="169.8">1,54</text>
+    <text x="225" y="137.6">1,68</text>
+    <text x="305" y="112.3">1,79</text>
+    <text x="355" y="236.5">1,25</text>
+    <text x="405" y="211.2">1,36</text>
+    <text x="485" y="126.1">1,73</text>
+    <text x="535" y="238.8">1,24</text>
+    <text x="585" y="211.2">1,36</text>
+  </g>
+
+  <g font-family="Source Serif 4, Georgia, serif" font-size="13" fill="#1a1714" text-anchor="middle">
+    <text x="175" y="322">CLT R$ 6.000</text>
+    <text x="355" y="322">CLT R$ 12.000</text>
+    <text x="535" y="322">CLT R$ 20.000</text>
+  </g>
+
+  <line x1="40" y1="344" x2="640" y2="344" stroke="#e2dbd0" stroke-width="1"/>
+  <text x="40" y="364" font-family="Source Serif 4, Georgia, serif" font-size="11.5" fill="#5a534a">Premissas: encargos de 26,8% (INSS patronal + RAT + terceiros), FGTS 8%, VR R$ 1.100, plano de saúde R$ 600,</text>
+  <text x="40" y="379" font-family="Source Serif 4, Georgia, serif" font-size="11.5" fill="#5a534a">PJ no Anexo III (Fator R ≥ 28%), contador R$ 250/mês. Cálculos detalhados no corpo do artigo.</text>
+</svg>

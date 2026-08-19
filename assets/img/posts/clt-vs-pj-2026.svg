@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="1200" height="706">
+<rect width="680" height="400" fill="#f5f0e8"/>
+<rect x="0" y="0" width="680" height="5" fill="#2d6a4f"/>
+<text x="40" y="52" font-family="Playfair Display, Georgia, serif" font-size="25" font-weight="700" fill="#1a1714">Por que PJ n&#227;o &#233; o mesmo n&#250;mero</text>
+<text x="40" y="76" font-family="JetBrains Mono, Menlo, monospace" font-size="10.5" fill="#b85c00" letter-spacing="1.1">DEV PLENO SP &#183; MEDIANA CLT R$ 12.000 &#183; EQUIVAL&#202;NCIA EM 2026</text>
+<line x1="40" y1="92" x2="640" y2="92" stroke="#ddd4c6" stroke-width="1"/>
+<rect x="70" y="199.8" width="110" height="118.2" rx="3" fill="#2d6a4f"/>
+<text x="125" y="187.8" font-family="JetBrains Mono, Menlo, monospace" font-size="13" font-weight="700" fill="#2d6a4f" text-anchor="middle">R$ 12.000</text>
+<text x="125" y="339" font-family="Source Serif 4, Georgia, serif" font-size="14.5" font-weight="600" fill="#1a1714" text-anchor="middle">Sal&#225;rio CLT</text>
+<text x="125" y="356" font-family="JetBrains Mono, Menlo, monospace" font-size="9" fill="#8a8078" text-anchor="middle">bruto na carteira</text>
+<path d="M 200 222 L 244 222" stroke="#8a8078" stroke-width="1.5" fill="none"/>
+<path d="M 238 217 L 245 222 L 238 227 Z" fill="#8a8078"/>
+<text x="222" y="212" font-family="JetBrains Mono, Menlo, monospace" font-size="11" font-weight="700" fill="#b85c00" text-anchor="middle">1,54&#215;</text>
+<rect x="290" y="199.8" width="130" height="118.2" rx="2" fill="#2d6a4f"/>
+<polyline points="425,258.9 440,258.9 450,288 460,288" stroke="#ddd4c6" stroke-width="1" fill="none"/>
+<text x="467" y="286" font-family="Source Serif 4, Georgia, serif" font-size="12.5" fill="#1a1714">Sal&#225;rio equivalente</text>
+<text x="467" y="301" font-family="JetBrains Mono, Menlo, monospace" font-size="10" font-weight="700" fill="#5a534a">R$ 12.000</text>
+<rect x="290" y="176.5" width="130" height="23.4" rx="2" fill="#5f9478"/>
+<polyline points="425,188.2 440,188.2 450,214 460,214" stroke="#ddd4c6" stroke-width="1" fill="none"/>
+<text x="467" y="212" font-family="Source Serif 4, Georgia, serif" font-size="12.5" fill="#1a1714">13&#186;, f&#233;rias e FGTS</text>
+<text x="467" y="227" font-family="JetBrains Mono, Menlo, monospace" font-size="10" font-weight="700" fill="#5a534a">R$ 2.373</text>
+<rect x="290" y="161.7" width="130" height="14.8" rx="2" fill="#a8c4b3"/>
+<polyline points="425,169.1 440,169.1 450,178 460,178" stroke="#ddd4c6" stroke-width="1" fill="none"/>
+<text x="467" y="176" font-family="Source Serif 4, Georgia, serif" font-size="12.5" fill="#1a1714">Benef&#237;cios (VR/VA, sa&#250;de)</text>
+<text x="467" y="191" font-family="JetBrains Mono, Menlo, monospace" font-size="10" font-weight="700" fill="#5a534a">R$ 1.500</text>
+<rect x="290" y="147.1" width="130" height="14.6" rx="2" fill="#e0a86a"/>
+<polyline points="425,154.4 440,154.4 450,150 460,150" stroke="#ddd4c6" stroke-width="1" fill="none"/>
+<text x="467" y="148" font-family="Source Serif 4, Georgia, serif" font-size="12.5" fill="#1a1714">DAS Simples (8%)</text>
+<text x="467" y="163" font-family="JetBrains Mono, Menlo, monospace" font-size="10" font-weight="700" fill="#5a534a">R$ 1.483</text>
+<rect x="290" y="135.5" width="130" height="11.6" rx="2" fill="#d9d2c6"/>
+<polyline points="425,141.3 440,141.3 450,126 460,126" stroke="#ddd4c6" stroke-width="1" fill="none"/>
+<text x="467" y="124" font-family="Source Serif 4, Georgia, serif" font-size="12.5" fill="#1a1714">INSS pr&#243;-labore + contador</text>
+<text x="467" y="139" font-family="JetBrains Mono, Menlo, monospace" font-size="10" font-weight="700" fill="#5a534a">R$ 1.183</text>
+<text x="355.0" y="123.5" font-family="JetBrains Mono, Menlo, monospace" font-size="13" font-weight="700" fill="#b85c00" text-anchor="middle">R$ 18.539</text>
+<text x="355.0" y="339" font-family="Source Serif 4, Georgia, serif" font-size="14.5" font-weight="600" fill="#1a1714" text-anchor="middle">Faturamento PJ</text>
+<text x="355.0" y="356" font-family="JetBrains Mono, Menlo, monospace" font-size="9" fill="#8a8078" text-anchor="middle">para manter o mesmo padr&#227;o</text>
+<line x1="40" y1="318" x2="640" y2="318" stroke="#ddd4c6" stroke-width="1.5"/>
+<line x1="40" y1="370" x2="640" y2="370" stroke="#ddd4c6" stroke-width="1"/>
+<text x="40" y="389" font-family="JetBrains Mono, Menlo, monospace" font-size="9" fill="#8a8078">o mercado paga, em m&#233;dia, 1,32&#215; &#8212; a diferen&#231;a entre 1,32 e 1,54 sai do seu bolso</text>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="680" height="400">
+<rect width="680" height="400" fill="#f5f0e8"/>
+<rect x="0" y="0" width="680" height="6.0" fill="#2d6a4f"/>
+<rect x="0" y="394.0" width="680" height="6.0" fill="#b85c00"/>
+<text x="44.0" y="86.0" font-family="JetBrains Mono, Menlo, monospace" font-size="12.0" fill="#b85c00" letter-spacing="2.2">CARREIRA &#183; FREELANCE &#183; PRECIFICA&#199;&#195;O</text>
+<text x="44.0" y="142.0" font-family="Playfair Display, Georgia, serif" font-size="62.0" font-weight="900" fill="#1a1714">Quanto cobrar?</text>
+<line x1="44.0" y1="164.0" x2="140.0" y2="164.0" stroke="#b85c00" stroke-width="3.0"/>
+<text x="44.0" y="194.0" font-family="Source Serif 4, Georgia, serif" font-size="17.0" fill="#5a534a">O guia do valor-hora do desenvolvedor brasileiro,</text>
+<text x="44.0" y="218.0" font-family="Source Serif 4, Georgia, serif" font-size="17.0" fill="#5a534a">recalculado com dados de S&#227;o Paulo em 2026.</text>
+<text x="636.0" y="154.0" font-family="JetBrains Mono, Menlo, monospace" font-size="11.0" fill="#8a8078" text-anchor="end">meta mensal</text>
+<line x1="518.0" y1="163.0" x2="636.0" y2="163.0" stroke="#b85c00" stroke-width="1.4"/>
+<text x="636.0" y="180.0" font-family="JetBrains Mono, Menlo, monospace" font-size="11.0" fill="#8a8078" text-anchor="end">horas faturáveis</text>
+<text x="636.0" y="210.0" font-family="JetBrains Mono, Menlo, monospace" font-size="12.0" font-weight="700" fill="#2d6a4f" text-anchor="end">= valor-hora</text>
+<line x1="44.0" y1="312.0" x2="636.0" y2="312.0" stroke="#ddd4c6" stroke-width="1.0"/>
+<text x="44.0" y="336.0" font-family="JetBrains Mono, Menlo, monospace" font-size="10.0" fill="#8a8078" letter-spacing="1.3">J&#218;NIOR</text>
+<text x="44.0" y="364.0" font-family="JetBrains Mono, Menlo, monospace" font-size="22.0" font-weight="700" fill="#2d6a4f">R$ 88<tspan font-size="10.0" font-weight="400" fill="#8a8078"> /hora</tspan></text>
+<text x="192.0" y="336.0" font-family="JetBrains Mono, Menlo, monospace" font-size="10.0" fill="#8a8078" letter-spacing="1.3">PLENO</text>
+<text x="192.0" y="364.0" font-family="JetBrains Mono, Menlo, monospace" font-size="22.0" font-weight="700" fill="#2d6a4f">R$ 143<tspan font-size="10.0" font-weight="400" fill="#8a8078"> /hora</tspan></text>
+<text x="340.0" y="336.0" font-family="JetBrains Mono, Menlo, monospace" font-size="10.0" fill="#8a8078" letter-spacing="1.3">S&#202;NIOR</text>
+<text x="340.0" y="364.0" font-family="JetBrains Mono, Menlo, monospace" font-size="22.0" font-weight="700" fill="#2d6a4f">R$ 183<tspan font-size="10.0" font-weight="400" fill="#8a8078"> /hora</tspan></text>
+<text x="488.0" y="336.0" font-family="JetBrains Mono, Menlo, monospace" font-size="10.0" fill="#8a8078" letter-spacing="1.3">ESPECIALISTA</text>
+<text x="488.0" y="364.0" font-family="JetBrains Mono, Menlo, monospace" font-size="22.0" font-weight="700" fill="#2d6a4f">R$ 253<tspan font-size="10.0" font-weight="400" fill="#8a8078"> /hora</tspan></text>
+<text x="636.0" y="86.0" font-family="JetBrains Mono, Menlo, monospace" font-size="12.0" font-weight="700" fill="#2d6a4f" text-anchor="end">AGO / 2026</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="680" height="400" role="img" aria-label="Comparação entre MEI no teto de 81 mil reais e uma Microempresa no Anexo III com o mesmo faturamento em 2026">
+  <rect width="680" height="400" fill="#f5f0e8"/>
+
+  <text x="40" y="36" font-family="Playfair Display, Georgia, serif" font-size="19" font-weight="700" fill="#1a1714">O mesmo faturamento, dois regimes</text>
+  <text x="40" y="55" font-family="Source Serif 4, Georgia, serif" font-size="12.5" fill="#5a534a">R$ 81.000 por ano (R$ 6.750/mês) — o teto do MEI em 2026</text>
+
+  <g font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">
+    <rect x="40" y="70" width="11" height="11" fill="#2d6a4f"/>
+    <text x="57" y="80" fill="#5a534a">Líquido</text>
+    <rect x="140" y="70" width="11" height="11" fill="#b85c00"/>
+    <text x="157" y="80" fill="#5a534a">DAS / tributos</text>
+    <rect x="270" y="70" width="11" height="11" fill="#8a8078"/>
+    <text x="287" y="80" fill="#5a534a">Contador + taxas</text>
+    <rect x="410" y="70" width="11" height="11" fill="#c9a227"/>
+    <text x="427" y="80" fill="#5a534a">INSS sobre pró-labore</text>
+  </g>
+
+  <text x="40" y="122" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" letter-spacing="1.2" fill="#1a1714">MEI</text>
+  <text x="40" y="138" font-family="Source Serif 4, Georgia, serif" font-size="11" fill="#8a8078">SIMEI</text>
+  <g>
+    <rect x="140" y="110" width="473.9" height="40" fill="#2d6a4f"/>
+    <rect x="613.9" y="110" width="6.1" height="40" fill="#b85c00"/>
+  </g>
+  <text x="152" y="135" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#f5f0e8">R$ 79.967,40 líquidos</text>
+  <text x="628" y="135" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" fill="#b85c00">1,27%</text>
+
+  <text x="40" y="216" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" letter-spacing="1.2" fill="#1a1714">ME</text>
+  <text x="40" y="232" font-family="Source Serif 4, Georgia, serif" font-size="11" fill="#8a8078">Anexo III</text>
+  <g>
+    <rect x="140" y="204" width="416.5" height="40" fill="#2d6a4f"/>
+    <rect x="556.5" y="204" width="28.8" height="40" fill="#b85c00"/>
+    <rect x="585.3" y="204" width="19.9" height="40" fill="#8a8078"/>
+    <rect x="605.2" y="204" width="14.8" height="40" fill="#c9a227"/>
+  </g>
+  <text x="152" y="229" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#f5f0e8">R$ 70.285,20 líquidos</text>
+  <text x="628" y="229" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" fill="#b85c00">13,2%</text>
+
+  <line x1="613.9" y1="156" x2="613.9" y2="198" stroke="#8a8078" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="556.5" y1="156" x2="556.5" y2="198" stroke="#8a8078" stroke-width="1" stroke-dasharray="3 3"/>
+
+  <rect x="40" y="272" width="4" height="52" fill="#b85c00"/>
+  <text x="58" y="290" font-family="Source Serif 4, Georgia, serif" font-size="14" fill="#1a1714">Diferença a favor do MEI: <tspan font-family="JetBrains Mono, ui-monospace, monospace" font-weight="700">R$ 9.682,20 por ano</tspan> — cerca de 1,4 mês</text>
+  <text x="58" y="310" font-family="Source Serif 4, Georgia, serif" font-size="14" fill="#1a1714">de faturamento. E, ainda assim, <tspan font-weight="700">indisponível para quem escreve código.</tspan></text>
+
+  <line x1="40" y1="346" x2="640" y2="346" stroke="#e2dbd0" stroke-width="1"/>
+  <text x="40" y="366" font-family="Source Serif 4, Georgia, serif" font-size="11.5" fill="#5a534a">ME: DAS de 6% (Anexo III com Fator R ≥ 28%), contador R$ 250/mês, taxas R$ 30/mês, pró-labore de 28% da receita</text>
+  <text x="40" y="381" font-family="Source Serif 4, Georgia, serif" font-size="11.5" fill="#5a534a">com INSS de 11%. MEI: DAS de R$ 86,05/mês (serviços). Nenhum dos dois paga IRRF sobre o pró-labore em 2026.</text>
+</svg>
