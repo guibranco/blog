@@ -6,7 +6,7 @@ date: 2020-04-21
 last_modified_at: 2026-08-19
 categories: [Career]
 tags: [freelancer, carreira, salario, desenvolvedor, financeiro, pj, valor-hora, gestao, ti, mercado-de-trabalho]
-reading_time: 12
+reading_time: 13
 cover: /assets/img/posts/quanto-cobrar-2026.svg
 image: /assets/img/posts/quanto-cobrar-2026.png
 ---
@@ -299,6 +299,15 @@ Juntando tudo — mediana de mercado em São Paulo, reposição de encargos e ho
 
 <p style="font-size:.9rem;color:var(--ink-light);margin-top:-.5rem;">Cálculo próprio a partir das medianas e percentis do Guia Salarial Robert Half 2026 para São Paulo, com reposição de 13º, férias + 1/3, FGTS, benefícios, DAS do Anexo III e INSS sobre pró-labore.</p>
 
+<div class="personal-story">
+  <div class="personal-story-label">
+    <i class="fas fa-user-circle"></i> Minha experiência — PJ alocado, não freelancer
+  </div>
+  <p>Entre julho de 2019 e janeiro de 2021 eu trabalhei no <strong>Banco BS2</strong> como PJ, contratado através da <strong>K2 Partnering</strong>. Comecei na squad de API Banking, na tribo de B2B, em São Paulo, e em março de 2020 passei para o time de projetos especiais — o time que implementou o SPI/PIX, com todo mundo em remoto por causa da quarentena.</p>
+  <p>É exatamente a coluna do meio da tabela acima: alocação contínua, mês cheio faturado, sem prospecção e sem proposta nova a cada projeto. E a referência que valia para o meu contrato era a mesma deste post — eu recebia <strong>o equivalente a um sênior de São Paulo</strong>. Não era um número tirado do meu custo de vida; era a faixa de mercado CLT convertida para PJ.</p>
+  <p>Vale o registro de que havia uma consultoria no meio do caminho. Quando você entra via parceiro, o valor-hora que chega até você já passou pela margem de outra empresa — e essa margem é invisível na negociação. Saber a faixa de mercado do seu nível é o que te diz se a proposta que chegou é boa ou se é só o que sobrou.</p>
+</div>
+
 <div class="divider">· · ·</div>
 
 <div class="section-header">
@@ -330,14 +339,6 @@ Mas o mercado andou mais do que a inflação na base da pirâmide e menos no top
 </table>
 
 Duas leituras saltam da tabela. A primeira: **o piso subiu muito**. Aquele júnior de R$ 1.500 simplesmente não existe mais em São Paulo — o piso praticado hoje está quase quatro vezes acima disso. A segunda: **o topo comprimiu**. O teto sênior de R$ 20.000 de 2023 valeria R$ 23.656 hoje, mas o mercado paga R$ 20.600. Em termos reais, o sênior de São Paulo perdeu poder de compra no período.
-
-<div class="personal-story">
-  <div class="personal-story-label">
-    <i class="fas fa-user-circle"></i> Minha experiência — precificar sendo o único PJ do time
-  </div>
-  <p>Em 2020 eu era o único contratado PJ dentro de um time de produto num banco, trabalhando no projeto de pagamentos instantâneos. A lição que ficou não tem a ver com o número que eu cobrava, e sim com o que eu não contabilizava: plantão, reunião de alinhamento, incidente fora do horário. Nada disso aparecia na proposta.</p>
-  <p>Quando você é PJ dentro de um time, a fronteira entre "o que foi contratado" e "o que o time precisa" some rápido. O contrato precisa dizer, por escrito, o que está dentro do escopo e o que é hora adicional — não porque você vá cobrar toda vez, mas porque sem isso escrito você não tem nem como decidir se quer cobrar.</p>
-</div>
 
 <div class="conclusion">
   <h2>O número que importa é o seu</h2>
