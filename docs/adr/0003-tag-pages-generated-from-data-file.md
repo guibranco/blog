@@ -12,5 +12,5 @@ This executes, for tags specifically, the alternative [ADR-0001](0001-stub-files
 
 - `.github/scripts/create_missing_pages.py` no longer writes `topicos/{slug}.md` files; it appends `{name, slug[, redirect_from]}` entries to `_data/tags.yml` instead.
 - `.github/scripts/audit_blog.py` checks tag existence against `_data/tags.yml` entries rather than file existence in `topicos/`.
-- `topicos/index.html` (the tag-cloud listing page) is unaffected — it already computed its tag list dynamically from `site.posts`, never from the stub files.
+- `tags.html` (the tag-cloud listing page at `/topicos/`, formerly `topicos/index.html`) is unaffected — it already computed its tag list dynamically from `site.posts`, never from the stub files.
 - This was implemented without a local Jekyll build to verify it (no Ruby/Bundler available in the authoring environment) — the first real build (CI, on the next PR touching `_posts/` or `_data/tags.yml`) is the actual verification that the generator and the carried-over `redirect_from` entries work as intended.
