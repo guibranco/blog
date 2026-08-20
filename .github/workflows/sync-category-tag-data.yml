@@ -1,4 +1,4 @@
-name: Auto-create category and tag pages
+name: Sync category and tag data files
 
 on:
   pull_request:
@@ -9,8 +9,8 @@ permissions:
   pull-requests: write
 
 jobs:
-  auto-create-pages:
-    name: Create missing pages
+  sync-category-tag-data:
+    name: Sync data files
     runs-on: ubuntu-latest
 
     steps:
@@ -34,7 +34,7 @@ jobs:
           echo "files=${CHANGED}" >> "$GITHUB_OUTPUT"
 
           if [ -z "$CHANGED" ]; then
-            echo "No post files changed — skipping page creation."
+            echo "No post files changed — skipping sync."
           else
             echo "Changed posts: $CHANGED"
           fi
@@ -45,20 +45,20 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Create missing category and tag pages
+      - name: Register missing categories and tags
         if: steps.changed.outputs.files != ''
         id: create
         run: |
           python3 .github/scripts/create_missing_pages.py ${{ steps.changed.outputs.files }}
 
-      - name: Commit new pages
+      - name: Commit data file changes
         if: steps.create.outputs.created_count != '' && steps.create.outputs.created_count != '0'
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add categorias/ feed/ _data/categories.yml _data/tags.yml
-          git commit -m "chore: auto-create missing category and tag pages"
+          git add _data/categories.yml _data/tags.yml
+          git commit -m "chore: register new categories/tags"
           git push origin HEAD:${{ github.head_ref }}
 
       - name: Comment on PR
@@ -76,6 +76,6 @@ jobs:
               body,
             });
 
-      - name: No new pages needed
+      - name: No new categories or tags needed
         if: steps.changed.outputs.files == '' || steps.create.outputs.created_count == '0'
-        run: echo "All category and tag pages already exist."
+        run: echo "All categories, subcategories, and tags already registered."

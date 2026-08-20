@@ -50,33 +50,15 @@ blog/                                # nome do repositório
 │   ├── series.html
 │   └── analytics.html
 │
+├── _plugins/
+│   ├── category_pages_generator.rb  # Gera /categorias/{cat}/ e /categorias/{cat}/{sub}/ a partir de _data/categories.yml
+│   ├── tag_pages_generator.rb       # Gera /topicos/{slug}/ a partir de _data/tags.yml
+│   └── feed_generator.rb            # Gera /feed/{cat}.xml e /feed/{cat}-{sub}.xml a partir de _data/categories.yml
+│
 ├── _data/
+│   ├── categories.yml               # Categorias/subcategorias (nome, slug, ícone, redirect_from)
+│   ├── tags.yml                     # Tags (nome, slug, redirect_from) — uma página por entrada, gerada no build
 │   └── quotes.yml                   # Lista de quotes da sidebar
-│
-├── categorias/                      # Uma página .md por categoria
-│   ├── career.md
-│   ├── coding.md
-│   ├── devops.md
-│   ├── hobbies.md
-│   ├── infrastructure.md
-│   ├── investments.md
-│   ├── telecommunications.md
-│   ├── testing.md
-│   └── travel-places.md
-│
-├── topicos/                         # Uma página .md por tag (geradas automaticamente)
-│   └── <slug>.md                    # Centenas de páginas de tópicos
-│
-├── feed/                            # Feeds RSS por categoria
-│   ├── career.xml
-│   ├── coding.xml
-│   ├── devops.xml
-│   ├── hobbies.xml
-│   ├── infrastructure.xml
-│   ├── investments.xml
-│   ├── telecommunications.xml
-│   ├── testing.xml
-│   └── travel-places.xml
 │
 ├── assets/
 │   ├── css/
@@ -86,8 +68,10 @@ blog/                                # nome do repositório
 │       └── avatar.png               # Foto de perfil circular
 │
 ├── index.html                       # Página inicial (paginada)
-├── busca.html                       # Página de busca
-├── viagens.html                     # Página de viagens
+├── search.html                      # Página de busca (/busca/)
+├── travels.html                     # Página de viagens (/viagens/)
+├── series.html                      # Índice de séries (/series/)
+├── tags.html                        # Nuvem de tópicos (/topicos/)
 ├── search.json                      # Índice de busca client-side
 ├── 404.html                         # Página de erro 404
 ├── _config.yml                      # Configurações do Jekyll
@@ -95,41 +79,25 @@ blog/                                # nome do repositório
 └── README.md
 ```
 
+Categoria, subcategoria, tag e feed RSS **não são mais arquivos individuais** — `categorias/`, `topicos/` e `feed/` (como diretórios de stub files) foram removidos. Ver [ADR-0003](docs/adr/0003-tag-pages-generated-from-data-file.md), [ADR-0004](docs/adr/0004-category-pages-generated-from-data-file.md) e [ADR-0005](docs/adr/0005-feed-pages-generated-from-data-file.md).
+
 ---
 
-## 🗃️ Gerenciando categorias
+## 🗃️ Gerenciando categorias e tópicos
 
-O Jekyll não gera páginas de categoria automaticamente. Para cada nova categoria usada nos posts, é preciso criar um arquivo `.md` correspondente em `categorias/`.
+Categorias, subcategorias e tags **não são arquivos** — são entradas em `_data/categories.yml` e `_data/tags.yml`. As páginas (`/categorias/{slug}/`, `/categorias/{cat}/{sub}/`, `/topicos/{slug}/`) e os feeds RSS (`/feed/{slug}.xml`) são gerados no build pelo Jekyll (`_plugins/category_pages_generator.rb`, `tag_pages_generator.rb` e `feed_generator.rb`) — ver [ADR-0003](docs/adr/0003-tag-pages-generated-from-data-file.md), [ADR-0004](docs/adr/0004-category-pages-generated-from-data-file.md) e [ADR-0005](docs/adr/0005-feed-pages-generated-from-data-file.md).
 
-**Criando uma nova categoria:**
+**Isso é automático:** ao abrir um PR com um post usando uma categoria/subcategoria/tag nova, o workflow `sync-category-tag-data.yml` roda `.github/scripts/create_missing_pages.py`, que adiciona a entrada faltante em `_data/categories.yml` (categoria nova entra com ícone placeholder `fas fa-folder` — revise antes de mergear) ou `_data/tags.yml`. A página e o feed correspondentes aparecem sozinhos no próximo build — nada precisa ser criado manualmente.
 
-```bash
-cat > categorias/devops.md << 'FRONTMATTER'
----
-layout: category
-category: DevOps
-permalink: /categorias/devops/
----
-FRONTMATTER
-```
+**Categorias existentes** (ver `_data/categories.yml` para a lista completa com subcategorias):
 
-A categoria declarada no campo `category:` deve ser idêntica à usada no front matter dos posts (incluindo acentos e capitalização). O `permalink` usa a versão slugificada, sem acentos.
-
-**Categorias existentes:**
-
-| Categoria | Arquivo | URL |
+| Categoria | Slug | URL |
 |---|---|---|
-| Career | `categorias/career.md` | `/categorias/career/` |
-| Coding | `categorias/coding.md` | `/categorias/coding/` |
-| DevOps | `categorias/devops.md` | `/categorias/devops/` |
-| Hobbies | `categorias/hobbies.md` | `/categorias/hobbies/` |
-| Infrastructure | `categorias/infrastructure.md` | `/categorias/infrastructure/` |
-| Investments | `categorias/investments.md` | `/categorias/investments/` |
-| Telecommunications | `categorias/telecommunications.md` | `/categorias/telecommunications/` |
-| Testing | `categorias/testing.md` | `/categorias/testing/` |
-| Travel Places | `categorias/travel-places.md` | `/categorias/travel-places/` |
-
-> Ao publicar um post com uma categoria nova, lembre-se sempre de criar o arquivo correspondente em `categorias/` e o feed correspondente em `feed/` — caso contrário os links retornarão 404.
+| Career | `career` | `/categorias/career/` |
+| Coding | `coding` | `/categorias/coding/` |
+| Hobbies | `hobbies` | `/categorias/hobbies/` |
+| Infrastructure | `infrastructure` | `/categorias/infrastructure/` |
+| Investments | `investments` | `/categorias/investments/` |
 
 ---
 
@@ -251,7 +219,7 @@ A sidebar suporta dois campos distintos:
 | `date` | date | ✅ | Data de publicação (`AAAA-MM-DD`) |
 | `description` | string | — | Subtítulo e meta description para SEO |
 | `categories` | list | — | Categorias (aparecem como pills e na nav) |
-| `tags` | list | — | Tags (aparecem no rodapé do artigo e geram páginas em `topicos/`) |
+| `tags` | list | — | Tags (aparecem no rodapé do artigo; cada uma vira uma entrada em `_data/tags.yml` e uma página `/topicos/{slug}/` gerada no build) |
 | `reading_time` | number | — | Tempo estimado de leitura em minutos |
 | `image` | path | — | Caminho da imagem de capa do artigo |
 

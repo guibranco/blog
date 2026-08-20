@@ -6,6 +6,8 @@
       slug: behind-the-scenes
     - name: "Working Abroad"
       slug: working-abroad
+      redirect_from:
+        - /categorias/career/trabalho-no-exterior/
 - name: Coding
   slug: coding
   icon: "fas fa-code"
@@ -22,20 +24,35 @@
       slug: python
     - name: Testing
       slug: testing
+      redirect_from:
+        - /categorias/testing/
     - name: "Tips & Tricks"
       slug: tips-tricks
 - name: Infrastructure
   slug: infrastructure
   icon: "fas fa-server"
+  redirect_from:
+    - /categorias/infraestrutura/
   subcategories:
     - name: Cloud
       slug: cloud
+      redirect_from:
+        - /categorias/infraestrutura/cloud/
     - name: DevOps
       slug: devops
+      redirect_from:
+        - /categorias/devops/
+        - /categorias/coding/devops/
+        - /categorias/infraestrutura/devops/
     - name: Self-Hosting
       slug: self-hosting
+      redirect_from:
+        - /categorias/infraestrutura/self-hosting/
     - name: Telecommunications
       slug: telecommunications
+      redirect_from:
+        - /categorias/telecomunicacoes/
+        - /categorias/infraestrutura/telecomunicacoes/
 - name: Hobbies
   slug: hobbies
   icon: "fas fa-gamepad"
@@ -44,6 +61,8 @@
       slug: lego
     - name: "Travel & Places"
       slug: travel-places
+      redirect_from:
+        - /categorias/travel-places/
 - name: Investments
   slug: investments
   icon: "fas fa-chart-line"
