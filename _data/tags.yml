@@ -1,0 +1,1072 @@
+- name: acoes
+  slug: acoes
+- name: adaptacao
+  slug: adaptacao
+- name: albania
+  slug: albania
+- name: alok
+  slug: alok
+- name: aluguel-de-carro
+  slug: aluguel-de-carro
+- name: always-free
+  slug: always-free
+- name: analista
+  slug: analista
+  redirect_from:
+    - /tags/analista/
+- name: android
+  slug: android
+  redirect_from:
+    - /tags/android/
+- name: apache
+  slug: apache
+- name: api
+  slug: api
+  redirect_from:
+    - /tags/api/
+- name: aposentadoria
+  slug: aposentadoria
+- name: apostas
+  slug: apostas
+- name: appveyor
+  slug: appveyor
+- name: appveyor-vs-github-actions
+  slug: appveyor-vs-github-actions
+  redirect_from:
+    - /tags/appveyor-vs-github-actions/
+- name: aprender
+  slug: aprender
+  redirect_from:
+    - /tags/aprender/
+- name: aprendizado
+  slug: aprendizado
+  redirect_from:
+    - /tags/aprendizado/
+- name: arbitrage
+  slug: arbitrage
+- name: architecture
+  slug: architecture
+- name: arquitetura
+  slug: arquitetura
+  redirect_from:
+    - /tags/arquitetura/
+- name: "automação"
+  slug: automacao
+  redirect_from:
+    - /tags/automacao/
+- name: automation
+  slug: automation
+- name: automation-engineer
+  slug: automation-engineer
+- name: aws
+  slug: aws
+- name: azure
+  slug: azure
+- name: azure-devops
+  slug: azure-devops
+- name: b-tree
+  slug: b-tree
+- name: back-end
+  slug: back-end
+  redirect_from:
+    - /tags/back-end/
+- name: backend
+  slug: backend
+  redirect_from:
+    - /tags/backend/
+- name: background-worker
+  slug: background-worker
+- name: balcas
+  slug: balcas
+- name: banco-central
+  slug: banco-central
+- name: banco-de-dados
+  slug: banco-de-dados
+  redirect_from:
+    - /tags/banco-de-dados/
+- name: bancos
+  slug: bancos
+  redirect_from:
+    - /tags/bancos/
+- name: bastidores
+  slug: bastidores
+- name: beach-club
+  slug: beach-club
+- name: bet365
+  slug: bet365
+- name: big-tech
+  slug: big-tech
+- name: billing
+  slug: billing
+- name: black-box
+  slug: black-box
+- name: bloco-de-notas
+  slug: bloco-de-notas
+- name: blogs
+  slug: blogs
+  redirect_from:
+    - /tags/blogs/
+- name: boas-praticas
+  slug: boas-praticas
+- name: bootcamp
+  slug: bootcamp
+- name: brasil
+  slug: brasil
+  redirect_from:
+    - /tags/brasil/
+- name: build
+  slug: build
+- name: cache
+  slug: cache
+- name: calendarific
+  slug: calendarific
+  redirect_from:
+    - /tags/calendarific/
+- name: career
+  slug: career
+- name: carne-leao
+  slug: carne-leao
+- name: carreira
+  slug: carreira
+  redirect_from:
+    - /tags/carreira/
+- name: carreira-internacional
+  slug: carreira-internacional
+- name: cassandra
+  slug: cassandra
+- name: cd
+  slug: cd
+  redirect_from:
+    - /tags/cd/
+- name: cdb
+  slug: cdb
+- name: central-bank
+  slug: central-bank
+- name: certbot
+  slug: certbot
+  redirect_from:
+    - /tags/certbot/
+- name: checksum
+  slug: checksum
+- name: ci
+  slug: ci
+- name: ci-cd
+  slug: ci-cd
+  redirect_from:
+    - /tags/ci-cd/
+- name: cidadania-europeia
+  slug: cidadania-europeia
+- name: clean-code
+  slug: clean-code
+  redirect_from:
+    - /tags/clean-code/
+- name: cloud
+  slug: cloud
+- name: cloudamqp
+  slug: cloudamqp
+  redirect_from:
+    - /tags/cloudamqp/
+- name: clt
+  slug: clt
+  redirect_from:
+    - /tags/clt/
+- name: code-quality
+  slug: code-quality
+- name: colecao
+  slug: colecao
+- name: collection
+  slug: collection
+  redirect_from:
+    - /tags/collection/
+- name: comecar
+  slug: comecar
+  redirect_from:
+    - /tags/comecar/
+- name: composer
+  slug: composer
+  redirect_from:
+    - /tags/composer/
+- name: consultoria
+  slug: consultoria
+- name: container
+  slug: container
+- name: continuous-deployment
+  slug: continuous-deployment
+- name: continuous-integration
+  slug: continuous-integration
+- name: contratacao
+  slug: contratacao
+- name: corfu
+  slug: corfu
+- name: cosmos-db
+  slug: cosmos-db
+- name: covent-garden
+  slug: covent-garden
+- name: coverage
+  slug: coverage
+- name: creator-expert
+  slug: creator-expert
+- name: criptomoedas
+  slug: criptomoedas
+- name: critical-skills
+  slug: critical-skills
+- name: critical-skills-permit
+  slug: critical-skills-permit
+- name: csharp
+  slug: csharp
+  redirect_from:
+    - /tags/csharp/
+- name: css
+  slug: css
+  redirect_from:
+    - /tags/css/
+- name: csv
+  slug: csv
+  redirect_from:
+    - /tags/csv/
+- name: curriculo
+  slug: curriculo
+- name: custo-beneficio
+  slug: custo-beneficio
+- name: custo-de-vida
+  slug: custo-de-vida
+- name: dados
+  slug: dados
+  redirect_from:
+    - /tags/dados/
+- name: database
+  slug: database
+- name: db-migration
+  slug: db-migration
+- name: ddd
+  slug: ddd
+- name: delivery-hero
+  slug: delivery-hero
+- name: deploy
+  slug: deploy
+  redirect_from:
+    - /tags/deploy/
+- name: desafio-52-semanas
+  slug: desafio-52-semanas
+- name: desenvolvedor
+  slug: desenvolvedor
+  redirect_from:
+    - /tags/desenvolvedor/
+- name: desenvolvedores
+  slug: desenvolvedores
+  redirect_from:
+    - /tags/desenvolvedores/
+- name: desenvolvimento
+  slug: desenvolvimento
+  redirect_from:
+    - /tags/desenvolvimento/
+- name: dev
+  slug: dev
+- name: dev-environment
+  slug: dev-environment
+- name: developer
+  slug: developer
+- name: developer-environment
+  slug: developer-environment
+- name: devops
+  slug: devops
+  redirect_from:
+    - /tags/devops/
+- name: devsecops
+  slug: devsecops
+  redirect_from:
+    - /tags/devsecops/
+- name: devtools
+  slug: devtools
+- name: diversificacao
+  slug: diversificacao
+- name: docker
+  slug: docker
+- name: docker-compose
+  slug: docker-compose
+- name: dotnet
+  slug: dotnet
+  redirect_from:
+    - /tags/dotnet/
+- name: dotnet-framework
+  slug: dotnet-framework
+- name: dotnet10
+  slug: dotnet10
+- name: dubai
+  slug: dubai
+- name: dublin
+  slug: dublin
+- name: e-commerce
+  slug: e-commerce
+- name: e2e-test
+  slug: e2e-test
+  redirect_from:
+    - /tags/e2e-test/
+- name: economia
+  slug: economia
+- name: educacao-financeira
+  slug: educacao-financeira
+- name: elasticsearch
+  slug: elasticsearch
+- name: emirados-arabes-unidos
+  slug: emirados-arabes-unidos
+- name: emprego
+  slug: emprego
+  redirect_from:
+    - /tags/emprego/
+- name: end-to-end
+  slug: end-to-end
+- name: end-to-end-test
+  slug: end-to-end-test
+  redirect_from:
+    - /tags/end-to-end-test/
+- name: engenharia-de-software
+  slug: engenharia-de-software
+- name: england
+  slug: england
+- name: entrevista
+  slug: entrevista
+- name: environment
+  slug: environment
+- name: esportes
+  slug: esportes
+- name: estagio
+  slug: estagio
+  redirect_from:
+    - /tags/estagio/
+- name: estudar
+  slug: estudar
+  redirect_from:
+    - /tags/estudar/
+- name: estudos
+  slug: estudos
+  redirect_from:
+    - /tags/estudos/
+- name: eu-blue-card
+  slug: eu-blue-card
+- name: europa
+  slug: europa
+- name: expatriado
+  slug: expatriado
+- name: extensions
+  slug: extensions
+- name: fail2ban
+  slug: fail2ban
+- name: farfetch
+  slug: farfetch
+- name: fator-r
+  slug: fator-r
+- name: feriados
+  slug: feriados
+  redirect_from:
+    - /tags/feriados/
+- name: ferry
+  slug: ferry
+- name: fgts
+  slug: fgts
+  redirect_from:
+    - /tags/fgts/
+- name: fiis
+  slug: fiis
+- name: filas
+  slug: filas
+  redirect_from:
+    - /tags/filas/
+- name: financas-pessoais
+  slug: financas-pessoais
+- name: financeiro
+  slug: financeiro
+  redirect_from:
+    - /tags/financeiro/
+- name: financial-systems
+  slug: financial-systems
+- name: fintech
+  slug: fintech
+- name: firewall
+  slug: firewall
+- name: free-tier
+  slug: free-tier
+- name: freelancer
+  slug: freelancer
+  redirect_from:
+    - /tags/freelancer/
+- name: front-end
+  slug: front-end
+  redirect_from:
+    - /tags/front-end/
+- name: frontend
+  slug: frontend
+  redirect_from:
+    - /tags/frontend/
+- name: ftp
+  slug: ftp
+- name: fullstack
+  slug: fullstack
+  redirect_from:
+    - /tags/fullstack/
+- name: futebol
+  slug: futebol
+- name: gateway
+  slug: gateway
+  redirect_from:
+    - /tags/gateway/
+- name: gestao
+  slug: gestao
+  redirect_from:
+    - /tags/gestao/
+- name: gestao-de-pessoas
+  slug: gestao-de-pessoas
+- name: git
+  slug: git
+- name: github
+  slug: github
+  redirect_from:
+    - /tags/github/
+- name: github-actions
+  slug: github-actions
+  redirect_from:
+    - /tags/github-actions/
+- name: github-pages
+  slug: github-pages
+- name: gitops
+  slug: gitops
+- name: gitpython
+  slug: gitpython
+- name: golang
+  slug: golang
+- name: gsm
+  slug: gsm
+  redirect_from:
+    - /tags/gsm/
+- name: guia-de-viagem
+  slug: guia-de-viagem
+- name: habitos
+  slug: habitos
+- name: hardening
+  slug: hardening
+- name: hash
+  slug: hash
+- name: healthcheck
+  slug: healthcheck
+- name: healthchecks
+  slug: healthchecks
+- name: hibrido
+  slug: hibrido
+- name: hobbies
+  slug: hobbies
+- name: holidayapi
+  slug: holidayapi
+  redirect_from:
+    - /tags/holidayapi/
+- name: homelab
+  slug: homelab
+- name: hospedagem
+  slug: hospedagem
+- name: hostel
+  slug: hostel
+- name: hosting
+  slug: hosting
+- name: html
+  slug: html
+  redirect_from:
+    - /tags/html/
+- name: iaas
+  slug: iaas
+  redirect_from:
+    - /tags/iaas/
+- name: idade
+  slug: idade
+  redirect_from:
+    - /tags/idade/
+- name: imposto
+  slug: imposto
+- name: impostos
+  slug: impostos
+  redirect_from:
+    - /tags/impostos/
+- name: independencia-financeira
+  slug: independencia-financeira
+- name: infra
+  slug: infra
+- name: infraestrutura
+  slug: infraestrutura
+  redirect_from:
+    - /tags/infraestrutura/
+- name: infrastructure-as-code
+  slug: infrastructure-as-code
+- name: iniciante
+  slug: iniciante
+  redirect_from:
+    - /tags/iniciante/
+- name: insomnia
+  slug: insomnia
+- name: inss
+  slug: inss
+  redirect_from:
+    - /tags/inss/
+- name: insurtech
+  slug: insurtech
+- name: integracao
+  slug: integracao
+  redirect_from:
+    - /tags/integracao/
+- name: integration-test
+  slug: integration-test
+  redirect_from:
+    - /tags/integration-test/
+- name: integrity
+  slug: integrity
+- name: inteligencia-artificial
+  slug: inteligencia-artificial
+- name: investimento
+  slug: investimento
+- name: investimentos
+  slug: investimentos
+- name: investir
+  slug: investir
+- name: iot
+  slug: iot
+  redirect_from:
+    - /tags/iot/
+- name: irlanda
+  slug: irlanda
+- name: irpf
+  slug: irpf
+- name: iso-20022
+  slug: iso-20022
+- name: java
+  slug: java
+  redirect_from:
+    - /tags/java/
+- name: javascript
+  slug: javascript
+  redirect_from:
+    - /tags/javascript/
+- name: jetbrains
+  slug: jetbrains
+- name: json
+  slug: json
+  redirect_from:
+    - /tags/json/
+- name: junior
+  slug: junior
+- name: kafka
+  slug: kafka
+- name: kestrel
+  slug: kestrel
+- name: ksamil
+  slug: ksamil
+- name: lavinmq
+  slug: lavinmq
+  redirect_from:
+    - /tags/lavinmq/
+- name: layoffs
+  slug: layoffs
+- name: lca
+  slug: lca
+- name: lci
+  slug: lci
+- name: legado
+  slug: legado
+- name: lego
+  slug: lego
+  redirect_from:
+    - /tags/lego/
+- name: lego-creator
+  slug: lego-creator
+- name: leicester-square
+  slug: leicester-square
+- name: leitura
+  slug: leitura
+  redirect_from:
+    - /tags/leitura/
+- name: library
+  slug: library
+  redirect_from:
+    - /tags/library/
+- name: lideranca
+  slug: lideranca
+- name: linguagem-de-programacao
+  slug: linguagem-de-programacao
+  redirect_from:
+    - /tags/linguagem-de-programacao/
+- name: linkedin
+  slug: linkedin
+  redirect_from:
+    - /tags/linkedin/
+- name: linux
+  slug: linux
+  redirect_from:
+    - /tags/linux/
+- name: llm
+  slug: llm
+- name: load-balancing
+  slug: load-balancing
+- name: load-test
+  slug: load-test
+  redirect_from:
+    - /tags/load-test/
+- name: local-environment
+  slug: local-environment
+- name: locations
+  slug: locations
+- name: london
+  slug: london
+- name: londres
+  slug: londres
+- name: mailhog
+  slug: mailhog
+- name: mariadb
+  slug: mariadb
+  redirect_from:
+    - /tags/mariadb/
+- name: matematica-financeira
+  slug: matematica-financeira
+- name: md5
+  slug: md5
+- name: mei
+  slug: mei
+  redirect_from:
+    - /tags/mei/
+- name: mensageria
+  slug: mensageria
+  redirect_from:
+    - /tags/mensageria/
+- name: mercado-de-trabalho
+  slug: mercado-de-trabalho
+  redirect_from:
+    - /tags/mercado-de-trabalho/
+- name: message-broker
+  slug: message-broker
+  redirect_from:
+    - /tags/message-broker/
+- name: microservicos
+  slug: microservicos
+- name: microsservicos
+  slug: microsservicos
+- name: migration
+  slug: migration
+- name: mobile
+  slug: mobile
+  redirect_from:
+    - /tags/mobile/
+- name: mongodb
+  slug: mongodb
+- name: monolito
+  slug: monolito
+- name: monorepo
+  slug: monorepo
+- name: msbuild
+  slug: msbuild
+- name: mssql
+  slug: mssql
+- name: mysql
+  slug: mysql
+- name: net-framework
+  slug: net-framework
+  redirect_from:
+    - /tags/net-framework/
+- name: network
+  slug: network
+- name: networking
+  slug: networking
+- name: nginx
+  slug: nginx
+  redirect_from:
+    - /tags/nginx/
+- name: no-sql
+  slug: no-sql
+- name: nodejs
+  slug: nodejs
+  redirect_from:
+    - /tags/nodejs/
+- name: nosql
+  slug: nosql
+- name: nuget
+  slug: nuget
+- name: o2-brixton
+  slug: o2-brixton
+- name: oci
+  slug: oci
+- name: odds
+  slug: odds
+- name: on-call
+  slug: on-call
+- name: open-source
+  slug: open-source
+  redirect_from:
+    - /tags/open-source/
+- name: openvpn
+  slug: openvpn
+- name: oportunidades
+  slug: oportunidades
+  redirect_from:
+    - /tags/oportunidades/
+- name: oracle
+  slug: oracle
+- name: oracle-cloud
+  slug: oracle-cloud
+- name: orm
+  slug: orm
+- name: outsurance
+  slug: outsurance
+- name: pandemia
+  slug: pandemia
+- name: pejotizacao
+  slug: pejotizacao
+- name: performance
+  slug: performance
+  redirect_from:
+    - /tags/performance/
+- name: php
+  slug: php
+  redirect_from:
+    - /tags/php/
+- name: php-fpm
+  slug: php-fpm
+- name: pipeline
+  slug: pipeline
+- name: "pirâmide-de-testes"
+  slug: piramide-de-testes
+- name: pivpn
+  slug: pivpn
+- name: pix
+  slug: pix
+- name: pj
+  slug: pj
+  redirect_from:
+    - /tags/pj/
+- name: places
+  slug: places
+- name: planejamento-financeiro
+  slug: planejamento-financeiro
+- name: plantao
+  slug: plantao
+- name: portfolio
+  slug: portfolio
+- name: porto
+  slug: porto
+- name: portugal
+  slug: portugal
+- name: postgresql
+  slug: postgresql
+- name: postman
+  slug: postman
+- name: poupanca
+  slug: poupanca
+- name: pps-number
+  slug: pps-number
+- name: previdencia-privada
+  slug: previdencia-privada
+- name: primary-key
+  slug: primary-key
+- name: probabilidade
+  slug: probabilidade
+- name: processo-seletivo
+  slug: processo-seletivo
+- name: produtividade
+  slug: produtividade
+- name: programacao
+  slug: programacao
+  redirect_from:
+    - /tags/programacao/
+- name: programador
+  slug: programador
+  redirect_from:
+    - /tags/programador/
+- name: programadores
+  slug: programadores
+  redirect_from:
+    - /tags/programadores/
+- name: provider
+  slug: provider
+- name: python
+  slug: python
+  redirect_from:
+    - /tags/python/
+- name: qa
+  slug: qa
+  redirect_from:
+    - /tags/qa/
+- name: qcommerce
+  slug: qcommerce
+- name: qualidade
+  slug: qualidade
+  redirect_from:
+    - /tags/qualidade/
+- name: quality-assurance
+  slug: quality-assurance
+- name: query-builder
+  slug: query-builder
+- name: queue
+  slug: queue
+- name: rabbitmq
+  slug: rabbitmq
+  redirect_from:
+    - /tags/rabbitmq/
+- name: recibos-verdes
+  slug: recibos-verdes
+- name: recursos
+  slug: recursos
+  redirect_from:
+    - /tags/recursos/
+- name: redis
+  slug: redis
+- name: relocation
+  slug: relocation
+- name: remote
+  slug: remote
+  redirect_from:
+    - /tags/remote/
+- name: remoto
+  slug: remoto
+- name: renda-fixa
+  slug: renda-fixa
+- name: renda-variavel
+  slug: renda-variavel
+- name: reserva-de-emergencia
+  slug: reserva-de-emergencia
+- name: resharper
+  slug: resharper
+- name: rolling-deploy
+  slug: rolling-deploy
+- name: rsync
+  slug: rsync
+- name: rust
+  slug: rust
+  redirect_from:
+    - /tags/rust/
+- name: salario
+  slug: salario
+  redirect_from:
+    - /tags/salario/
+- name: sarande
+  slug: sarande
+- name: schema
+  slug: schema
+- name: scripts
+  slug: scripts
+- name: sdk
+  slug: sdk
+  redirect_from:
+    - /tags/sdk/
+- name: search
+  slug: search
+- name: seguranca
+  slug: seguranca
+- name: seguros
+  slug: seguros
+- name: self-hosted
+  slug: self-hosted
+- name: self-hosting
+  slug: self-hosting
+- name: "sênior"
+  slug: senior
+- name: senioridade
+  slug: senioridade
+  redirect_from:
+    - /tags/senioridade/
+- name: server
+  slug: server
+- name: service-bus
+  slug: service-bus
+- name: servidor
+  slug: servidor
+- name: setup
+  slug: setup
+- name: sfn
+  slug: sfn
+  redirect_from:
+    - /tags/sfn/
+- name: sftp
+  slug: sftp
+- name: shell-script
+  slug: shell-script
+- name: show
+  slug: show
+- name: side-projects
+  slug: side-projects
+- name: simbox
+  slug: simbox
+  redirect_from:
+    - /tags/simbox/
+- name: simples-nacional
+  slug: simples-nacional
+- name: sincronizacao
+  slug: sincronizacao
+- name: sistemas-financeiros
+  slug: sistemas-financeiros
+- name: sms
+  slug: sms
+  redirect_from:
+    - /tags/sms/
+- name: smtp
+  slug: smtp
+- name: software
+  slug: software
+- name: software-engineer
+  slug: software-engineer
+- name: software-engineering
+  slug: software-engineering
+  redirect_from:
+    - /tags/software-engineering/
+- name: sql
+  slug: sql
+- name: sql-server
+  slug: sql-server
+- name: ssd-nodes
+  slug: ssd-nodes
+- name: ssh
+  slug: ssh
+- name: ssl
+  slug: ssl
+  redirect_from:
+    - /tags/ssl/
+- name: startups
+  slug: startups
+- name: stress-test
+  slug: stress-test
+  redirect_from:
+    - /tags/stress-test/
+- name: sure-bet
+  slug: sure-bet
+- name: swagger
+  slug: swagger
+- name: systemd
+  slug: systemd
+  redirect_from:
+    - /tags/systemd/
+- name: talabat
+  slug: talabat
+- name: tdd
+  slug: tdd
+- name: team-lead
+  slug: team-lead
+- name: tech-lead
+  slug: tech-lead
+- name: tech-visa
+  slug: tech-visa
+- name: tecnologia
+  slug: tecnologia
+- name: terraform
+  slug: terraform
+- name: tesouro-direto
+  slug: tesouro-direto
+- name: teste
+  slug: teste
+  redirect_from:
+    - /tags/teste/
+- name: testes
+  slug: testes
+  redirect_from:
+    - /tags/testes/
+- name: testing
+  slug: testing
+  redirect_from:
+    - /tags/testing/
+- name: tests
+  slug: tests
+- name: ti
+  slug: ti
+  redirect_from:
+    - /tags/ti/
+- name: tools
+  slug: tools
+- name: trabalho-no-exterior
+  slug: trabalho-no-exterior
+- name: trabalho-remoto
+  slug: trabalho-remoto
+- name: travel
+  slug: travel
+- name: twilio
+  slug: twilio
+  redirect_from:
+    - /tags/twilio/
+- name: uat
+  slug: uat
+- name: uat-test
+  slug: uat-test
+  redirect_from:
+    - /tags/uat-test/
+- name: ubuntu
+  slug: ubuntu
+  redirect_from:
+    - /tags/ubuntu/
+- name: ufw
+  slug: ufw
+- name: uk
+  slug: uk
+- name: ulid
+  slug: ulid
+- name: unit-test
+  slug: unit-test
+  redirect_from:
+    - /tags/unit-test/
+- name: uptimerobot
+  slug: uptimerobot
+- name: user-acceptance
+  slug: user-acceptance
+- name: uuid
+  slug: uuid
+- name: uuidv7
+  slug: uuidv7
+- name: ux
+  slug: ux
+  redirect_from:
+    - /tags/ux/
+- name: vagas
+  slug: vagas
+  redirect_from:
+    - /tags/vagas/
+- name: valor-hora
+  slug: valor-hora
+  redirect_from:
+    - /tags/valor-hora/
+- name: vercel
+  slug: vercel
+- name: versioning
+  slug: versioning
+- name: viagem
+  slug: viagem
+- name: visto-de-trabalho
+  slug: visto-de-trabalho
+- name: visual-studio
+  slug: visual-studio
+- name: visual-studio-code
+  slug: visual-studio-code
+- name: vpn
+  slug: vpn
+- name: vps
+  slug: vps
+  redirect_from:
+    - /tags/vps/
+- name: vstest
+  slug: vstest
+- name: web
+  slug: web
+  redirect_from:
+    - /tags/web/
+- name: web-server
+  slug: web-server
+- name: webserver
+  slug: webserver
+- name: websocket
+  slug: websocket
+  redirect_from:
+    - /tags/websocket/
+- name: white-box
+  slug: white-box
+- name: windows
+  slug: windows
+- name: wireguard
+  slug: wireguard
+- name: workflows
+  slug: workflows
+- name: xml
+  slug: xml
+  redirect_from:
+    - /tags/xml/
+- name: yaml
+  slug: yaml
+- name: zero-downtime
+  slug: zero-downtime

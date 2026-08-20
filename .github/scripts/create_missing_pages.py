@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
 """
-create_missing_pages.py — auto-creates missing category pages, tag pages,
-subcategory pages, and RSS feed files.
+create_missing_pages.py — auto-creates missing category pages, subcategory
+pages, and RSS feed files, and registers new tags in _data/tags.yml.
+
+Tag *pages* are no longer physical files: _plugins/tag_pages_generator.rb
+generates one at build time for every entry in _data/tags.yml (see
+docs/adr/0001-stub-files-for-category-tag-feed-pages.md). This script's
+job for tags is only to keep that data file in sync with what posts use.
 
 Called by the GitHub Actions workflow with a list of post file paths:
     python3 create_missing_pages.py _posts/2026-05-11-my-post.md ...
 
 Outputs to $GITHUB_OUTPUT:
-    created_count   — total number of files created
+    created_count   — total number of pages/entries created
     pr_comment      — formatted markdown comment for the PR
 """
 
@@ -25,9 +30,9 @@ except ImportError:
 
 ROOT       = Path(__file__).resolve().parents[2]
 CATS_DIR   = ROOT / "categorias"
-TAGS_DIR   = ROOT / "topicos"
 FEEDS_DIR  = ROOT / "feed"
 CATEGORIES_DATA_FILE = ROOT / "_data" / "categories.yml"
+TAGS_DATA_FILE = ROOT / "_data" / "tags.yml"
 
 # Icon assigned to auto-created top-level categories in _data/categories.yml.
 # Automation can't guess a meaningful icon, so this is a placeholder meant
@@ -35,7 +40,6 @@ CATEGORIES_DATA_FILE = ROOT / "_data" / "categories.yml"
 DEFAULT_CATEGORY_ICON = "fas fa-folder"
 
 CATEGORY_LAYOUT       = "category"
-TAG_LAYOUT            = "tag"
 CATEGORY_PERMALINK    = "/categorias/{slug}/"
 SUBCATEGORY_PERMALINK = "/categorias/{cat_slug}/{sub_slug}/"
 TAG_PERMALINK         = "/topicos/{slug}/"
@@ -304,6 +308,103 @@ def sync_categories_data(
     return added_cats, added_subs
 
 
+def parse_tags_yaml(text: str) -> list[dict]:
+    """Parse `_data/tags.yml` into an ordered list of tag dicts:
+    [{"name", "slug", "redirect_from": [...] (optional)}, ...]
+
+    A minimal hand-rolled parser is used (instead of PyYAML) so the
+    round-tripped file keeps its exact original formatting/quoting style,
+    matching parse_categories_yaml.
+    """
+    tags: list[dict] = []
+    current: dict | None = None
+    in_redirects = False
+
+    for raw_line in text.splitlines():
+        if not raw_line.strip():
+            continue
+        indent = len(raw_line) - len(raw_line.lstrip(' '))
+        line = raw_line.strip()
+
+        m = re.match(r'^-\s*name:\s*(.+)$', line)
+        if m and indent == 0:
+            current = {"name": _yaml_unquote(m.group(1)), "slug": ""}
+            tags.append(current)
+            in_redirects = False
+            continue
+
+        if current is None:
+            continue
+
+        if indent == 2 and line.startswith('slug:'):
+            current["slug"] = _yaml_unquote(line.split(':', 1)[1])
+            in_redirects = False
+            continue
+        if indent == 2 and line.startswith('redirect_from:'):
+            in_redirects = True
+            current["redirect_from"] = []
+            continue
+        if in_redirects and indent == 4 and line.startswith('-'):
+            current["redirect_from"].append(_yaml_unquote(line[1:].strip()))
+            continue
+
+    return tags
+
+
+def serialize_tags_yaml(tags: list[dict]) -> str:
+    """Render tag dicts back into `_data/tags.yml`'s layout."""
+    blocks = []
+    for tag in tags:
+        lines = [
+            f"- name: {_yaml_scalar(tag['name'])}",
+            f"  slug: {tag['slug']}",
+        ]
+        redirects = tag.get("redirect_from") or []
+        if redirects:
+            lines.append("  redirect_from:")
+            for r in redirects:
+                lines.append(f"    - {r}")
+        blocks.append("\n".join(lines))
+    return "\n".join(blocks) + "\n"
+
+
+def sync_tags_data(missing_tags: dict[str, str]) -> list[tuple[str, str]]:
+    """
+    Add newly used tags to _data/tags.yml, the source of truth that
+    _plugins/tag_pages_generator.rb reads at build time to create each
+    /topicos/{slug}/ page (see docs/adr/0001-stub-files-for-category-tag-feed-pages.md).
+
+    Returns added tags as [(name, slug)] for reporting.
+    """
+    text = TAGS_DATA_FILE.read_text(encoding='utf-8') if TAGS_DATA_FILE.exists() else ""
+    tags = parse_tags_yaml(text)
+    by_slug = {t["slug"]: t for t in tags}
+
+    added: list[tuple[str, str]] = []
+    for slug, original in sorted(missing_tags.items()):
+        if slug in by_slug:
+            continue
+        entry = {"name": original, "slug": slug}
+        tags.append(entry)
+        by_slug[slug] = entry
+        added.append((original, slug))
+        print(f"✅ Added to _data/tags.yml: tag '{original}' (slug: {slug})")
+
+    if added:
+        tags.sort(key=lambda t: t["slug"])
+        TAGS_DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
+        TAGS_DATA_FILE.write_text(serialize_tags_yaml(tags), encoding='utf-8')
+
+    return added
+
+
+def load_tag_slugs() -> set[str]:
+    """Return the set of tag slugs already registered in _data/tags.yml."""
+    if not TAGS_DATA_FILE.exists():
+        return set()
+    return {t["slug"] for t in parse_tags_yaml(TAGS_DATA_FILE.read_text(encoding='utf-8')) if t.get("slug")}
+
+
 def _xml_escape(text: str) -> str:
     return text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
 
@@ -407,11 +508,11 @@ def collect_missing(post_files: list[str]) -> tuple[dict, dict, dict, dict, dict
         missing_cat_feeds:    {slug: original_name}                          — feed missing
         missing_subcat_feeds: {(cat_slug, sub_slug): (cat_original, sub_original)}  — feed missing
     """
-    for d in (CATS_DIR, TAGS_DIR, FEEDS_DIR):
+    for d in (CATS_DIR, FEEDS_DIR):
         d.mkdir(parents=True, exist_ok=True)
 
     existing_cats  = {f.stem for f in CATS_DIR.glob("*.md")}
-    existing_tags  = {f.stem for f in TAGS_DIR.glob("*.md")}
+    existing_tags  = load_tag_slugs()
     existing_feeds = {f.stem for f in FEEDS_DIR.glob("*.xml")}
 
     # Subcategory pages live in categorias/{cat_slug}/{sub_slug}.md
@@ -476,20 +577,20 @@ def collect_missing(post_files: list[str]) -> tuple[dict, dict, dict, dict, dict
 
 def create_pages(
     missing_cats:         dict[str, str],
-    missing_tags:         dict[str, str],
     missing_subcats:      dict[tuple[str, str], tuple[str, str]],
     missing_cat_feeds:    dict[str, str],
     missing_subcat_feeds: dict[tuple[str, str], tuple[str, str]],
-) -> tuple[list, list, list, list]:
+) -> tuple[list, list, list]:
     """
-    Create missing category pages, subcategory pages, tag pages, and RSS feeds.
+    Create missing category pages, subcategory pages, and RSS feeds.
+    (Tag pages are handled separately by sync_tags_data — they're entries
+    in _data/tags.yml, not files; see docs/adr/0001-stub-files-for-category-tag-feed-pages.md.)
     Page creation and feed creation are independent: a category/subcategory
     may need only its page, only its feed, or both.
-    Returns (created_cats, created_subcats, created_tags, created_feeds).
+    Returns (created_cats, created_subcats, created_feeds).
     """
     created_cats:    list[tuple[str, str]]           = []
     created_subcats: list[tuple[str, str, str, str]] = []
-    created_tags:    list[tuple[str, str]]           = []
     created_feeds:   list[tuple[str, str, str]]      = []  # (label, slug, path)
 
     cat_slugs = sorted(set(missing_cats) | set(missing_cat_feeds))
@@ -557,40 +658,27 @@ def create_pages(
             created_feeds.append((f"{cat_original} › {sub_original}", feed_stem, f"feed/{feed_stem}.xml"))
             print(f"✅ Created: feed/{feed_stem}.xml  ({cat_original} › {sub_original})")
 
-    for slug, original in sorted(missing_tags.items()):
-        tag_path = TAGS_DIR / f"{slug}.md"
-        tag_path.write_text(
-            f"---\n"
-            f"layout: {TAG_LAYOUT}\n"
-            f"tag: {original}\n"
-            f"permalink: {TAG_PERMALINK.format(slug=slug)}\n"
-            f"---\n",
-            encoding='utf-8',
-        )
-        created_tags.append((original, slug))
-        print(f"✅ Created: topicos/{slug}.md  (tag: {original})")
-
-    return created_cats, created_subcats, created_tags, created_feeds
+    return created_cats, created_subcats, created_feeds
 
 
 def build_pr_comment(
     created_cats:    list[tuple[str, str]],
     created_subcats: list[tuple[str, str, str, str]],
-    created_tags:    list[tuple[str, str]],
+    added_tags:      list[tuple[str, str]],
     created_feeds:   list[tuple[str, str, str]],
     added_cat_data:  list[tuple[str, str]],
     added_sub_data:  list[tuple[str, str, str, str]],
     post_files:      list[str],
 ) -> str:
     total = (
-        len(created_cats) + len(created_subcats) + len(created_tags) + len(created_feeds)
+        len(created_cats) + len(created_subcats) + len(added_tags) + len(created_feeds)
         + len(added_cat_data) + len(added_sub_data)
     )
     posts_list = '\n'.join(f"- `{f}`" for f in post_files)
 
     lines = [
         "## 🤖 Auto-created pages\n",
-        f"The following **{total} file(s)** were automatically created and committed "
+        f"The following **{total} change(s)** were automatically created and committed "
         f"to this branch based on the modified post(s):\n",
         f"<details><summary>Modified posts ({len(post_files)})</summary>\n\n"
         f"{posts_list}\n\n</details>\n",
@@ -631,12 +719,11 @@ def build_pr_comment(
             lines.append(f"- `{path}` → **{label}** (`/{path}`)")
         lines.append("")
 
-    if created_tags:
-        lines.append(f"### 🏷️ Tópicos ({len(created_tags)})\n")
-        for original, slug in created_tags:
+    if added_tags:
+        lines.append(f"### 🏷️ _data/tags.yml ({len(added_tags)})\n")
+        for original, slug in added_tags:
             lines.append(
-                f"- `topicos/{slug}.md` → `#{original}` "
-                f"(`/topicos/{slug}/`)"
+                f"- tag **{original}** (`{slug}`) → `/topicos/{slug}/`"
             )
         lines.append("")
 
@@ -677,26 +764,29 @@ def main() -> None:
         return
 
     print(f"\n📝 Creating missing pages...")
-    created_cats, created_subcats, created_tags, created_feeds = create_pages(
-        missing_cats, missing_tags, missing_subcats, missing_cat_feeds, missing_subcat_feeds
+    created_cats, created_subcats, created_feeds = create_pages(
+        missing_cats, missing_subcats, missing_cat_feeds, missing_subcat_feeds
     )
 
     print("\n📝 Syncing _data/categories.yml...")
     added_cat_data, added_sub_data = sync_categories_data(missing_cats, missing_subcats)
 
+    print("\n📝 Syncing _data/tags.yml...")
+    added_tags = sync_tags_data(missing_tags)
+
     total_created = (
-        len(created_cats) + len(created_subcats) + len(created_tags) + len(created_feeds)
+        len(created_cats) + len(created_subcats) + len(added_tags) + len(created_feeds)
         + len(added_cat_data) + len(added_sub_data)
     )
     comment = build_pr_comment(
-        created_cats, created_subcats, created_tags, created_feeds,
+        created_cats, created_subcats, added_tags, created_feeds,
         added_cat_data, added_sub_data, post_files,
     )
 
     write_output('created_count', str(total_created))
     write_output('pr_comment', comment)
 
-    print(f"\n🎉 Done — {total_created} file(s) created.")
+    print(f"\n🎉 Done — {total_created} change(s) created.")
 
 
 if __name__ == '__main__':

@@ -20,11 +20,11 @@ from pathlib import Path
 
 ROOT         = Path(__file__).resolve().parents[2]
 POSTS_DIR    = ROOT / "_posts"
-TAGS_DIR     = ROOT / "topicos"
 CATS_DIR     = ROOT / "categorias"
 FEEDS_DIR    = ROOT / "feed"
 ASSETS_DIR   = ROOT / "assets"
 CATEGORIES_DATA_FILE = ROOT / "_data" / "categories.yml"
+TAGS_DATA_FILE = ROOT / "_data" / "tags.yml"
 SUMMARY_FILE = ROOT / "audit-report.md"
 
 REQUIRED_FRONT_MATTER = [
@@ -69,6 +69,23 @@ VALID_OG_IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif"}
 VALID_COVER_EXTENSIONS = {".svg", ".png", ".jpg", ".jpeg", ".gif", ".webp"}
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
+
+def load_tag_slugs() -> set[str]:
+    """Return the set of tag slugs registered in _data/tags.yml.
+
+    Tag pages are generated at build time by _plugins/tag_pages_generator.rb
+    from this data file — there's no per-tag stub file to check for anymore
+    (see docs/adr/0001-stub-files-for-category-tag-feed-pages.md).
+    """
+    if not TAGS_DATA_FILE.exists():
+        return set()
+    slugs: set[str] = set()
+    for line in TAGS_DATA_FILE.read_text(encoding='utf-8').splitlines():
+        m = re.match(r'^\s{2}slug:\s*(.+)$', line)
+        if m:
+            slugs.add(m.group(1).strip().strip('"').strip("'"))
+    return slugs
+
 
 def slugify(text: str) -> str:
     """Basic Latin slugify matching Jekyll's `slugify: 'latin'` filter."""
@@ -414,7 +431,7 @@ def audit() -> tuple[dict, set, set]:
             url_to_posts[fm_image].append((rel, True))
 
     # ── Check tag / category / feed pages ─────────────────────────────────────
-    existing_tags  = {f.stem for f in TAGS_DIR.glob("*.md")} if TAGS_DIR.exists() else set()
+    existing_tags  = load_tag_slugs()
     existing_cats  = {f.stem for f in CATS_DIR.glob("*.md")} if CATS_DIR.exists() else set()
     existing_feeds = {f.stem for f in FEEDS_DIR.glob("*.xml")} if FEEDS_DIR.exists() else set()
 
@@ -422,7 +439,7 @@ def audit() -> tuple[dict, set, set]:
         slug = slugify(tag)
         if slug not in existing_tags:
             issues["missing_tag_pages"].append({"tag": tag, "slug": slug})
-            gh_error("topicos/", f"Missing tag page: topicos/{slug}.md  (tag: '{tag}')")
+            gh_error("_data/tags.yml", f"Missing tag entry for '{tag}' (slug: {slug})")
 
     for cat in sorted(all_cats):
         slug = slugify(cat)
@@ -511,8 +528,8 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
     if issues["missing_tag_pages"]:
         lines.append(f"**{len(issues['missing_tag_pages'])} missing:**\n")
         for item in issues["missing_tag_pages"]:
-            lines.append(f"- `topicos/{item['slug']}.md` — tag: `{item['tag']}`")
-        lines.append("\n<details><summary>Fix template</summary>\n\n```yaml\n---\nlayout: tag\ntag: <tag-name>\npermalink: /topicos/<slug>/\n---\n```\n</details>")
+            lines.append(f"- missing entry in `_data/tags.yml` — tag: `{item['tag']}` (slug: `{item['slug']}`)")
+        lines.append("\n<details><summary>Fix template</summary>\n\n```yaml\n- name: <tag-name>\n  slug: <slug>\n```\n</details>")
     else:
         lines.append("✅ All tag pages present.")
     lines.append("")
