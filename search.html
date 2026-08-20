@@ -41,7 +41,9 @@ permalink: /busca/
             id="search-input"
             name="q"
             placeholder="Buscar artigos…"
+            aria-label="Buscar artigos"
             data-i18n-placeholder="search_placeholder"
+            data-i18n-aria="search_title"
             autocomplete="off"
             autocorrect="off"
             spellcheck="false"
@@ -177,7 +179,7 @@ permalink: /busca/
   </style>
 
   {% include sidebar-script.html %}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     // ── i18n helper ──
     function getLang() {
@@ -218,7 +220,7 @@ permalink: /busca/
     function highlight(text, query) {
       if (!query || !text) return text || '';
       const terms = query.trim().split(/\s+/).filter(Boolean);
-      const escaped = terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+      const escaped = terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, String.raw`\$&`));
       const re = new RegExp(`(${escaped.join('|')})`, 'gi');
       return text.replace(re, '<mark>$1</mark>');
     }
@@ -293,11 +295,11 @@ permalink: /busca/
       try {
         const results = searchIndex.search(query + '~1'); // fuzzy
         renderResults(query, results);
-      } catch(e) {
+      } catch {
         try {
           const results = searchIndex.search(query);
           renderResults(query, results);
-        } catch(e2) {
+        } catch {
           showState('empty');
         }
       }
