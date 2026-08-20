@@ -23,33 +23,39 @@ jobs:
 
       - name: Get changed post files
         id: changed
+        env:
+          BASE_REF: ${{ github.base_ref }}
         run: |
-          git fetch origin ${{ github.base_ref }} --quiet
+          git fetch origin "$BASE_REF" --quiet
 
-          # Added (A) or Modified (M) .md files inside _posts/
-          CHANGED=$(git diff --name-only --diff-filter=AM \
-            origin/${{ github.base_ref }}...HEAD \
-            -- '_posts/*.md' | tr '\n' ' ')
+          # Added (A) or Modified (M) .md files inside _posts/, NUL-delimited
+          # so filenames are never spliced as text into a later run: block —
+          # they're only ever consumed as shell-native array elements.
+          git diff --name-only --diff-filter=AM -z \
+            "origin/$BASE_REF...HEAD" \
+            -- '_posts/*.md' > "$RUNNER_TEMP/changed_posts.txt"
 
-          echo "files=${CHANGED}" >> "$GITHUB_OUTPUT"
-
-          if [ -z "$CHANGED" ]; then
-            echo "No post files changed — skipping sync."
+          if [ -s "$RUNNER_TEMP/changed_posts.txt" ]; then
+            echo "has_files=true" >> "$GITHUB_OUTPUT"
+            echo "Changed posts:"
+            tr '\0' '\n' < "$RUNNER_TEMP/changed_posts.txt"
           else
-            echo "Changed posts: $CHANGED"
+            echo "has_files=false" >> "$GITHUB_OUTPUT"
+            echo "No post files changed — skipping sync."
           fi
 
       - name: Set up Python
-        if: steps.changed.outputs.files != ''
+        if: steps.changed.outputs.has_files == 'true'
         uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 
       - name: Register missing categories and tags
-        if: steps.changed.outputs.files != ''
+        if: steps.changed.outputs.has_files == 'true'
         id: create
         run: |
-          python3 .github/scripts/create_missing_pages.py ${{ steps.changed.outputs.files }}
+          mapfile -d '' -t files < "$RUNNER_TEMP/changed_posts.txt"
+          python3 .github/scripts/create_missing_pages.py "${files[@]}"
 
       - name: Commit data file changes
         if: steps.create.outputs.created_count != '' && steps.create.outputs.created_count != '0'
@@ -79,5 +85,5 @@ jobs:
             });
 
       - name: No new categories or tags needed
-        if: steps.changed.outputs.files == '' || steps.create.outputs.created_count == '0'
+        if: steps.changed.outputs.has_files == 'false' || steps.create.outputs.created_count == '0'
         run: echo "All categories, subcategories, and tags already registered."

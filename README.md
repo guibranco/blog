@@ -85,7 +85,18 @@ Categoria, subcategoria, tag e feed RSS **não são mais arquivos individuais** 
 
 ## 🗃️ Gerenciando categorias e tópicos
 
-Categorias, subcategorias e tags **não são arquivos** — são entradas em `_data/categories.yml` e `_data/tags.yml`. As páginas (`/categorias/{slug}/`, `/categorias/{cat}/{sub}/`, `/topicos/{slug}/`) e os feeds RSS (`/feed/{slug}.xml`) são gerados no build pelo Jekyll (`_plugins/category_pages_generator.rb`, `tag_pages_generator.rb` e `feed_generator.rb`) — ver [ADR-0003](docs/adr/0003-tag-pages-generated-from-data-file.md), [ADR-0004](docs/adr/0004-category-pages-generated-from-data-file.md) e [ADR-0005](docs/adr/0005-feed-pages-generated-from-data-file.md).
+Categorias, subcategorias e tags **não são arquivos** — são entradas em `_data/categories.yml` e `_data/tags.yml`, e suas páginas são geradas no build pelo Jekyll:
+
+- Categorias: `/categorias/{slug}/` (`_plugins/category_pages_generator.rb`)
+- Subcategorias: `/categorias/{cat_slug}/{sub_slug}/` (mesmo generator)
+- Tags: `/topicos/{slug}/` (`_plugins/tag_pages_generator.rb`)
+
+Feeds RSS (`_plugins/feed_generator.rb`) existem **apenas para categorias e subcategorias** — tags não têm feed:
+
+- Categorias: `/feed/{slug}.xml`
+- Subcategorias: `/feed/{cat_slug}-{sub_slug}.xml`
+
+Ver [ADR-0003](docs/adr/0003-tag-pages-generated-from-data-file.md), [ADR-0004](docs/adr/0004-category-pages-generated-from-data-file.md) e [ADR-0005](docs/adr/0005-feed-pages-generated-from-data-file.md).
 
 **Isso é automático:** ao abrir um PR com um post usando uma categoria/subcategoria/tag nova, o workflow `sync-category-tag-data.yml` roda `.github/scripts/create_missing_pages.py`, que adiciona a entrada faltante em `_data/categories.yml` (categoria nova entra com ícone placeholder `fas fa-folder` — revise antes de mergear) ou `_data/tags.yml`. A página e o feed correspondentes aparecem sozinhos no próximo build — nada precisa ser criado manualmente.
 
@@ -129,15 +140,16 @@ Se apenas `image` for definido, ele é usado tanto no site quanto no Open Graph 
 
 **3.** Escreva o conteúdo em Markdown. Componentes visuais customizados como callouts, blocos de código com syntax highlighting e cards podem ser usados diretamente com HTML inline.
 
-**4.** Publique:
+**4.** Publique via branch + pull request — **não dê push direto em `main`**:
 
 ```bash
+git checkout -b feat/novo-artigo-sobre-x
 git add .
 git commit -m "feat: novo artigo sobre X"
-git push origin main
+git push origin feat/novo-artigo-sobre-x
 ```
 
-O GitHub Pages detecta o push, roda o build do Jekyll e publica em ~60 segundos.
+Abra o PR no GitHub. Se o post usa uma categoria/subcategoria/tag nova, o workflow `sync-category-tag-data.yml` só roda em eventos de `pull_request` — um push direto em `main` pula essa etapa silenciosamente, e a categoria/tag nunca é registrada em `_data/`. Depois de mergear, o GitHub Pages detecta o push em `main`, roda o build do Jekyll e publica em ~60 segundos.
 
 ---
 

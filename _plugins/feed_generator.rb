@@ -67,13 +67,13 @@ module Jekyll
             <link>{{ site.url }}{{ site.baseurl }}/categorias/#{slug}/</link>
             <atom:link href="{{ site.url }}{{ site.baseurl }}/feed/#{slug}.xml" rel="self" type="application/rss+xml"/>
             <language>pt-BR</language>
-            {% assign _cat_posts = site.posts | where_exp: "p", "p.categories contains '#{name}'" | limit: 20 %}
+            {% assign _cat_posts = site.posts | where_exp: "p", "p.categories contains page.category" | limit: 20 %}
             {% for post in _cat_posts %}
             #{item_block}{% endfor %}
           </channel>
         </rss>
       XML
-      page.data.merge!('layout' => nil, 'permalink' => "/feed/#{slug}.xml")
+      page.data.merge!('layout' => nil, 'permalink' => "/feed/#{slug}.xml", 'category' => name)
       page
     end
 
@@ -82,7 +82,6 @@ module Jekyll
       page = PageWithoutAFile.new(site, site.source, 'feed', "#{feed_slug}.xml")
       safe_cat = xml_escape(cat_name)
       safe_sub = xml_escape(sub_name)
-      filter_cond = "p.subcategories contains '#{cat_name}/#{sub_name}'"
       page.content = <<~XML
         <?xml version="1.0" encoding="UTF-8"?>
         <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -92,13 +91,13 @@ module Jekyll
             <link>{{ site.url }}{{ site.baseurl }}/categorias/#{cat_slug}/#{sub_slug}/</link>
             <atom:link href="{{ site.url }}{{ site.baseurl }}/feed/#{feed_slug}.xml" rel="self" type="application/rss+xml"/>
             <language>pt-BR</language>
-            {% assign _sub_posts = site.posts | where_exp: "p", "#{filter_cond}" | limit: 20 %}
+            {% assign _sub_posts = site.posts | where_exp: "p", "p.subcategories contains page.subcategory_key" | limit: 20 %}
             {% for post in _sub_posts %}
             #{item_block}{% endfor %}
           </channel>
         </rss>
       XML
-      page.data.merge!('layout' => nil, 'permalink' => "/feed/#{feed_slug}.xml")
+      page.data.merge!('layout' => nil, 'permalink' => "/feed/#{feed_slug}.xml", 'subcategory_key' => "#{cat_name}/#{sub_name}")
       page
     end
   end

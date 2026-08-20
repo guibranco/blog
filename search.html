@@ -180,10 +180,10 @@ permalink: /busca/
 
   {% include sidebar-script.html %}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script>
+  <script type="module">
     // ── i18n helper ──
     function getLang() {
-      try { return localStorage.getItem('preferred-lang') || window.__siteLang || 'pt-BR'; } catch(e) { return window.__siteLang || 'pt-BR'; }
+      try { return localStorage.getItem('preferred-lang') || window.__siteLang || 'pt-BR'; } catch { return window.__siteLang || 'pt-BR'; }
     }
     function t(key) {
       var i18n = window.__i18n || {};
@@ -217,12 +217,25 @@ permalink: /busca/
       resultsEl.innerHTML      = which === 'results'  ? resultsEl.innerHTML : '';
     }
 
+    function escapeHtml(str) {
+      return String(str == null ? '' : str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
     function highlight(text, query) {
-      if (!query || !text) return text || '';
-      const terms = query.trim().split(/\s+/).filter(Boolean);
+      const safeText = escapeHtml(text);
+      if (!query || !text) return safeText;
+      // Escape query terms the same way as the text so a term containing
+      // HTML-special characters (e.g. searching for "<script>") still
+      // matches the escaped text instead of silently failing to highlight.
+      const terms = query.trim().split(/\s+/).filter(Boolean).map(escapeHtml);
       const escaped = terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, String.raw`\$&`));
       const re = new RegExp(`(${escaped.join('|')})`, 'gi');
-      return text.replace(re, '<mark>$1</mark>');
+      return safeText.replace(re, '<mark>$1</mark>');
     }
 
     function truncateAround(text, query, radius = 140) {
@@ -241,24 +254,27 @@ permalink: /busca/
 
       const resultWord = results.length !== 1 ? t('search_result_plural') : t('search_result_singular');
       const forWord    = t('search_results_for');
-      const header = `<p class="results-header"><strong>${results.length}</strong> ${resultWord} ${forWord} "<strong>${query}</strong>"</p>`;
+      const safeQuery  = escapeHtml(query);
+      const header = `<p class="results-header"><strong>${results.length}</strong> ${resultWord} ${forWord} "<strong>${safeQuery}</strong>"</p>`;
       const cards  = results.map((r, i) => {
         const doc     = documents.find(d => d.id === Number.parseInt(r.ref));
         if (!doc) return '';
         const excerpt = truncateAround(doc.content, query);
         const cats    = doc.categories ? doc.categories.split(', ').filter(Boolean) : [];
-        const catHtml = cats.map(c => `<span class="cat-pill">${c}</span>`).join('');
+        const catHtml = cats.map(c => `<span class="cat-pill">${escapeHtml(c)}</span>`).join('');
+        const safeUrl  = escapeHtml(doc.url);
+        const safeDate = escapeHtml(doc.date);
 
         return `
-        <a class="result-card" href="${doc.url}">
+        <a class="result-card" href="${safeUrl}">
           <div class="result-num">${String(i + 1).padStart(2, '0')}</div>
           <div class="result-body">
             ${catHtml ? `<div class="result-cats">${catHtml}</div>` : ''}
             <div class="result-title">${highlight(doc.title, query)}</div>
             ${excerpt ? `<p class="result-excerpt">${highlight(excerpt, query)}</p>` : ''}
             <div class="result-meta">
-              <span>${doc.date}</span>
-              ${doc.reading_time ? `<span class="sep">·</span><span>${doc.reading_time} min</span>` : ''}
+              <span>${safeDate}</span>
+              ${doc.reading_time ? `<span class="sep">·</span><span>${escapeHtml(doc.reading_time)} min</span>` : ''}
               ${doc.tags ? `<span class="sep">·</span><span>${highlight(doc.tags, query)}</span>` : ''}
             </div>
           </div>
@@ -277,6 +293,11 @@ permalink: /busca/
         clearBtn.classList.remove('visible');
         heroTitle.textContent = t('search_title');
         heroDesc.textContent  = t('search_desc');
+
+        // Clear a stale ?q= left over from a previous non-empty search
+        const clearedUrl = new URL(window.location);
+        clearedUrl.searchParams.delete('q');
+        window.history.replaceState({}, '', clearedUrl);
         return;
       }
       clearBtn.classList.add('visible');
@@ -305,40 +326,46 @@ permalink: /busca/
       }
     }
 
-    // Load index
-    showState('loading');
-    fetch('{{ "/search.json" | relative_url }}')
-      .then(r => r.json())
-      .then(data => {
-        documents = data;
-        searchIndex = lunr(function() {
-          this.ref('id');
-          this.field('title',       { boost: 10 });
-          this.field('categories',  { boost: 6  });
-          this.field('tags',        { boost: 6  });
-          this.field('description', { boost: 4  });
-          this.field('content',     { boost: 1  });
-
-          data.forEach(doc => this.add(doc));
-        });
-        indexReady = true;
-        showState('initial');
-
-        // Run query from URL if present
-        if (initialQuery) {
-          input.value = initialQuery;
-          runSearch(initialQuery);
-        }
-      })
-      .catch(() => showState('initial'));
-
-    // Input events
+    // Input events — attached immediately, independent of index load state
+    // (runSearch already guards on !indexReady, same as before this was
+    // rewritten to use top-level await; these must not move below the
+    // await, or focus/listener attachment would be delayed until the
+    // index fetch resolves).
     input.addEventListener('input', () => runSearch(input.value));
     input.addEventListener('keydown', e => { if (e.key === 'Escape') { input.value = ''; runSearch(''); } });
     clearBtn.addEventListener('click', () => { input.value = ''; input.focus(); runSearch(''); });
 
+    // Pre-fill from ?q= immediately, before the index even starts loading
+    if (initialQuery) input.value = initialQuery;
+
     // Focus on load if no initial query
     if (!initialQuery) input.focus();
+
+    // Load index
+    showState('loading');
+    try {
+      const searchIndexResponse = await fetch('{{ "/search.json" | relative_url }}');
+      const data = await searchIndexResponse.json();
+      documents = data;
+      searchIndex = lunr(function() {
+        this.ref('id');
+        this.field('title',       { boost: 10 });
+        this.field('categories',  { boost: 6  });
+        this.field('tags',        { boost: 6  });
+        this.field('description', { boost: 4  });
+        this.field('content',     { boost: 1  });
+
+        data.forEach(doc => this.add(doc));
+      });
+      indexReady = true;
+
+      // Resume whatever's currently in the box — either the pre-filled
+      // ?q= value, or something the user typed while the index was still
+      // loading (runSearch handles the blank case as showState('initial')).
+      runSearch(input.value);
+    } catch {
+      showState('initial');
+    }
   </script>
 
 </body>
