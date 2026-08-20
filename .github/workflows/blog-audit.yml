@@ -4,9 +4,10 @@ on:
   push:
     paths:
       - '_posts/**'
-      - 'topicos/**'
       - 'categorias/**'
       - 'feed/**'
+      - '_data/tags.yml'
+      - '_data/categories.yml'
   pull_request:
   workflow_dispatch:
 
