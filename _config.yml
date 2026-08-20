@@ -83,6 +83,8 @@ defaults:
 # ── Exclusões do build ──────────────────────────────────
 exclude:
   - README.md
+  - CONTEXT.md
+  - docs/
   - Gemfile
   - Gemfile.lock
   - .github/
