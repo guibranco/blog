@@ -4,8 +4,6 @@ on:
   push:
     paths:
       - '_posts/**'
-      - 'categorias/**'
-      - 'feed/**'
       - '_data/tags.yml'
       - '_data/categories.yml'
   pull_request:

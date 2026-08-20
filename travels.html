@@ -71,12 +71,12 @@ permalink: /viagens/
         {% if post.locations %}
           {% for loc in post.locations %}
           {
-            lat:   {{ loc.lat }},
-            lng:   {{ loc.lng }},
-            label: {{ loc.label | jsonify }},
-            title: {{ post.title | jsonify }},
-            date:  "{{ post.date | date: '%d/%m/%Y' }}",
-            url:   "{{ post.url | relative_url }}"
+            lat:   {{ loc.lat | default: "null" }},
+            lng:   {{ loc.lng | default: "null" }},
+            label: {{ loc.label | jsonify | replace: '</', '<\/' }},
+            title: {{ post.title | jsonify | replace: '</', '<\/' }},
+            date:  {{ post.date | date: '%d/%m/%Y' | jsonify }},
+            url:   {{ post.url | relative_url | jsonify | replace: '</', '<\/' }}
           },
           {% endfor %}
         {% endif %}
@@ -85,12 +85,12 @@ permalink: /viagens/
         {% if post.location %}
           {% assign loc = post.location %}
           {
-            lat:   {{ loc.lat }},
-            lng:   {{ loc.lng }},
-            label: {{ loc.label | jsonify }},
-            title: {{ post.title | jsonify }},
-            date:  "{{ post.date | date: '%d/%m/%Y' }}",
-            url:   "{{ post.url | relative_url }}"
+            lat:   {{ loc.lat | default: "null" }},
+            lng:   {{ loc.lng | default: "null" }},
+            label: {{ loc.label | jsonify | replace: '</', '<\/' }},
+            title: {{ post.title | jsonify | replace: '</', '<\/' }},
+            date:  {{ post.date | date: '%d/%m/%Y' | jsonify }},
+            url:   {{ post.url | relative_url | jsonify | replace: '</', '<\/' }}
           },
         {% endif %}
 
@@ -106,18 +106,37 @@ permalink: /viagens/
       attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
     }).addTo(map);
 
-    const markers = pins.map(p => {
-      const m = L.marker([p.lat, p.lng]).addTo(map);
-      m.bindPopup(
-        `<strong><a href="${p.url}">${p.title}</a></strong><br>` +
-        `<small style="font-family:monospace">${p.label} · ${p.date}</small>`
-      );
-      return m;
-    });
+    function buildPopup(p) {
+      const popup = document.createElement('div');
+
+      const strong = document.createElement('strong');
+      const link = document.createElement('a');
+      link.href = p.url;
+      link.textContent = p.title;
+      strong.appendChild(link);
+      popup.appendChild(strong);
+
+      popup.appendChild(document.createElement('br'));
+
+      const small = document.createElement('small');
+      small.style.fontFamily = 'monospace';
+      small.textContent = `${p.label} · ${p.date}`;
+      popup.appendChild(small);
+
+      return popup;
+    }
+
+    const markers = pins
+      .filter(p => Number.isFinite(p.lat) && Number.isFinite(p.lng))
+      .map(p => {
+        const m = L.marker([p.lat, p.lng]).addTo(map);
+        m.bindPopup(buildPopup(p));
+        return m;
+      });
 
     if (markers.length === 1) {
       map.setView([markers[0]._latlng.lat, markers[0]._latlng.lng], 8);
-    } else {
+    } else if (markers.length > 1) {
       map.fitBounds(L.featureGroup(markers).getBounds().pad(0.15));
     }
   </script>

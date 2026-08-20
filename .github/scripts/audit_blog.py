@@ -20,8 +20,6 @@ from pathlib import Path
 
 ROOT         = Path(__file__).resolve().parents[2]
 POSTS_DIR    = ROOT / "_posts"
-CATS_DIR     = ROOT / "categorias"
-FEEDS_DIR    = ROOT / "feed"
 ASSETS_DIR   = ROOT / "assets"
 CATEGORIES_DATA_FILE = ROOT / "_data" / "categories.yml"
 TAGS_DATA_FILE = ROOT / "_data" / "tags.yml"
@@ -292,7 +290,6 @@ def audit() -> tuple[dict, set, set]:
     issues: dict = {
         "missing_tag_pages":          [],
         "missing_category_pages":     [],
-        "missing_feed_files":         [],
         "incomplete_front_matter":    [],
         "posts_without_image":        [],
         "posts_without_description":  [],
@@ -431,9 +428,15 @@ def audit() -> tuple[dict, set, set]:
             url_to_posts[fm_image].append((rel, True))
 
     # ── Check tag / category / feed pages ─────────────────────────────────────
-    existing_tags  = load_tag_slugs()
-    existing_cats  = {f.stem for f in CATS_DIR.glob("*.md")} if CATS_DIR.exists() else set()
-    existing_feeds = {f.stem for f in FEEDS_DIR.glob("*.xml")} if FEEDS_DIR.exists() else set()
+    # Category, Subcategory, Tag, and feed pages are all generated at build
+    # time from _data/categories.yml / _data/tags.yml (see
+    # _plugins/category_pages_generator.rb, tag_pages_generator.rb, and
+    # feed_generator.rb) — something "exists" iff it's registered in the
+    # data file. Subcategory registration is already covered above by the
+    # invalid_subcategories check. Feeds are 1:1 with category/subcategory
+    # registration, so there's no separate feed-existence check to make.
+    existing_tags = load_tag_slugs()
+    existing_cats = {data["slug"] for data in categories_data.values() if data.get("slug")}
 
     for tag in sorted(all_tags):
         slug = slugify(tag)
@@ -445,10 +448,7 @@ def audit() -> tuple[dict, set, set]:
         slug = slugify(cat)
         if slug not in existing_cats:
             issues["missing_category_pages"].append({"category": cat, "slug": slug})
-            gh_error("categorias/", f"Missing category page: categorias/{slug}.md  (category: '{cat}')")
-        if slug not in existing_feeds:
-            issues["missing_feed_files"].append({"category": cat, "slug": slug})
-            gh_warning("feed/", f"Missing feed file: feed/{slug}.xml  (category: '{cat}')")
+            gh_error("_data/categories.yml", f"Missing category entry for '{cat}' (slug: {slug})")
 
     # ── Check external images (parallel HEAD requests) ─────────────────────────
     unique_urls = list(url_to_posts.keys())
@@ -500,7 +500,6 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
         len([i for i in issues["invalid_image_extensions"] if i["field"] == "image"])
     )
     total_warnings = (
-        len(issues["missing_feed_files"]) +
         len(issues["posts_without_image"]) +
         len(issues["posts_without_description"]) +
         len(issues["posts_without_reading_time"]) +
@@ -539,8 +538,8 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
     if issues["missing_category_pages"]:
         lines.append(f"**{len(issues['missing_category_pages'])} missing:**\n")
         for item in issues["missing_category_pages"]:
-            lines.append(f"- `categorias/{item['slug']}.md` — category: `{item['category']}`")
-        lines.append("\n<details><summary>Fix template</summary>\n\n```yaml\n---\nlayout: category\ncategory: <Category Name>\npermalink: /categorias/<slug>/\n---\n```\n</details>")
+            lines.append(f"- missing entry in `_data/categories.yml` — category: `{item['category']}` (slug: `{item['slug']}`)")
+        lines.append("\n<details><summary>Fix template</summary>\n\n```yaml\n- name: <Category Name>\n  slug: <slug>\n  icon: \"fas fa-folder\"\n  subcategories: []\n```\n</details>")
     else:
         lines.append("✅ All category pages present.")
     lines.append("")
@@ -584,16 +583,6 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
             )
     else:
         lines.append("✅ All `image:`/`cover:` fields use the expected format.")
-    lines.append("")
-
-    # ── Feed files ────────────────────────────────────────────────────────────
-    lines.append("## Category RSS feeds\n")
-    if issues["missing_feed_files"]:
-        lines.append(f"**{len(issues['missing_feed_files'])} missing:**\n")
-        for item in issues["missing_feed_files"]:
-            lines.append(f"- `feed/{item['slug']}.xml` — category: `{item['category']}`")
-    else:
-        lines.append("✅ All category feeds present.")
     lines.append("")
 
     # ── External images ───────────────────────────────────────────────────────

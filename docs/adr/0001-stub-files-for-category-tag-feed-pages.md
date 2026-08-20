@@ -1,10 +1,10 @@
 ---
-status: superseded by ADR-0003 (Tag pages only — Category/Subcategory/feed pages below are still current)
+status: superseded by ADR-0003 (Tag pages), ADR-0004 (Category/Subcategory pages), and ADR-0005 (RSS feeds) — fully superseded, kept as historical record
 ---
 
 # Category, Subcategory, Tag, and feed pages are committed stub files, not dynamically generated
 
-> **Update:** Tag pages moved off this pattern — see [ADR-0003](0003-tag-pages-generated-from-data-file.md). Everything below now applies to Category, Subcategory, and RSS feed pages only.
+> **Update:** Every page type this ADR originally covered has moved off this pattern — Tag pages ([ADR-0003](0003-tag-pages-generated-from-data-file.md)), Category/Subcategory pages ([ADR-0004](0004-category-pages-generated-from-data-file.md)), and RSS feeds ([ADR-0005](0005-feed-pages-generated-from-data-file.md)). Nothing in this repo still follows the pattern described below; this ADR is kept only as a record of the original trade-off and why it was eventually reversed.
 
 Every Category, Subcategory, Tag page, and per-Category/Subcategory RSS feed is a physical file (`categorias/**/*.md`, `topicos/*.md`, `feed/*.xml`), auto-created by `.github/scripts/create_missing_pages.py` when a pull request touches `_posts/`, then committed to that PR's branch — rather than generated dynamically at Jekyll build time from `_data/categories.yml` and the Posts' own front matter.
 

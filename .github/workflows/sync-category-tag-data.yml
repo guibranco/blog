@@ -1,0 +1,89 @@
+name: Sync category and tag data files
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-category-tag-data:
+    name: Sync data files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Get changed post files
+        id: changed
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch origin "$BASE_REF" --quiet
+
+          # Added (A) or Modified (M) .md files inside _posts/, NUL-delimited
+          # so filenames are never spliced as text into a later run: block —
+          # they're only ever consumed as shell-native array elements.
+          git diff --name-only --diff-filter=AM -z \
+            "origin/$BASE_REF...HEAD" \
+            -- '_posts/*.md' > "$RUNNER_TEMP/changed_posts.txt"
+
+          if [ -s "$RUNNER_TEMP/changed_posts.txt" ]; then
+            echo "has_files=true" >> "$GITHUB_OUTPUT"
+            echo "Changed posts:"
+            tr '\0' '\n' < "$RUNNER_TEMP/changed_posts.txt"
+          else
+            echo "has_files=false" >> "$GITHUB_OUTPUT"
+            echo "No post files changed — skipping sync."
+          fi
+
+      - name: Set up Python
+        if: steps.changed.outputs.has_files == 'true'
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Register missing categories and tags
+        if: steps.changed.outputs.has_files == 'true'
+        id: create
+        run: |
+          mapfile -d '' -t files < "$RUNNER_TEMP/changed_posts.txt"
+          python3 .github/scripts/create_missing_pages.py "${files[@]}"
+
+      - name: Commit data file changes
+        if: steps.create.outputs.created_count != '' && steps.create.outputs.created_count != '0'
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add _data/categories.yml _data/tags.yml
+          git commit -m "chore: register new categories/tags"
+          git push origin "HEAD:$HEAD_REF"
+
+      - name: Comment on PR
+        if: steps.create.outputs.created_count != '' && steps.create.outputs.created_count != '0'
+        uses: actions/github-script@v9
+        env:
+          PR_COMMENT: ${{ steps.create.outputs.pr_comment }}
+        with:
+          script: |
+            const body = process.env.PR_COMMENT;
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner:        context.repo.owner,
+              repo:         context.repo.repo,
+              body,
+            });
+
+      - name: No new categories or tags needed
+        if: steps.changed.outputs.has_files == 'false' || steps.create.outputs.created_count == '0'
+        run: echo "All categories, subcategories, and tags already registered."
