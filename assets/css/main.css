@@ -167,7 +167,7 @@ a { color: inherit; text-decoration: none; }
 .sidebar-nav a:hover  { color: var(--green-glow); background: rgba(255,255,255,.03); }
 .sidebar-nav a.active { color: var(--green-glow); }
 
-.sidebar-nav .has-children > a { justify-content: space-between; }
+.sidebar-nav .has-children > a { justify-content: flex-start; flex: 1; }
 .sidebar-nav .has-children > a .chevron {
   font-size: 0.69rem; opacity: .35;
   transition: transform .25s; margin-left: auto;
@@ -177,7 +177,10 @@ a { color: inherit; text-decoration: none; }
   display: none;
   background: rgba(0,0,0,.18);
   border-left: 2px solid rgba(255,255,255,.05);
-  margin-left: 1.4rem;
+  width: 100%;
+  flex-basis: 100%;
+  margin-left: 0;
+  padding-left: 1.4rem;
 }
 .sidebar-nav .has-children.open .submenu { display: block; }
 .sidebar-nav .submenu a {
@@ -586,7 +589,7 @@ a { color: inherit; text-decoration: none; }
 .lang-btn:hover { border-color: rgba(255,255,255,.5); color: rgba(255,255,255,.8); }
 .lang-btn--active {
   border-color: rgba(255,255,255,.65); color: #fff;
-  background: rgba(255,255,255,.12);
+  background: var(--accent);
 }
 
 /* Share button */
@@ -1158,7 +1161,7 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 }
 .section-link {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.625rem; letter-spacing: .08em; text-transform: uppercase;
+  font-size: 0.59rem; letter-spacing: .07em; text-transform: uppercase;
   color: var(--ink-light); transition: color .2s;
 }
 .section-link:hover { color: var(--accent); }
@@ -1235,10 +1238,6 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
   flex-wrap: wrap;
   align-items: stretch;
 }
-.sidebar-nav .has-children > a {
-  flex: 1;
-  justify-content: flex-start;
-}
 .submenu-toggle {
   background: none;
   border: none;
@@ -1256,12 +1255,6 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
   transition: transform .25s;
 }
 .has-children.open .submenu-toggle .chevron { transform: rotate(90deg); }
-.sidebar-nav .submenu {
-  width: 100%;
-  flex-basis: 100%;
-  margin-left: 0;
-  padding-left: 1.4rem;
-}
 
 /* ─────────────────────────────────────
    SIDEBAR — per-category RSS feed links
@@ -1324,15 +1317,3 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
   letter-spacing: .07em;
   color: var(--ink-light);
 }
-
-/* ─────────────────────────────────────
-   SECTION LINK (back arrow in section-row)
-───────────────────────────────────── */
-.section-link {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.59rem;
-  letter-spacing: .07em;
-  color: var(--ink-light);
-  transition: color .2s;
-}
-.section-link:hover { color: var(--accent); }

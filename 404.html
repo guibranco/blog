@@ -66,7 +66,9 @@ sitemap: true
           name="q"
           id="search-404"
           placeholder="Digite o que procura…"
+          aria-label="Buscar artigos"
           data-i18n-placeholder="error_404_placeholder"
+          data-i18n-aria="search_title"
           autocomplete="off"
           autofocus
           style="
@@ -92,7 +94,8 @@ sitemap: true
           padding: .7rem 1.25rem; border: none; border-radius: 8px;
           cursor: pointer; white-space: nowrap;
           transition: opacity .2s;
-        " onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+        " onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'"
+          onfocus="this.style.opacity='.85'" onblur="this.style.opacity='1'">
           <i class="fas fa-search"></i> <span data-i18n="search">Buscar</span>
         </button>
       </form>
@@ -108,7 +111,9 @@ sitemap: true
         padding: .4rem .9rem; border-radius: 6px;
         text-decoration: none; transition: background .2s, color .2s;
       " onmouseover="this.style.background='var(--accent)';this.style.color='#fff'"
-         onmouseout="this.style.background='transparent';this.style.color='var(--accent)'">
+         onmouseout="this.style.background='transparent';this.style.color='var(--accent)'"
+         onfocus="this.style.background='var(--accent)';this.style.color='#fff'"
+         onblur="this.style.background='transparent';this.style.color='var(--accent)'">
         <i class="fas fa-home"></i> <span data-i18n="home">Início</span>
       </a>
       <a href="{{ site.baseurl }}/busca/" style="
@@ -119,7 +124,9 @@ sitemap: true
         padding: .4rem .9rem; border-radius: 6px;
         text-decoration: none; transition: border-color .2s, color .2s;
       " onmouseover="this.style.borderColor='var(--ink-muted)';this.style.color='var(--ink)'"
-         onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--ink-muted)'">
+         onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--ink-muted)'"
+         onfocus="this.style.borderColor='var(--ink-muted)';this.style.color='var(--ink)'"
+         onblur="this.style.borderColor='var(--border)';this.style.color='var(--ink-muted)'">
         <i class="fas fa-search"></i> <span data-i18n="error_404_search_page">Página de busca</span>
       </a>
     </div>
@@ -141,7 +148,9 @@ sitemap: true
           transition: border-color .2s, transform .15s;
           background: var(--surface);
         " onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-1px)'"
-           onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+           onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'"
+           onfocus="this.style.borderColor='var(--accent)';this.style.transform='translateY(-1px)'"
+           onblur="this.style.borderColor='var(--border)';this.style.transform='none'">
           <span style="
             font-family: 'JetBrains Mono', monospace; font-size: .59rem;
             color: var(--ink-light); white-space: nowrap; flex-shrink: 0;

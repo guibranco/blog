@@ -38,7 +38,9 @@
         this.innerHTML = '<i class="fas fa-check"></i> Copiado!';
         this.classList.add('copied');
         setTimeout(() => { this.innerHTML = '<i class="fas fa-copy"></i> Copiar'; this.classList.remove('copied'); }, 2200);
-      } catch (e) {}
+      } catch (e) {
+        console.error('Falha ao copiar código:', e);
+      }
     });
   });
 </script>

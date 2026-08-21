@@ -7,22 +7,22 @@
 
   function detectBrowserLang() {
     var available = Object.keys(i18n);
-    var candidates = (navigator.languages && navigator.languages.length)
+    var candidates = navigator.languages?.length
       ? Array.from(navigator.languages)
       : [navigator.language || ''];
 
-    for (var i = 0; i < candidates.length; i++) {
-      var lang = candidates[i].toLowerCase();
+    for (var candidate of candidates) {
+      var lang = candidate.toLowerCase();
 
       // Exact match (e.g. "pt-BR" → "pt-BR")
-      for (var j = 0; j < available.length; j++) {
-        if (available[j].toLowerCase() === lang) return available[j];
+      for (let code of available) {
+        if (code.toLowerCase() === lang) return code;
       }
 
       // Prefix match (e.g. "pt" → "pt-BR", "en-US" → "en")
       var prefix = lang.split('-')[0];
-      for (var j = 0; j < available.length; j++) {
-        if (available[j].toLowerCase().split('-')[0] === prefix) return available[j];
+      for (let code of available) {
+        if (code.toLowerCase().split('-')[0] === prefix) return code;
       }
     }
 
@@ -42,27 +42,27 @@
     if (!t) return;
 
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
-      var v = t[el.getAttribute('data-i18n')];
+      var v = t[el.dataset.i18n];
       if (v !== undefined) el.textContent = v;
     });
 
     document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
-      var v = t[el.getAttribute('data-i18n-aria')];
+      var v = t[el.dataset.i18nAria];
       if (v !== undefined) el.setAttribute('aria-label', v);
     });
 
     document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
-      var v = t[el.getAttribute('data-i18n-title')];
+      var v = t[el.dataset.i18nTitle];
       if (v !== undefined) el.setAttribute('title', v);
     });
 
     document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
-      var v = t[el.getAttribute('data-i18n-placeholder')];
+      var v = t[el.dataset.i18nPlaceholder];
       if (v !== undefined) el.setAttribute('placeholder', v);
     });
 
     document.querySelectorAll('.lang-btn').forEach(function (btn) {
-      var isActive = btn.getAttribute('data-lang') === lang;
+      var isActive = btn.dataset.lang === lang;
       btn.classList.toggle('lang-btn--active', isActive);
       btn.setAttribute('aria-pressed', isActive);
     });
@@ -73,7 +73,7 @@
 
     document.querySelectorAll('.lang-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        var lang = btn.getAttribute('data-lang');
+        var lang = btn.dataset.lang;
         setPreferred(lang);
         applyLang(lang);
       });
