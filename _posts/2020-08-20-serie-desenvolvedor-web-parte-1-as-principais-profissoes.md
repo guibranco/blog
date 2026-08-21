@@ -4,6 +4,8 @@ title: "Série: Desenvolvedor web. Parte 1: As principais profissões"
 description: "Entenda as diferenças entre desenvolvedor web, programador, analista, UX, front-end, back-end, mobile, QA, fullstack e DevOps — o guia para quem quer começar na área."
 date: 2020-08-20
 categories: [Career]
+subcategories:
+  - "Career/Getting Started"
 tags: [analista, backend, carreira, desenvolvedor, devsecops, front-end, frontend, fullstack, mobile, programador, qa, ux, web]
 reading_time: 6
 image: /assets/img/posts/developer-desktop.jpg

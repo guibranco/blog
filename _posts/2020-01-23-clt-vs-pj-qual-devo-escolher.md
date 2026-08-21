@@ -5,6 +5,8 @@ description: "As diferenças entre CLT, PJ e MEI para quem trabalha com tecnolog
 date: 2020-01-23
 last_modified_at: 2026-08-19
 categories: [Career]
+subcategories:
+  - "Career/Freelancing"
 tags: [clt, pj, mei, carreira, financeiro, impostos, simples-nacional, fator-r, inss, irpf, fgts, pejotizacao, salario, ti, desenvolvedor]
 reading_time: 24
 cover: /assets/img/posts/clt-pj-mei-2026.svg

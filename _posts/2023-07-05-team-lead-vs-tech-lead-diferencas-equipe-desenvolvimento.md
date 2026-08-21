@@ -4,6 +4,8 @@ title: "Team Lead vs Tech Lead: entendendo as diferenças em uma equipe de desen
 description: "Team Lead e Tech Lead não são a mesma coisa. Entenda as responsabilidades, habilidades e como esses dois papéis se complementam em uma equipe de desenvolvimento de software."
 date: 2023-07-05
 categories: [Career]
+subcategories:
+  - "Career/Leadership"
 tags: [team-lead, tech-lead, lideranca, carreira, gestao-de-pessoas, engenharia-de-software]
 reading_time: 6
 cover: /assets/img/posts/team-lead-vs-tech-lead.svg

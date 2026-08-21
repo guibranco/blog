@@ -4,6 +4,8 @@ title: "Tem idade para começar a aprender programação?"
 description: "Não tem idade para começar, porém é necessário atentar-se a alguns fatos sobre o mercado, salários e senioridade antes de tomar a decisão."
 date: 2023-01-22
 categories: [Career]
+subcategories:
+  - "Career/Getting Started"
 tags: [aprender, carreira, comecar, estudar, idade, programacao, mercado-de-trabalho, senioridade, salario]
 reading_time: 3
 image: /assets/img/posts/too-old.jpg

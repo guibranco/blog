@@ -5,6 +5,8 @@ title: "How Betting Odds Work — From Probability to Arbitrage Strategy"
 description: "Understand how odds work on Bet365, the three formats (decimal, fractional and American), how they reflect probability, and how to spot a sure bet using the arbitrage strategy."
 date: 2025-07-17
 categories: [Investments]
+subcategories:
+  - "Investments/Betting & Odds"
 tags: [apostas, bet365, odds, arbitrage, probabilidade, futebol, esportes, sure-bet, matematica-financeira]
 reading_time: 6
 cover: /assets/img/posts/betting-odds-arbitrage.svg
