@@ -8,6 +8,14 @@
       slug: working-abroad
       redirect_from:
         - /categorias/career/trabalho-no-exterior/
+    - name: "Getting Started"
+      slug: getting-started
+    - name: "Job Market"
+      slug: job-market
+    - name: Freelancing
+      slug: freelancing
+    - name: Leadership
+      slug: leadership
 - name: Coding
   slug: coding
   icon: "fas fa-code"
@@ -66,4 +74,12 @@
 - name: Investments
   slug: investments
   icon: "fas fa-chart-line"
-  subcategories: []
+  subcategories:
+    - name: "Getting Started"
+      slug: getting-started
+    - name: "Financial Independence"
+      slug: financial-independence
+    - name: Resources
+      slug: resources
+    - name: "Betting & Odds"
+      slug: betting-odds

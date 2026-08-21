@@ -4,6 +4,8 @@ title: "Independência Financeira: os primeiros passos"
 description: "Um guia prático sobre reserva de emergência, reserva de oportunidade, aposentadoria e investimentos — com dados reais do mercado e experiências pessoais de quem percorreu esse caminho."
 date: 2026-05-22
 categories: [Investments]
+subcategories:
+  - "Investments/Financial Independence"
 tags: [independencia-financeira, reserva-de-emergencia, aposentadoria, investimentos, lci, lca, tesouro-direto, previdencia-privada, renda-fixa, renda-variavel, fiis, criptomoedas, educacao-financeira]
 reading_time: 14
 cover: /assets/img/posts/independencia-financeira.svg

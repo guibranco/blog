@@ -5,6 +5,8 @@ description: "Como calcular o valor hora a cobrar pelo seu trabalho como desenvo
 date: 2020-04-21
 last_modified_at: 2026-08-19
 categories: [Career]
+subcategories:
+  - "Career/Freelancing"
 tags: [freelancer, carreira, salario, desenvolvedor, financeiro, pj, valor-hora, gestao, ti, mercado-de-trabalho]
 reading_time: 13
 cover: /assets/img/posts/quanto-cobrar-2026.svg

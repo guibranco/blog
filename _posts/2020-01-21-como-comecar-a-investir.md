@@ -4,6 +4,8 @@ title: "Como começar a investir"
 description: "Dicas essenciais para quem quer dar os primeiros passos no mundo dos investimentos — renda fixa, renda variável, perfil de investidor, diversificação e as siglas do mercado financeiro."
 date: 2020-01-21
 categories: [Investments]
+subcategories:
+  - "Investments/Getting Started"
 tags: [investimento, investir, iniciante, renda-fixa, renda-variavel, cdb, tesouro-direto, acoes, fiis, educacao-financeira, poupanca, diversificacao]
 reading_time: 5
 image: /assets/img/posts/stock-exchange-counter.jpg
