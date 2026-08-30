@@ -843,7 +843,7 @@ Não alugamos carro em nenhum momento — **usamos exclusivamente o Bolt** (e o 
 
 <div class="callout callout-tip">
   <div class="callout-label">Quanto custaria uma versão mais econômica</div>
-  Com as mesmas 7 noites, mas dividindo quarto o tempo todo (≈ € 470 em vez de € 685), sem os € 26 do passeio perdido e com consumo noturno moderado (≈ € 150 em vez de € 338), a mesma viagem sairia por <strong>≈ € 1.400</strong>, ou <strong>≈ € 1.117 sem os voos</strong>. Malta não é um destino barato como a Albânia, mas também não precisa custar € 1.900.
+  Com as mesmas 7 noites, mas dividindo quarto o tempo todo (≈ € 470 em vez de € 685), sem os € 26 do passeio perdido e com consumo noturno moderado (≈ € 150 em vez de € 338), a mesma viagem sairia por <strong>≈ € 1.502</strong>, ou <strong>≈ € 1.219 sem os voos</strong>. Malta não é um destino barato como a Albânia, mas também não precisa custar € 1.900.
 </div>
 
 <div class="divider">· · ·</div>
