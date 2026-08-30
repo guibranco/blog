@@ -44,7 +44,11 @@ module Jekyll
         'layout' => 'category',
         'category' => name,
         'permalink' => "/categorias/#{slug}/",
-        'pagination' => { 'enabled' => true, 'category' => name }
+        # offset: 0 overrides the site-wide pagination.offset (set to 1 in
+        # _config.yml only so the homepage can show the newest post as its
+        # standalone "Destaque" card). Category pages have no such card, so
+        # inheriting offset: 1 would silently drop each category's newest post.
+        'pagination' => { 'enabled' => true, 'category' => name, 'offset' => 0 }
       )
       page.data['redirect_from'] = redirect_from if redirect_from
       page
