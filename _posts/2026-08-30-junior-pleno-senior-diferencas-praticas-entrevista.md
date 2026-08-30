@@ -77,7 +77,7 @@ E ele escreve. E o código funciona. Roda no navegador, mostra um quadradinho co
 ```javascript
 const cores = ["#e63946", "#457b9d", "#2a9d8f" /* ... 365 cores ... */];
 
-const inicioDoAno = new Date(new Date().getFullYear(), 0, 0);
+const inicioDoAno = new Date(new Date().getFullYear(), 0, 1);
 const diferenca = new Date() - inicioDoAno;
 const diaDoAno = Math.floor(diferenca / 86400000);
 
@@ -306,11 +306,11 @@ O que é raro é **lembrar de perguntar**. E você não lembra porque leu — vo
 
 Se senioridade se constrói com vivência, a pergunta óbvia é: **quantos anos?**
 
-A resposta honesta é que depende brutalmente do tipo de empresa — e essa variação é onde muita gente se perde na hora de negociar carreira.
+A resposta honesta é que depende brutalmente do tipo de empresa. O gráfico abaixo não mede quanto tempo você fica em cada nível — mede **em que ponto da carreira o título costuma chegar**. É essa leitura que expõe a distorção: a barra de "sênior" da coluna de retenção cai exatamente em cima da barra de "pleno" da big tech.
 
 <img
   src="{{ site.baseurl }}/assets/img/posts/senioridade-tempo-promocao.svg"
-  alt="Tempo típico até a próxima promoção em big tech, no mercado brasileiro e em promoções de retenção"
+  alt="Linha do tempo de carreira: com quantos anos de experiência acumulada cada título costuma chegar em big tech, no mercado brasileiro e em empresas que promovem para reter"
   style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
 
 ### O padrão das grandes empresas
@@ -352,7 +352,7 @@ Repare que a coluna que importa não é a do meio. É a da direita. Os anos são
 
 Agora a parte que ninguém coloca no material institucional.
 
-Em empresas pequenas, consultorias de body shop e lugares que pagam abaixo do mercado, existe um padrão muito consistente: **promoção rápida com aumento pequeno**. A pessoa entra como júnior, e em seis meses a um ano vira "pleno". Em mais um ano, "sênior". Com dois ou três anos de carreira, cartão de visita de sênior.
+Em empresas pequenas, consultorias de body shop e lugares que pagam abaixo do mercado, existe um padrão muito consistente: **promoção rápida com aumento pequeno**. A pessoa entra como júnior e, com menos de um ano de carreira, já é "pleno". Antes de completar três, tem cartão de visita de sênior — no mesmo ponto da linha do tempo em que uma multinacional ainda estaria assinando a promoção para pleno.
 
 Isso raramente é generosidade. É retenção barata, e a matemática é simples:
 
