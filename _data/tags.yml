@@ -90,6 +90,8 @@
     - /tags/bancos/
 - name: bastidores
   slug: bastidores
+- name: beach
+  slug: beach
 - name: beach-club
   slug: beach-club
 - name: bet365
@@ -106,8 +108,14 @@
   slug: blogs
   redirect_from:
     - /tags/blogs/
+- name: blue-grotto
+  slug: blue-grotto
+- name: blue-lagoon
+  slug: blue-lagoon
 - name: boas-praticas
   slug: boas-praticas
+- name: bolt
+  slug: bolt
 - name: bootcamp
   slug: bootcamp
 - name: brasil
@@ -184,6 +192,8 @@
   slug: comecar
   redirect_from:
     - /tags/comecar/
+- name: comino
+  slug: comino
 - name: composer
   slug: composer
   redirect_from:
@@ -232,6 +242,8 @@
   slug: custo-beneficio
 - name: custo-de-vida
   slug: custo-de-vida
+- name: custos-reais
+  slug: custos-reais
 - name: dados
   slug: dados
   redirect_from:
@@ -438,6 +450,8 @@
   slug: gitpython
 - name: golang
   slug: golang
+- name: golden-bay
+  slug: golden-bay
 - name: gsm
   slug: gsm
   redirect_from:
@@ -560,6 +574,8 @@
   slug: kafka
 - name: kestrel
   slug: kestrel
+- name: kiwi
+  slug: kiwi
 - name: ksamil
   slug: ksamil
 - name: lavinmq
@@ -622,14 +638,20 @@
   slug: londres
 - name: mailhog
   slug: mailhog
+- name: malta
+  slug: malta
 - name: mariadb
   slug: mariadb
   redirect_from:
     - /tags/mariadb/
+- name: marsaskala
+  slug: marsaskala
 - name: matematica-financeira
   slug: matematica-financeira
 - name: md5
   slug: md5
+- name: mediterraneo
+  slug: mediterraneo
 - name: mei
   slug: mei
   redirect_from:
@@ -680,6 +702,8 @@
   slug: nginx
   redirect_from:
     - /tags/nginx/
+- name: nightlife
+  slug: nightlife
 - name: no-sql
   slug: no-sql
 - name: nodejs
@@ -716,6 +740,8 @@
   slug: orm
 - name: outsurance
   slug: outsurance
+- name: paceville
+  slug: paceville
 - name: pandemia
   slug: pandemia
 - name: pejotizacao
@@ -762,6 +788,8 @@
   slug: poupanca
 - name: pps-number
   slug: pps-number
+- name: praia
+  slug: praia
 - name: previdencia-privada
   slug: previdencia-privada
 - name: primary-key
@@ -902,6 +930,8 @@
   slug: sincronizacao
 - name: sistemas-financeiros
   slug: sistemas-financeiros
+- name: sliema
+  slug: sliema
 - name: sms
   slug: sms
   redirect_from:
@@ -928,6 +958,10 @@
   slug: ssl
   redirect_from:
     - /tags/ssl/
+- name: st-julians
+  slug: st-julians
+- name: st-peters-pool
+  slug: st-peters-pool
 - name: startups
   slug: startups
 - name: stress-test
@@ -1034,6 +1068,8 @@
   slug: versioning
 - name: viagem
   slug: viagem
+- name: vida-noturna
+  slug: vida-noturna
 - name: visto-de-trabalho
   slug: visto-de-trabalho
 - name: visual-studio
