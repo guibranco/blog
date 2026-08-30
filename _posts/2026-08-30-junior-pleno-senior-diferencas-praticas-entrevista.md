@@ -162,9 +162,9 @@ O que ele ainda não fez: olhou para as bordas do calendário e do planeta.
 O candidato C começa exatamente igual ao pleno. Faz as mesmas duas perguntas, na mesma ordem, quase com as mesmas palavras. E aí continua.
 
 > "E o **ano bissexto**? Se a paleta tem 365 cores e o índice é o dia do ano, em 2028 tudo depois de 29 de fevereiro anda uma casa. O 1º de março passa a exibir a cor que era do dia 28. E o dia 29 em si — ele tem cor própria, ou herda alguma?"
-
+>
 > "E **fuso horário**? Dois usuários podem abrir a página exatamente no mesmo instante e estarem em dias diferentes. Alguém em Auckland às 10h da manhã e alguém no Havaí no mesmo segundo estão separados por um dia inteiro de calendário. Qual dos dois está 'certo'? A cor é do dia **do servidor**, do dia **do usuário**, ou do dia **de um fuso de referência do negócio**?"
-
+>
 > "Se a resposta for 'fuso do usuário', então não posso cachear essa página numa CDN sem cuidado — o HTML gerado às 23h59 em Lisboa está errado para quem abre às 00h01. Se for 'fuso do servidor', preciso escrever isso na UI, porque senão vou ter ticket de suporte de gente dizendo que a cor não mudou à meia-noite."
 
 Aqui está a diferença que não cabe em currículo. O sênior não sabe mais JavaScript que o pleno. Ele já **levou porrada** de ano bissexto, de horário de verão, de cache que serviu conteúdo de ontem, de bug que só reproduzia entre 21h e 00h para usuário do Acre.
@@ -176,7 +176,7 @@ E tem mais uma coisa que ele viu, e que quase ninguém verbaliza:
 const diaDoAno = Math.floor(diferenca / 86400000);
 ```
 
-Nem todo dia tem 86.400.000 milissegundos. Em países com horário de verão — Irlanda, Portugal, boa parte da Europa — existe um dia por ano com 23 horas e outro com 25. Uma divisão por constante acumula um deslocamento de meio dia e, dependendo da hora do acesso, muda a cor um dia inteiro antes ou depois. É o tipo de bug que aparece uma vez por ano, some sozinho, e ninguém consegue reproduzir.
+Nem todo dia tem 86.400.000 milissegundos. Em países com horário de verão — Irlanda, Portugal, boa parte da Europa — existe um dia por ano com 23 horas e outro com 25. O desvio que isso introduz é de exatamente uma hora, 3.600.000 milissegundos: nada de dramático em si. O problema é o `Math.floor`. Uma hora de defasagem é suficiente para o índice cair na casa anterior, e o efeito não é uma hora de erro — é **um dia inteiro de cor errada**. Na Irlanda, entre o último domingo de março e o último de outubro, quem abrir a página entre meia-noite e 1h da manhã continua vendo a cor de ontem. É o tipo de bug que só existe numa janela de 60 minutos, some sozinho quando o relógio volta, e ninguém consegue reproduzir às 15h de uma quarta-feira.
 
 A versão do sênior troca aritmética por calendário:
 
@@ -313,6 +313,11 @@ A resposta honesta é que depende brutalmente do tipo de empresa. O gráfico aba
   alt="Linha do tempo de carreira: com quantos anos de experiência acumulada cada título costuma chegar em big tech, no mercado brasileiro e em empresas que promovem para reter"
   style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
 
+<div class="callout callout-tip">
+  <div class="callout-label">De onde vêm esses números</div>
+  As faixas de big tech vêm das trilhas públicas de nivelamento citadas nas referências, e as do mercado brasileiro, de levantamentos de recrutamento também referenciados. Já a linha de <strong>promoção de retenção</strong> e os percentuais de aumento citados adiante são <strong>estimativas ilustrativas</strong>, baseadas em padrão observado — não em pesquisa publicada. Trate-as como ordem de grandeza, não como dado.
+</div>
+
 ### O padrão das grandes empresas
 
 Em empresas grandes, com trilha de carreira formalizada e comitê de calibração, os números são razoavelmente estáveis. No Google, o nível de entrada (L3) costuma durar entre um ano e meio e dois anos — ficar muito além disso é lido internamente como sinal de baixa performance. O L4, o degrau seguinte, corresponde grosso modo a algo entre um e cinco anos de mercado, e o título de Senior Software Engineer (L5) normalmente é associado a uma faixa de seis a nove anos de experiência. Meta, Amazon e Microsoft operam com trilhas diferentes no nome, mas com ordens de grandeza muito parecidas.
@@ -354,7 +359,7 @@ Agora a parte que ninguém coloca no material institucional.
 
 Em empresas pequenas, consultorias de body shop e lugares que pagam abaixo do mercado, existe um padrão muito consistente: **promoção rápida com aumento pequeno**. A pessoa entra como júnior e, com menos de um ano de carreira, já é "pleno". Antes de completar três, tem cartão de visita de sênior — no mesmo ponto da linha do tempo em que uma multinacional ainda estaria assinando a promoção para pleno.
 
-Isso raramente é generosidade. É retenção barata, e a matemática é simples:
+Isso raramente é generosidade. É retenção barata, e a matemática — com os números arredondados a título de ilustração — é simples:
 
 <div class="providers-grid">
   <div class="provider-card">
