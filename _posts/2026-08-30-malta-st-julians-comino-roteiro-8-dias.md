@@ -554,7 +554,7 @@ O voo deveria decolar às 20h de Malta e pousar às 23h em Dublin. **Decolamos �
 
 <div class="callout callout-warn">
   <div class="callout-label">EU261: por que não deu direito a compensação</div>
-  Pela regulamentação europeia <strong>EU261</strong>, o que conta para compensação financeira <strong>não é o atraso na decolagem, e sim o atraso na chegada</strong> ao destino final — e o gatilho é de <strong>3 horas ou mais</strong>. Com 1h11 de atraso na chegada, o voo ficou bem abaixo do limite. Só teria gerado direito se tivéssemos pousado depois das 02h00.
+  Pela regulamentação europeia <strong>EU261</strong>, o que conta para compensação financeira <strong>não é o atraso na decolagem, e sim o atraso na chegada</strong> ao destino final — e o gatilho é de <strong>3 horas ou mais</strong>. Com 1h11 de atraso na chegada, o voo ficou bem abaixo do limite. A elegibilidade para compensação começa com um atraso na chegada de três horas ou mais, sujeita às demais condições do EU261.
 </div>
 
 <div class="photo-gallery">
