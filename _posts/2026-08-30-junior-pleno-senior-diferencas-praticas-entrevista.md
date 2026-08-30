@@ -8,7 +8,8 @@ subcategories:
   - "Career/Seniority"
 tags: [senioridade, entrevista-tecnica, carreira-dev, contratacao, junior-pleno-senior, mercado-de-trabalho]
 reading_time: 18
-image: /assets/img/posts/junior-pleno-senior-entrevista.svg
+cover: /assets/img/posts/junior-pleno-senior-entrevista.svg
+image: /assets/img/posts/junior-pleno-senior-entrevista.png
 medium_tags: [carreira, programacao, entrevista, senioridade, tecnologia]
 ---
 
