@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 1000" width="680" height="1000" role="img" aria-label="Fluxograma comparando o caminho de raciocínio de júnior, pleno e sênior diante da mesma demanda">
+  <style>
+    .hd{font-family:'JetBrains Mono',Consolas,monospace;font-size:15px;letter-spacing:1.5px;fill:#faf9f6}
+    .bx{font-family:'Source Serif 4',Georgia,serif;font-size:17px;fill:#1a1714}
+    .nm{font-family:'JetBrains Mono',Consolas,monospace;font-size:13px;fill:#8a8078}
+    .tg{font-family:'JetBrains Mono',Consolas,monospace;font-size:12px;fill:#faf9f6;letter-spacing:1px}
+  </style>
+  <rect width="680" height="1000" fill="#f2ede6"/>
+
+  <rect x="8" y="8" width="664" height="34" rx="4" fill="#8a8078"/>
+  <text class="hd" x="24" y="30">CANDIDATO A — JÚNIOR</text>
+  <text class="tg" x="560" y="30">4 ETAPAS</text>
+
+  <rect x="8" y="54" width="664" height="42" rx="4" fill="#faf9f6" stroke="#e2dbd0"/>
+  <text class="nm" x="24" y="80">01</text>
+  <text class="bx" x="58" y="81">Recebe a demanda e a trata como enunciado</text>
+  <line x1="34" y1="96" x2="34" y2="108" stroke="#8a8078" stroke-width="1.5"/>
+
+  <rect x="8" y="108" width="664" height="42" rx="4" fill="#faf9f6" stroke="#e2dbd0"/>
+  <text class="nm" x="24" y="134">02</text>
+  <text class="bx" x="58" y="135">Escolhe a solução óbvia mentalmente</text>
+  <line x1="34" y1="150" x2="34" y2="162" stroke="#8a8078" stroke-width="1.5"/>
+
+  <rect x="8" y="162" width="664" height="42" rx="4" fill="#faf9f6" stroke="#e2dbd0"/>
+  <text class="nm" x="24" y="188">03</text>
+  <text class="bx" x="58" y="189">Escreve o código — funciona no happy path</text>
+  <line x1="34" y1="204" x2="34" y2="216" stroke="#8a8078" stroke-width="1.5"/>
+
+  <rect x="8" y="216" width="664" height="42" rx="4" fill="#f7ecec" stroke="#dd9999"/>
+  <text class="nm" x="24" y="242">04</text>
+  <text class="bx" x="58" y="243">Entrega. 5 decisões de produto tomadas em silêncio</text>
+
+  <rect x="8" y="286" width="664" height="34" rx="4" fill="#b85c00"/>
+  <text class="hd" x="24" y="308">CANDIDATO B — PLENO</text>
+  <text class="tg" x="560" y="308">5 ETAPAS</text>
+
+  <rect x="8" y="332" width="664" height="42" rx="4" fill="#faf9f6" stroke="#e2dbd0"/>
+  <text class="nm" x="24" y="358">01</text>
+  <text class="bx" x="58" y="359">Recebe a demanda e identifica a ambiguidade</text>
+  <line x1="34" y1="374" x2="34" y2="386" stroke="#b85c00" stroke-width="1.5"/>
+
+  <rect x="8" y="386" width="664" height="42" rx="4" fill="#fdf3e7" stroke="#b85c00"/>
+  <text class="nm" x="24" y="412">02</text>
+  <text class="bx" x="58" y="413">Pergunta: servidor ou cliente? Repete todo ano?</text>
+  <line x1="34" y1="428" x2="34" y2="440" stroke="#b85c00" stroke-width="1.5"/>
+
+  <rect x="8" y="440" width="664" height="42" rx="4" fill="#faf9f6" stroke="#e2dbd0"/>
+  <text class="nm" x="24" y="466">03</text>
+  <text class="bx" x="58" y="467">Define onde mora a fonte da verdade</text>
+  <line x1="34" y1="482" x2="34" y2="494" stroke="#b85c00" stroke-width="1.5"/>
+
+  <rect x="8" y="494" width="664" height="42" rx="4" fill="#faf9f6" stroke="#e2dbd0"/>
+  <text class="nm" x="24" y="520">04</text>
+  <text class="bx" x="58" y="521">Implementa com a arquitetura já decidida</text>
+  <line x1="34" y1="536" x2="34" y2="548" stroke="#b85c00" stroke-width="1.5"/>
+
+  <rect x="8" y="548" width="664" height="42" rx="4" fill="#faf9f6" stroke="#e2dbd0"/>
+  <text class="nm" x="24" y="574">05</text>
+  <text class="bx" x="58" y="575">Entrega alinhada. Bordas de calendário em aberto</text>
+
+  <rect x="8" y="618" width="664" height="34" rx="4" fill="#2d6a4f"/>
+  <text class="hd" x="24" y="640">CANDIDATO C — SÊNIOR</text>
+  <text class="tg" x="560" y="640">6 ETAPAS</text>
+
+  <rect x="8" y="664" width="664" height="42" rx="4" fill="#faf9f6" stroke="#e2dbd0"/>
+  <text class="nm" x="24" y="690">01</text>
+  <text class="bx" x="58" y="691">Faz as mesmas perguntas do pleno — sem pular nenhuma</text>
+  <line x1="34" y1="706" x2="34" y2="718" stroke="#2d6a4f" stroke-width="1.5"/>
+
+  <rect x="8" y="718" width="664" height="42" rx="4" fill="#e8f5ee" stroke="#2d6a4f"/>
+  <text class="nm" x="24" y="744">02</text>
+  <text class="bx" x="58" y="745">Ano bissexto: o índice desloca? 29/02 tem cor própria?</text>
+  <line x1="34" y1="760" x2="34" y2="772" stroke="#2d6a4f" stroke-width="1.5"/>
+
+  <rect x="8" y="772" width="664" height="42" rx="4" fill="#e8f5ee" stroke="#2d6a4f"/>
+  <text class="nm" x="24" y="798">03</text>
+  <text class="bx" x="58" y="799">Fuso: dia de quem? Servidor, usuário ou referência?</text>
+  <line x1="34" y1="814" x2="34" y2="826" stroke="#2d6a4f" stroke-width="1.5"/>
+
+  <rect x="8" y="826" width="664" height="42" rx="4" fill="#faf9f6" stroke="#e2dbd0"/>
+  <text class="nm" x="24" y="852">04</text>
+  <text class="bx" x="58" y="853">Consequência: cache, CDN e o que a UI precisa dizer</text>
+  <line x1="34" y1="868" x2="34" y2="880" stroke="#2d6a4f" stroke-width="1.5"/>
+
+  <rect x="8" y="880" width="664" height="42" rx="4" fill="#faf9f6" stroke="#e2dbd0"/>
+  <text class="nm" x="24" y="906">05</text>
+  <text class="bx" x="58" y="907">Devolve as decisões ao PO — documentadas, não supostas</text>
+  <line x1="34" y1="922" x2="34" y2="934" stroke="#2d6a4f" stroke-width="1.5"/>
+
+  <rect x="8" y="934" width="664" height="42" rx="4" fill="#faf9f6" stroke="#e2dbd0"/>
+  <text class="nm" x="24" y="960">06</text>
+  <text class="bx" x="58" y="961">Implementa. O código já nasce com os casos-limite cobertos</text>
+</svg>

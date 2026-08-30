@@ -1,0 +1,546 @@
+---
+layout: post
+title: "Júnior, pleno ou sênior: a pergunta de entrevista que separa os três"
+description: "Uma demanda fictícia de um PO, três candidatos e três respostas completamente diferentes. O que realmente avaliamos em uma entrevista técnica — e por que senioridade não é o tamanho da sua stack."
+date: 2026-08-30
+categories: [Career]
+subcategories:
+  - "Career/Seniority"
+tags: [senioridade, entrevista-tecnica, carreira-dev, contratacao, junior-pleno-senior, mercado-de-trabalho]
+reading_time: 18
+cover: /assets/img/posts/junior-pleno-senior-entrevista.svg
+image: /assets/img/posts/junior-pleno-senior-entrevista.png
+medium_tags: [carreira, programacao, entrevista, senioridade, tecnologia]
+---
+
+<p class="lead">Três candidatos entram na mesma sala virtual, recebem exatamente a mesma demanda e têm o mesmo tempo para responder. Nenhum deles precisa escrever uma linha de código para que eu saiba, em menos de cinco minutos, em que nível cada um está. Este artigo é sobre o que acontece nesses cinco minutos.</p>
+
+Existe uma crença muito difundida — e muito confortável — de que senioridade é um inventário: quantas linguagens você sabe, quantos frameworks você já usou, quantos certificados estão pendurados no LinkedIn. É confortável porque é acionável: basta estudar mais uma ferramenta e subir um degrau.
+
+O problema é que não funciona assim. Já entrevistei gente com quinze tecnologias no currículo que travou na primeira pergunta ambígua, e gente com uma stack modesta que dissecou o problema como cirurgião. A diferença nunca esteve no inventário. Esteve na **vivência** — na quantidade de vezes que a pessoa já viu algo dar errado e aprendeu a farejar isso antes de acontecer.
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">01</div>
+  <div class="section-title-wrap"><h2>Antes de tudo: júnior não é estudante</h2></div>
+</div>
+
+Preciso começar por aqui porque é a confusão mais cara do mercado brasileiro.
+
+**Você não é desenvolvedor júnior porque terminou um bootcamp.** Você não é júnior porque fez três projetos no GitHub, porque concluiu a graduação ou porque assistiu a 200 horas de curso. Enquanto ninguém te contratou para exercer a função, você é **estudante** — e isso não é ofensa nenhuma, é apenas a descrição correta do estágio.
+
+Júnior é um **cargo**. Existe a partir do momento em que uma empresa assina um contrato, coloca você dentro de um time, te dá acesso ao repositório de produção e passa a depender de você para entregar valor. Antes disso existe estudo, existe portfólio, existe potencial — mas não existe senioridade, porque senioridade se mede em situações reais, e situações reais só acontecem em produção.
+
+<div class="callout callout-tip">
+  <div class="callout-label">Por que essa distinção importa</div>
+  Porque muita gente se frustra achando que "está estagnada no júnior" quando na verdade ainda não entrou. São problemas diferentes, com soluções diferentes. Quem ainda não foi contratado precisa de <strong>acesso</strong>. Quem já foi contratado precisa de <strong>exposição a problemas maiores</strong>. Confundir os dois faz a pessoa estudar a sexta linguagem quando deveria estar aplicando para vagas.
+</div>
+
+E o inverso também vale: **um júnior contratado é um profissional**, não um estagiário glorificado. Ele entra em sprint, tem demanda com prazo, participa de code review, quebra produção e conserta produção. A diferença entre ele e o pleno não é "um trabalha e o outro aprende" — os dois trabalham e os dois aprendem. A diferença é o **raio de autonomia**: o tamanho do problema que a pessoa consegue receber, cortar em pedaços e resolver sem que alguém precise cortar por ela.
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">02</div>
+  <div class="section-title-wrap"><h2>O cenário: a demanda que eu levo para a entrevista</h2></div>
+</div>
+
+Eu entro na sala vestindo o chapéu de PO. Não sou o entrevistador técnico neste momento — sou o cara que acabou de sair de uma reunião com o cliente e trouxe um pedido. E o pedido é este:
+
+<div class="callout callout-warn">
+  <div class="callout-label">A demanda, exatamente como chega</div>
+  "Nosso site precisa exibir um quadrado de 10px por 10px com uma cor, a cada dia do ano."
+  <br><br>
+  <strong>Como você planeja executar essa tarefa?</strong>
+</div>
+
+É isso. Uma frase. Vaga de propósito, mas não injusta — é exatamente o nível de detalhe que uma demanda real chega na sua mesa numa terça-feira qualquer.
+
+Repare no verbo que eu uso: **planeja**. Não pedi para implementar. Não pedi pseudocódigo. Pedi um plano. E a primeira coisa que observo é se a pessoa percebeu isso.
+
+Agora, os três candidatos.
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">03</div>
+  <div class="section-title-wrap"><h2>Candidato A — o júnior: o editor já está aberto</h2></div>
+</div>
+
+O candidato A não hesita. É quase admirável a velocidade. Em quinze segundos ele já está descrevendo a solução:
+
+> "Tranquilo. Eu faço uma `div` de 10 por 10 com CSS, pego a data atual com `new Date()`, calculo o dia do ano, e uso isso como índice num array de cores. Se você quiser eu já escrevo aqui."
+
+E ele escreve. E o código funciona. Roda no navegador, mostra um quadradinho colorido, muda de cor quando você mexe o relógio da máquina. Tecnicamente correto:
+
+```javascript
+const cores = ["#e63946", "#457b9d", "#2a9d8f" /* ... 365 cores ... */];
+
+const inicioDoAno = new Date(new Date().getFullYear(), 0, 1);
+const diferenca = new Date() - inicioDoAno;
+const diaDoAno = Math.floor(diferenca / 86400000);
+
+document.querySelector("#box").style.background = cores[diaDoAno];
+```
+
+Não há nada de burro nesse código. É a solução óbvia, direta, entregue rápido. O júnior fez exatamente o que foi pedido — e é justamente esse o ponto.
+
+**O que ele não fez:** não perguntou nada. Aceitou a demanda como especificação completa. Assumiu, sem verbalizar, que:
+
+- a cor pode ser diferente para cada usuário (está no cliente);
+- a cor pode mudar entre um ano e outro;
+- todo ano tem 365 dias;
+- o dia do usuário é o dia do relógio da máquina dele;
+- um dia tem sempre exatamente 86.400.000 milissegundos.
+
+Cada uma dessas cinco suposições é uma decisão de produto disfarçada de detalhe técnico. Ele tomou todas as cinco sozinho, em silêncio, e nenhuma delas foi validada com quem trouxe a demanda.
+
+<div class="callout callout-warn">
+  <div class="callout-label">O que isso me diz como avaliador</div>
+  Não me diz que ele é ruim. Me diz que ele ainda enxerga a demanda como <strong>enunciado de exercício</strong> — algo que tem uma resposta certa esperando ser digitada. É exatamente o reflexo que a faculdade, os cursos e o LeetCode treinam durante anos. Desaprender isso é literalmente o trabalho dos primeiros anos de carreira.
+</div>
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">04</div>
+  <div class="section-title-wrap"><h2>Candidato B — o pleno: duas perguntas que mudam a arquitetura</h2></div>
+</div>
+
+O candidato B fica em silêncio por uns segundos. Depois vira a mesa:
+
+> "Antes de pensar em código, tenho duas dúvidas. Primeira: **a cor precisa ser a mesma para todos os usuários?** Se sim, essa definição tem que sair do servidor, porque se eu gerar no cliente cada navegador pode chegar num resultado diferente. Segunda: **em 15 de março do ano que vem, a cor tem que ser a mesma de 15 de março deste ano?** Se sim, isso não é um cálculo, é um dado — precisa estar persistido em algum lugar."
+
+Estas duas perguntas não são detalhes. Elas decidem a arquitetura inteira antes de qualquer linha ser escrita:
+
+<table class="compare-table">
+  <thead>
+    <tr>
+      <th>Resposta do PO</th>
+      <th>Consequência arquitetural</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cor igual para todos</td>
+      <td>Fonte da verdade no servidor (ou paleta fixa distribuída no bundle). Não pode ser aleatória no cliente.</td>
+    </tr>
+    <tr>
+      <td>Cor pode variar por usuário</td>
+      <td>Cliente resolve sozinho. Mas então "cor do dia" vira "cor do dia <em>de quem olha</em>" — e isso muda o texto da UI.</td>
+    </tr>
+    <tr>
+      <td>Repete todo ano</td>
+      <td>Paleta versionada e persistida. É conteúdo, e conteúdo tem dono, tem migração e tem changelog.</td>
+    </tr>
+    <tr>
+      <td>Muda a cada ano</td>
+      <td>Função determinística com semente por ano. Precisa ser reprodutível para debug e para suporte.</td>
+    </tr>
+  </tbody>
+</table>
+
+O pleno entendeu a coisa mais importante da profissão: **ambiguidade na demanda não é problema do PO, é risco do time**. Ele não devolveu a demanda; ele a refinou. Fez as perguntas cujas respostas ele sabia que mudariam o desenho.
+
+O que ele ainda não fez: olhou para as bordas do calendário e do planeta.
+
+<div class="personal-story">
+  <div class="personal-story-label">
+    <i class="fas fa-user-circle"></i> Minha experiência — a virada do "faz" para o "por quê"
+  </div>
+  <p>A transição de júnior para pleno, na minha cabeça, tem uma data — não no calendário, mas num code review. Eu tinha entregue uma feature exatamente como pediram, e o tech lead comentou: "está certo, mas você não perguntou o que acontece quando o campo vem nulo, e ele vem nulo em 30% dos registros da base". Não era uma questão de sintaxe. Era que eu tinha entregue código sem entender o dado. A partir dali eu passei a abrir toda demanda pelo mesmo lado: primeiro os casos que quebram, depois a solução.</p>
+</div>
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">05</div>
+  <div class="section-title-wrap"><h2>Candidato C — o sênior: as perguntas que ninguém queria ouvir</h2></div>
+</div>
+
+O candidato C começa exatamente igual ao pleno. Faz as mesmas duas perguntas, na mesma ordem, quase com as mesmas palavras. E aí continua.
+
+> "E o **ano bissexto**? Se a paleta tem 365 cores e o índice é o dia do ano, em 2028 tudo depois de 29 de fevereiro anda uma casa. O 1º de março passa a exibir a cor que era do dia 28. E o dia 29 em si — ele tem cor própria, ou herda alguma?"
+>
+> "E **fuso horário**? Dois usuários podem abrir a página exatamente no mesmo instante e estarem em dias diferentes. Alguém em Auckland às 10h da manhã e alguém no Havaí no mesmo segundo estão separados por um dia inteiro de calendário. Qual dos dois está 'certo'? A cor é do dia **do servidor**, do dia **do usuário**, ou do dia **de um fuso de referência do negócio**?"
+>
+> "Se a resposta for 'fuso do usuário', então não posso cachear essa página numa CDN sem cuidado — o HTML gerado às 23h59 em Lisboa está errado para quem abre às 00h01. Se for 'fuso do servidor', preciso escrever isso na UI, porque senão vou ter ticket de suporte de gente dizendo que a cor não mudou à meia-noite."
+
+Aqui está a diferença que não cabe em currículo. O sênior não sabe mais JavaScript que o pleno. Ele já **levou porrada** de ano bissexto, de horário de verão, de cache que serviu conteúdo de ontem, de bug que só reproduzia entre 21h e 00h para usuário do Acre.
+
+E tem mais uma coisa que ele viu, e que quase ninguém verbaliza:
+
+```javascript
+// O bug silencioso do candidato A:
+const diaDoAno = Math.floor(diferenca / 86400000);
+```
+
+Nem todo dia tem 86.400.000 milissegundos. Em países com horário de verão — Irlanda, Portugal, boa parte da Europa — existe um dia por ano com 23 horas e outro com 25. O desvio que isso introduz é de exatamente uma hora, 3.600.000 milissegundos: nada de dramático em si. O problema é o `Math.floor`. Uma hora de defasagem é suficiente para o índice cair na casa anterior, e o efeito não é uma hora de erro — é **um dia inteiro de cor errada**. Na Irlanda, entre o último domingo de março e o último de outubro, quem abrir a página entre meia-noite e 1h da manhã continua vendo a cor de ontem. É o tipo de bug que só existe numa janela de 60 minutos, some sozinho quando o relógio volta, e ninguém consegue reproduzir às 15h de uma quarta-feira.
+
+A versão do sênior troca aritmética por calendário:
+
+```javascript
+// Chave de calendário explícita, no fuso que o negócio decidiu.
+function chaveDoDia(instante, fuso) {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: fuso,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(instante); // -> "2028-02-29"
+}
+
+const chave = chaveDoDia(new Date(), "Europe/Dublin").slice(5); // -> "02-29"
+const cor = paleta[chave] ?? paleta["02-28"]; // fallback explícito para bissexto
+```
+
+Repare no que mudou conceitualmente: o índice deixou de ser **um número sequencial** e passou a ser **uma chave de calendário**. Com isso, 29 de fevereiro deixa de deslocar o resto do ano, o horário de verão deixa de importar, e o comportamento do dia extra vira uma decisão explícita e visível no código — não um acidente.
+
+<div class="callout callout-tip">
+  <div class="callout-label">O detalhe que fecha a conta</div>
+  Perguntar sobre bissexto e fuso não é "viajar na maionese". São as duas únicas fontes de erro que <strong>não aparecem em teste</strong>: o ambiente de desenvolvimento roda num fuso só, e o ano bissexto acontece a cada quatro anos. Ou você prevê no planejamento, ou você descobre em produção — e o custo entre as duas coisas é de duas ordens de grandeza.
+</div>
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">06</div>
+  <div class="section-title-wrap"><h2>O fluxograma: como cada um percorre o mesmo problema</h2></div>
+</div>
+
+Colocando os três caminhos lado a lado, o padrão fica visível. Não é que um pense "melhor" — é que cada um **para em um ponto diferente** antes de começar a executar.
+
+<img
+  src="{{ site.baseurl }}/assets/img/posts/senioridade-fluxograma-tres-niveis.svg"
+  alt="Fluxograma: júnior chega ao código na etapa 3 de 4; o sênior, na etapa 6 de 6"
+  style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
+
+O júnior tem **quatro** etapas e chega ao código na terceira. O sênior tem **seis** e só chega ao código na última. Isso não significa que o sênior é mais lento — significa que ele gasta o tempo antes, e não depois, quando o custo do erro já multiplicou.
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">07</div>
+  <div class="section-title-wrap"><h2>As camadas do problema — e até onde cada um desce</h2></div>
+</div>
+
+Toda demanda tem camadas. A superfície é o que foi pedido; embaixo dela existem regras de negócio, estado, tempo, entrega e manutenção. Senioridade, na prática, é a **profundidade média** que a pessoa alcança sozinha, sem que alguém puxe.
+
+<img
+  src="{{ site.baseurl }}/assets/img/posts/senioridade-camadas-problema.svg"
+  alt="As seis camadas da mesma demanda e até qual delas cada nível desce sozinho"
+  style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
+
+Note uma coisa importante: **as camadas 1 e 2 são idênticas para os três**. O código do júnior não é pior. É que ele só existe nas duas primeiras camadas — e as quatro de baixo continuam lá, esperando alguém.
+
+<table class="compare-table">
+  <thead>
+    <tr>
+      <th>Pergunta levantada espontaneamente</th>
+      <th>Jr</th>
+      <th>Pl</th>
+      <th>Sr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Qual o tamanho e onde fica o box?</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+    <tr><td>Todos os usuários veem a mesma cor?</td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+    <tr><td>A cor de um dia repete no ano seguinte?</td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+    <tr><td>De onde vem a paleta — dado ou função?</td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+    <tr><td>O que acontece em 29 de fevereiro?</td><td><span class="cross">✗</span></td><td><span class="partial">~</span></td><td><span class="check">✓</span></td></tr>
+    <tr><td>O "dia" é de qual fuso horário?</td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td></tr>
+    <tr><td>Horário de verão quebra o cálculo?</td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td></tr>
+    <tr><td>Cache/CDN serve conteúdo de ontem?</td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td></tr>
+    <tr><td>Contraste/acessibilidade da cor sorteada</td><td><span class="cross">✗</span></td><td><span class="partial">~</span></td><td><span class="check">✓</span></td></tr>
+    <tr><td>Como o suporte vai debugar um relato?</td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td></tr>
+  </tbody>
+</table>
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">08</div>
+  <div class="section-title-wrap"><h2>Senioridade é vivência, não inventário</h2></div>
+</div>
+
+Aqui está o ponto central do artigo, e vou ser direto: **nenhuma das perguntas do sênior exige conhecimento de framework.**
+
+Ano bissexto é ensinado no ensino fundamental. Fuso horário é ensinado no ensino fundamental. `Intl.DateTimeFormat` está na documentação. Nada disso é conhecimento raro.
+
+O que é raro é **lembrar de perguntar**. E você não lembra porque leu — você lembra porque um dia às 2h da manhã de um domingo de outubro o relatório de fechamento saiu duplicado, e você passou seis horas descobrindo que o servidor tinha vivido a mesma hora duas vezes.
+
+<div class="providers-grid">
+  <div class="provider-card">
+    <div class="provider-name">Inventário</div>
+    <div class="provider-detail">"Sei React, Vue, Angular, Node, Go, Kubernetes, Terraform, Kafka." Mede <strong>exposição a ferramentas</strong>. Acumula com estudo.</div>
+    <div class="provider-price">Cresce em meses</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">Vivência</div>
+    <div class="provider-detail">"Já vi isso quebrar assim, e por isso eu pergunto X antes." Mede <strong>exposição a consequências</strong>. Só acumula com tempo e produção.</div>
+    <div class="provider-price">Cresce em anos</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">O que a entrevista mede</div>
+    <div class="provider-detail">A segunda. Inventário eu leio no currículo em 40 segundos — e ele envelhece. Vivência só aparece quando você coloca a pessoa diante de ambiguidade.</div>
+    <div class="provider-price">O diferencial real</div>
+  </div>
+</div>
+
+É por isso que um dev que passou cinco anos numa única stack, mas mantendo um produto vivo com usuários reais, costuma ser mais sênior do que alguém que passou cinco anos pulando de projeto greenfield em greenfield. **Quem nunca manteve o próprio código não viu a consequência das próprias decisões** — e é exatamente esse feedback loop que constrói a intuição.
+
+<div class="personal-story">
+  <div class="personal-story-label">
+    <i class="fas fa-user-circle"></i> Minha experiência — fuso horário não é teoria pra mim
+  </div>
+  <p>Morando em Dublin e trabalhando com times e sistemas que tocam o Brasil, fuso deixou de ser trivia e virou rotina. A Irlanda entra e sai do horário de verão; o Brasil não tem mais desde 2019; a diferença entre os dois oscila entre 3 e 4 horas dependendo da época do ano. Já vi agendamento disparar na hora errada, relatório diário fechar com um dia de defasagem e log com timestamp que não batia com o incidente. Depois de algumas dessas, "qual o fuso de referência?" virou a primeira pergunta que eu faço em qualquer coisa que envolva data.</p>
+</div>
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">09</div>
+  <div class="section-title-wrap"><h2>Quanto tempo leva de verdade</h2></div>
+</div>
+
+Se senioridade se constrói com vivência, a pergunta óbvia é: **quantos anos?**
+
+A resposta honesta é que depende brutalmente do tipo de empresa. O gráfico abaixo não mede quanto tempo você fica em cada nível — mede **em que ponto da carreira o título costuma chegar**. É essa leitura que expõe a distorção: a barra de "sênior" da coluna de retenção cai exatamente em cima da barra de "pleno" da big tech.
+
+<img
+  src="{{ site.baseurl }}/assets/img/posts/senioridade-tempo-promocao.svg"
+  alt="Linha do tempo de carreira: com quantos anos de experiência acumulada cada título costuma chegar em big tech, no mercado brasileiro e em empresas que promovem para reter"
+  style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
+
+<div class="callout callout-tip">
+  <div class="callout-label">De onde vêm esses números</div>
+  As faixas de big tech vêm das trilhas públicas de nivelamento citadas nas referências, e as do mercado brasileiro, de levantamentos de recrutamento também referenciados. Já a linha de <strong>promoção de retenção</strong> e os percentuais de aumento citados adiante são <strong>estimativas ilustrativas</strong>, baseadas em padrão observado — não em pesquisa publicada. Trate-as como ordem de grandeza, não como dado.
+</div>
+
+### O padrão das grandes empresas
+
+Em empresas grandes, com trilha de carreira formalizada e comitê de calibração, os números são razoavelmente estáveis. No Google, o nível de entrada (L3) costuma durar entre um ano e meio e dois anos — ficar muito além disso é lido internamente como sinal de baixa performance. O L4, o degrau seguinte, corresponde grosso modo a algo entre um e cinco anos de mercado, e o título de Senior Software Engineer (L5) normalmente é associado a uma faixa de seis a nove anos de experiência. Meta, Amazon e Microsoft operam com trilhas diferentes no nome, mas com ordens de grandeza muito parecidas.
+
+Traduzindo para a nomenclatura brasileira:
+
+<table class="compare-table">
+  <thead>
+    <tr>
+      <th>Nível</th>
+      <th>Experiência típica (empresa grande)</th>
+      <th>Autonomia esperada</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Júnior</strong></td>
+      <td>0 a 2 anos</td>
+      <td>Recebe uma tarefa recortada. Entrega com revisão.</td>
+    </tr>
+    <tr>
+      <td><strong>Pleno</strong></td>
+      <td>2 a 5 anos</td>
+      <td>Recebe um problema. Faz o próprio recorte e entrega.</td>
+    </tr>
+    <tr>
+      <td><strong>Sênior</strong></td>
+      <td>6 anos ou mais</td>
+      <td>Recebe um objetivo ambíguo. Define o problema, mapeia risco e puxa os outros junto.</td>
+    </tr>
+  </tbody>
+</table>
+
+Repare que a coluna que importa não é a do meio. É a da direita. Os anos são **proxy** da autonomia, não a causa dela.
+
+### O padrão das empresas pequenas — e a armadilha
+
+Agora a parte que ninguém coloca no material institucional.
+
+Em empresas pequenas, consultorias de body shop e lugares que pagam abaixo do mercado, existe um padrão muito consistente: **promoção rápida com aumento pequeno**. A pessoa entra como júnior e, com menos de um ano de carreira, já é "pleno". Antes de completar três, tem cartão de visita de sênior — no mesmo ponto da linha do tempo em que uma multinacional ainda estaria assinando a promoção para pleno.
+
+Isso raramente é generosidade. É retenção barata, e a matemática — com os números arredondados a título de ilustração — é simples:
+
+<div class="providers-grid">
+  <div class="provider-card">
+    <div class="provider-name">O que a empresa gasta</div>
+    <div class="provider-detail">Um título novo (custo zero) e um aumento de 10% a 15% (custo baixo), aplicado sobre um salário que já estava abaixo do mercado.</div>
+    <div class="provider-price">Custo: baixo</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">O que a empresa ganha</div>
+    <div class="provider-detail">Um profissional que se sente reconhecido, para de olhar vagas por mais 12 meses, e continua entregando o mesmo escopo.</div>
+    <div class="provider-price">Retorno: alto</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">O que a empresa sabe</div>
+    <div class="provider-detail">Que "sênior com 2 anos de carreira" não passa em processo seletivo de empresa grande. O título só tem valor lá dentro.</div>
+    <div class="provider-price">Trava: efetiva</div>
+  </div>
+</div>
+
+<div class="callout callout-warn">
+  <div class="callout-label">O título vira uma âncora</div>
+  Quando essa pessoa finalmente vai ao mercado, acontece uma das duas coisas: ou ela aplica para vagas de sênior e é reprovada em série — porque a entrevista mede vivência, não o crachá —, ou ela aceita voltar a pleno em outro lugar e sente que <em>regrediu</em>. O segundo cenário é o saudável, mas dói. E o custo emocional dessa correção é exatamente o que mantém a pessoa parada.
+</div>
+
+Como diferenciar uma promoção real de uma promoção de retenção? Pelo que **mudou além do título**:
+
+<table class="compare-table">
+  <thead>
+    <tr>
+      <th>Sinal</th>
+      <th>Promoção real</th>
+      <th>Promoção de retenção</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Aumento salarial</td><td>Salto de faixa (20%+)</td><td>Reajuste simbólico (10–15%)</td></tr>
+    <tr><td>Escopo do trabalho</td><td>Muda antes ou junto do título</td><td>Continua exatamente igual</td></tr>
+    <tr><td>Critérios</td><td>Existe rubrica escrita</td><td>Decisão informal do gestor</td></tr>
+    <tr><td>Timing</td><td>Ciclo de avaliação</td><td>Logo depois de você mencionar outra proposta</td></tr>
+    <tr><td>Referência externa</td><td>Faixa comparável ao mercado</td><td>Abaixo do piso da faixa nova</td></tr>
+    <tr><td>Quem revisa seu código</td><td>Você passa a revisar o dos outros</td><td>Ninguém muda de lugar</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-tip">
+  <div class="callout-label">Um teste honesto de dois minutos</div>
+  Pegue três vagas do seu nível atual em empresas do porte que você quer trabalhar. Leia os requisitos <strong>de responsabilidade</strong>, não os de tecnologia. Se você lê "lidera decisões técnicas de um domínio" e pensa "isso nunca me pediram", o título está adiantado em relação à vivência. Isso não é um julgamento — é um mapa do que buscar nos próximos dois anos.
+</div>
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">10</div>
+  <div class="section-title-wrap"><h2>O que a gente realmente avalia</h2></div>
+</div>
+
+Volto à sala de entrevista. Quando o cenário do quadradinho colorido termina, eu não preenchi nenhum campo chamado "sabe JavaScript". Preenchi estes:
+
+<img
+  src="{{ site.baseurl }}/assets/img/posts/senioridade-pesos-avaliacao.svg"
+  alt="Peso de cada critério na avaliação: análise e decisão somam 60%, ferramentas conhecidas apenas 5%"
+  style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
+
+Traduzindo cada linha em pergunta concreta que eu me faço:
+
+<table class="compare-table">
+  <thead>
+    <tr>
+      <th>Critério</th>
+      <th>O que eu observo na prática</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Análise</strong></td>
+      <td>Ele tratou a frase como especificação ou como sintoma? Separou o que foi pedido do que foi assumido?</td>
+    </tr>
+    <tr>
+      <td><strong>Planejamento</strong></td>
+      <td>Existe uma ordem no raciocínio, ou é um monte de ideias soltas? Ele consegue dizer o que faria primeiro e por quê?</td>
+    </tr>
+    <tr>
+      <td><strong>Pensamento crítico</strong></td>
+      <td>Ele questionou a demanda em si? "Por que 10 por 10?", "isso é para quê?" — entender o objetivo às vezes mata metade do escopo.</td>
+    </tr>
+    <tr>
+      <td><strong>Raciocínio lógico</strong></td>
+      <td>Quando eu mudo uma premissa no meio, ele reconstrói a solução ou trava? Essa é a melhor pergunta de follow-up que existe.</td>
+    </tr>
+    <tr>
+      <td><strong>Tomada de decisão</strong></td>
+      <td>Diante de uma pergunta que eu recuso responder ("decide você"), ele decide e justifica, ou fica paralisado esperando autorização?</td>
+    </tr>
+    <tr>
+      <td><strong>Comunicação</strong></td>
+      <td>Ele explica para um PO ou despeja jargão? Sênior que não consegue traduzir risco técnico em risco de negócio não é sênior, é especialista isolado.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-tip">
+  <div class="callout-label">O follow-up que revela tudo</div>
+  Depois que o candidato apresenta o plano, eu digo: <em>"o cliente mudou de ideia — agora a cor tem que ser a mesma para todos, mas cada usuário vê no fuso dele"</em>. Essa contradição aparente não tem resposta única. O que eu meço não é a solução; é se a pessoa <strong>identifica que é uma contradição</strong> e negocia, ou se sai implementando as duas coisas ao mesmo tempo sem perceber o conflito.
+</div>
+
+<div class="personal-story">
+  <div class="personal-story-label">
+    <i class="fas fa-user-circle"></i> Minha experiência — o candidato que "errou" e foi aprovado
+  </div>
+  <p>Já aprovei candidato que não conhecia metade da stack da vaga e reprovei candidato com o currículo perfeito. O aprovado, diante de um cenário parecido com esse, disse: "eu não sei como se faz isso nessa linguagem, mas o problema aqui é definir de quem é o dia — e isso eu preciso perguntar antes de escolher qualquer biblioteca". Sintaxe se aprende em duas semanas. Esse instinto leva anos.</p>
+</div>
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">11</div>
+  <div class="section-title-wrap"><h2>Como treinar isso de propósito</h2></div>
+</div>
+
+Vivência acumula sozinha com o tempo, mas dá para acelerar bastante. Algumas coisas que funcionam:
+
+<div class="providers-grid">
+  <div class="provider-card">
+    <div class="provider-name">1. Escreva as suposições</div>
+    <div class="provider-detail">Antes de codar qualquer coisa, liste no card as premissas que você está assumindo. Só de escrever, você descobre que metade delas você não tem certeza — e essas viram perguntas.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">2. Mantenha o que você fez</div>
+    <div class="provider-detail">Fugir de manutenção é fugir do feedback. O bug que você conserta um ano depois é a aula mais cara e mais eficiente disponível.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">3. Leia post-mortems</div>
+    <div class="provider-detail">Relatórios públicos de incidente de grandes empresas são vivência de segunda mão. Você aprende o formato do desastre sem pagar o preço.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">4. Faça a pergunta chata</div>
+    <div class="provider-detail">"E se der errado no meio?" numa reunião de refinamento vale mais que qualquer certificação. E é grátis.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">5. Colecione casos-limite</div>
+    <div class="provider-detail">Data, fuso, encoding, arredondamento monetário, nome próprio, endereço, nulo, string vazia, concorrência. São sempre os mesmos suspeitos.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">6. Explique para quem não é dev</div>
+    <div class="provider-detail">Se você não consegue explicar o risco para o PO, você não entendeu o risco — entendeu só a implementação.</div>
+  </div>
+</div>
+
+<div class="conclusion">
+  <h2>A senioridade não está no que você digita</h2>
+  <p>Os três candidatos conseguiriam entregar o quadradinho colorido. Todos os três. Em qualquer linguagem, em qualquer framework. A diferença nunca foi a capacidade de produzir o código — foi <strong>quantas perguntas cada um fez antes de produzi-lo</strong>, e quantas dessas perguntas vieram de já ter visto a coisa quebrar.</p>
+  <p>Por isso empilhar tecnologias não te promove. Um pleno que aprende a sétima linguagem continua pleno com sete linguagens. O que move o ponteiro é ampliar o raio do problema que você consegue receber e resolver sozinho — e isso exige alguém te dar problemas maiores, e você aguentar as consequências deles.</p>
+  <p>E se você ainda não foi contratado: você não está "preso no júnior". Você ainda não entrou. São problemas diferentes, e o seu tem solução mais rápida do que parece — porque o primeiro emprego, por mais difícil que seja consegui-lo, é justamente o que destrava o único recurso que não dá para estudar em casa: <strong>situações reais, com consequências reais</strong>.</p>
+</div>
+
+<div class="references">
+  <p class="references-title">Referências</p>
+  <ol class="references-list">
+    <li>
+      DesignGurus. <strong>Google Software Engineer Levels Explained: L3 to L10 and the Terminal Level.</strong>
+      <a href="https://www.designgurus.io/blog/google-software-engineer-levels" target="_blank">designgurus.io</a>
+    </li>
+    <li>
+      Candor. <strong>Google Engineering Levels Demystified.</strong>
+      <a href="https://candor.co/articles/tech-careers/google-promotions-the-real-scoop-on-leveling-up" target="_blank">candor.co</a>
+    </li>
+    <li>
+      GeekHunter. <strong>Desenvolvedor júnior, pleno ou sênior: entenda as diferenças.</strong>
+      <a href="https://blog.geekhunter.com.br/senior-developer-ou-junior/" target="_blank">blog.geekhunter.com.br</a>
+    </li>
+    <li>
+      Revelo. <strong>Desenvolvedor júnior, pleno e sênior: saiba qual contratar.</strong>
+      <a href="https://blog.revelo.com.br/desenvolvedor-saiba-qual-nivel-contratar/" target="_blank">blog.revelo.com.br</a>
+    </li>
+    <li>
+      MDN Web Docs. <strong>Intl.DateTimeFormat.</strong>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat" target="_blank">developer.mozilla.org</a>
+    </li>
+    <li>
+      IANA. <strong>Time Zone Database.</strong>
+      <a href="https://www.iana.org/time-zones" target="_blank">iana.org</a>
+    </li>
+  </ol>
+</div>
