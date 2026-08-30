@@ -10,6 +10,7 @@ subcategories:
 tags: [lego, colecao, hobbies, lego-creator, creator-expert]
 reading_time: 1
 image: /assets/img/posts/lego-10197-1.jpg
+gallery: true
 ---
 
 <p class="lead">A look at my <strong>LEGO Creator Expert</strong> collection — sets assembled over the years and part of my favourite hobby.</p>
