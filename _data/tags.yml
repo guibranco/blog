@@ -130,6 +130,8 @@
   slug: carreira
   redirect_from:
     - /tags/carreira/
+- name: carreira-dev
+  slug: carreira-dev
 - name: carreira-internacional
   slug: carreira-internacional
 - name: cassandra
@@ -326,6 +328,8 @@
   slug: england
 - name: entrevista
   slug: entrevista
+- name: entrevista-tecnica
+  slug: entrevista-tecnica
 - name: environment
   slug: environment
 - name: esportes
@@ -550,6 +554,8 @@
     - /tags/json/
 - name: junior
   slug: junior
+- name: junior-pleno-senior
+  slug: junior-pleno-senior
 - name: kafka
   slug: kafka
 - name: kestrel
