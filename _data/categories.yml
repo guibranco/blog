@@ -16,6 +16,8 @@
       slug: freelancing
     - name: Leadership
       slug: leadership
+    - name: Seniority
+      slug: seniority
 - name: Coding
   slug: coding
   icon: "fas fa-code"
