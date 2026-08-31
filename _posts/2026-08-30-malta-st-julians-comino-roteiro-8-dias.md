@@ -56,14 +56,14 @@ A passagem foi comprada pelo **Kiwi** em 25/07/2026, um mês antes da viagem:
 
 <table class="compare-table">
   <thead>
-    <tr><th>Trecho</th><th>Data</th><th>Horário</th><th>Valor</th></tr>
+    <tr><th>Trecho</th><th>Data</th><th>Saída prevista</th><th>Saída real</th><th>Valor</th></tr>
   </thead>
   <tbody>
-    <tr><td>Dublin (DUB) → Manchester (MAN)</td><td>22/08</td><td>06h30</td><td>€ 25,85</td></tr>
-    <tr><td>Manchester (MAN) → Malta (MLA)</td><td>22/08</td><td>08h45</td><td>€ 94,82</td></tr>
-    <tr><td>Malta (MLA) → Dublin (DUB)</td><td>29/08</td><td>20h00</td><td>€ 133,48</td></tr>
-    <tr><td>Taxa de serviço Kiwi</td><td>—</td><td>—</td><td>€ 28,85</td></tr>
-    <tr><td><strong>Total</strong></td><td></td><td></td><td><strong>€ 283,00</strong></td></tr>
+    <tr><td>Dublin (DUB) → Manchester (MAN)</td><td>22/08</td><td>06h30</td><td>06h09</td><td>€ 25,85</td></tr>
+    <tr><td>Manchester (MAN) → Malta (MLA)</td><td>22/08</td><td>08h45</td><td>09h08</td><td>€ 94,82</td></tr>
+    <tr><td>Malta (MLA) → Dublin (DUB)</td><td>29/08</td><td>20h00</td><td>21h23</td><td>€ 133,48</td></tr>
+    <tr><td>Taxa de serviço Kiwi</td><td>—</td><td>—</td><td>—</td><td>€ 28,85</td></tr>
+    <tr><td><strong>Total</strong></td><td></td><td></td><td></td><td><strong>€ 283,00</strong></td></tr>
   </tbody>
 </table>
 
@@ -420,7 +420,7 @@ Vale comparar os dois, porque a diferença é instrutiva:
     <tr><th></th><th>Perdido — GetYourGuide (€ 26)</th><th>Feito — Booking (€ 40)</th></tr>
   </thead>
   <tbody>
-    <tr><td>Horário</td><td>09h00 → 14h30 (5h30)</td><td>15h04 → 20h18 (5h15)</td></tr>
+    <tr><td>Horário</td><td>09h00 → 14h30 (5h30 previstas)</td><td>15h04 → 20h18 (5h15 reais)</td></tr>
     <tr><td>Saída</td><td>San Pawl il-Baħar</td><td>Sliema</td></tr>
     <tr><td>Blue Lagoon</td><td>≈ 1 hora</td><td>1h30, com waterslide no barco</td></tr>
     <tr><td>Gozo</td><td>≈ 2 horas para explorar</td><td>Não incluído</td></tr>
@@ -430,7 +430,7 @@ Vale comparar os dois, porque a diferença é instrutiva:
   </tbody>
 </table>
 
-O passeio da manhã era **objetivamente mais completo** — mesma duração, € 14 mais barato e ainda incluía duas horas em Gozo. O da tarde compensou em tempo de água: 1h30 na Blue Lagoon contra 1 hora, mais os 45 a 60 minutos de mergulho na **Crystal Lagoon**, que o outro não tinha.
+O passeio da manhã era **objetivamente mais completo** — praticamente a mesma duração (5h30 previstas contra as 5h15 que o nosso levou na prática), cerca de € 14 mais barato por pessoa e ainda com duas horas em Gozo. O da tarde compensou em tempo de água: 1h30 na Blue Lagoon contra 1 hora, mais os 45 a 60 minutos de mergulho na **Crystal Lagoon**, que o outro não tinha.
 
 ### Na prática
 
@@ -702,7 +702,7 @@ Vale também saber que **topless e nudismo são proibidos em todas as praias pú
 <div class="callout callout-warn">
   <div class="callout-label">O motorista do Bolt pediu para vestirmos a camiseta — dentro do carro</div>
   <p>Na saída do Toy Room Beach Club, na quarta-feira, o motorista do Bolt <strong>nos pediu para colocar a camiseta antes de sair</strong>. O carro estava com as janelas fechadas e nós estávamos sentados dentro dele — mesmo assim, a preocupação dele era concreta: se a polícia visse passageiros sem camisa, ele poderia ser abordado.</p>
-  <p>Ou seja: a regra não é só sobre andar na calçada de sunga. Do ponto de vista de quem trabalha com transporte por app na ilha, ela alcança até o interior do veículo. Leve sempre uma camiseta na mochila de praia — não é exagero, é o que evita constrangimento na porta do beach club.</p>
+  <p>Vale a ressalva: a regra que citei acima trata de <strong>áreas públicas</strong>, e o pedido dele não prova que ela alcance juridicamente o interior de um carro particular. Pode ter sido precaução dele, política da plataforma ou simples experiência de quem roda pela ilha todo dia. Seja qual for o motivo, o efeito prático é o mesmo: <strong>leve uma camiseta na mochila de praia</strong>, porque você pode precisar dela antes mesmo de pisar na calçada.</p>
 </div>
 
 <div class="callout callout-tip">
