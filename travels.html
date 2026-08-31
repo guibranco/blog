@@ -2,13 +2,15 @@
 layout: null
 permalink: /viagens/
 ---
+{% assign _lang = site.lang | default: "pt-BR" %}
+{% assign _t = site.data.i18n[_lang] %}
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="{{ _lang }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Viagens — {{ site.title }}</title>
-  <meta name="description" content="Mapa interativo dos posts de viagem em {{ site.title }}">
+  <title>{{ _t.travels }} — {{ site.title }}</title>
+  <meta name="description" content="{{ _t.travels_map_description }} {{ site.title }}">
   {% seo %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,9 +32,13 @@ permalink: /viagens/
     {% assign travel_posts = posts_single | concat: posts_multi | uniq %}
 
     <section class="hero">
-      <p class="hero-eyebrow">// viagens //</p>
-      <h1 class="hero-title">Viagens</h1>
-      <p class="hero-desc">{{ travel_posts | size }} post{% if travel_posts.size != 1 %}s{% endif %} com localização no mapa.</p>
+      <p class="hero-eyebrow" data-i18n="travels_eyebrow">{{ _t.travels_eyebrow }}</p>
+      <h1 class="hero-title" data-i18n="travels">{{ _t.travels }}</h1>
+      <p class="hero-desc">
+        {{ travel_posts | size }}
+        <span data-i18n="{% if travel_posts.size != 1 %}travel_posts_plural{% else %}travel_post_singular{% endif %}">{% if travel_posts.size != 1 %}{{ _t.travel_posts_plural }}{% else %}{{ _t.travel_post_singular }}{% endif %}</span>
+        <span data-i18n="travels_desc_suffix">{{ _t.travels_desc_suffix }}</span>.
+      </p>
     </section>
 
     <div class="content-wrap">
@@ -45,7 +51,8 @@ permalink: /viagens/
       <div class="article-card">
         <div class="empty-state">
           <div class="empty-glyph">✈</div>
-          <p>Nenhum post com localização definida ainda.<br>
+          <p>
+            <span data-i18n="empty_no_travels">{{ _t.empty_no_travels }}</span><br>
             Adicione <code>location: { lat: ..., lng: ..., label: "..." }</code>
             ou <code>locations: [{ lat: ..., lng: ..., label: "..." }, ...]</code>
             ao front matter de um post.

@@ -84,6 +84,12 @@ pt-BR:
   series_part_singular: "parte"
   series_parts_plural: "partes"
   empty_no_series: "Nenhuma série publicada ainda."
+  travels_eyebrow: "// viagens //"
+  travels_desc_suffix: "com localização no mapa"
+  travel_post_singular: "post"
+  travel_posts_plural: "posts"
+  empty_no_travels: "Nenhum post com localização definida ainda."
+  travels_map_description: "Mapa interativo dos posts de viagem em"
 
 en:
   home: "Home"
@@ -171,3 +177,9 @@ en:
   series_part_singular: "part"
   series_parts_plural: "parts"
   empty_no_series: "No series published yet."
+  travels_eyebrow: "// travels //"
+  travels_desc_suffix: "with a location on the map"
+  travel_post_singular: "post"
+  travel_posts_plural: "posts"
+  empty_no_travels: "No posts with a location set yet."
+  travels_map_description: "Interactive map of the travel posts on"
