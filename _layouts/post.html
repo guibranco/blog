@@ -61,7 +61,13 @@
         {% endif %}
 
         <div class="hero-meta">
-          <span>{{ page.date | date: _t.date_format }}</span>
+          <span data-i18n-title="published_on" title="{{ _t.published_on }}">{{ page.date | date: _t.date_format }}</span>
+          {% assign _pub_day = page.date | date: "%Y-%m-%d" %}
+          {% assign _mod_day = page.last_modified_at | date: "%Y-%m-%d" %}
+          {% if page.last_modified_at and _mod_day != _pub_day %}
+          <span class="dot">·</span>
+          <span><span data-i18n="updated_on">{{ _t.updated_on }}</span> {{ page.last_modified_at | date: _t.date_format }}</span>
+          {% endif %}
           {% if page.reading_time %}
           <span class="dot">·</span>
           <span>~{{ page.reading_time }} <span data-i18n="reading_time">{{ _t.reading_time }}</span></span>
@@ -75,12 +81,10 @@
                   aria-label="{{ _t.share_aria }}" data-i18n-aria="share_aria">
             <i class="fas fa-share-nodes"></i> <span data-i18n="share">{{ _t.share }}</span>
           </button>
-          {% if _lang != site.lang %}
           <span class="dot">·</span>
           <span class="hero-lang-badge" title="{{ _t.lang_name }}">
             <i class="fas fa-globe"></i> {{ _t.lang_label }}
           </span>
-          {% endif %}
         </div>
 
       </div><!-- /.hero-inner -->

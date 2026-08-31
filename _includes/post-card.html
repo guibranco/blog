@@ -12,7 +12,7 @@
               </a>
               <div class="post-card-body">
                 {% if include.featured %}<span class="featured-badge">{{ _site_t.featured }}</span>{% endif %}
-                {% if _card_lang != site.lang %}<span class="lang-badge" title="{{ _card_lang_t.lang_name }}"><i class="fas fa-globe"></i> {{ _card_lang_t.lang_label }}</span>{% endif %}
+                <span class="lang-badge" title="{{ _card_lang_t.lang_name }}"><i class="fas fa-globe"></i> {{ _card_lang_t.lang_label }}</span>
                 {% if include.post.categories.size > 0 or include.post.subcategories.size > 0 %}
                 <div class="post-card-cats">
                   {% for cat in include.post.categories limit: 2 %}<span class="cat-pill">{{ cat }}</span>{% endfor %}
