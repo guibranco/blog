@@ -7,7 +7,7 @@ categories: [Career]
 subcategories:
   - "Career/Seniority"
 tags: [senioridade, entrevista-tecnica, carreira-dev, contratacao, junior-pleno-senior, mercado-de-trabalho]
-reading_time: 23
+reading_time: 27
 cover: /assets/img/posts/junior-pleno-senior-entrevista.svg
 image: /assets/img/posts/junior-pleno-senior-entrevista.png
 medium_tags: [carreira, programacao, entrevista, senioridade, tecnologia]
@@ -315,7 +315,34 @@ A resposta honesta é que depende brutalmente do tipo de empresa. O gráfico aba
 
 <div class="callout callout-tip">
   <div class="callout-label">De onde vêm esses números</div>
-  As faixas de big tech vêm das trilhas públicas de nivelamento citadas nas referências, e as do mercado brasileiro, de levantamentos de recrutamento também referenciados. Já a linha de <strong>promoção de retenção</strong> e os percentuais de aumento citados adiante são <strong>estimativas ilustrativas</strong>, baseadas em padrão observado — não em pesquisa publicada. Trate-as como ordem de grandeza, não como dado.
+  As faixas de big tech vêm de trilhas de nivelamento públicas — incluindo o framework de carreira do Dropbox, que publica os tempos por nível, e a escada da Artsy, aberta no GitHub. As do mercado brasileiro vêm de levantamentos de recrutamento referenciados. Já a linha de <strong>promoção de retenção</strong> e os percentuais de aumento citados adiante são <strong>estimativas ilustrativas</strong>, baseadas em padrão observado — não em pesquisa publicada. Trate-as como ordem de grandeza, não como dado.
+</div>
+
+### Um framework que publica os números
+
+Quase toda empresa trata a matriz de promoção como documento interno. O Dropbox publicou a dele, e isso dá uma âncora rara — números oficiais, não crowdsourced:
+
+<table class="compare-table">
+  <thead>
+    <tr>
+      <th>Nível (Dropbox)</th>
+      <th>Tempo típico no nível — IC</th>
+      <th>Tempo típico no nível — gestor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>L1</td><td>1,5–2 anos</td><td>—</td></tr>
+    <tr><td>L2</td><td>2–3 anos</td><td>—</td></tr>
+    <tr><td>L3</td><td>2–4 anos</td><td>0–2 anos</td></tr>
+    <tr><td><strong>L4</strong></td><td colspan="2"><strong>4+ anos — nível de carreira.</strong> A documentação diz que se espera que todo engenheiro alcance impacto de L4 ou maior, e que para muita gente L4 será o destino final, sem pressão de subir.</td></tr>
+  </tbody>
+</table>
+
+Somando as faixas, uma pessoa entra no L3 com **3,5 a 5 anos** de carreira e no L4 com **5,5 a 9 anos**. Compare com a régua da seção anterior: L3 é o degrau de sênior, L4 é o de especialista. Os números batem quase exatamente com as faixas de big tech do gráfico — o que é um bom sinal, já que vieram de fontes independentes.
+
+<div class="callout callout-tip">
+  <div class="callout-label">O detalhe que quase ninguém repara</div>
+  A linha do gestor em L3 é mais curta que a do IC. O motivo está escrito na própria documentação: quem migra para gestão <strong>já cresceu através de boa parte do L3 como IC</strong>. O tempo não é menor porque gestão é mais fácil — é menor porque parte do caminho já foi andado do outro lado.
 </div>
 
 ### O padrão das grandes empresas
@@ -442,56 +469,68 @@ Três leituras importam nesse desenho:
 
 <h3>Trilha IC — o especialista</h3>
 
+Em vez de inventar uma régua, vale olhar três escadas que estão publicadas na íntegra: a da **Artsy** (aberta no GitHub), a do **Dropbox** (publicada como site) e a do **Yahoo** (reconstruída por ex-funcionários em fóruns públicos). Elas discordam entre si de um jeito muito instrutivo:
+
 <table class="compare-table">
   <thead>
     <tr>
-      <th>Nome comum no BR</th>
-      <th>Nível</th>
-      <th>Título usual em inglês</th>
+      <th>Nome no BR</th>
+      <th>Artsy</th>
+      <th>Yahoo</th>
       <th>Google</th>
+      <th>Dropbox</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td>Estudante</td><td>—</td><td><em>não é cargo</em></td><td>—</td></tr>
-    <tr><td>Estagiário</td><td>IC0</td><td>Intern</td><td>L2</td></tr>
-    <tr><td><strong>Júnior</strong></td><td>IC1</td><td>Software Engineer / SWE I</td><td>L3</td></tr>
-    <tr><td><strong>Pleno</strong></td><td>IC2</td><td>Software Engineer II / mid-level</td><td>L4</td></tr>
-    <tr><td><strong>Sênior</strong></td><td>IC3</td><td>Senior Software Engineer</td><td>L5</td></tr>
-    <tr><td>Especialista / Staff</td><td>IC4</td><td>Staff Engineer</td><td>L6</td></tr>
-    <tr><td>Principal</td><td>IC5</td><td>Senior Staff / Principal Engineer</td><td>L7–L8</td></tr>
-    <tr><td>—</td><td>IC6+</td><td>Distinguished Engineer, Fellow</td><td>L9–L10</td></tr>
+    <tr><td>Estagiário</td><td>Intern</td><td>—</td><td>L2</td><td>—</td></tr>
+    <tr><td><strong>Júnior</strong></td><td>Engineer 1 <em>(IC2)</em></td><td>Associate <em>(IC1)</em></td><td>L3</td><td>L1</td></tr>
+    <tr><td><strong>Pleno</strong></td><td>Engineer 2 <em>(IC3)</em></td><td>Software Engineer <em>(IC3)</em></td><td>L4</td><td>L2</td></tr>
+    <tr><td><strong>Sênior</strong></td><td>Senior Engineer 1–2 <em>(IC4–IC5)</em></td><td>Senior <em>(IC4)</em></td><td>L5</td><td>L3</td></tr>
+    <tr><td>Especialista</td><td>Staff <em>(IC6)</em></td><td>Principal <em>(IC5)</em></td><td>L6</td><td>L4</td></tr>
+    <tr><td>—</td><td>Senior Staff <em>(IC7)</em></td><td>Senior Principal <em>(IC6)</em></td><td>L7</td><td>—</td></tr>
+    <tr><td>—</td><td>Principal <em>(IC8)</em></td><td>Distinguished <em>(IC7–IC8)</em></td><td>L8</td><td>—</td></tr>
   </tbody>
 </table>
 
 <div class="callout callout-warn">
-  <div class="callout-label">Staff vem antes de Principal — não o contrário</div>
-  Essa é a confusão mais frequente. No Google a sequência é L5 sênior, L6 Staff, L7 Senior Staff e L8 Principal; na Meta, E5 sênior, E6 Staff e E7 Principal. A Amazon é a exceção que alimenta o engano: ela não tem degrau de Staff, então salta de Senior SDE (L6) direto para Principal (L7), o que faz o título parecer mais próximo do sênior do que realmente é. E <strong>"tech lead" não é nível nenhum</strong> — é um papel atribuído, quase sempre a um sênior, que muda de pessoa conforme o projeto.
+  <div class="callout-label">"IC5" não quer dizer nada sozinho</div>
+  Compare as duas colunas do meio. Na Artsy, <strong>IC5 é Senior Engineer 2</strong> — sênior, ainda dentro do time. No Yahoo, <strong>IC5 é Principal Engineer</strong> — dois degraus acima, com escopo de organização. A mesma sigla, em duas empresas reais, descreve pessoas em estágios completamente diferentes de carreira. E o Dropbox comprime tudo em quatro níveis, onde <strong>L4 é um nível terminal</strong>: a documentação diz explicitamente que se espera que todo engenheiro chegue ao impacto de L4 <em>e possa ficar lá o resto da carreira</em>, sem pressão de subir.
 </div>
 
+Isso também nuança o que eu disse sobre Staff e Principal. A regra "Staff vem antes de Principal" vale no Google (L6 Staff → L8 Principal), na Meta (E6 → E7) e na Artsy (IC6 → IC8). Mas **não vale no Yahoo nem na Amazon**, onde não existe degrau de Staff e Principal aparece logo depois do sênior. Se você já viu "Principal" logo acima de sênior e achou estranho, não estava enganado — estava olhando uma escada dessas.
+
 <h3>Trilha de gestão</h3>
+
+A Artsy é útil aqui porque publica o pareamento entre as duas trilhas — coisa que quase nenhuma empresa mostra:
 
 <table class="compare-table">
   <thead>
     <tr>
       <th>Nome comum no BR</th>
-      <th>Nível</th>
-      <th>Título usual em inglês</th>
+      <th>Artsy (gestão)</th>
+      <th>Par na trilha IC</th>
       <th>Escopo</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td>Coordenador / Tech Lead Manager</td><td>EM1</td><td>Engineering Manager</td><td>Costuma ser um time</td></tr>
-    <tr><td>Gerente de Engenharia</td><td>EM2</td><td>Senior Engineering Manager</td><td>Um time grande ou alguns times</td></tr>
-    <tr><td>Gerente de grupo</td><td>EM2–EM3</td><td>Group Engineering Manager</td><td>Costuma incluir outros gerentes</td></tr>
-    <tr><td>Diretor de Engenharia</td><td>EM3</td><td>Director of Engineering</td><td>Uma ou mais áreas</td></tr>
-    <tr><td>VP de Engenharia</td><td>EM4+</td><td>VP Engineering, CTO</td><td>Toda a engenharia</td></tr>
+    <tr><td>Coordenador / Tech Lead Manager</td><td>Engineering Manager 1 <em>(M2)</em></td><td>Senior Engineer 1 <em>(IC4)</em></td><td>2–4 reports</td></tr>
+    <tr><td>Gerente de Engenharia</td><td>Engineering Manager 2 <em>(M3)</em></td><td>Senior Engineer 2 <em>(IC5)</em></td><td>6+ reports</td></tr>
+    <tr><td>Gerente sênior</td><td>Senior Eng. Manager <em>(M4)</em></td><td>Staff <em>(IC6)</em></td><td>Começa a gerir gerentes</td></tr>
+    <tr><td>Diretor de Engenharia</td><td>Director of Engineering <em>(M5)</em></td><td>Senior Staff <em>(IC7)</em></td><td>Gere gerentes</td></tr>
+    <tr><td>Diretor sênior</td><td>Senior Director <em>(M6)</em></td><td>Principal <em>(IC8)</em></td><td>Impacto na empresa</td></tr>
     <tr><td colspan="4"><em>Funções executivas vizinhas — <strong>não são degraus da escada de engenharia</strong>: CIO, CISO, CDO. São pares do CTO, com escopo próprio e linha de reporte que varia por empresa.</em></td></tr>
   </tbody>
 </table>
 
+Duas coisas nessa tabela merecem atenção, e as duas contrariam o senso comum brasileiro.
+
+**A primeira: gestão não é um atalho.** A Artsy escreve na documentação que a trilha de gestão só está disponível para quem já chegou a Senior Engineer 2. O Dropbox chega ao mesmo lugar por outro caminho: registra que o tempo de um gestor em L3 é mais curto que o de um IC justamente porque quem migra para gestão *já cresceu através de boa parte do L3 como IC*. Ou seja, nos dois frameworks a gestão começa **depois** do sênior, não em paralelo a ele.
+
+**A segunda: o par lateral não é onde eu disse.** Eu havia afirmado que Staff e Engineering Manager sentam na mesma faixa. Na Artsy, o EM1 pareia com **Senior Engineer 1**, e é o *Senior* Engineering Manager que pareia com Staff. O EM1 lá é explicitamente transitório e interno — eles não contratam ninguém direto nesse nível, e esperam que a pessoa chegue a EM2 em uns 18 meses. A ideia de "mesma faixa" continua certa; o degrau exato, não. Varia por empresa, e é por isso que a tabela existe.
+
 <div class="callout callout-tip">
   <div class="callout-label">Sobre a nomenclatura em si</div>
-  As colunas "IC" e "EM" existem aqui para dar uma régua neutra — elas são convenção de mercado, não padrão oficial. Cada empresa usa a sua: L no Google, E na Meta, SDE na Amazon, ICT na Apple, números soltos na Microsoft. A coluna de escopo também é <strong>indicativa, não fixa</strong> — o mesmo título de gestão cobre realidades bem diferentes conforme o tamanho da empresa. Se você está traduzindo seu currículo, descreva o escopo que você de fato teve; é isso que o outro lado consegue ler.
+  Não existe padrão. Cada empresa usa a sua régua — L no Google, E na Meta, SDE na Amazon, ICT na Apple, IC/M na Artsy e no Yahoo, L1–L4 no Dropbox — e as siglas <strong>não são intercambiáveis entre elas</strong>. A coluna de escopo também é indicativa: o mesmo título cobre realidades muito diferentes conforme o tamanho da empresa. Se você está traduzindo seu currículo, descreva o escopo que você de fato teve; é a única coisa que o outro lado consegue ler sem precisar do manual interno da sua empresa anterior.
 </div>
 
 <h3>"Júnior" é um termo brasileiro?</h3>
@@ -565,6 +604,31 @@ Traduzindo cada linha em pergunta concreta que eu me faço:
     </tr>
   </tbody>
 </table>
+
+Não inventei esses seis critérios. Eles são a versão informal de eixos que aparecem nos frameworks formais. A Artsy avalia IC em quatro dimensões, e a tradução é quase direta:
+
+<table class="compare-table">
+  <thead>
+    <tr>
+      <th>Eixo formal (Artsy)</th>
+      <th>O que ele mede</th>
+      <th>Equivalente neste artigo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Knowledge Leadership</strong></td><td>Profundidade e amplitude técnica na área de negócio</td><td>Profundidade técnica</td></tr>
+    <tr><td><strong>Impact</strong></td><td>Natureza dos problemas resolvidos e valor entregue</td><td>Tomada de decisão</td></tr>
+    <tr><td><strong>Influence</strong></td><td>Efeito sobre projetos, estratégia e sobre as pessoas ao redor</td><td>Comunicação</td></tr>
+    <tr><td><strong>Discretion</strong></td><td>Natureza da orientação <em>recebida</em> e da orientação <em>fornecida</em></td><td>Raio de autonomia</td></tr>
+  </tbody>
+</table>
+
+O quarto eixo é o mais revelador, e é exatamente o que o cenário do quadradinho mede. "Natureza da orientação recebida" é outra forma de perguntar: **quanto do problema alguém precisou recortar por você antes de te entregar?** O júnior recebe a tarefa já cortada. O sênior recebe a frase crua e faz o próprio corte — e ainda devolve as decisões documentadas para quem pediu.
+
+<div class="callout callout-warn">
+  <div class="callout-label">Framework não é checklist</div>
+  A documentação do Dropbox abre com esse aviso, e vale repetir aqui: a matriz não é uma lista de caixinhas para marcar. Eles registram inclusive que o foco migrou de "projetos complexos" para <strong>impacto</strong> — não é a complexidade do que você construiu que promove, é o que aquilo mudou. Se a sua empresa trata a matriz como checklist de tecnologias dominadas, ela está usando a ferramenta ao contrário.
+</div>
 
 <div class="callout callout-tip">
   <div class="callout-label">O follow-up que revela tudo</div>
@@ -651,6 +715,18 @@ Vivência acumula sozinha com o tempo, mas dá para acelerar bastante. Algumas c
     <li>
       sph.sh. <strong>Understanding Career Levels in Tech Companies.</strong>
       <a href="https://sph.sh/en/posts/career-levels-tech-companies/" target="_blank">sph.sh</a>
+    </li>
+    <li>
+      Dropbox. <strong>Engineering Career Framework — Promotion Guidelines &amp; Clarifications.</strong>
+      <a href="https://dropbox.github.io/dbx-career-framework/promotion_guidelines.html" target="_blank">dropbox.github.io</a>
+    </li>
+    <li>
+      Artsy. <strong>The Artsy Engineering Ladder.</strong>
+      <a href="https://github.com/artsy/README/blob/main/careers/ladder.md" target="_blank">github.com/artsy</a>
+    </li>
+    <li>
+      Quora. <strong>What are the different levels of software engineers at Yahoo?</strong> (relatos de ex-funcionários, não documentação oficial)
+      <a href="https://www.quora.com/What-are-the-different-levels-of-software-engineers-at-Yahoo" target="_blank">quora.com</a>
     </li>
     <li>
       MDN Web Docs. <strong>Intl.DateTimeFormat.</strong>
