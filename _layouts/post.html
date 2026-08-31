@@ -61,12 +61,12 @@
         {% endif %}
 
         <div class="hero-meta">
-          <span data-i18n-title="published_on" title="{{ _t.published_on }}">{{ page.date | date: _t.date_format }}</span>
+          <span data-i18n-title="published_on" title="{{ _t.published_on }}">{{ page.date | localized_date: _t.date_format, _lang }}</span>
           {% assign _pub_day = page.date | date: "%Y-%m-%d" %}
           {% assign _mod_day = page.last_modified_at | date: "%Y-%m-%d" %}
           {% if page.last_modified_at and _mod_day != _pub_day %}
           <span class="dot">·</span>
-          <span><span data-i18n="updated_on">{{ _t.updated_on }}</span> {{ page.last_modified_at | date: _t.date_format }}</span>
+          <span><span data-i18n="updated_on">{{ _t.updated_on }}</span> {{ page.last_modified_at | localized_date: _t.date_format, _lang }}</span>
           {% endif %}
           {% if page.reading_time %}
           <span class="dot">·</span>

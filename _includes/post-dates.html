@@ -1,0 +1,8 @@
+{% comment %}
+  Renders "<published>[ · <updated_on> <updated>]" as plain inline text —
+  the updated half only appears when last_modified_at falls on a different
+  day than the publish date. Params: post, t (i18n table), format.
+{% endcomment %}
+{% assign _pd_pub_day = include.post.date | date: "%Y-%m-%d" %}
+{% assign _pd_mod_day = include.post.last_modified_at | date: "%Y-%m-%d" %}
+{{ include.post.date | date: include.format }}{% if include.post.last_modified_at and _pd_mod_day != _pd_pub_day %} · {{ include.t.updated_on }} {{ include.post.last_modified_at | date: include.format }}{% endif %}

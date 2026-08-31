@@ -91,9 +91,14 @@ permalink: /topicos/
               </div>
               <ul class="tag-group-list">
                 {% for post in tag_posts %}
+                {% assign _tg_lang = post.lang | default: site.lang %}
+                {% assign _tg_lang_t = site.data.i18n[_tg_lang] %}
                 <li class="tag-group-item">
                   <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                  <span class="tag-group-item-date">{{ post.date | date: _t.date_short }}</span>
+                  <span class="tag-group-item-meta">
+                    <span class="lang-badge" title="{{ _tg_lang_t.lang_name }}"><i class="fas fa-globe"></i> {{ _tg_lang_t.lang_label }}</span>
+                    <span class="tag-group-item-date">{% include post-dates.html post=post t=_tg_lang_t format=_t.date_short %}</span>
+                  </span>
                 </li>
                 {% endfor %}
               </ul>

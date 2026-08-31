@@ -108,6 +108,8 @@ pagination:
           </div>
           {% assign featured = site.posts.first %}
           {% assign _featured_image = featured.cover | default: featured.image %}
+          {% assign _featured_lang = featured.lang | default: site.lang %}
+          {% assign _featured_lang_t = site.data.i18n[_featured_lang] %}
           <article class="featured-card">
             <div class="featured-image">
               {% if _featured_image %}
@@ -117,6 +119,7 @@ pagination:
               {% endif %}
             </div>
             <div class="featured-body">
+              <span class="lang-badge" title="{{ _featured_lang_t.lang_name }}"><i class="fas fa-globe"></i> {{ _featured_lang_t.lang_label }}</span>
               {% if featured.categories.size > 0 %}
               <div class="cat-pills">
                 {% for cat in featured.categories %}<span class="cat-pill">{{ cat }}</span>{% endfor %}
@@ -129,7 +132,7 @@ pagination:
               <p class="featured-excerpt">{{ featured.excerpt | strip_html | truncate: 180 }}</p>
               {% endif %}
               <div class="featured-meta">
-                <span>{{ featured.date | date: "%d/%m/%Y" }}</span>
+                <span>{% include post-dates.html post=featured t=_featured_lang_t format="%d/%m/%Y" %}</span>
                 {% if featured.reading_time %}<span class="sep">·</span><span>{{ featured.reading_time }} <span data-i18n="reading_time">min de leitura</span></span>{% endif %}
               </div>
               <a class="read-more" href="{{ featured.url | relative_url }}" data-i18n="read_more">Ler artigo →</a>
@@ -152,21 +155,6 @@ pagination:
         </div>
         {% endif %}
 
-        {% endif %}
-
-        <!-- Card: tópicos (mesmo fundo das tags no post) -->
-        {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
-        {% if all_tags.size > 0 %}
-        <div class="article-card article-card--tags">
-          <div class="section-row">
-            <h2 class="section-title" data-i18n="topics">Tópicos</h2>
-          </div>
-          <div class="tags-cloud">
-            {% for tag in all_tags %}
-            <a class="tag-item" href="{{ site.baseurl }}/topicos/{{ tag | slugify }}/">#{{ tag }}</a>
-            {% endfor %}
-          </div>
-        </div>
         {% endif %}
 
       {% endif %}

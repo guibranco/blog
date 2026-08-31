@@ -92,9 +92,14 @@ permalink: /mapa-do-site/
               {% if sub_posts.size > 0 %}
               <ul class="tag-group-list">
                 {% for post in sub_posts %}
+                {% assign _sm_lang = post.lang | default: site.lang %}
+                {% assign _sm_lang_t = site.data.i18n[_sm_lang] %}
                 <li class="tag-group-item">
                   <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                  <span class="tag-group-item-date">{{ post.date | date: _t.date_short }}</span>
+                  <span class="tag-group-item-meta">
+                    <span class="lang-badge" title="{{ _sm_lang_t.lang_name }}"><i class="fas fa-globe"></i> {{ _sm_lang_t.lang_label }}</span>
+                    <span class="tag-group-item-date">{% include post-dates.html post=post t=_sm_lang_t format=_t.date_short %}</span>
+                  </span>
                 </li>
                 {% endfor %}
               </ul>
@@ -123,9 +128,14 @@ permalink: /mapa-do-site/
               {% endif %}
               <ul class="tag-group-list">
                 {% for post in other_posts %}
+                {% assign _sm_lang = post.lang | default: site.lang %}
+                {% assign _sm_lang_t = site.data.i18n[_sm_lang] %}
                 <li class="tag-group-item">
                   <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                  <span class="tag-group-item-date">{{ post.date | date: _t.date_short }}</span>
+                  <span class="tag-group-item-meta">
+                    <span class="lang-badge" title="{{ _sm_lang_t.lang_name }}"><i class="fas fa-globe"></i> {{ _sm_lang_t.lang_label }}</span>
+                    <span class="tag-group-item-date">{% include post-dates.html post=post t=_sm_lang_t format=_t.date_short %}</span>
+                  </span>
                 </li>
                 {% endfor %}
               </ul>

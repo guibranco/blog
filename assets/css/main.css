@@ -1166,7 +1166,12 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
   color: var(--accent-light, #c8a96e);
   min-width: 1.4rem;
 }
-.series-toc-title { font-size: 0.875rem; line-height: 1.4; }
+.series-toc-title { font-size: 0.875rem; line-height: 1.4; flex: 1; }
+.series-toc-meta { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.series-toc-date {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+  color: rgba(245,240,232,.5); white-space: nowrap;
+}
 .series-nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1259,6 +1264,9 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
   color: var(--ink); line-height: 1.4; flex: 1; transition: color .2s;
 }
 .tag-group-item a:hover { color: var(--accent); }
+.tag-group-item-meta {
+  display: flex; align-items: center; gap: 8px; flex-shrink: 0;
+}
 .tag-group-item-date {
   font-family: 'JetBrains Mono', monospace; font-size: 0.625rem;
   color: var(--ink-light); white-space: nowrap; flex-shrink: 0;

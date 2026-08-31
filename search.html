@@ -55,6 +55,21 @@ permalink: /busca/
         </div>
       </form>
 
+      <!-- Sort toolbar -->
+      <div class="search-sort-bar" id="search-sort-bar" style="display:none;">
+        <label for="sort-field" data-i18n="sort_by">Ordenar por</label>
+        <select id="sort-field">
+          <option value="" data-i18n="sort_relevance">Relevância</option>
+          <option value="title" data-i18n="sort_field_title">Ordem alfabética</option>
+          <option value="date" data-i18n="sort_field_date">Data de publicação</option>
+          <option value="updated" data-i18n="sort_field_updated">Data de atualização</option>
+          <option value="reading_time" data-i18n="sort_field_reading_time">Tempo de leitura</option>
+        </select>
+        <button type="button" id="sort-direction" class="sort-direction-btn" data-dir="desc" disabled>
+          <i class="fas fa-arrow-down-wide-short"></i>
+        </button>
+      </div>
+
       <!-- Results area -->
       <div id="search-results"></div>
 
@@ -114,6 +129,31 @@ permalink: /busca/
     }
     .search-clear.visible { opacity: 1; }
     .search-clear:hover { color: var(--ink); }
+
+    /* ── Sort bar ── */
+    .search-sort-bar {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 1.5rem;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+      color: var(--ink-light);
+    }
+    .search-sort-bar label { letter-spacing: .06em; text-transform: uppercase; }
+    #sort-field {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.69rem;
+      color: var(--ink); background: white;
+      border: 1px solid var(--border); border-radius: 20px;
+      padding: 4px 10px; cursor: pointer;
+    }
+    #sort-field:focus { outline: none; border-color: var(--accent); }
+    .sort-direction-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 26px; height: 26px;
+      background: white; border: 1px solid var(--border); border-radius: 50%;
+      color: var(--ink-muted); cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .sort-direction-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+    .sort-direction-btn:disabled { opacity: .4; cursor: not-allowed; }
 
     /* ── Results ── */
     .results-header {
@@ -200,11 +240,62 @@ permalink: /busca/
     const stateEmpty = document.getElementById('state-empty');
     const heroTitle  = document.getElementById('hero-title');
     const heroDesc   = document.getElementById('hero-desc');
+    const sortBar    = document.getElementById('search-sort-bar');
+    const sortField  = document.getElementById('sort-field');
+    const sortDirBtn = document.getElementById('sort-direction');
 
     let searchIndex = null;
     let documents   = [];
     let indexReady  = false;
     let activeQuery = '';
+    let activeSortField = '';
+    let activeSortDir   = 'desc';
+
+    // ── Sorting ──
+    function fieldValue(doc, field) {
+      switch (field) {
+        case 'title':        return (doc.title || '').toLocaleLowerCase();
+        case 'date':         return doc.date_iso || '';
+        case 'updated':      return doc.updated_iso || doc.date_iso || '';
+        case 'reading_time': return Number.parseFloat(doc.reading_time) || 0;
+        default:             return null;
+      }
+    }
+
+    function applySort(docs) {
+      if (!activeSortField) return docs;
+      const sorted = docs.slice().sort((a, b) => {
+        const va = fieldValue(a, activeSortField);
+        const vb = fieldValue(b, activeSortField);
+        if (typeof va === 'number') return va - vb;
+        return String(va).localeCompare(String(vb), undefined, { numeric: true, sensitivity: 'base' });
+      });
+      return activeSortDir === 'desc' ? sorted.reverse() : sorted;
+    }
+
+    function updateSortDirUI() {
+      sortDirBtn.disabled = !activeSortField;
+      sortDirBtn.dataset.dir = activeSortDir;
+      sortDirBtn.setAttribute('aria-label', activeSortDir === 'asc' ? t('sort_direction_asc') : t('sort_direction_desc'));
+      sortDirBtn.querySelector('i').className = activeSortDir === 'asc'
+        ? 'fas fa-arrow-up-wide-short'
+        : 'fas fa-arrow-down-wide-short';
+    }
+
+    sortField.addEventListener('change', () => {
+      activeSortField = sortField.value;
+      activeSortDir = activeSortField === 'title' ? 'asc' : 'desc';
+      updateSortDirUI();
+      runSearch(input.value);
+    });
+
+    sortDirBtn.addEventListener('click', () => {
+      activeSortDir = activeSortDir === 'asc' ? 'desc' : 'asc';
+      updateSortDirUI();
+      runSearch(input.value);
+    });
+
+    updateSortDirUI();
 
     // Read ?q= from URL on load
     const params = new URLSearchParams(window.location.search);
@@ -249,21 +340,22 @@ permalink: /busca/
       return (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
     }
 
-    function renderResults(query, results) {
-      if (results.length === 0) { showState('empty'); return; }
+    function renderResults(query, docs) {
+      if (docs.length === 0) { sortBar.style.display = 'none'; showState('empty'); return; }
 
-      const resultWord = results.length !== 1 ? t('search_result_plural') : t('search_result_singular');
+      sortBar.style.display = '';
+
+      const resultWord = docs.length !== 1 ? t('search_result_plural') : t('search_result_singular');
       const forWord    = t('search_results_for');
       const safeQuery  = escapeHtml(query);
-      const header = `<p class="results-header"><strong>${results.length}</strong> ${resultWord} ${forWord} "<strong>${safeQuery}</strong>"</p>`;
-      const cards  = results.map((r, i) => {
-        const doc     = documents.find(d => d.id === Number.parseInt(r.ref));
-        if (!doc) return '';
+      const header = `<p class="results-header"><strong>${docs.length}</strong> ${resultWord} ${forWord} "<strong>${safeQuery}</strong>"</p>`;
+      const cards  = docs.map((doc, i) => {
         const excerpt = truncateAround(doc.content, query);
         const cats    = doc.categories ? doc.categories.split(', ').filter(Boolean) : [];
         const catHtml = cats.map(c => `<span class="cat-pill">${escapeHtml(c)}</span>`).join('');
         const safeUrl  = escapeHtml(doc.url);
         const safeDate = escapeHtml(doc.date);
+        const isUpdated = doc.updated_iso && doc.date_iso && doc.updated_iso !== doc.date_iso;
 
         return `
         <a class="result-card" href="${safeUrl}">
@@ -274,6 +366,7 @@ permalink: /busca/
             ${excerpt ? `<p class="result-excerpt">${highlight(excerpt, query)}</p>` : ''}
             <div class="result-meta">
               <span>${safeDate}</span>
+              ${isUpdated ? `<span class="sep">·</span><span>${t('updated_on')} ${escapeHtml(doc.updated)}</span>` : ''}
               ${doc.reading_time ? `<span class="sep">·</span><span>${escapeHtml(doc.reading_time)} min</span>` : ''}
               ${doc.tags ? `<span class="sep">·</span><span>${highlight(doc.tags, query)}</span>` : ''}
             </div>
@@ -286,10 +379,17 @@ permalink: /busca/
       resultsEl.style.display = '';
     }
 
+    function resolveDocs(hits) {
+      return hits
+        .map(r => documents.find(d => d.id === Number.parseInt(r.ref)))
+        .filter(Boolean);
+    }
+
     function runSearch(query) {
       activeQuery = query;
       if (!query.trim()) {
         showState('initial');
+        sortBar.style.display = 'none';
         clearBtn.classList.remove('visible');
         heroTitle.textContent = t('search_title');
         heroDesc.textContent  = t('search_desc');
@@ -314,13 +414,14 @@ permalink: /busca/
       if (!indexReady) { showState('loading'); return; }
 
       try {
-        const results = searchIndex.search(query + '~1'); // fuzzy
-        renderResults(query, results);
+        const hits = searchIndex.search(query + '~1'); // fuzzy
+        renderResults(query, applySort(resolveDocs(hits)));
       } catch {
         try {
-          const results = searchIndex.search(query);
-          renderResults(query, results);
+          const hits = searchIndex.search(query);
+          renderResults(query, applySort(resolveDocs(hits)));
         } catch {
+          sortBar.style.display = 'none';
           showState('empty');
         }
       }

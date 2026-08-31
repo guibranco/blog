@@ -61,6 +61,8 @@ permalink: /series/
               <div class="series-toc">
                 {% for sp in s_posts %}
                 {% assign _sp_thumb = sp.cover | default: sp.image %}
+                {% assign _sp_lang = sp.lang | default: site.lang %}
+                {% assign _sp_lang_t = site.data.i18n[_sp_lang] %}
                 <a class="series-toc-item" href="{{ sp.url | relative_url }}">
                   {% if _sp_thumb %}
                   <img class="series-toc-thumb" src="{{ _sp_thumb | relative_url }}" alt="" loading="lazy">
@@ -69,6 +71,10 @@ permalink: /series/
                   {% endif %}
                   <span class="series-toc-num">{{ sp.series_part }}</span>
                   <span class="series-toc-title">{{ sp.title }}</span>
+                  <span class="series-toc-meta">
+                    <span class="lang-badge" title="{{ _sp_lang_t.lang_name }}"><i class="fas fa-globe"></i> {{ _sp_lang_t.lang_label }}</span>
+                    <span class="series-toc-date">{% include post-dates.html post=sp t=_sp_lang_t format=_t.date_short %}</span>
+                  </span>
                 </a>
                 {% endfor %}
               </div>

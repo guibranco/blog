@@ -11,6 +11,9 @@ layout: null
     "categories": {{ post.categories | join: ", " | jsonify }},
     "tags": {{ post.tags | join: ", " | jsonify }},
     "date": {{ post.date | date: "%d/%m/%Y" | jsonify }},
+    "date_iso": {{ post.date | date: "%Y-%m-%d" | jsonify }},
+    "updated": {{ post.last_modified_at | default: post.date | date: "%d/%m/%Y" | jsonify }},
+    "updated_iso": {{ post.last_modified_at | default: post.date | date: "%Y-%m-%d" | jsonify }},
     "reading_time": {{ post.reading_time | default: "" | jsonify }},
     "content": {{ post.content | strip_html | normalize_whitespace | truncate: 5000 | jsonify }}
   }{% unless forloop.last %},{% endunless %}
