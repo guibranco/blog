@@ -7,7 +7,7 @@ categories: [Career]
 subcategories:
   - "Career/Seniority"
 tags: [senioridade, entrevista-tecnica, carreira-dev, contratacao, junior-pleno-senior, mercado-de-trabalho]
-reading_time: 18
+reading_time: 23
 cover: /assets/img/posts/junior-pleno-senior-entrevista.svg
 image: /assets/img/posts/junior-pleno-senior-entrevista.png
 medium_tags: [carreira, programacao, entrevista, senioridade, tecnologia]
@@ -413,6 +413,110 @@ Como diferenciar uma promoção real de uma promoção de retenção? Pelo que *
 
 <div class="section-header">
   <div class="section-num">10</div>
+  <div class="section-title-wrap"><h2>Depois do sênior, a estrada se divide</h2></div>
+</div>
+
+Até aqui eu tratei a carreira como uma escada única. Ela não é. Júnior, pleno e sênior formam um tronco comum, mas no topo desse tronco existe uma bifurcação — e muita gente descobre isso tarde demais, já tendo aceitado virar gestor por falta de alternativa visível.
+
+<img
+  src="{{ site.baseurl }}/assets/img/posts/senioridade-trilhas-ic-gestao.svg"
+  alt="Fluxograma da carreira: tronco comum de estudante a sênior, depois bifurcação entre trilha de especialista (Staff, Principal, Distinguished) e trilha de gestão (EM, Senior EM, Director, VP e C-level)"
+  style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
+
+Três leituras importam nesse desenho:
+
+<div class="providers-grid">
+  <div class="provider-card">
+    <div class="provider-name">A troca é lateral</div>
+    <div class="provider-detail">Em escadas bem desenhadas, Staff e Engineering Manager ficam na <strong>mesma faixa salarial</strong>. Virar gestor não é subir — é mudar de ofício. Se na sua empresa gestão é o único jeito de ganhar mais, a escada está mal feita.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">Dá para voltar</div>
+    <div class="provider-detail">Trajetórias como Staff → EM → Senior Staff são comuns e saudáveis. Gestão não é porta de sentido único, embora muita gente a trate assim.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">A entrada direta existe</div>
+    <div class="provider-detail">No Brasil é bem comum alguém entrar direto em gestão sem nunca ter sido IC. Funciona, mas cria um gestor que não consegue calibrar estimativa nem avaliar risco técnico — exatamente o que este artigo inteiro mede.</div>
+  </div>
+</div>
+
+<h3>Trilha IC — o especialista</h3>
+
+<table class="compare-table">
+  <thead>
+    <tr>
+      <th>Nome comum no BR</th>
+      <th>Nível</th>
+      <th>Título usual em inglês</th>
+      <th>Google</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Estudante</td><td>—</td><td><em>não é cargo</em></td><td>—</td></tr>
+    <tr><td>Estagiário</td><td>IC0</td><td>Intern</td><td>L2</td></tr>
+    <tr><td><strong>Júnior</strong></td><td>IC1</td><td>Software Engineer / SWE I</td><td>L3</td></tr>
+    <tr><td><strong>Pleno</strong></td><td>IC2</td><td>Software Engineer II / mid-level</td><td>L4</td></tr>
+    <tr><td><strong>Sênior</strong></td><td>IC3</td><td>Senior Software Engineer</td><td>L5</td></tr>
+    <tr><td>Especialista / Staff</td><td>IC4</td><td>Staff Engineer</td><td>L6</td></tr>
+    <tr><td>Principal</td><td>IC5</td><td>Senior Staff / Principal Engineer</td><td>L7–L8</td></tr>
+    <tr><td>—</td><td>IC6+</td><td>Distinguished Engineer, Fellow</td><td>L9–L10</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-warn">
+  <div class="callout-label">Staff vem antes de Principal — não o contrário</div>
+  Essa é a confusão mais frequente. No Google a sequência é L5 sênior, L6 Staff, L7 Senior Staff e L8 Principal; na Meta, E5 sênior, E6 Staff e E7 Principal. A Amazon é a exceção que alimenta o engano: ela não tem degrau de Staff, então salta de Senior SDE (L6) direto para Principal (L7), o que faz o título parecer mais próximo do sênior do que realmente é. E <strong>"tech lead" não é nível nenhum</strong> — é um papel atribuído, quase sempre a um sênior, que muda de pessoa conforme o projeto.
+</div>
+
+<h3>Trilha de gestão</h3>
+
+<table class="compare-table">
+  <thead>
+    <tr>
+      <th>Nome comum no BR</th>
+      <th>Nível</th>
+      <th>Título usual em inglês</th>
+      <th>Escopo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Coordenador / Tech Lead Manager</td><td>EM1</td><td>Engineering Manager</td><td>Um time</td></tr>
+    <tr><td>Gerente de Engenharia</td><td>EM2</td><td>Senior / Group EM</td><td>Gerentes e ICs sêniores</td></tr>
+    <tr><td>Diretor</td><td>EM3</td><td>Director of Engineering</td><td>Uma área inteira</td></tr>
+    <tr><td>VP / Diretoria executiva</td><td>EM4+</td><td>VP Eng, CTO, CIO, CISO, CDO</td><td>Empresa</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-tip">
+  <div class="callout-label">Sobre a nomenclatura em si</div>
+  As colunas "IC" e "EM" existem aqui para dar uma régua neutra — elas são convenção de mercado, não padrão oficial. Cada empresa usa a sua: L no Google, E na Meta, SDE na Amazon, ICT na Apple, números soltos na Microsoft. Se você está traduzindo seu currículo, o que importa é a <strong>coluna de escopo</strong>, não a sigla.
+</div>
+
+<h3>"Júnior" é um termo brasileiro?</h3>
+
+Essa é uma observação que eu carrego há anos, e vale separar o que os dados sustentam do que não sustentam.
+
+<div class="providers-grid">
+  <div class="provider-card">
+    <div class="provider-name">✗ O que se refuta</div>
+    <div class="provider-detail">"Junior Software Developer" <strong>existe</strong> em vagas nos EUA e no Reino Unido. Aparece bastante em <em>defense contractors</em>, consultorias, agências de <em>staffing</em> e empresas menores. Não é um termo exclusivo do português.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">✓ O que se confirma</div>
+    <div class="provider-detail">Nenhuma escada de big tech tem um degrau chamado "Junior". A entrada é numerada: L3 no Google, E3 na Meta, SDE I na Amazon, ICT2 na Apple. O título some justamente onde a trilha é formalizada.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">→ O que é de fato nosso</div>
+    <div class="provider-detail"><strong>"Pleno."</strong> O inglês tem "mid-level", que é um adjetivo descritivo, não um cargo. A tríade fixa júnior/pleno/sênior como escala de três degraus é convenção lusófona — a Farfetch usar "júnior" reforça isso, já que é uma empresa portuguesa.</div>
+  </div>
+</div>
+
+Ou seja: sua percepção estava mais certa do que errada, só apontando para a palavra vizinha. O que não se traduz não é "júnior" — é **"pleno"**. E isso tem uma consequência prática desagradável: quem se descreve como "pleno" num currículo em inglês está usando um rótulo que o recrutador do outro lado não consegue mapear. O termo que ele espera ler é o título do nível, não a escala.
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">11</div>
   <div class="section-title-wrap"><h2>O que a gente realmente avalia</h2></div>
 </div>
 
@@ -475,7 +579,7 @@ Traduzindo cada linha em pergunta concreta que eu me faço:
 <div class="divider">· · ·</div>
 
 <div class="section-header">
-  <div class="section-num">11</div>
+  <div class="section-num">12</div>
   <div class="section-title-wrap"><h2>Como treinar isso de propósito</h2></div>
 </div>
 
@@ -533,6 +637,18 @@ Vivência acumula sozinha com o tempo, mas dá para acelerar bastante. Algumas c
     <li>
       Revelo. <strong>Desenvolvedor júnior, pleno e sênior: saiba qual contratar.</strong>
       <a href="https://blog.revelo.com.br/desenvolvedor-saiba-qual-nivel-contratar/" target="_blank">blog.revelo.com.br</a>
+    </li>
+    <li>
+      DesignGurus. <strong>Staff Engineer vs Principal Engineer: What Changes Beyond L6.</strong>
+      <a href="https://designgurus.substack.com/p/staff-engineer-vs-principal-engineer" target="_blank">designgurus.substack.com</a>
+    </li>
+    <li>
+      DesignGurus. <strong>FAANG Software Engineer Levels Explained: Apple ICT, Google L, Meta E, Amazon SDE.</strong>
+      <a href="https://www.designgurus.io/blog/understanding-faang-software-engineer-job-levels" target="_blank">designgurus.io</a>
+    </li>
+    <li>
+      sph.sh. <strong>Understanding Career Levels in Tech Companies.</strong>
+      <a href="https://sph.sh/en/posts/career-levels-tech-companies/" target="_blank">sph.sh</a>
     </li>
     <li>
       MDN Web Docs. <strong>Intl.DateTimeFormat.</strong>
