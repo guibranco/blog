@@ -224,6 +224,8 @@
   slug: critical-skills
 - name: critical-skills-permit
   slug: critical-skills-permit
+- name: crystal-lagoon
+  slug: crystal-lagoon
 - name: csharp
   slug: csharp
   redirect_from:
