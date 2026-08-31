@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420" role="img" aria-label="Gráfico comparando o tempo típico até a próxima promoção em big tech, no mercado brasileiro médio e em empresas que promovem para reter">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420" role="img" aria-label="Linha do tempo de carreira mostrando com quantos anos de experiência acumulada cada título costuma chegar em big tech, no mercado brasileiro e em empresas que promovem para reter">
   <style>
     .gt{font-family:'Playfair Display',Georgia,serif;font-size:19px;fill:#1a1714}
     .gg{font-family:'JetBrains Mono',Consolas,monospace;font-size:12px;fill:#8a8078;letter-spacing:1.5px}
@@ -8,45 +8,47 @@
   </style>
   <rect width="680" height="420" fill="#f2ede6"/>
 
-  <text class="gt" x="20" y="34">Tempo típico até a próxima promoção</text>
-  <text class="gx" x="20" y="54">faixas usuais de mercado — anos no nível atual</text>
+  <text class="gt" x="20" y="34">Quando cada título costuma chegar</text>
+  <text class="gx" x="20" y="54">faixa de experiência acumulada em que a promoção normalmente acontece</text>
 
   <line x1="210" y1="70" x2="210" y2="330" stroke="#e2dbd0"/>
-  <line x1="322.5" y1="70" x2="322.5" y2="330" stroke="#e2dbd0" stroke-dasharray="3 4"/>
-  <line x1="435" y1="70" x2="435" y2="330" stroke="#e2dbd0" stroke-dasharray="3 4"/>
-  <line x1="547.5" y1="70" x2="547.5" y2="330" stroke="#e2dbd0" stroke-dasharray="3 4"/>
-  <line x1="660" y1="70" x2="660" y2="330" stroke="#e2dbd0" stroke-dasharray="3 4"/>
+  <line x1="292" y1="70" x2="292" y2="330" stroke="#e2dbd0" stroke-dasharray="3 4"/>
+  <line x1="374" y1="70" x2="374" y2="330" stroke="#e2dbd0" stroke-dasharray="3 4"/>
+  <line x1="456" y1="70" x2="456" y2="330" stroke="#e2dbd0" stroke-dasharray="3 4"/>
+  <line x1="538" y1="70" x2="538" y2="330" stroke="#e2dbd0" stroke-dasharray="3 4"/>
+  <line x1="620" y1="70" x2="620" y2="330" stroke="#e2dbd0" stroke-dasharray="3 4"/>
 
   <text class="gg" x="20" y="92">BIG TECH / MULTINACIONAL</text>
-  <rect x="294.4" y="102" width="84.4" height="20" rx="3" fill="#2d6a4f"/>
-  <text class="gl" x="20" y="117">Júnior → Pleno</text>
-  <text class="gv" x="386" y="117">1,5–3 anos</text>
-  <rect x="378.8" y="132" width="168.8" height="20" rx="3" fill="#2d6a4f" opacity="0.75"/>
-  <text class="gl" x="20" y="147">Pleno → Sênior</text>
-  <text class="gv" x="555" y="147">3–6 anos</text>
+  <rect x="271.5" y="102" width="61.5" height="20" rx="3" fill="#2d6a4f"/>
+  <text class="gl" x="20" y="117">Vira Pleno</text>
+  <text class="gv" x="341" y="117">1,5–3 anos de carreira</text>
+  <rect x="456" y="132" width="123" height="20" rx="3" fill="#2d6a4f" opacity="0.75"/>
+  <text class="gl" x="20" y="147">Vira Sênior</text>
+  <text class="gv" x="587" y="147">6–9</text>
 
   <text class="gg" x="20" y="184">MERCADO BR — MÉDIA</text>
-  <rect x="322.5" y="194" width="112.5" height="20" rx="3" fill="#b85c00"/>
-  <text class="gl" x="20" y="209">Júnior → Pleno</text>
-  <text class="gv" x="442" y="209">2–4 anos</text>
-  <rect x="378.8" y="224" width="112.5" height="20" rx="3" fill="#b85c00" opacity="0.75"/>
-  <text class="gl" x="20" y="239">Pleno → Sênior</text>
-  <text class="gv" x="499" y="239">3–5 anos</text>
+  <rect x="292" y="194" width="82" height="20" rx="3" fill="#b85c00"/>
+  <text class="gl" x="20" y="209">Vira Pleno</text>
+  <text class="gv" x="382" y="209">2–4 anos de carreira</text>
+  <rect x="415" y="224" width="123" height="20" rx="3" fill="#b85c00" opacity="0.75"/>
+  <text class="gl" x="20" y="239">Vira Sênior</text>
+  <text class="gv" x="546" y="239">5–8</text>
 
   <text class="gg" x="20" y="276">PROMOÇÃO DE RETENÇÃO</text>
-  <rect x="238.1" y="286" width="28.1" height="20" rx="3" fill="#cc4444"/>
-  <text class="gl" x="20" y="301">Júnior → Pleno</text>
-  <text class="gv" x="274" y="301">6 meses–1 ano</text>
-  <rect x="266.2" y="316" width="56.2" height="20" rx="3" fill="#cc4444" opacity="0.75"/>
-  <text class="gl" x="20" y="331">Pleno → Sênior</text>
-  <text class="gv" x="330" y="331">1–2 anos</text>
+  <rect x="230.5" y="286" width="20.5" height="20" rx="3" fill="#cc4444"/>
+  <text class="gl" x="20" y="301">Vira Pleno</text>
+  <text class="gv" x="259" y="301">0,5–1 ano de carreira</text>
+  <rect x="271.5" y="316" width="61.5" height="20" rx="3" fill="#cc4444" opacity="0.75"/>
+  <text class="gl" x="20" y="331">Vira Sênior</text>
+  <text class="gv" x="341" y="331">1,5–3 — o mesmo ponto em que a big tech dá Pleno</text>
 
-  <line x1="210" y1="346" x2="660" y2="346" stroke="#8a8078"/>
+  <line x1="210" y1="346" x2="620" y2="346" stroke="#8a8078"/>
   <text class="gx" x="210" y="364" text-anchor="middle">0</text>
-  <text class="gx" x="322.5" y="364" text-anchor="middle">2</text>
-  <text class="gx" x="435" y="364" text-anchor="middle">4</text>
-  <text class="gx" x="547.5" y="364" text-anchor="middle">6</text>
-  <text class="gx" x="660" y="364" text-anchor="middle">8</text>
-  <text class="gx" x="435" y="384" text-anchor="middle">ANOS DE EXPERIÊNCIA ACUMULADA</text>
-  <text class="gx" x="20" y="408">Faixas indicativas. Empresas variam; o eixo mede experiência total, não tempo de casa.</text>
+  <text class="gx" x="292" y="364" text-anchor="middle">2</text>
+  <text class="gx" x="374" y="364" text-anchor="middle">4</text>
+  <text class="gx" x="456" y="364" text-anchor="middle">6</text>
+  <text class="gx" x="538" y="364" text-anchor="middle">8</text>
+  <text class="gx" x="620" y="364" text-anchor="middle">10</text>
+  <text class="gx" x="415" y="384" text-anchor="middle">ANOS DE EXPERIÊNCIA ACUMULADA NA CARREIRA</text>
+  <text class="gx" x="20" y="408">Faixas indicativas. Cada barra marca quando o título chega, não quanto tempo dura o nível.</text>
 </svg>
