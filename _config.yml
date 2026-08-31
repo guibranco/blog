@@ -1,7 +1,6 @@
 # ── Identidade ──────────────────────────────────────────
 title: "Tecnologia & Viagens"
 description: "Blog sobre tecnologia, infraestrutura e automação para quem viaja e constrói."
-lang: "pt-BR"
 author: "Guilherme Branco Stracini"
 author_avatar: /assets/img/avatar.png
 author_cover: /assets/img/cover.jpg
@@ -74,7 +73,6 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      lang: "pt-BR"
       author:
         name: "Guilherme Branco Stracini"
         url:  "https://guilherme.stracini.com.br"

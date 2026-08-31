@@ -105,6 +105,11 @@ pt-BR:
   sort_field_reading_time: "Tempo de leitura"
   sort_direction_asc: "Crescente"
   sort_direction_desc: "Decrescente"
+  travels_table_title: "Artigos por país"
+  table_country: "País"
+  table_article: "Artigo"
+  table_date: "Data"
+  travels_country_unknown: "Não especificado"
 
 en:
   home: "Home"
@@ -213,3 +218,8 @@ en:
   sort_field_reading_time: "Reading time"
   sort_direction_asc: "Ascending"
   sort_direction_desc: "Descending"
+  travels_table_title: "Articles by country"
+  table_country: "Country"
+  table_article: "Article"
+  table_date: "Date"
+  travels_country_unknown: "Unspecified"

@@ -11,6 +11,7 @@ tags: [viagem, malta, st-julians, paceville, sliema, comino, blue-lagoon, golden
 reading_time: 22
 image: /assets/img/posts/malta-2026.jpg
 gallery: true
+countries: [Malta]
 locations:
   - lat: 35.9187
     lng: 14.4894

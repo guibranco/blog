@@ -30,6 +30,11 @@ REQUIRED_FRONT_MATTER = [
     "categories", "tags", "reading_time", "image",
 ]
 
+# `lang:` drives the language badge and the site's own UI-language fallback
+# for that post (see _includes/post-card.html, _includes/resolve-lang.html) —
+# every post must declare one of these two values explicitly.
+VALID_LANGS = {"en", "pt-BR"}
+
 # External image check settings
 IMG_TIMEOUT        = 10        # seconds per request
 IMG_MAX_WORKERS    = 8         # parallel HEAD requests
@@ -291,6 +296,7 @@ def audit() -> tuple[dict, set, set]:
         "missing_tag_pages":          [],
         "missing_category_pages":     [],
         "incomplete_front_matter":    [],
+        "invalid_lang":               [],   # {file, lang, reason}
         "posts_without_image":        [],
         "posts_without_description":  [],
         "posts_without_reading_time": [],
@@ -335,6 +341,18 @@ def audit() -> tuple[dict, set, set]:
             )
             for field in missing_fields:
                 gh_warning(rel, f"Missing front matter field: `{field}`")
+
+        # `lang:` is mandatory and must be exactly "en" or "pt-BR" — it drives
+        # the language badge and the per-post UI-language fallback, so a
+        # missing or misspelled value silently breaks those, not just a
+        # cosmetic gap like the other REQUIRED_FRONT_MATTER fields above.
+        lang_value = fm.get("lang", "").strip().strip('"').strip("'")
+        if not lang_value:
+            issues["invalid_lang"].append({"file": rel, "lang": "(missing)"})
+            gh_error(rel, "Missing front matter field: `lang` (must be `en` or `pt-BR`)")
+        elif lang_value not in VALID_LANGS:
+            issues["invalid_lang"].append({"file": rel, "lang": lang_value})
+            gh_error(rel, f"Invalid `lang: {lang_value}` — must be `en` or `pt-BR`")
 
         if "image" not in fm:
             issues["posts_without_image"].append(rel)
@@ -495,6 +513,7 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
         len(issues["missing_category_pages"]) +
         len(issues["unregistered_categories"]) +
         len(issues["invalid_subcategories"]) +
+        len(issues["invalid_lang"]) +
         len(issues["missing_local_images"]) +
         len([i for i in issues["broken_external_images"] if i["location"] == "front matter image"]) +
         len([i for i in issues["invalid_image_extensions"] if i["field"] == "image"])
@@ -559,6 +578,16 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
             lines.append("")
     else:
         lines.append("✅ All categories/subcategories are registered in _data/categories.yml.")
+    lines.append("")
+
+    # ── Post language ──────────────────────────────────────────────────────────
+    lines.append("## Post language (`lang:`)\n")
+    if issues["invalid_lang"]:
+        lines.append(f"**{len(issues['invalid_lang'])} post(s) with a missing/invalid `lang:`:**\n")
+        for item in issues["invalid_lang"]:
+            lines.append(f"- `{item['file']}` — found `{item['lang']}`, expected `en` or `pt-BR`")
+    else:
+        lines.append("✅ All posts declare a valid `lang:` (`en` or `pt-BR`).")
     lines.append("")
 
     # ── Local image/cover files ────────────────────────────────────────────────
@@ -660,6 +689,7 @@ def main():
         len(issues["missing_category_pages"]) +
         len(issues["unregistered_categories"]) +
         len(issues["invalid_subcategories"]) +
+        len(issues["invalid_lang"]) +
         len(issues["missing_local_images"]) +
         len([i for i in issues["broken_external_images"]
              if i["location"] == "front matter image"]) +

@@ -15,6 +15,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          # git_last_modified.rb needs full history to walk each file's past
+          # revisions and find the last one that actually changed its body —
+          # a shallow clone leaves only the latest commit, so every post
+          # would resolve to "updated today".
+          fetch-depth: 0
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1

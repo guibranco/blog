@@ -108,9 +108,8 @@ pagination:
           </div>
           {% assign featured = site.posts.first %}
           {% assign _featured_image = featured.cover | default: featured.image %}
-          {% assign _featured_lang = featured.lang | default: site.lang %}
-          {% assign _featured_lang_t = site.data.i18n[_featured_lang] %}
-          {% assign _site_t = site.data.i18n[site.lang] %}
+          {% assign _featured_lang_t = site.data.i18n[featured.lang] %}
+          {% assign _site_t = site.data.i18n["pt-BR"] %}
           <article class="featured-card">
             <div class="featured-image">
               {% if _featured_image %}

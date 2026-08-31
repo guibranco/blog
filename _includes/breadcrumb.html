@@ -4,21 +4,28 @@
   <a href="{{ site.baseurl }}/"><span data-i18n="home">{{ _bct.home }}</span></a>
   <span aria-hidden="true">›</span>
   {% if page.layout == 'post' %}
-    {% for cat in page.categories limit: 1 %}
-      {% assign _cat_data = site.data.categories | where: "name", cat | first %}
-      {% assign _cat_slug = cat | slugify: 'latin' %}
+    {% assign _bc_cat = page.categories | first %}
+    {% if _bc_cat %}
+      {% assign _cat_data = site.data.categories | where: "name", _bc_cat | first %}
+      {% assign _cat_slug = _bc_cat | slugify: 'latin' %}
       {% if _cat_data %}{% assign _cat_slug = _cat_data.slug %}{% endif %}
-      <a href="{{ site.baseurl }}/categorias/{{ _cat_slug }}/">{{ cat }}</a>
+      <a href="{{ site.baseurl }}/categorias/{{ _cat_slug }}/">{{ _bc_cat }}</a>
       <span aria-hidden="true">›</span>
-    {% endfor %}
-    {% if page.subcategory %}
-      {% assign _parent = page.categories | first %}
-      {% assign _pcat  = site.data.categories | where: "name", _parent | first %}
-      {% if _pcat %}
-        {% assign _sub_data = _pcat.subcategories | where: "name", page.subcategory | first %}
-        {% assign _sub_slug = page.subcategory | slugify: 'latin' %}
+
+      {% comment %}── page.subcategories is ["Category/Sub", ...] — find the one matching the breadcrumb's category ──{% endcomment %}
+      {% assign _bc_sub = "" %}
+      {% for subcat in page.subcategories %}
+        {% assign _bc_parts = subcat | split: "/" %}
+        {% if _bc_parts[0] == _bc_cat %}
+          {% assign _bc_sub = subcat | remove_first: _bc_parts[0] | remove_first: "/" %}
+        {% endif %}
+      {% endfor %}
+
+      {% if _bc_sub != "" %}
+        {% assign _sub_data = _cat_data.subcategories | where: "name", _bc_sub | first %}
+        {% assign _sub_slug = _bc_sub | slugify: 'latin' %}
         {% if _sub_data %}{% assign _sub_slug = _sub_data.slug %}{% endif %}
-        <a href="{{ site.baseurl }}/categorias/{{ _pcat.slug }}/{{ _sub_slug }}/">{{ page.subcategory }}</a>
+        <a href="{{ site.baseurl }}/categorias/{{ _cat_slug }}/{{ _sub_slug }}/">{{ _bc_sub }}</a>
         <span aria-hidden="true">›</span>
       {% endif %}
     {% endif %}

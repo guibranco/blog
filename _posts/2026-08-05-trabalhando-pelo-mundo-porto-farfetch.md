@@ -14,6 +14,7 @@ image: /assets/img/posts/trabalhando-pelo-mundo-porto.png
 series: trabalhando-pelo-mundo
 series_title: "Trabalhando pelo mundo"
 series_part: 1
+countries: [Portugal]
 location:
   lat: 41.1579
   lng: -8.6291

@@ -11,6 +11,7 @@ tags: [viagem, albania, sarande, ksamil, corfu, europa, beach-club, ferry, alugu
 reading_time: 18
 image: /assets/img/posts/albania-2026.jpg
 gallery: true
+countries: [Albânia, Grécia]
 locations:
   - lat: 41.3275
     lng: 19.8187

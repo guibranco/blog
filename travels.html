@@ -2,7 +2,7 @@
 layout: null
 permalink: /viagens/
 ---
-{% assign _lang = site.lang | default: "pt-BR" %}
+{% assign _lang = "pt-BR" %}
 {% assign _t = site.data.i18n[_lang] %}
 <!DOCTYPE html>
 <html lang="{{ _lang }}">
@@ -46,6 +46,57 @@ permalink: /viagens/
       {% if travel_posts.size > 0 %}
       <div class="article-card travel-map-card">
         <div id="map"></div>
+      </div>
+
+      <!-- Card: artigos por país -->
+      {% assign all_countries = "" | split: "" %}
+      {% for post in travel_posts %}
+        {% assign _pcs = post.countries %}
+        {% if _pcs.size == 0 %}{% assign _pcs = _t.travels_country_unknown | split: "|" %}{% endif %}
+        {% for c in _pcs %}
+          {% unless all_countries contains c %}{% assign all_countries = all_countries | push: c %}{% endunless %}
+        {% endfor %}
+      {% endfor %}
+      {% assign all_countries = all_countries | sort %}
+
+      <div class="article-card">
+        <div class="section-row">
+          <h2 class="section-title" data-i18n="travels_table_title">{{ _t.travels_table_title }}</h2>
+        </div>
+        <div class="travels-table-wrap">
+          <table class="travels-table">
+            <thead>
+              <tr>
+                <th data-i18n="table_country">{{ _t.table_country }}</th>
+                <th data-i18n="table_article">{{ _t.table_article }}</th>
+                <th data-i18n="table_date">{{ _t.table_date }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for country in all_countries %}
+                {% assign _country_posts = "" | split: "" %}
+                {% for post in travel_posts %}
+                  {% assign _pcs = post.countries %}
+                  {% if _pcs.size == 0 %}{% assign _pcs = _t.travels_country_unknown | split: "|" %}{% endif %}
+                  {% if _pcs contains country %}
+                    {% assign _country_posts = _country_posts | push: post %}
+                  {% endif %}
+                {% endfor %}
+                {% assign _country_posts = _country_posts | sort: "date" | reverse %}
+                {% assign _country_row_count = _country_posts.size %}
+                {% for post in _country_posts %}
+                <tr>
+                  {% if forloop.first %}
+                  <td class="travels-table-country" rowspan="{{ _country_row_count }}">{{ country }}</td>
+                  {% endif %}
+                  <td><a href="{{ post.url | relative_url }}">{{ post.title }}</a></td>
+                  <td class="travels-table-date">{% include post-dates.html post=post t=_t format=_t.date_short %}</td>
+                </tr>
+                {% endfor %}
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
       </div>
       {% else %}
       <div class="article-card">

@@ -61,8 +61,7 @@ permalink: /series/
               <div class="series-toc">
                 {% for sp in s_posts %}
                 {% assign _sp_thumb = sp.cover | default: sp.image %}
-                {% assign _sp_lang = sp.lang | default: site.lang %}
-                {% assign _sp_lang_t = site.data.i18n[_sp_lang] %}
+                {% assign _sp_lang_t = site.data.i18n[sp.lang] %}
                 <a class="series-toc-item" href="{{ sp.url | relative_url }}">
                   {% if _sp_thumb %}
                   <img class="series-toc-thumb" src="{{ _sp_thumb | relative_url }}" alt="" loading="lazy">

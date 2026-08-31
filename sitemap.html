@@ -92,8 +92,7 @@ permalink: /mapa-do-site/
               {% if sub_posts.size > 0 %}
               <ul class="tag-group-list">
                 {% for post in sub_posts %}
-                {% assign _sm_lang = post.lang | default: site.lang %}
-                {% assign _sm_lang_t = site.data.i18n[_sm_lang] %}
+                {% assign _sm_lang_t = site.data.i18n[post.lang] %}
                 <li class="tag-group-item">
                   <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
                   <span class="tag-group-item-meta">
@@ -128,8 +127,7 @@ permalink: /mapa-do-site/
               {% endif %}
               <ul class="tag-group-list">
                 {% for post in other_posts %}
-                {% assign _sm_lang = post.lang | default: site.lang %}
-                {% assign _sm_lang_t = site.data.i18n[_sm_lang] %}
+                {% assign _sm_lang_t = site.data.i18n[post.lang] %}
                 <li class="tag-group-item">
                   <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
                   <span class="tag-group-item-meta">

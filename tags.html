@@ -2,7 +2,7 @@
 layout: null
 permalink: /topicos/
 ---
-{% assign _lang = site.lang | default: "pt-BR" %}
+{% assign _lang = "pt-BR" %}
 {% assign _t = site.data.i18n[_lang] %}
 <!DOCTYPE html>
 <html lang="{{ _lang }}">
@@ -91,8 +91,7 @@ permalink: /topicos/
               </div>
               <ul class="tag-group-list">
                 {% for post in tag_posts %}
-                {% assign _tg_lang = post.lang | default: site.lang %}
-                {% assign _tg_lang_t = site.data.i18n[_tg_lang] %}
+                {% assign _tg_lang_t = site.data.i18n[post.lang] %}
                 <li class="tag-group-item">
                   <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
                   <span class="tag-group-item-meta">

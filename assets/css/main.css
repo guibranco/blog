@@ -948,6 +948,30 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 }
 .compare-table tr:hover td { background: var(--surface-warm); }
 .compare-table td:first-child { font-weight: 600; }
+
+/* Travels — articles by country */
+.travels-table-wrap { overflow-x: auto; }
+.travels-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+.travels-table th {
+  background: var(--ink); color: var(--surface); padding: .8rem .9rem;
+  text-align: left; font-family: 'JetBrains Mono', monospace;
+  font-size: 0.66rem; letter-spacing: .08em; text-transform: uppercase;
+  white-space: nowrap;
+}
+.travels-table th:first-child { border-radius: 7px 0 0 0; }
+.travels-table th:last-child  { border-radius: 0 7px 0 0; }
+.travels-table td {
+  padding: .8rem .9rem; border-bottom: 1px solid var(--border);
+  color: var(--ink); vertical-align: middle;
+}
+.travels-table tr:hover td { background: var(--surface-warm); }
+.travels-table-country { font-weight: 600; white-space: nowrap; }
+.travels-table td a { color: var(--ink); transition: color .2s; }
+.travels-table td a:hover { color: var(--accent); }
+.travels-table-date {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+  color: var(--ink-light); white-space: nowrap;
+}
 .check   { color: var(--accent); font-size: 0.94rem; }
 .cross   { color: #c0392b; font-size: 0.94rem; }
 .partial { color: var(--accent-warm); font-size: 0.875rem; }

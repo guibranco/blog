@@ -14,6 +14,7 @@ image: /assets/img/posts/trabalhando-pelo-mundo-dublin.png
 series: trabalhando-pelo-mundo
 series_title: "Trabalhando pelo mundo"
 series_part: 3
+countries: [Irlanda]
 location:
   lat: 53.3498
   lng: -6.2603

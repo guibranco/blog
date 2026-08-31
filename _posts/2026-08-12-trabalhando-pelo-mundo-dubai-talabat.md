@@ -14,6 +14,7 @@ image: /assets/img/posts/trabalhando-pelo-mundo-dubai.png
 series: trabalhando-pelo-mundo
 series_title: "Trabalhando pelo mundo"
 series_part: 2
+countries: [Emirados Árabes Unidos]
 location:
   lat: 25.2048
   lng: 55.2708
