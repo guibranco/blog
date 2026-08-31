@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 {% include resolve-lang.html %}
+{% assign _lang_t = site.data.i18n[page.lang] %}
+{% assign _ui_lang = "pt-BR" %}
+{% assign _t = site.data.i18n[_ui_lang] %}
 <html lang="{{ _lang }}">
 <head>
   <meta charset="UTF-8">
@@ -61,12 +64,12 @@
         {% endif %}
 
         <div class="hero-meta">
-          <span data-i18n-title="published_on" title="{{ _t.published_on }}">{{ page.date | localized_date: _t.date_format, _lang }}</span>
+          <span data-i18n-title="published_on" title="{{ _t.published_on }}"><span data-date="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | localized_date: _t.date_format, _ui_lang }}</span></span>
           {% assign _pub_day = page.date | date: "%Y-%m-%d" %}
           {% assign _mod_day = page.last_modified_at | date: "%Y-%m-%d" %}
           {% if page.last_modified_at and _mod_day != _pub_day %}
           <span class="dot">·</span>
-          <span><span data-i18n="updated_on">{{ _t.updated_on }}</span> {{ page.last_modified_at | localized_date: _t.date_format, _lang }}</span>
+          <span><span data-i18n="updated_on">{{ _t.updated_on }}</span> <span data-date="{{ page.last_modified_at | date: '%Y-%m-%d' }}">{{ page.last_modified_at | localized_date: _t.date_format, _ui_lang }}</span></span>
           {% endif %}
           {% if page.reading_time %}
           <span class="dot">·</span>
@@ -82,8 +85,8 @@
             <i class="fas fa-share-nodes"></i> <span data-i18n="share">{{ _t.share }}</span>
           </button>
           <span class="dot">·</span>
-          <span class="hero-lang-badge" title="{{ _t.lang_name }}">
-            <i class="fas fa-globe"></i> {{ _t.lang_label }}
+          <span class="hero-lang-badge" title="{{ _lang_t.lang_name }}">
+            <i class="fas fa-globe"></i> {{ _lang_t.lang_label }}
           </span>
         </div>
 

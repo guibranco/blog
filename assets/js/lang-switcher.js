@@ -37,6 +37,12 @@
     try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
   }
 
+  function formatDate(isoDate, format, monthNames) {
+    var parts = isoDate.split('-');
+    var month = parseInt(parts[1], 10);
+    return format.replace('%Y', parts[0]).replace('%B', monthNames[month - 1]).replace('%d', parts[2]);
+  }
+
   function applyLang(lang) {
     var t = i18n[lang];
     if (!t) return;
@@ -44,6 +50,10 @@
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var v = t[el.dataset.i18n];
       if (v !== undefined) el.textContent = v;
+    });
+
+    document.querySelectorAll('[data-date]').forEach(function (el) {
+      if (t.date_format && t.month_names) el.textContent = formatDate(el.dataset.date, t.date_format, t.month_names);
     });
 
     document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {

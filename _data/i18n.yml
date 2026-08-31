@@ -19,6 +19,7 @@ pt-BR:
   giscus_lang: "pt"
   date_format: "%d de %B de %Y"
   date_short: "%d/%m/%Y"
+  month_names: [janeiro, fevereiro, março, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro]
   footer_all_articles: "← Todos os artigos"
   footer_all_topics: "← Todos os tópicos"
   footer_search: "Buscar"
@@ -132,6 +133,7 @@ en:
   giscus_lang: "en"
   date_format: "%B %d, %Y"
   date_short: "%m/%d/%Y"
+  month_names: [January, February, March, April, May, June, July, August, September, October, November, December]
   footer_all_articles: "← All articles"
   footer_all_topics: "← All topics"
   footer_search: "Search"
