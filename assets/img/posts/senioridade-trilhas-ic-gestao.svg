@@ -85,8 +85,8 @@
   <line x1="505" y1="598" x2="505" y2="614" stroke="#8a8078" marker-end="url(#ar)"/>
 
   <rect x="360" y="614" width="290" height="48" rx="4" fill="#faf9f6" stroke="#b85c00"/>
-  <text class="bx" x="380" y="636">VP · CTO · CIO · CISO</text>
-  <text class="tag" x="380" y="654">EM4+ · C-level</text>
+  <text class="bx" x="380" y="636">VP Engineering · CTO</text>
+  <text class="tag" x="380" y="654">EM4+ · toda a engenharia</text>
 
   <line x1="322" y1="446" x2="358" y2="446" stroke="#8a8078" stroke-dasharray="4 3"/>
   <circle cx="340" cy="446" r="12" fill="#f2ede6" stroke="#8a8078" stroke-dasharray="3 3"/>

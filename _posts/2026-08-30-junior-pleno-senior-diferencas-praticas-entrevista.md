@@ -436,7 +436,7 @@ Três leituras importam nesse desenho:
   </div>
   <div class="provider-card">
     <div class="provider-name">A entrada direta existe</div>
-    <div class="provider-detail">No Brasil é bem comum alguém entrar direto em gestão sem nunca ter sido IC. Funciona, mas cria um gestor que não consegue calibrar estimativa nem avaliar risco técnico — exatamente o que este artigo inteiro mede.</div>
+    <div class="provider-detail">No Brasil é bem comum alguém entrar direto em gestão sem nunca ter tido título de IC. Funciona bem em muita gente. O que pesa não é o título que a pessoa teve, e sim quanto contexto técnico ela consegue demonstrar — sem isso, calibrar estimativa e avaliar risco vira chute, tenha ela sido IC ou não.</div>
   </div>
 </div>
 
@@ -480,16 +480,18 @@ Três leituras importam nesse desenho:
     </tr>
   </thead>
   <tbody>
-    <tr><td>Coordenador / Tech Lead Manager</td><td>EM1</td><td>Engineering Manager</td><td>Um time</td></tr>
-    <tr><td>Gerente de Engenharia</td><td>EM2</td><td>Senior / Group EM</td><td>Gerentes e ICs sêniores</td></tr>
-    <tr><td>Diretor</td><td>EM3</td><td>Director of Engineering</td><td>Uma área inteira</td></tr>
-    <tr><td>VP / Diretoria executiva</td><td>EM4+</td><td>VP Eng, CTO, CIO, CISO, CDO</td><td>Empresa</td></tr>
+    <tr><td>Coordenador / Tech Lead Manager</td><td>EM1</td><td>Engineering Manager</td><td>Costuma ser um time</td></tr>
+    <tr><td>Gerente de Engenharia</td><td>EM2</td><td>Senior Engineering Manager</td><td>Um time grande ou alguns times</td></tr>
+    <tr><td>Gerente de grupo</td><td>EM2–EM3</td><td>Group Engineering Manager</td><td>Costuma incluir outros gerentes</td></tr>
+    <tr><td>Diretor de Engenharia</td><td>EM3</td><td>Director of Engineering</td><td>Uma ou mais áreas</td></tr>
+    <tr><td>VP de Engenharia</td><td>EM4+</td><td>VP Engineering, CTO</td><td>Toda a engenharia</td></tr>
+    <tr><td colspan="4"><em>Funções executivas vizinhas — <strong>não são degraus da escada de engenharia</strong>: CIO, CISO, CDO. São pares do CTO, com escopo próprio e linha de reporte que varia por empresa.</em></td></tr>
   </tbody>
 </table>
 
 <div class="callout callout-tip">
   <div class="callout-label">Sobre a nomenclatura em si</div>
-  As colunas "IC" e "EM" existem aqui para dar uma régua neutra — elas são convenção de mercado, não padrão oficial. Cada empresa usa a sua: L no Google, E na Meta, SDE na Amazon, ICT na Apple, números soltos na Microsoft. Se você está traduzindo seu currículo, o que importa é a <strong>coluna de escopo</strong>, não a sigla.
+  As colunas "IC" e "EM" existem aqui para dar uma régua neutra — elas são convenção de mercado, não padrão oficial. Cada empresa usa a sua: L no Google, E na Meta, SDE na Amazon, ICT na Apple, números soltos na Microsoft. A coluna de escopo também é <strong>indicativa, não fixa</strong> — o mesmo título de gestão cobre realidades bem diferentes conforme o tamanho da empresa. Se você está traduzindo seu currículo, descreva o escopo que você de fato teve; é isso que o outro lado consegue ler.
 </div>
 
 <h3>"Júnior" é um termo brasileiro?</h3>

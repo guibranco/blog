@@ -786,6 +786,56 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 .nu { color: #f78c6c; }
 .va { color: #eeffff; }
 
+/* Markdown fenced code blocks (kramdown + Rouge) */
+.article-inner .highlighter-rouge {
+  background: var(--code-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+}
+.article-inner .highlighter-rouge .highlight {
+  overflow-x: auto;
+  margin: 0;
+}
+.article-inner .highlighter-rouge pre.highlight {
+  padding: 1.1rem 1.3rem;
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  line-height: 1.65;
+  color: var(--code-text);
+}
+.article-inner .highlighter-rouge code { background: none; padding: 0; color: inherit; }
+
+/* Inline code */
+.article-inner code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85em;
+  background: var(--surface-warm);
+  color: var(--accent-warm);
+  padding: .15em .4em;
+  border-radius: 4px;
+}
+.article-inner pre code { background: none; padding: 0; color: inherit; border-radius: 0; }
+
+/* Rouge/Pygments token colors */
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .cp, .highlight .cs { color: #546e7a; font-style: italic; }
+.highlight .k, .highlight .kc, .highlight .kd, .highlight .kn, .highlight .kp,
+.highlight .kr, .highlight .kt, .highlight .ow, .highlight .nt { color: #c792ea; }
+.highlight .nf, .highlight .nc, .highlight .nb, .highlight .bp, .highlight .nd { color: #82aaff; }
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb, .highlight .sc,
+.highlight .sd, .highlight .se, .highlight .sh, .highlight .si, .highlight .sx,
+.highlight .sr, .highlight .ss, .highlight .na { color: #c3e88d; }
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .mo,
+.highlight .il { color: #f78c6c; }
+.highlight .n, .highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi,
+.highlight .no, .highlight .nl, .highlight .ni, .highlight .ne, .highlight .nn { color: #eeffff; }
+.highlight .o, .highlight .p { color: var(--code-text); }
+.highlight .err { color: #ff6b6b; }
+.highlight .gd { color: #ff6b6b; }
+.highlight .gi { color: #c3e88d; }
+.highlight .gh, .highlight .gu { color: #82aaff; font-weight: 700; }
+
 /* AT commands table */
 .at-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.84rem; }
 .at-table th {
