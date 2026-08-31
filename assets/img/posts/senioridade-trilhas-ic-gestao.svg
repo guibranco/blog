@@ -93,7 +93,7 @@
   <text x="340" y="450" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="12" fill="#5a534a">↔</text>
 
   <line x1="20" y1="686" x2="660" y2="686" stroke="#e2dbd0"/>
-  <text class="nt" x="20" y="706">↔ Staff (IC4) e Engineering Manager (EM1) sentam na mesma faixa salarial.</text>
-  <text class="nt" x="20" y="726">A troca entre as trilhas é lateral — não é promoção, e dá para voltar.</text>
+  <text class="nt" x="20" y="706">↔ A troca entre trilhas é lateral — não é promoção, e dá para voltar.</text>
+  <text class="nt" x="20" y="726">A numeração IC/EM aqui é genérica: cada empresa usa a sua. Ver a tabela.</text>
   <text class="nt" x="20" y="746">No Brasil, "tech lead" costuma ser um papel dado a um sênior, não um degrau.</text>
 </svg>
