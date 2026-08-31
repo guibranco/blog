@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "18 serviços em 4 VMs de 1 GB: arquitetando no free tier sem sofrer"
 date: 2026-07-03 22:00:00 +0100
 categories: [Infrastructure]

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "CLT, PJ ou MEI? Qual devo escolher"
 description: "As diferenças entre CLT, PJ e MEI para quem trabalha com tecnologia — com a conta completa refeita com os números de 2026: tabelas de INSS e IRRF, Simples Nacional, Fator R, teto do MEI e o multiplicador real de conversão."
 date: 2020-01-23

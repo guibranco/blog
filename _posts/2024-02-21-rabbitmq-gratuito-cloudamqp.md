@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "RabbitMQ gratuito: Potencialize sua arquitetura de mensageria sem custos"
 description: "Como usar RabbitMQ ou LavinMQ de graça com o CloudAMQP — sem cartão de crédito, sem servidor dedicado, ideal para projetos pessoais, estudos e pequenos projetos comerciais."
 date: 2024-02-21

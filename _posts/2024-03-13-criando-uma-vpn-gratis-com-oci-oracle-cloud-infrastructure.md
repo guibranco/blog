@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Criando uma VPN grátis com OCI (Oracle Cloud Infrastructure)"
 description: "Passo a passo completo para criar sua própria VPN pessoal usando o plano Always Free da Oracle Cloud — com PiVPN (WireGuard ou OpenVPN), UFW, fail2ban e dicas de manutenção de segurança."
 date: 2024-03-13

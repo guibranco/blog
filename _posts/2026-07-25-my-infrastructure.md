@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: "A Map of My Infrastructure: How I Run a Dozen Side Projects on a Budget"
 description: "A walkthrough of the small, multi-provider estate that keeps my portfolio, bots, and APIs running — five hosting surfaces, a decoupled webhook pipeline, a VPN-gated database and two monitoring layers."
 date: 2026-07-25

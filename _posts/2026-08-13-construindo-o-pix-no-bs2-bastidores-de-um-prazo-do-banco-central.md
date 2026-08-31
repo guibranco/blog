@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Construindo o PIX no BS2: sete meses, um prazo do Banco Central e um AirBnB em BH"
 description: "Como foi sair do time B2B em São Paulo para o time de projetos especiais do core bancário e atravessar 2020 construindo o PIX, com data de lançamento definida pelo Banco Central, plantão de sobreaviso e o mercado inteiro colaborando em grupos de WhatsApp."
 date: 2026-08-13

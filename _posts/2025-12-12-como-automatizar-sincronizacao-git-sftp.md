@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Como Automatizar a Sincronização Entre um Repositório Git Local e um Servidor (S)FTP"
 description: "Aprenda a montar um sistema Python que compara, envia e baixa arquivos entre um repositório Git local e um servidor FTP ou SFTP — com relatório HTML automático e commits inteligentes, sem depender de CI/CD externo."
 date: 2025-12-12

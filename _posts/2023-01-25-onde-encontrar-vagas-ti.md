@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Onde encontrar vagas – TI"
 description: "Lista curada de sites com vagas de emprego para a área de TI: freelancer, estágios, vagas específicas para tech, vagas em geral, agregadores e repositórios no GitHub."
 date: 2023-01-25

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Show do Alok na O2 Brixton, M&M's World e Covent Garden — 3 dias em Londres saindo da Irlanda"
 description: "Relato de uma ida relâmpago a Londres para o show do Alok na O2 Academy Brixton, com passagem por Leicester Square, Borough Market e Covent Garden. Custos reais, dicas de transporte e galeria de fotos."
 date: 2026-06-05

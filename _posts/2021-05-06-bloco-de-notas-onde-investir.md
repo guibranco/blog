@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Bloco de notas: Onde investir"
 description: "Anotações pessoais de onde investir, estudar e aprender sobre o assunto — corretoras, bancos, canais do YouTube, blogs, casas de análise e apps de acompanhamento."
 date: 2021-05-06

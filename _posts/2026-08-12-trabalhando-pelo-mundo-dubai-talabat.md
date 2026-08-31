@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Trabalhando pelo mundo #2 — Dubai: seis meses remoto do Brasil antes de pisar no deserto"
 description: "Uma mensagem no LinkedIn que ficou cinco semanas sem resposta virou dois anos na Talabat, do grupo Delivery Hero. Visto de trabalho nos Emirados, meio ano em remoto acordando às 3h da manhã, 47 dias em hotel, e uma semana de trabalho que mudou de dia no meio do caminho."
 date: 2026-08-12

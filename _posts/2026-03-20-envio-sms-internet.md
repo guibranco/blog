@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Envio de SMS pela Internet: Da API ao Smartphone como Gateway"
 description: "Quatro abordagens para enviar SMS programaticamente — do serviço em nuvem ao modem físico atrás da sua mesa."
 date: 2026-03-20

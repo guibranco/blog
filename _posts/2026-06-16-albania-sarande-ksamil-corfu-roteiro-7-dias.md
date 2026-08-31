@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Albânia em 7 dias: Sarande, Ksamil e Corfu — o melhor custo-benefício da Europa saindo da Irlanda"
 description: "Roteiro completo de 7 dias na Albânia saindo de Dublin, com hospedagem em Sarande, passeio de barco em Corfu e os melhores beach clubs de Ksamil. Timeline, custos reais por pessoa e dicas práticas."
 date: 2026-06-16

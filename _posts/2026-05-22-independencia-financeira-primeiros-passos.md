@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Independência Financeira: os primeiros passos"
 description: "Um guia prático sobre reserva de emergência, reserva de oportunidade, aposentadoria e investimentos — com dados reais do mercado e experiências pessoais de quem percorreu esse caminho."
 date: 2026-05-22

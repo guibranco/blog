@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Repositório não é arquitetura: separar frontend e backend não é microserviço"
 description: "Dividir o código em dois repositórios é uma decisão de logística. Monólito e microserviços são decisões de runtime. Confundir as duas coisas é o erro mais repetido nos grupos de tecnologia — e sai caro."
 date: 2026-08-11

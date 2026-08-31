@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Quais testes são de responsabilidade do desenvolvedor e quais são do QA?"
 description: "Entenda a divisão de responsabilidades entre desenvolvedores e QAs nos testes de software — unit test, integration test e load test versus E2E e UAT — e a diferença entre caixa branca e caixa preta."
 date: 2026-05-15

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 render_with_liquid: false
 title: "Deploy de aplicação C# .NET 10 em VPS Ubuntu com Nginx, SSL e rolling deploy"
 description: "Guia completo para publicar uma aplicação .NET 10 em uma VPS OCI Ubuntu usando GitHub Actions, rsync, duas instâncias com load balancing no Nginx e deploy sem downtime."

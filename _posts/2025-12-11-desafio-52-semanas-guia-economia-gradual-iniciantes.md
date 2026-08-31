@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Desafio das 52 Semanas: um guia de economia gradual para iniciantes"
 description: "Entenda como funciona o Desafio das 52 Semanas, por que ele é eficaz para criar hábitos financeiros e como adaptar o método à sua realidade para poupar de R$1.378 a R$13.780 em um ano."
 date: 2025-12-11

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Trabalhar fora sem ilusão: as três rotas e os pisos salariais de 2026"
 description: "As três rotas para trabalhar fora — visto local, remoto e transferência interna — e os pisos salariais reais de 2026 na Irlanda, Alemanha, Holanda e Portugal."
 date: 2026-07-17

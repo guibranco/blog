@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "A arquitetura do PIX vista por dentro: SPI, ISO 20022 e um orçamento de dez segundos"
 description: "Como funciona o PIX do lado do Banco Central e do lado de um participante direto: SPI, DICT, mensageria ISO 20022 sobre a RSFN, os percentis do Manual de Tempos e as decisões de arquitetura por trás de .NET, RabbitMQ, MS SQL e CouchDB."
 date: 2026-08-13

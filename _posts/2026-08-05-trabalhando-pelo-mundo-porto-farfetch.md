@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Trabalhando pelo mundo #1 — Porto: a mudança que nunca aconteceu"
 description: "Contratado via LinkedIn por uma consultoria portuguesa para atuar na Farfetch, no Porto, em regime de recibos verdes. Cluster de Search, C# .NET, Elasticsearch, Kafka e Cassandra. Seis meses depois pedi demissão — sem nunca ter pisado em Portugal."
 date: 2026-08-05

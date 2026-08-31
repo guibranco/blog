@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Trabalhando pelo mundo #3 — Dublin: cheguei num domingo, comecei na segunda"
 description: "Entrevista, teste técnico e contrato feitos inteiramente por videoconferência, de Dubai. Pousei em Dublin num domingo de abril de 2023 e estava no escritório na manhã seguinte. Três anos depois, o balanço de uma série que começou com uma mudança que nunca aconteceu."
 date: 2026-08-19

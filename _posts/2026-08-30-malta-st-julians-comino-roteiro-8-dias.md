@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Malta em 8 dias: St. Julian's, Comino e o sudeste da ilha — praias, baladas e os custos reais saindo de Dublin"
 description: "Relato completo de 8 dias em Malta saindo de Dublin: hotel em St. Julian's, Golden Bay, St. Peter's Pool, Blue Grotto, Blue Lagoon em Comino e a vida noturna de Paceville. Timeline dia a dia, gráficos de custos reais por pessoa e dicas práticas."
 date: 2026-08-30

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Série: Desenvolvedor web. Parte 2: Front-end vs Back-end"
 description: "O que é front-end e back-end, as tecnologias de cada área, salários, e o roteiro de estudos completo para quem quer começar no desenvolvimento web."
 date: 2020-08-21

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "A tesoura do mercado júnior: vagas, candidatos e hype (2019–2026)"
 description: "Com dados do Indeed, SignalFire, LinkedIn e layoffs.fyi: como as vagas de dev despencaram do pico de 2022, por que a fila de iniciantes explodiu — e por que a escassez sempre foi sênior, nunca júnior."
 date: 2026-07-18

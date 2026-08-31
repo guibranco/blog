@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Testes automatizados: Os diferentes tipos de testes de software"
 description: "Conheça os diferentes tipos de testes automatizados — unitário, carga, estresse, E2E e integração — e entenda como cada um contribui para a qualidade e performance da sua aplicação."
 date: 2022-01-17

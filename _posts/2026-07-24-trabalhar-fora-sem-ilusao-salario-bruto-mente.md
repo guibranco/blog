@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Trabalhar fora sem ilusão: por que o salário bruto mente"
 description: "Aluguéis reais em Dublin e Dubai, o subsídio invisível que você perde ao sair do Brasil, e o imposto que continua te seguindo na rota remota."
 date: 2026-07-24

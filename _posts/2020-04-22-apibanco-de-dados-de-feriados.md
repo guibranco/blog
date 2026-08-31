@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "API/Banco de dados de feriados"
 description: "Conheça dois serviços gratuitos para consultar feriados via HTTP — HolidayAPI e Calendarific — incluindo endpoints disponíveis, limitações do plano grátis e SDKs em C# e Rust."
 date: 2020-04-22

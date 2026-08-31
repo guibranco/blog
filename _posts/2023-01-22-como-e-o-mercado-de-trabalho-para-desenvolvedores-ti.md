@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Como é o mercado de trabalho para desenvolvedores (TI)"
 description: "Veja como é o mercado de trabalho para desenvolvedores/programadores (TI) atualmente — estágios, primeiro emprego, senioridade, salários e inglês no mercado internacional."
 date: 2023-01-22

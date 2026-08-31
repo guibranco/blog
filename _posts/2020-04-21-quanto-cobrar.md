@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Quanto cobrar?"
 description: "Como calcular o valor hora a cobrar pelo seu trabalho como desenvolvedor freelancer — do levantamento de horas ao valor mensal ideal. Atualizado com dados de mercado de São Paulo em agosto de 2026."
 date: 2020-04-21

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Trabalhar fora sem ilusão: currículo, chegada e os primeiros meses"
 description: "O CV que funciona fora do Brasil, os primeiros quarenta dias em Dublin entre hostel e Airbnbs, o PPS number e o custo emocional que não aparece em planilha."
 date: 2026-07-31
