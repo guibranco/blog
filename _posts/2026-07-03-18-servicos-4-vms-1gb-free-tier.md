@@ -8,7 +8,6 @@ subcategories:
   - "Infrastructure/Cloud"
   - "Infrastructure/DevOps"
 tags: [devops, linux, nginx, arquitetura, self-hosted, free-tier, oracle-cloud, oci, ubuntu, php, dotnet, mariadb, redis, wireguard, hardening]
-lang: pt-BR
 reading_time: 9
 description: "Como distribuí quase vinte serviços PHP e .NET em quatro VMs gratuitas de 1 GB de RAM, com fila de mensagens, banco de dados, cache e hardening — sem estourar a memória."
 cover: /assets/img/posts/diagrama-capa.svg
