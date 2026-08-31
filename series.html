@@ -73,7 +73,7 @@ permalink: /series/
                   <span class="series-toc-title">{{ sp.title }}</span>
                   <span class="series-toc-meta">
                     <span class="lang-badge" title="{{ _sp_lang_t.lang_name }}"><i class="fas fa-globe"></i> {{ _sp_lang_t.lang_label }}</span>
-                    <span class="series-toc-date">{% include post-dates.html post=sp t=_sp_lang_t format=_t.date_short %}</span>
+                    <span class="series-toc-date">{% include post-dates.html post=sp t=_t format=_t.date_short %}</span>
                   </span>
                 </a>
                 {% endfor %}

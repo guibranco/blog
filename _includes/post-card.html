@@ -30,7 +30,7 @@
                 <p class="post-card-excerpt">{{ include.post.excerpt | strip_html | truncate: 110 }}</p>
                 {% endif %}
                 <div class="post-card-meta">
-                  <span>{% include post-dates.html post=include.post t=_card_lang_t format="%d/%m/%Y" %}</span>
+                  <span>{% include post-dates.html post=include.post t=_site_t format="%d/%m/%Y" %}</span>
                   {% if include.post.reading_time %}<span><i class="fa-regular fa-clock"></i> ~{{ include.post.reading_time }} min</span>{% endif %}
                 </div>
               </div>

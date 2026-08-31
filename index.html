@@ -110,6 +110,7 @@ pagination:
           {% assign _featured_image = featured.cover | default: featured.image %}
           {% assign _featured_lang = featured.lang | default: site.lang %}
           {% assign _featured_lang_t = site.data.i18n[_featured_lang] %}
+          {% assign _site_t = site.data.i18n[site.lang] %}
           <article class="featured-card">
             <div class="featured-image">
               {% if _featured_image %}
@@ -132,7 +133,7 @@ pagination:
               <p class="featured-excerpt">{{ featured.excerpt | strip_html | truncate: 180 }}</p>
               {% endif %}
               <div class="featured-meta">
-                <span>{% include post-dates.html post=featured t=_featured_lang_t format="%d/%m/%Y" %}</span>
+                <span>{% include post-dates.html post=featured t=_site_t format="%d/%m/%Y" %}</span>
                 {% if featured.reading_time %}<span class="sep">·</span><span>{{ featured.reading_time }} <span data-i18n="reading_time">min de leitura</span></span>{% endif %}
               </div>
               <a class="read-more" href="{{ featured.url | relative_url }}" data-i18n="read_more">Ler artigo →</a>

@@ -97,7 +97,7 @@ permalink: /topicos/
                   <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
                   <span class="tag-group-item-meta">
                     <span class="lang-badge" title="{{ _tg_lang_t.lang_name }}"><i class="fas fa-globe"></i> {{ _tg_lang_t.lang_label }}</span>
-                    <span class="tag-group-item-date">{% include post-dates.html post=post t=_tg_lang_t format=_t.date_short %}</span>
+                    <span class="tag-group-item-date">{% include post-dates.html post=post t=_t format=_t.date_short %}</span>
                   </span>
                 </li>
                 {% endfor %}
