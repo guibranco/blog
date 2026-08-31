@@ -23,6 +23,7 @@ POSTS_DIR    = ROOT / "_posts"
 ASSETS_DIR   = ROOT / "assets"
 CATEGORIES_DATA_FILE = ROOT / "_data" / "categories.yml"
 TAGS_DATA_FILE = ROOT / "_data" / "tags.yml"
+COUNTRIES_DATA_FILE = ROOT / "_data" / "countries.yml"
 SUMMARY_FILE = ROOT / "audit-report.md"
 
 REQUIRED_FRONT_MATTER = [
@@ -88,6 +89,24 @@ def load_tag_slugs() -> set[str]:
         if m:
             slugs.add(m.group(1).strip().strip('"').strip("'"))
     return slugs
+
+
+def load_country_names() -> set[str]:
+    """Return the set of country names registered in _data/countries.yml.
+
+    Unlike categories/tags, `countries:` front matter stores the display
+    name directly (e.g. "Malta"), not a slug — there's no /paises/{slug}/
+    page, so countries.yml exists purely to catch typos/inconsistent
+    naming in the travels-page "articles by country" table.
+    """
+    if not COUNTRIES_DATA_FILE.exists():
+        return set()
+    names: set[str] = set()
+    for line in COUNTRIES_DATA_FILE.read_text(encoding='utf-8').splitlines():
+        m = re.match(r'^-\s*name:\s*(.+)$', line)
+        if m:
+            names.add(m.group(1).strip().strip('"').strip("'"))
+    return names
 
 
 def slugify(text: str) -> str:
@@ -303,6 +322,7 @@ def audit() -> tuple[dict, set, set]:
         "broken_external_images":     [],   # {file, url, status}
         "skipped_external_images":    [],   # {file, url, reason}
         "unregistered_categories":    [],   # {file, category}
+        "unregistered_countries":     [],   # {file, country}
         "invalid_subcategories":      [],   # {file, subcategory, reason}
         "missing_local_images":       [],   # {file, field, path}
         "invalid_image_extensions":   [],   # {file, field, path, extension, expected}
@@ -311,6 +331,7 @@ def audit() -> tuple[dict, set, set]:
     all_tags: set[str] = set()
     all_cats: set[str] = set()
     categories_data = load_categories_data()
+    countries_data = load_country_names()
 
     # url -> [(relative_file, front_matter_image)]
     url_to_posts: dict[str, list[tuple[str, bool]]] = defaultdict(list)
@@ -368,6 +389,13 @@ def audit() -> tuple[dict, set, set]:
             if cat and cat not in categories_data:
                 issues["unregistered_categories"].append({"file": rel, "category": cat})
                 gh_error(rel, f"Category '{cat}' is not registered in _data/categories.yml")
+
+        # Countries (trip posts) must be registered in _data/countries.yml —
+        # a typo here silently misgroups a row in the travels-page table.
+        for country in extract_list_field(fm.get("countries", "")):
+            if country and country not in countries_data:
+                issues["unregistered_countries"].append({"file": rel, "country": country})
+                gh_error(rel, f"Country '{country}' is not registered in _data/countries.yml")
 
         # Subcategories are written as "Parent/Child" and must resolve to a
         # parent category + subcategory pair that exists in categories.yml.
@@ -512,6 +540,7 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
         len(issues["missing_tag_pages"]) +
         len(issues["missing_category_pages"]) +
         len(issues["unregistered_categories"]) +
+        len(issues["unregistered_countries"]) +
         len(issues["invalid_subcategories"]) +
         len(issues["invalid_lang"]) +
         len(issues["missing_local_images"]) +
@@ -578,6 +607,16 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
             lines.append("")
     else:
         lines.append("✅ All categories/subcategories are registered in _data/categories.yml.")
+    lines.append("")
+
+    # ── Countries registered in _data/countries.yml ───────────────────────────
+    lines.append("## Countries in _data/countries.yml\n")
+    if issues["unregistered_countries"]:
+        lines.append(f"**{len(issues['unregistered_countries'])} country use(s) not registered:**\n")
+        for item in issues["unregistered_countries"]:
+            lines.append(f"- `{item['file']}` — country: `{item['country']}`")
+    else:
+        lines.append("✅ All countries are registered in _data/countries.yml.")
     lines.append("")
 
     # ── Post language ──────────────────────────────────────────────────────────
@@ -688,6 +727,7 @@ def main():
         len(issues["missing_tag_pages"]) +
         len(issues["missing_category_pages"]) +
         len(issues["unregistered_categories"]) +
+        len(issues["unregistered_countries"]) +
         len(issues["invalid_subcategories"]) +
         len(issues["invalid_lang"]) +
         len(issues["missing_local_images"]) +

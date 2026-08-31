@@ -5,4 +5,4 @@
 {% endcomment %}
 {% assign _pd_pub_day = include.post.date | date: "%Y-%m-%d" %}
 {% assign _pd_mod_day = include.post.last_modified_at | date: "%Y-%m-%d" %}
-{{ include.post.date | date: include.format }}{% if include.post.last_modified_at and _pd_mod_day != _pd_pub_day %} · {{ include.t.updated_on }} {{ include.post.last_modified_at | date: include.format }}{% endif %}
+{{ include.post.date | date: include.format }}{% if include.post.last_modified_at and _pd_mod_day != _pd_pub_day %} · <span data-i18n="updated_on">{{ include.t.updated_on }}</span> {{ include.post.last_modified_at | date: include.format }}{% endif %}

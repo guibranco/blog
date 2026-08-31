@@ -66,6 +66,7 @@ blog/                                 # nome do repositório
 ├── _data/
 │   ├── categories.yml                # Categorias/subcategorias (nome, slug, ícone, redirect_from)
 │   ├── tags.yml                      # Tags (nome, slug, redirect_from) — uma página por entrada
+│   ├── countries.yml                 # Países visitados em posts de viagem (nome, slug) — lista curada
 │   ├── i18n.yml                      # Strings de UI em pt-BR e en
 │   └── quotes.yml                    # Lista de quotes da sidebar
 │
@@ -211,12 +212,13 @@ Depois de mergear, o GitHub Pages detecta o push em `main`, roda o build do Jeky
 
 ### `.github/scripts/audit_blog.py`
 
-Audita a estrutura inteira do blog e escreve um relatório em `audit-report.md` (e no `$GITHUB_STEP_SUMMARY` do Actions). Roda em todo push/PR que toca `_posts/**`, `_data/tags.yml` ou `_data/categories.yml` (workflow `blog-audit.yml`), e falha o build (`exit 1`) se houver algum problema **bloqueante**:
+Audita a estrutura inteira do blog e escreve um relatório em `audit-report.md` (e no `$GITHUB_STEP_SUMMARY` do Actions). Roda em todo push/PR que toca `_posts/**`, `_data/tags.yml`, `_data/categories.yml` ou `_data/countries.yml` (workflow `blog-audit.yml`), e falha o build (`exit 1`) se houver algum problema **bloqueante**:
 
 | Checagem | Bloqueante? |
 |---|---|
 | `lang:` ausente ou diferente de `en`/`pt-BR` | ✅ erro |
 | Categoria/subcategoria usada no post mas não registrada em `_data/categories.yml` | ✅ erro |
+| `countries:` usado no post mas não registrado em `_data/countries.yml` | ✅ erro |
 | Tag usada mas não registrada em `_data/tags.yml` | ✅ erro |
 | `image:`/`cover:` apontando para um arquivo local inexistente | ✅ erro |
 | `image:` (og:image) num formato não-raster (deve ser png/jpg/jpeg/gif) | ✅ erro |
@@ -253,7 +255,7 @@ Além dos generators de categoria/tag/feed (ver [seção acima](#-gerenciando-ca
 | Workflow | Dispara em | O que faz |
 |---|---|---|
 | `deploy.yml` | push em `main` (ou manual) | `jekyll build` + deploy no GitHub Pages |
-| `blog-audit.yml` | push/PR tocando posts ou `_data/{tags,categories}.yml` | Roda `audit_blog.py` |
+| `blog-audit.yml` | push/PR tocando posts ou `_data/{tags,categories,countries}.yml` | Roda `audit_blog.py` |
 | `sync-category-tag-data.yml` | abertura/atualização de PR | Roda `create_missing_pages.py` e comita/comenta o resultado |
 
 ---
@@ -351,7 +353,7 @@ A sidebar suporta dois campos distintos:
 | `series_part` | number | — | Número da parte dentro da série |
 | `location` | object | — | Post de viagem com **um** ponto: `{ lat, lng, label }` — aparece no mapa de `/viagens/` |
 | `locations` | list | — | Post de viagem com **múltiplos** pontos: `[{ lat, lng, label }, ...]` |
-| `countries` | list | — | País(es) visitados no post (texto livre, ex.: `[Malta]`, `[Albânia, Grécia]`) — usado na tabela "Artigos por país" de `/viagens/` |
+| `countries` | list | — | País(es) visitados no post (ex.: `[Malta]`, `[Albânia, Grécia]`) — devem existir em `_data/countries.yml`; usado na tabela "Artigos por país" de `/viagens/` |
 
 ---
 
