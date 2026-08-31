@@ -31,7 +31,7 @@ locations:
     label: "Sliema, Malta"
 ---
 
-<p class="lead">Oito dias em Malta no fim de agosto, saindo de Dublin por € 283 ida e volta com escala em Manchester. Quatro praias completamente diferentes entre si, oito festas, a Blue Lagoon de Comino, um passeio perdido por dormir demais e um total de € 2.143,02 do bolso. Este é o relato completo — com todos os números e os gráficos de onde o dinheiro foi.</p>
+<p class="lead">Oito dias em Malta no fim de agosto, saindo de Dublin por € 283 ida e volta com escala em Manchester. Quatro praias completamente diferentes entre si, oito festas, a Blue Lagoon de Comino, um passeio perdido por dormir demais e um total de € 2.322,36 do bolso. Este é o relato completo — com todos os números e os gráficos de onde o dinheiro foi.</p>
 
 <div class="callout callout-tip">
   <div class="callout-label">Moeda e pagamentos</div>
@@ -176,43 +176,43 @@ Isso teve efeito prático real no roteiro: encontrar-se implicava 20 a 30 minuto
       <td>Dia 1 — Chegada</td>
       <td>22/08 (Sáb)</td>
       <td>DUB→MAN 06h09 · MAN→MLA 09h08 · Pouso em Malta 13h44 · Hotel 14h04 · Hugo's + pool party no Society 20h09–22h50 · Toy Room (by Pacha) 00h05–03h40</td>
-      <td>≈ € 106</td>
+      <td>≈ € 132</td>
     </tr>
     <tr>
       <td>Dia 2</td>
       <td>23/08 (Dom)</td>
-      <td>Golden Bay 13h19–18h27 · Café del Mar (festa Sundays) 20h54–01h02 · Havana em Paceville até ~04h30</td>
-      <td>≈ € 208</td>
+      <td>Golden Bay 13h19–18h27 · Café del Mar (festa Sundays) 20h54–01h02 · Hotel para trocar de roupa · Havana em Paceville 01h50–04h30, já na madrugada de segunda</td>
+      <td>≈ € 316</td>
     </tr>
     <tr>
       <td>Dia 3</td>
       <td>24/08 (Seg)</td>
       <td>Almoço no Hugo's 13h24–14h17 · St. Peter's Pool 15h01–16h52 · Marsaskala 17h17–18h02 · Blue Grotto 18h27–19h44 · Pizza no Claudio's · Irish Pub e duas baladas</td>
-      <td>≈ € 104</td>
+      <td>≈ € 84</td>
     </tr>
     <tr>
       <td>Dia 4</td>
       <td>25/08 (Ter)</td>
       <td>★ Passeio da manhã perdido · Ferry Sliema→Comino 15h04–16h19 · Blue Lagoon e Crystal Lagoon até 19h20 · Volta a Sliema 20h18 · Souvenirs · Asian Kingdom</td>
-      <td>≈ € 170</td>
+      <td>≈ € 201</td>
     </tr>
     <tr>
       <td>Dia 5</td>
       <td>26/08 (Qua)</td>
       <td>Festa do Branco no Toy Room Beach Club (Sliema) 14h20–19h · Jantar no Asian Kingdom · Footloose em Paceville até 05h</td>
-      <td>≈ € 199</td>
+      <td>≈ € 205</td>
     </tr>
     <tr>
       <td>Dia 6</td>
       <td>27/08 (Qui)</td>
       <td>Praia em Sliema + caminhada de 5,8 km pela orla 13h39–15h23 · Asian Kingdom · Jantar no UMI 21h52–23h24</td>
-      <td>≈ € 244</td>
+      <td>≈ € 253</td>
     </tr>
     <tr>
       <td>Dia 7</td>
       <td>28/08 (Sex)</td>
       <td>Dia de descanso · Piscina do hotel · KFC e série no quarto</td>
-      <td>≈ € 33</td>
+      <td>≈ € 53</td>
     </tr>
     <tr>
       <td>Dia 8 — Partida</td>
@@ -321,9 +321,9 @@ Compramos os ingressos pelo site: **1 VIP a € 50 e 2 normais a € 25** (os VI
 
 Bebemos cerveja, Jägermeister e whisky com energético ou refrigerante. Foram **9 rodadas no total entre os três** — 9 copos por pessoa, 27 no total. No meu cartão caíram cinco delas: três no caixa principal (€ 17,20, € 17,70 e € 17,70) e duas no bar interno, que aparece como *Marine Aquatic* (€ 17,20 cada). **€ 87 só de bebida** numa noite.
 
-### Havana, Paceville
+### Havana, Paceville (já na madrugada de segunda)
 
-Voltamos de Bolt ao hotel, trocamos de roupa de novo e fomos ao **Havana**, em Paceville — que no extrato aparece como *Paceville Entertainments*. Entrada: **€ 20**. A casa toca música latina e tropical, é grande e tem 2 ou 3 ambientes. Em bebida foram **€ 44,30**: uma comanda de € 20,70 e quatro rodadas de € 5,90.
+O Café del Mar encerrou à 01h em ponto. Voltamos de Bolt ao hotel, trocamos de roupa e só então fomos ao **Havana** — ou seja, a essa altura **já era segunda-feira**. Entramos por volta das 01h50 e ficamos até cerca de 04h30. No extrato a casa aparece como *Paceville Entertainments*. Entrada: **€ 20**. A casa toca música latina e tropical, é grande e tem 2 ou 3 ambientes. Em bebida foram **€ 44,30**: uma comanda de € 20,70 e quatro rodadas de € 5,90.
 
 <div class="callout callout-warn">
   <div class="callout-label">O que realmente estoura o orçamento em Malta</div>
@@ -592,13 +592,38 @@ Depois do jantar caminhamos do UMI até o **Canifor Hotel**, onde elas estavam: 
   <div class="section-title-wrap"><h2>Dia 7 — O dia de não fazer nada</h2></div>
 </div>
 
-Tinha combinado de ir a **Valletta** com as amigas, mas fiquei no hotel dormindo. Depois peguei a piscina da cobertura, e pedi **KFC duas vezes ao longo do dia — € 27,82 no total**, pagos com RevPoints e pela conta em dirham — assistindo série no quarto.
+Tinha combinado de ir a **Valletta** com as amigas, mas fiquei no hotel dormindo. Depois peguei a piscina da cobertura e assisti série no quarto, com **dois pedidos de KFC pelo Wolt** ao longo do dia.
 
 Todo mundo já tinha ido embora — elas voltaram para Dublin naquele dia, depois de passarem a manhã e a tarde em Valletta.
 
+**Primeiro pedido — € 25,55**, pago às 05h06 com RevPoints e entregue às 05h23:
+
+- Original Recipe Chicken 3 pcs, meal com arroz e Pepsi Zero grande — € 15,55
+- Adicional de Caramel Sundae — € 2,00
+- Fries large — € 3,07
+- Hot Wings 5 pcs — € 5,90
+- Taxa de serviço — € 0,40 · Entrega grátis
+
+O Caramel Sundae não veio: mandaram duas Pepsi no lugar. Reclamei e recebi **€ 2 de volta como crédito**.
+
+**Segundo pedido — € 29,82, pagos € 27,82** com o crédito, às 23h41, entregue à 00h35:
+
+- Original Recipe Chicken 3 pcs, meal com fries large e Pepsi Zero grande — € 15,55
+- Adicional de Caramel Sundae — € 2,00
+- Churros 12 pcs com caramelo e chocolate branco — € 7,90
+- Hot Wings 5 pcs — € 5,90
+- Taxa de serviço — € 0,47 · Entrega grátis
+
+E aconteceu de novo: o Caramel Sundae, que eu nem tinha percebido que estava selecionado, não veio — dessa vez compensado com uma Fanta laranja extra. Não reclamei.
+
+<div class="callout callout-tip">
+  <div class="callout-label">Wolt em Malta</div>
+  O delivery funciona pelo <strong>Wolt</strong>, que pertence ao mesmo grupo do Deliveroo — a mesma lógica de marcas regionais que a Delivery Hero usa ao operar como Talabat no Oriente Médio. Se você já usa qualquer um deles, a conta e o método de pagamento costumam funcionar direto. Nos dois pedidos a <strong>entrega saiu de graça</strong>, com taxa de serviço abaixo de € 0,50.
+</div>
+
 <div class="callout callout-tip">
   <div class="callout-label">Reserve um dia de nada</div>
-  Este foi o dia mais barato da viagem: <strong>€ 32,82 no total</strong>, contra os € 244 do Dia 6. Depois de cinco dias de praia, Bolt e balada até de madrugada, um dia inteiro sem sair do hotel não é desperdício de viagem — é o que torna os outros sustentáveis. Se o seu roteiro tem 7 ou 8 dias, planeje um deles para não fazer absolutamente nada.
+  Mesmo com dois pedidos de KFC, foi o dia mais barato da viagem: <strong>€ 53,37</strong>, contra os € 316 do Dia 2. Depois de cinco dias de praia, Bolt e balada até de madrugada, um dia inteiro sem sair do hotel não é desperdício de viagem — é o que torna os outros sustentáveis. Se o seu roteiro tem 7 ou 8 dias, planeje um deles para não fazer absolutamente nada.
 </div>
 
 <div class="photo-gallery">
@@ -824,6 +849,8 @@ Não alugamos carro em nenhum momento — **usamos exclusivamente o Bolt** (e o 
   </tbody>
 </table>
 
+<p style="opacity: 0.75; font-size: 0.9rem;">Como as corridas eram pedidas em rodízio, o que efetivamente saiu do meu bolso foram <strong>€ 165,20</strong> — oito corridas de Bolt, o ônibus da chegada e o Bolt do último dia. A diferença para os € 147,55 da coluna acima é o que sobrou desbalanceado no rodízio, e é esse valor real que aparece na tabela de custos da seção 17.</p>
+
 ### O que diz a lei maltesa sobre dirigir e beber
 
 Antes de decidir por carro ou app, vale conhecer os números — e eles são mais apertados do que a fama de Malta sugere.
@@ -881,52 +908,57 @@ Mas em vários momentos da viagem voltamos a cogitar o aluguel, nem que fosse po
   <div class="section-title-wrap"><h2>Custos — os gráficos da viagem</h2></div>
 </div>
 
-O total da viagem foi de **€ 2.143,02**, ou **€ 1.174,34 sem contar voos e hospedagem**. Antes das tabelas, os dois gráficos que mostram melhor onde o dinheiro foi.
+O total da viagem foi de **€ 2.322,36**, ou **€ 1.353,68 sem contar voos e hospedagem**.
+
+<div class="callout callout-tip">
+  <div class="callout-label">Como esses números foram levantados</div>
+  Todos os valores abaixo saem de <strong>extratos reais</strong>, não de estimativas: conta em euro do Revolut, conta em dirham, RevPoints e Wise. Uma convenção importante: <strong>cada noite foi contabilizada no dia em que ela começou</strong>. A balada de sábado que varou até as 03h40, e o Havana que só abriu depois da 01h de segunda, entram respectivamente no Dia 1 e no Dia 2 — porque foi ali que a noite começou. Vale um aviso para quem for tentar o mesmo: as datas do extrato do Revolut são de <strong>liquidação, não de compra</strong>, com atraso de 1 a 3 dias — um táxi de segunda à noite aparece como despesa de quarta. Para reconstruir a viagem dia a dia foi preciso cruzar o extrato com o histórico do app de transporte e com o registro de localização do celular.
+</div>
 
 ### Gasto por dia
 
 <div style="margin: 2rem 0; font-size: 0.9rem;">
   <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
     <div style="flex: 0 0 6.5rem; opacity: 0.75;">Dia 1 · 22/08</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 56.7% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 105,50</div>
+    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 58.3% 0 0; background: currentColor; border-radius: 3px;"></div></div>
+    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 131,70</div>
   </div>
   <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
     <div style="flex: 0 0 6.5rem; opacity: 0.75;">Dia 2 · 23/08</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 14.6% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 208,26</div>
+    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 0% 0 0; background: currentColor; border-radius: 3px;"></div></div>
+    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 315,94</div>
   </div>
   <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
     <div style="flex: 0 0 6.5rem; opacity: 0.75;">Dia 3 · 24/08</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 57.2% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 104,27</div>
+    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 73.6% 0 0; background: currentColor; border-radius: 3px;"></div></div>
+    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 83,53</div>
   </div>
   <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
     <div style="flex: 0 0 6.5rem; opacity: 0.75;">Dia 4 · 25/08</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 30.1% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 170,35</div>
+    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 36.5% 0 0; background: currentColor; border-radius: 3px;"></div></div>
+    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 200,65</div>
   </div>
   <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
     <div style="flex: 0 0 6.5rem; opacity: 0.75;">Dia 5 · 26/08</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 18.4% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 199,09</div>
+    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 35.0% 0 0; background: currentColor; border-radius: 3px;"></div></div>
+    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 205,29</div>
   </div>
   <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
     <div style="flex: 0 0 6.5rem; opacity: 0.75;">Dia 6 · 27/08</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 0% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 243,88</div>
+    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 19.9% 0 0; background: currentColor; border-radius: 3px;"></div></div>
+    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 253,03</div>
   </div>
   <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
     <div style="flex: 0 0 6.5rem; opacity: 0.75;">Dia 7 · 28/08</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 86.5% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 32,82</div>
+    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 83.1% 0 0; background: currentColor; border-radius: 3px;"></div></div>
+    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 53,37</div>
   </div>
   <div style="display: flex; align-items: center; gap: 0.75rem;">
     <div style="flex: 0 0 6.5rem; opacity: 0.75;">Dia 8 · 29/08</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 54.8% 0 0; background: currentColor; border-radius: 3px;"></div></div>
+    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 65.1% 0 0; background: currentColor; border-radius: 3px;"></div></div>
     <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 110,17</div>
   </div>
-  <p style="opacity: 0.6; font-size: 0.8rem; margin-top: 0.75rem;">Gastos diários por pessoa, sem voos e hospedagem. Total: € 1.174,34.</p>
+  <p style="opacity: 0.6; font-size: 0.8rem; margin-top: 0.75rem;">Gastos diários, sem voos e hospedagem. Total: € 1.353,68.</p>
 </div>
 
 ### Gasto por categoria
@@ -935,63 +967,63 @@ O total da viagem foi de **€ 2.143,02**, ou **€ 1.174,34 sem contar voos e h
   <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
     <div style="flex: 0 0 9rem; opacity: 0.75;">Hospedagem</div>
     <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 0% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 685,68 · 32%</div>
-  </div>
-  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
-    <div style="flex: 0 0 9rem; opacity: 0.75;">Alimentação</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 49.6% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 345,65 · 16%</div>
+    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 685,68 · 30%</div>
   </div>
   <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
     <div style="flex: 0 0 9rem; opacity: 0.75;">Festas e bebidas</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 49.9% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 343,53 · 16%</div>
+    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 37.1% 0 0; background: currentColor; border-radius: 3px;"></div></div>
+    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 431,14 · 19%</div>
+  </div>
+  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
+    <div style="flex: 0 0 9rem; opacity: 0.75;">Alimentação</div>
+    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 43.7% 0 0; background: currentColor; border-radius: 3px;"></div></div>
+    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 386,23 · 17%</div>
   </div>
   <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
     <div style="flex: 0 0 9rem; opacity: 0.75;">Voos</div>
     <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 58.7% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 283,00 · 13%</div>
+    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 283,00 · 12%</div>
   </div>
   <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
     <div style="flex: 0 0 9rem; opacity: 0.75;">Transporte</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 78.5% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 147,55 · 7%</div>
-  </div>
-  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
-    <div style="flex: 0 0 9rem; opacity: 0.75;">Praia e beach club</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 78.9% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 145,00 · 7%</div>
+    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 75.9% 0 0; background: currentColor; border-radius: 3px;"></div></div>
+    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 165,20 · 7%</div>
   </div>
   <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
     <div style="flex: 0 0 9rem; opacity: 0.75;">Compras e outros</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 81.5% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 126,61 · 6%</div>
+    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 78.3% 0 0; background: currentColor; border-radius: 3px;"></div></div>
+    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 148,61 · 6%</div>
+  </div>
+  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
+    <div style="flex: 0 0 9rem; opacity: 0.75;">Praia e beach club</div>
+    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 81.0% 0 0; background: currentColor; border-radius: 3px;"></div></div>
+    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 130,00 · 6%</div>
   </div>
   <div style="display: flex; align-items: center; gap: 0.75rem;">
     <div style="flex: 0 0 9rem; opacity: 0.75;">Passeios</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 90.4% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 66,00 · 3%</div>
+    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 86.5% 0 0; background: currentColor; border-radius: 3px;"></div></div>
+    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 92,50 · 4%</div>
   </div>
-  <p style="opacity: 0.6; font-size: 0.8rem; margin-top: 0.75rem;">Total por pessoa: € 2.143,02.</p>
+  <p style="opacity: 0.6; font-size: 0.8rem; margin-top: 0.75rem;">Total: € 2.322,36.</p>
 </div>
 
 ### Tabela completa por categoria
 
 <table class="compare-table">
   <thead>
-    <tr><th>Categoria</th><th>Total/pessoa</th><th>% do total</th><th>Por dia (8 dias)</th></tr>
+    <tr><th>Categoria</th><th>Total</th><th>% do total</th><th>Por dia (8 dias)</th></tr>
   </thead>
   <tbody>
-    <tr><td>Hospedagem (7 noites + late checkout)</td><td>€ 685,68</td><td>32,0%</td><td>≈ € 97,95/noite</td></tr>
-    <tr><td>Alimentação</td><td>€ 345,65</td><td>16,1%</td><td>≈ € 43,21/dia</td></tr>
-    <tr><td>Festas, entradas e bebidas noturnas</td><td>€ 343,53</td><td>16,0%</td><td>≈ € 42,94/dia</td></tr>
-    <tr><td>Voos (Kiwi, ida e volta)</td><td>€ 283,00</td><td>13,2%</td><td>—</td></tr>
-    <tr><td>Transporte (Bolt, táxis e ônibus)</td><td>€ 147,55</td><td>6,9%</td><td>≈ € 18,44/dia</td></tr>
-    <tr><td>Praia e beach club (cadeiras, cama, consumo)</td><td>€ 145,00</td><td>6,8%</td><td>—</td></tr>
-    <tr><td>Compras e outros (souvenirs, free shop, sandália, banheiro)</td><td>€ 126,61</td><td>5,9%</td><td>—</td></tr>
-    <tr><td>Passeios (Comino € 40 + passeio perdido € 26,25)</td><td>€ 66,00</td><td>3,1%</td><td>—</td></tr>
-    <tr><td><strong>Total da viagem</strong></td><td><strong>€ 2.143,02</strong></td><td><strong>100%</strong></td><td><strong>≈ € 268/dia</strong></td></tr>
-    <tr><td><strong>Total sem voos e hospedagem</strong></td><td><strong>€ 1.174,34</strong></td><td>—</td><td><strong>≈ € 147/dia</strong></td></tr>
+    <tr><td>Hospedagem (7 noites + late checkout)</td><td>€ 685,68</td><td>29,5%</td><td>≈ € 97,95/noite</td></tr>
+    <tr><td>Festas, entradas e bebidas noturnas</td><td>€ 431,14</td><td>18,6%</td><td>≈ € 53,89/dia</td></tr>
+    <tr><td>Alimentação</td><td>€ 386,23</td><td>16,6%</td><td>≈ € 48,28/dia</td></tr>
+    <tr><td>Voos (Kiwi, ida e volta)</td><td>€ 283,00</td><td>12,2%</td><td>—</td></tr>
+    <tr><td>Transporte (Bolt, táxis e ônibus)</td><td>€ 165,20</td><td>7,1%</td><td>≈ € 20,65/dia</td></tr>
+    <tr><td>Compras e outros (souvenirs, free shop, chinelos, mercadinho)</td><td>€ 148,61</td><td>6,4%</td><td>—</td></tr>
+    <tr><td>Praia e beach club (cadeiras, cama, consumo)</td><td>€ 130,00</td><td>5,6%</td><td>—</td></tr>
+    <tr><td>Passeios (Comino € 40 + dois ingressos perdidos € 52,50)</td><td>€ 92,50</td><td>4,0%</td><td>—</td></tr>
+    <tr><td><strong>Total da viagem</strong></td><td><strong>€ 2.322,36</strong></td><td><strong>100%</strong></td><td><strong>≈ € 290/dia</strong></td></tr>
+    <tr><td><strong>Total sem voos e hospedagem</strong></td><td><strong>€ 1.353,68</strong></td><td>—</td><td><strong>≈ € 169/dia</strong></td></tr>
   </tbody>
 </table>
 
@@ -999,31 +1031,31 @@ O total da viagem foi de **€ 2.143,02**, ou **€ 1.174,34 sem contar voos e h
 
 <table class="compare-table">
   <thead>
-    <tr><th>Dia</th><th>Data</th><th>Principal responsável pelo valor</th><th>Gasto/pessoa</th></tr>
+    <tr><th>Dia</th><th>Data</th><th>Principal responsável pelo valor</th><th>Gasto</th></tr>
   </thead>
   <tbody>
-    <tr><td>Dia 1</td><td>22/08 (Sáb)</td><td>Duas festas na mesma noite (Society + Toy Room)</td><td>€ 105,50</td></tr>
-    <tr><td>Dia 2</td><td>23/08 (Dom)</td><td>Praia + duas festas + € 74,80 só de bebida</td><td>€ 208,26</td></tr>
-    <tr><td>Dia 3</td><td>24/08 (Seg)</td><td>Quatro corridas de Bolt (€ 27,77) + pizza + duas baladas</td><td>€ 104,27</td></tr>
-    <tr><td>Dia 4</td><td>25/08 (Ter)</td><td>Dois passeios pagos (€ 66,25) + souvenirs + consumo no barco</td><td>€ 170,35</td></tr>
-    <tr><td>Dia 5</td><td>26/08 (Qua)</td><td>Beach club completo (€ 111,50) + bebida de mercado + Footloose</td><td>€ 199,09</td></tr>
-    <tr><td>Dia 6</td><td>27/08 (Qui)</td><td>Jantar no UMI (€ 113) + € 39,30 de Bolt para St. Paul's Bay</td><td>€ 243,88</td></tr>
-    <tr><td>Dia 7</td><td>28/08 (Sex)</td><td>Só KFC (duas vezes)</td><td>€ 32,82</td></tr>
+    <tr><td>Dia 1</td><td>22/08 (Sáb)</td><td>Rooftop + Toy Room (€ 87 entre entrada e pulseira)</td><td>€ 131,70</td></tr>
+    <tr><td>Dia 2</td><td>23/08 (Dom)</td><td>Café del Mar: € 50 de ingresso e € 87 de bebida · Havana € 64,30</td><td>€ 315,94</td></tr>
+    <tr><td>Dia 3</td><td>24/08 (Seg)</td><td>Três praias de Bolt, pizza dividida e duas baladas baratas</td><td>€ 83,53</td></tr>
+    <tr><td>Dia 4</td><td>25/08 (Ter)</td><td>Os dois ingressos perdidos (€ 52,50) + o passeio novo + souvenirs</td><td>€ 200,65</td></tr>
+    <tr><td>Dia 5</td><td>26/08 (Qua)</td><td>Beach club completo (€ 111,50) + bebida de mercado + Footloose</td><td>€ 205,29</td></tr>
+    <tr><td>Dia 6</td><td>27/08 (Qui)</td><td>Jantar no UMI (€ 113) + € 47,60 de Bolt</td><td>€ 253,03</td></tr>
+    <tr><td>Dia 7</td><td>28/08 (Sex)</td><td>Dois pedidos de KFC pelo Wolt</td><td>€ 53,37</td></tr>
     <tr><td>Dia 8</td><td>29/08 (Sáb)</td><td>Free shop do aeroporto (€ 82,17) + sorvete + Bolt</td><td>€ 110,17</td></tr>
-    <tr><td><strong>Total</strong></td><td></td><td></td><td><strong>€ 1.174,34</strong></td></tr>
+    <tr><td><strong>Total</strong></td><td></td><td></td><td><strong>€ 1.353,68</strong></td></tr>
   </tbody>
 </table>
 
 <div class="callout callout-warn">
   <div class="callout-label">Onde o dinheiro realmente foi</div>
-  <p><strong>Hospedagem foi um terço de todo o orçamento</strong> — e quase metade disso veio das duas últimas noites sozinho (€ 319,85 por 2 noites, contra € 268,33 por 4 noites dividindo o triplo).</p>
-  <p><strong>Alimentação e festas empataram em € 344 cada</strong>, e cada uma sozinha superou a passagem aérea. Somadas, dão o dobro dos voos.</p>
-  <p>O dia mais caro (€ 244) foi <strong>sete vezes</strong> mais caro que o mais barato (€ 33). E o último dia, em que eu só tomei sorvete e peguei um Bolt, custou € 110 por causa do free shop — vale lembrar do duty free na hora de fechar o orçamento.</p>
+  <p><strong>Festas e bebidas noturnas custaram € 431 — mais que a passagem aérea, e mais que alimentação.</strong> É a categoria que define o orçamento de Malta em agosto, e a que mais se pode cortar sem mudar a viagem.</p>
+  <p><strong>O Dia 2 sozinho custou € 316</strong>, quase quatro vezes o Dia 3 (€ 84) — e os dois tiveram praia de dia e balada à noite. A diferença inteira está em <em>onde</em> se bebe: € 87 numa festa de beach club contra € 11,30 em duas casas de rua com cupom de pague 1 leve 2.</p>
+  <p>Hospedagem foi 30% do total, e quase metade disso veio das duas últimas noites sozinho: € 319,85 por 2 noites, contra € 268,33 por 4 noites dividindo o quarto triplo.</p>
 </div>
 
 <div class="callout callout-tip">
   <div class="callout-label">Quanto custaria uma versão mais econômica</div>
-  Com as mesmas 7 noites, mas dividindo quarto o tempo todo (≈ € 470 em vez de € 685), sem os € 26,25 do passeio perdido, sem os € 82 do free shop e com consumo noturno moderado (≈ € 150 em vez de € 343), a mesma viagem sairia por <strong>≈ € 1.630</strong>, ou <strong>≈ € 1.347 sem os voos</strong>. Malta não é um destino barato como a Albânia, mas também não precisa custar € 2.140.
+  Com as mesmas 7 noites, mas dividindo quarto o tempo todo (≈ € 470 em vez de € 685), sem os € 52,50 dos ingressos perdidos, sem os € 82 do free shop e com consumo noturno moderado (≈ € 150 em vez de € 431), a mesma viagem sairia por <strong>≈ € 1.690</strong>, ou <strong>≈ € 1.407 sem os voos</strong>. Malta não é um destino barato como a Albânia, mas também não precisa custar € 2.300.
 </div>
 
 <div class="divider">· · ·</div>
