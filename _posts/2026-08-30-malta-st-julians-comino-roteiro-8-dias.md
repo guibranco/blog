@@ -225,7 +225,7 @@ Isso teve efeito prático real no roteiro: encontrar-se implicava 20 a 30 minuto
 
 <div class="callout callout-warn">
   <div class="callout-label">★ Nota sobre o Dia 4 — o passeio que virou pó</div>
-  Eu tinha um passeio de barco comprado pelo <strong>GetYourGuide por € 26</strong>, saindo de San Pawl il-Baħar às 09h00 e voltando às 14h30. Dormimos demais e perdemos. O <strong>cancelamento só era possível com 24h de antecedência</strong>, então o valor virou prejuízo integral. O substituto, comprado às pressas pelo Booking, custou <strong>€ 40</strong> e saía às 15h. Resultado: <strong>€ 14 a mais por 3 horas a menos de passeio</strong> — e, o que doeu mais, sem Gozo no roteiro.
+  Eu tinha comprado dois passeios de barco pelo <strong>GetYourGuide — € 52,50 no total, € 26,25 cada</strong> —, saindo de San Pawl il-Baħar às 09h00 e voltando às 14h30. Dormimos demais e perdemos os dois. O <strong>cancelamento só era possível com 24h de antecedência</strong>, então o valor virou prejuízo integral. O substituto, comprado às pressas pelo Booking, custou <strong>€ 40</strong> e saía às 15h. Resultado: <strong>€ 14 a mais por 3 horas a menos de passeio</strong> — e, o que doeu mais, sem Gozo no roteiro.
 </div>
 
 <div class="divider">· · ·</div>
@@ -239,15 +239,17 @@ Chegamos, largamos as mochilas e fomos direto para **Paceville** — que fica li
 
 ### Jantar no Hugo's
 
-Jantamos no **Hugo's**, uma rede que é praticamente instituição na região e tem várias casas na mesma rua. Peguei o **combo do hambúrguer nº 6** — carne desfiada com molho Jack Daniel's, batata frita, refrigerante — mais uma porção de nuggets: **€ 20**. Meu amigo pediu o mesmo combo sem os nuggets: **€ 15**.
+Jantamos no **Hugo's**, uma rede que é praticamente instituição na região e tem várias casas na mesma rua. Peguei o **combo do hambúrguer nº 6** — carne desfiada com molho Jack Daniel's, batata frita, refrigerante — mais uma porção de nuggets: **€ 20,40**. Meu amigo pediu o mesmo combo sem os nuggets: **€ 15,40**.
 
 Para o padrão de Paceville, que cobra caro justamente por estar no meio do agito, € 15–20 por um combo completo é preço honesto.
 
 ### Pool party no rooftop do Society (até 23h)
 
-Saindo do Hugo's, entramos no **Society Hotel**, onde acontecia uma **pool party no rooftop**. Entrada: **€ 20**. Ficamos das **20h09 às 22h50** — quase 2h45 — e ainda passamos no hotel antes de sair de novo. Éramos só dois nessa etapa — o terceiro do grupo ainda não tinha chegado a Malta.
+Saindo do Hugo's, entramos no **So City Rooftop**, no Society Hotel, onde acontecia uma **pool party**. Ficamos das **20h09 às 22h50** — quase 2h45 — e ainda passamos no hotel antes de sair de novo. Éramos só dois nessa etapa: o terceiro do grupo ainda não tinha chegado a Malta.
 
-O consumo interno seguia exatamente o mesmo padrão do resto da ilha: **€ 5 por dose/bebida**. Foram 3 a 4 rodadas para cada um, o que deu **€ 15–20 por pessoa** em bebida.
+Gastei **€ 22** em bebida ali — uma rodada. A **entrada e a primeira rodada foram pagas pelo amigo que estava comigo**, numa troca informal: eu tinha comprado os ingressos do passeio de barco dos dois, e ele compensou cobrindo o rooftop. O consumo seguia o padrão da ilha: **€ 5 por dose**.
+
+Antes de subir, às 21h56, passamos num **Shop Express** e gastei **€ 19,80** entre água, cerveja, chiclete, vape e o primeiro par de chinelos da viagem — que não sobreviveria até o fim.
 
 <div class="callout callout-tip">
   <div class="callout-label">A sequência natural da noite em Paceville</div>
@@ -258,13 +260,14 @@ O consumo interno seguia exatamente o mesmo padrão do resto da ilha: **€ 5 po
 
 À **meia-noite** fomos para a **Toy Room (by Pacha)** — a casa de Paceville, que não deve ser confundida com o **Toy Room Beach Club de Sliema**, da mesma marca, que aparece no Dia 5 deste relato. São dois lugares diferentes, com estruturas e preços diferentes.
 
-Compramos a entrada com uma promoter na rua: **€ 25 por pessoa**, pagos por **transferência via Revolut** ali mesmo na calçada. A entrada dava direito a uma festa em beach club no dia seguinte — que não aproveitamos.
+Compramos a entrada com uma promoter na rua: **€ 25 por pessoa**, pagos por **transferência via Revolut** ali mesmo na calçada — o extrato registra o nome dela, não o da casa. A entrada dava direito a uma festa em beach club no dia seguinte — que não aproveitamos.
 
 **Como funciona o consumo:**
-- Sistema de pulseira recarregável: você carrega **€ 20 e recebe 4 drinks** (≈ € 5 por bebida)
+- Sistema de pulseira recarregável: você carrega **€ 20 e recebe 4 drinks** (≈ € 5 por bebida). Recarreguei duas vezes, **€ 40 no total**
 - Opção **VIP por € 50**, dando acesso a um mezanino acima da pista, com menos gente. Ficamos na pista mesmo
 - A casa fecha pontualmente às **04h00** (saímos por volta das 03h40)
 - Público bem jovem — faixa dos 17 aos 25 anos, majoritariamente estudantes e turistas italianos
+- Fechamos a madrugada com um sorvete de **€ 1,50** no Nico's, já a caminho do hotel
 - Estava bastante cheia na noite em que fomos
 
 <div class="callout callout-warn">
@@ -297,16 +300,16 @@ Fomos de **Bolt: € 30** saindo do ASTE — 14,6 km em 22 minutos até o noroes
 
 **Estrutura e preços:**
 - Espreguiçadeira: **€ 10 cada** (pegamos 3)
-- Guarda-sol: **€ 5 cada** (pegamos 2)
-- Bar de praia com água, cerveja (**€ 5,80**), iscas de peixe, iscas de frango e batata frita
+- Guarda-sol: **€ 5 cada** (pegamos 2) — cadeiras e guarda-sóis são cobrados pelo **Yarin Beach**, e paguei os **€ 35** do conjunto
+- Bar de praia (**Munchies Golden Bay**) com água, cerveja, iscas de peixe, iscas de frango e batata frita
 
-Entre cadeiras, guarda-sol, comida e bebida, gastei **≈ € 50** no dia de praia. A volta de Bolt custou **€ 30,40**.
+As cadeiras e o guarda-sol foram cobrados pelo **Yarin Beach** (€ 35) e o consumo no bar somou € 16,60 em duas comandas — **€ 51,60 no dia de praia**. A volta de Bolt custou **€ 30,40**.
 
 ### Café del Mar — festa Sundays (20h54–01h02)
 
 Passamos no hotel, trocamos de roupa e fomos para o **Café del Mar**, em Qawra, para a festa **Sundays**. Bolt: **€ 30**.
 
-Compramos os ingressos pelo site: **1 VIP a € 50 e 2 normais a € 25** (os VIPs tinham esgotado). Na porta, conseguimos **trocar os três por VIP sem custo adicional** — e no fim nem usamos a área VIP.
+Compramos os ingressos pelo site: **1 VIP a € 50 e 2 normais a € 25** (os VIPs tinham esgotado) — o VIP saiu no meu cartão. Na porta, conseguimos **trocar os três por VIP sem custo adicional**, e no fim nem usamos a área VIP.
 
 **Sobre o lugar:**
 - Espaço grande, **a céu aberto** — e estava bem quente
@@ -316,11 +319,11 @@ Compramos os ingressos pelo site: **1 VIP a € 50 e 2 normais a € 25** (os VI
 - O evento acaba **pontualmente à 01h00** — e ficamos até o fim
 - Rodada de bebidas (3 copos): **€ 17,20** — ou seja, ≈ € 5,73 por bebida
 
-Bebemos cerveja, Jägermeister e whisky com energético ou refrigerante. Foram **9 rodadas no total entre os três** — 9 copos por pessoa, 27 no total: **€ 154,80**, ou **€ 51,60 por pessoa**.
+Bebemos cerveja, Jägermeister e whisky com energético ou refrigerante. Foram **9 rodadas no total entre os três** — 9 copos por pessoa, 27 no total. No meu cartão caíram cinco delas: três no caixa principal (€ 17,20, € 17,70 e € 17,70) e duas no bar interno, que aparece como *Marine Aquatic* (€ 17,20 cada). **€ 87 só de bebida** numa noite.
 
 ### Havana, Paceville
 
-Voltamos de Bolt ao hotel, trocamos de roupa de novo e fomos ao **Havana**, em Paceville. Entrada: **≈ € 20**. Bebidas a **€ 5,80**. A casa toca música latina e tropical, é grande e tem 2 ou 3 ambientes. Foram 4 rodadas, 4 bebidas por pessoa, 12 no total: **€ 69,60** (€ 23,20 por pessoa).
+Voltamos de Bolt ao hotel, trocamos de roupa de novo e fomos ao **Havana**, em Paceville — que no extrato aparece como *Paceville Entertainments*. Entrada: **€ 20**. A casa toca música latina e tropical, é grande e tem 2 ou 3 ambientes. Em bebida foram **€ 44,30**: uma comanda de € 20,70 e quatro rodadas de € 5,90.
 
 <div class="callout callout-warn">
   <div class="callout-label">O que realmente estoura o orçamento em Malta</div>
@@ -346,13 +349,13 @@ Voltamos de Bolt ao hotel, trocamos de roupa de novo e fomos ao **Havana**, em P
   <div class="section-title-wrap"><h2>Dia 3 — St. Peter's Pool, Marsaskala e Blue Grotto</h2></div>
 </div>
 
-Dormimos até tarde, almoçamos no **Hugo's** de novo (**€ 15**, combo sem nuggets, dessa vez com hambúrguer comum) e saímos para uma maratona pelo sudeste da ilha — três lugares em um dia, o que só é possível de Bolt (ou de carro).
+Dormimos até tarde, almoçamos no **Hugo's** de novo (**€ 15,40**, combo sem nuggets, dessa vez com hambúrguer comum) e saímos para uma maratona pelo sudeste da ilha — três lugares em um dia, o que só é possível de Bolt (ou de carro).
 
 ### St. Peter's Pool
 
 **Bolt: € 30**, 14,8 km em exatos 30 minutos. É uma **piscina natural de rocha calcária** perto de Marsaxlokk — sem areia, sem espreguiçadeira, sem estrutura. Só pedra, água turquesa e gente pulando dos paredões.
 
-É excelente para pular, mas **bastante rochoso** — não é lugar para quem quer deitar numa toalha. Consumimos água (€ 2), Coca-Cola (€ 4) e Corona (€ 5), gastando cerca de **€ 12 por pessoa**.
+É excelente para pular, mas **bastante rochoso** — não é lugar para quem quer deitar numa toalha. Não há bar no local, mas passa **ambulante**: comprei água e Coca-Cola por **€ 8**, pagos por transferência direto para a pessoa.
 
 ### Marsaskala — o que não funcionou
 
@@ -360,7 +363,7 @@ De St. Peter's fomos para **Marsaskala** em uma van/táxi avulso: **€ 20** pel
 
 E aqui vai um relato honesto: **não gostamos, e nem chegamos a parar**. Havia um restaurante bem em frente à praia, mas não entramos. Olhamos a faixa de areia — pequena e tomada por famílias com crianças — e a área de mergulho, cheia de barcos, e simplesmente **começamos a andar na direção oposta**.
 
-Caminhamos 863 metros até a segunda faixa de areia e pedimos o Bolt dali, que **demorou 20 minutos para chegar**. No fim, o que era para ser uma parada de praia virou 45 minutos de caminhada e espera pela orla — das 17h17 às 18h02.
+Ainda compramos 3 Gatorades e 3 águas por **€ 9** de um vendedor local. Caminhamos 863 metros até a segunda faixa de areia e pedimos o Bolt dali, que **demorou 20 minutos para chegar**. No fim, o que era para ser uma parada de praia virou 45 minutos de caminhada e espera pela orla — das 17h17 às 18h02.
 
 Nada contra o lugar — Marsaskala é claramente uma cidade de veraneio familiar, e cumpre bem esse papel. Só não é o destino certo para um grupo de amigos procurando praia com estrutura.
 
@@ -406,7 +409,7 @@ Ficamos mais um pouco no **Qube Club**, ao lado, de música latina, que também 
   <div class="section-title-wrap"><h2>Dia 4 — Comino, Blue Lagoon e Crystal Lagoon</h2></div>
 </div>
 
-Só saímos do hotel às 14h43 — quase seis horas depois da saída do passeio que tínhamos comprado. Prejuízo assumido, compramos outro na hora: **€ 40 pelo Booking**, com saída de Sliema no início da tarde.
+Só saímos do hotel às 14h43 — quase seis horas depois da saída do passeio que tínhamos comprado. Prejuízo assumido, compramos outro na hora: **€ 40 pelo Booking**, com saída de Sliema no início da tarde. Quem pagou na hora foi um amigo, e eu transferi a minha parte depois.
 
 ### O passeio que perdemos × o passeio que fizemos
 
@@ -559,7 +562,7 @@ Fomos andando na direção do Toy Room e constatamos que dali para a frente não
 
 Somando tudo — descer do Bolt, a ida e volta a pé pela orla, o tempo esperando as amigas em Exiles Bay e a caminhada final até o restaurante —, foram **5,75 km em 1h44**, das 13h39 às 15h23. Cerca de 3,6 milhas.
 
-Pelo caminho comprei uma garrafa de água de 2 litros num truck de sorvete (**€ 2,50**, às 13h49) e, mais tarde, uma **sandália de € 9,99** às 15h25 — o chinelo que eu tinha comprado na ilha arrebentou. O substituto acabou ficando no ASTE quando fui embora.
+Pelo caminho comprei uma garrafa de água de 2 litros num truck de sorvete (**€ 2,50**, às 13h49) e, mais tarde, uma **sandália de € 9,99** às 15h25 (paga pela conta em dirham do Revolut) — o chinelo que eu tinha comprado na ilha arrebentou. O substituto acabou ficando no ASTE quando fui embora.
 
 Voltamos ao hotel pensando em pegar a piscina, mas já eram quase 17h e estava na hora dele sair para o aeroporto. Acabamos ficando no quarto: eu dormi um pouco e ele arrumou a mala.
 
@@ -589,7 +592,7 @@ Depois do jantar caminhamos do UMI até o **Canifor Hotel**, onde elas estavam: 
   <div class="section-title-wrap"><h2>Dia 7 — O dia de não fazer nada</h2></div>
 </div>
 
-Tinha combinado de ir a **Valletta** com as amigas, mas fiquei no hotel dormindo. Depois peguei a piscina da cobertura, e pedi **KFC duas vezes ao longo do dia — € 27,82 no total** — assistindo série no quarto.
+Tinha combinado de ir a **Valletta** com as amigas, mas fiquei no hotel dormindo. Depois peguei a piscina da cobertura, e pedi **KFC duas vezes ao longo do dia — € 27,82 no total**, pagos com RevPoints e pela conta em dirham — assistindo série no quarto.
 
 Todo mundo já tinha ido embora — elas voltaram para Dublin naquele dia, depois de passarem a manhã e a tarde em Valletta.
 
@@ -986,7 +989,7 @@ O total da viagem foi de **€ 2.143,02**, ou **€ 1.174,34 sem contar voos e h
     <tr><td>Transporte (Bolt, táxis e ônibus)</td><td>€ 147,55</td><td>6,9%</td><td>≈ € 18,44/dia</td></tr>
     <tr><td>Praia e beach club (cadeiras, cama, consumo)</td><td>€ 145,00</td><td>6,8%</td><td>—</td></tr>
     <tr><td>Compras e outros (souvenirs, free shop, sandália, banheiro)</td><td>€ 126,61</td><td>5,9%</td><td>—</td></tr>
-    <tr><td>Passeios (Comino € 40 + passeio perdido € 26)</td><td>€ 66,00</td><td>3,1%</td><td>—</td></tr>
+    <tr><td>Passeios (Comino € 40 + passeio perdido € 26,25)</td><td>€ 66,00</td><td>3,1%</td><td>—</td></tr>
     <tr><td><strong>Total da viagem</strong></td><td><strong>€ 2.143,02</strong></td><td><strong>100%</strong></td><td><strong>≈ € 268/dia</strong></td></tr>
     <tr><td><strong>Total sem voos e hospedagem</strong></td><td><strong>€ 1.174,34</strong></td><td>—</td><td><strong>≈ € 147/dia</strong></td></tr>
   </tbody>
@@ -1002,7 +1005,7 @@ O total da viagem foi de **€ 2.143,02**, ou **€ 1.174,34 sem contar voos e h
     <tr><td>Dia 1</td><td>22/08 (Sáb)</td><td>Duas festas na mesma noite (Society + Toy Room)</td><td>€ 105,50</td></tr>
     <tr><td>Dia 2</td><td>23/08 (Dom)</td><td>Praia + duas festas + € 74,80 só de bebida</td><td>€ 208,26</td></tr>
     <tr><td>Dia 3</td><td>24/08 (Seg)</td><td>Quatro corridas de Bolt (€ 27,77) + pizza + duas baladas</td><td>€ 104,27</td></tr>
-    <tr><td>Dia 4</td><td>25/08 (Ter)</td><td>Dois passeios pagos (€ 66) + souvenirs + consumo no barco</td><td>€ 170,35</td></tr>
+    <tr><td>Dia 4</td><td>25/08 (Ter)</td><td>Dois passeios pagos (€ 66,25) + souvenirs + consumo no barco</td><td>€ 170,35</td></tr>
     <tr><td>Dia 5</td><td>26/08 (Qua)</td><td>Beach club completo (€ 111,50) + bebida de mercado + Footloose</td><td>€ 199,09</td></tr>
     <tr><td>Dia 6</td><td>27/08 (Qui)</td><td>Jantar no UMI (€ 113) + € 39,30 de Bolt para St. Paul's Bay</td><td>€ 243,88</td></tr>
     <tr><td>Dia 7</td><td>28/08 (Sex)</td><td>Só KFC (duas vezes)</td><td>€ 32,82</td></tr>
@@ -1020,7 +1023,7 @@ O total da viagem foi de **€ 2.143,02**, ou **€ 1.174,34 sem contar voos e h
 
 <div class="callout callout-tip">
   <div class="callout-label">Quanto custaria uma versão mais econômica</div>
-  Com as mesmas 7 noites, mas dividindo quarto o tempo todo (≈ € 470 em vez de € 685), sem os € 26 do passeio perdido, sem os € 82 do free shop e com consumo noturno moderado (≈ € 150 em vez de € 343), a mesma viagem sairia por <strong>≈ € 1.630</strong>, ou <strong>≈ € 1.347 sem os voos</strong>. Malta não é um destino barato como a Albânia, mas também não precisa custar € 2.140.
+  Com as mesmas 7 noites, mas dividindo quarto o tempo todo (≈ € 470 em vez de € 685), sem os € 26,25 do passeio perdido, sem os € 82 do free shop e com consumo noturno moderado (≈ € 150 em vez de € 343), a mesma viagem sairia por <strong>≈ € 1.630</strong>, ou <strong>≈ € 1.347 sem os voos</strong>. Malta não é um destino barato como a Albânia, mas também não precisa custar € 2.140.
 </div>
 
 <div class="divider">· · ·</div>
@@ -1063,7 +1066,7 @@ O total da viagem foi de **€ 2.143,02**, ou **€ 1.174,34 sem contar voos e h
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-umbrella-beach"></i> Golden Bay</div>
     <div class="provider-detail">Uma das poucas praias de areia de verdade em Malta, no noroeste da ilha. Bar de praia com comida e bebida. Boa para o fim da tarde e para o pôr do sol. Movimentada em agosto.</div>
-    <div class="provider-price">Espreguiçadeira € 10 · Guarda-sol € 5 · Cerveja € 5,80</div>
+    <div class="provider-price">Espreguiçadeira € 10 · Guarda-sol € 5 · Cerveja ≈ € 5,80</div>
   </div>
 
   <div class="provider-card">
@@ -1129,7 +1132,7 @@ O total da viagem foi de **€ 2.143,02**, ou **€ 1.174,34 sem contar voos e h
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-burger"></i> Hugo's — Paceville</div>
     <div class="provider-detail">Rede com várias casas na mesma rua de Paceville. Combos de hambúrguer com batata e refrigerante. O nº 6 é de carne desfiada com molho Jack Daniel's. Bom custo-benefício para a região.</div>
-    <div class="provider-price">Combo € 15 · Com nuggets € 20</div>
+    <div class="provider-price">Combo € 15,40 · Com nuggets € 20,40</div>
   </div>
 
   <div class="provider-card">
@@ -1157,15 +1160,15 @@ O total da viagem foi de **€ 2.143,02**, ou **€ 1.174,34 sem contar voos e h
   </div>
 
   <div class="provider-card">
-    <div class="provider-name"><i class="fas fa-champagne-glasses"></i> Society Hotel (rooftop) — Paceville</div>
+    <div class="provider-name"><i class="fas fa-champagne-glasses"></i> So City Rooftop (Society Hotel) — Paceville</div>
     <div class="provider-detail">Pool party no rooftop do hotel, encerrando às 23h — encaixa perfeitamente antes das baladas, que só enchem depois da meia-noite. Consumo no mesmo padrão da ilha.</div>
-    <div class="provider-price">Entrada € 20 · Dose/bebida € 5 · ≈ € 15–20/pessoa em consumo</div>
+    <div class="provider-price">€ 22 entre entrada e consumo · Dose/bebida € 5</div>
   </div>
 
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-record-vinyl"></i> Toy Room (by Pacha) — Paceville</div>
     <div class="provider-detail">A casa noturna de Paceville — não confundir com o Toy Room Beach Club de Sliema. Público jovem (17–25 anos), muito estudante e turista italiano. Pulseira recarregável. Fecha às 04h. Área VIP num nível acima da pista.</div>
-    <div class="provider-price">Entrada € 25 (promoter) · VIP € 50 · Pulseira € 20 = 4 drinks</div>
+    <div class="provider-price">Entrada € 25 (promoter, via Revolut) · VIP € 50 · Pulseira € 20 = 4 drinks</div>
   </div>
 
   <div class="provider-card">
@@ -1177,13 +1180,13 @@ O total da viagem foi de **€ 2.143,02**, ou **€ 1.174,34 sem contar voos e h
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-music"></i> Café del Mar — Qawra</div>
     <div class="provider-detail">Espaço grande e a céu aberto, no norte da ilha. Festa Sundays. Público mais velho (25–35) e mais arrumado que a média de Paceville. Termina pontualmente à 01h.</div>
-    <div class="provider-price">Ingresso € 25 · VIP € 50 · Rodada (3 copos) € 17,20</div>
+    <div class="provider-price">Ingresso € 25 · VIP € 50 · Rodada (3 copos) € 17,20 a € 17,70</div>
   </div>
 
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-guitar"></i> Havana — Paceville</div>
     <div class="provider-detail">Música latina e tropical. Casa grande, com 2 ou 3 ambientes distintos.</div>
-    <div class="provider-price">Entrada ≈ € 20 · Bebidas € 5,80</div>
+    <div class="provider-price">Entrada € 20,70 · Rodada € 5,90</div>
   </div>
 
   <div class="provider-card">
