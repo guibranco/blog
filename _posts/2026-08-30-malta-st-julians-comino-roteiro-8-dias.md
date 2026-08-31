@@ -35,7 +35,7 @@ locations:
 
 <div class="callout callout-tip">
   <div class="callout-label">Moeda e pagamentos</div>
-  Malta usa o <strong>Euro (€)</strong>. Em oito dias eu <strong>não usei dinheiro em espécie uma única vez</strong> — nem para o banheiro pago do shopping em Sliema (NFC pelo celular; cartão contactless também funciona), nem para o promoter de rua que vendeu a entrada da balada, que aceitou <strong>transferência por Revolut</strong> na hora. Cartão e pagamento por aproximação funcionam em praticamente tudo, inclusive nos food trucks e no bar de praia.
+  Malta usa o <strong>Euro (€)</strong>. Em oito dias eu <strong>não usei dinheiro em espécie uma única vez</strong> — nem para o banheiro pago do shopping em Sliema (NFC pelo celular; cartão contactless também funciona), nem para o promoter de rua que vendeu a entrada da balada, que aceitou <strong>transferência por Revolut</strong> na hora. Cartão e pagamento por aproximação funcionam em quase tudo. A exceção são alguns food trucks, que não aceitam cartão — mas aceitam <strong>pagamento por QR code do Revolut</strong>, o que resolve.
 </div>
 
 <div class="callout callout-warn">
@@ -98,7 +98,7 @@ A diferença é de € 12 por pessoa num trajeto de 20 minutos — pousei às 13
   <div class="section-title-wrap"><h2>Hospedagem: ASTE Hotel, St. Julian's</h2></div>
 </div>
 
-Ficamos no **ASTE Hotel**, em St. Julian's. A reserva foi fechada **em cima da hora — no dia 19/08, três dias antes do embarque** — e ainda assim o preço saiu justo para plena alta temporada.
+Ficamos no **[ASTE Hotel](https://astehotelmalta.com/)**, em St. Julian's. A reserva foi fechada **em cima da hora — no dia 19/08, três dias antes do embarque** — e ainda assim o preço saiu justo para plena alta temporada.
 
 **O quarto e o hotel:**
 - Quarto family/triplo com banheiro privativo, ar-condicionado e varanda
@@ -134,12 +134,12 @@ Ficamos no **ASTE Hotel**, em St. Julian's. A reserva foi fechada **em cima da h
 
 <div class="callout callout-tip">
   <div class="callout-label">Late checkout por hora — vale a pena?</div>
-  O ASTE oferecia estender o checkout (originalmente 11h) por <strong>€ 15 por hora, até as 13h</strong>. Como meu voo só saía às 20h, paguei € 30 e dormi até meio-dia. Depois deixei a mala na recepção e fiquei lá até as 17h sem custo nenhum. Foi dinheiro bem gasto: € 30 por duas horas de sono numa cama contra ficar rodando com mochila desde as 11h da manhã.
+  O ASTE oferecia estender o checkout (originalmente 11h) por <strong>€ 15 por hora, até as 13h</strong>. Como meu voo só saía às 20h, paguei € 30 e dormi até meio-dia. Depois desci para a recepção e fiquei lá até quase 17h sem custo nenhum. Foi dinheiro bem gasto: € 30 por duas horas de sono numa cama contra ficar rodando com mochila desde as 11h da manhã.
 </div>
 
 ### As amigas ficaram em Buġibba
 
-Duas amigas que também moram em Dublin viajaram no mesmo período e ficaram no **Canifor Hotel**, em Buġibba, de **23 a 28 de agosto** — do outro lado da ilha em relação a St. Julian's.
+Duas amigas que também moram em Dublin viajaram no mesmo período e ficaram no **[Canifor Hotel](https://canifor.com/)**, em Buġibba, de **23 a 28 de agosto** — do outro lado da ilha em relação a St. Julian's.
 
 Isso teve efeito prático real no roteiro: encontrar-se implicava 20 a 30 minutos de Bolt ou uma viagem de ônibus, e mais de uma vez a noite delas terminou cedo só por causa do trajeto de volta. **Se o seu grupo vai se dividir em hotéis diferentes, considere seriamente a distância entre eles** — em Malta as distâncias são curtas no mapa, mas o deslocamento noturno pesa.
 
@@ -265,14 +265,14 @@ Compramos a entrada com uma promoter na rua: **€ 25 por pessoa**, pagos por **
 **Como funciona o consumo:**
 - Sistema de pulseira recarregável: você carrega **€ 20 e recebe 4 drinks** (≈ € 5 por bebida). Recarreguei duas vezes, **€ 40 no total**
 - Opção **VIP por € 50**, dando acesso a um mezanino acima da pista, com menos gente. Ficamos na pista mesmo
-- A casa fecha pontualmente às **04h00** (saímos por volta das 03h40)
+- A casa fecha pontualmente às **04h00**, e ficamos até o fim — o registro de localização do celular não pegou essa parte porque a bateria já tinha acabado
 - Público bem jovem — faixa dos 17 aos 25 anos, majoritariamente estudantes e turistas italianos
-- Fechamos a madrugada com um sorvete de **€ 1,50** no Nico's, já a caminho do hotel
 - Estava bastante cheia na noite em que fomos
 
 <div class="callout callout-warn">
   <div class="callout-label">Cuidado com o "combo" do promoter</div>
-  A entrada de € 25 incluía um beach club no dia seguinte, e a gente simplesmente não foi. Quatro dias depois acabei pagando <strong>€ 15 na porta</strong> por uma festa da mesma marca (o Toy Room Beach Club de Sliema). Ou seja: o combo do promoter é um bom negócio <em>se</em> você planejar o dia seguinte. Sem planejamento, você paga por duas coisas e usa uma.
+  <p>A entrada de € 25 incluía um beach club no dia seguinte, e a gente simplesmente não foi.</p>
+  <p>Vale a distinção, porque é fácil confundir: a festa inclusa era uma <strong>festa comum, de dia a dia</strong>, no Toy Room Beach Club. A festa do branco a que fui quatro dias depois era um <strong>evento especial</strong>, com ingresso vendido à parte. Não são a mesma coisa — mas o combo do promoter continua valendo a pena <em>se</em> você planejar o dia seguinte.</p>
 </div>
 
 <!-- Nota: eventos noturnos raramente rendem foto. Se não houver imagem deste dia, remova o bloco abaixo. -->
@@ -303,13 +303,13 @@ Fomos de **Bolt: € 30** saindo do ASTE — 14,6 km em 22 minutos até o noroes
 - Guarda-sol: **€ 5 cada** (pegamos 2) — cadeiras e guarda-sóis são cobrados pelo **Yarin Beach**, e paguei os **€ 35** do conjunto
 - Bar de praia (**Munchies Golden Bay**) com água, cerveja, iscas de peixe, iscas de frango e batata frita
 
-As cadeiras e o guarda-sol foram cobrados pelo **Yarin Beach** (€ 35) e o consumo no bar somou € 16,60 em duas comandas — **€ 51,60 no dia de praia**. A volta de Bolt custou **€ 30,40**.
+As cadeiras e o guarda-sol foram cobrados pelo **Yarin Beach** (€ 35) e o que consumi no bar somou € 16,60 em duas comandas — **€ 51,60 no meu cartão**. Os outros dois também compraram coisas nos cartões deles, e boa parte do que veio para a mesa acabou sendo dividida sem ninguém rachar valor, então esse número é o meu gasto, não o do grupo. A volta de Bolt custou **€ 30,40**.
 
 ### Café del Mar — festa Sundays (20h54–01h02)
 
-Passamos no hotel, trocamos de roupa e fomos para o **Café del Mar**, em Qawra, para a festa **Sundays**. Bolt: **€ 30**.
+Passamos no hotel, trocamos de roupa e fomos para o **Café del Mar**, em Qawra, para a festa **Sundays** (ingressos em [sundays.com.mt](https://sundays.com.mt)). Bolt: **€ 30**.
 
-Compramos os ingressos pelo site: **1 VIP a € 50 e 2 normais a € 25** (os VIPs tinham esgotado) — o VIP saiu no meu cartão. Na porta, conseguimos **trocar os três por VIP sem custo adicional**, e no fim nem usamos a área VIP.
+Compramos os ingressos pelo site: **1 VIP a € 50 e 2 normais a € 25** (os VIPs tinham esgotado) — o VIP saiu no meu cartão. Na porta conseguimos subir os três para VIP **pagando a diferença**: os normais saíram por **€ 30 em vez de € 25**. E no fim nem usamos a área VIP.
 
 **Sobre o lugar:**
 - Espaço grande, **a céu aberto** — e estava bem quente
@@ -426,7 +426,7 @@ Vale comparar os dois, porque a diferença é instrutiva:
     <tr><td>Gozo</td><td>≈ 2 horas para explorar</td><td>Não incluído</td></tr>
     <tr><td>Grutas e formações rochosas</td><td>Visita às cavernas marinhas</td><td>Parada de 5–10 min, sem mergulho</td></tr>
     <tr><td>Segunda parada de mergulho</td><td>—</td><td>Crystal Lagoon, 45–60 min</td></tr>
-    <tr><td>Extras</td><td>Comentário ao vivo em inglês, escadas de acesso ao mar, banheiro a bordo, transfer opcional em Gozo</td><td>Ferry de 2 andares com bar, mesas no térreo e cadeiras no piso superior</td></tr>
+    <tr><td>Extras</td><td>Comentário ao vivo em inglês, escadas de acesso ao mar, banheiro a bordo, transfer opcional em Gozo</td><td>Ferry de 2 andares com bar, mesas no térreo e cadeiras no piso superior, banheiro a bordo, waterslide e comentários em inglês, italiano, espanhol e (aparentemente) alemão</td></tr>
   </tbody>
 </table>
 
@@ -442,8 +442,8 @@ Saímos do hotel às 14h43 e embarcamos às 15h04. A travessia de Sliema até Co
 </div>
 
 **A estrutura em Comino:**
-- Food trucks e bebidas — consumimos **€ 24** a bordo e na ilha ao longo da tarde (€ 8 às 15h36, € 4 às 18h50 e € 12 às 19h23)
-- Lockers para guardar pertences
+- Food trucks e bar — em Comino compramos só uma garrafa de água. Os **€ 24** que gastei (€ 8 às 15h36, € 4 às 18h50 e € 12 às 19h23) foram todos no **bar do ferry**, e os outros dois também pagaram algumas rodadas
+- Lockers: **€ 5 os pequenos, € 8 a € 10 os grandes**. Tentamos usar por volta das 17h e o responsável disse que já estava fechando, embora o aviso indicasse 17h45 — se for usar, resolva cedo
 - Aluguel de cadeira **com guarda-sol incluso por € 10** — não pegamos
 - Dá para pular das pedras ou nadar na praia
 
@@ -455,7 +455,7 @@ Na volta, o barco fez mais duas paradas: uma **rápida, de 5 a 10 minutos, apena
 
 Às 20h48 passamos numa loja de souvenirs — gastei **€ 33,45** em lembrancinhas, 8 copinhos de shot (cerca de € 2,50 cada) e uma bermuda branca, que teria uso no dia seguinte.
 
-Um detalhe que só percebi depois: o ingresso da festa do branco do dia seguinte foi comprado **ainda durante o passeio de barco**, às 18h38, direto no MedAsia — **€ 16,50**, sendo € 15 de ingresso e € 1,50 de taxas.
+Um detalhe: o ingresso da festa do branco do dia seguinte foi comprado **ainda durante o passeio de barco**, às 18h38, pelo [site do próprio beach club](https://toyroombeachclubmalta.com/) — **€ 16,50**, sendo € 15 de ingresso e € 1,50 de taxas. Quem deixou para comprar na porta no dia pagou **€ 20**, então antecipar economizou € 3,50.
 
 Jantamos no **Asian Kingdom**, ao lado do Burger King. O meu pedido:
 
@@ -506,9 +506,20 @@ O dia da despedida do grupo original — e o segundo mais caro da viagem.
 
 Começamos o dia com café da manhã tardio no **Basic Foods and Drinks** (**€ 21,73** às 11h23) e seguimos para a festa do branco no **Toy Room Beach Club de Sliema** — que aparece no extrato como **MedAsia Playa** —, onde ficamos das 14h20 às 19h — a unidade praiana da mesma marca da Toy Room (by Pacha) de Paceville, mas um lugar completamente diferente. **Entrada: € 15** (a mesma festa que vinha inclusa no combo do promeoter no primeiro dia e a gente não usou).
 
-**Alugamos uma cama perto da piscina principal por € 35** — na hora quem pagou foi um amigo, e depois acertei com ele por Revolut.
+**Alugamos uma double premium perto da piscina principal por € 70, € 35 cada** — na hora quem pagou foi um amigo, e depois acertei com ele por Revolut.
 
-O consumo funciona por **pulseira recarregável**, como na Toy Room de Paceville. Recarreguei **€ 40 às 14h37 e € 20 às 17h05**, somando € 60 em bebida ao longo do dia. As amigas conseguiram uma espreguiçadeira gratuita cada uma, através de um segurança brasileiro com quem fizeram amizade — vale a menção, porque em Malta isso funciona mais do que parece.
+A tabela de sunbeds do beach club sobe na alta temporada. Em maio a single sai por € 20, a single premium por € 30 e a double premium por € 60. **De junho a setembro cada single sobe € 5 e a double sobe € 10** — foi por isso que a nossa saiu por € 70 em vez de € 60. Toalha é à parte, **€ 5 o aluguel**.
+
+O lugar é grande: **duas piscinas, dois bares, serviço de comida (fast food) e uma loja de conveniência**.
+
+O consumo funciona por **pulseira recarregável**, como na Toy Room de Paceville. Recarreguei **€ 40 às 14h37 e € 20 às 17h05**, somando € 60 em bebida ao longo do dia.
+
+Sobre o dress code: fomos de branco, como manda a festa, mas **muita gente estava sem nada de branco** e ninguém foi barrado. Se você não tem a roupa, não é motivo para deixar de ir. As amigas conseguiram uma **single** gratuita cada uma — que na tabela sairia por € 25 em agosto — através de um segurança brasileiro com quem fizeram amizade. Vale a menção, porque em Malta isso funciona mais do que parece.
+
+<div class="callout callout-tip">
+  <div class="callout-label">Idade mínima nas casas noturnas</div>
+  Boa parte das casas em Malta trabalha com <strong>17+</strong>, e não 18 — foi o caso do Toy Room Beach Club. Não é regra universal: vale conferir no site do lugar ou perguntar direto na porta antes de ir, sobretudo se alguém do grupo estiver nessa faixa.
+</div>
 
 <div class="callout callout-warn">
   <div class="callout-label">Mesma marca, política de bebida oposta</div>
@@ -562,17 +573,17 @@ Fomos andando na direção do Toy Room e constatamos que dali para a frente não
 
 Somando tudo — descer do Bolt, a ida e volta a pé pela orla, o tempo esperando as amigas em Exiles Bay e a caminhada final até o restaurante —, foram **5,75 km em 1h44**, das 13h39 às 15h23. Cerca de 3,6 milhas.
 
-Pelo caminho comprei uma garrafa de água de 2 litros num truck de sorvete (**€ 2,50**, às 13h49) e, mais tarde, uma **sandália de € 9,99** às 15h25 (paga pela conta em dirham do Revolut) — o chinelo que eu tinha comprado na ilha arrebentou. O substituto acabou ficando no ASTE quando fui embora.
+Pelo caminho comprei uma garrafa de água de 2 litros num truck de sorvete (**€ 2,50**, às 13h49) e, mais tarde, uma **sandália de € 9,99** às 15h25 — o chinelo que eu tinha comprado na ilha arrebentou. O substituto acabou ficando no ASTE quando fui embora.
 
 Voltamos ao hotel pensando em pegar a piscina, mas já eram quase 17h e estava na hora dele sair para o aeroporto. Acabamos ficando no quarto: eu dormi um pouco e ele arrumou a mala.
 
 ### UMI — Sushi & Asian Fusion
 
-À noite jantei no **UMI**, em St. Paul's Bay, com as amigas de Dublin e uma amiga delas que mora em Malta — chefe de cozinha, já morou em Dublin por cerca de dois anos, além de ter vivido na Itália e em outro país do leste europeu. Conhecemos ela na segunda-feira, durante a viagem, e ter alguém que mora na ilha muda completamente a perspectiva sobre onde comer.
+À noite jantei no **[UMI](https://www.umimalta.com/)**, em St. Paul's Bay, com as amigas de Dublin e uma amiga delas que mora em Malta — chefe de cozinha, já morou em Dublin por cerca de dois anos, além de ter vivido na Itália e em outro país do leste europeu. Conhecemos ela na segunda-feira, durante a viagem, e ter alguém que mora na ilha muda completamente a perspectiva sobre onde comer.
 
 A reserva foi feita na véspera, durante a festa do branco. A sugestão original dela era outro restaurante, mas não havia horário disponível até o dia 29, quando eu já teria voltado. Ficou o UMI, mesa para 4 às 20h — remanejada no dia para 21h30, e acabamos chegando lá por volta das 21h50. As meninas comeram pouco, já tinham almoçado tarde.
 
-**A conta ficou em € 113 pelos quatro** — o jantar mais caro da viagem, e o único momento em que gastamos com um restaurante de verdade em vez de fast-food ou delivery.
+**A conta ficou em € 113 pelos quatro** — o jantar mais caro da viagem, e o único momento em que gastamos com um restaurante de verdade em vez de fast-food ou delivery. Vale dizer que só dois de nós comeram de fato; as outras duas beliscaram, já tinham almoçado tarde.
 
 Depois do jantar caminhamos do UMI até o **Canifor Hotel**, onde elas estavam: **1,42 km em 27 minutos**, cerca de 0,9 milha. De lá peguei um Bolt para o ASTE à 00h05 (**€ 19,90**). A ida, às 21h13, tinha custado **€ 19,40** — St. Paul's Bay fica no extremo oposto de St. Julian's, e essas duas corridas foram as mais caras da viagem. Chegando ao hotel, ainda gastei **€ 5** no Basic Foods and Drinks à 00h29.
 
@@ -600,7 +611,7 @@ Todo mundo já tinha ido embora — elas voltaram para Dublin naquele dia, depoi
 
 - Original Recipe Chicken 3 pcs, meal com arroz e Pepsi Zero grande — € 15,55
 - Adicional de Caramel Sundae — € 2,00
-- Fries large — € 3,07
+- Fries large — € 3,70
 - Hot Wings 5 pcs — € 5,90
 - Taxa de serviço — € 0,40 · Entrega grátis
 
@@ -618,7 +629,8 @@ E aconteceu de novo: o Caramel Sundae, que eu nem tinha percebido que estava sel
 
 <div class="callout callout-tip">
   <div class="callout-label">Wolt em Malta</div>
-  O delivery funciona pelo <strong>Wolt</strong>, que pertence ao mesmo grupo do Deliveroo — a mesma lógica de marcas regionais que a Delivery Hero usa ao operar como Talabat no Oriente Médio. Se você já usa qualquer um deles, a conta e o método de pagamento costumam funcionar direto. Nos dois pedidos a <strong>entrega saiu de graça</strong>, com taxa de serviço abaixo de € 0,50.
+  <p>O delivery funciona pelo <strong>Wolt</strong>, que pertence ao mesmo grupo do Deliveroo — a mesma lógica de marcas regionais que a Delivery Hero usa ao operar como Talabat no Oriente Médio. Mas atenção: na prática são <strong>empresas separadas</strong>, com contas e cadastros independentes. Ter conta no Deliveroo não te dá acesso ao Wolt.</p>
+  <p>Eu já tinha usado o Wolt na Grécia no réveillon, então bastou reativar. Aproveitei ainda o <strong>trial do plano premium</strong>, que deu 3 dias grátis em Malta — e cancelei ao voltar para a Irlanda. Nos dois pedidos a <strong>entrega saiu de graça</strong>, com taxa de serviço abaixo de € 0,50.</p>
 </div>
 
 <div class="callout callout-tip">
@@ -644,7 +656,7 @@ E aconteceu de novo: o Caramel Sundae, que eu nem tinha percebido que estava sel
 
 Acordei pronto para o checkout e descobri que dava para estender a saída (originalmente 11h) por **€ 15 a hora, até as 13h**. Paguei **€ 30**, dormi até meio-dia, tomei banho, arrumei a mala e fiz o checkout.
 
-Fiquei sentado na recepção jogando no celular até as 16h48. Depois saí e tomei o **último sorvete da viagem no RivaReno**, em St. Julian's, entre 16h50 e 17h05 — foram **duas compras de € 6**, um scoop de limone e outro de limone com salted caramel. De lá, **Bolt para o aeroporto: € 16**, 8,6 km em 15 minutos. Cheguei ao terminal às 17h20.
+Fiquei sentado na recepção jogando no celular até as 16h48, com a mala ao meu lado no sofá o tempo todo — não cheguei a deixá-la guardada. Depois saí e tomei o **último sorvete da viagem no RivaReno**, em St. Julian's, entre 16h50 e 17h05 — foram **duas compras de € 6**, um scoop de limone e outro de limone com salted caramel. De lá, **Bolt para o aeroporto: € 16**, 8,6 km em 15 minutos. Cheguei ao terminal às 17h20.
 
 No free shop do aeroporto gastei mais **€ 82,17**: três perfumes em promoção a € 20 cada e € 22,17 em Toblerone (dois pacotes na promoção, um deles de € 15).
 
@@ -733,7 +745,7 @@ Este roteiro tem lacunas evidentes, e elas têm duas explicações distintas.
   </div>
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-ship"></i> Gozo</div>
-    <div class="provider-detail">A ilha vizinha, mais rural, mais calma e com paisagem completamente diferente da ilha principal. Acessível por ferry a partir de Cirkewwa. Vários passeios de barco a Comino incluem Gozo no mesmo roteiro — inclusive aquele que eu perdi, que dava 2 horas livres na ilha. <strong>O único destes quatro que eu ainda não conheço.</strong></div>
+    <div class="provider-detail">A ilha vizinha, mais rural, mais calma e com paisagem completamente diferente da ilha principal. Acessível por ferry a partir de Cirkewwa. Vários passeios de barco a Comino incluem Gozo no mesmo roteiro — inclusive aquele que eu perdi, que dava 2 horas livres na ilha. <strong>O único destes quatro que eu ainda não conheço.</strong> As amigas que fizeram o passeio da manhã foram e resumiram assim: não tem nada de excepcional, mas vale visitar se der.</div>
     <div class="provider-price">Um dia inteiro, no mínimo</div>
   </div>
   <div class="provider-card">
@@ -758,6 +770,8 @@ Este roteiro tem lacunas evidentes, e elas têm duas explicações distintas.
 Como boa parte deste relato se apoia no que eu já conhecia da ilha, faz sentido mostrar de onde vem esse conhecimento.
 
 Minha primeira ida a Malta foi de **2 a 8 de maio de 2022**. Fiquei hospedado na casa de uma amiga que mora na ilha — e que continua morando lá até hoje. Foi uma viagem de perfil completamente diferente desta: menos praia e balada, mais os cartões-postais clássicos.
+
+A diferença não foi só de gosto. Em 2022 eu estava **sozinho**, e passei boa parte do tempo com essa amiga — que na época namorava e tinha uma rotina social diferente da minha. Em 2026 vim com **amigos solteiros**, e o roteiro naturalmente virou praia e festa. É o mesmo destino gerando duas viagens quase opostas, e vale ter isso em mente ao ler qualquer relato: metade do que se faz num lugar depende de com quem se está.
 
 **O que vi em 2022:**
 - **Blue Grotto**, dessa vez com o passeio de barco pelas grutas — que em 2026 eu perdi por chegar depois do horário das embarcações
@@ -912,99 +926,99 @@ O total da viagem foi de **€ 2.322,36**, ou **€ 1.353,68 sem contar voos e h
 
 <div class="callout callout-tip">
   <div class="callout-label">Como esses números foram levantados</div>
-  Todos os valores abaixo saem de <strong>extratos reais</strong>, não de estimativas: conta em euro do Revolut, conta em dirham, RevPoints e Wise. Uma convenção importante: <strong>cada noite foi contabilizada no dia em que ela começou</strong>. A balada de sábado que varou até as 03h40, e o Havana que só abriu depois da 01h de segunda, entram respectivamente no Dia 1 e no Dia 2 — porque foi ali que a noite começou. Vale um aviso para quem for tentar o mesmo: as datas do extrato do Revolut são de <strong>liquidação, não de compra</strong>, com atraso de 1 a 3 dias — um táxi de segunda à noite aparece como despesa de quarta. Para reconstruir a viagem dia a dia foi preciso cruzar o extrato com o histórico do app de transporte e com o registro de localização do celular.
+  Todos os valores abaixo saem de <strong>extratos reais</strong>, não de estimativas: extrato do Revolut, RevPoints e Wise. Uma convenção importante: <strong>cada noite foi contabilizada no dia em que ela começou</strong>. A balada de sábado que varou até as 03h40, e o Havana que só abriu depois da 01h de segunda, entram respectivamente no Dia 1 e no Dia 2 — porque foi ali que a noite começou. Vale um aviso para quem for tentar o mesmo: as datas do extrato do Revolut são de <strong>liquidação, não de compra</strong>, com atraso de 1 a 3 dias — um táxi de segunda à noite aparece como despesa de quarta. Para reconstruir a viagem dia a dia foi preciso cruzar o extrato com o histórico do app de transporte e com o registro de localização do celular.
 </div>
 
 ### Gasto por dia
 
-<div style="margin: 2rem 0; font-size: 0.9rem;">
-  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
-    <div style="flex: 0 0 6.5rem; opacity: 0.75;">Dia 1 · 22/08</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 58.3% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 131,70</div>
+<div style="margin:2rem 0;font-size:0.9rem;">
+  <div style="display:flex;align-items:center;gap:0.75rem; margin-bottom: 0.55rem;">
+    <div style="flex:0 0 6.5rem;opacity:0.8;">Dia 1 · 22/08</div>
+    <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:41.7%;height:100%;background:#E07A5F;border-radius:3px;"></div></div>
+    <div style="flex:0 0 5.5rem;text-align:right;font-variant-numeric:tabular-nums;">€ 131,70</div>
   </div>
-  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
-    <div style="flex: 0 0 6.5rem; opacity: 0.75;">Dia 2 · 23/08</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 0% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 315,94</div>
+  <div style="display:flex;align-items:center;gap:0.75rem; margin-bottom: 0.55rem;">
+    <div style="flex:0 0 6.5rem;opacity:0.8;">Dia 2 · 23/08</div>
+    <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:100%;height:100%;background:#D9A441;border-radius:3px;"></div></div>
+    <div style="flex:0 0 5.5rem;text-align:right;font-variant-numeric:tabular-nums;">€ 315,94</div>
   </div>
-  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
-    <div style="flex: 0 0 6.5rem; opacity: 0.75;">Dia 3 · 24/08</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 73.6% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 83,53</div>
+  <div style="display:flex;align-items:center;gap:0.75rem; margin-bottom: 0.55rem;">
+    <div style="flex:0 0 6.5rem;opacity:0.8;">Dia 3 · 24/08</div>
+    <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:26.4%;height:100%;background:#3D8361;border-radius:3px;"></div></div>
+    <div style="flex:0 0 5.5rem;text-align:right;font-variant-numeric:tabular-nums;">€ 83,53</div>
   </div>
-  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
-    <div style="flex: 0 0 6.5rem; opacity: 0.75;">Dia 4 · 25/08</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 36.5% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 200,65</div>
+  <div style="display:flex;align-items:center;gap:0.75rem; margin-bottom: 0.55rem;">
+    <div style="flex:0 0 6.5rem;opacity:0.8;">Dia 4 · 25/08</div>
+    <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:63.5%;height:100%;background:#4FA3A5;border-radius:3px;"></div></div>
+    <div style="flex:0 0 5.5rem;text-align:right;font-variant-numeric:tabular-nums;">€ 200,65</div>
   </div>
-  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
-    <div style="flex: 0 0 6.5rem; opacity: 0.75;">Dia 5 · 26/08</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 35.0% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 205,29</div>
+  <div style="display:flex;align-items:center;gap:0.75rem; margin-bottom: 0.55rem;">
+    <div style="flex:0 0 6.5rem;opacity:0.8;">Dia 5 · 26/08</div>
+    <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:65.0%;height:100%;background:#4A7BA7;border-radius:3px;"></div></div>
+    <div style="flex:0 0 5.5rem;text-align:right;font-variant-numeric:tabular-nums;">€ 205,29</div>
   </div>
-  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
-    <div style="flex: 0 0 6.5rem; opacity: 0.75;">Dia 6 · 27/08</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 19.9% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 253,03</div>
+  <div style="display:flex;align-items:center;gap:0.75rem; margin-bottom: 0.55rem;">
+    <div style="flex:0 0 6.5rem;opacity:0.8;">Dia 6 · 27/08</div>
+    <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:80.1%;height:100%;background:#8E7DBE;border-radius:3px;"></div></div>
+    <div style="flex:0 0 5.5rem;text-align:right;font-variant-numeric:tabular-nums;">€ 253,03</div>
   </div>
-  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
-    <div style="flex: 0 0 6.5rem; opacity: 0.75;">Dia 7 · 28/08</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 83.1% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 53,37</div>
+  <div style="display:flex;align-items:center;gap:0.75rem; margin-bottom: 0.55rem;">
+    <div style="flex:0 0 6.5rem;opacity:0.8;">Dia 7 · 28/08</div>
+    <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:16.9%;height:100%;background:#B5646E;border-radius:3px;"></div></div>
+    <div style="flex:0 0 5.5rem;text-align:right;font-variant-numeric:tabular-nums;">€ 53,37</div>
   </div>
-  <div style="display: flex; align-items: center; gap: 0.75rem;">
-    <div style="flex: 0 0 6.5rem; opacity: 0.75;">Dia 8 · 29/08</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 65.1% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 5.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 110,17</div>
+  <div style="display:flex;align-items:center;gap:0.75rem;">
+    <div style="flex:0 0 6.5rem;opacity:0.8;">Dia 8 · 29/08</div>
+    <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:34.9%;height:100%;background:#7A8B99;border-radius:3px;"></div></div>
+    <div style="flex:0 0 5.5rem;text-align:right;font-variant-numeric:tabular-nums;">€ 110,17</div>
   </div>
-  <p style="opacity: 0.6; font-size: 0.8rem; margin-top: 0.75rem;">Gastos diários, sem voos e hospedagem. Total: € 1.353,68.</p>
+  <p style="opacity:0.6;font-size:0.8rem;margin-top:0.75rem;">Gastos diários, sem voos e hospedagem. Total: € 1.353,68.</p>
 </div>
 
 ### Gasto por categoria
 
-<div style="margin: 2rem 0; font-size: 0.9rem;">
-  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
-    <div style="flex: 0 0 9rem; opacity: 0.75;">Hospedagem</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 0% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 685,68 · 30%</div>
+<div style="margin:2rem 0;font-size:0.9rem;">
+  <div style="display:flex;align-items:center;gap:0.75rem; margin-bottom: 0.55rem;">
+    <div style="flex:0 0 9rem;opacity:0.8;">Hospedagem</div>
+    <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:100%;height:100%;background:#4A7BA7;border-radius:3px;"></div></div>
+    <div style="flex:0 0 7.5rem;text-align:right;font-variant-numeric:tabular-nums;">€ 685,68 · 30%</div>
   </div>
-  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
-    <div style="flex: 0 0 9rem; opacity: 0.75;">Festas e bebidas</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 37.1% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 431,14 · 19%</div>
+  <div style="display:flex;align-items:center;gap:0.75rem; margin-bottom: 0.55rem;">
+    <div style="flex:0 0 9rem;opacity:0.8;">Festas e bebidas</div>
+    <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:62.9%;height:100%;background:#8E7DBE;border-radius:3px;"></div></div>
+    <div style="flex:0 0 7.5rem;text-align:right;font-variant-numeric:tabular-nums;">€ 431,14 · 19%</div>
   </div>
-  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
-    <div style="flex: 0 0 9rem; opacity: 0.75;">Alimentação</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 43.7% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 386,23 · 17%</div>
+  <div style="display:flex;align-items:center;gap:0.75rem; margin-bottom: 0.55rem;">
+    <div style="flex:0 0 9rem;opacity:0.8;">Alimentação</div>
+    <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:56.3%;height:100%;background:#3D8361;border-radius:3px;"></div></div>
+    <div style="flex:0 0 7.5rem;text-align:right;font-variant-numeric:tabular-nums;">€ 386,23 · 17%</div>
   </div>
-  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
-    <div style="flex: 0 0 9rem; opacity: 0.75;">Voos</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 58.7% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 283,00 · 12%</div>
+  <div style="display:flex;align-items:center;gap:0.75rem; margin-bottom: 0.55rem;">
+    <div style="flex:0 0 9rem;opacity:0.8;">Voos</div>
+    <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:41.3%;height:100%;background:#E07A5F;border-radius:3px;"></div></div>
+    <div style="flex:0 0 7.5rem;text-align:right;font-variant-numeric:tabular-nums;">€ 283,00 · 12%</div>
   </div>
-  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
-    <div style="flex: 0 0 9rem; opacity: 0.75;">Transporte</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 75.9% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 165,20 · 7%</div>
+  <div style="display:flex;align-items:center;gap:0.75rem; margin-bottom: 0.55rem;">
+    <div style="flex:0 0 9rem;opacity:0.8;">Transporte</div>
+    <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:24.1%;height:100%;background:#D9A441;border-radius:3px;"></div></div>
+    <div style="flex:0 0 7.5rem;text-align:right;font-variant-numeric:tabular-nums;">€ 165,20 · 7%</div>
   </div>
-  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
-    <div style="flex: 0 0 9rem; opacity: 0.75;">Compras e outros</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 78.3% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 148,61 · 6%</div>
+  <div style="display:flex;align-items:center;gap:0.75rem; margin-bottom: 0.55rem;">
+    <div style="flex:0 0 9rem;opacity:0.8;">Compras e outros</div>
+    <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:21.7%;height:100%;background:#B5646E;border-radius:3px;"></div></div>
+    <div style="flex:0 0 7.5rem;text-align:right;font-variant-numeric:tabular-nums;">€ 148,61 · 6%</div>
   </div>
-  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
-    <div style="flex: 0 0 9rem; opacity: 0.75;">Praia e beach club</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 81.0% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 130,00 · 6%</div>
+  <div style="display:flex;align-items:center;gap:0.75rem; margin-bottom: 0.55rem;">
+    <div style="flex:0 0 9rem;opacity:0.8;">Praia e beach club</div>
+    <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:19.0%;height:100%;background:#4FA3A5;border-radius:3px;"></div></div>
+    <div style="flex:0 0 7.5rem;text-align:right;font-variant-numeric:tabular-nums;">€ 130,00 · 6%</div>
   </div>
-  <div style="display: flex; align-items: center; gap: 0.75rem;">
-    <div style="flex: 0 0 9rem; opacity: 0.75;">Passeios</div>
-    <div style="flex: 1; background: currentColor; opacity: 0.12; height: 1.4rem; border-radius: 3px; position: relative;"><div style="position: absolute; inset: 0 86.5% 0 0; background: currentColor; border-radius: 3px;"></div></div>
-    <div style="flex: 0 0 7.5rem; text-align: right; font-variant-numeric: tabular-nums;">€ 92,50 · 4%</div>
+  <div style="display:flex;align-items:center;gap:0.75rem;">
+    <div style="flex:0 0 9rem;opacity:0.8;">Passeios</div>
+    <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:13.5%;height:100%;background:#7A8B99;border-radius:3px;"></div></div>
+    <div style="flex:0 0 7.5rem;text-align:right;font-variant-numeric:tabular-nums;">€ 92,50 · 4%</div>
   </div>
-  <p style="opacity: 0.6; font-size: 0.8rem; margin-top: 0.75rem;">Total: € 2.322,36.</p>
+  <p style="opacity:0.6;font-size:0.8rem;margin-top:0.75rem;">Total: € 2.322,36.</p>
 </div>
 
 ### Tabela completa por categoria
@@ -1240,14 +1254,14 @@ O total da viagem foi de **€ 2.322,36**, ou **€ 1.353,68 sem contar voos e h
 
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-hotel"></i> ASTE Hotel — St. Julian's</div>
-    <div class="provider-detail">Nosso hotel em St. Julian's. Quartos family com varanda, piscina na cobertura e café da manhã. A 5 minutos de St. George's Bay e na rua de baixo de Paceville. Oferece late checkout por hora (€ 15/h até as 13h).</div>
-    <div class="provider-price"><!-- TODO: link do Booking / site do hotel --></div>
+    <div class="provider-detail">Nosso hotel em St. Julian's. Quartos family com varanda, piscina na cobertura e café da manhã. A 5 minutos de St. George's Bay e na rua de baixo de Paceville. Late checkout por hora (€ 15/h até as 13h). Reservamos pelo Booking e depois estendemos direto na recepção.</div>
+    <div class="provider-price"><a href="https://astehotelmalta.com/" target="_blank">astehotelmalta.com →</a></div>
   </div>
 
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-hotel"></i> Canifor Hotel — Buġibba</div>
-    <div class="provider-detail">Onde ficaram as amigas do grupo, de 23 a 28/08. Fica em Buġibba, no norte da ilha — 20 a 30 minutos de Bolt até St. Julian's.</div>
-    <div class="provider-price"><!-- TODO: link do Booking / site do hotel --></div>
+    <div class="provider-detail">Onde ficaram as amigas do grupo, de 23 a 28/08, também reservado pelo Booking. Fica em Buġibba, no norte da ilha — 20 a 30 minutos de Bolt até St. Julian's.</div>
+    <div class="provider-price"><a href="https://canifor.com/" target="_blank">canifor.com →</a></div>
   </div>
 
   <div class="provider-card">
@@ -1263,6 +1277,12 @@ O total da viagem foi de **€ 2.322,36**, ou **€ 1.353,68 sem contar voos e h
   </div>
 
   <div class="provider-card">
+    <div class="provider-name"><i class="fas fa-umbrella-beach"></i> Toy Room Beach Club — Sliema</div>
+    <div class="provider-detail">Onde comprei o ingresso da festa do branco, no dia anterior. Comprando pelo site sai € 15 + € 1,50 de taxas; na porta, no dia, custa € 20. O site também traz a tabela de sunbeds por temporada.</div>
+    <div class="provider-price"><a href="https://toyroombeachclubmalta.com/" target="_blank">toyroombeachclubmalta.com →</a></div>
+  </div>
+
+  <div class="provider-card">
     <div class="provider-name"><i class="fas fa-car"></i> Bolt</div>
     <div class="provider-detail">App de transporte usado durante toda a viagem. Ampla cobertura em Malta, inclusive nos pontos mais afastados como St. Peter's Pool e Blue Grotto. Preço oscila bastante — vale reconsultar.</div>
     <div class="provider-price"><a href="https://bolt.eu" target="_blank">bolt.eu →</a></div>
@@ -1270,8 +1290,8 @@ O total da viagem foi de **€ 2.322,36**, ou **€ 1.353,68 sem contar voos e h
 
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-fish"></i> UMI — Sushi & Asian Fusion</div>
-    <div class="provider-detail">Japonês em St. Paul's Bay (43 Bognor). Reserva online com confirmação e alteração por mensagem.</div>
-    <div class="provider-price"><!-- TODO: link do restaurante / Instagram --></div>
+    <div class="provider-detail">Japonês em St. Paul's Bay (43 Bognor). Reserva pelo site, com confirmação e alteração por WhatsApp. O pagamento é só no local — não há valor fechado, depende do que se pede.</div>
+    <div class="provider-price"><a href="https://www.umimalta.com/" target="_blank">umimalta.com →</a></div>
   </div>
 
 </div>
