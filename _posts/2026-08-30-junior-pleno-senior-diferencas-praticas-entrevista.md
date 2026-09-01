@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Júnior, pleno ou sênior: a pergunta de entrevista que separa os três"
 description: "Uma demanda fictícia de um PO, três candidatos e três respostas completamente diferentes. O que realmente avaliamos em uma entrevista técnica — e por que senioridade não é o tamanho da sua stack."
 date: 2026-08-30
