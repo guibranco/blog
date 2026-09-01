@@ -294,7 +294,7 @@ O que é raro é **lembrar de perguntar**. E você não lembra porque leu — vo
   </div>
 </div>
 
-### A matriz que prova isso sozinha
+<h3>A matriz que prova isso sozinha</h3>
 
 A matriz de competências da Talabat avalia **27 temas** distribuídos em cinco áreas: habilidades técnicas, entrega, feedback e comunicação, liderança e impacto estratégico. Cada tema tem uma descrição própria para cada um dos seis níveis, de IC1 a IC6.
 
@@ -312,7 +312,7 @@ Com uma exceção. Exatamente **um** dos 27 temas para de evoluir depois do sên
 
 Isso é a tese deste artigo escrita por um departamento de RH, com carimbo. Se escrever código para de diferenciar no sênior, então tudo que vem depois — e boa parte do que vem antes — é outra coisa.
 
-E o gráfico acima mostra que outra coisa é essa. A matriz define, para cada nível, um **horizonte de planejamento**: por quanto tempo à frente aquela pessoa responde. Cinco dias no júnior. Um mês no pleno. Um trimestre no sênior. Dois anos no topo. Cada degrau multiplica o horizonte por mais ou menos quatro.
+E o gráfico acima mostra que outra coisa é essa. A matriz define, para cada nível, um **horizonte de planejamento**: por quanto tempo à frente aquela pessoa responde. Cinco dias no júnior. Um mês no pleno. Um trimestre no sênior. Dois anos no topo. O crescimento não é uniforme: o salto é brutal no começo — cerca de **5×** de júnior para pleno e **3×** de pleno para sênior — e depois se estabiliza em **2× a cada degrau**. Do IC1 ao IC6 o horizonte cresce quase 150 vezes.
 
 <div class="callout callout-tip">
   <div class="callout-label">Uma definição de senioridade em uma linha</div>
@@ -350,7 +350,7 @@ A resposta honesta é que depende brutalmente do tipo de empresa. O gráfico aba
   As faixas de big tech vêm de trilhas de nivelamento públicas — incluindo o framework de carreira do Dropbox, que publica os tempos por nível, e a escada da Artsy, aberta no GitHub. As do mercado brasileiro vêm de levantamentos de recrutamento referenciados. Já a linha de <strong>promoção de retenção</strong> e os percentuais de aumento citados adiante são <strong>estimativas ilustrativas</strong>, baseadas em padrão observado — não em pesquisa publicada. Trate-as como ordem de grandeza, não como dado.
 </div>
 
-### Um framework que publica os números
+<h3>Um framework que publica os números</h3>
 
 Quase toda empresa trata a matriz de promoção como documento interno. O Dropbox publicou a dele, e isso dá uma âncora rara — números oficiais, não crowdsourced:
 
@@ -377,7 +377,7 @@ Somando as faixas, uma pessoa entra no L3 com **3,5 a 5 anos** de carreira e no 
   A linha do gestor em L3 é mais curta que a do IC. O motivo está escrito na própria documentação: quem migra para gestão <strong>já cresceu através de boa parte do L3 como IC</strong>. O tempo não é menor porque gestão é mais fácil — é menor porque parte do caminho já foi andado do outro lado.
 </div>
 
-### O padrão das grandes empresas
+<h3>O padrão das grandes empresas</h3>
 
 Em empresas grandes, com trilha de carreira formalizada e comitê de calibração, os números são razoavelmente estáveis. No Google, o nível de entrada (L3) costuma durar entre um ano e meio e dois anos — ficar muito além disso é lido internamente como sinal de baixa performance. O L4, o degrau seguinte, corresponde grosso modo a algo entre um e cinco anos de mercado, e o título de Senior Software Engineer (L5) normalmente é associado a uma faixa de seis a nove anos de experiência. Meta, Amazon e Microsoft operam com trilhas diferentes no nome, mas com ordens de grandeza muito parecidas.
 
@@ -412,7 +412,7 @@ Traduzindo para a nomenclatura brasileira:
 
 Repare que a coluna que importa não é a do meio. É a da direita. Os anos são **proxy** da autonomia, não a causa dela.
 
-### O padrão das empresas pequenas — e a armadilha
+<h3>O padrão das empresas pequenas — e a armadilha</h3>
 
 Agora a parte que ninguém coloca no material institucional.
 
@@ -501,7 +501,7 @@ Três leituras importam nesse desenho:
 
 <h3>Trilha IC — o especialista</h3>
 
-Em vez de inventar uma régua, vale olhar escadas reais: a da **Artsy** (aberta no GitHub), a do **Dropbox** (publicada como site), a do **Yahoo** (reconstruída por ex-funcionários em fóruns) e a da **Talabat**, que eu conheço de dentro — trabalhei lá entre 2021 e 2023, e a matriz de competências deles é o documento mais bem construído que já vi sobre isso. Elas discordam entre si de um jeito muito instrutivo:
+Em vez de inventar uma régua, vale olhar escadas reais: a da **Artsy** (aberta no GitHub), a do **Yahoo** (reconstruída por ex-funcionários em fóruns), a do **Google** (mapeada publicamente por ex-recrutadores) e a da **Talabat**, que eu conheço de dentro — trabalhei lá entre 2021 e 2023, e a matriz de competências deles é o documento mais bem construído que já vi sobre isso. Elas discordam entre si de um jeito muito instrutivo:
 
 <table class="compare-table">
   <thead>
