@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 470" width="680" height="470" role="img" aria-label="Horizonte de planejamento por nível de senioridade: de 1 a 5 dias no júnior até 1 a 2 anos no senior principal, com o escopo correspondente">
+  <style>
+    .tt{font-family:'Playfair Display',Georgia,serif;font-size:19px;fill:#1a1714}
+    .sb{font-family:'JetBrains Mono',Consolas,monospace;font-size:11px;fill:#8a8078}
+    .lv{font-family:'Source Serif 4',Georgia,serif;font-size:16px;fill:#1a1714}
+    .sc{font-family:'JetBrains Mono',Consolas,monospace;font-size:11px;fill:#8a8078}
+    .in{font-family:'JetBrains Mono',Consolas,monospace;font-size:12px;fill:#faf9f6}
+    .ax{font-family:'JetBrains Mono',Consolas,monospace;font-size:10px;fill:#8a8078}
+  </style>
+  <rect width="680" height="470" fill="#f2ede6"/>
+
+  <text class="tt" x="20" y="32">O relógio da senioridade</text>
+  <text class="sb" x="20" y="52">horizonte de tempo pelo qual a pessoa responde — escala logarítmica</text>
+
+  <line x1="200" y1="70" x2="200" y2="382" stroke="#e2dbd0"/>
+  <line x1="332.8" y1="70" x2="332.8" y2="382" stroke="#e2dbd0" stroke-dasharray="3 4"/>
+  <line x1="432.1" y1="70" x2="432.1" y2="382" stroke="#e2dbd0" stroke-dasharray="3 4"/>
+  <line x1="507.1" y1="70" x2="507.1" y2="382" stroke="#e2dbd0" stroke-dasharray="3 4"/>
+  <line x1="602.7" y1="70" x2="602.7" y2="382" stroke="#e2dbd0" stroke-dasharray="3 4"/>
+
+  <text class="lv" x="20" y="98">IC1 · Júnior</text>
+  <text class="sc" x="20" y="114">dentro da tarefa</text>
+  <rect x="200" y="82" width="109.9" height="30" rx="3" fill="#8a8078"/>
+  <text class="in" x="300" y="102" text-anchor="end">1–5 dias</text>
+
+  <text class="lv" x="20" y="148">IC2 · Pleno</text>
+  <text class="sc" x="20" y="164">dentro do épico</text>
+  <rect x="200" y="132" width="227.4" height="30" rx="3" fill="#b85c00" opacity="0.75"/>
+  <text class="in" x="418" y="152" text-anchor="end">1–4 semanas</text>
+
+  <text class="lv" x="20" y="198">IC3 · Sênior</text>
+  <text class="sc" x="20" y="214">dentro do time</text>
+  <rect x="200" y="182" width="307.1" height="30" rx="3" fill="#b85c00"/>
+  <text class="in" x="498" y="202" text-anchor="end">1–3 meses</text>
+
+  <text class="lv" x="20" y="248">IC4 · Staff</text>
+  <text class="sc" x="20" y="264">time + outros times</text>
+  <rect x="200" y="232" width="354.4" height="30" rx="3" fill="#2d6a4f" opacity="0.7"/>
+  <text class="in" x="545" y="252" text-anchor="end">3–6 meses</text>
+
+  <text class="lv" x="20" y="298">IC5 · Principal</text>
+  <text class="sc" x="20" y="314">4+ times</text>
+  <rect x="200" y="282" width="402.7" height="30" rx="3" fill="#2d6a4f" opacity="0.85"/>
+  <text class="in" x="593" y="302" text-anchor="end">6–12 meses</text>
+
+  <text class="lv" x="20" y="348">IC6 · Sr. Principal</text>
+  <text class="sc" x="20" y="364">toda a organização</text>
+  <rect x="200" y="332" width="450" height="30" rx="3" fill="#2d6a4f"/>
+  <text class="in" x="640" y="352" text-anchor="end">1–2 anos</text>
+
+  <line x1="200" y1="382" x2="650" y2="382" stroke="#8a8078"/>
+  <text class="ax" x="200" y="398" text-anchor="middle">1 dia</text>
+  <text class="ax" x="332.8" y="398" text-anchor="middle">1 semana</text>
+  <text class="ax" x="432.1" y="398" text-anchor="middle">1 mês</text>
+  <text class="ax" x="507.1" y="398" text-anchor="middle">1 trimestre</text>
+  <text class="ax" x="602.7" y="398" text-anchor="middle">1 ano</text>
+
+  <line x1="20" y1="420" x2="660" y2="420" stroke="#e2dbd0"/>
+  <text class="sb" x="20" y="440">Cada degrau multiplica o horizonte por ~4. Do júnior ao Sr. Principal são</text>
+  <text class="sb" x="20" y="458">dois dias de trabalho contra dois anos — a mesma pessoa, outra unidade de tempo.</text>
+</svg>

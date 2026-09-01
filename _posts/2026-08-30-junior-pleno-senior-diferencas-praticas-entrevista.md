@@ -1,6 +1,5 @@
 ---
 layout: post
-lang: pt-BR
 title: "Júnior, pleno ou sênior: a pergunta de entrevista que separa os três"
 description: "Uma demanda fictícia de um PO, três candidatos e três respostas completamente diferentes. O que realmente avaliamos em uma entrevista técnica — e por que senioridade não é o tamanho da sua stack."
 date: 2026-08-30
@@ -8,7 +7,7 @@ categories: [Career]
 subcategories:
   - "Career/Seniority"
 tags: [senioridade, entrevista-tecnica, carreira-dev, contratacao, junior-pleno-senior, mercado-de-trabalho]
-reading_time: 27
+reading_time: 30
 cover: /assets/img/posts/junior-pleno-senior-entrevista.svg
 image: /assets/img/posts/junior-pleno-senior-entrevista.png
 medium_tags: [carreira, programacao, entrevista, senioridade, tecnologia]
@@ -96,6 +95,11 @@ Não há nada de burro nesse código. É a solução óbvia, direta, entregue r�
 - um dia tem sempre exatamente 86.400.000 milissegundos.
 
 Cada uma dessas cinco suposições é uma decisão de produto disfarçada de detalhe técnico. Ele tomou todas as cinco sozinho, em silêncio, e nenhuma delas foi validada com quem trouxe a demanda.
+
+<div class="callout callout-tip">
+  <div class="callout-label">E isso está previsto, formalmente</div>
+  Na matriz de competências da Talabat, o tema "Dealing with ambiguity" — lidar com ambiguidade — tem uma entrada explícita para o nível IC1: <strong>"n/a (not applicable at this level)"</strong>. Não é esquecimento nem indulgência. A empresa escreveu, com todas as letras, que não se espera que um júnior lide com ambiguidade. Ela aparece só a partir do IC2, e ainda assim limitada ao escopo pessoal de trabalho. Cobrar isso do candidato A seria avaliá-lo por um nível que ele não ocupa.
+</div>
 
 <div class="callout callout-warn">
   <div class="callout-label">O que isso me diz como avaliador</div>
@@ -289,6 +293,32 @@ O que é raro é **lembrar de perguntar**. E você não lembra porque leu — vo
   </div>
 </div>
 
+### A matriz que prova isso sozinha
+
+A matriz de competências da Talabat avalia **27 temas** distribuídos em cinco áreas: habilidades técnicas, entrega, feedback e comunicação, liderança e impacto estratégico. Cada tema tem uma descrição própria para cada um dos seis níveis, de IC1 a IC6.
+
+Com uma exceção. Exatamente **um** dos 27 temas para de evoluir depois do sênior. Nos três níveis acima — Staff, Principal, Senior Principal — a célula não traz um texto novo. Traz duas palavras: *"see IC3"*.
+
+<img
+  src="{{ site.baseurl }}/assets/img/posts/senioridade-horizonte-planejamento.svg"
+  alt="Horizonte de planejamento por nível: 1 a 5 dias no júnior, 1 a 4 semanas no pleno, 1 a 3 meses no sênior, 3 a 6 meses no Staff, 6 a 12 meses no Principal e 1 a 2 anos no Senior Principal"
+  style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
+
+<div class="callout callout-warn">
+  <div class="callout-label">O tema que congela é "Writing code"</div>
+  Escrever código é a única competência das 27 que <strong>atinge o teto no sênior</strong>. A partir dali, a empresa formalmente não espera que você escreva código melhor — espera que você faça outras 26 coisas melhor. Um Principal Engineer e um sênior têm, no papel, exatamente a mesma expectativa de qualidade de código. Toda a distância entre os dois está em ambiguidade, arquitetura, alinhamento, mentoria, visão de produto e horizonte de decisão.
+</div>
+
+Isso é a tese deste artigo escrita por um departamento de RH, com carimbo. Se escrever código para de diferenciar no sênior, então tudo que vem depois — e boa parte do que vem antes — é outra coisa.
+
+E o gráfico acima mostra que outra coisa é essa. A matriz define, para cada nível, um **horizonte de planejamento**: por quanto tempo à frente aquela pessoa responde. Cinco dias no júnior. Um mês no pleno. Um trimestre no sênior. Dois anos no topo. Cada degrau multiplica o horizonte por mais ou menos quatro.
+
+<div class="callout callout-tip">
+  <div class="callout-label">Uma definição de senioridade em uma linha</div>
+  Se eu tivesse que resumir o artigo inteiro numa frase, seria essa: <strong>senioridade é o tamanho do futuro pelo qual você é responsável.</strong> O júnior responde pela tarefa desta semana. O sênior responde pelo que o time vai viver daqui a três meses. É exatamente por isso que o candidato C pergunta sobre ano bissexto: o bissexto está a quatro anos de distância, e o horizonte dele alcança lá.
+
+</div>
+
 É por isso que um dev que passou cinco anos numa única stack, mas mantendo um produto vivo com usuários reais, costuma ser mais sênior do que alguém que passou cinco anos pulando de projeto greenfield em greenfield. **Quem nunca manteve o próprio código não viu a consequência das próprias decisões** — e é exatamente esse feedback loop que constrói a intuição.
 
 <div class="personal-story">
@@ -470,35 +500,35 @@ Três leituras importam nesse desenho:
 
 <h3>Trilha IC — o especialista</h3>
 
-Em vez de inventar uma régua, vale olhar três escadas que estão publicadas na íntegra: a da **Artsy** (aberta no GitHub), a do **Dropbox** (publicada como site) e a do **Yahoo** (reconstruída por ex-funcionários em fóruns públicos). Elas discordam entre si de um jeito muito instrutivo:
+Em vez de inventar uma régua, vale olhar escadas reais: a da **Artsy** (aberta no GitHub), a do **Dropbox** (publicada como site), a do **Yahoo** (reconstruída por ex-funcionários em fóruns) e a da **Talabat**, que eu conheço de dentro — trabalhei lá entre 2021 e 2023, e a matriz de competências deles é o documento mais bem construído que já vi sobre isso. Elas discordam entre si de um jeito muito instrutivo:
 
 <table class="compare-table">
   <thead>
     <tr>
       <th>Nome no BR</th>
+      <th>Talabat</th>
       <th>Artsy</th>
       <th>Yahoo</th>
       <th>Google</th>
-      <th>Dropbox</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td>Estagiário</td><td>Intern</td><td>—</td><td>L2</td><td>—</td></tr>
-    <tr><td><strong>Júnior</strong></td><td>Engineer 1 <em>(IC2)</em></td><td>Associate <em>(IC1)</em></td><td>L3</td><td>L1</td></tr>
-    <tr><td><strong>Pleno</strong></td><td>Engineer 2 <em>(IC3)</em></td><td>Software Engineer <em>(IC3)</em></td><td>L4</td><td>L2</td></tr>
-    <tr><td><strong>Sênior</strong></td><td>Senior Engineer 1–2 <em>(IC4–IC5)</em></td><td>Senior <em>(IC4)</em></td><td>L5</td><td>L3</td></tr>
-    <tr><td>Especialista</td><td>Staff <em>(IC6)</em></td><td>Principal <em>(IC5)</em></td><td>L6</td><td>L4</td></tr>
-    <tr><td>—</td><td>Senior Staff <em>(IC7)</em></td><td>Senior Principal <em>(IC6)</em></td><td>L7</td><td>—</td></tr>
-    <tr><td>—</td><td>Principal <em>(IC8)</em></td><td>Distinguished <em>(IC7–IC8)</em></td><td>L8</td><td>—</td></tr>
+    <tr><td>Estagiário</td><td>—</td><td>Intern</td><td>—</td><td>L2</td></tr>
+    <tr><td><strong>Júnior</strong></td><td>Engineer I <em>(IC1)</em></td><td>Engineer 1 <em>(IC2)</em></td><td>Associate <em>(IC1)</em></td><td>L3</td></tr>
+    <tr><td><strong>Pleno</strong></td><td>Engineer II <em>(IC2)</em></td><td>Engineer 2 <em>(IC3)</em></td><td>Software Engineer <em>(IC3)</em></td><td>L4</td></tr>
+    <tr><td><strong>Sênior</strong></td><td>Senior Engineer <em>(IC3)</em></td><td>Senior Engineer 1–2 <em>(IC4–IC5)</em></td><td>Senior <em>(IC4)</em></td><td>L5</td></tr>
+    <tr><td>Especialista</td><td>Staff <em>(IC4)</em></td><td>Staff <em>(IC6)</em></td><td>Principal <em>(IC5)</em></td><td>L6</td></tr>
+    <tr><td>—</td><td>Principal <em>(IC5)</em></td><td>Senior Staff <em>(IC7)</em></td><td>Senior Principal <em>(IC6)</em></td><td>L7</td></tr>
+    <tr><td>—</td><td>Sr. Principal <em>(IC6)</em></td><td>Principal <em>(IC8)</em></td><td>Distinguished <em>(IC7–IC8)</em></td><td>L8</td></tr>
   </tbody>
 </table>
 
 <div class="callout callout-warn">
   <div class="callout-label">"IC5" não quer dizer nada sozinho</div>
-  Compare as duas colunas do meio. Na Artsy, <strong>IC5 é Senior Engineer 2</strong> — sênior, ainda dentro do time. No Yahoo, <strong>IC5 é Principal Engineer</strong> — dois degraus acima, com escopo de organização. A mesma sigla, em duas empresas reais, descreve pessoas em estágios completamente diferentes de carreira. E o Dropbox comprime tudo em quatro níveis, onde <strong>L4 é um nível terminal</strong>: a documentação diz explicitamente que se espera que todo engenheiro chegue ao impacto de L4 <em>e possa ficar lá o resto da carreira</em>, sem pressão de subir.
+  Siga a linha do IC5 pelas colunas. Na Artsy, <strong>IC5 é Senior Engineer 2</strong> — sênior, ainda dentro do time. Na Talabat e no Yahoo, <strong>IC5 é Principal Engineer</strong> — dois degraus acima, com escopo de organização. A mesma sigla, em três empresas reais, descreve pessoas em estágios completamente diferentes de carreira. E o Dropbox comprime tudo em quatro níveis, onde <strong>L4 é um nível terminal</strong>: a documentação diz explicitamente que se espera que todo engenheiro chegue ao impacto de L4 <em>e possa ficar lá o resto da carreira</em>, sem pressão de subir.
 </div>
 
-Isso também nuança o que eu disse sobre Staff e Principal. A regra "Staff vem antes de Principal" vale no Google (L6 Staff → L8 Principal), na Meta (E6 → E7) e na Artsy (IC6 → IC8). Mas **não vale no Yahoo nem na Amazon**, onde não existe degrau de Staff e Principal aparece logo depois do sênior. Se você já viu "Principal" logo acima de sênior e achou estranho, não estava enganado — estava olhando uma escada dessas.
+A regra "Staff vem antes de Principal" vale no Google (L6 → L8), na Meta (E6 → E7), na Artsy (IC6 → IC8) e na Talabat (IC4 → IC5). Não vale no Yahoo nem na Amazon, que não têm degrau de Staff. E repare na coluna da Talabat: júnior IC1, pleno IC2, sênior IC3, Staff IC4, Principal IC5 — é a escada mais próxima da intuição brasileira que eu conheço, e existe de verdade. A régua "óbvia" não é errada; ela só não é universal.
 
 <h3>Trilha de gestão</h3>
 
@@ -554,6 +584,13 @@ Essa é uma observação que eu carrego há anos, e vale separar o que os dados 
 </div>
 
 Ou seja: sua percepção estava mais certa do que errada, só apontando para a palavra vizinha. O que não se traduz não é "júnior" — é **"pleno"**. E isso tem uma consequência prática desagradável: quem se descreve como "pleno" num currículo em inglês está usando um rótulo que o recrutador do outro lado não consegue mapear. O termo que ele espera ler é o título do nível, não a escala.
+
+<div class="personal-story">
+  <div class="personal-story-label">
+    <i class="fas fa-user-circle"></i> Minha experiência — a matriz que mudou minha cabeça
+  </div>
+  <p>Passei por vários processos de avaliação em que "nível" era uma conversa subjetiva entre o gestor e o RH. A primeira vez que vi isso escrito como documento sério foi na Talabat, em Dubai, entre 2021 e 2023. Não era uma lista de tecnologias — era uma grade de 27 competências, com o horizonte de planejamento e o escopo de impacto declarados em cada degrau. Foi lendo aquilo que eu entendi por que tinha passado tanto tempo achando que precisava aprender mais uma linguagem: eu estava tentando subir na única linha da tabela que para de contar no sênior.</p>
+</div>
 
 <div class="divider">· · ·</div>
 
@@ -716,6 +753,9 @@ Vivência acumula sozinha com o tempo, mas dá para acelerar bastante. Algumas c
     <li>
       sph.sh. <strong>Understanding Career Levels in Tech Companies.</strong>
       <a href="https://sph.sh/en/posts/career-levels-tech-companies/" target="_blank">sph.sh</a>
+    </li>
+    <li>
+      Talabat. <strong>Engineering Competency Matrix</strong> (documento interno, 2021–2023; inspirado na matriz pública da CircleCI). Consultado por experiência direta do autor.
     </li>
     <li>
       Dropbox. <strong>Engineering Career Framework — Promotion Guidelines &amp; Clarifications.</strong>
