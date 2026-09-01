@@ -526,8 +526,10 @@ Em vez de inventar uma régua, vale olhar escadas reais: a da **Artsy** (aberta 
 
 <div class="callout callout-warn">
   <div class="callout-label">"IC5" não quer dizer nada sozinho</div>
-  Siga a linha do IC5 pelas colunas. Na Artsy, <strong>IC5 é Senior Engineer 2</strong> — sênior, ainda dentro do time. Na Talabat e no Yahoo, <strong>IC5 é Principal Engineer</strong> — dois degraus acima, com escopo de organização. A mesma sigla, em três empresas reais, descreve pessoas em estágios completamente diferentes de carreira. E o Dropbox comprime tudo em quatro níveis, onde <strong>L4 é um nível terminal</strong>: a documentação diz explicitamente que se espera que todo engenheiro chegue ao impacto de L4 <em>e possa ficar lá o resto da carreira</em>, sem pressão de subir.
+  Siga a linha do IC5 pelas colunas. Na Artsy, <strong>IC5 é Senior Engineer 2</strong> — sênior, ainda dentro do time. Na Talabat e no Yahoo, <strong>IC5 é Principal Engineer</strong> — dois degraus acima, com escopo de organização. A mesma sigla, em três empresas reais, descreve pessoas em estágios completamente diferentes de carreira.
 </div>
+
+O Dropbox ficou de fora dessa tabela justamente por não usar numeração IC — a escada dele é L1 a L4, e já apareceu na seção anterior. Vale citá-lo aqui por outro motivo: enquanto as quatro empresas acima esticam a escada até sete ou oito degraus, o Dropbox comprime tudo em quatro, e trata o <strong>L4 como nível terminal</strong>. A documentação diz que se espera que todo engenheiro alcance o impacto de L4 <em>e possa ficar lá o resto da carreira</em>, sem pressão de subir. Duas filosofias opostas sobre a mesma pergunta: escada longa com muitos degraus, ou escada curta em que a maioria chega ao topo e fica.
 
 A regra "Staff vem antes de Principal" vale no Google (L6 → L8), na Meta (E6 → E7), na Artsy (IC6 → IC8) e na Talabat (IC4 → IC5). Não vale no Yahoo nem na Amazon, que não têm degrau de Staff. E repare na coluna da Talabat: júnior IC1, pleno IC2, sênior IC3, Staff IC4, Principal IC5 — é a escada mais próxima da intuição brasileira que eu conheço, e existe de verdade. A régua "óbvia" não é errada; ela só não é universal.
 
