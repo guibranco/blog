@@ -346,9 +346,8 @@ permalink: /busca/
       sortBar.style.display = '';
 
       const resultWord = docs.length !== 1 ? t('search_result_plural') : t('search_result_singular');
-      const forWord    = t('search_results_for');
-      const safeQuery  = escapeHtml(query);
-      const header = `<p class="results-header"><strong>${docs.length}</strong> ${resultWord} ${forWord} "<strong>${safeQuery}</strong>"</p>`;
+      const forPart    = query.trim() ? ` ${t('search_results_for')} "<strong>${escapeHtml(query)}</strong>"` : '';
+      const header = `<p class="results-header"><strong>${docs.length}</strong> ${resultWord}${forPart}</p>`;
       const cards  = docs.map((doc, i) => {
         const excerpt = truncateAround(doc.content, query);
         const cats    = doc.categories ? doc.categories.split(', ').filter(Boolean) : [];
@@ -388,8 +387,6 @@ permalink: /busca/
     function runSearch(query) {
       activeQuery = query;
       if (!query.trim()) {
-        showState('initial');
-        sortBar.style.display = 'none';
         clearBtn.classList.remove('visible');
         heroTitle.textContent = t('search_title');
         heroDesc.textContent  = t('search_desc');
@@ -398,6 +395,10 @@ permalink: /busca/
         const clearedUrl = new URL(window.location);
         clearedUrl.searchParams.delete('q');
         window.history.replaceState({}, '', clearedUrl);
+
+        // No active search: show every post, with sorting still available.
+        if (!indexReady) { showState('loading'); sortBar.style.display = 'none'; return; }
+        renderResults('', applySort(documents));
         return;
       }
       clearBtn.classList.add('visible');
