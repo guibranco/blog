@@ -228,7 +228,7 @@ Todos os horários abaixo saíram do histórico de localização, não da memór
     <tr>
       <td>Dia 2</td>
       <td>10/06 (Qua)</td>
-      <td>Caminhada ao porto 09h40–10h12 · Ferry 10h12–12h12 (chegada horário grego) · Táxi ao Gouvia Marina 12h49–13h00 · Almoço 13h03–13h38 · Passeio de barco 13h42–17h35 · Ferry volta 18h59–19h17 · Jantar perto do porto 19h17–20h45 · Piscina no Panorama</td>
+      <td>Caminhada ao porto + bilheteria 09h40–10h12 · Ferry 10h12–12h12 (chegada horário grego) · Táxi ao Gouvia Marina 12h49–13h00 · Almoço 13h03–13h38 · Passeio de barco 13h42–17h35 · Ferry volta 18h59–19h17 · Jantar perto do porto 19h17–20h45 · Piscina no Panorama</td>
       <td>≈ € 155</td>
     </tr>
     <tr>
@@ -304,14 +304,16 @@ O acesso à praia é gratuito, mesmo sem pagar pelo espaço. No Principotes há 
   <div class="section-title-wrap"><h2>Dia 2 — Corfu, Grécia</h2></div>
 </div>
 
-Fomos a pé até o porto de Sarande e embarcamos no ferry da **Finikas Lines**. Aqui o GPS corrigiu duas coisas que eu tinha na cabeça: a caminhada até o porto não foi de 10 minutos, foi de **32 minutos e 1,5 km** (**09h40–10h12**) — se você tem ferry marcado, saia com folga. E o barco zarpou às **10h12**, chegando a Corfu às **12h12 no horário grego**. A travessia dura 1 hora real; como a Grécia está 1 hora à frente da Albânia, o relógio avança 2 horas.
+Fomos a pé até o porto de Sarande e embarcamos no ferry da **Finikas Lines**. O GPS marca **32 minutos entre o AirBnB e o embarque** (09h40–10h12) para 1,5 km — mas não é que a caminhada demore isso. Paramos na bilheteria para comprar a passagem que ainda faltava, justamente a da pessoa que descobriria ali que estava sem o passaporte. Entre revirar a mochila atrás do documento e fechar a compra, foram uns 10 minutos parados. A caminhada em si leva perto de 20 minutos — bem mais do que os "10 minutinhos" que eu contava, mas nada perto de meia hora.
+
+O barco zarpou às **10h12**, chegando a Corfu às **12h12 no horário grego**. A travessia dura 1 hora real; como a Grécia está 1 hora à frente da Albânia, o relógio avança 2 horas.
 
 <div class="callout callout-warn">
   <div class="callout-label">Não esqueça o passaporte</div>
   Uma das integrantes do grupo esqueceu o passaporte e não pôde embarcar — não dava tempo de buscar no AirBnB e voltar, e o próximo ferry chegaria tarde demais para aproveitar o dia. Perdeu o passeio e ficou em Sarande. <strong>Verifique a documentação na noite anterior.</strong>
 </div>
 
-Passagem: **€ 32 (ida) + € 32 (volta) = € 64 por pessoa** — valor confirmado no extrato. O débito da operadora do ferry aparece como **€ 96,00** porque comprei também a passagem de um amigo do grupo na mesma transação; ele me acertou depois. **€ 64 meus + € 32 dele = € 96.**
+Passagem: **€ 32 (ida) + € 32 (volta) = € 64 por pessoa** — valor confirmado no extrato.
 
 Em Corfu, saímos do porto do ferry em uma van táxi até o **D-Marin Gouvia Marina**, ponto de partida do barco: **€ 55 para 7 pessoas** (≈ € 7,86/pessoa), trajeto de **11 minutos e 5,4 km** (12h49–13h00). Almoçamos na própria marina, das **13h03 às 13h38**. Eu optei por um gyro/yeero de porco (≈ **€ 12**); os outros escolheram hambúrguer ou outro lanche — os pratos variavam entre **€ 10 e € 15**, mais bebida (cerveja ou refrigerante).
 
@@ -619,7 +621,7 @@ Esta seção tem duas partes. A primeira é o que **saiu do meu cartão e está 
   </thead>
   <tbody>
     <tr><td>Aluguel do VW T-Cross (7 dias)</td><td>€ 245,00</td><td>Pago pelo carro inteiro, dividido por 4</td></tr>
-    <tr><td>Ferry Sarande ↔ Corfu</td><td>€ 96,00</td><td>€ 64 meus + € 32 de um amigo, reembolsados</td></tr>
+    <tr><td>Ferry Sarande ↔ Corfu</td><td>€ 64,00</td><td>Ida e volta</td></tr>
     <tr><td>Saques em ATM (inclui € 23,18 de taxas)</td><td>€ 150,41</td><td>Virou dinheiro para o dia a dia</td></tr>
     <tr><td>Poda Beach Club (2 lançamentos)</td><td>€ 48,77</td><td>Camas e consumo no cartão</td></tr>
     <tr><td>Restaurante em Ksamil (2 lançamentos)</td><td>€ 48,78</td><td>Registrado em nome do proprietário</td></tr>
@@ -627,11 +629,10 @@ Esta seção tem duas partes. A primeira é o que **saiu do meu cartão e está 
     <tr><td>Posto/comércio em Sarande</td><td>€ 14,14</td><td>—</td></tr>
     <tr><td>eSIM de dados (líquido de estorno)</td><td>€ 21,29</td><td>3 recargas ao longo da viagem</td></tr>
     <tr><td>Pedágio</td><td>€ 0,85</td><td>—</td></tr>
-    <tr><td><strong>Subtotal em solo</strong></td><td><strong>€ 645,05</strong></td><td>—</td></tr>
-    <tr><td>Bagagem paga no portão em Dublin</td><td>€ 60,00</td><td>Minha — ver seção 01</td></tr>
-    <tr><td><strong>Subtotal meu</strong></td><td><strong>€ 705,05</strong></td><td>Sem passagens, sem hospedagem</td></tr>
+    <tr><td><strong>Subtotal em solo</strong></td><td><strong>€ 613,05</strong></td><td>—</td></tr>
+    <tr><td>Bagagem paga no portão em Dublin</td><td>€ 60,00</td><td>Ver seção 01</td></tr>
+    <tr><td><strong>Total meu</strong></td><td><strong>€ 673,05</strong></td><td>Sem passagens, sem hospedagem</td></tr>
     <tr><td>Priority antecipada de uma amiga</td><td>€ 129,53</td><td>Eu comprei as passagens do grupo, ela me acertou</td></tr>
-    <tr><td><strong>Total debitado no cartão</strong></td><td><strong>€ 834,58</strong></td><td>Inclui valores de terceiros</td></tr>
   </tbody>
 </table>
 
