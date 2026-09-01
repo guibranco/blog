@@ -68,9 +68,22 @@ locations:
   <div class="section-title-wrap"><h2>Como chegamos: Dublin → Tirana</h2></div>
 </div>
 
-O grupo era de 8 pessoas, todos brasileiros morando na Irlanda. Dois integrantes foram em voo direto Dublin → Tirana. Os outros seis fizeram escala em Londres — metade pelo **Stansted** (Ryanair + Ryanair UK) e a outra metade pelo **Gatwick** (Ryanair + Wizz Air).
+O grupo final era de 8 pessoas, todos brasileiros morando na Irlanda. **Dois foram em voo direto Dublin → Tirana** e os **outros seis fizeram escala em Londres** — três pelo **Stansted** (Ryanair + Ryanair UK) e três pelo **Gatwick** (Ryanair + Wizz Air).
 
-As passagens foram compradas em 28/03/2026 pelo **Kiwi** para 6 pessoas (incluindo 3 que acabaram desistindo da viagem):
+Só que esses 8 não são os 8 que começaram. Em **28/03/2026** comprei, pelo **Kiwi**, as passagens de **6 pessoas** — eu e mais cinco do grupo inicial. Dessas 6, **apenas 3 realmente viajaram**. As outras 5 pessoas que formaram o grupo final entraram depois e compraram as próprias passagens, cada uma pela rota que achou melhor.
+
+<table class="compare-table">
+  <thead>
+    <tr><th>Grupo</th><th>Pessoas</th><th>Situação</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Reserva inicial (comprada por mim)</td><td>6</td><td>3 viajaram · 3 desistiram</td></tr>
+    <tr><td>Entraram depois</td><td>5</td><td>Compraram as próprias passagens</td></tr>
+    <tr><td><strong>Grupo final na viagem</strong></td><td><strong>8</strong></td><td>6 com escala em Londres · 2 em voo direto</td></tr>
+  </tbody>
+</table>
+
+Estes são os valores da reserva inicial, para as 6 pessoas:
 
 <table class="compare-table">
   <thead>
@@ -89,8 +102,18 @@ As passagens foram compradas em 28/03/2026 pelo **Kiwi** para 6 pessoas (incluin
 Nenhum integrante adicionou bagagem extra no momento da compra.
 
 <div class="callout callout-warn">
+  <div class="callout-label">As 3 passagens perdidas — e por que não deu para salvar</div>
+  As três pessoas que desistiram simplesmente <strong>perderam as passagens</strong>. Não foi descuido: eram bilhetes Ryanair, e na Ryanair a alteração de nome ou de data custa uma taxa por trecho que, somada aos quatro trechos do roteiro, ficaria <strong>mais cara do que o próprio bilhete</strong>. Como ninguém do grupo novo queria exatamente aquela combinação de horários e aeroportos, transferir também não fazia sentido. Fizemos a conta e a decisão foi consciente: <strong>deixar as passagens vencerem era a opção mais barata</strong>.
+</div>
+
+<div class="callout callout-tip">
+  <div class="callout-label">A lição para grupos grandes</div>
+  Comprar tudo junto parece eficiente — e é, enquanto ninguém desiste. Numa low-cost sem flexibilidade, cada pessoa que sai do grupo é uma passagem inteira jogada fora, e quem comprou vira o responsável por cobrar. Em grupo com viagem marcada para dois meses depois, <strong>cada um comprando a própria passagem custa alguns euros a mais e evita esse problema por completo</strong>. Se for comprar junto mesmo assim, combine antes quem assume a perda em caso de desistência.
+</div>
+
+<div class="callout callout-warn">
   <div class="callout-label">Atenção à bagagem de mão nas low-costs</div>
-  Nenhum integrante adicionou bagagem no momento da compra, e o custo de resolver isso depois varia enormemente conforme <strong>quando</strong> você resolve. Meu cartão registrou os dois cenários no mesmo período — um por mim, outro por uma amiga que pediu para eu comprar a priority dela com antecedência e me acertou depois.
+  O custo de resolver a bagagem depois varia enormemente conforme <strong>quando</strong> você resolve — e meu cartão registrou os dois cenários no mesmo período. Como fui eu quem comprou as passagens da reserva inicial, também ficou comigo a compra dos extras: uma amiga do grupo pediu para eu adicionar a priority dela com antecedência, na mesma conta do Kiwi, e me acertou depois. Eu, que deixei para resolver na fila, paguei o outro preço.
 </div>
 
 <table class="compare-table">
@@ -607,7 +630,7 @@ Esta seção tem duas partes. A primeira é o que **saiu do meu cartão e está 
     <tr><td><strong>Subtotal em solo</strong></td><td><strong>€ 645,05</strong></td><td>—</td></tr>
     <tr><td>Bagagem paga no portão em Dublin</td><td>€ 60,00</td><td>Minha — ver seção 01</td></tr>
     <tr><td><strong>Subtotal meu</strong></td><td><strong>€ 705,05</strong></td><td>Sem passagens, sem hospedagem</td></tr>
-    <tr><td>Priority antecipada de uma amiga</td><td>€ 129,53</td><td>Comprada no meu cartão, reembolsada</td></tr>
+    <tr><td>Priority antecipada de uma amiga</td><td>€ 129,53</td><td>Eu comprei as passagens do grupo, ela me acertou</td></tr>
     <tr><td><strong>Total debitado no cartão</strong></td><td><strong>€ 834,58</strong></td><td>Inclui valores de terceiros</td></tr>
   </tbody>
 </table>
