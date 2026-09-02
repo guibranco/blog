@@ -1,15 +1,15 @@
 ---
 layout: post
 lang: pt-BR
-title: "Construindo o PIX no BS2: sete meses, um prazo do Banco Central e um AirBnB em BH"
-description: "Como foi sair do time B2B em São Paulo para o time de projetos especiais do core bancário e atravessar 2020 construindo o PIX, com data de lançamento definida pelo Banco Central, plantão de sobreaviso e o mercado inteiro colaborando em grupos de WhatsApp."
+title: "Construindo o PIX no BS2: oito meses, um prazo do Banco Central e um AirBnB em BH"
+description: "Como foi sair do time B2B em São Paulo para o time de projetos especiais do core bancário e atravessar 2020 construindo o PIX, com data de lançamento definida pelo Banco Central, um time remontado no meio do caminho e o mercado inteiro colaborando em grupos de WhatsApp."
 date: 2026-08-13
 categories: [Career]
 subcategories:
   - "Career/Behind the Scenes"
-tags: [pix, banco-central, central-bank, carreira, career, sistemas-financeiros, financial-systems, plantao, on-call, bastidores]
+tags: [pix, banco-central, central-bank, carreira, career, sistemas-financeiros, financial-systems, bastidores, pandemia]
 medium_tags: [pix, fintech, career, on-call, brazil]
-reading_time: 24
+reading_time: 26
 cover: /assets/img/posts/pix-bs2-bastidores.svg
 image: /assets/img/posts/pix-bs2-bastidores.png
 series: pix-bs2
@@ -17,21 +17,21 @@ series_title: Desenvolvendo o PIX
 series_part: 1
 ---
 
-<p class="lead">Em abril de 2020 eu saí de um time B2B em São Paulo e entrei no time de projetos especiais do core bancário. A primeira coisa que me contaram na nova mesa foi que o Banco Central tinha marcado o lançamento do PIX para novembro. Não era uma meta de roadmap. Era uma data.</p>
+<p class="lead">Em março de 2020 eu saí de um time B2B em São Paulo e entrei no time de projetos especiais do core bancário. A primeira coisa que me contaram na nova mesa foi que o Banco Central tinha marcado o lançamento do PIX para novembro. Não era uma meta de roadmap. Era uma data.</p>
 
 <div class="callout callout-tip">
-  <div class="callout-label">Este é o primeiro de dois textos</div>
-  Aqui eu conto os <strong>bastidores humanos</strong> do projeto: a mudança de time, a remontagem do time no meio do caminho, o plantão de sobreaviso e a colaboração entre concorrentes. A arquitetura — SPI, ISO 20022, os percentis do Manual de Tempos, RabbitMQ e a iniciação de pagamentos — está na <a href="{{ site.baseurl }}/artigos/arquitetura-do-pix-por-dentro-spi-iso-20022-dez-segundos/">segunda parte, sobre a arquitetura do PIX vista por dentro</a>.
+  <div class="callout-label">Este é o primeiro de três textos</div>
+  Aqui eu conto os <strong>bastidores humanos</strong> do projeto: a mudança de time, a remontagem do time no meio do caminho e a colaboração entre concorrentes. A anatomia financeira do meu contrato — valor fixo, sobreaviso e o mês de sete dias por semana — está na <a href="{{ site.baseurl }}/artigos/contrato-do-pix-valor-fixo-sobreaviso-e-a-hora-que-nao-existia/">segunda parte, sobre o contrato do PIX</a>. A arquitetura — SPI, ISO 20022, os percentis do Manual de Tempos, RabbitMQ e a iniciação de pagamentos — está na <a href="{{ site.baseurl }}/artigos/arquitetura-do-pix-por-dentro-spi-iso-20022-dez-segundos/">terceira parte, sobre a arquitetura do PIX vista por dentro</a>.
 </div>
 
 <div class="callout callout-warn">
   <div class="callout-label">Sobre o que este texto é</div>
-  Este é um relato de bastidores sobre <strong>como se constrói software com prazo regulatório</strong>. Tudo que descrevo sobre o PIX em si é público e está no material do Banco Central, linkado no final. Nomes internos de sistemas, módulos, topologia e colegas de time ficam de fora.
+  Este é um relato de bastidores sobre <strong>como se constrói software com prazo regulatório</strong>. Tudo que descrevo sobre o PIX em si é público e está no material do Banco Central, linkado no final. Nomes internos de sistemas, módulos, topologia e colegas de time ficam de fora — cito apenas o CIO da época, pelo papel público que ocupava. Os demais aparecem pelo cargo. As datas e os horários vêm do meu próprio histórico de localização da época.
 </div>
 
 <div class="section-header">
   <div class="section-num">01</div>
-  <div class="section-title-wrap"><h2>Abril de 2020: a mudança de mesa</h2></div>
+  <div class="section-title-wrap"><h2>Março de 2020: a mudança de mesa</h2></div>
 </div>
 
 Eu estava num time B2B em São Paulo. Era um trabalho confortável no sentido em que a régua era conhecida: cliente pedia, a gente entregava, o prazo era negociável na margem.
@@ -44,21 +44,29 @@ Eu estava na squad de BaaS e API banking, dentro da BU PJ. Ou seja: o lugar para
 
 E eu queria ir. Já tinha manifestado interesse em atuar no core bancário antes de existir qualquer conversa sobre PIX. Meu alvo, na verdade, era o **SPB — o Sistema de Pagamentos Brasileiro**, que na época era por onde passavam TED e DOC. Eu queria entender como o dinheiro sai de uma instituição e entra em outra de verdade, no nível do protocolo. Não fazia ideia de que existia um **SPI — o Sistema de Pagamentos Instantâneos**, a infraestrutura sobre a qual o PIX ia rodar —, muito menos de que ele estava sendo construído naquele momento.
 
-Ajudou que aquele não era um destino cheio de estranhos. O head de serviços financeiros era mineiro, mas vinha de ter sido PO da área de internet banking do braço PJ em São Paulo — eu já o conhecia da mesma BU, ainda que de outra squad. E o diretor de TI era o antigo head de tecnologia daquele mesmo braço PJ, promovido a CIO no começo de 2020. As duas pessoas que decidiam sobre o projeto tinham saído da estrutura de onde eu vinha.
+Ajudou que aquele não era um destino cheio de estranhos. O head de serviços financeiros era mineiro, mas vinha de ter sido **PO da squad de internet banking e de onboarding** do braço PJ em São Paulo — a squad que cuidava do IB em si e do cadastro de clientes novos e de leads.
 
-### O convite apareceu numa conversa de demissão
+Eu estava em outra parte do mesmo braço. A minha squad era a de **API banking e BaaS**, e havia uma segunda squad, a da **plataforma de cobrança** — separada do internet banking, apesar de o nome sugerir o contrário para quem vê de fora. As duas dividiam o mesmo PO, porque o assunto era vizinho: quem consome API para emitir boleto costuma ser o mesmo cliente que consome API para movimentar conta. Ou seja: eu conhecia o futuro head de serviços financeiros das mesmas reuniões de priorização, mas a gente respondia a POs diferentes e olhava para produtos diferentes.
+
+E o diretor de TI era o **Fernando Radunz**, antigo head de tecnologia daquele mesmo braço PJ, promovido a CIO no começo de 2020. As duas pessoas que decidiam sobre o projeto tinham saído da estrutura de onde eu vinha.
+
+### O convite apareceu numa conversa de demissão — e eu fui atrás dele
 
 Esta é a parte que eu conto em conversa de carreira e que não cabe em currículo nenhum.
 
-Eu tinha recebido uma proposta externa de uma adquirente da Faria Lima. Salário maior. Mas a vaga era em Java, uma tecnologia que eu não usava — seria trocar de empresa e de stack ao mesmo tempo. Marquei uma conversa com o diretor de TI para **pedir demissão**.
+Eu tinha recebido uma proposta externa de uma adquirente da Faria Lima. Salário maior. Mas a vaga era em Java, uma tecnologia que eu não usava — seria trocar de empresa e de stack ao mesmo tempo, e eu estava genuinamente em cima do muro.
 
-Foi nessa conversa que o convite apareceu: um time em Belo Horizonte, dentro do core, num projeto que ele ainda não podia detalhar. Não era contraproposta genérica de salário. Era exatamente a coisa que eu tinha dito que queria, oferecida no momento exato em que eu estava saindo pela porta.
+Levei o caso para o meu coordenador na época, que tocava o time de engenharia do B2B/PJ. Ele conhecia a estrutura por dentro, sabia do meu interesse antigo pelo core e me deu um conselho bem específico: antes de aceitar qualquer coisa, senta com o Radunz. Não como quem pede conselho de carreira — como quem formaliza a saída.
+
+Foi exatamente o que eu fiz. Marquei uma conversa com o CIO para **pedir demissão** já esperando que dali saísse uma proposta. Não era blefe no sentido de ameaça vazia: a oferta externa era real e eu teria aceitado. Mas eu não entrei naquela sala ingênuo, e é importante dizer isso porque a versão romântica dessa história — "eu ia embora e o destino apareceu" — é mais bonita e menos verdadeira.
+
+E o convite apareceu: um time em Belo Horizonte, dentro do core, num projeto que ele ainda não podia detalhar. Não era contraproposta genérica de salário. Era exatamente a coisa que eu tinha dito que queria, oferecida no momento exato em que eu estava saindo pela porta — e que o meu coordenador já suspeitava que existia.
 
 <div class="callout callout-tip">
   <div class="callout-label">Três coisas que eu tiraria daqui</div>
   <p>Dizer em voz alta, com antecedência e para as pessoas certas, para onde você quer ir muda o que te oferecem quando algo surge. Se eu nunca tivesse falado do core, aquele convite não teria como existir.</p>
   <p>Oportunidade grande raramente vem de processo seletivo interno bem divulgado. Vem de quem já viu você trabalhar e precisa de gente rápido — e as pessoas com quem você trabalhou há dois anos são o pipeline de vagas mais confiável que você tem.</p>
-  <p>E a menos confortável: a conversa de saída costuma ser a primeira em que a empresa escuta você com atenção total. Isso é falha de gestão, não estratégia sua. Vale saber que acontece, e é péssimo motivo para pedir demissão de blefe — porque às vezes aceitam.</p>
+  <p>E a menos confortável: a conversa de saída costuma ser a primeira em que a empresa escuta você com atenção total. Isso é falha de gestão, não mérito seu. O que dá para fazer com isso é o que eu fiz — ouvir alguém que enxerga o organograma melhor do que você e escolher a porta certa para bater. O que não dá é blefar sem proposta na mão, porque às vezes aceitam o pedido e acabou a conversa.</p>
 </div>
 
 Aceitei. E, como o interesse era anterior, mudar para BH não me pareceu castigo — o que não impediu que algumas pessoas da BU PJ em São Paulo me perguntassem, com preocupação sincera, se eu tinha **pedido** para ir ou se aquilo tinha sido **imposto**. Sair de São Paulo para Belo Horizonte, na cabeça de boa parte do mercado de tecnologia paulistano, só podia ser punição.
@@ -73,19 +81,23 @@ E tudo isso acontecendo em 2020, na primeira onda da pandemia — num projeto qu
 
 ### A semana em Belo Horizonte
 
-Eu ia me mudar no domingo. Perdi o voo. Cheguei em Belo Horizonte na manhã de segunda-feira e fui direto para o escritório novo à tarde.
+Eu ia me mudar no **domingo, 15 de março de 2020**. Cheguei em Guarulhos às nove da noite e perdi o voo — às 22h25 eu já estava de volta em São Paulo, com a mudança adiada em um dia e a sensação clássica de quem começa uma fase nova errando o primeiro passo.
+
+Remarquei para o dia seguinte. **Segunda, 16 de março**, saí de casa às 6h02, decolei às 8h06 e pousei em Confins às 9h56. Larguei as malas no AirBnB por volta das 11h e às 14h08 estava no escritório novo. Fiquei até as 19h.
 
 O banco ocupava uma torre na cidade, mas o time de projetos especiais não estava em nenhum dos andares de escritório: estávamos numa **sala temporária no térreo**. Provavelmente por falta de espaço lá em cima, e por sermos um time novo, emergente e urgente ao mesmo tempo. Guardei aquela imagem por anos — o projeto que se tornaria o mais estratégico do banco começou numa sala emprestada no térreo, com gente que tinha acabado de se conhecer.
 
-Na segunda à noite, pelos grupos de WhatsApp, ficamos sabendo que o time de São Paulo tinha ido para home office. Sobre Belo Horizonte, nada. Terça foi um dia de trabalho absolutamente normal: escritório cheio, e almoço num restaurante típico mineiro, o único por ali. Terça à noite chegou o aviso de que, a partir de quarta, BH também ficaria em casa.
+Na segunda à noite, pelos grupos de WhatsApp, ficamos sabendo que o time de São Paulo tinha ido para home office. Sobre Belo Horizonte, nada.
 
-Quarta-feira eu já trabalhava do AirBnB.
+**Terça, 17 de março**, foi um dia de trabalho absolutamente normal: cheguei ao escritório às 11h, escritório cheio, e às 11h35 saí para almoçar num restaurante típico mineiro a trezentos metros dali. Voltei às 12h28 e fiquei até as 18h39. Foi o último almoço fora que eu faria em muito tempo — e, sem que ninguém na mesa soubesse, o decreto que declarava situação de emergência em saúde pública em Belo Horizonte foi assinado naquele mesmo dia. Terça à noite chegou o aviso de que, a partir de quarta, BH também ficaria em casa.
+
+**Quarta, 18 de março**, eu já trabalhava do AirBnB — das 8h56 às 22h44 sem sair do apartamento, segundo o meu próprio celular. No dia seguinte a prefeitura publicou o decreto que suspendia os alvarás de bares, restaurantes e shoppings da cidade. O restaurante de terça fechou na sexta.
 
 Foi nesse dia que troquei mensagens com o diretor de TI para entender o que ele achava — se eu ficava ou voltava. Ele era de São Paulo, morava lá com a família e passava só a semana em BH, então o dilema era exatamente o mesmo, com dez anos a mais de bagagem. O conselho foi voltar durante a quarentena. A conta era prática: aquilo supostamente duraria quarenta dias, eu não conseguiria procurar nem alugar nada naquela situação, e ficar significava queimar dinheiro em AirBnB para trabalhar sozinho num apartamento vazio. A gente estimava o prazo olhando para os países que já estavam confinados na época — o que, em retrospecto, foi o palpite mais otimista de todos.
 
-Arrumei as coisas, avisei o head do time e o especialista que mais tarde assumiria o lugar dele, e peguei um táxi para o aeroporto ainda na quarta, com medo de não conseguir táxi nenhum de madrugada. Meu voo era quinta, às cinco da manhã.
+Arrumei as coisas, avisei o head do time e o especialista que mais tarde assumiria o lugar dele, e peguei um táxi para o aeroporto às 22h44 da quarta, com medo de não conseguir táxi nenhum de madrugada. Cheguei em Confins às 23h27 e virei a noite lá. Meu voo era quinta, às cinco da manhã.
 
-Na quinta-feira eu já estava trabalhando de São Paulo. E fiquei remoto dali em diante, sem interrupção, até sair do banco em 2021.
+**Quinta, 19 de março**, decolei às 5h01, pousei em Congonhas às 6h31 e às 7h14 estava em casa em São Paulo. Comecei a trabalhar naquela mesma manhã. E fiquei remoto dali em diante, praticamente sem interrupção, até sair do banco em 2021.
 
 <div class="personal-story">
   <div class="personal-story-label">
@@ -95,6 +107,10 @@ Na quinta-feira eu já estava trabalhando de São Paulo. E fiquei remoto dali em
   <p>Construí o PIX inteiro de São Paulo, remoto, com o time em BH — o que em 2020 ainda parecia uma concessão excepcional e não o padrão.</p>
   <p>Olhando de hoje, com anos morando fora, aquela semana foi um ensaio muito barato de uma coisa que eu faria de verdade depois: chegar num lugar onde você não conhece ninguém, ter poucos dias para entender como as coisas funcionam e decidir se fica. A diferença é que, das outras vezes, não teve voo de volta na quinta.</p>
 </div>
+
+Escrevi "praticamente sem interrupção" porque houve uma. Na **segunda, 27 de abril de 2020**, com São Paulo em quarentena e a cidade vazia, eu precisei ir ao escritório da Vila Olímpia por um motivo que resume bem o primeiro mês de pandemia corporativa: **resetar a senha da VPN**. A política exigia que a troca fosse feita numa máquina dentro da rede, e a rede só existia lá. Saí de casa às 12h37, fiquei **dezessete minutos** dentro do prédio e às 13h55 estava de volta. Vinte e seis quilômetros de deslocamento para um formulário.
+
+É o tipo de detalhe que parece anedota e é, na verdade, o retrato de uma coisa séria: em março de 2020 quase nenhuma empresa tinha controle de acesso desenhado para um mundo em que ninguém entra no escritório. O ano inteiro foi essa corrida — reescrever pressupostos de segurança, de contratação e de operação que tinham sido construídos assumindo presença física.
 
 <div class="section-header">
   <div class="section-num">02</div>
@@ -164,7 +180,7 @@ A divisão foi por domínio, não por camada. Cada frente era dona de uma fatia 
   </div>
   <div class="provider-card">
     <div class="provider-name">Iniciação e PIX Indireto</div>
-    <div class="provider-detail"><strong>Um sênior e um pleno</strong> — o sênior era eu. Fazer o pagamento sair, e permitir que outras instituições fizessem pagamentos saírem através da gente. O detalhamento técnico das duas está na <a href="{{ site.baseurl }}/artigos/arquitetura-do-pix-por-dentro-spi-iso-20022-dez-segundos/">segunda parte da série</a>.</div>
+    <div class="provider-detail"><strong>Um sênior e um pleno</strong> — o sênior era eu. Fazer o pagamento sair, e permitir que outras instituições fizessem pagamentos saírem através da gente. O detalhamento técnico das duas está na <a href="{{ site.baseurl }}/artigos/arquitetura-do-pix-por-dentro-spi-iso-20022-dez-segundos/">terceira parte da série</a>.</div>
   </div>
 </div>
 
@@ -185,53 +201,48 @@ Vale distinguir duas coisas que eu confundia. O que a norma exige na adesão ao 
 
 <div class="section-header">
   <div class="section-num">04</div>
-  <div class="section-title-wrap"><h2>Plantão: a primeira vez que fiquei de sobreaviso</h2></div>
-</div>
-
-Um sistema que liquida 24 horas por dia, sete dias por semana, não tem noite. Essa frase é óbvia no papel e brutal na prática: significa que alguém precisa estar acordável às três da manhã de domingo. Foi a primeira vez na minha carreira que entrei numa escala de sobreaviso.
-
-O desenho do pareamento foi a parte mais inteligente. Ficávamos **em duplas, de preferência com pessoas de duas frentes diferentes**, e cada um precisava ter conhecimento básico das outras duas frentes. A lógica é direta: às três da manhã você não quer descobrir que o único problema possível é exatamente o da frente que ninguém da dupla conhece. Não era rodízio de especialista, era cobertura cruzada deliberada.
-
-<table class="compare-table">
-  <thead>
-    <tr><th>Regime</th><th>Jornada</th><th>Sobreaviso no dia útil</th><th>Fim de semana</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>PJ (meu caso)</td><td>8 h</td><td>16 h</td><td>24 h</td></tr>
-    <tr><td>CLT</td><td>9 h — 8 de trabalho e 1 de almoço</td><td>15 h</td><td>24 h</td></tr>
-  </tbody>
-</table>
-
-A semana de plantão começava à meia-noite de sábado para domingo e terminava às 23h59min59s do sábado seguinte. Sete dias corridos de disponibilidade, com os fins de semana cobertos integralmente.
-
-A recomendação era ficar perto do notebook ou andar com ele, e evitar lugares de onde não desse para atuar. Na prática, era uma semana sem cinema, sem viagem, sem trilha, sem nada que te deixasse longe de uma tomada e de uma conexão decente. E aqui vem a parte que eu acho importante registrar, porque muita empresa faz o oposto: **isso era remunerado**. O sobreaviso pagava por si só, e o acionamento pagava a mais.
-
-<div class="callout callout-tip">
-  <div class="callout-label">Os números do meu contrato</div>
-  Um terço do valor-hora por hora de sobreaviso, e uma vez e meia o valor-hora em caso de acionamento fora do horário de trabalho. Vale notar que o primeiro número não saiu do nada: a CLT define, no artigo 244, §2º, que as horas de sobreaviso são contadas à razão de um terço do salário normal — regra originalmente dos ferroviários, estendida às demais categorias pela Súmula 428 do TST, que reconhece o sobreaviso de quem fica em regime de plantão aguardando chamado por meio telemático. Meu contrato era PJ, mas o parâmetro veio da lei.
-</div>
-
-Não foi imposto. A escala foi apresentada, discutida, questionada e **votada antes de entrar em operação**, e os valores foram negociados diretamente com as respectivas consultorias. Isso parece detalhe e não é: em muito lugar, plantão aparece como "expectativa da senioridade" e nunca vira linha em contrato. Ser pago para ficar em casa numa semana, e mais ainda para trabalhar de madrugada, é o mínimo que torna a coisa sustentável.
-
-<div class="personal-story">
-  <div class="personal-story-label">
-    <i class="fas fa-user-circle"></i> Minha experiência — explicando ao RH do banco
-  </div>
-  <p>Eu era o único PJ do time do PIX. Todos os outros também eram terceirizados, mas contratados em regime CLT pelas suas respectivas consultorias.</p>
-  <p>Numa semana de plantão, lancei 16 horas de sobreaviso por dia na planilha. O sistema esperava 15. Resultado: recebi um questionamento do RH do próprio banco, e tive que ser eu — o PJ, terceiro, de fora — a explicar ao RH da instituição por que o meu número era diferente do dos meus colegas. A conta era simples: os CLTs tinham jornada de 9 horas porque a hora de almoço entra na janela, e eu, PJ, não tinha intervalo contratual, então trabalhava 8 e ficava disponível 16.</p>
-  <p>Era uma diferença de um único número numa planilha, mas ela expunha duas relações de trabalho distintas convivendo no mesmo time. E tinha sido conferida com a minha consultoria antes.</p>
-</div>
-
-Essa diferença tinha um componente geográfico que eu só entendi com o tempo. **Todas as consultorias do time eram de Belo Horizonte, e todas contratavam em CLT.** As consultorias e os prestadores de São Paulo, de onde eu vinha, preferiam quase sempre o modelo PJ. Não era coincidência: era cultura regional de contratação em tecnologia naquele momento.
-
-Vale separar as duas camadas dessa história. Do ponto de vista estritamente legal, contratar em CLT é o caminho correto e sem zona cinzenta — a pejotização de trabalho subordinado é justamente o ponto contestado. Do ponto de vista de quem estava sendo contratado, em São Paulo a prática já era costume consolidado, e eu preferia o modelo PJ — assunto que eu destrincho com calma em <a href="{{ site.baseurl }}/artigos/clt-vs-pj-qual-devo-escolher/">CLT, PJ ou MEI: qual devo escolher</a> — e ainda prefiro, **desde que o valor seja coerente com o que ele custa em direitos abdicados**. Essa ressalva não é decorativa: PJ com valor de CLT é só CLT sem férias, sem 13º, sem FGTS e sem estabilidade.
-
-<div class="divider">· · ·</div>
-
-<div class="section-header">
-  <div class="section-num">05</div>
   <div class="section-title-wrap"><h2>O mercado inteiro no mesmo grupo de WhatsApp</h2></div>
 </div>
+
+### Antes: como a gente se comunicava dentro de casa
+
+Para essa parte fazer sentido, vale explicar o que era normal.
+
+No B2B, em São Paulo, a ferramenta oficial era o **Teams**. Só que era um time presencial, então o Teams servia mais para chamada e para registro do que para conversa: se você precisava de alguém, você levantava e ia até a mesa da pessoa. Chat era o que sobrava quando o outro não estava lá.
+
+Para falar com Belo Horizonte, a ferramenta era outra: **Skype**. Nunca descobri direito o motivo — o pessoal de BH ainda não tinha migrado para o Teams, e a Microsoft ainda não tinha desligado o Skype, então as duas coisas conviviam. Na prática, dava para saber com quem você estava falando pelo aplicativo que abria. Skype significava BH; Teams significava a sua própria BU. Isso parece anedota de ferramenta e é, na verdade, uma boa métrica de quanto as duas metades do banco eram mundos separados.
+
+E aí tinha a camada informal, que era onde o trabalho de verdade acontecia: **WhatsApp**, em camadas concêntricas.
+
+<div class="providers-grid">
+  <div class="provider-card">
+    <div class="provider-name">O grupo da squad</div>
+    <div class="provider-detail">No meu caso, um grupo só para as duas squads — API banking/BaaS e plataforma de cobrança —, porque o assunto era vizinho e o PO era o mesmo.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">O grupo do time de TI do B2B</div>
+    <div class="provider-detail">Toda a engenharia da BU. Era onde se reportava incidente, se avisava de indisponibilidade e também onde se combinava cerveja. Profissional e social no mesmo lugar.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">O grupo do B2B inteiro</div>
+    <div class="provider-detail">Engenharia mais produto, marketing e comercial. A BU como unidade, não como departamento.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">Os grupos com cliente</div>
+    <div class="provider-detail">Um por integração, com gente das duas empresas dentro.</div>
+  </div>
+</div>
+
+Os grupos com cliente são a parte que mais surpreende quem nunca trabalhou com API banking. Não era canal de suporte: era um grupo por projeto de integração, com o contato técnico do cliente, às vezes o CTO ou CIO da empresa dele, e do nosso lado eu, o meu tech lead, às vezes o coordenador — e, dependendo do tamanho da conta, o próprio CIO do banco. Numa integração com uma das maiores varejistas do país, o CTO deles estava no grupo.
+
+<div class="callout callout-tip">
+  <div class="callout-label">Por que isso funcionava</div>
+  Um grupo de WhatsApp com o CTO do cliente dentro elimina, de uma vez, três camadas de telefone sem fio: o comercial que não entende o erro, o suporte que não tem acesso ao log e o gerente de projeto que traduz mal os dois. O custo é evidente — some a fronteira entre horário de trabalho e vida, e some o registro formal do que foi combinado. Mas a velocidade era incomparável, e em integração técnica velocidade de resposta é metade do produto.
+</div>
+
+Guardo isso porque explica o que vem a seguir. Quando, meses depois, apareceram os grupos de WhatsApp com gente de bancos concorrentes discutindo o manual do Banco Central, aquilo não me pareceu estranho. Era a mesma ferramenta, a mesma informalidade e a mesma lógica — só que com a fronteira uma casa mais para fora.
+
+<div class="divider">· · ·</div>
 
 Se eu tivesse que escolher a coisa mais atípica daquele projeto, não seria técnica. Seria o fato de que **os concorrentes conversavam entre si, todos os dias, em grupos de WhatsApp**.
 
@@ -244,11 +255,41 @@ Não era um grupo. Eram vários, com gente de instituições financeiras e insti
 
 E, para nós, aquilo virou networking de um tipo que não se constrói em conferência. Você passa meses resolvendo um problema difícil junto com pessoas de outras empresas, sob a mesma pressão, e sai dali sabendo quem é bom, quem responde e quem entende do assunto. Boa parte das conexões profissionais que eu levei do Brasil vieram daqueles grupos.
 
+### Setembro: sete dias por semana
+
+Se eu tivesse que apontar o mês em que o projeto cobrou a fatura, seria setembro de 2020. O registro de chaves entrava em produção em 5 de outubro, a homologação junto ao Banco Central corria em paralelo, e a especificação tinha fechado havia poucas semanas. O mês virou de sete dias por semana: **trabalhei três dos quatro fins de semana** — 5 e 6, 12 e 13, 26 e 27 —, além de horas extras nos dias úteis. Meu histórico de localização de setembro é quase uma linha reta: casa, casa, casa.
+
+Com quatro exceções, todas na mesma semana.
+
+Nos dias **17 e 18 de setembro, uma quinta e uma sexta**, eu voltei ao escritório da Vila Olímpia — dois dias cheios, das 9h26 às 20h04 e das 9h39 às 19h49. Não era visita nostálgica. Era para sentar do lado do meu antigo time, o de **B2B/Empresas**, e ajudar na integração deles com o SPI.
+
+E não era favor informal. Aquilo foi alinhado antes com quatro pessoas: o head do meu time novo, o gerente de serviços financeiros, o gerente do B2B e o próprio CIO. Quatro assinaturas para dois dias de trabalho — o que dá a medida de quão pouco trivial era emprestar alguém do projeto do PIX naquele mês.
+
+O motivo de ser eu era prosaico: eu conhecia aquelas pessoas e morava em São Paulo. Ninguém precisava pegar avião. Mas o detalhe diz muito sobre como um projeto de PIX se espalha dentro de um banco. O core construía a conexão com o Banco Central, mas quem tinha o cliente PJ na mão era a BU de onde eu tinha saído — e o produto deles precisava falar com a plataforma nova. Eu era, naquele momento, a única pessoa que conhecia os dois lados: o vocabulário do SPI e o jeito como aquele time pensava integração. Meses depois de ter mudado de mesa, o motivo de eu ter mudado virou a razão de eu ser útil na mesa antiga.
+
+<div class="callout callout-tip">
+  <div class="callout-label">O ativo que ninguém coloca no currículo</div>
+  Quando você muda de time dentro da mesma empresa, o valor que você leva não é só técnico — é a tradução. Saber como o outro lado nomeia as coisas, quem decide o quê e onde a conversa costuma travar economiza semanas de alinhamento. É a maior vantagem prática de uma transferência interna sobre uma contratação externa, e quase nunca é reconhecida como trabalho.
+</div>
+
+E, no fim daquela mesma semana, o único fim de semana livre do mês: **sábado, 19 de setembro**, voei para Belo Horizonte às 8h12 e cheguei às 9h14 para um churrasco com o time, em Confins, na região metropolitana. Foi a primeira vez que eu vi pessoalmente a maior parte daquelas pessoas — gente com quem eu falava todo dia havia cinco meses, cujas casas eu conhecia por videochamada e cujos rostos eu só tinha visto em retângulo. Voltei no domingo, dia 20, no voo das 14h39.
+
+Não era confraternização de fim de projeto: faltavam quase dois meses para o lançamento e o pior ainda estava por vir. Era, mais precisamente, o reconhecimento de que um time que só se conhece por tela tem um limite — e que atravessar outubro e novembro ia exigir mais do que boa vontade em call.
+
+<div class="personal-story">
+  <div class="personal-story-label">
+    <i class="fas fa-user-circle"></i> Minha experiência — o custo do mês inteiro
+  </div>
+  <p>Três fins de semana de trabalho num mês não é heroísmo, é uma escolha ruim que às vezes não tem alternativa boa. O prazo era do Banco Central, o time tinha sido remontado no meio do caminho e o escopo não cabia. A conta fechou, mas fechou no músculo.</p>
+  <p>O que eu faria diferente hoje não é trabalhar menos naquele mês específico — é ter brigado mais cedo, em julho, pela conversa sobre o que ficaria de fora da primeira versão. Quando você chega em setembro precisando de sete dias por semana, a decisão errada já foi tomada semanas antes, e o esforço extra é só o preço dela.</p>
+  <p>Setembro também teve um custo financeiro, e ele é específico o bastante para merecer texto próprio: eu estava em contrato de valor fixo, e quem estava por hora recebeu extra por aqueles sábados e domingos. Essa conta — com os números das minhas notas fiscais — está na <a href="{{ site.baseurl }}/artigos/contrato-do-pix-valor-fixo-sobreaviso-e-a-hora-que-nao-existia/">segunda parte da série</a>.</p>
+</div>
+
 ### Primeiro homologado, e a semana seguinte no LinkedIn
 
 A homologação junto ao Banco Central tinha três etapas: teste de capacidade e performance, teste de funcionalidade do registro de chaves e aprovação do novo projeto do aplicativo — aquele mesmo anteprojeto da Carta-Circular 4.056 que abriu este texto. O banco passou nas três e a notícia saiu no fim de setembro e no começo de outubro de 2020: primeira instituição financeira digital com plataforma PIX totalmente homologada pelo Bacen.
 
-Um número dessa etapa vale ser posto ao lado do <a href="{{ site.baseurl }}/artigos/arquitetura-do-pix-por-dentro-spi-iso-20022-dez-segundos/">gráfico dos percentis do Manual de Tempos, na segunda parte</a>. O teste de performance de liquidação exigia responder em até 2,3 segundos. A plataforma respondeu em 242 milissegundos — cerca de dez vezes abaixo do exigido. É exatamente a linha "autorização pelo PSP do recebedor, P95, 2,3 s" daquela tabela, vista do lado de quem estava sendo medido.
+Um número dessa etapa vale ser posto ao lado do <a href="{{ site.baseurl }}/artigos/arquitetura-do-pix-por-dentro-spi-iso-20022-dez-segundos/">gráfico dos percentis do Manual de Tempos, na terceira parte</a>. O teste de performance de liquidação exigia responder em até 2,3 segundos. A plataforma respondeu em 242 milissegundos — cerca de dez vezes abaixo do exigido. É exatamente a linha "autorização pelo PSP do recebedor, P95, 2,3 s" daquela tabela, vista do lado de quem estava sendo medido.
 
 <div class="personal-story">
   <div class="personal-story-label">
@@ -260,7 +301,7 @@ Um número dessa etapa vale ser posto ao lado do <a href="{{ site.baseurl }}/art
 </div>
 
 <div class="section-header">
-  <div class="section-num">06</div>
+  <div class="section-num">05</div>
   <div class="section-title-wrap"><h2>O que eu levei desse projeto</h2></div>
 </div>
 
@@ -276,7 +317,7 @@ Um número dessa etapa vale ser posto ao lado do <a href="{{ site.baseurl }}/art
   <h2>Cinco anos depois</h2>
   <p>O PIX virou infraestrutura pública invisível. Ninguém mais lembra que aquilo era um projeto com risco de não sair, e é exatamente esse o sinal de que deu certo: sistema financeiro bem-feito é aquele em que ninguém pensa.</p>
   <p>Do meu lado, foi o projeto que mais me ensinou por unidade de tempo em toda a carreira no Brasil. Não pela stack — .NET, RabbitMQ e SQL Server eu já conhecia — mas pela combinação de prazo inegociável, especificação em movimento e consequência real do erro. Um mês depois do lançamento eu embarquei para o Porto — <a href="{{ site.baseurl }}/artigos/trabalhando-pelo-mundo-porto-farfetch/">a primeira vez que saí do Brasil para trabalhar</a>, e boa parte da confiança para aceitar aquilo veio de ter atravessado 2020 dentro do core de um banco.</p>
-  <p>E a mudança para Belo Horizonte, que era a grande decisão de vida em abril, virou uma semana de AirBnB e uma passagem de volta. Às vezes a mudança importante do ano não é a que estava no plano.</p>
+  <p>E a mudança para Belo Horizonte, que era a grande decisão de vida em março, virou uma semana de AirBnB e uma passagem de volta. Às vezes a mudança importante do ano não é a que estava no plano.</p>
 </div>
 
 <div class="references">
@@ -289,6 +330,10 @@ Um número dessa etapa vale ser posto ao lado do <a href="{{ site.baseurl }}/art
     <li>
       Banco Central do Brasil. <strong>Carta Circular nº 4.055, de 25 de maio de 2020 — cronograma dos testes de homologação dos participantes diretos no SPI.</strong>
       <a href="https://normativos.bcb.gov.br/Lists/Normativos/Attachments/51046/C_Circ_4055_v1_O.pdf" target="_blank">normativos.bcb.gov.br</a>
+    </li>
+    <li>
+      Prefeitura de Belo Horizonte. <strong>Decreto nº 17.297, de 17 de março de 2020 (situação de emergência em saúde pública) e Decreto nº 17.304, de 18 de março de 2020, que suspendeu a partir de 20 de março os alvarás de bares, restaurantes, shoppings e demais atividades com potencial de aglomeração.</strong>
+      <a href="https://prefeitura.pbh.gov.br/noticias/prefeito-suspende-temporariamente-funcionamento-de-estabelecimentos-comerciais" target="_blank">prefeitura.pbh.gov.br</a>
     </li>
     <li>
       Agência Brasil. <strong>Começa hoje registro de chaves digitais do Pix — cronograma oficial de 5/10, 3/11 e 16/11 de 2020.</strong>
@@ -317,10 +362,6 @@ Um número dessa etapa vale ser posto ao lado do <a href="{{ site.baseurl }}/art
     <li>
       Corner Pix. <strong>Participante indireto com piloto de reservas próprio, sem interferência do piloto de reservas do liquidante SPI direto.</strong>
       <a href="https://cornerpix.com.br/participante-indireto/" target="_blank">cornerpix.com.br</a>
-    </li>
-    <li>
-      Tribunal Superior do Trabalho. <strong>Nova redação da Súmula 428 reconhece sobreaviso em escala com celular — aplicação analógica do art. 244, §2º da CLT.</strong>
-      <a href="https://www.tst.jus.br/noticias/-/asset_publisher/89Dk/content/nova-redacao-da-sumula-428-reconhece-sobreaviso-em-escala-com-celular" target="_blank">tst.jus.br</a>
     </li>
   </ol>
 </div>
