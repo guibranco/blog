@@ -2,7 +2,7 @@
     {% assign _ft = _t %}
     <footer class="site-footer">
       <div class="site-footer-inner">
-        <span class="footer-brand">{{ site.title }}</span>
+        <span class="footer-brand" data-i18n="site_title">{{ site.title }}</span>
         <ul class="footer-links">
           {% if page.url != "/" %}
             <li><a href="{{ site.baseurl }}/"><span data-i18n="footer_all_articles">{{ _ft.footer_all_articles }}</span></a></li>
