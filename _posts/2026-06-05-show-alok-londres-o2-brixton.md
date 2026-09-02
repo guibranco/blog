@@ -18,11 +18,11 @@ location:
   label: "Londres, Inglaterra"
 ---
 
-<p class="lead">Três dias em Londres para o show do Alok na O2 Academy Brixton — com direito a M&M's World, a loja da LEGO em Leicester Square, Borough Market e o Noodle Inn de Covent Garden. Tudo isso saindo de Dublin de Ryanair por menos de € 50,00 por pessoa entre ida e volta.</p>
+<p class="lead">Três dias em Londres para o show do Alok na O2 Academy Brixton — com direito a M&M's World, LEGO Store, Borough Market e o Noodle Inn de Covent Garden. Tudo isso saindo de Dublin de Ryanair por menos de € 50,00 por pessoa entre ida e volta.</p>
 
 <div class="callout callout-tip">
   <div class="callout-label">Como este relato foi reconstruído</div>
-  Os horários e valores deste post não vêm de memória: foram reconstruídos a partir do meu <strong>histórico de localização do Google Timeline</strong> e cruzados com o <strong>extrato do Revolut</strong>. Como o cartão converte automaticamente, os débitos aparecem em euro — a taxa implícita no período foi de <strong>≈ € 1,23 por £ 1</strong>. Onde o valor está marcado como <em>confirmado no extrato</em>, é um débito real; o resto é estimativa de conta dividida ou pagamento em dinheiro.
+  Os horários e valores deste post não vêm de memória: foram reconstruídos a partir do meu <strong>histórico de localização do Google Timeline</strong> e cruzados com o <strong>extrato do Revolut</strong>. Como o cartão converte automaticamente, os débitos aparecem em euro — a taxa implícita no período foi de <strong>≈ € 1,16 por £ 1</strong>. Onde o valor está marcado como <em>confirmado no extrato</em>, é um débito real; o resto é estimativa de conta dividida ou pagamento em dinheiro.
 </div>
 
 <div class="callout callout-tip">
@@ -75,12 +75,12 @@ Ao desembarcar, as opções para chegar ao centro são:
 
 <div class="callout callout-warn">
   <div class="callout-label">Táxi do ponto de chegada ao hostel</div>
-  O ônibus saiu de Stansted às <strong>01h30</strong> e nos deixou próximo à <strong>Waterloo Rail Station</strong> às <strong>02h56</strong> — 1h26 de viagem, 61 km. O hostel era a menos de 2 km — a pé seria tranquilo, mas como estava com o pé machucado, acabamos pegando um táxi. Chegamos ao Publove às <strong>03h09</strong>. No extrato o débito aparece como <strong>Viking Cars — € 12,56</strong> (≈ £ 10,20) para os 3. O pé, aliás, rendeu uma passada na <strong>Boots</strong> durante a viagem: <strong>€ 8,60</strong> em analgésico e curativo.
+  O ônibus saiu de Stansted às <strong>01h30</strong> e nos deixou próximo à <strong>Waterloo Rail Station</strong> às <strong>02h56</strong> — 1h26 de viagem, 61 km. O hostel era a menos de 2 km — a pé seria tranquilo, mas como estava com o pé machucado, acabamos pegando um táxi. Chegamos ao Publove às <strong>03h09</strong>. No extrato o débito aparece como <strong>Viking Cars — € 12,56</strong> (≈ £ 10,80) para os 3. O pé, aliás, rendeu uma passada na <strong>Boots</strong> durante a viagem: <strong>€ 8,60</strong> em analgésico e curativo.
 </div>
 
 <div class="callout callout-tip">
   <div class="callout-label">Confirmado no extrato: € 64,45 no National Express</div>
-  Paguei as três passagens de uma vez — <strong>€ 64,45</strong> no total (≈ £ 52,30, ou £ 17,43 por pessoa). Confere com a estimativa de £ 18 por cabeça. Em voo que pousa depois da meia-noite, o ônibus não é a segunda opção: é a única.
+  Paguei as três passagens de uma vez — <strong>€ 64,45</strong> no total (≈ £ 55,40, ou £ 18,50 por pessoa). Confere com a estimativa de £ 18 por cabeça. Em voo que pousa depois da meia-noite, o ônibus não é a segunda opção: é a única.
 </div>
 
 <div class="divider">· · ·</div>
@@ -129,7 +129,7 @@ O que aparece são **€ 25,27 em dois lançamentos do próprio Steam Engine** �
     <tr>
       <td>Dia 3 — Partida</td>
       <td>06/06 (Sáb)</td>
-      <td>Saída do hostel 11h01 · Borough Market 11h52–15h29 · Leicester Square (2.ª volta) 16h14–16h31 · Noodle Inn, Covent Garden 16h39–17h35 · Liverpool Street 18h04 · Stansted Express 18h21–19h08 · Aeroporto 19h09–22h17 · Voo 22h17–23h20 · Casa 01h01</td>
+      <td>Saída do hostel 11h01 · Borough Market 11h52–15h29 · Leicester Square (2.ª volta) 16h14–16h31 · Noodle Inn, Covent Garden 16h39–17h35 · Liverpool Street 18h04 · Stansted Express 18h21–19h08 · Aeroporto (LEGO Store) 19h09–22h17 · Voo 22h17–23h20 · Casa 01h01</td>
       <td>≈ € 148 (compras, comida, transporte)</td>
     </tr>
   </tbody>
@@ -149,7 +149,7 @@ O que aparece são **€ 25,27 em dois lançamentos do próprio Steam Engine** �
 
 As meninas acordaram por volta das 9h00 e foram à rua tomar café. Eu saí do hostel só às **12h29** — o GPS não perdoa — peguei o metrô em Lambeth North às 12h38 e desembarquei em **Oxford Circus** às 12h46. São 8 minutos de metrô, não a caminhada curta que eu lembrava.
 
-De Oxford Circus caminhamos cerca de 600 m para leste pela Oxford Street até a **Primark** (equivalente à Penneys aqui na Irlanda) — a loja grande da ponta da Tottenham Court Road, não a de Oxford Circus. Loja e almoço no **Five Guys**, do outro lado da rua, couberam no mesmo bloco de **13h00 às 13h36**: 36 minutos para tudo. A conta do Five Guys foi de **€ 28,22** (≈ £ 22,90) no meu cartão.
+De Oxford Circus caminhamos cerca de 600 m para leste pela Oxford Street até a **Primark** (equivalente à Penneys aqui na Irlanda) — a loja grande da ponta da Tottenham Court Road, não a de Oxford Circus. Loja e almoço no **Five Guys**, do outro lado da rua, couberam no mesmo bloco de **13h00 às 13h36**: 36 minutos para tudo. A conta do Five Guys foi de **€ 28,22** (≈ £ 24,30) no meu cartão.
 
 ### Leicester Square — M&M's World e LEGO Store
 
@@ -160,15 +160,17 @@ Depois do almoço, caminhamos até Leicester Square: o GPS marca **2,1 km em 32 
   A loja de Leicester Square é enorme e vai além dos chocolates — há roupas, canecas, bonés e vários itens personalizáveis. Comprei chocolates para consumo próprio e para presentes (quase 1 kg, entre ao leite, amendoim e outros sabores) além de itens não comestíveis. O extrato registra <strong>€ 76,19 nesta primeira visita</strong> (≈ £ 61,80). Já sabia que voltaria no dia seguinte.
 </div>
 
-Na **LEGO Store** ao lado, comprei uma **flor em LEGO** (<a href="https://www.lego.com/en-ie/product/roses-40460" target="_blank">#40460 - LEGO Botanicals Roses - Faux Flowers Building Set</a>) e algumas minifiguras — **€ 15,11** (≈ £ 12,30) no extrato. A peça da flor é um dos sets mais presentes e elegantes que a loja tem para oferecer.
+Na **LEGO Store** ao lado, comprei uma **flor em LEGO** (<a href="https://www.lego.com/en-ie/product/roses-40460" target="_blank">#40460 - LEGO Botanicals Roses - Faux Flowers Building Set</a>) e algumas minifiguras — **£ 12,99**, debitados como **€ 15,11**. A peça da flor é um dos sets mais presentes e elegantes que a loja tem para oferecer.
+
+Ainda no centro, passei numa loja de souvenires e levei o clássico kit de lembrancinha barata de Londres — **copinhos de shot e chaveiros**, **€ 18,02** no extrato. É o tipo de compra que parece irrelevante na hora e some do orçamento depois, mas some junto com todas as outras.
 
 ### Voltando de bicicleta elétrica — Voi
 
-O retorno ao hostel foi de bicicleta elétrica usando o aplicativo **Voi**. O GPS confirma: **2,4 km em 15 minutos** (15h11–15h26). Conseguimos viagens promocionais pelo app, mas o extrato ainda registra **€ 5,53** da Voi — a promoção não cobriu tudo.
+O retorno ao hostel foi de bicicleta elétrica usando o aplicativo **Voi**. O GPS confirma: **2,4 km em 15 minutos** (15h11–15h26). O app oferecia viagens gratuitas por cupom — as meninas ativaram o cupom corretamente e não pagaram nada. Eu esqueci de aplicar antes de iniciar a corrida e paguei o preço cheio: **€ 5,53** no extrato.
 
 <div class="callout callout-tip">
   <div class="callout-label">Voi em Londres vs. Moby na Irlanda</div>
-  As bicicletas elétricas da Voi em Londres são significativamente mais potentes e rápidas do que as **Moby** aqui na Irlanda, que funcionam mais como bicicletas comuns com suporte leve em subidas. Vale conferir as promoções do app — no meu caso elas cobriram parte, não a totalidade, do trajeto.
+  As bicicletas elétricas da Voi em Londres são significativamente mais potentes e rápidas do que as **Moby** aqui na Irlanda, que funcionam mais como bicicletas comuns com suporte leve em subidas. Vale conferir as promoções do app — mas confira também se o cupom foi <strong>aplicado antes de destravar a bicicleta</strong>. Depois que a corrida começa não dá para voltar atrás, e foi exatamente assim que paguei por um trajeto que era para ser gratuito.
 </div>
 
 ### O2 Academy Brixton — Show do Alok
@@ -192,13 +194,13 @@ O ingresso foi comprado em **28/01/2026**, mais de quatro meses antes, na pré-v
 
 São **£ 7,70 de taxas sobre um ingresso de £ 35 — 22% a mais**. Ao comparar preços de show em Londres, chegue sempre até a tela final de pagamento antes de decidir. A compra saiu em outro cartão, por isso não aparece no extrato usado neste post.
 
-As bebidas seguiam o padrão londrino de casas de show — **£ 10,00 por copo** (whisky com energético ou vodca com Seven Up). Aqui o extrato conta uma história que eu não lembrava: foram **três lançamentos da O2 Academy somando € 123,36** (≈ £ 100). Não foi tudo para mim — bancamos rodadas para o grupo, e as meninas também pagaram as delas ao longo da noite. Ficamos das **19h22 às 23h27**. A acústica e o show de luzes foram muito bons.
+As bebidas seguiam o padrão londrino de casas de show — **£ 10,00 por copo** (whisky com energético ou vodca com Seven Up). Aqui o extrato conta uma história que eu não lembrava: foram **três lançamentos da O2 Academy somando € 123,36** (≈ £ 106). Não foi tudo para mim — bancamos rodadas para o grupo, e as meninas também pagaram as delas ao longo da noite. Ficamos das **19h22 às 23h27**. A acústica e o show de luzes foram muito bons.
 
 ### Tia Maria Brazilian Bar e KFC
 
-Saindo da O2, fomos ao **Tia Maria**, bar brasileiro na South Lambeth Road, em **Vauxhall** — a 1,9 km de Brixton, não ao lado da casa de show como eu descrevia. Havia apresentação ao vivo de música sertaneja. Ficamos das **23h32 às 01h25** e gastei **€ 33,48** (≈ £ 27,20) em cervejas, vodca e outras bebidas — dois lançamentos no extrato. Ficamos até o fechamento.
+Saindo da O2, fomos ao **Tia Maria**, bar brasileiro na South Lambeth Road, em **Vauxhall** — a 1,9 km de Brixton, não ao lado da casa de show como eu descrevia. Havia apresentação ao vivo de música sertaneja. Ficamos das **23h32 às 01h25** e gastei **€ 33,48** (≈ £ 28,80) em cervejas, vodca e outras bebidas — dois lançamentos no extrato. Ficamos até o fechamento.
 
-Ao sair, pegamos um táxi e paramos no **KFC da Kennington Lane**, em Vauxhall, das **01h30 às 02h22**, onde encontramos outros brasileiros voltando de outras festas — inclusive de outro afterparty do show do Alok. A conta foi de **€ 65,58** (≈ £ 53,20) para os 3. O táxi da madrugada — dois trechos curtos — aparece como **Uber, € 24,47**, um gasto que eu tinha esquecido completamente ao escrever a primeira versão deste post.
+Ao sair, pegamos um táxi e paramos no **KFC da Kennington Lane**, em Vauxhall, das **01h30 às 02h22**, onde encontramos outros brasileiros voltando de outras festas — inclusive de outro afterparty do show do Alok. A conta foi de **€ 65,58** (≈ £ 56,40) para os 3. O táxi da madrugada — dois trechos curtos — aparece como **Uber, € 24,47**, um gasto que eu tinha esquecido completamente ao escrever a primeira versão deste post.
 
 <div class="divider">· · ·</div>
 
@@ -213,7 +215,7 @@ Na manhã de sábado, nos arrumamos, guardamos as malas e deixamos o hostel às 
 
 O dia não começou onde eu lembrava. Saí do hostel às **11h01** e fui até a região de Bethnal Green encontrar as meninas, que já tinham almoçado — a ideia era passear por ali mesmo. No caminho mudamos de plano e cruzamos o rio de ônibus.
 
-Acabamos no **Borough Market**, um dos mercados de rua mais famosos de Londres. Chegamos às **11h52** e ficamos até as **15h29** — 3h37, muito mais do que eu lembrava. Comemos copos de frutas com chocolate na banca **Turnips**: **€ 11,05** (≈ £ 9) no extrato.
+Acabamos no **Borough Market**, um dos mercados de rua mais famosos de Londres. Chegamos às **11h52** e ficamos até as **15h29** — 3h37, muito mais do que eu lembrava. Comemos copos de frutas com chocolate na banca **Turnips**: **€ 11,05** (≈ £ 9,50) no extrato.
 
 ### Costa Coffee
 
@@ -221,7 +223,7 @@ De lá, fomos a um **Costa Coffee** nas redondezas para matar o tempo, já que n
 
 ### Volta à Leicester Square
 
-Retornamos a Leicester Square das **16h14 às 16h31** — 17 minutos apenas. Passamos na **M&M's World** para comprar o que havíamos esquecido na véspera — **€ 43,41** — e na **LEGO Store** para mais algumas peças — **€ 18,57**. Somando as duas visitas: **€ 119,60 na M&M's** (≈ £ 97) e **€ 33,68 na LEGO** (≈ £ 27).
+Retornamos a Leicester Square das **16h14 às 16h31** — 17 minutos apenas, só para passar na **M&M's World** e comprar o que havíamos esquecido na véspera: **€ 43,41**. Somando as duas visitas, a loja levou **€ 119,60** (≈ £ 103). Desta vez não entramos na LEGO.
 
 <div class="callout callout-tip">
   <div class="callout-label">Dica: aproveite o dia anterior para já comprar tudo</div>
@@ -230,7 +232,7 @@ Retornamos a Leicester Square das **16h14 às 16h31** — 17 minutos apenas. Pas
 
 ### Noodle Inn — Covent Garden
 
-Jantamos no famoso **Noodle Inn** em Covent Garden, conhecido pelo noodle gigante que os cozinheiros giram na vitrine, das **16h39 às 17h35**. A conta foi de **€ 75,31** (≈ £ 61) para os 3 — ≈ € 25/pessoa.
+Jantamos no famoso **Noodle Inn** em Covent Garden, conhecido pelo noodle gigante que os cozinheiros giram na vitrine, das **16h39 às 17h35**. A conta foi de **€ 75,31** (≈ £ 64,80) para os 3 — ≈ € 25/pessoa.
 
 ### Stansted e o voo de volta
 
@@ -239,11 +241,16 @@ Jantamos no famoso **Noodle Inn** em Covent Garden, conhecido pelo noodle gigant
   Na volta do Borough Market para Leicester Square, o trajeto passou por <strong>Stockwell</strong> com uma parada de 6 minutos. Não foi passeio: Borough fica no ramo Bank da Northern Line e Leicester Square no ramo Charing Cross, então é preciso trocar de ramo. Stockwell e Kennington são as estações onde isso acontece — se você planejar rotas no centro de Londres pela Northern Line, conte com essa baldeação.
 </div>
 
-Do Covent Garden, pegamos um ônibus às **17h44** até a **Liverpool Street** (chegada 18h04) e de lá o **Stansted Express** das **18h21**, que chegou ao aeroporto às **19h08** — **47 minutos cravados**, exatamente o que a operadora anuncia. O bilhete (≈ £ 20) foi pago pela **Wise**, por isso não consta no extrato do Revolut. Ficamos 3h08 esperando no terminal. O voo decolou às **22h17** e pousou em Dublin às **23h20**; cheguei em casa à **01h01**.
+Do Covent Garden, pegamos um ônibus às **17h44** até a **Liverpool Street** (chegada 18h04) e de lá o **Stansted Express** das **18h21**, que chegou ao aeroporto às **19h08** — **47 minutos cravados**, exatamente o que a operadora anuncia. O bilhete (≈ £ 20) foi pago pela **Wise**, por isso não consta no extrato do Revolut. Ficamos 3h08 esperando no terminal — e foi ali que fiz a última compra da viagem.
+
+<div class="callout callout-tip">
+  <div class="callout-label">A LEGO do aeroporto sai mais barata que a do centro</div>
+  Stansted tem uma <strong>LEGO Store</strong> na área de embarque, e os preços estavam abaixo dos da loja de Leicester Square para os mesmos sets. Levei o <strong>#40953 London Bus</strong> e mais algumas minifiguras por <strong>£ 15,98</strong> (<strong>€ 18,57</strong> no extrato) — sem fila e sem carregar a sacola o dia inteiro. Se você está de olho em algum set específico, anote o preço no centro e confira no aeroporto antes de embarcar. É o contrário do que a intuição manda.
+</div> O voo decolou às **22h17** e pousou em Dublin às **23h20**; cheguei em casa à **01h01**.
 
 <div class="callout callout-warn">
   <div class="callout-label">Transporte urbano: o custo invisível</div>
-  A primeira versão deste post não mencionava metrô e ônibus em nenhum momento — como se andar por Londres fosse de graça. O extrato registra <strong>€ 42,79 em Transport for London</strong> (≈ £ 34,70) em três dias. É mais do que o táxi da chegada, mais do que o Costa Coffee e o Borough Market somados, e quase o valor do ônibus do aeroporto. <strong>Some sempre £ 10–12 por dia de transporte urbano ao orçamento.</strong>
+  A primeira versão deste post não mencionava metrô e ônibus em nenhum momento — como se andar por Londres fosse de graça. O extrato registra <strong>€ 42,79 em Transport for London</strong> (≈ £ 36,80) em três dias. É mais do que o táxi da chegada, mais do que o Costa Coffee e o Borough Market somados, e quase o valor do ônibus do aeroporto. <strong>Some sempre £ 10–12 por dia de transporte urbano ao orçamento.</strong>
 </div>
 
 <div class="divider">· · ·</div>
@@ -276,33 +283,32 @@ Do Covent Garden, pegamos um ônibus às **17h44** até a **Liverpool Street** (
   <div class="section-title-wrap"><h2>Resumo financeiro</h2></div>
 </div>
 
-Todos os valores abaixo saíram do extrato do Revolut, em euro (o cartão converte automaticamente). A taxa implícita no período foi de **≈ € 1,23 por £ 1**.
+Todos os valores abaixo saíram do extrato do Revolut, em euro (o cartão converte automaticamente). A taxa implícita no período foi de **≈ € 1,16 por £ 1** — derivada dos dois lançamentos da LEGO, os únicos em que eu tinha o valor em libra e o valor debitado em euro.
 
 <table class="compare-table">
   <thead>
     <tr><th>Lançamento</th><th>Valor (€)</th><th>Aprox. (£)</th><th>Divisão</th></tr>
   </thead>
   <tbody>
-    <tr><td>O2 Academy (bar, 3 lançamentos)</td><td>123,36</td><td>100,07</td><td>Rodadas para o grupo</td></tr>
-    <tr><td>M&amp;M's World (2 visitas)</td><td>119,60</td><td>97,02</td><td>Meu</td></tr>
-    <tr><td>Noodle Inn — Covent Garden</td><td>75,31</td><td>61,09</td><td>Dividido por 3</td></tr>
-    <tr><td>KFC</td><td>65,58</td><td>53,20</td><td>Dividido por 3</td></tr>
-    <tr><td>National Express (STN → Londres)</td><td>64,45</td><td>52,28</td><td>Dividido por 3</td></tr>
-    <tr><td>Transport for London (metrô + ônibus)</td><td>42,79</td><td>34,71</td><td>Meu</td></tr>
-    <tr><td>LEGO Store (2 visitas)</td><td>33,68</td><td>27,32</td><td>Meu</td></tr>
-    <tr><td>Tia Maria (2 lançamentos)</td><td>33,48</td><td>27,16</td><td>Meu</td></tr>
-    <tr><td>Five Guys — Oxford Circus</td><td>28,22</td><td>22,89</td><td>Meu</td></tr>
-    <tr><td>The Steam Engine (consumo no pub)</td><td>25,27</td><td>20,50</td><td>Meu</td></tr>
-    <tr><td>Uber (madrugada, 2 trechos)</td><td>24,47</td><td>19,85</td><td>Dividido por 3</td></tr>
-    <tr><td>Kapoor Brothers</td><td>18,02</td><td>14,62</td><td>Meu</td></tr>
-    <tr><td>Táxi ao hostel (Viking Cars)</td><td>12,56</td><td>10,19</td><td>Dividido por 3</td></tr>
-    <tr><td>Turnips — Borough Market</td><td>11,05</td><td>8,96</td><td>Meu</td></tr>
-    <tr><td>Boots</td><td>8,60</td><td>6,98</td><td>Meu</td></tr>
-    <tr><td>Voi — bicicleta elétrica</td><td>5,53</td><td>4,49</td><td>Meu</td></tr>
-    <tr><td>Costa Coffee</td><td>4,48</td><td>3,63</td><td>Meu</td></tr>
-    <tr><td>Airport lounge pass (presente, pago com RevPoints)</td><td>13,79</td><td>11,19</td><td>Não é da viagem</td></tr>
-    <tr><td><strong>Total debitado no cartão</strong></td><td><strong>710,24</strong></td><td><strong>576,14</strong></td><td>—</td></tr>
-    <tr><td><strong>Minha parcela real</strong> (após acerto do grupo, sem o presente)</td><td><strong>534,87</strong></td><td><strong>433,89</strong></td><td>—</td></tr>
+    <tr><td>O2 Academy (bar, 3 lançamentos)</td><td>123,36</td><td>106,10</td><td>Rodadas para o grupo</td></tr>
+    <tr><td>M&amp;M's World (2 visitas)</td><td>119,60</td><td>102,87</td><td>Meu</td></tr>
+    <tr><td>Noodle Inn — Covent Garden</td><td>75,31</td><td>64,77</td><td>Dividido por 3</td></tr>
+    <tr><td>KFC</td><td>65,58</td><td>56,41</td><td>Dividido por 3</td></tr>
+    <tr><td>National Express (STN → Londres)</td><td>64,45</td><td>55,43</td><td>Dividido por 3</td></tr>
+    <tr><td>Transport for London (metrô + ônibus)</td><td>42,79</td><td>36,80</td><td>Meu</td></tr>
+    <tr><td>LEGO (Leicester Square + loja de Stansted)</td><td>33,68</td><td>28,97</td><td>Meu</td></tr>
+    <tr><td>Tia Maria (2 lançamentos)</td><td>33,48</td><td>28,80</td><td>Meu</td></tr>
+    <tr><td>Five Guys — Oxford Circus</td><td>28,22</td><td>24,27</td><td>Meu</td></tr>
+    <tr><td>The Steam Engine (consumo no pub)</td><td>25,27</td><td>21,74</td><td>Meu</td></tr>
+    <tr><td>Uber (madrugada, 2 trechos)</td><td>24,47</td><td>21,05</td><td>Dividido por 3</td></tr>
+    <tr><td>Kapoor Brothers (souvenires)</td><td>18,02</td><td>15,50</td><td>Meu</td></tr>
+    <tr><td>Táxi ao hostel (Viking Cars)</td><td>12,56</td><td>10,80</td><td>Dividido por 3</td></tr>
+    <tr><td>Turnips — Borough Market</td><td>11,05</td><td>9,50</td><td>Meu</td></tr>
+    <tr><td>Boots</td><td>8,60</td><td>7,40</td><td>Meu</td></tr>
+    <tr><td>Voi — bicicleta elétrica</td><td>5,53</td><td>4,76</td><td>Meu</td></tr>
+    <tr><td>Costa Coffee</td><td>4,48</td><td>3,85</td><td>Meu</td></tr>
+    <tr><td><strong>Total debitado no cartão</strong></td><td><strong>696,45</strong></td><td><strong>599,02</strong></td><td>—</td></tr>
+    <tr><td><strong>Minha parcela real</strong> (após acerto do grupo)</td><td><strong>534,87</strong></td><td><strong>460,05</strong></td><td>—</td></tr>
   </tbody>
 </table>
 
@@ -310,7 +316,7 @@ Fora deste cartão ainda entram: **€ 47,00 de voos** (ida + volta), **£ 40,00
 
 <div class="callout callout-warn">
   <div class="callout-label">A parte que eu tinha subestimado</div>
-  Na primeira versão deste post eu estimei "≈ £ 355 no total". O extrato mostra <strong>€ 534,87 (≈ £ 434) só de cartão</strong>, sem contar voos, hostel e ingresso. A diferença veio de três lugares que eu simplesmente não contabilizei: <strong>o bar da O2 (€ 123)</strong>, que eu lembrava como "£ 30 em bebidas"; <strong>o transporte urbano (€ 43)</strong>, que nem existia na minha estimativa; e <strong>o Uber da madrugada (€ 24)</strong>, que eu tinha esquecido por completo.
+  Na primeira versão deste post eu estimei "≈ £ 355 no total". O extrato mostra <strong>€ 534,87 (≈ £ 460) só de cartão</strong>, sem contar voos, hostel e ingresso. A diferença veio de três lugares que eu simplesmente não contabilizei: <strong>o bar da O2 (€ 123)</strong>, que eu lembrava como "£ 30 em bebidas"; <strong>o transporte urbano (€ 43)</strong>, que nem existia na minha estimativa; e <strong>o Uber da madrugada (€ 24)</strong>, que eu tinha esquecido por completo.
 </div>
 
 <div class="callout callout-tip">
@@ -341,7 +347,7 @@ Fora deste cartão ainda entram: **€ 47,00 de voos** (ida + volta), **£ 40,00
 
   <div class="provider-card">
     <div class="provider-name">LEGO Store Leicester Square</div>
-    <div class="provider-detail">Loja oficial da LEGO em Leicester Square. Sets exclusivos como a Flor (rosa), minifiguras e personalização de chaveiros. Boa para presentes.</div>
+    <div class="provider-detail">Loja oficial da LEGO em Leicester Square. Sets exclusivos como a Flor (rosa), minifiguras e personalização de chaveiros. Compare com a loja da LEGO no aeroporto de Stansted antes de comprar — lá os mesmos sets estavam mais baratos.</div>
     <div class="provider-price">Sets a partir de £ 10 · Minifiguras £ 4–8 · <a href="https://www.lego.com/en-be/stores/store/lsq" target="_blank">lego.com</a></div>
   </div>
 
@@ -377,7 +383,7 @@ Fora deste cartão ainda entram: **€ 47,00 de voos** (ida + volta), **£ 40,00
 
   <div class="provider-card">
     <div class="provider-name">Voi — Bicicletas elétricas</div>
-    <div class="provider-detail">App de aluguel de bicicletas elétricas. Em Londres são significativamente mais potentes do que as <strong>Moby</strong> disponíveis na Irlanda. Verifique promoções de viagens gratuitas no app antes de usar.</div>
+    <div class="provider-detail">App de aluguel de bicicletas elétricas. Em Londres são significativamente mais potentes do que as <strong>Moby</strong> disponíveis na Irlanda. Verifique promoções de viagens gratuitas no app — e aplique o cupom antes de destravar a bicicleta, não depois.</div>
     <div class="provider-price">≈ £ 5/viagem · Promoções disponíveis</div>
   </div>
 
