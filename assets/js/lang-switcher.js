@@ -58,6 +58,13 @@
       if (v !== undefined) el.textContent = v;
     });
 
+    // Same as [data-i18n] but the string may contain inline markup (<em>, <br>).
+    // Values come from the trusted site i18n data file, never user input.
+    document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+      var v = t[el.dataset.i18nHtml];
+      if (v !== undefined) el.innerHTML = v;
+    });
+
     var subtag = lang.split('-')[0].toLowerCase();
     var nameKey = subtag === 'pt' ? 'name' : 'name_' + subtag; // countries.yml: name (pt-BR) + name_en
     document.querySelectorAll('[data-country]').forEach(function (el) {
