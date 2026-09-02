@@ -14,14 +14,14 @@ cover: /assets/img/posts/pix-arquitetura-capa.svg
 image: /assets/img/posts/pix-arquitetura-capa.png
 series: pix-bs2
 series_title: Desenvolvendo o PIX
-series_part: 2
+series_part: 3
 ---
 
 <p class="lead">O PIX é um dos poucos sistemas em que a latência aceitável está publicada em norma, por percentil, e auditada mensalmente. Este texto é sobre o que isso faz com a arquitetura de quem precisa caber ali dentro — do lado do Banco Central e do lado de um participante direto.</p>
 
 <div class="callout callout-tip">
-  <div class="callout-label">Este é o segundo de dois textos</div>
-  A história de como eu fui parar nesse projeto, como o time foi remontado no meio do caminho e como era o plantão está na <a href="{{ site.baseurl }}/artigos/construindo-o-pix-no-bs2-bastidores-de-um-prazo-do-banco-central/">primeira parte, sobre os bastidores de um prazo do Banco Central</a>. Aqui o assunto é técnico do início ao fim.
+  <div class="callout-label">Este é o terceiro de três textos</div>
+  A história de como eu fui parar nesse projeto e como o time foi remontado no meio do caminho está na <a href="{{ site.baseurl }}/artigos/construindo-o-pix-no-bs2-bastidores-de-um-prazo-do-banco-central/">primeira parte, sobre os bastidores de um prazo do Banco Central</a>. A anatomia do contrato — valor fixo, sobreaviso e o mês de sete dias por semana — está na <a href="{{ site.baseurl }}/artigos/contrato-do-pix-valor-fixo-sobreaviso-e-a-hora-que-nao-existia/">segunda parte, sobre o contrato do PIX</a>. Aqui o assunto é técnico do início ao fim.
 </div>
 
 <div class="callout callout-warn">
@@ -301,7 +301,7 @@ Vale registrar uma coisa que só ficou clara com os anos: a capacidade de partic
   <h2>O que sobra depois da especificação</h2>
   <p>Cinco anos depois, o que eu levo desse desenho não são os nomes das mensagens. É a noção de que, quando a latência aceitável vira norma auditada, ela deixa de ser assunto de otimização e vira restrição de projeto — e todo o resto da arquitetura se organiza em volta dela.</p>
   <p>O outro aprendizado é sobre isolamento. A camada que traduzia o XML do Banco Central para o barramento interno foi o que permitiu que uma correção de especificação publicada em agosto não virasse retrabalho em cinco frentes ao mesmo tempo. Se eu tivesse que guardar uma única decisão daquele projeto, seria essa.</p>
-  <p>Se você chegou aqui pela parte técnica e quer a outra metade — quem construiu, sob que pressão e a que custo —, ela está na <a href="{{ site.baseurl }}/artigos/construindo-o-pix-no-bs2-bastidores-de-um-prazo-do-banco-central/">primeira parte da série</a>.</p>
+  <p>Se você chegou aqui pela parte técnica e quer a outra metade, ela está nos dois textos anteriores: quem construiu e sob que pressão, na <a href="{{ site.baseurl }}/artigos/construindo-o-pix-no-bs2-bastidores-de-um-prazo-do-banco-central/">primeira parte</a>; e a que custo, com os números do contrato, na <a href="{{ site.baseurl }}/artigos/contrato-do-pix-valor-fixo-sobreaviso-e-a-hora-que-nao-existia/">segunda</a>.</p>
 </div>
 
 <div class="references">
