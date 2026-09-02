@@ -7,7 +7,7 @@
 
   // slug -> country entry, from _data/countries.yml (used for [data-country] cells)
   var countries = (window.__countries || []).reduce(function (acc, c) {
-    if (c && c.slug) acc[c.slug] = c;
+    if (c?.slug) acc[c.slug] = c;
     return acc;
   }, {});
 
@@ -45,7 +45,7 @@
 
   function formatDate(isoDate, format, monthNames) {
     var parts = isoDate.split('-');
-    var month = parseInt(parts[1], 10);
+    var month = Number.parseInt(parts[1], 10);
     return format.replace('%Y', parts[0]).replace('%B', monthNames[month - 1]).replace('%d', parts[2]);
   }
 
@@ -58,10 +58,11 @@
       if (v !== undefined) el.textContent = v;
     });
 
-    var nameKey = 'name_' + lang.split('-')[0].toLowerCase(); // pt-BR -> name_pt, en -> name_en
+    var subtag = lang.split('-')[0].toLowerCase();
+    var nameKey = subtag === 'pt' ? 'name' : 'name_' + subtag; // countries.yml: name (pt-BR) + name_en
     document.querySelectorAll('[data-country]').forEach(function (el) {
       var entry = countries[el.dataset.country];
-      if (entry && entry[nameKey]) el.textContent = entry[nameKey];
+      if (entry?.[nameKey]) el.textContent = entry[nameKey];
     });
 
     document.querySelectorAll('[data-date]').forEach(function (el) {

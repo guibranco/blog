@@ -117,7 +117,21 @@
         </p>
         <div class="post-categories">
           {% for cat in page.categories %}
-          <a class="post-category" href="{{ site.baseurl }}/categorias/{{ cat | slugify: 'latin' }}/">{{ cat }}</a>
+          {% assign _cat_data = site.data.categories | where: "name", cat | first %}
+          {% assign _cat_slug = cat | slugify: 'latin' %}
+          {% if _cat_data %}{% assign _cat_slug = _cat_data.slug %}{% endif %}
+          <a class="post-category" href="{{ site.baseurl }}/categorias/{{ _cat_slug }}/">{{ cat }}</a>
+          {% comment %}── page.subcategories holds "Category/Sub" pairs — show the ones under this category ──{% endcomment %}
+          {% for subcat in page.subcategories %}
+            {% assign _sub_parts = subcat | split: "/" %}
+            {% if _sub_parts[0] == cat %}
+              {% assign _sub_name = subcat | remove_first: _sub_parts[0] | remove_first: "/" %}
+              {% assign _sub_data = _cat_data.subcategories | where: "name", _sub_name | first %}
+              {% assign _sub_slug = _sub_name | slugify: 'latin' %}
+              {% if _sub_data %}{% assign _sub_slug = _sub_data.slug %}{% endif %}
+          <a class="post-category post-category--sub" href="{{ site.baseurl }}/categorias/{{ _cat_slug }}/{{ _sub_slug }}/">{{ _sub_name }}</a>
+            {% endif %}
+          {% endfor %}
           {% endfor %}
         </div>
       </div>

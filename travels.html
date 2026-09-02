@@ -87,13 +87,13 @@ permalink: /viagens/
                 {%- comment -%} Resolve the front-matter (pt-BR) name to a countries.yml entry {%- endcomment -%}
                 {% assign _c_entry = nil %}
                 {% for _e in site.data.countries %}
-                  {% if _e.match contains country or _e.name_pt == country %}{% assign _c_entry = _e %}{% break %}{% endif %}
+                  {% if _e.name == country %}{% assign _c_entry = _e %}{% break %}{% endif %}
                 {% endfor %}
                 {% for post in _country_posts %}
                 <tr>
                   {% if forloop.first %}
                   {% if _c_entry %}
-                  <td class="travels-table-country" rowspan="{{ _country_row_count }}" data-country="{{ _c_entry.slug }}">{{ _c_entry.name_pt }}</td>
+                  <td class="travels-table-country" rowspan="{{ _country_row_count }}" data-country="{{ _c_entry.slug }}">{{ _c_entry.name }}</td>
                   {% else %}
                   <td class="travels-table-country" rowspan="{{ _country_row_count }}">{{ country }}</td>
                   {% endif %}

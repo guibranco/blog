@@ -1,32 +1,26 @@
-# Country name translations for the travels page.
-# `match` lists every spelling that may appear in a post's `countries:` front
-# matter (written in pt-BR there); `name_pt` / `name_en` are the display names
-# shown per UI language.
-- slug: albania
-  match: [Albânia]
-  name_pt: Albânia
+# Country registry for the travels page.
+# `name` is the pt-BR display name and MUST match the value used in a post's
+# `countries:` front matter (the blog audit checks this). `name_en` is the
+# English label shown when the UI language is EN; `slug` ties the two together
+# for the client-side language switch.
+- name: Albânia
+  slug: albania
   name_en: Albania
-- slug: emirados-arabes-unidos
-  match: [Emirados Árabes Unidos]
-  name_pt: Emirados Árabes Unidos
+- name: Emirados Árabes Unidos
+  slug: emirados-arabes-unidos
   name_en: United Arab Emirates
-- slug: grecia
-  match: [Grécia]
-  name_pt: Grécia
+- name: Grécia
+  slug: grecia
   name_en: Greece
-- slug: irlanda
-  match: [Irlanda]
-  name_pt: Irlanda
+- name: Irlanda
+  slug: irlanda
   name_en: Ireland
-- slug: malta
-  match: [Malta]
-  name_pt: Malta
+- name: Malta
+  slug: malta
   name_en: Malta
-- slug: portugal
-  match: [Portugal]
-  name_pt: Portugal
+- name: Portugal
+  slug: portugal
   name_en: Portugal
-- slug: reino-unido
-  match: [Reino Unido]
-  name_pt: Reino Unido
+- name: Reino Unido
+  slug: reino-unido
   name_en: United Kingdom
