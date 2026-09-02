@@ -208,6 +208,8 @@
   slug: continuous-integration
 - name: contratacao
   slug: contratacao
+- name: contrato
+  slug: contrato
 - name: corfu
   slug: corfu
 - name: cosmos-db
@@ -480,6 +482,8 @@
     - /tags/holidayapi/
 - name: homelab
   slug: homelab
+- name: hora-extra
+  slug: hora-extra
 - name: hospedagem
   slug: hospedagem
 - name: hostel
@@ -940,6 +944,8 @@
     - /tags/sms/
 - name: smtp
   slug: smtp
+- name: sobreaviso
+  slug: sobreaviso
 - name: software
   slug: software
 - name: software-engineer
@@ -1072,6 +1078,8 @@
   slug: viagem
 - name: vida-noturna
   slug: vida-noturna
+- name: vinculo-empregaticio
+  slug: vinculo-empregaticio
 - name: visto-de-trabalho
   slug: visto-de-trabalho
 - name: visual-studio
