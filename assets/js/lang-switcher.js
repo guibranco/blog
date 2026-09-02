@@ -5,6 +5,12 @@
   var siteLang = window.__siteLang || 'pt-BR';
   var STORAGE_KEY = 'preferred-lang';
 
+  // slug -> country entry, from _data/countries.yml (used for [data-country] cells)
+  var countries = (window.__countries || []).reduce(function (acc, c) {
+    if (c && c.slug) acc[c.slug] = c;
+    return acc;
+  }, {});
+
   function detectBrowserLang() {
     var available = Object.keys(i18n);
     var candidates = navigator.languages?.length
@@ -50,6 +56,12 @@
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var v = t[el.dataset.i18n];
       if (v !== undefined) el.textContent = v;
+    });
+
+    var nameKey = 'name_' + lang.split('-')[0].toLowerCase(); // pt-BR -> name_pt, en -> name_en
+    document.querySelectorAll('[data-country]').forEach(function (el) {
+      var entry = countries[el.dataset.country];
+      if (entry && entry[nameKey]) el.textContent = entry[nameKey];
     });
 
     document.querySelectorAll('[data-date]').forEach(function (el) {

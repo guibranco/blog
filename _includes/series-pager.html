@@ -1,0 +1,17 @@
+{% comment %}
+  Bottom-of-article series pager: a compact prev/next block so readers can move
+  to the next part without scrolling back up to the banner. Renders nothing when
+  the page is not part of a series or has no neighbouring parts.
+{% endcomment %}
+{% if page.series %}
+  {% assign _pager_posts = site.posts | where: "series", page.series | sort: "series_part" %}
+  {% if _pager_posts.size > 1 %}
+  <nav class="series-banner series-pager" aria-label="{{ page.series_title | default: page.series }}">
+    <div class="series-banner-header">
+      <span class="series-banner-label"><i class="fas fa-layer-group"></i> <span data-i18n="series_continue_label">{{ _t.series_continue_label }}</span></span>
+      <span class="series-banner-progress"><span data-i18n="series_part_label">{{ _t.series_part_label }}</span> {{ page.series_part }} <span data-i18n="series_of_label">{{ _t.series_of_label }}</span> {{ _pager_posts.size }}</span>
+    </div>
+    {% include series-nav.html %}
+  </nav>
+  {% endif %}
+{% endif %}

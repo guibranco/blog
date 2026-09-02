@@ -1,0 +1,38 @@
+{% comment %}
+  Prev/next navigation for a series. Self-contained: recomputes the ordered
+  series list so it can be included anywhere on a post page (top banner, bottom
+  pager). Renders nothing when the page is not part of a series or has no
+  neighbouring parts.
+{% endcomment %}
+{% if page.series %}
+  {% assign series_posts = site.posts | where: "series", page.series | sort: "series_part" %}
+  {% assign series_total = series_posts | size %}
+  {% assign series_index = 0 %}
+  {% for sp in series_posts %}
+    {% if sp.url == page.url %}{% assign series_index = forloop.index0 %}{% endif %}
+  {% endfor %}
+  {% assign prev_i = series_index | minus: 1 %}
+  {% assign next_i = series_index | plus: 1 %}
+  {% if prev_i >= 0 or next_i < series_total %}
+  <div class="series-nav">
+    {% if prev_i >= 0 %}
+      {% assign prev_post = series_posts[prev_i] %}
+      <a class="series-nav-link series-nav-prev" href="{{ prev_post.url | relative_url }}" rel="prev">
+        <span class="series-nav-dir">&larr; <span data-i18n="series_part_label">{{ _t.series_part_label }}</span> {{ prev_post.series_part }}</span>
+        <span class="series-nav-title">{{ prev_post.title }}</span>
+      </a>
+    {% else %}
+      <span class="series-nav-empty"></span>
+    {% endif %}
+    {% if next_i < series_total %}
+      {% assign next_post = series_posts[next_i] %}
+      <a class="series-nav-link series-nav-next" href="{{ next_post.url | relative_url }}" rel="next">
+        <span class="series-nav-dir"><span data-i18n="series_part_label">{{ _t.series_part_label }}</span> {{ next_post.series_part }} &rarr;</span>
+        <span class="series-nav-title">{{ next_post.title }}</span>
+      </a>
+    {% else %}
+      <span class="series-nav-empty"></span>
+    {% endif %}
+  </div>
+  {% endif %}
+{% endif %}

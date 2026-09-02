@@ -166,6 +166,7 @@
 
   <script>
     window.__i18n = {{ site.data.i18n | jsonify }};
+    window.__countries = {{ site.data.countries | jsonify }};
     window.__siteLang = "pt-BR";
     window.__articleLang = "{{ page.lang | default: 'pt-BR' }}";
   </script>

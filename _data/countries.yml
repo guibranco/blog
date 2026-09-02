@@ -1,14 +1,32 @@
-- name: Albânia
-  slug: albania
-- name: Emirados Árabes Unidos
-  slug: emirados-arabes-unidos
-- name: Grécia
-  slug: grecia
-- name: Irlanda
-  slug: irlanda
-- name: Malta
-  slug: malta
-- name: Portugal
-  slug: portugal
-- name: Reino Unido
-  slug: reino-unido
+# Country name translations for the travels page.
+# `match` lists every spelling that may appear in a post's `countries:` front
+# matter (written in pt-BR there); `name_pt` / `name_en` are the display names
+# shown per UI language.
+- slug: albania
+  match: [Albânia]
+  name_pt: Albânia
+  name_en: Albania
+- slug: emirados-arabes-unidos
+  match: [Emirados Árabes Unidos]
+  name_pt: Emirados Árabes Unidos
+  name_en: United Arab Emirates
+- slug: grecia
+  match: [Grécia]
+  name_pt: Grécia
+  name_en: Greece
+- slug: irlanda
+  match: [Irlanda]
+  name_pt: Irlanda
+  name_en: Ireland
+- slug: malta
+  match: [Malta]
+  name_pt: Malta
+  name_en: Malta
+- slug: portugal
+  match: [Portugal]
+  name_pt: Portugal
+  name_en: Portugal
+- slug: reino-unido
+  match: [Reino Unido]
+  name_pt: Reino Unido
+  name_en: United Kingdom

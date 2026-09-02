@@ -1233,6 +1233,11 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 .series-index-grid { display: flex; flex-direction: column; gap: 1.5rem; }
 .series-index-item { border-radius: 12px; }
 
+/* Bottom-of-article series pager */
+.series-pager { border-radius: 16px; padding: 1.5rem 2rem; }
+.series-pager .series-banner-header { margin-bottom: 1rem; }
+@media (max-width: 600px) { .series-pager { border-radius: 12px; padding: 1.25rem 1.25rem; } }
+
 /* ── Tags pages ────────────────────────────────────────────────────────────── */
 .section-meta {
   font-family: 'JetBrains Mono', monospace;
