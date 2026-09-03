@@ -2,7 +2,7 @@
 layout: post
 lang: pt-BR
 title: "Amsterdã no Koningsdag: 5 dias no King's Day saindo de Dublin"
-description: "Relato completo de 5 dias em Amsterdã durante o Koningsdag 2026, com Koningsnacht no Madam do A'DAM Toren, coffeeshops, Leidseplein e hospedagem em Duivendrecht. Timeline reconstruída por GPS, custos reais e dicas práticas."
+description: "Relato completo de 5 dias em Amsterdã durante o Koningsdag 2026, com Koningsnacht no Madam do A'DAM Toren, coffeeshops, Leidseplein e hospedagem no Outside Inn (camping urbano). Timeline reconstruída por GPS, custos reais e dicas práticas."
 date: 2026-05-02
 categories: [Hobbies]
 subcategories:
@@ -18,7 +18,7 @@ location:
   label: "Amsterdã, Países Baixos"
 ---
 
-<p class="lead">Cinco dias em Amsterdã na única semana do ano em que a cidade inteira fica laranja. Cheguei no sábado, 25/04, e voltei na quarta, 29/04 — pegando o Koningsnacht no domingo e o Koningsdag na segunda-feira, 27 de abril. Este relato foi reconstruído a partir do histórico de GPS e do extrato bancário do período, então os horários e os valores são os reais, não os lembrados.</p>
+<p class="lead">Cinco dias em Amsterdã na única semana do ano em que a cidade inteira fica laranja. Cheguei no sábado, 25/04, e voltei na quarta, 29/04 — pegando o Koningsnacht no domingo e o Koningsdag na segunda-feira, 27 de abril. Foi a minha segunda vez nos Países Baixos e em Amsterdã: a primeira tinha sido em 2022, num circuito por Países Baixos, Bélgica e Alemanha que ainda rendeu o meu primeiro Oktoberfest. Este relato foi reconstruído a partir do histórico de GPS e do extrato bancário do período, então os horários e os valores são os reais, não os lembrados.</p>
 
 <div class="callout callout-tip">
   <div class="callout-label">Moeda e pagamentos</div>
@@ -27,7 +27,7 @@ location:
 
 <div class="callout callout-warn">
   <div class="callout-label">De onde vêm os números</div>
-  Os valores deste post vêm da <strong>fatura da Kiwi.com</strong> (emitida em 27/02/2026) e do <strong>extrato bancário</strong> do período de 25/04 a 02/05 — não da minha memória. Um ponto segue pendente de confirmação: <strong>o rateio final da hospedagem</strong>, que pode ter sido reembolsado a um integrante do grupo. Também há dois lançamentos de origem ambígua no período (≈ € 37) que deixei de fora dos totais.
+  Os valores deste post vêm da <strong>fatura da Kiwi.com</strong> (emitida em 27/02/2026) e do <strong>extrato bancário</strong> do período de 25/04 a 02/05 — não da minha memória. A <strong>hospedagem</strong> foi fechada e paga por uma amiga do grupo; a minha parte (€ 450) eu acertei por transferência, então ela quase não aparece no meu extrato. Também há dois lançamentos de origem ambígua no período (≈ € 37) que deixei de fora dos totais.
 </div>
 
 <div class="divider">· · ·</div>
@@ -105,8 +105,8 @@ Precisei fazer uma **segunda alteração**, dessa vez por **€ 46,00**, para ch
 O voo de ida estava marcado para as **11h10** (horário irlandês), mas o registro de GPS só marca a decolagem às **12h43** — cerca de 1h30 depois do previsto. O pouso em **Amsterdam Schiphol** foi por volta das **15h45** (horário local; os Países Baixos estão 1 hora à frente da Irlanda).
 
 <div class="callout callout-warn">
-  <div class="callout-label">Erro de planejamento: cheguei cedo demais</div>
-  Saí de casa às <strong>05h30</strong> para um voo das 11h10 — e que só decolou às 12h43. O registro de GPS mostra mais de <strong>seis horas</strong> entre sair de casa e sair do chão, sendo que na noite anterior eu tinha ficado acordado até quase 05h00 na rua, em Dublin. Não recomendo repetir. Se o voo é do meio da manhã, durma.
+  <div class="callout-label">Fui direto da festa para o aeroporto</div>
+  Na véspera eu tinha ido a um evento de música eletrônica no <strong>Opium</strong>, emendei um after no <strong>Drops Studio</strong> (D01) até 1h, passei em casa só para pegar a mala e ainda fui para um segundo after na casa de duas amigas (D09). Saí de lá às <strong>9h20</strong> e cheguei ao aeroporto às <strong>9h32</strong> — sem ter dormido — para um voo das 11h10 que só decolou às <strong>12h43</strong>. A corrida não valeu de nada. Se o voo é do meio da manhã, durma — e não conte com o atraso para te salvar.
 </div>
 
 ### De Schiphol ao centro
@@ -140,10 +140,17 @@ A conexão Schiphol → cidade é uma das mais simples da Europa: o trem sai de 
 
 <div class="section-header">
   <div class="section-num">03</div>
-  <div class="section-title-wrap"><h2>Hospedagem: Duivendrecht, fora do centro</h2></div>
+  <div class="section-title-wrap"><h2>Hospedagem: Outside Inn, no sudeste, fora do centro</h2></div>
 </div>
 
-Ficamos em **Duivendrecht**, no sudeste da região metropolitana — tecnicamente já fora do município de Amsterdã, a cerca de **13 minutos de metrô** da Amsterdam Centraal e a poucos minutos a pé da estação.
+O Outside Inn fica na **Ellermanstraat**, no sudeste de Amsterdã — dentro do município, na região da Johan Cruijff ArenA e do Ziggo Dome. A estação de trem e metrô mais próxima é a de **Duivendrecht**, a uns dez minutos a pé, com metrô até a Amsterdam Centraal em cerca de **13 minutos** e trem direto para Schiphol.
+
+Viajamos em grupo e a hospedagem foi o **Outside Inn**, um hostel com proposta de *camping urbano*: trailers e chalés montados dentro de um galpão. Foi reservado **antes de 26 de fevereiro** — dois meses antes — com **cancelamento gratuito até 20 de abril**. Quem fechou e pagou a reserva foi **uma amiga do grupo**; eu acertei a minha parte por transferência depois. A divisão de camas ficou assim:
+
+- **Um casal do grupo** (uma amiga e o namorado) numa cabana de casal.
+- **Eu e um amigo** numa cabana com duas camas de solteiro — e esse amigo ia embora antes do fim da viagem.
+
+No total, a hospedagem saiu por **€ 450 para mim** e **€ 270 para o amigo que foi embora antes**.
 
 **Prós:**
 - Preço muito abaixo do centro na semana do Koningsdag, quando as diárias no Centrum explodem
@@ -179,7 +186,7 @@ Ficamos em **Duivendrecht**, no sudeste da região metropolitana — tecnicament
     <tr>
       <td>Dia 1 — Chegada</td>
       <td>25/04 (Sáb)</td>
-      <td>Saída de casa 05h30 · Voo DUB→AMS ≈ 12h45–15h45 · Trem Schiphol→Duivendrecht 16h37 · Check-in 17h11 · Metrô ao Centraal 18h23 · Damrak, Dam e Rokin · Noite no Red Light District até 23h45</td>
+      <td>Direto da balada ao aeroporto (9h32) · Voo DUB→AMS ≈ 12h45–15h45 · Trem Schiphol→Duivendrecht 16h37 · Check-in 17h11 · Metrô ao Centraal 18h23 · Damrak, Dam e Rokin · Noite no Red Light District até 23h45</td>
       <td>— (voo comprado em 27/02; ver §02)</td>
     </tr>
     <tr>
@@ -221,7 +228,7 @@ Ficamos em **Duivendrecht**, no sudeste da região metropolitana — tecnicament
   <div class="section-title-wrap"><h2>Dia 1 — 25/04: chegada e o primeiro contato com o centro</h2></div>
 </div>
 
-Cheguei ao apartamento às **17h11**, larguei a mala e às **18h23** já estava no metrô para a Amsterdam Centraal. O primeiro passeio foi o mais óbvio possível — e não tem nada de errado nisso:
+Cheguei à cabana às **17h11**, larguei a mala e às **18h23** já estava no metrô para a Amsterdam Centraal. O primeiro passeio foi o mais óbvio possível — e não tem nada de errado nisso:
 
 - **18h40–19h26** — a região do **Damrak**, saindo da estação em direção ao centro. É a avenida-cartão-postal, cheia de casas de canal estreitas e inclinadas.
 - **19h53–20h29** — **Dam / Rokin**, o coração turístico da cidade.
@@ -242,7 +249,7 @@ Voltei para casa perto da meia-noite, de metrô.
   <div class="section-title-wrap"><h2>Dia 2 — 26/04: o dia inteiro a pé e o Koningsnacht no Madam</h2></div>
 </div>
 
-Domingo foi o dia mais "cidade" da viagem. Saí do apartamento às **11h54**, metrô às 12h03, e a partir daí foram quase **duas horas caminhando** pelo centro sem destino fixo — que é, honestamente, a melhor forma de conhecer Amsterdã.
+Domingo foi o dia mais "cidade" da viagem. Saí da cabana às **11h54**, metrô às 12h03, e a partir daí foram quase **duas horas caminhando** pelo centro sem destino fixo — que é, honestamente, a melhor forma de conhecer Amsterdã.
 
 Paradas registradas: **14h15–14h35** na região do Dam/Nieuwezijds, **14h39–15h30** perto da Zeedijk, **15h52–16h39** na altura do Nieuwmarkt, e **16h45–18h01** de volta ao Red Light District.
 
@@ -329,7 +336,7 @@ E aqui vem o dado que melhor descreve o Koningsdag em Amsterdã: entre **15h50 e
   <div class="section-title-wrap"><h2>Dia 4 — 28/04: Leidseplein e mais 5 km a pé</h2></div>
 </div>
 
-Terça-feira foi o dia de recuperação. Fiquei no apartamento até as **16h52** e fui de carro (aplicativo) direto ao **Leidseplein** — a praça que concentra a maior parte da vida noturna "convencional" de Amsterdã, com teatros, casas de show, bares e restaurantes. Fiquei por lá das **17h13 às 19h31**.
+Terça-feira foi o dia de recuperação. Fiquei na cabana até as **16h52** e fui de carro (aplicativo) direto ao **Leidseplein** — a praça que concentra a maior parte da vida noturna "convencional" de Amsterdã, com teatros, casas de show, bares e restaurantes. Fiquei por lá das **17h13 às 19h31**.
 
 De lá, outra caminhada longa: **5 km em 2h17**, do Leidseplein até a região do Rokin, no centro histórico. É um trajeto que passa pelo cinturão dos canais e é bonito de fazer no fim de tarde.
 
@@ -394,6 +401,12 @@ O voo pousou em Dublin às **14h14** (horário irlandês). Do aeroporto peguei o
 </div>
 
 <div class="providers-grid">
+
+  <div class="provider-card">
+    <div class="provider-name">Outside Inn</div>
+    <div class="provider-detail">Hostel de <em>camping urbano</em>: trailers, chalés e "beach houses" vintage montados dentro de um galpão aquecido de 1.000 m², com grama e árvores. No sudeste de Amsterdã (Ellermanstraat 31), perto da Johan Cruijff ArenA e do Ziggo Dome, a ~10 min a pé da estação de Duivendrecht.</div>
+    <div class="provider-price">Minha parte: € 450 (4 noites) · <a href="https://www.outsideinn.nl/en/" target="_blank">outsideinn.nl</a></div>
+  </div>
 
   <div class="provider-card">
     <div class="provider-name">Madam — A'DAM Toren</div>
@@ -464,7 +477,7 @@ O voo pousou em Dublin às **14h14** (horário irlandês). Do aeroporto peguei o
   <div class="section-title-wrap"><h2>Resumo financeiro</h2></div>
 </div>
 
-Os valores abaixo saíram da fatura da Kiwi.com e do extrato bancário do período 25/04 a 02/05. O bloco "no destino" representa **apenas o que passou no meu cartão em Amsterdã** — o rateio final da hospedagem pode ter sido acertado por outro meio.
+Os valores abaixo saíram da fatura da Kiwi.com e do extrato bancário do período 25/04 a 02/05. O bloco "no destino" representa **apenas o que passou no meu cartão em Amsterdã** — a hospedagem foi paga a uma amiga do grupo e só **€ 100,40** dela caíram no meu cartão; a minha parte real foi **€ 450**, o resto por transferência.
 
 <table class="compare-table">
   <thead>
@@ -478,7 +491,7 @@ Os valores abaixo saíram da fatura da Kiwi.com e do extrato bancário do perío
     <tr><td>Coffeeshops e bares — The Bulldog</td><td>€ 324,80</td><td>≈ € 64,96</td></tr>
     <tr><td>Transporte local (OVpay € 104,45 + apps € 55,80)</td><td>€ 160,25</td><td>≈ € 32,05</td></tr>
     <tr><td>Alimentação e mercado</td><td>€ 154,17</td><td>≈ € 30,83</td></tr>
-    <tr><td>Hospedagem (lançamento no cartão)</td><td>€ 100,40</td><td>≈ € 20,08</td></tr>
+    <tr><td>Hospedagem (só o que caiu no cartão — parte real € 450)</td><td>€ 100,40</td><td>≈ € 20,08</td></tr>
     <tr><td>Outros bares e coffeeshops</td><td>€ 93,50</td><td>≈ € 18,70</td></tr>
     <tr><td>Madam — consumo</td><td>€ 72,50</td><td>—</td></tr>
     <tr><td>Compras e souvenirs (bazar + loja)</td><td>€ 62,97</td><td>—</td></tr>
