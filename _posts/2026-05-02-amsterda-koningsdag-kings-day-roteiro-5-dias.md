@@ -366,23 +366,23 @@ O voo pousou em Dublin às **14h14** (horário irlandês). Do aeroporto peguei o
 </div>
 
 <div class="photo-gallery">
-  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026-01.jpg" class="glightbox" data-gallery="amsterda" data-title="">
-    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026-01.jpg" alt="">
+  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026/01-2026-04-25-canal-centro-historico-entardecer.jpg" class="glightbox" data-gallery="amsterda" data-title="Centro histórico, no fim da tarde da chegada — 25/04">
+    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026/01-2026-04-25-canal-centro-historico-entardecer.jpg" alt="Canal do centro histórico de Amsterdã ao fim da tarde, com casas de canal, um barco e gente sentada na beira da água" loading="lazy">
   </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026-02.jpg" class="glightbox" data-gallery="amsterda" data-title="">
-    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026-02.jpg" alt="">
+  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026/02-2026-04-25-canal-com-barco-e-casa-flutuante.jpg" class="glightbox" data-gallery="amsterda" data-title="Primeiro passeio pelos canais — 25/04">
+    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026/02-2026-04-25-canal-com-barco-e-casa-flutuante.jpg" alt="Canal tranquilo de Amsterdã com um barquinho e uma casa flutuante atracados, bicicletas no parapeito e árvores de primavera" loading="lazy">
   </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026-03.jpg" class="glightbox" data-gallery="amsterda" data-title="">
-    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026-03.jpg" alt="">
+  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026/03-2026-04-25-por-do-sol-no-oosterdok.jpg" class="glightbox" data-gallery="amsterda" data-title="Pôr do sol no Oosterdok — 25/04">
+    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026/03-2026-04-25-por-do-sol-no-oosterdok.jpg" alt="Pôr do sol sobre a água no Oosterdok, com a silhueta da cidade ao fundo, visto de um barco" loading="lazy">
   </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026-04.jpg" class="glightbox" data-gallery="amsterda" data-title="">
-    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026-04.jpg" alt="">
+  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026/04-2026-04-26-koningsnacht-multidao-no-centro.jpg" class="glightbox" data-gallery="amsterda" data-title="Koningsnacht: o centro já lotado — 26/04">
+    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026/04-2026-04-26-koningsnacht-multidao-no-centro.jpg" alt="Rua do centro de Amsterdã lotada no dia do Koningsnacht, com prédios ornamentados e um grupo de despedida de solteira de camiseta combinando" loading="lazy">
   </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026-05.jpg" class="glightbox" data-gallery="amsterda" data-title="">
-    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026-05.jpg" alt="">
+  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026/05-2026-04-26-canais-perto-da-oude-kerk.jpg" class="glightbox" data-gallery="amsterda" data-title="Canais lotados perto da Oude Kerk — 26/04">
+    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026/05-2026-04-26-canais-perto-da-oude-kerk.jpg" alt="Canal do centro antigo de Amsterdã com barcos passando e multidão nas margens, torre da Oude Kerk ao fundo" loading="lazy">
   </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026-06.jpg" class="glightbox" data-gallery="amsterda" data-title="">
-    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026-06.jpg" alt="">
+  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026/06-2026-04-26-red-light-district-casa-rosso.jpg" class="glightbox" data-gallery="amsterda" data-title="Red Light District (De Wallen), na altura do Casa Rosso — 26/04">
+    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026/06-2026-04-26-red-light-district-casa-rosso.jpg" alt="Rua do Red Light District de Amsterdã à beira do canal, com o letreiro do Casa Rosso e uma pessoa de moletom laranja escrito Holland caminhando" loading="lazy">
   </a>
 </div>
 
