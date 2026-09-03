@@ -535,7 +535,7 @@ Os valores abaixo saíram da fatura da Kiwi.com e do extrato bancário do perío
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-crown"></i> Koningsdag — Gemeente Amsterdam</div>
     <div class="provider-detail">Página oficial da prefeitura com mapas, ruas fechadas, regras para barcos e informações de transporte no dia.</div>
-    <div class="provider-price"><a href="https://www.amsterdam.nl/nieuws/evenementen-herdenkingen/koningsdag-2026/" target="_blank">amsterdam.nl →</a></div>
+    <div class="provider-price"><a href="https://www.amsterdam.nl/koningsdag/" target="_blank">amsterdam.nl →</a></div>
   </div>
 
   <div class="provider-card">
