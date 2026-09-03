@@ -27,7 +27,7 @@ location:
 
 <div class="callout callout-warn">
   <div class="callout-label">De onde vêm os números</div>
-  Os valores deste post vêm da <strong>fatura da Kiwi.com</strong> (emitida em 27/02/2026) e do <strong>extrato bancário</strong> do período de 25/04 a 02/05 — não da minha memória. A <strong>hospedagem</strong> foi fechada e paga por uma amiga do grupo; a minha parte (€ 450) eu acertei por transferência, então ela quase não aparece no meu extrato. Também há dois lançamentos de origem ambígua no período (≈ € 37) que deixei de fora dos totais.
+  Os valores deste post vêm da <strong>fatura da Kiwi.com</strong> (emitida em 27/02/2026) e do <strong>extrato bancário</strong> do período de 25/04 a 02/05 — não da minha memória. Duas transações à parte, ≈ € 37 no total, foram a <strong>taxa de turismo da cidade</strong> e o <strong>consumo no próprio hostel</strong> (café da manhã, cerveja, água, chocolate).
 </div>
 
 <div class="divider">· · ·</div>
@@ -102,6 +102,11 @@ Precisei fazer uma **segunda alteração**, dessa vez por **€ 46,00**, para ch
   A lição prática: <strong>alterar passagem é quase sempre mais caro do que comprar de novo com antecedência</strong>, e o custo é cobrado por operação. Errar duas vezes custa duas vezes. Se você percebeu o erro, pare, confira a data três vezes e faça <strong>uma</strong> alteração só.
 </div>
 
+<div class="callout callout-tip">
+  <div class="callout-label">Quanto custa a mesma passagem hoje</div>
+  Enquanto escrevia isto eu já estava pesquisando o Koningsdag de <strong>2027</strong>: Dublin ↔ Amsterdã na semana do feriado sai por <strong>€ 124</strong> ida e volta (ida na KLM, volta na Ryanair), com o mesmo preço para <strong>23 a 28</strong> ou <strong>24 a 29 de abril</strong>. Menos do que a minha reserva original de € 138,00 — e menos da metade dos € 261,00 que acabei pagando.
+</div>
+
 O voo de ida estava marcado para as **11h10** (horário irlandês), mas o registro de GPS só marca a decolagem às **12h43** — cerca de 1h30 depois do previsto. O pouso em **Amsterdam Schiphol** foi por volta das **15h45** (horário local; os Países Baixos estão 1 hora à frente da Irlanda).
 
 <div class="callout callout-warn">
@@ -127,13 +132,13 @@ A conexão Schiphol → cidade é uma das mais simples da Europa: o trem sai de 
   <div class="provider-card">
     <div class="provider-name">OVpay (contactless)</div>
     <div class="provider-detail">Não comprei nenhum bilhete físico nem cartão OV-chipkaart. Basta encostar o cartão de débito/crédito na catraca na entrada e na saída — o OVpay agrupa as viagens e cobra depois.</div>
-    <div class="provider-price">€ 104,45 no total dos 5 dias · <a href="https://www.ovpay.nl/en" target="_blank">ovpay.nl</a></div>
+    <div class="provider-price">€ 104,45 no cartão (≈ € 70,45 a minha parte; o resto foi a passagem de trem de um amigo no dia 26) · <a href="https://www.ovpay.nl/en" target="_blank">ovpay.nl</a></div>
   </div>
 </div>
 
 <div class="callout callout-tip">
   <div class="callout-label">OVpay: encoste na entrada <em>e</em> na saída</div>
-  O sistema cobra por trajeto, com um valor de garantia bloqueado no <em>check-in</em> e o acerto no <em>check-out</em>. Se esquecer de encostar na saída, paga a tarifa cheia da linha. Os lançamentos aparecem agrupados no extrato dias depois — por isso os meus € 68,00 do dia 26 e mais € 36,45 que só caíram em 01/05.
+  O sistema cobra por trajeto, com um valor de garantia bloqueado no <em>check-in</em> e o acerto no <em>check-out</em>. Se esquecer de encostar na saída, paga a tarifa cheia da linha. Os lançamentos aparecem agrupados no extrato dias depois — por isso um lançamento de € 68,00 no dia 26 (que juntou a minha passagem de trem e a de um amigo; a minha parte foi ≈ € 34,00) e mais € 36,45 que só caíram em 01/05.
 </div>
 
 <div class="divider">· · ·</div>
@@ -145,12 +150,12 @@ A conexão Schiphol → cidade é uma das mais simples da Europa: o trem sai de 
 
 O Outside Inn fica na **Ellermanstraat**, no sudeste de Amsterdã — dentro do município, na região da Johan Cruijff ArenA e do Ziggo Dome. A estação de trem e metrô mais próxima é a de **Duivendrecht**, a uns dez minutos a pé, com metrô até a Amsterdam Centraal em cerca de **13 minutos** e trem direto para Schiphol.
 
-Viajamos em grupo e a hospedagem foi o **Outside Inn**, um hostel com proposta de *camping urbano*: trailers e chalés montados dentro de um galpão. Foi reservado **antes de 26 de fevereiro** — dois meses antes — com **cancelamento gratuito até 20 de abril**. Quem fechou e pagou a reserva foi **uma amiga do grupo**; eu acertei a minha parte por transferência depois. A divisão de camas ficou assim:
+Viajamos em grupo e a hospedagem foi o **Outside Inn**, um hostel com proposta de *camping urbano*: trailers e chalés montados dentro de um galpão. Reservamos **antes de 26 de fevereiro** — dois meses antes — com **cancelamento gratuito até 20 de abril**. A divisão de camas ficou assim:
 
-- **Um casal do grupo** (uma amiga e o namorado) numa cabana de casal.
-- **Eu e um amigo** numa cabana com duas camas de solteiro — e esse amigo ia embora antes do fim da viagem.
+- **Um casal do grupo** (uma amiga e o namorado) num chalé de casal.
+- **Eu e um amigo** num chalé com duas camas de solteiro — e esse amigo ia embora um dia antes do fim da viagem.
 
-No total, a hospedagem saiu por **€ 450 para mim** e **€ 270 para o amigo que foi embora antes**.
+O nosso chalé, com as duas camas de solteiro, saiu por **€ 718,02** no total: **€ 270,00** para o amigo e **€ 448,02** para mim. A diferença de € 178,02 é a diária do último dia — a única noite em que ele já tinha ido embora, e a tarifa cheia do quarto ficou toda comigo.
 
 **Prós:**
 - Preço muito abaixo do centro na semana do Koningsdag, quando as diárias no Centrum explodem
@@ -193,7 +198,7 @@ No total, a hospedagem saiu por **€ 450 para mim** e **€ 270 para o amigo qu
       <td>Dia 2 — Koningsnacht</td>
       <td>26/04 (Dom)</td>
       <td>Metrô ao Centraal 12h03 · Caminhada de 2h pelo centro · Jordaan e Zeedijk · Volta a pé para casa (5,6 km!) · Metrô 22h24 · Balsa ao A'DAM Toren · <strong>Madam</strong> 23h06–02h38</td>
-      <td>≈ € 202,37</td>
+      <td>≈ € 168,37</td>
     </tr>
     <tr>
       <td>Dia 3 — Koningsdag</td>
@@ -356,13 +361,13 @@ A noite terminou de volta no centro, até **01h05**, e a volta para Duivendrecht
 
 Acordei às **10h57** e saí com o tempo justo. O caminho de volta a Schiphol não foi pelo Centraal: metrô até **Lelylaan** (11h02–11h19), e de lá o **trem direto para Schiphol** (11h25–11h34) — nove minutos.
 
-Cheguei ao aeroporto às **11h34** para um voo às **13h37**. Duas horas de antecedência foram suficientes: o Schiphol é grande, mas eficiente. Comi no aeroporto (€ 8,60) e ainda passei no FEBO antes de embarcar.
+Cheguei ao aeroporto às **11h34** para um voo às **13h37**. Duas horas de antecedência foram suficientes: o Schiphol é grande, mas eficiente. Comi no aeroporto (€ 8,60) antes de embarcar.
 
 O voo pousou em Dublin às **14h14** (horário irlandês). Do aeroporto peguei o **ônibus até o centro** (14h35–15h19) e estava em casa às **15h21**.
 
 <div class="callout callout-tip">
   <div class="callout-label">FEBO: a máquina de comida holandesa</div>
-  O <strong>FEBO</strong> é uma instituição nos Países Baixos — uma parede de portinholas com croquetes, <em>frikandel</em> e hambúrgueres quentinhos atrás de vidro, que você abre depois de inserir o pagamento. Gastei € 30,10 nele ao longo da viagem, em quatro visitas diferentes. Não é alta gastronomia, mas é barato, funciona de madrugada e é uma experiência cultural por si só.
+  O <strong>FEBO</strong> é uma instituição nos Países Baixos — uma parede de portinholas com croquetes, <em>frikandel</em> e hambúrgueres quentinhos atrás de vidro, que você abre depois de inserir o pagamento. Gastei € 30,10 nele ao longo da viagem, em quatro visitas diferentes — a última na noite anterior à volta, na cidade. Não é alta gastronomia, mas é barato, funciona de madrugada e é uma experiência cultural por si só.
 </div>
 
 <div class="divider">· · ·</div>
@@ -405,7 +410,7 @@ O voo pousou em Dublin às **14h14** (horário irlandês). Do aeroporto peguei o
   <div class="provider-card">
     <div class="provider-name">Outside Inn</div>
     <div class="provider-detail">Hostel de <em>camping urbano</em>: trailers, chalés e "beach houses" vintage montados dentro de um galpão aquecido de 1.000 m², com grama e árvores. No sudeste de Amsterdã (Ellermanstraat 31), perto da Johan Cruijff ArenA e do Ziggo Dome, a ~10 min a pé da estação de Duivendrecht.</div>
-    <div class="provider-price">Minha parte: € 450 (4 noites) · <a href="https://www.outsideinn.nl/en/" target="_blank">outsideinn.nl</a></div>
+    <div class="provider-price">Chalé compartilhado € 718,02 · minha parte € 448,02 · <a href="https://www.outsideinn.nl/en/" target="_blank">outsideinn.nl</a></div>
   </div>
 
   <div class="provider-card">
@@ -477,7 +482,7 @@ O voo pousou em Dublin às **14h14** (horário irlandês). Do aeroporto peguei o
   <div class="section-title-wrap"><h2>Resumo financeiro</h2></div>
 </div>
 
-Os valores abaixo saíram da fatura da Kiwi.com e do extrato bancário do período 25/04 a 02/05. O bloco "no destino" representa **apenas o que passou no meu cartão em Amsterdã** — a hospedagem foi paga a uma amiga do grupo e só **€ 100,40** dela caíram no meu cartão; a minha parte real foi **€ 450**, o resto por transferência.
+Os valores vêm da fatura da Kiwi.com e do extrato bancário do período 25/04 a 02/05. A tabela vai em duas camadas: primeiro **o que passou no meu cartão em Amsterdã** (o bloco que reconcilia com a liquidação diária mais abaixo); depois o **custo real**, somando a parte da hospedagem que não caiu no cartão — a minha parte foi **€ 448,02** de um chalé compartilhado de **€ 718,02** — e a taxa de turismo mais o consumo no Outside Inn.
 
 <table class="compare-table">
   <thead>
@@ -489,41 +494,44 @@ Os valores abaixo saíram da fatura da Kiwi.com e do extrato bancário do perío
   </thead>
   <tbody>
     <tr><td>Coffeeshops e bares — The Bulldog</td><td>€ 324,80</td><td>≈ € 64,96</td></tr>
-    <tr><td>Transporte local (OVpay € 104,45 + apps € 55,80)</td><td>€ 160,25</td><td>≈ € 32,05</td></tr>
     <tr><td>Alimentação e mercado</td><td>€ 154,17</td><td>≈ € 30,83</td></tr>
-    <tr><td>Hospedagem (só o que caiu no cartão — parte real € 450)</td><td>€ 100,40</td><td>≈ € 20,08</td></tr>
+    <tr><td>Transporte local (OVpay € 70,45 + apps € 55,80)</td><td>€ 126,25</td><td>≈ € 25,25</td></tr>
+    <tr><td>Hospedagem — parte que caiu no cartão</td><td>€ 100,40</td><td>≈ € 20,08</td></tr>
     <tr><td>Outros bares e coffeeshops</td><td>€ 93,50</td><td>≈ € 18,70</td></tr>
     <tr><td>Madam — consumo</td><td>€ 72,50</td><td>—</td></tr>
     <tr><td>Compras e souvenirs (bazar + loja)</td><td>€ 62,97</td><td>—</td></tr>
     <tr><td>Ingressos (Fourvenues + Eticks)</td><td>€ 39,75</td><td>—</td></tr>
     <tr><td>Passeio guiado (Tulpa Tours)</td><td>€ 30,00</td><td>—</td></tr>
     <tr><td>Extras de voo (KLM + Aer Lingus)</td><td>€ 12,97</td><td>—</td></tr>
-    <tr><td><strong>Subtotal no destino</strong></td><td><strong>€ 1.051,31</strong></td><td><strong>≈ € 210,26/dia</strong></td></tr>
+    <tr><td><strong>Subtotal no cartão</strong></td><td><strong>€ 1.017,31</strong></td><td><strong>≈ € 203,46/dia</strong></td></tr>
+    <tr><td>Hospedagem — restante da minha parte (fora do cartão)</td><td>€ 347,62</td><td>—</td></tr>
+    <tr><td>Taxa de turismo + consumo no Outside Inn (estimado)</td><td>≈ € 37,00</td><td>—</td></tr>
+    <tr><td><strong>Subtotal real no destino</strong></td><td><strong>≈ € 1.401,93</strong></td><td><strong>≈ € 280,39/dia</strong></td></tr>
     <tr><td>Passagem aérea — reserva original</td><td>€ 138,00</td><td>—</td></tr>
     <tr><td>Passagem aérea — 2 alterações de data</td><td>€ 123,00</td><td>—</td></tr>
-    <tr><td><strong>Total da viagem</strong></td><td><strong>€ 1.312,31</strong></td><td><strong>≈ € 262,46/dia</strong></td></tr>
+    <tr><td><strong>Total real da viagem</strong></td><td><strong>≈ € 1.662,93</strong></td><td><strong>≈ € 332,59/dia</strong></td></tr>
   </tbody>
 </table>
 
-### O gasto no destino, distribuído por dia
+### O que caiu no cartão, por data de liquidação
 
 <table class="compare-table">
   <thead>
     <tr><th>Data de liquidação</th><th>Valor</th></tr>
   </thead>
   <tbody>
-    <tr><td>26/04 (Dom)</td><td>€ 202,37</td></tr>
+    <tr><td>26/04 (Dom)</td><td>€ 168,37</td></tr>
     <tr><td>27/04 (Seg) — Koningsdag</td><td>€ 332,40</td></tr>
     <tr><td>28/04 (Ter)</td><td>€ 193,59</td></tr>
     <tr><td>29/04 (Qua)</td><td>€ 267,90</td></tr>
     <tr><td>30/04 e 01/05 (liquidação atrasada)</td><td>€ 55,05</td></tr>
-    <tr><td><strong>Total</strong></td><td><strong>€ 1.051,31</strong></td></tr>
+    <tr><td><strong>Total no cartão</strong></td><td><strong>€ 1.017,31</strong></td></tr>
   </tbody>
 </table>
 
 <div class="callout callout-warn">
   <div class="callout-label">Onde o dinheiro realmente foi</div>
-  <strong>€ 418,30 dos € 1.051,31 — 39,8% — foram em coffeeshops e bares.</strong> Somando o consumo no Madam, chega a <strong>€ 490,80 (46,7%)</strong>. Tirando essa categoria, a viagem em si (transporte, comida, hospedagem no cartão, passeio, ingressos, compras e extras de voo) custou <strong>€ 560,51 em cinco dias</strong> — ou seja, <strong>≈ € 112 por dia</strong> numa das cidades mais caras da Europa, na semana mais cara do ano. A conta alta não é da cidade; é do estilo de viagem.
+  <strong>€ 418,30 foram em coffeeshops e bares.</strong> Somando o consumo no Madam, chega a <strong>€ 490,80</strong> — <strong>35% de todo o gasto no destino</strong> (€ 1.401,93). Tirando essa categoria, o resto — transporte, comida, hospedagem, passeio, ingressos, compras, taxa da cidade e extras de voo — foi <strong>€ 911,13 em cinco dias</strong>, ou <strong>≈ € 182 por dia</strong>. Numa das cidades mais caras da Europa, na semana mais cara do ano, a conta não é da cidade: é do estilo de viagem.
 </div>
 
 <div class="callout callout-tip">
@@ -533,7 +541,7 @@ Os valores abaixo saíram da fatura da Kiwi.com e do extrato bancário do perío
 
 <div class="callout callout-warn">
   <div class="callout-label">O custo real da desatenção</div>
-  Os <strong>€ 123,00</strong> gastos em alterações de data equivalem a <strong>9,4% de toda a viagem</strong> — mais do que gastei em passeio guiado, ingressos e souvenirs somados (€ 132,72, e por pouco). É o tipo de gasto que não aparece em nenhum relato de viagem, porque ninguém gosta de contar. Mas é exatamente o tipo de número que muda o comportamento de quem lê.
+  Os <strong>€ 123,00</strong> gastos em alterações de data equivalem a <strong>7,4% de toda a viagem</strong> — quase tanto quanto gastei em passeio guiado, ingressos e souvenirs somados (€ 132,72). É o tipo de gasto que não aparece em nenhum relato de viagem, porque ninguém gosta de contar. Mas é exatamente o tipo de número que muda o comportamento de quem lê.
 </div>
 
 <div class="divider">· · ·</div>
