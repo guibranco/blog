@@ -3,13 +3,13 @@ layout: post
 lang: pt-BR
 title: "Amsterdã no Koningsdag: 5 dias no King's Day saindo de Dublin"
 description: "Relato completo de 5 dias em Amsterdã durante o Koningsdag 2026, com Koningsnacht no Madam do A'DAM Toren, coffeeshops, Leidseplein e hospedagem em Duivendrecht. Timeline reconstruída por GPS, custos reais e dicas práticas."
-date: 2026-04-29
+date: 2026-05-02
 categories: [Hobbies]
 subcategories:
   - "Hobbies/Travel & Places"
 tags: [viagem, amsterda, holanda, paises-baixos, koningsdag, kings-day, irlanda, dublin, coffeeshop, red-light-district, adam-toren, europa, travel, places, locations]
 reading_time: 18
-image: /assets/img/posts/amsterda-2026.png
+image: /assets/img/posts/amsterda-2026.jpg
 gallery: true
 countries: [Países Baixos]
 location:
@@ -27,7 +27,7 @@ location:
 
 <div class="callout callout-warn">
   <div class="callout-label">De onde vêm os números</div>
-  Os valores deste post vêm da <strong>fatura da Kiwi.com</strong> (reserva 746931614, emitida em 27/02/2026) e do <strong>extrato bancário</strong> do período de 25/04 a 02/05 — não da minha memória. Um ponto segue pendente de confirmação: <strong>o rateio final da hospedagem</strong>, que pode ter sido reembolsado a um integrante do grupo. Também há dois lançamentos de origem ambígua no período (≈ € 37) que deixei de fora dos totais.
+  Os valores deste post vêm da <strong>fatura da Kiwi.com</strong> (emitida em 27/02/2026) e do <strong>extrato bancário</strong> do período de 25/04 a 02/05 — não da minha memória. Um ponto segue pendente de confirmação: <strong>o rateio final da hospedagem</strong>, que pode ter sido reembolsado a um integrante do grupo. Também há dois lançamentos de origem ambígua no período (≈ € 37) que deixei de fora dos totais.
 </div>
 
 <div class="divider">· · ·</div>
@@ -64,7 +64,7 @@ As passagens foram compradas pela **Kiwi.com** em **27/02/2026** — dois meses 
     <tr><td>Amsterdã (AMS) → Dublin (DUB), 13h20 CEST</td><td><strong>28/05/2026</strong> ⚠️</td><td>€ 87,06</td></tr>
     <tr><td>Bagagem de mão, 2 kg (ambos os trechos)</td><td>—</td><td>€ 0,00</td></tr>
     <tr><td>Taxa de serviço Kiwi (Saver Ticket)</td><td>—</td><td>€ 0,00</td></tr>
-    <tr><td><strong>Total da reserva 746931614</strong></td><td>—</td><td><strong>€ 138,00</strong></td></tr>
+    <tr><td><strong>Total da reserva</strong></td><td>—</td><td><strong>€ 138,00</strong></td></tr>
   </tbody>
 </table>
 
@@ -72,7 +72,7 @@ As passagens foram compradas pela **Kiwi.com** em **27/02/2026** — dois meses 
   <div class="callout-label">O erro que quase dobrou o custo do voo: comprei a volta para o mês errado</div>
   Repare na segunda linha da tabela. Comprei a ida para <strong>25 de abril</strong> e a volta para <strong>28 de maio</strong> — <strong>um mês depois</strong>, em vez de 28 de abril. Só percebi dias depois da compra, quando fui conferir a reserva.
   <br><br>
-  Os seletores de data dos buscadores abrem no mês seguinte com uma facilidade assustadora, e o dia da semana <em>bate</em>: 28 de abril é uma terça e 28 de maio também. Nada no fluxo de compra gritou comigo. <strong>Confira sempre o mês <em>e</em> o ano na tela de confirmação, não só o número do dia.</strong>
+  Os seletores de data dos buscadores abrem no mês seguinte com uma facilidade assustadora: 28 de abril é uma terça-feira, 28 de maio é uma quinta-feira, e na pressa eu conferi o número do dia sem conferir o mês. Nada no fluxo de compra gritou comigo. <strong>Confira sempre o mês <em>e</em> o ano na tela de confirmação, não só o número do dia.</strong>
 </div>
 
 ### E aí eu errei de novo
@@ -180,7 +180,7 @@ Ficamos em **Duivendrecht**, no sudeste da região metropolitana — tecnicament
       <td>Dia 1 — Chegada</td>
       <td>25/04 (Sáb)</td>
       <td>Saída de casa 05h30 · Voo DUB→AMS ≈ 12h45–15h45 · Trem Schiphol→Duivendrecht 16h37 · Check-in 17h11 · Metrô ao Centraal 18h23 · Damrak, Dam e Rokin · Noite no Red Light District até 23h45</td>
-      <td>Passagem € 261,00 (ver §02)</td>
+      <td>— (voo comprado em 27/02; ver §02)</td>
     </tr>
     <tr>
       <td>Dia 2 — Koningsnacht</td>
@@ -322,13 +322,6 @@ E aqui vem o dado que melhor descreve o Koningsdag em Amsterdã: entre **15h50 e
 
 À noite, entre **17h26 e 22h20**, fiquei na região da **Haarlemmerstraat / Brouwersgracht** — a oeste da Centraal, mais respirável do que o Dam e cheia de bares com mesa na rua. Voltei ao centro histórico depois e fiquei por lá até **00h30**.
 
-<div class="personal-story">
-  <div class="personal-story-label">
-    <i class="fas fa-user-circle"></i> Minha experiência — Koningsdag
-  </div>
-  <p><!-- TODO: escrever em primeira pessoa o que mais marcou o Koningsdag — a impressão da cidade laranja, o clima nas ruas, alguma cena específica que valha o parágrafo. --></p>
-</div>
-
 <div class="divider">· · ·</div>
 
 <div class="section-header">
@@ -373,23 +366,23 @@ O voo pousou em Dublin às **14h14** (horário irlandês). Do aeroporto peguei o
 </div>
 
 <div class="photo-gallery">
-  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026-01.jpg" class="glightbox" data-gallery="amsterda" data-title="<!-- TODO: descrição da foto 1 -->">
-    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026-01.jpg" alt="<!-- TODO: legenda foto 1 -->">
+  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026-01.jpg" class="glightbox" data-gallery="amsterda" data-title="">
+    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026-01.jpg" alt="">
   </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026-02.jpg" class="glightbox" data-gallery="amsterda" data-title="<!-- TODO: descrição da foto 2 -->">
-    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026-02.jpg" alt="<!-- TODO: legenda foto 2 -->">
+  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026-02.jpg" class="glightbox" data-gallery="amsterda" data-title="">
+    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026-02.jpg" alt="">
   </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026-03.jpg" class="glightbox" data-gallery="amsterda" data-title="<!-- TODO: descrição da foto 3 -->">
-    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026-03.jpg" alt="<!-- TODO: legenda foto 3 -->">
+  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026-03.jpg" class="glightbox" data-gallery="amsterda" data-title="">
+    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026-03.jpg" alt="">
   </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026-04.jpg" class="glightbox" data-gallery="amsterda" data-title="<!-- TODO: descrição da foto 4 -->">
-    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026-04.jpg" alt="<!-- TODO: legenda foto 4 -->">
+  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026-04.jpg" class="glightbox" data-gallery="amsterda" data-title="">
+    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026-04.jpg" alt="">
   </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026-05.jpg" class="glightbox" data-gallery="amsterda" data-title="<!-- TODO: descrição da foto 5 -->">
-    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026-05.jpg" alt="<!-- TODO: legenda foto 5 -->">
+  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026-05.jpg" class="glightbox" data-gallery="amsterda" data-title="">
+    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026-05.jpg" alt="">
   </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026-06.jpg" class="glightbox" data-gallery="amsterda" data-title="<!-- TODO: descrição da foto 6 -->">
-    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026-06.jpg" alt="<!-- TODO: legenda foto 6 -->">
+  <a href="{{ site.baseurl }}/assets/img/posts/amsterda-2026-06.jpg" class="glightbox" data-gallery="amsterda" data-title="">
+    <img src="{{ site.baseurl }}/assets/img/posts/amsterda-2026-06.jpg" alt="">
   </a>
 </div>
 
