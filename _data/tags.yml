@@ -1,5 +1,7 @@
 - name: acoes
   slug: acoes
+- name: adam-toren
+  slug: adam-toren
 - name: adaptacao
   slug: adaptacao
 - name: albania
@@ -10,6 +12,8 @@
   slug: aluguel-de-carro
 - name: always-free
   slug: always-free
+- name: amsterda
+  slug: amsterda
 - name: analista
   slug: analista
   redirect_from:
@@ -182,6 +186,8 @@
     - /tags/clt/
 - name: code-quality
   slug: code-quality
+- name: coffeeshop
+  slug: coffeeshop
 - name: colecao
   slug: colecao
 - name: collection
@@ -476,6 +482,8 @@
   slug: hibrido
 - name: hobbies
   slug: hobbies
+- name: holanda
+  slug: holanda
 - name: holidayapi
   slug: holidayapi
   redirect_from:
@@ -580,8 +588,12 @@
   slug: kafka
 - name: kestrel
   slug: kestrel
+- name: kings-day
+  slug: kings-day
 - name: kiwi
   slug: kiwi
+- name: koningsdag
+  slug: koningsdag
 - name: ksamil
   slug: ksamil
 - name: lavinmq
@@ -748,6 +760,8 @@
   slug: outsurance
 - name: paceville
   slug: paceville
+- name: paises-baixos
+  slug: paises-baixos
 - name: pandemia
   slug: pandemia
 - name: pejotizacao
@@ -850,6 +864,8 @@
   slug: recursos
   redirect_from:
     - /tags/recursos/
+- name: red-light-district
+  slug: red-light-district
 - name: redis
   slug: redis
 - name: relocation
