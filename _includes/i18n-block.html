@@ -1,0 +1,19 @@
+{%- comment -%}
+  Bilingual inline text block.
+
+  Renders the Portuguese text visible and the English text hidden; the English
+  span carries the `hidden` attribute in the server output, and
+  assets/js/lang-switcher.js toggles the two on UI-language change. With
+  JavaScript disabled the Portuguese text (the site default) is what shows.
+
+  This is the same client-side swap the rest of the site uses for `[data-i18n]`
+  elements — extended to arbitrary per-item content that would not belong in
+  the _data/i18n.yml UI dictionary.
+
+  Parameters:
+    pt     - Portuguese text (required; may contain inline HTML)
+    en     - English text (optional; falls back to `pt`)
+    class  - extra class applied to both spans (optional)
+{%- endcomment -%}
+{%- assign _ib_en = include.en | default: include.pt -%}
+<span class="i18n-pt{% if include.class %} {{ include.class }}{% endif %}" lang="pt-BR">{{ include.pt }}</span><span class="i18n-en{% if include.class %} {{ include.class }}{% endif %}" lang="en" hidden>{{ _ib_en }}</span>

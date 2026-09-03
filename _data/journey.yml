@@ -1,0 +1,354 @@
+# =============================================================================
+#  journey.yml — content source for the "Minha trajetória / My journey" page
+#  (rendered by /trajetoria/  ->  journey.html)
+# -----------------------------------------------------------------------------
+#  CONTENT vs PRESENTATION
+#  - This file holds only CONTENT. All layout/markup lives in journey.html and
+#    the styles in assets/css/main.css (.journey* rules).
+#  - Page CHROME strings (headings, button labels, section labels) live in
+#    _data/i18n.yml under the `journey_*` keys and are swapped client-side by
+#    assets/js/lang-switcher.js — the same mechanism the rest of the site uses.
+#  - Every reader-facing string here is bilingual: `pt` = Portuguese (pt-BR),
+#    `en` = English. journey.html renders the pt text visible and the en text
+#    hidden; lang-switcher.js flips them when the UI language changes. With
+#    JavaScript disabled the Portuguese text (the site default) is shown.
+#
+#  ADDING A NEW EVENT
+#  - Append an item to `events:` below. No template change is required.
+#  - `date` must be a sortable string: "YYYY" or "YYYY-MM". Events are sorted
+#    ascending by `date`, so that value also decides horizontal position.
+#  - Only `id`, `date`, `type` and `title` are required. Everything else is
+#    optional — omit a key and that part of the card simply isn't rendered.
+#  - `type` must match one of the ids in `categories:` below.
+#  - Set `featured: true` on the handful of turning-point events — they get
+#    stronger visual weight (accent border, larger node, star marker).
+#  - Set `placeholder: true` while an event still needs your real history —
+#    it renders with a visible "to be completed" badge so nothing looks final.
+#
+#  IMAGES / LOGOS
+#  - Reuse assets already in assets/img/ — do not add duplicates.
+#  - There is currently NO company-logo folder in the repo. When you have real
+#    logos, add them under assets/img/journey/ and point `logo:` at them.
+#  - `logo` / `screenshot` are site-absolute paths (e.g. /assets/img/…). They
+#    are passed through `relative_url` in the template, so no baseurl prefix.
+#
+#  LINKS
+#  - `links:` are related blog posts or external references (site-absolute or
+#    full URL). `repo:` / `projects[].url` are GitHub URLs — only real ones.
+# =============================================================================
+
+# --- Event categories --------------------------------------------------------
+# id      -> referenced by each event's `type`
+# icon    -> Font Awesome 6 class (already loaded site-wide)
+# label   -> bilingual chip text
+categories:
+  - id: first-contact
+    icon: "fas fa-power-off"
+    label: { pt: "Primeiro contato", en: "First contact" }
+  - id: education
+    icon: "fas fa-graduation-cap"
+    label: { pt: "Formação", en: "Education" }
+  - id: project
+    icon: "fas fa-code-branch"
+    label: { pt: "Projeto", en: "Project" }
+  - id: job
+    icon: "fas fa-briefcase"
+    label: { pt: "Trabalho", en: "Job" }
+  - id: milestone
+    icon: "fas fa-flag-checkered"
+    label: { pt: "Marco", en: "Milestone" }
+  - id: move
+    icon: "fas fa-plane-departure"
+    label: { pt: "Mudança de país", en: "Relocation" }
+  - id: blog
+    icon: "fas fa-feather-pointed"
+    label: { pt: "Blog", en: "Blog" }
+
+# --- Timeline events (sorted ascending by `date` at render time) -------------
+events:
+  # ───────────────────────── PLACEHOLDERS (fill in) ────────────────────────
+  # The blog does not record anything before 2019, so the early chapters are
+  # left as structured stubs for you to complete. Adjust `date`, flip
+  # `placeholder` to false, and fill both `pt` and `en` for every field.
+
+  - id: first-computer
+    date: "2000"
+    placeholder: true
+    type: first-contact
+    title:
+      pt: "Primeiro contato com um computador"
+      en: "First contact with a computer"
+    description:
+      pt: "TODO: qual foi a primeira máquina, onde, com quem, e o que te prendeu."
+      en: "TODO: the first machine, where, with whom, and what hooked you."
+    motivation:
+      pt: "TODO: por que a tecnologia chamou sua atenção naquele momento."
+      en: "TODO: why technology caught your attention back then."
+    lessons:
+      pt: "TODO: o que esse primeiro contato te ensinou."
+      en: "TODO: what that first contact taught you."
+
+  - id: first-code
+    date: "2003"
+    placeholder: true
+    type: first-contact
+    title:
+      pt: "As primeiras linhas de código"
+      en: "The first lines of code"
+    description:
+      pt: "TODO: primeira linguagem, primeiro programa que funcionou, como aprendeu (livro, fórum, revista, escola)."
+      en: "TODO: first language, first program that worked, how you learned (book, forum, magazine, school)."
+    technologies: []
+
+  - id: technical-education
+    date: "2006"
+    placeholder: true
+    type: education
+    title:
+      pt: "Educação técnica"
+      en: "Technical education"
+    description:
+      pt: "TODO: curso técnico / cursos livres relevantes — instituição, período, o que ficou."
+      en: "TODO: technical course / relevant short courses — institution, period, what stuck."
+    location: { pt: "Brasil", en: "Brazil" }
+
+  - id: university
+    date: "2009"
+    placeholder: true
+    type: education
+    title:
+      pt: "Faculdade"
+      en: "University"
+    description:
+      pt: "TODO: curso, instituição, anos, se concluiu, e o peso real disso na sua carreira."
+      en: "TODO: degree, institution, years, whether you finished, and how much it actually mattered."
+    location: { pt: "Brasil", en: "Brazil" }
+
+  - id: early-projects
+    date: "2010"
+    placeholder: true
+    type: project
+    title:
+      pt: "Primeiros projetos pessoais"
+      en: "First personal projects"
+    description:
+      pt: "TODO: sites, freelas, automações, jogos — o que você construiu antes de ter um emprego formal na área."
+      en: "TODO: websites, freelance work, automations, games — what you built before your first formal job in tech."
+    technologies: []
+    repo: "https://github.com/guibranco"
+    links:
+      - label: { pt: "Perfil no GitHub", en: "GitHub profile" }
+        url: "https://github.com/guibranco"
+
+  - id: first-jobs
+    date: "2012"
+    placeholder: true
+    type: job
+    title:
+      pt: "Primeiros empregos na área"
+      en: "First jobs in the field"
+    description:
+      pt: "TODO: empresas antes do BS2 — cargos, stack, o que aprendeu, por que saiu de cada uma."
+      en: "TODO: companies before BS2 — roles, stack, what you learned, why you left each."
+    technologies: []
+
+  # ───────────────────────── VERIFIED (from the blog) ─────────────────────
+  # These summarise your own published posts. Refine the wording freely; the
+  # facts and links come straight from _posts/.
+
+  - id: bs2
+    date: "2019"
+    type: job
+    company: "Banco BS2"
+    company_url: "https://www.bs2.com"
+    date_label: { pt: "2019 – 2021", en: "2019 – 2021" }
+    location: { pt: "São Paulo, Brasil (remoto)", en: "São Paulo, Brazil (remote)" }
+    title:
+      pt: "Banco BS2 — engenharia no core bancário"
+      en: "Banco BS2 — core banking engineering"
+    description:
+      pt: "Entrei como Senior Software Engineer via K2 Partnering. Em março de 2020 saí de um time B2B em São Paulo para o time de projetos especiais do core bancário — a mesa onde o PIX seria construído."
+      en: "Joined as a Senior Software Engineer via K2 Partnering. In March 2020 I moved from a B2B team in São Paulo to the core-banking special-projects team — the desk where PIX would be built."
+    technologies: [".NET", "C#", "RabbitMQ", "SQL Server", "CouchDB"]
+    motivation:
+      pt: "Sair de integrações B2B para o núcleo transacional de um banco era o passo que faltava para trabalhar com sistemas de consequência real."
+      en: "Moving from B2B integrations into a bank's transactional core was the missing step toward systems where mistakes have real consequences."
+    lessons:
+      pt: "Prazo regulatório inegociável, especificação em movimento e erro com custo real: aprendi mais por unidade de tempo aqui do que em qualquer outro lugar no Brasil."
+      en: "A non-negotiable regulatory deadline, a moving spec and mistakes with real cost: I learned more per unit of time here than anywhere else in Brazil."
+    outcome:
+      pt: "Um mês depois do lançamento do PIX, aceitei o primeiro contrato com uma empresa fora do Brasil."
+      en: "A month after PIX went live, I signed my first contract with a company outside Brazil."
+
+  - id: pix
+    date: "2020"
+    type: milestone
+    featured: true
+    company: "Banco BS2"
+    date_label: { pt: "2020", en: "2020" }
+    title:
+      pt: "Construir o PIX, com data marcada pelo Banco Central"
+      en: "Building PIX, on a deadline set by Brazil's Central Bank"
+    description:
+      pt: "Atravessei 2020 dentro do projeto do PIX: mensageria ISO 20022 sobre a RSFN, o Manual de Tempos com latência auditada por percentil, e um lançamento marcado para 16 de novembro sem plano B. BS2 foi a primeira instituição financeira digital totalmente homologada pelo Bacen para o PIX."
+      en: "I spent 2020 inside the PIX project: ISO 20022 messaging over the RSFN network, a spec with latency audited by percentile, and a launch fixed for November 16th with no plan B. BS2 was the first digital financial institution fully certified by the Central Bank for PIX."
+    technologies: [".NET", "RabbitMQ", "SQL Server", "ISO 20022"]
+    links:
+      - label: { pt: "Série: Desenvolvendo o PIX (1) — bastidores do prazo", en: "Series: Building PIX (1) — behind the deadline" }
+        url: "/artigos/construindo-o-pix-no-bs2-bastidores-de-um-prazo-do-banco-central/"
+      - label: { pt: "Série: Desenvolvendo o PIX (2) — o contrato", en: "Series: Building PIX (2) — the contract" }
+        url: "/artigos/contrato-do-pix-valor-fixo-sobreaviso-e-a-hora-que-nao-existia/"
+      - label: { pt: "Série: Desenvolvendo o PIX (3) — a arquitetura", en: "Series: Building PIX (3) — the architecture" }
+        url: "/artigos/arquitetura-do-pix-por-dentro-spi-iso-20022-dez-segundos/"
+    motivation:
+      pt: "Ninguém tinha construído o PIX antes porque o sistema não existia nesse formato em lugar nenhum do mundo. A chance de fazer parte disso não ia se repetir."
+      en: "Nobody had built PIX before because the system didn't exist in that shape anywhere in the world. The chance to be part of it wasn't going to come again."
+    lessons:
+      pt: "Arquitetura sob orçamento de tempo publicado em norma muda tudo: a latência aceitável não é opinião, é contrato."
+      en: "Architecture under a time budget published in regulation changes everything: acceptable latency isn't an opinion, it's a contract."
+    outcome:
+      pt: "A confiança para aceitar trabalho no exterior veio, em boa parte, de ter atravessado 2020 dentro do core de um banco."
+      en: "Much of the confidence to take work abroad came from having gotten through 2020 inside a bank's core."
+
+  - id: farfetch
+    date: "2020-12"
+    type: job
+    company: "Farfetch"
+    company_url: "https://www.farfetch.com"
+    date_label: { pt: "dez 2020 – mai 2021", en: "Dec 2020 – May 2021" }
+    location: { pt: "Porto, Portugal (remoto do Brasil)", en: "Porto, Portugal (remote from Brazil)" }
+    logo: "/assets/img/posts/trabalhando-pelo-mundo-porto.svg"
+    logo_alt:
+      pt: "Capa do post sobre Porto e Farfetch"
+      en: "Cover of the post about Porto and Farfetch"
+    title:
+      pt: "Farfetch — o cluster de Search e a mudança que não aconteceu"
+      en: "Farfetch — the Search cluster and the move that never happened"
+    description:
+      pt: "Contratado via LinkedIn pela consultoria portuguesa Multivision, em regime de recibos verdes, para o cluster de Search da Farfetch. No papel, modelo híbrido no Porto; na prática, seis meses inteiros remotos de São Paulo. Pedi demissão sem nunca ter pisado em Portugal."
+      en: "Hired via LinkedIn by the Portuguese consultancy Multivision, as an independent contractor, for Farfetch's Search cluster. On paper, a hybrid role in Porto; in practice, six fully remote months from São Paulo. I resigned without ever setting foot in Portugal."
+    technologies: ["C#", ".NET", "Elasticsearch", "Kafka", "Cassandra"]
+    links:
+      - label: { pt: "Trabalhando pelo mundo #1 — Porto", en: "Working around the world #1 — Porto" }
+        url: "/artigos/trabalhando-pelo-mundo-porto-farfetch/"
+    motivation:
+      pt: "Era a primeira vez que uma empresa fora do Brasil me contratava. O plano de mudança para o Porto fazia parte do pacote."
+      en: "It was the first time a company outside Brazil hired me. A planned move to Porto was part of the package."
+    lessons:
+      pt: "Contrato internacional e relocation são coisas separadas: um pode existir plenamente sem o outro nunca acontecer."
+      en: "An international contract and relocation are separate things: one can fully exist while the other never happens."
+
+  - id: gracekennedy
+    date: "2021-01"
+    type: job
+    company: "Grace Kennedy Financial Group"
+    date_label: { pt: "2021 (meio período)", en: "2021 (part-time)" }
+    location: { pt: "Jamaica / Caribe (remoto)", en: "Jamaica / Caribbean (remote)" }
+    title:
+      pt: "Grace Kennedy Financial Group — contrato paralelo"
+      en: "Grace Kennedy Financial Group — a parallel contract"
+    description:
+      pt: "Por um período de 2021 acumulei dois contratos remotos ao mesmo tempo: a Farfetch em tempo integral e a Grace Kennedy — o maior grupo financeiro da Jamaica e do Caribe — em meio período, via a agência The Bridge Social."
+      en: "For part of 2021 I ran two remote contracts at once: Farfetch full-time and Grace Kennedy — the largest financial group in Jamaica and the Caribbean — part-time, through the agency The Bridge Social."
+    technologies: ["C#", ".NET"]
+    lessons:
+      pt: "Dois contratos simultâneos ensinam rápido onde estão os seus limites de contexto e de energia."
+      en: "Two simultaneous contracts teach you fast where your limits of context-switching and energy actually are."
+
+  - id: talabat
+    date: "2021-08"
+    type: move
+    featured: true
+    company: "Talabat (Delivery Hero)"
+    company_url: "https://www.talabat.com"
+    date_label: { pt: "2021 – 2023", en: "2021 – 2023" }
+    location: { pt: "Dubai, Emirados Árabes Unidos", en: "Dubai, United Arab Emirates" }
+    logo: "/assets/img/posts/trabalhando-pelo-mundo-dubai.svg"
+    logo_alt:
+      pt: "Capa do post sobre Dubai e Talabat"
+      en: "Cover of the post about Dubai and Talabat"
+    title:
+      pt: "Talabat — a primeira mudança de país que aconteceu de verdade"
+      en: "Talabat — the first relocation that actually happened"
+    description:
+      pt: "Uma mensagem no LinkedIn que ficou cinco semanas sem resposta virou quase dois anos na Talabat, do grupo Delivery Hero, em q-commerce. Cinco fases de entrevista, visto de trabalho nos Emirados, seis meses acordando às 3h da manhã em remoto do Brasil, 47 dias em hotel — e então a mudança."
+      en: "A LinkedIn message I left unanswered for five weeks turned into almost two years at Talabat, part of the Delivery Hero group, in q-commerce. Five interview stages, a UAE work visa, six months waking at 3am working remotely from Brazil, 47 days in a hotel — and then the move."
+    technologies: ["C#", ".NET", "Go", "AWS", "PostgreSQL", "SQL Server", "DDD", "TDD", "Microservices"]
+    links:
+      - label: { pt: "Trabalhando pelo mundo #2 — Dubai", en: "Working around the world #2 — Dubai" }
+        url: "/artigos/trabalhando-pelo-mundo-dubai-talabat/"
+    motivation:
+      pt: "Depois do Porto, eu queria uma mudança que realmente saísse do papel — outro continente, outro fuso, outra forma de morar."
+      en: "After Porto, I wanted a move that actually left the page — another continent, another timezone, another way of living."
+    lessons:
+      pt: "Trabalhar meses no fuso do destino antes de mudar é um ensaio brutal, mas honesto, do que a mudança vai cobrar."
+      en: "Working in the destination's timezone for months before moving is a brutal but honest rehearsal of what the move will cost."
+    outcome:
+      pt: "De Dubai, entrevistei para Dublin por videoconferência — o capítulo seguinte começou antes deste terminar."
+      en: "From Dubai, I interviewed for Dublin over video calls — the next chapter started before this one ended."
+
+  - id: outsurance
+    date: "2023-04"
+    type: move
+    featured: true
+    current: true
+    company: "OUTsurance"
+    company_url: "https://www.outsurance.ie"
+    date_label: { pt: "2023 – atual", en: "2023 – present" }
+    location: { pt: "Dublin, Irlanda", en: "Dublin, Ireland" }
+    logo: "/assets/img/posts/trabalhando-pelo-mundo-dublin.svg"
+    logo_alt:
+      pt: "Capa do post sobre Dublin e OUTsurance"
+      en: "Cover of the post about Dublin and OUTsurance"
+    title:
+      pt: "OUTsurance — construir um sistema financeiro do zero"
+      en: "OUTsurance — building a financial system from scratch"
+    description:
+      pt: "Entrevista, teste técnico e contrato feitos inteiramente por videoconferência, de Dubai. Pousei em Dublin num domingo de abril de 2023 e estava no escritório na manhã seguinte, construindo o sistema de billing de uma operação de seguros nova, do zero. Sem visto — passaporte europeu."
+      en: "Interview, technical test and contract done entirely over video from Dubai. I landed in Dublin on a Sunday in April 2023 and was in the office the next morning, building the billing system for a brand-new insurance operation from the ground up. No visa needed — European passport."
+    technologies: ["C#", ".NET", "Azure", "Azure DevOps", "Cosmos DB", "Service Bus", "Terraform", "ISO 20022"]
+    links:
+      - label: { pt: "Trabalhando pelo mundo #3 — Dublin", en: "Working around the world #3 — Dublin" }
+        url: "/artigos/trabalhando-pelo-mundo-dublin-outsurance/"
+    motivation:
+      pt: "Um greenfield financeiro dentro da União Europeia, com cidadania que dispensa patrocínio de visto: a oportunidade e o timing coincidiram."
+      en: "A financial greenfield inside the European Union, with citizenship that removes any visa sponsorship: the opportunity and the timing lined up."
+    lessons:
+      pt: "Construir do zero é liberdade e responsabilidade na mesma dose — cada decisão de arquitetura fica registrada no seu nome."
+      en: "Building from scratch is freedom and responsibility in equal measure — every architecture decision ends up recorded under your name."
+
+  - id: blog
+    date: "2020-08"
+    type: blog
+    company: "Tecnologia & Viagens"
+    repo: "https://github.com/guibranco/blog"
+    date_label: { pt: "2020 → em evolução", en: "2020 → evolving" }
+    title:
+      pt: "O blog \"Tecnologia & Viagens\""
+      en: "The \"Technology & Travel\" blog"
+    description:
+      pt: "Um blog pessoal em Jekyll, publicado de graça no GitHub Pages, com design próprio e sem tema de terceiros. Começou como notas de tecnologia e foi virando também um registro de carreira internacional e de viagens — bilíngue, artigo a artigo."
+      en: "A personal Jekyll blog, published for free on GitHub Pages, with a hand-built design and no third-party theme. It started as technology notes and grew into a record of an international career and of travel too — bilingual, one article at a time."
+    technologies: ["Jekyll", "Liquid", "GitHub Pages", "GitHub Actions"]
+    links:
+      - label: { pt: "Ler o blog", en: "Read the blog" }
+        url: "/"
+    motivation:
+      pt: "Escrever o que aprendi obriga a entender de verdade — e deixa um rastro que eu mesmo consulto depois."
+      en: "Writing down what I learned forces real understanding — and leaves a trail I go back to myself later."
+
+  - id: open-source
+    date: "2024"
+    placeholder: true
+    type: project
+    title:
+      pt: "Open source e projetos paralelos"
+      en: "Open source and side projects"
+    description:
+      pt: "TODO: destaque aqui os repositórios que você quer mostrar (nome, o que fazem, seu papel). Não invente — liste só o que existe em github.com/guibranco."
+      en: "TODO: highlight the repositories you want to feature (name, what they do, your role). Don't invent — list only what exists at github.com/guibranco."
+    technologies: []
+    repo: "https://github.com/guibranco"
+    links:
+      - label: { pt: "Perfil no GitHub", en: "GitHub profile" }
+        url: "https://github.com/guibranco"

@@ -66,6 +66,14 @@
     });
 
     var subtag = lang.split('-')[0].toLowerCase();
+
+    // Bilingual content blocks (see _includes/i18n-block.html): show the span
+    // for the active language, hide the other. Server markup ships the English
+    // span [hidden], so with JS off the pt-BR text is what shows.
+    var showEn = subtag === 'en';
+    document.querySelectorAll('.i18n-pt').forEach(function (el) { el.hidden = showEn; });
+    document.querySelectorAll('.i18n-en').forEach(function (el) { el.hidden = !showEn; });
+
     var nameKey = subtag === 'pt' ? 'name' : 'name_' + subtag; // countries.yml: name (pt-BR) + name_en
     document.querySelectorAll('[data-country]').forEach(function (el) {
       var entry = countries[el.dataset.country];
