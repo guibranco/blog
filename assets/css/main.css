@@ -1552,13 +1552,17 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 
 .journey-logo {
   display: block;
-  width: 100%;
-  max-width: 220px;
-  aspect-ratio: 1200 / 630;
-  object-fit: cover;
+  max-width: 150px;
+  max-height: 52px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+  background: #fff;
   border: 1px solid var(--border);
-  border-radius: 8px;
-  margin-bottom: .75rem;
+  border-radius: 6px;
+  padding: 7px 10px;
+  margin-bottom: .8rem;
 }
 
 .journey-title {
