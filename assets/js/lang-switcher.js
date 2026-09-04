@@ -74,6 +74,12 @@
     document.querySelectorAll('.i18n-pt').forEach(function (el) { el.hidden = showEn; });
     document.querySelectorAll('.i18n-en').forEach(function (el) { el.hidden = !showEn; });
 
+    // Same bilingual data, but for an `alt` attribute (can't hold a hidden
+    // span). journey.html ships both data-alt-pt/-en; pick the active one.
+    document.querySelectorAll('[data-alt-pt]').forEach(function (el) {
+      el.alt = (showEn && el.dataset.altEn) ? el.dataset.altEn : el.dataset.altPt;
+    });
+
     var nameKey = subtag === 'pt' ? 'name' : 'name_' + subtag; // countries.yml: name (pt-BR) + name_en
     document.querySelectorAll('[data-country]').forEach(function (el) {
       var entry = countries[el.dataset.country];

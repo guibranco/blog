@@ -90,7 +90,9 @@ image: /assets/img/og-default.jpg
               </header>
 
               {%- if e.logo %}
-              <img class="journey-logo" src="{{ e.logo | relative_url }}" loading="lazy" decoding="async" alt="{% if e.logo_alt %}{{ e.logo_alt.pt }}{% elsif e.company %}{{ e.company }}{% else %}{{ e.title.pt }}{% endif %}">
+              {%- assign _logo_alt_pt = e.logo_alt.pt | default: e.company | default: e.title.pt -%}
+              {%- assign _logo_alt_en = e.logo_alt.en | default: e.company | default: e.title.en -%}
+              <img class="journey-logo" src="{{ e.logo | relative_url }}" loading="lazy" decoding="async" alt="{{ _logo_alt_pt }}" data-alt-pt="{{ _logo_alt_pt }}" data-alt-en="{{ _logo_alt_en }}">
               {%- endif %}
 
               <h2 class="journey-title">{% include i18n-block.html pt=e.title.pt en=e.title.en %}</h2>
@@ -128,7 +130,9 @@ image: /assets/img/og-default.jpg
                     </p>
                     {%- if p.description %}<p class="journey-project-desc">{% include i18n-block.html pt=p.description.pt en=p.description.en %}</p>{%- endif -%}
                     {%- if p.screenshot %}
-                    <img class="journey-shot" src="{{ p.screenshot | relative_url }}" loading="lazy" decoding="async" alt="{% if p.screenshot_alt %}{{ p.screenshot_alt.pt }}{% else %}{{ p.name }}{% endif %}">
+                    {%- assign _shot_alt_pt = p.screenshot_alt.pt | default: p.name -%}
+                    {%- assign _shot_alt_en = p.screenshot_alt.en | default: p.name -%}
+                    <img class="journey-shot" src="{{ p.screenshot | relative_url }}" loading="lazy" decoding="async" alt="{{ _shot_alt_pt }}" data-alt-pt="{{ _shot_alt_pt }}" data-alt-en="{{ _shot_alt_en }}">
                     {%- endif -%}
                   </li>
                   {%- endfor -%}
