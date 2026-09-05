@@ -1434,56 +1434,65 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
   color: var(--ink-muted);
 }
 
-/* Horizontal overview rail — years + logos, always horizontal, jumps to the
-   matching card in the vertical list below via #ev-{id} anchors. */
+/* Horizontal timeline chart — a temporal line graph with the year as the X
+   axis. Each node is placed at its real date; a polyline connects them, and
+   each node is a #ev-{id} anchor into the vertical detail list below. */
 .journey-rail-wrap {
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
-  scroll-snap-type: x proximity;
   -webkit-overflow-scrolling: touch;
-  margin: 0 -1px; /* let the focus outline breathe at the edges */
+  padding-bottom: .25rem;
 }
 .journey-rail-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
 .journey-rail {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  padding: .5rem .25rem 1.1rem;
-  min-width: min-content;
+  position: relative;
+  height: 186px;
+  margin-top: .25rem;
+}
+.journey-rail-track { list-style: none; }
+
+.journey-rail-svg { position: absolute; left: 0; top: 0; z-index: 0; pointer-events: none; }
+.journey-rail-line {
+  fill: none;
+  stroke: var(--accent-light);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
 }
 
-.journey-rail-node { position: relative; flex: 0 0 auto; scroll-snap-align: start; }
-/* connecting line, bridging the gap to the next node */
-.journey-rail-node::before {
-  content: '';
+.journey-rail-axis {
   position: absolute;
-  left: 50%;
-  right: calc(-1.5rem - 50%);
-  top: 22px;
-  height: 2px;
-  background: var(--border);
+  left: 0; right: 0;
+  top: 150px;
+  border-top: 1px solid var(--border);
   z-index: 0;
 }
-.journey-rail-node:last-child::before { display: none; }
-
-.journey-rail-link {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: .4rem;
-  width: 64px;
-  text-decoration: none;
-  padding: .15rem;
-  border-radius: 8px;
+.journey-rail-tick {
+  position: absolute;
+  top: 8px;
+  transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.56rem;
+  color: var(--ink-light);
+  white-space: nowrap;
 }
-.journey-rail-link:hover .journey-rail-logo,
-.journey-rail-link:hover .journey-rail-icon,
-.journey-rail-link:focus-visible .journey-rail-logo,
-.journey-rail-link:focus-visible .journey-rail-icon { border-color: var(--accent); transform: translateY(-2px); }
+.journey-rail-tick::before {
+  content: '';
+  position: absolute;
+  left: 50%; top: -8px;
+  width: 1px; height: 5px;
+  background: var(--border);
+}
+
+.journey-rail-node { position: absolute; transform: translateX(-50%); z-index: 1; }
+.journey-rail-link {
+  display: flex;
+  text-decoration: none;
+  padding: 3px;
+  border-radius: 50%;
+}
 .journey-rail-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 .journey-rail-logo,
@@ -1493,31 +1502,31 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
   border-radius: 50%;
   background: #fff;
   border: 2px solid var(--border);
-  transition: border-color .2s, transform .2s;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
 }
 .journey-rail-logo { object-fit: contain; padding: 6px; }
 .journey-rail-icon { display: flex; align-items: center; justify-content: center; color: var(--ink-muted); font-size: .8rem; background: var(--surface-warm); }
 
+.journey-rail-link:hover .journey-rail-logo,
+.journey-rail-link:hover .journey-rail-icon,
+.journey-rail-link:focus-visible .journey-rail-logo,
+.journey-rail-link:focus-visible .journey-rail-icon {
+  border-color: var(--accent);
+  transform: scale(1.09);
+  box-shadow: 0 4px 14px rgba(26, 23, 20, .14);
+}
+
 .journey-rail-node--featured .journey-rail-logo,
 .journey-rail-node--featured .journey-rail-icon {
   border-color: var(--accent);
-  border-width: 2px;
   box-shadow: 0 0 0 3px var(--accent-light);
 }
 .journey-rail-node--featured .journey-rail-icon { color: var(--accent); }
 .journey-rail-node--placeholder .journey-rail-logo,
 .journey-rail-node--placeholder .journey-rail-icon { border-style: dashed; }
 
-.journey-rail-year {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.62rem;
-  letter-spacing: .04em;
-  color: var(--ink-muted);
-  white-space: nowrap;
-}
-
 /* Visually hidden but announced — carries the bilingual event title for
-   screen readers, since the rail only shows a logo/icon and a bare year. */
+   screen readers, since the chart node only shows a logo or icon. */
 .journey-rail-sr {
   position: absolute;
   width: 1px; height: 1px;
@@ -1572,7 +1581,7 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 1.35rem 1.5rem 1.1rem;
+  padding: 1.5rem 1.9rem 1.25rem;
   box-shadow: 0 2px 18px rgba(26, 23, 20, 0.05);
 }
 
@@ -1773,7 +1782,10 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 }
 
 @media (min-width: 860px) {
-  .journey-card { max-width: 640px; }
+  .journey-card { max-width: 780px; }
+}
+@media (min-width: 1200px) {
+  .journey-card { max-width: 940px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
