@@ -53,6 +53,24 @@ categories:
 # --- Timeline events (sorted ascending by `date` at render time) -------------
 events:
 
+  - id: first-html
+    date: "2004"
+    type: first-contact
+    date_label: { pt: "2004 (13 anos)", en: "2004 (age 13)" }
+    title:
+      pt: "As primeiras linhas: a página de erro do Internet Explorer"
+      en: "The first lines: Internet Explorer's error page"
+    description:
+      pt: "No fim dos 13 anos, ainda no fundamental 2 (8ª série), aprendi a editar o HTML da página de erro do Internet Explorer no laboratório de informática do INSA. Foi ali que comecei a programar de verdade."
+      en: "At the tail end of being 13, still in middle school (8th grade), I learned to edit the HTML of Internet Explorer's error page in my school's computer lab. That's where I actually started programming."
+    technologies: ["HTML"]
+    motivation:
+      pt: "Eu já rondava comunidades de hacker e segurança no Orkut e comentava esse interesse abertamente — o bastante para, pouco antes disso, eu ter sido acusado (injustamente) de invadir e difamar a conta de uma colega mais nova, e quase expulso tanto da escola quanto da escola de inglês por causa disso. Nunca fiz aquilo, mas o episódio só aumentou meu interesse pela área."
+      en: "I was already hanging around hacker and security communities on Orkut and talked about that interest openly — enough that, shortly before this, I was (wrongly) accused of hacking and defaming a younger classmate's account, and almost expelled from both my school and my English school over it. I never did it, but the episode only deepened my interest in the field."
+    lessons:
+      pt: "A curiosidade por segurança veio antes de eu saber programar — o código só chegou depois, para acompanhar o interesse."
+      en: "The curiosity about security came before I could code — the code only arrived afterwards, to keep up with the interest."
+
   - id: tech-course
     date: "2005"
     type: first-contact
@@ -70,16 +88,50 @@ events:
       pt: "Hardware e redes vieram antes do código: entender a máquina por dentro foi o primeiro passo."
       en: "Hardware and networking came before code: understanding the machine itself was step one."
 
+  - id: first-projects
+    date: "2005"
+    type: project
+    title:
+      pt: "Páginas estáticas e o primeiro sistema de login"
+      en: "Static pages and the first login system"
+    description:
+      pt: "Antes de qualquer projeto \"de verdade\", os primeiros códigos eram scripts soltos de ajuda para os fóruns e comunidades das quais eu participava. Logo depois vieram os primeiros projetos: páginas estáticas e, na sequência, um sistema de login — tudo nas tecnologias que vinham empacotadas com o Dreamweaver: ASP Classic, ColdFusion e PHP."
+      en: "Before any \"real\" project, the first bits of code were loose helper scripts for the forums and communities I was part of. Then came the first actual projects: static pages, followed by a login system — all in the technologies bundled with Dreamweaver: ASP Classic, ColdFusion and PHP."
+    technologies: ["ASP Classic", "ColdFusion", "PHP", "Dreamweaver"]
+
+  - id: html-brasil
+    date: "2006"
+    type: milestone
+    title:
+      pt: "Moderador da comunidade HTML Brasil, no Orkut"
+      en: "Moderator of the HTML Brasil community, on Orkut"
+    description:
+      pt: "Cheguei a moderador da <strong>HTML Brasil</strong>, a segunda maior comunidade de desenvolvimento web do Orkut — atrás só da PHP Brasil. A divisão etária era nítida: adultos na PHP Brasil, crianças e adolescentes na HTML Brasil. Quase todos os moderadores e admins tinham menos de 16 anos."
+      en: "I became a moderator of <strong>HTML Brasil</strong>, the second-biggest web-development community on Orkut — behind only PHP Brasil. The age split was obvious: adults in PHP Brasil, kids and teenagers in HTML Brasil. Almost every moderator and admin was under 16."
+    outcome:
+      pt: "Também começamos o projeto de um portal para a comunidade, nos moldes do iMasters ou do Script Brasil — para publicar notícias e tutoriais de desenvolvimento. Fiquei responsável pelo backend; o frontend era de outra pessoa. O site nunca foi ao ar."
+      en: "We also started a portal project for the community, along the lines of iMasters or Script Brasil — for publishing development news and tutorials. I was responsible for the backend; the frontend was someone else's work. The site never launched."
+
+  - id: gremio-etec
+    date: "2007"
+    type: project
+    title:
+      pt: "Site do grêmio estudantil da ETEC"
+      en: "Student-union website for ETEC"
+    description:
+      pt: "Construí o site do grêmio estudantil da minha escola técnica: fórum, portal de notícias, chat online, portal de vídeos e uma seção de eventos — tudo num projeto só."
+      en: "Built the student-union website for my technical school: a forum, a news portal, live chat, a video portal, and an events section — all in one project."
+
   - id: first-code
     date: "2007"
     type: first-contact
     logo: /assets/img/journey/guibranco.png
     title:
-      pt: "As primeiras linhas que contam: PHP e JavaScript"
-      en: "The first lines that count: PHP and JavaScript"
+      pt: "PHP e JavaScript passam a contar oficialmente"
+      en: "PHP and JavaScript start counting officially"
     description:
-      pt: "2007 é o ano em que começo a contar experiência com PHP e JavaScript — e também quando pego os primeiros trabalhos como freelancer."
-      en: "2007 is where I start counting experience with PHP and JavaScript — and where I take my first freelance jobs."
+      pt: "2007 é o ano que uso como marco de experiência com PHP e JavaScript no currículo — e também quando pego os primeiros trabalhos como freelancer, depois de uns bons anos brincando com ASP Classic, ColdFusion e PHP por conta própria."
+      en: "2007 is the year I use as the mark for PHP and JavaScript experience on paper — and also when I take my first freelance jobs, after a good few years of tinkering with ASP Classic, ColdFusion and PHP on my own."
     technologies: ["PHP", "JavaScript"]
 
   - id: high-school
@@ -96,6 +148,17 @@ events:
     description:
       pt: "Ensino médio na ETEC Professor Camargo Aranha, escola técnica estadual de São Paulo."
       en: "High school at ETEC Professor Camargo Aranha, a São Paulo state technical school."
+
+  - id: first-freela
+    date: "2007"
+    type: job
+    date_label: { pt: "2007 (16 anos)", en: "2007 (age 16)" }
+    title:
+      pt: "Primeiro freela, aos 16 anos"
+      en: "First freelance job, at 16"
+    description:
+      pt: "Meu primeiro trabalho freelance, pouco antes de entrar no técnico. A partir daí, os freelas pelas comunidades e os anúncios nos meus próprios sites (o gerador de link e o de envio de SMS) viraram a minha primeira fonte de renda."
+      en: "My first freelance job, shortly before starting technical school. From then on, freelance gigs found through communities and ads on my own sites (the link generator and the SMS sender) became my first source of income."
 
   - id: freelance-oss
     date: "2007"
@@ -135,6 +198,27 @@ events:
       - label: { pt: "Perfil no GitHub", en: "GitHub profile" }
         url: "https://github.com/guibranco"
 
+  - id: sharing-scraper
+    date: "2008"
+    type: project
+    date_label: { pt: "2008 – 2012", en: "2008 – 2012" }
+    title:
+      pt: "Scraper de séries e gerador de link premium"
+      en: "A series scraper and a premium-link generator"
+    description:
+      pt: "Um scraper para sites de séries online e servidores de download como o MegaUpload, que virou um script gerador de links premium usando a minha própria conta, com o download passando pela minha hospedagem. Ficou no ar até a derrubada do MegaUpload pela Justiça americana e a prisão de Kim Dotcom, em 2012."
+      en: "A scraper for online-series sites and download hosts like MegaUpload, which grew into a script that generated premium download links using my own account, routing the download through my own hosting. It stayed online until MegaUpload was shut down by US authorities and Kim Dotcom was arrested, in 2012."
+
+  - id: sms-aggregator
+    date: "2008"
+    type: project
+    title:
+      pt: "Agregador de envio de SMS pela internet"
+      en: "An internet SMS-sending aggregator"
+    description:
+      pt: "Um site que fazia scraping de serviços gratuitos de envio de SMS pela internet e agregava tudo numa interface só — cheguei a ter 11 opções de envio simultâneas, incluindo algumas que eu pagava do próprio bolso. Monetizado com anúncios, junto com o gerador de link premium."
+      en: "A site that scraped free internet SMS-sending services and aggregated them into a single interface — at its peak it had 11 simultaneous sending options, some of which I paid for out of my own pocket. Monetized with ads, alongside the premium-link generator."
+
   - id: senac
     date: "2008"
     type: education
@@ -149,6 +233,21 @@ events:
     description:
       pt: "Curso técnico de 1.200 horas: montagem e manutenção de micros, redes, e desenvolvimento de sistemas e sites."
       en: "A 1,200-hour technical course: PC assembly and maintenance, networking, and building systems and websites."
+
+  - id: bom-negocio-rv
+    date: "2010"
+    type: job
+    location: { pt: "Rio Verde, Brasil (remoto)", en: "Rio Verde, Brazil (remote)" }
+    date_label: { pt: "≈2010 (18–19 anos)", en: "≈2010 (age 18–19)" }
+    title:
+      pt: "O maior freela da época: Bom Negócio Rio Verde"
+      en: "The biggest freelance job of the time: Bom Negócio Rio Verde"
+    description:
+      pt: "Contratado para construir o painel administrativo do <strong>Bom Negócio Rio Verde</strong>, um portal de anúncios classificados da cidade de Rio Verde (GO), por cerca de R$ 400 — valor que lembro até hoje. Nunca recebi: o freelancer responsável pelo portal alegou que o cliente havia desistido, e não me pagou."
+      en: "Hired to build the admin panel for <strong>Bom Negócio Rio Verde</strong>, a local classifieds portal for the city of Rio Verde, in Goiás, for about R$400 — an amount I still remember. I was never paid: the freelancer running the portal claimed the client had backed out, and didn't pay me."
+    lessons:
+      pt: "Um freela sem contrato nem cliente direto é fácil de levar calote — e o calote pode vir do outro freelancer, não só do cliente final."
+      en: "A freelance gig with no contract and no direct client is easy to get stiffed on — and the non-payment can come from the other freelancer, not just the end client."
 
   - id: fatec
     date: "2011"
