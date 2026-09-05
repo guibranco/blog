@@ -1,0 +1,221 @@
+---
+layout: null
+permalink: /trajetoria/
+title: "Minha trajetória"
+description: "Uma linha do tempo visual da minha história com a tecnologia — o que aconteceu, por que aconteceu, o que aprendi e o que veio depois."
+image: /assets/img/og-default.jpg
+---
+<!DOCTYPE html>
+{% include resolve-lang.html %}
+<html lang="{{ _lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} — {{ site.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+  {% seo %}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  {% include analytics.html %}
+</head>
+<body>
+
+  {% include sidebar.html active_page="journey" %}
+
+  <!-- ══════════ MAIN ══════════ -->
+  <div class="main">
+
+    {%- assign _events = site.data.journey.events | sort: "date" -%}
+    {%- assign _cats = site.data.journey.categories -%}
+
+    <section class="hero">
+      <p class="hero-eyebrow" data-i18n="journey_eyebrow">{{ _t.journey_eyebrow }}</p>
+      <h1 class="hero-title" data-i18n="journey_title">{{ _t.journey_title }}</h1>
+      <p class="hero-desc" data-i18n="journey_lead">{{ _t.journey_lead }}</p>
+      {%- if _events != empty %}
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">{{ _events | size }}</div>
+          <div class="hero-stat-label" data-i18n="journey_events_suffix">{{ _t.journey_events_suffix }}</div>
+        </div>
+      </div>
+      {%- endif %}
+    </section>
+
+    <div class="content-wrap">
+
+      {%- assign _has_placeholder = false -%}
+      {%- for e in _events -%}{%- if e.placeholder -%}{%- assign _has_placeholder = true -%}{%- endif -%}{%- endfor -%}
+      {%- if _has_placeholder %}
+      <p class="journey-note" role="note" data-i18n-html="journey_note">{{ _t.journey_note }}</p>
+      {%- endif %}
+
+      {%- if _events == empty %}
+      <div class="article-card">
+        <div class="empty-state">
+          <div class="empty-glyph">∅</div>
+          <p data-i18n="journey_empty">{{ _t.journey_empty }}</p>
+        </div>
+      </div>
+      {%- else %}
+
+      <p class="journey-hint" id="journey-hint" data-i18n="journey_scroll_hint">{{ _t.journey_scroll_hint }}</p>
+
+      <div class="journey-scroller" tabindex="0" role="region" aria-label="{{ _t.journey_title }}" aria-describedby="journey-hint">
+        <ol class="journey" role="list">
+          {%- for e in _events -%}
+            {%- assign _cat = _cats | where: "id", e.type | first -%}
+            {%- assign _cls = "" -%}
+            {%- if e.featured -%}{%- assign _cls = _cls | append: " journey-event--featured" -%}{%- endif -%}
+            {%- if e.placeholder -%}{%- assign _cls = _cls | append: " journey-event--placeholder" -%}{%- endif -%}
+          <li class="journey-event journey-event--{{ e.type }}{{ _cls }}" id="ev-{{ e.id }}">
+            <span class="journey-node" aria-hidden="true"><i class="{% if e.featured %}fas fa-star{% else %}{{ _cat.icon }}{% endif %}"></i></span>
+            <article class="journey-card">
+
+              <header class="journey-card-head">
+                <p class="journey-date">
+                  <time datetime="{{ e.date }}">{%- if e.date_label -%}{% include i18n-block.html pt=e.date_label.pt en=e.date_label.en %}{%- else -%}{{ e.date | slice: 0, 4 }}{%- endif -%}</time>
+                  {%- if e.current %} <span class="journey-present" data-i18n="journey_present">{{ _t.journey_present }}</span>{%- endif -%}
+                </p>
+                <p class="journey-cat">
+                  <i class="{{ _cat.icon }}" aria-hidden="true"></i>
+                  {% include i18n-block.html pt=_cat.label.pt en=_cat.label.en %}
+                </p>
+                {%- if e.placeholder %}
+                <p class="journey-badge" data-i18n="journey_placeholder_badge">{{ _t.journey_placeholder_badge }}</p>
+                {%- endif %}
+              </header>
+
+              {%- if e.logo %}
+              {%- assign _logo_alt_pt = e.logo_alt.pt | default: e.company | default: e.title.pt -%}
+              {%- assign _logo_alt_en = e.logo_alt.en | default: e.company | default: e.title.en -%}
+              <img class="journey-logo" src="{{ e.logo | relative_url }}" loading="lazy" decoding="async" alt="{{ _logo_alt_pt }}" data-alt-pt="{{ _logo_alt_pt }}" data-alt-en="{{ _logo_alt_en }}">
+              {%- endif %}
+
+              <h2 class="journey-title">{% include i18n-block.html pt=e.title.pt en=e.title.en %}</h2>
+
+              {%- if e.company %}
+              <p class="journey-company">
+                {%- if e.company_url -%}<a href="{{ e.company_url }}" target="_blank" rel="noopener">{{ e.company }}</a>{%- else -%}{{ e.company }}{%- endif -%}
+                {%- if e.location %} <span class="journey-sep">·</span> {% include i18n-block.html pt=e.location.pt en=e.location.en %}{%- endif -%}
+              </p>
+              {%- elsif e.location %}
+              <p class="journey-company">{% include i18n-block.html pt=e.location.pt en=e.location.en %}</p>
+              {%- endif %}
+
+              {%- if e.description %}
+              <p class="journey-desc">{% include i18n-block.html pt=e.description.pt en=e.description.en %}</p>
+              {%- endif %}
+
+              {%- if e.technologies and e.technologies != empty %}
+              <div class="journey-block">
+                <p class="journey-sublabel" data-i18n="journey_tech_label">{{ _t.journey_tech_label }}</p>
+                <ul class="journey-chips" role="list">
+                  {%- for tech in e.technologies -%}<li>{{ tech }}</li>{%- endfor -%}
+                </ul>
+              </div>
+              {%- endif %}
+
+              {%- if e.projects and e.projects != empty %}
+              <div class="journey-block">
+                <p class="journey-sublabel" data-i18n="journey_projects_label">{{ _t.journey_projects_label }}</p>
+                <ul class="journey-list" role="list">
+                  {%- for p in e.projects -%}
+                  <li class="journey-project">
+                    <p class="journey-project-name">
+                      {%- if p.url -%}<a href="{{ p.url }}" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> {{ p.name }}</a>{%- else -%}{{ p.name }}{%- endif -%}
+                    </p>
+                    {%- if p.description %}<p class="journey-project-desc">{% include i18n-block.html pt=p.description.pt en=p.description.en %}</p>{%- endif -%}
+                    {%- if p.screenshot %}
+                    {%- assign _shot_alt_pt = p.screenshot_alt.pt | default: p.name -%}
+                    {%- assign _shot_alt_en = p.screenshot_alt.en | default: p.name -%}
+                    <img class="journey-shot" src="{{ p.screenshot | relative_url }}" loading="lazy" decoding="async" alt="{{ _shot_alt_pt }}" data-alt-pt="{{ _shot_alt_pt }}" data-alt-en="{{ _shot_alt_en }}">
+                    {%- endif -%}
+                  </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+              {%- endif %}
+
+              {%- if e.repo %}
+              <p class="journey-repo">
+                <a href="{{ e.repo }}" target="_blank" rel="noopener">
+                  <i class="fab fa-github" aria-hidden="true"></i> <span data-i18n="journey_repo_label">{{ _t.journey_repo_label }}</span>
+                </a>
+              </p>
+              {%- endif %}
+
+              {%- if e.links and e.links != empty %}
+              <div class="journey-block">
+                <p class="journey-sublabel" data-i18n="journey_related_label">{{ _t.journey_related_label }}</p>
+                <ul class="journey-list" role="list">
+                  {%- for l in e.links -%}
+                  <li><a class="journey-link" href="{{ l.url | relative_url }}">{% include i18n-block.html pt=l.label.pt en=l.label.en %} <i class="fas fa-arrow-right" aria-hidden="true"></i></a></li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+              {%- endif %}
+
+              {%- if e.motivation %}
+              <details class="journey-detail">
+                <summary><span data-i18n="journey_why_label">{{ _t.journey_why_label }}</span></summary>
+                <p>{% include i18n-block.html pt=e.motivation.pt en=e.motivation.en %}</p>
+              </details>
+              {%- endif %}
+              {%- if e.lessons %}
+              <details class="journey-detail">
+                <summary><span data-i18n="journey_learned_label">{{ _t.journey_learned_label }}</span></summary>
+                <p>{% include i18n-block.html pt=e.lessons.pt en=e.lessons.en %}</p>
+              </details>
+              {%- endif %}
+              {%- if e.outcome %}
+              <details class="journey-detail">
+                <summary><span data-i18n="journey_next_label">{{ _t.journey_next_label }}</span></summary>
+                <p>{% include i18n-block.html pt=e.outcome.pt en=e.outcome.en %}</p>
+              </details>
+              {%- endif %}
+
+            </article>
+          </li>
+          {%- endfor -%}
+        </ol>
+      </div>
+
+      <div class="journey-controls" hidden>
+        <button type="button" class="journey-ctrl" data-dir="-1" data-i18n-aria="journey_scroll_prev" aria-label="{{ _t.journey_scroll_prev }}"><i class="fas fa-arrow-left" aria-hidden="true"></i></button>
+        <button type="button" class="journey-ctrl" data-dir="1" data-i18n-aria="journey_scroll_next" aria-label="{{ _t.journey_scroll_next }}"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+      </div>
+
+      {%- endif %}
+
+    </div>
+
+    {% include footer.html %}
+
+  </div>
+
+  {% include sidebar-script.html %}
+  <script>
+    /* Progressive enhancement only — the timeline works without this script:
+       the scroller is natively scrollable and keyboard-focusable, and every
+       detail is in <details> elements or shown inline. */
+    (function () {
+      var scroller = document.querySelector('.journey-scroller');
+      var controls = document.querySelector('.journey-controls');
+      if (!scroller || !controls) return;
+      controls.hidden = false;
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      controls.addEventListener('click', function (evt) {
+        var btn = evt.target.closest('.journey-ctrl');
+        if (!btn) return;
+        var amount = Math.max(scroller.clientWidth * 0.8, 300);
+        scroller.scrollBy({ left: btn.dataset.dir === '1' ? amount : -amount, behavior: reduce ? 'auto' : 'smooth' });
+      });
+    })();
+  </script>
+
+</body>
+</html>

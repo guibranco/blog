@@ -1,0 +1,526 @@
+# =============================================================================
+#  journey.yml — content source for the "Minha trajetória / My journey" page
+#  (rendered by /trajetoria/  ->  journey.html)
+# -----------------------------------------------------------------------------
+#  CONTENT vs PRESENTATION
+#  - This file holds only CONTENT. Layout lives in journey.html, styles in
+#    assets/css/main.css (.journey* rules), page-chrome strings in
+#    _data/i18n.yml (journey_* keys, swapped client-side by lang-switcher.js).
+#  - Every reader-facing string is bilingual: `pt` = Portuguese (pt-BR),
+#    `en` = English. journey.html renders pt visible + en hidden; the switcher
+#    flips them. With JavaScript off, the pt text shows.
+#
+#  ADDING / EDITING AN EVENT
+#  - Append to `events:`. No template change needed.
+#  - `date` is a sortable string ("YYYY" or "YYYY-MM") and also sets the
+#    left-to-right position. `date_label` overrides the displayed text.
+#  - Required: id, date, type, title. Everything else is optional.
+#  - `type` must match a `categories[].id`.
+#  - `featured: true` -> stronger visual weight (accent border, star node).
+#
+#  SOURCE OF FACTS
+#  - The timeline is built from the CV data in the sibling repo
+#    guibranco.github.io (src/data/work-experience.json, education.json,
+#    experience-years.json, projects.json, personal-private-projects.json)
+#    plus the blog's own posts. Company/school logos were copied from that
+#    repo into assets/img/journey/.
+# =============================================================================
+
+# --- Event categories --------------------------------------------------------
+categories:
+  - id: first-contact
+    icon: "fas fa-power-off"
+    label: { pt: "Primeiro contato", en: "First contact" }
+  - id: education
+    icon: "fas fa-graduation-cap"
+    label: { pt: "Formação", en: "Education" }
+  - id: project
+    icon: "fas fa-code-branch"
+    label: { pt: "Projetos", en: "Projects" }
+  - id: job
+    icon: "fas fa-briefcase"
+    label: { pt: "Trabalho", en: "Job" }
+  - id: milestone
+    icon: "fas fa-flag-checkered"
+    label: { pt: "Marco", en: "Milestone" }
+  - id: move
+    icon: "fas fa-plane-departure"
+    label: { pt: "Mudança de país", en: "Relocation" }
+  - id: blog
+    icon: "fas fa-feather-pointed"
+    label: { pt: "Blog", en: "Blog" }
+
+# --- Timeline events (sorted ascending by `date` at render time) -------------
+events:
+
+  - id: first-html
+    date: "2004"
+    type: first-contact
+    date_label: { pt: "2004 (13 anos)", en: "2004 (age 13)" }
+    title:
+      pt: "As primeiras linhas: a página de erro do Internet Explorer"
+      en: "The first lines: Internet Explorer's error page"
+    description:
+      pt: "No fim dos 13 anos, ainda no fundamental 2 (8ª série), aprendi a editar o HTML da página de erro do Internet Explorer no laboratório de informática do INSA. Foi ali que comecei a programar de verdade."
+      en: "At the tail end of being 13, still in middle school (8th grade), I learned to edit the HTML of Internet Explorer's error page in my school's computer lab. That's where I actually started programming."
+    technologies: ["HTML"]
+    motivation:
+      pt: "Eu já rondava comunidades de hacker e segurança no Orkut e comentava esse interesse abertamente — o bastante para, pouco antes disso, eu ter sido acusado (injustamente) de invadir e difamar a conta de uma colega mais nova, e quase expulso tanto da escola quanto da escola de inglês por causa disso. Nunca fiz aquilo, mas o episódio só aumentou meu interesse pela área."
+      en: "I was already hanging around hacker and security communities on Orkut and talked about that interest openly — enough that, shortly before this, I was (wrongly) accused of hacking and defaming a younger classmate's account, and almost expelled from both my school and my English school over it. I never did it, but the episode only deepened my interest in the field."
+    lessons:
+      pt: "A curiosidade por segurança veio antes de eu saber programar — o código só chegou depois, para acompanhar o interesse."
+      en: "The curiosity about security came before I could code — the code only arrived afterwards, to keep up with the interest."
+
+  - id: tech-course
+    date: "2005"
+    type: first-contact
+    company: "SOS Computadores"
+    logo: /assets/img/journey/soscomputadores.png
+    location: { pt: "São Paulo, Brasil", en: "São Paulo, Brazil" }
+    date_label: { pt: "2005 (inglês desde 2004)", en: "2005 (English since 2004)" }
+    title:
+      pt: "Curso técnico de informática"
+      en: "First technical computing course"
+    description:
+      pt: "Curso técnico na SOS Computadores (Mooca), 260 horas: montar e manter micros, instalar e configurar redes. Em paralelo, inglês no CNA (2004–2009), que anos depois tornaria a carreira internacional possível."
+      en: "A 260-hour technical course at SOS Computadores: assembling and maintaining PCs, installing and configuring networks. In parallel, English at CNA (2004–2009) — the base that made an international career possible years later."
+    motivation:
+      pt: "Hardware e redes vieram antes do código: entender a máquina por dentro foi o primeiro passo."
+      en: "Hardware and networking came before code: understanding the machine itself was step one."
+
+  - id: first-projects
+    date: "2005"
+    type: project
+    title:
+      pt: "Páginas estáticas e o primeiro sistema de login"
+      en: "Static pages and the first login system"
+    description:
+      pt: "Antes de qualquer projeto \"de verdade\", os primeiros códigos eram scripts soltos de ajuda para os fóruns e comunidades das quais eu participava. Logo depois vieram os primeiros projetos: páginas estáticas e, na sequência, um sistema de login — tudo nas tecnologias que vinham empacotadas com o Dreamweaver: ASP Classic, ColdFusion e PHP."
+      en: "Before any \"real\" project, the first bits of code were loose helper scripts for the forums and communities I was part of. Then came the first actual projects: static pages, followed by a login system — all in the technologies bundled with Dreamweaver: ASP Classic, ColdFusion and PHP."
+    technologies: ["ASP Classic", "ColdFusion", "PHP", "Dreamweaver"]
+
+  - id: html-brasil
+    date: "2006"
+    type: milestone
+    title:
+      pt: "Moderador da comunidade HTML Brasil, no Orkut"
+      en: "Moderator of the HTML Brasil community, on Orkut"
+    description:
+      pt: "Cheguei a moderador da <strong>HTML Brasil</strong>, a segunda maior comunidade de desenvolvimento web do Orkut — atrás só da PHP Brasil. A divisão etária era nítida: adultos na PHP Brasil, crianças e adolescentes na HTML Brasil. Quase todos os moderadores e admins tinham menos de 16 anos."
+      en: "I became a moderator of <strong>HTML Brasil</strong>, the second-biggest web-development community on Orkut — behind only PHP Brasil. The age split was obvious: adults in PHP Brasil, kids and teenagers in HTML Brasil. Almost every moderator and admin was under 16."
+    outcome:
+      pt: "Também começamos o projeto de um portal para a comunidade, nos moldes do iMasters ou do Script Brasil — para publicar notícias e tutoriais de desenvolvimento. Fiquei responsável pelo backend; o frontend era de outra pessoa. O site nunca foi ao ar."
+      en: "We also started a portal project for the community, along the lines of iMasters or Script Brasil — for publishing development news and tutorials. I was responsible for the backend; the frontend was someone else's work. The site never launched."
+
+  - id: gremio-etec
+    date: "2007"
+    type: project
+    title:
+      pt: "Site do grêmio estudantil da ETEC"
+      en: "Student-union website for ETEC"
+    description:
+      pt: "Construí o site do grêmio estudantil da minha escola técnica: fórum, portal de notícias, chat online, portal de vídeos e uma seção de eventos — tudo num projeto só."
+      en: "Built the student-union website for my technical school: a forum, a news portal, live chat, a video portal, and an events section — all in one project."
+
+  - id: first-code
+    date: "2007"
+    type: first-contact
+    logo: /assets/img/journey/guibranco.png
+    title:
+      pt: "PHP e JavaScript passam a contar oficialmente"
+      en: "PHP and JavaScript start counting officially"
+    description:
+      pt: "2007 é o ano que uso como marco de experiência com PHP e JavaScript no currículo — e também quando pego os primeiros trabalhos como freelancer, depois de uns bons anos brincando com ASP Classic, ColdFusion e PHP por conta própria."
+      en: "2007 is the year I use as the mark for PHP and JavaScript experience on paper — and also when I take my first freelance jobs, after a good few years of tinkering with ASP Classic, ColdFusion and PHP on my own."
+    technologies: ["PHP", "JavaScript"]
+
+  - id: high-school
+    date: "2007"
+    type: education
+    company: "ETEC Prof. Camargo Aranha"
+    logo: /assets/img/journey/etec.jpg
+    company_url: "https://eteccamargoaranha.cps.sp.gov.br/"
+    location: { pt: "São Paulo, Brasil", en: "São Paulo, Brazil" }
+    date_label: { pt: "2007 – 2009", en: "2007 – 2009" }
+    title:
+      pt: "Ensino médio na ETEC"
+      en: "High school at ETEC"
+    description:
+      pt: "Ensino médio na ETEC Professor Camargo Aranha, escola técnica estadual de São Paulo."
+      en: "High school at ETEC Professor Camargo Aranha, a São Paulo state technical school."
+
+  - id: first-freela
+    date: "2007"
+    type: job
+    date_label: { pt: "2007 (16 anos)", en: "2007 (age 16)" }
+    title:
+      pt: "Primeiro freela, aos 16 anos"
+      en: "First freelance job, at 16"
+    description:
+      pt: "Meu primeiro trabalho freelance, pouco antes de entrar no técnico. A partir daí, os freelas pelas comunidades e os anúncios nos meus próprios sites (o gerador de link e o de envio de SMS) viraram a minha primeira fonte de renda."
+      en: "My first freelance job, shortly before starting technical school. From then on, freelance gigs found through communities and ads on my own sites (the link generator and the SMS sender) became my first source of income."
+
+  - id: freelance-oss
+    date: "2007"
+    type: project
+    repo: "https://github.com/guibranco"
+    logo: /assets/img/journey/guibranco.png
+    date_label: { pt: "2007 → em evolução", en: "2007 → ongoing" }
+    title:
+      pt: "Freelance e open source"
+      en: "Freelance and open source"
+    description:
+      pt: "Trabalho como consultor independente desde 2007 — C# .NET, PHP, Node.js e Rust —, com integrações de VTEX, Sankhya e gateways de pagamento. Em paralelo, uma pilha de projetos open source em @guibranco."
+      en: "Independent consultant since 2007 — C# .NET, PHP, Node.js and Rust — with VTEX, Sankhya and payment-gateway integrations. Alongside it, a stack of open-source projects under @guibranco."
+    technologies: ["C#", ".NET", "PHP", "Node.js", "Rust"]
+    projects:
+      - name: "CrispyWaffle"
+        url: "https://github.com/guibranco/CrispyWaffle"
+        description:
+          pt: "Biblioteca utilitária em C# .NET (logging, cache, agendamento, serialização)."
+          en: "A C# .NET utility library (logging, cache, scheduling, serialization)."
+      - name: "BancosBrasileiros"
+        url: "https://github.com/guibranco/BancosBrasileiros"
+        description:
+          pt: "Base de dados aberta dos bancos brasileiros — usada num artigo do próprio blog."
+          en: "An open dataset of Brazilian banks — used in one of this blog's own posts."
+      - name: "GStraccini-bot"
+        url: "https://github.com/guibranco/gstraccini-bot"
+        description:
+          pt: "Bot de automação de repositórios no GitHub (PRs, issues, comentários, commits)."
+          en: "A GitHub repository-automation bot (PRs, issues, comments, commits)."
+      - name: "EBAOH"
+        url: "https://github.com/guibranco/ebaoh"
+        description:
+          pt: "Plataforma de avaliações de produtos com gamificação (PHP / CodeIgniter)."
+          en: "A gamified product-review platform (PHP / CodeIgniter)."
+    links:
+      - label: { pt: "Perfil no GitHub", en: "GitHub profile" }
+        url: "https://github.com/guibranco"
+
+  - id: sharing-scraper
+    date: "2008"
+    type: project
+    date_label: { pt: "2008 – 2012", en: "2008 – 2012" }
+    title:
+      pt: "Scraper de séries e gerador de link premium"
+      en: "A series scraper and a premium-link generator"
+    description:
+      pt: "Um scraper para sites de séries online e servidores de download como o MegaUpload, que virou um script gerador de links premium usando a minha própria conta, com o download passando pela minha hospedagem. Ficou no ar até a derrubada do MegaUpload pela Justiça americana e a prisão de Kim Dotcom, em 2012."
+      en: "A scraper for online-series sites and download hosts like MegaUpload, which grew into a script that generated premium download links using my own account, routing the download through my own hosting. It stayed online until MegaUpload was shut down by US authorities and Kim Dotcom was arrested, in 2012."
+
+  - id: sms-aggregator
+    date: "2008"
+    type: project
+    title:
+      pt: "Agregador de envio de SMS pela internet"
+      en: "An internet SMS-sending aggregator"
+    description:
+      pt: "Um site que fazia scraping de serviços gratuitos de envio de SMS pela internet e agregava tudo numa interface só — cheguei a ter 11 opções de envio simultâneas, incluindo algumas que eu pagava do próprio bolso. Monetizado com anúncios, junto com o gerador de link premium."
+      en: "A site that scraped free internet SMS-sending services and aggregated them into a single interface — at its peak it had 11 simultaneous sending options, some of which I paid for out of my own pocket. Monetized with ads, alongside the premium-link generator."
+
+  - id: senac
+    date: "2008"
+    type: education
+    company: "SENAC (Vila Prudente)"
+    logo: /assets/img/journey/senac.jpg
+    company_url: "https://www.sp.senac.br/senac-vila-prudente"
+    location: { pt: "São Paulo, Brasil", en: "São Paulo, Brazil" }
+    date_label: { pt: "2008 – 2010", en: "2008 – 2010" }
+    title:
+      pt: "Técnico em Informática (SENAC)"
+      en: "Computer Technician (SENAC)"
+    description:
+      pt: "Curso técnico de 1.200 horas: montagem e manutenção de micros, redes, e desenvolvimento de sistemas e sites."
+      en: "A 1,200-hour technical course: PC assembly and maintenance, networking, and building systems and websites."
+
+  - id: bom-negocio-rv
+    date: "2010"
+    type: job
+    location: { pt: "Rio Verde, Brasil (remoto)", en: "Rio Verde, Brazil (remote)" }
+    date_label: { pt: "≈2010 (18–19 anos)", en: "≈2010 (age 18–19)" }
+    title:
+      pt: "O maior freela da época: Bom Negócio Rio Verde"
+      en: "The biggest freelance job of the time: Bom Negócio Rio Verde"
+    description:
+      pt: "Contratado para construir o painel administrativo do <strong>Bom Negócio Rio Verde</strong>, um portal de anúncios classificados da cidade de Rio Verde (GO), por cerca de R$ 400 — valor que lembro até hoje. Nunca recebi: o freelancer responsável pelo portal alegou que o cliente havia desistido, e não me pagou."
+      en: "Hired to build the admin panel for <strong>Bom Negócio Rio Verde</strong>, a local classifieds portal for the city of Rio Verde, in Goiás, for about R$400 — an amount I still remember. I was never paid: the freelancer running the portal claimed the client had backed out, and didn't pay me."
+    lessons:
+      pt: "Um freela sem contrato nem cliente direto é fácil de levar calote — e o calote pode vir do outro freelancer, não só do cliente final."
+      en: "A freelance gig with no contract and no direct client is easy to get stiffed on — and the non-payment can come from the other freelancer, not just the end client."
+
+  - id: fatec
+    date: "2011"
+    type: education
+    company: "FATEC São Caetano do Sul"
+    logo: /assets/img/journey/fatec.jpg
+    company_url: "https://fatecsaocaetano.cps.sp.gov.br/"
+    location: { pt: "São Caetano do Sul, Brasil", en: "São Caetano do Sul, Brazil" }
+    date_label: { pt: "2011 – 2013 (concluído)", en: "2011 – 2013 (completed)" }
+    title:
+      pt: "Faculdade: Análise e Desenvolvimento de Sistemas"
+      en: "College: Systems Analysis and Development"
+    description:
+      pt: "Curso superior de tecnologia (2.800 horas) na FATEC São Caetano do Sul — análise, projeto, teste e manutenção de sistemas, banco de dados, gestão de projetos. Concluído."
+      en: "A technologist degree (2,800 hours) at FATEC São Caetano do Sul — systems analysis, design, testing and maintenance, databases, project management. Completed."
+    motivation:
+      pt: "O diploma que fecha a formação — depois de anos de cursos técnicos, a parte formal da conta."
+      en: "The degree that closes out the formal side, after years of technical courses."
+
+  - id: editora-inovacao
+    date: "2011-11"
+    type: job
+    company: "Editora Inovação / Inovação Media Brasil"
+    logo: /assets/img/journey/editora-inovacao.png
+    location: { pt: "São Paulo, Brasil", en: "São Paulo, Brazil" }
+    date_label: { pt: "2011 – 2018", en: "2011 – 2018" }
+    title:
+      pt: "Editora Inovação — de estagiário a coordenador"
+      en: "Editora Inovação — from intern to coordinator"
+    description:
+      pt: "Sete anos numa empresa só. Entrei como estagiário de help desk e saí <strong>Coordenador de Desenvolvimento</strong> (2016–2018), à frente do time, de agências e de parceiros. No caminho: portal de vídeos, plataforma de assinatura paga, integrações com VTEX e Sankhya, um CRM e a gestão de um PABX digital."
+      en: "Seven years at one company. I joined as a help-desk intern and left as <strong>Development Coordinator</strong> (2016–2018), leading the team, agencies and partners. Along the way: a video portal, a paid-subscription platform, VTEX and Sankhya integrations, a CRM, and running a digital PBX."
+    technologies: ["C# .NET", "ASP.NET MVC", "Web API", "VB.NET", "SQL Server", "RabbitMQ", "Apache Kafka", "Elasticsearch"]
+    motivation:
+      pt: "O primeiro emprego formal na área. Fiquei porque, a cada ano, o problema mudava de tamanho."
+      en: "The first formal job in the field. I stayed because the problem changed size every year."
+    lessons:
+      pt: "Uma empresa só, por sete anos, ensina o ciclo inteiro: do bug em ASP clássico à decisão de arquitetura e à gestão de gente."
+      en: "One company for seven years teaches the whole cycle: from a classic-ASP bug to an architecture call to managing people."
+    outcome:
+      pt: "Saí para virar \"software engineer\" de fato, numa operação de varejo em escala nacional."
+      en: "I left to become an actual software engineer, in a nationwide retail operation."
+
+  - id: cea
+    date: "2018-12"
+    type: job
+    company: "C&A Modas"
+    company_url: "https://cea.com.br/"
+    logo: /assets/img/journey/cea.png
+    location: { pt: "Barueri, Brasil", en: "Barueri, Brazil" }
+    date_label: { pt: "dez 2018 – jun 2019", en: "Dec 2018 – Jun 2019" }
+    title:
+      pt: "C&A Modas — e-commerce e automação de reembolso"
+      en: "C&A Modas — e-commerce and refund automation"
+    description:
+      pt: "Engenheiro de software pleno (.NET e Node.js) no time de e-commerce da C&A, na squad de estorno/reembolso: automação do fluxo de reembolso via gateway Adyen e integrações com Zendesk, SAP e Oracle. Via a consultoria Foco em Você."
+      en: "Mid-level software engineer (.NET and Node.js) on C&A's e-commerce team, in the refund/reversal squad: automating the refund flow via the Adyen gateway and integrating Zendesk, SAP and Oracle. Through the Foco em Você consultancy."
+    technologies: ["C# .NET Core", "Node.js", "Adyen", "Zendesk", "SAP", "Oracle"]
+
+  - id: bs2
+    date: "2019-07"
+    type: job
+    featured: true
+    company: "Banco BS2"
+    company_url: "https://bs2.com/"
+    logo: /assets/img/journey/bs2.png
+    location: { pt: "Belo Horizonte, Brasil", en: "Belo Horizonte, Brazil" }
+    date_label: { pt: "2019 – 2021", en: "2019 – 2021" }
+    title:
+      pt: "Banco BS2 — do API Banking ao core do PIX"
+      en: "Banco BS2 — from API Banking to the PIX core"
+    description:
+      pt: "Entrei via K2 Partnering, como engenheiro pleno na tribo B2B, squad de <strong>API Banking</strong> (devs.bs2.com, Banking as a Service, open banking). Em março de 2020 fui para o time de projetos especiais do core bancário, já como sênior — a mesa onde o PIX seria construído."
+      en: "Joined via K2 Partnering as a mid-level engineer in the B2B tribe, on the <strong>API Banking</strong> squad (devs.bs2.com, Banking as a Service, open banking). In March 2020 I moved to the core-banking special-projects team, now as a senior — the desk where PIX would be built."
+    technologies: [".NET Core", "C#", "Dapper", "Entity Framework", "RabbitMQ", "Docker", "DDD"]
+    motivation:
+      pt: "Sair de integrações B2B para o núcleo transacional de um banco era o passo que faltava."
+      en: "Moving from B2B integrations to a bank's transactional core was the missing step."
+    outcome:
+      pt: "Um mês depois de o PIX ir ao ar, assinei o primeiro contrato com uma empresa fora do Brasil."
+      en: "A month after PIX went live, I signed my first contract with a company outside Brazil."
+
+  - id: pix
+    date: "2020"
+    type: milestone
+    featured: true
+    company: "Banco BS2"
+    logo: /assets/img/journey/bs2.png
+    date_label: { pt: "2020", en: "2020" }
+    title:
+      pt: "Construir o PIX, com data marcada pelo Banco Central"
+      en: "Building PIX, on a deadline set by Brazil's Central Bank"
+    description:
+      pt: "Atravessei 2020 dentro do PIX/SPI: arquitetura do CORE PIX e do PIX Indireto no BS2, mensageria ISO 20022 (ADMI, CAMT, PACS, REDA), sistema contábil para parceiros de PIX Indireto, e um lançamento marcado para 16 de novembro sem plano B."
+      en: "I spent 2020 inside PIX/SPI: architecture of the CORE and Indirect PIX solutions at BS2, ISO 20022 messaging (ADMI, CAMT, PACS, REDA), an accounting system for Indirect PIX partners, and a launch fixed for November 16th with no plan B."
+    technologies: [".NET Core", "RabbitMQ", "Docker", "ISO 20022"]
+    links:
+      - label: { pt: "Série: Desenvolvendo o PIX (1) — bastidores do prazo", en: "Series: Building PIX (1) — behind the deadline" }
+        url: "/artigos/construindo-o-pix-no-bs2-bastidores-de-um-prazo-do-banco-central/"
+      - label: { pt: "Série: Desenvolvendo o PIX (2) — o contrato", en: "Series: Building PIX (2) — the contract" }
+        url: "/artigos/contrato-do-pix-valor-fixo-sobreaviso-e-a-hora-que-nao-existia/"
+      - label: { pt: "Série: Desenvolvendo o PIX (3) — a arquitetura", en: "Series: Building PIX (3) — the architecture" }
+        url: "/artigos/arquitetura-do-pix-por-dentro-spi-iso-20022-dez-segundos/"
+    motivation:
+      pt: "Ninguém tinha construído o PIX antes porque o sistema não existia nesse formato em lugar nenhum do mundo."
+      en: "Nobody had built PIX before, because the system didn't exist in that shape anywhere in the world."
+    lessons:
+      pt: "Arquitetura sob um orçamento de tempo publicado em norma muda tudo: a latência aceitável não é opinião, é contrato."
+      en: "Architecture under a time budget published in regulation changes everything: acceptable latency isn't an opinion, it's a contract."
+    outcome:
+      pt: "A confiança para aceitar trabalho no exterior veio, em boa parte, de ter atravessado 2020 dentro do core de um banco."
+      en: "Much of the confidence to take work abroad came from getting through 2020 inside a bank's core."
+
+  - id: blog
+    date: "2020-08"
+    type: blog
+    company: "Tecnologia & Viagens"
+    repo: "https://github.com/guibranco/blog"
+    date_label: { pt: "2020 → em evolução", en: "2020 → ongoing" }
+    title:
+      pt: "O blog \"Tecnologia & Viagens\""
+      en: "The \"Technology & Travel\" blog"
+    description:
+      pt: "Um blog pessoal em Jekyll, publicado de graça no GitHub Pages, com design próprio. Começou como notas de tecnologia e virou também um registro de carreira internacional e de viagens — bilíngue, artigo a artigo."
+      en: "A personal Jekyll blog, published free on GitHub Pages, hand-designed. It started as tech notes and grew into a record of an international career and of travel too — bilingual, one article at a time."
+    technologies: ["Jekyll", "Liquid", "GitHub Pages", "GitHub Actions"]
+    links:
+      - label: { pt: "Ler o blog", en: "Read the blog" }
+        url: "/"
+    motivation:
+      pt: "Escrever o que aprendi obriga a entender de verdade — e deixa um rastro que eu mesmo consulto depois."
+      en: "Writing down what I learned forces real understanding — and leaves a trail I come back to myself."
+
+  - id: farfetch
+    date: "2020-12"
+    type: job
+    company: "Farfetch"
+    company_url: "https://farfetch.com/"
+    logo: /assets/img/journey/farfetch.png
+    location: { pt: "Porto, Portugal (remoto)", en: "Porto, Portugal (remote)" }
+    date_label: { pt: "dez 2020 – mai 2021", en: "Dec 2020 – May 2021" }
+    title:
+      pt: "Farfetch — o time de busca e a mudança que não aconteceu"
+      en: "Farfetch — the search team and the move that never happened"
+    description:
+      pt: "Engenheiro sênior no time <strong>Search &amp; Scouts</strong> da Farfetch, plataforma global de moda de luxo — melhorias nos serviços de busca, trabalhando lado a lado com o time de Data Science. Via a consultoria portuguesa Multivision; a mudança para o Porto fazia parte do pacote e nunca aconteceu."
+      en: "Senior engineer on Farfetch's <strong>Search &amp; Scouts</strong> team, a global luxury-fashion platform — improving the search services, working side by side with the Data Science team. Through the Portuguese consultancy Multivision; a move to Porto was part of the deal and never happened."
+    technologies: ["C#", ".NET Core", "Kafka", "Cassandra", "Elasticsearch"]
+    links:
+      - label: { pt: "Trabalhando pelo mundo #1 — Porto", en: "Working around the world #1 — Porto" }
+        url: "/artigos/trabalhando-pelo-mundo-porto-farfetch/"
+    lessons:
+      pt: "Contrato internacional e mudança de país são coisas separadas: um pode existir plenamente sem o outro."
+      en: "An international contract and relocation are separate things: one can fully exist without the other."
+
+  - id: gracekennedy
+    date: "2021-02"
+    type: job
+    company: "Grace Kennedy Financial Group"
+    company_url: "https://gracekennedyfinancialgroup.com/"
+    logo: /assets/img/journey/grace-kennedy.jpg
+    location: { pt: "Kingston, Jamaica (remoto)", en: "Kingston, Jamaica (remote)" }
+    date_label: { pt: "fev – mai 2021 (meio período)", en: "Feb – May 2021 (part-time)" }
+    title:
+      pt: "Grace Kennedy — remessas e carteira digital no Caribe"
+      en: "Grace Kennedy — remittances and a digital wallet in the Caribbean"
+    description:
+      pt: "Engenheiro sênior, meio período e remoto, para o maior grupo financeiro e de alimentos da Jamaica e do Caribe: integração de remessas com a Western Union e um sistema de carteira digital. Via a agência The Bridge Social."
+      en: "Senior engineer, part-time and remote, for the largest financial and food group in Jamaica and the Caribbean: Western Union remittance integration and a digital-wallet system. Through the agency The Bridge Social."
+    technologies: ["C# .NET Core", "CosmosDB", "Azure Service Bus", "EF Core", "Dapper", "RPA"]
+    links:
+      - label: { pt: "Trabalhando pelo mundo #2 — Dubai (contexto dos contratos paralelos)", en: "Working around the world #2 — Dubai (the parallel-contracts context)" }
+        url: "/artigos/trabalhando-pelo-mundo-dubai-talabat/"
+
+  - id: parallel-2021
+    date: "2021-03"
+    type: milestone
+    featured: true
+    date_label: { pt: "2021", en: "2021" }
+    title:
+      pt: "O ano dos contratos paralelos"
+      en: "The year of parallel contracts"
+    description:
+      pt: "2021 teve, em poucos meses, contratos remotos emendados ou simultâneos: BS2 até janeiro, Farfetch em tempo integral até maio e, em paralelo, Grace Kennedy, FCamara e Syndigo em meio período — com a Talabat, em Dubai, começando em maio."
+      en: "In a few months, 2021 held remote contracts back-to-back or at once: BS2 until January, Farfetch full-time until May, and in parallel Grace Kennedy, FCamara and Syndigo part-time — with Talabat, in Dubai, starting in May."
+    motivation:
+      pt: "Depois de sete anos numa empresa só, testei o extremo oposto: quantos contextos eu conseguia sustentar ao mesmo tempo."
+      en: "After seven years at one company, I tried the opposite extreme: how many contexts I could hold at once."
+    lessons:
+      pt: "Dá para acumular contratos por um tempo, mas o custo aparece na troca de contexto e na energia. Não serve como estilo de vida."
+      en: "You can stack contracts for a while, but the cost shows up in context-switching and energy. It doesn't work as a way of living."
+
+  - id: talabat
+    date: "2021-05"
+    type: move
+    featured: true
+    company: "Talabat (Delivery Hero)"
+    company_url: "https://talabat.com/"
+    logo: /assets/img/journey/talabat.png
+    location: { pt: "Dubai, Emirados Árabes Unidos", en: "Dubai, United Arab Emirates" }
+    date_label: { pt: "2021 – 2023", en: "2021 – 2023" }
+    title:
+      pt: "Talabat — a primeira mudança de país que aconteceu de verdade"
+      en: "Talabat — the first relocation that actually happened"
+    description:
+      pt: "Quase dois anos na Talabat, do grupo Delivery Hero, em q-commerce. Comecei na squad de <strong>Grocery Fulfillment</strong> (heartbeat de catálogo, substituição de itens, robocalls com Asterisk) e depois fui para a de <strong>Shopping Experience</strong>: busca, ofertas e a migração de um monolito para microsserviços, com um BFF em KrakenD, Luna e Go."
+      en: "Almost two years at Talabat, part of the Delivery Hero group, in q-commerce. I started on the <strong>Grocery Fulfillment</strong> squad (catalog heartbeat, item replacement, Asterisk robocalls) and moved to <strong>Shopping Experience</strong>: search, offers, and a monolith-to-microservices migration, with a BFF in KrakenD, Luna and Go."
+    technologies: ["C#", ".NET 5/6/7", "Go", "Amazon SQS", "AWS Lambda", "SQL Server", "PostgreSQL", "KrakenD", "DDD", "TDD"]
+    links:
+      - label: { pt: "Trabalhando pelo mundo #2 — Dubai", en: "Working around the world #2 — Dubai" }
+        url: "/artigos/trabalhando-pelo-mundo-dubai-talabat/"
+    motivation:
+      pt: "Depois do Porto, eu queria uma mudança que realmente saísse do papel — outro continente, outro fuso, outra forma de morar."
+      en: "After Porto, I wanted a move that actually left the page — another continent, timezone, way of living."
+    outcome:
+      pt: "De Dubai, entrevistei para Dublin por videoconferência — o capítulo seguinte começou antes deste terminar."
+      en: "From Dubai, I interviewed for Dublin over video calls — the next chapter started before this one ended."
+
+  - id: fcamara
+    date: "2021-05"
+    type: job
+    company: "FCamara"
+    company_url: "https://fcamara.com/"
+    logo: /assets/img/journey/fcamara.png
+    location: { pt: "São Paulo, Brasil (remoto)", en: "São Paulo, Brazil (remote)" }
+    date_label: { pt: "mai – ago 2021 (meio período)", en: "May – Aug 2021 (part-time)" }
+    title:
+      pt: "FCamara — Open Finance, IdP e DCR"
+      en: "FCamara — Open Finance, IdP and DCR"
+    description:
+      pt: "Engenheiro sênior em Node.js, meio período, no projeto de Open Banking / Open Finance: Identity Provider (IdP), Dynamic Client Registration (DCR), uma plataforma white-label e integração com o Banco Pan."
+      en: "Senior Node.js engineer, part-time, on the Open Banking / Open Finance project: Identity Provider (IdP), Dynamic Client Registration (DCR), a white-label platform and a Banco Pan integration."
+    technologies: ["Node.js", "CosmosDB", "Azure Service Bus"]
+
+  - id: syndigo
+    date: "2021-06"
+    type: job
+    company: "Syndigo"
+    company_url: "https://syndigo.com/"
+    logo: /assets/img/journey/syndigo.png
+    location: { pt: "Chicago, EUA (remoto)", en: "Chicago, USA (remote)" }
+    date_label: { pt: "jun – nov 2021 (meio período)", en: "Jun – Nov 2021 (part-time)" }
+    title:
+      pt: "Syndigo — integrações de varejo nos EUA"
+      en: "Syndigo — US retail integrations"
+    description:
+      pt: "Engenheiro sênior, meio período e remoto, na plataforma Customer Experience Hub (CXH): integrações com Instacart e BestBuy e uma limpeza de code smells e bugs."
+      en: "Senior engineer, part-time and remote, on the Customer Experience Hub (CXH) platform: Instacart and BestBuy integrations, plus a code-smell and bug cleanup."
+    technologies: ["C#", ".NET 5", "Azure Blob Storage", "SQL Server"]
+
+  - id: outsurance
+    date: "2023-04"
+    type: move
+    featured: true
+    current: true
+    company: "OUTsurance Ireland"
+    company_url: "https://outsurance.ie/"
+    logo: /assets/img/journey/outsurance.png
+    location: { pt: "Dublin, Irlanda", en: "Dublin, Ireland" }
+    date_label: { pt: "2023 – atual", en: "2023 – present" }
+    title:
+      pt: "OUTsurance — construir o billing de uma operação de seguros do zero"
+      en: "OUTsurance — building an insurance operation's billing from scratch"
+    description:
+      pt: "Engenheiro sênior no projeto de <strong>Finance &amp; Billing</strong>: sistema de billing, cobrança e agenda de pagamentos, um shadow ledger, mensagens ISO 20022 PAIN, e integração com o portal de apólices e com gateways e bancos (cartão de crédito e débito direto). Padrão Saga com NServiceBus, Azure Service Bus, RabbitMQ e CosmosDB; infraestrutura como código em Terraform."
+      en: "Senior engineer on the <strong>Finance &amp; Billing</strong> project: a billing, collections and payment-schedule system, a shadow ledger, ISO 20022 PAIN messages, and integration with the policy-admin portal and with gateways and banks (credit card and direct debit). Saga pattern with NServiceBus, Azure Service Bus, RabbitMQ and CosmosDB; infrastructure as code in Terraform."
+    technologies: ["C#", ".NET 7", "CosmosDB", "NServiceBus", "Azure Service Bus", "RabbitMQ", "Terraform", "ISO 20022", "Container Apps"]
+    links:
+      - label: { pt: "Trabalhando pelo mundo #3 — Dublin", en: "Working around the world #3 — Dublin" }
+        url: "/artigos/trabalhando-pelo-mundo-dublin-outsurance/"
+    motivation:
+      pt: "Um greenfield financeiro dentro da União Europeia, com cidadania que dispensa patrocínio de visto: oportunidade e timing coincidiram."
+      en: "A financial greenfield inside the EU, with citizenship that removes any visa sponsorship: opportunity and timing lined up."
+    lessons:
+      pt: "Construir do zero é liberdade e responsabilidade na mesma dose — cada decisão de arquitetura fica registrada no seu nome."
+      en: "Building from scratch is freedom and responsibility in equal measure — every architecture decision ends up recorded under your name."

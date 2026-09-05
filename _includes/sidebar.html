@@ -124,6 +124,11 @@
           </a>
         </li>
         <li>
+          <a href="{{ site.baseurl }}/trajetoria/"{% if include.active_page == "journey" %} class="active"{% endif %}>
+            <i class="fas fa-route"></i> <span data-i18n="journey_nav">Minha trajetória</span>
+          </a>
+        </li>
+        <li>
           <a href="{{ site.baseurl }}/mapa-do-site/"{% if include.active_page == "sitemap" %} class="active"{% endif %}>
             <i class="fas fa-sitemap"></i> <span data-i18n="sitemap_nav">Mapa do site</span>
           </a>
