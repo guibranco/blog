@@ -64,8 +64,33 @@ image: /assets/img/og-default.jpg
 
       <p class="journey-hint" id="journey-hint" data-i18n="journey_scroll_hint">{{ _t.journey_scroll_hint }}</p>
 
-      <div class="journey-scroller" tabindex="0" role="region" aria-label="{{ _t.journey_title }}" aria-describedby="journey-hint">
-        <ol class="journey" role="list">
+      <!-- Horizontal overview: one node per event, year + logo, jumps to the detail below -->
+      <nav class="journey-rail-wrap" tabindex="0" role="region" aria-label="{{ _t.journey_title }}" aria-describedby="journey-hint">
+        <ol class="journey-rail" role="list">
+          {%- for e in _events -%}
+            {%- assign _cat = _cats | where: "id", e.type | first -%}
+            {%- assign _rcls = "" -%}
+            {%- if e.featured -%}{%- assign _rcls = _rcls | append: " journey-rail-node--featured" -%}{%- endif -%}
+            {%- if e.placeholder -%}{%- assign _rcls = _rcls | append: " journey-rail-node--placeholder" -%}{%- endif -%}
+          <li class="journey-rail-node{{ _rcls }}">
+            <a class="journey-rail-link" href="#ev-{{ e.id }}">
+              {%- if e.logo -%}
+              {%- assign _rlogo_alt_pt = e.logo_alt.pt | default: e.company | default: e.title.pt -%}
+              {%- assign _rlogo_alt_en = e.logo_alt.en | default: e.company | default: e.title.en -%}
+              <img class="journey-rail-logo" src="{{ e.logo | relative_url }}" loading="lazy" decoding="async" alt="" data-alt-pt="{{ _rlogo_alt_pt }}" data-alt-en="{{ _rlogo_alt_en }}">
+              {%- else -%}
+              <span class="journey-rail-icon" aria-hidden="true"><i class="{% if e.featured %}fas fa-star{% else %}{{ _cat.icon }}{% endif %}"></i></span>
+              {%- endif -%}
+              <span class="journey-rail-year" aria-hidden="true">{{ e.date | slice: 0, 4 }}</span>
+              <span class="journey-rail-sr">{{ e.date | slice: 0, 4 }} — {% include i18n-block.html pt=e.title.pt en=e.title.en %}</span>
+            </a>
+          </li>
+          {%- endfor -%}
+        </ol>
+      </nav>
+
+      <!-- Vertical timeline: full detail per event -->
+      <ol class="journey" role="list">
           {%- for e in _events -%}
             {%- assign _cat = _cats | where: "id", e.type | first -%}
             {%- assign _cls = "" -%}
@@ -181,13 +206,7 @@ image: /assets/img/og-default.jpg
             </article>
           </li>
           {%- endfor -%}
-        </ol>
-      </div>
-
-      <div class="journey-controls" hidden>
-        <button type="button" class="journey-ctrl" data-dir="-1" data-i18n-aria="journey_scroll_prev" aria-label="{{ _t.journey_scroll_prev }}"><i class="fas fa-arrow-left" aria-hidden="true"></i></button>
-        <button type="button" class="journey-ctrl" data-dir="1" data-i18n-aria="journey_scroll_next" aria-label="{{ _t.journey_scroll_next }}"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
-      </div>
+      </ol>
 
       {%- endif %}
 
@@ -198,24 +217,6 @@ image: /assets/img/og-default.jpg
   </div>
 
   {% include sidebar-script.html %}
-  <script>
-    /* Progressive enhancement only — the timeline works without this script:
-       the scroller is natively scrollable and keyboard-focusable, and every
-       detail is in <details> elements or shown inline. */
-    (function () {
-      var scroller = document.querySelector('.journey-scroller');
-      var controls = document.querySelector('.journey-controls');
-      if (!scroller || !controls) return;
-      controls.hidden = false;
-      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      controls.addEventListener('click', function (evt) {
-        var btn = evt.target.closest('.journey-ctrl');
-        if (!btn) return;
-        var amount = Math.max(scroller.clientWidth * 0.8, 300);
-        scroller.scrollBy({ left: btn.dataset.dir === '1' ? amount : -amount, behavior: reduce ? 'auto' : 'smooth' });
-      });
-    })();
-  </script>
 
 </body>
 </html>

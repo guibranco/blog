@@ -1434,8 +1434,101 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
   color: var(--ink-muted);
 }
 
-.journey-scroller { scroll-behavior: smooth; }
+/* Horizontal overview rail — years + logos, always horizontal, jumps to the
+   matching card in the vertical list below via #ev-{id} anchors. */
+.journey-rail-wrap {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 -1px; /* let the focus outline breathe at the edges */
+}
+.journey-rail-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
+.journey-rail {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  padding: .5rem .25rem 1.1rem;
+  min-width: min-content;
+}
+
+.journey-rail-node { position: relative; flex: 0 0 auto; scroll-snap-align: start; }
+/* connecting line, bridging the gap to the next node */
+.journey-rail-node::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  right: calc(-1.5rem - 50%);
+  top: 22px;
+  height: 2px;
+  background: var(--border);
+  z-index: 0;
+}
+.journey-rail-node:last-child::before { display: none; }
+
+.journey-rail-link {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .4rem;
+  width: 64px;
+  text-decoration: none;
+  padding: .15rem;
+  border-radius: 8px;
+}
+.journey-rail-link:hover .journey-rail-logo,
+.journey-rail-link:hover .journey-rail-icon,
+.journey-rail-link:focus-visible .journey-rail-logo,
+.journey-rail-link:focus-visible .journey-rail-icon { border-color: var(--accent); transform: translateY(-2px); }
+.journey-rail-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.journey-rail-logo,
+.journey-rail-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--border);
+  transition: border-color .2s, transform .2s;
+}
+.journey-rail-logo { object-fit: contain; padding: 6px; }
+.journey-rail-icon { display: flex; align-items: center; justify-content: center; color: var(--ink-muted); font-size: .8rem; background: var(--surface-warm); }
+
+.journey-rail-node--featured .journey-rail-logo,
+.journey-rail-node--featured .journey-rail-icon {
+  border-color: var(--accent);
+  border-width: 2px;
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+.journey-rail-node--featured .journey-rail-icon { color: var(--accent); }
+.journey-rail-node--placeholder .journey-rail-logo,
+.journey-rail-node--placeholder .journey-rail-icon { border-style: dashed; }
+
+.journey-rail-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: .04em;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+/* Visually hidden but announced — carries the bilingual event title for
+   screen readers, since the rail only shows a logo/icon and a bare year. */
+.journey-rail-sr {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Vertical timeline — full detail per event, always a single column */
 .journey {
   list-style: none;
   display: flex;
@@ -1679,67 +1772,10 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
   padding: .35rem 0 .5rem;
 }
 
-.journey-controls { display: flex; gap: .6rem; margin-top: 1rem; }
-.journey-ctrl {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: #fff;
-  color: var(--ink-muted);
-  cursor: pointer;
-  transition: border-color .2s, color .2s, background .2s;
-}
-.journey-ctrl:hover { border-color: var(--accent); color: var(--accent); }
-.journey-ctrl:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
-@media (min-width: 1024px) {
-  .journey-scroller {
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding-bottom: 1rem;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
-  }
-  .journey-scroller:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-
-  .journey {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 2.5rem;
-    padding: 2.75rem .25rem .5rem;
-    min-width: min-content;
-  }
-
-  .journey-event {
-    flex: 0 0 clamp(300px, 24vw, 360px);
-    padding-left: 0;
-    padding-top: 2.75rem;
-    scroll-snap-align: start;
-  }
-  .journey-event--featured { flex-basis: clamp(320px, 26vw, 390px); }
-
-  .journey-event::before {
-    left: 0;
-    right: -2.5rem;
-    top: 13px;
-    bottom: auto;
-    width: auto;
-    height: 2px;
-  }
-  .journey-event:first-child::before { left: 14px; }
-  .journey-event:last-child::before { right: auto; width: 14px; }
-
-  .journey-node { top: 0; left: 0; }
-  .journey-event--featured .journey-node { top: -2px; }
-
-  .journey-card { height: 100%; }
-}
-
-@media (min-width: 1440px) {
-  .journey-event { flex-basis: 360px; }
+@media (min-width: 860px) {
+  .journey-card { max-width: 640px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .journey-scroller { scroll-behavior: auto; }
+  .journey-rail-wrap { scroll-behavior: auto; }
 }
