@@ -53,6 +53,19 @@ categories:
 # --- Timeline events (sorted ascending by `date` at render time) -------------
 events:
 
+  - id: mechatronics
+    date: "2003"
+    type: first-contact
+    title:
+      pt: "Antes do código: eletrônica e mecatrônica"
+      en: "Before code: electronics and mechatronics"
+    description:
+      pt: "Antes de me envolver com programação, o interesse era elétrica, eletrônica e mecatrônica — que, aliás, era uma das trilhas de técnico na ETEC na época. Eu já frequentava a FEBRACE, a Feira Brasileira de Ciências e Engenharia, promovida pela POLI-USP."
+      en: "Before getting into programming, the interest was electrical, electronics and mechatronics — which was, in fact, one of the technical tracks at ETEC back then. I was already going to FEBRACE, the Brazilian Science and Engineering Fair run by POLI-USP."
+    links:
+      - label: { pt: "FEBRACE — Feira Brasileira de Ciências e Engenharia", en: "FEBRACE — Brazilian Science and Engineering Fair" }
+        url: "https://febrace.org.br/"
+
   - id: first-html
     date: "2004"
     type: first-contact
@@ -95,8 +108,8 @@ events:
       pt: "Páginas estáticas e o primeiro sistema de login"
       en: "Static pages and the first login system"
     description:
-      pt: "Antes de qualquer projeto \"de verdade\", os primeiros códigos eram scripts soltos de ajuda para os fóruns e comunidades das quais eu participava. Logo depois vieram os primeiros projetos: páginas estáticas e, na sequência, um sistema de login — tudo nas tecnologias que vinham empacotadas com o Dreamweaver: ASP Classic, ColdFusion e PHP."
-      en: "Before any \"real\" project, the first bits of code were loose helper scripts for the forums and communities I was part of. Then came the first actual projects: static pages, followed by a login system — all in the technologies bundled with Dreamweaver: ASP Classic, ColdFusion and PHP."
+      pt: "Antes de qualquer projeto \"de verdade\", os primeiros códigos eram scripts soltos de ajuda para os fóruns e comunidades das quais eu participava. Logo depois vieram os primeiros projetos: páginas estáticas e, na sequência, um sistema de login — tudo nas tecnologias que vinham empacotadas com o Dreamweaver: ASP Classic, ColdFusion e PHP. Dessas três, fiquei no PHP."
+      en: "Before any \"real\" project, the first bits of code were loose helper scripts for the forums and communities I was part of. Then came the first actual projects: static pages, followed by a login system — all in the technologies bundled with Dreamweaver: ASP Classic, ColdFusion and PHP. Of the three, I stuck with PHP."
     technologies: ["ASP Classic", "ColdFusion", "PHP", "Dreamweaver"]
 
   - id: html-brasil
@@ -130,8 +143,8 @@ events:
       pt: "PHP e JavaScript passam a contar oficialmente"
       en: "PHP and JavaScript start counting officially"
     description:
-      pt: "2007 é o ano que uso como marco de experiência com PHP e JavaScript no currículo — e também quando pego os primeiros trabalhos como freelancer, depois de uns bons anos brincando com ASP Classic, ColdFusion e PHP por conta própria."
-      en: "2007 is the year I use as the mark for PHP and JavaScript experience on paper — and also when I take my first freelance jobs, after a good few years of tinkering with ASP Classic, ColdFusion and PHP on my own."
+      pt: "2007 é o ano que uso como marco de experiência com PHP e JavaScript no currículo, depois de uns bons anos brincando com ASP Classic, ColdFusion e PHP por conta própria."
+      en: "2007 is the year I use as the mark for PHP and JavaScript experience on paper, after a good few years of tinkering with ASP Classic, ColdFusion and PHP on my own."
     technologies: ["PHP", "JavaScript"]
 
   - id: high-school
@@ -150,15 +163,15 @@ events:
       en: "High school at ETEC Professor Camargo Aranha, a São Paulo state technical school."
 
   - id: first-freela
-    date: "2007"
+    date: "2008"
     type: job
-    date_label: { pt: "2007 (16 anos)", en: "2007 (age 16)" }
+    date_label: { pt: "2008 – 2009 (a partir dos 16)", en: "2008 – 2009 (from age 16)" }
     title:
-      pt: "Primeiro freela, aos 16 anos"
-      en: "First freelance job, at 16"
+      pt: "Freelas de PHP pelas comunidades viram renda"
+      en: "PHP freelancing through the communities becomes income"
     description:
-      pt: "Meu primeiro trabalho freelance, pouco antes de entrar no técnico. A partir daí, os freelas pelas comunidades e os anúncios nos meus próprios sites (o gerador de link e o de envio de SMS) viraram a minha primeira fonte de renda."
-      en: "My first freelance job, shortly before starting technical school. From then on, freelance gigs found through communities and ads on my own sites (the link generator and the SMS sender) became my first source of income."
+      pt: "O primeiro trabalho pago veio por volta dos 16 anos. Mas foi em 2008–2009 que os freelas de PHP pelas comunidades e os anúncios nos meus próprios sites (o gerador de link e o de envio de SMS) viraram renda de verdade."
+      en: "The first paid work came around age 16. But it was in 2008–2009 that PHP freelance gigs through the communities, plus ads on my own sites (the link generator and the SMS sender), turned into real income."
 
   - id: freelance-oss
     date: "2007"
@@ -177,8 +190,8 @@ events:
       - name: "CrispyWaffle"
         url: "https://github.com/guibranco/CrispyWaffle"
         description:
-          pt: "Biblioteca utilitária em C# .NET (logging, cache, agendamento, serialização)."
-          en: "A C# .NET utility library (logging, cache, scheduling, serialization)."
+          pt: "Toolkit em C# .NET (logging, cache, agendamento, serialização), criado em 2019 — boa parte extraída do Integração Service, da Editora Inovação."
+          en: "A C# .NET toolkit (logging, cache, scheduling, serialization), created in 2019 — much of it extracted from Editora Inovação's Integração Service."
       - name: "BancosBrasileiros"
         url: "https://github.com/guibranco/BancosBrasileiros"
         description:
@@ -256,16 +269,16 @@ events:
     logo: /assets/img/journey/fatec.jpg
     company_url: "https://fatecsaocaetano.cps.sp.gov.br/"
     location: { pt: "São Caetano do Sul, Brasil", en: "São Caetano do Sul, Brazil" }
-    date_label: { pt: "2011 – 2013 (concluído)", en: "2011 – 2013 (completed)" }
+    date_label: { pt: "2011 – 2015 (não concluído)", en: "2011 – 2015 (not completed)" }
     title:
-      pt: "Faculdade: Análise e Desenvolvimento de Sistemas"
-      en: "College: Systems Analysis and Development"
+      pt: "Faculdade: Análise e Desenvolvimento de Sistemas (não concluída)"
+      en: "College: Systems Analysis and Development (unfinished)"
     description:
-      pt: "Curso superior de tecnologia (2.800 horas) na FATEC São Caetano do Sul — análise, projeto, teste e manutenção de sistemas, banco de dados, gestão de projetos. Concluído."
-      en: "A technologist degree (2,800 hours) at FATEC São Caetano do Sul — systems analysis, design, testing and maintenance, databases, project management. Completed."
-    motivation:
-      pt: "O diploma que fecha a formação — depois de anos de cursos técnicos, a parte formal da conta."
-      en: "The degree that closes out the formal side, after years of technical courses."
+      pt: "Curso superior de tecnologia na FATEC São Caetano do Sul — análise, projeto, teste e manutenção de sistemas, banco de dados. Entrei em 2011 e deveria ter concluído em 2013, mas entre trancar, quase largar e voltar, fiquei até o começo de 2015 — quando desisti, ao ver que ainda levaria uns dois anos para terminar."
+      en: "A technologist degree at FATEC São Caetano do Sul — systems analysis, design, testing and maintenance, databases. I enrolled in 2011 and should have finished in 2013, but between pausing, nearly quitting and coming back, I stayed until early 2015 — then dropped out, realizing it would still take another two years or so."
+    lessons:
+      pt: "A faculdade nunca foi prioridade — o emprego sempre foi. Provavelmente eu não teria concluído nem até 2017."
+      en: "College was never the priority — the job always was. I probably wouldn't have finished even by 2017."
 
   - id: editora-inovacao
     date: "2011-11"
@@ -281,6 +294,15 @@ events:
       pt: "Sete anos numa empresa só. Entrei como estagiário de help desk e saí <strong>Coordenador de Desenvolvimento</strong> (2016–2018), à frente do time, de agências e de parceiros. No caminho: portal de vídeos, plataforma de assinatura paga, integrações com VTEX e Sankhya, um CRM e a gestão de um PABX digital."
       en: "Seven years at one company. I joined as a help-desk intern and left as <strong>Development Coordinator</strong> (2016–2018), leading the team, agencies and partners. Along the way: a video portal, a paid-subscription platform, VTEX and Sankhya integrations, a CRM, and running a digital PBX."
     technologies: ["C# .NET", "ASP.NET MVC", "Web API", "VB.NET", "SQL Server", "RabbitMQ", "Apache Kafka", "Elasticsearch"]
+    projects:
+      - name: "Integração Service"
+        description:
+          pt: "Serviço interno criado no fim de 2012 para conectar os diversos sistemas e projetos da editora. Boa parte dele virou, em 2019, a biblioteca open source CrispyWaffle."
+          en: "An internal service, built in late 2012 to wire together the publisher's many systems and projects. Much of it became the open-source CrispyWaffle library in 2019."
+      - name: "Canal do Artesanato"
+        description:
+          pt: "Uma das propriedades digitais da editora em que trabalhei."
+          en: "One of the publisher's digital properties I worked on."
     motivation:
       pt: "O primeiro emprego formal na área. Fiquei porque, a cada ano, o problema mudava de tamanho."
       en: "The first formal job in the field. I stayed because the problem changed size every year."
@@ -290,6 +312,34 @@ events:
     outcome:
       pt: "Saí para virar \"software engineer\" de fato, numa operação de varejo em escala nacional."
       en: "I left to become an actual software engineer, in a nationwide retail operation."
+
+  - id: version-control
+    date: "2013"
+    type: milestone
+    logo: /assets/img/journey/guibranco.png
+    date_label: { pt: "2013", en: "2013" }
+    title:
+      pt: "Controle de versão: do VisualSVN ao GitHub"
+      en: "Version control: from VisualSVN to GitHub"
+    description:
+      pt: "Criei a conta no GitHub em 24 de janeiro de 2013. Em novembro instalei o VisualSVN na Editora Inovação e o time passou a versionar o código ali. Anos depois, já fora da empresa (por volta de 2019–2020), migrei tudo para o Git/GitHub — por isso os meus commits mais antigos no GitHub datam de novembro de 2013, mesmo tendo acontecido fora dele."
+      en: "I created my GitHub account on January 24, 2013. In November I installed VisualSVN at Editora Inovação and the team started versioning the code there. Years later, already gone from the company (around 2019–2020), I migrated everything to Git/GitHub — which is why my oldest GitHub commits are dated November 2013, even though they happened outside it."
+
+  - id: first-oss
+    date: "2016-09"
+    type: project
+    repo: "https://github.com/guibranco/GuiStracini.HolidayAPI"
+    logo: /assets/img/journey/guibranco.png
+    date_label: { pt: "set 2016", en: "Sep 2016" }
+    title:
+      pt: "Primeiro repositório público e primeira pull request"
+      en: "First public repo and first pull request"
+    description:
+      pt: "Meu primeiro repositório público no GitHub foi em <strong>19 de setembro de 2016</strong> — o SDK <strong>GuiStracini.HolidayAPI</strong> — e a primeira pull request num projeto de terceiros três dias depois. Até então, a única \"atividade\" no meu GitHub era o histórico do VisualSVN importado retroativamente."
+      en: "My first public GitHub repository was on <strong>September 19, 2016</strong> — the <strong>GuiStracini.HolidayAPI</strong> SDK — and my first pull request to a third-party project three days later. Until then, the only \"activity\" on my GitHub was the retroactively imported VisualSVN history."
+    links:
+      - label: { pt: "Perfil no GitHub (@guibranco)", en: "GitHub profile (@guibranco)" }
+        url: "https://github.com/guibranco"
 
   - id: cea
     date: "2018-12"
@@ -362,18 +412,18 @@ events:
       en: "Much of the confidence to take work abroad came from getting through 2020 inside a bank's core."
 
   - id: blog
-    date: "2020-08"
+    date: "2015"
     type: blog
     company: "Tecnologia & Viagens"
     repo: "https://github.com/guibranco/blog"
-    date_label: { pt: "2020 → em evolução", en: "2020 → ongoing" }
+    date_label: { pt: "2015 → 2026", en: "2015 → 2026" }
     title:
       pt: "O blog \"Tecnologia & Viagens\""
       en: "The \"Technology & Travel\" blog"
     description:
-      pt: "Um blog pessoal em Jekyll, publicado de graça no GitHub Pages, com design próprio. Começou como notas de tecnologia e virou também um registro de carreira internacional e de viagens — bilíngue, artigo a artigo."
-      en: "A personal Jekyll blog, published free on GitHub Pages, hand-designed. It started as tech notes and grew into a record of an international career and of travel too — bilingual, one article at a time."
-    technologies: ["Jekyll", "Liquid", "GitHub Pages", "GitHub Actions"]
+      pt: "Comecei o blog no WordPress em 2015, mas o primeiro post só saiu em janeiro de 2020. Rodou no WordPress até <strong>20 de março de 2026</strong>, quando migrei tudo para Jekyll no GitHub Pages, com design próprio. De notas de tecnologia, virou também um registro de carreira internacional e de viagens — bilíngue, artigo a artigo."
+      en: "I started the blog on WordPress in 2015, but the first post only went out in January 2020. It ran on WordPress until <strong>March 20, 2026</strong>, when I moved everything to Jekyll on GitHub Pages, with a hand-built design. From tech notes it also became a record of an international career and of travel — bilingual, one article at a time."
+    technologies: ["WordPress", "Jekyll", "Liquid", "GitHub Pages"]
     links:
       - label: { pt: "Ler o blog", en: "Read the blog" }
         url: "/"

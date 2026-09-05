@@ -72,8 +72,9 @@ image: /assets/img/og-default.jpg
       {%- assign _max_year = _last_ev.date | slice: 0, 4 | plus: 0 -%}
       {%- assign _axis_end = _max_year | plus: 2 -%}
       {%- assign _year_px = 96 -%}
+      {%- assign _pad = 44 -%}
       {%- assign _cols = _axis_end | minus: _min_year | plus: 1 -%}
-      {%- assign _rail_w = _cols | times: _year_px | plus: 40 -%}
+      {%- assign _rail_w = _cols | times: _year_px | plus: _pad | plus: 48 -%}
       <nav class="journey-rail-wrap" tabindex="0" role="region" aria-label="{{ _t.journey_title }}" aria-describedby="journey-hint">
         <div class="journey-rail" style="width: {{ _rail_w }}px;">
 
@@ -93,7 +94,7 @@ image: /assets/img/og-default.jpg
               {%- assign _prev_year = _yr -%}
               {%- assign _mox = _mo | minus: 1 | times: 8 -%}
               {%- assign _runx = _run | times: 22 -%}
-              {%- assign _x = _yr | minus: _min_year | times: _year_px | plus: _mox | plus: _runx -%}
+              {%- assign _x = _yr | minus: _min_year | times: _year_px | plus: _mox | plus: _runx | plus: _pad -%}
               {%- if _lane == 0 -%}{%- assign _cy = 16 -%}{%- else -%}{%- assign _cy = 62 -%}{%- endif -%}
               {%- assign _ly = _cy | plus: 25 -%}
               {%- assign _points = _points | append: _x | append: "," | append: _ly | append: " " -%}
@@ -121,7 +122,7 @@ image: /assets/img/og-default.jpg
 
           <div class="journey-rail-axis" aria-hidden="true">
             {%- for _yr in (_min_year.._axis_end) -%}
-            {%- assign _tx = _yr | minus: _min_year | times: _year_px -%}
+            {%- assign _tx = _yr | minus: _min_year | times: _year_px | plus: _pad -%}
             <span class="journey-rail-tick" style="left: {{ _tx }}px;">{{ _yr }}</span>
             {%- endfor -%}
           </div>
