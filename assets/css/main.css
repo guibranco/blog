@@ -314,6 +314,17 @@ a { color: inherit; text-decoration: none; }
   font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
   color: var(--ink-light); text-align: center; padding: 1.5rem;
 }
+/* Shown over the map when the active filter has no mapped locations */
+.travel-map-card { position: relative; }
+.travel-map-empty {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  z-index: 500; /* above Leaflet's tile/marker panes (≤400), below its controls (1000) */
+  margin: 0; padding: .7rem 1.1rem; border-radius: 8px;
+  background: var(--card-bg); color: var(--ink-muted); border: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: .04em;
+  box-shadow: 0 2px 12px rgba(0,0,0,.15); pointer-events: none;
+}
+.travel-map-empty[hidden] { display: none; }
 
 /* Post mini map — _includes/post-map.html + assets/js/post-map.js */
 .post-map {

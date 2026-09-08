@@ -71,6 +71,8 @@
     });
   });
   var group = L.featureGroup().addTo(map);
+  var allMarkers = markers.map(function (entry) { return entry.marker; });
+  var emptyNotice = document.getElementById('travel-map-empty');
 
   /* ── Filter state ── */
   var state = { country: '', year: '' };
@@ -80,12 +82,11 @@
            (!state.year || post.year === state.year);
   }
 
-  function fitMap() {
-    var visible = group.getLayers();
-    if (visible.length === 1) {
-      map.setView(visible[0].getLatLng(), 8);
-    } else if (visible.length > 1) {
-      map.fitBounds(group.getBounds().pad(0.15));
+  function fitTo(layers) {
+    if (layers.length === 1) {
+      map.setView(layers[0].getLatLng(), 8);
+    } else if (layers.length > 1) {
+      map.fitBounds(L.featureGroup(layers).getBounds().pad(0.15));
     }
   }
 
@@ -94,7 +95,11 @@
     markers.forEach(function (entry) {
       if (matches(entry.post)) group.addLayer(entry.marker);
     });
-    fitMap();
+    var visible = group.getLayers();
+    // No match: fall back to the all-posts view and say so on the map itself,
+    // rather than leaving an empty map parked on whatever region was last shown.
+    fitTo(visible.length ? visible : allMarkers);
+    if (emptyNotice) emptyNotice.hidden = visible.length > 0;
   }
 
   /* ── Table — same markup Liquid renders on first paint ── */

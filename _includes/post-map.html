@@ -4,11 +4,10 @@
   fetched lazily by assets/js/post-map.js once the card scrolls into view.
 {% endcomment %}
 {% if page.location or page.locations %}
-{% if page.locations %}
-  {% assign _map_locs = page.locations %}
-{% else %}
-  {% assign _map_locs = "" | split: "" | push: page.location %}
-{% endif %}
+{% comment %} Same merge as the /viagens/ model: `locations` first, then `location`. {% endcomment %}
+{% assign _map_locs = "" | split: "" %}
+{% if page.locations %}{% assign _map_locs = _map_locs | concat: page.locations %}{% endif %}
+{% if page.location %}{% assign _map_locs = _map_locs | push: page.location %}{% endif %}
 <div class="article-card article-card--map">
   <p class="card-section-title">
     <i class="fas fa-map-location-dot"></i> &nbsp;<span data-i18n="post_map_title">{{ _t.post_map_title }}</span>
