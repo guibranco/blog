@@ -628,8 +628,8 @@ a { color: inherit; text-decoration: none; }
 }
 .lang-btn:hover { border-color: rgba(255,255,255,.5); color: rgba(255,255,255,.8); }
 .lang-btn--active {
-  border-color: rgba(255,255,255,.65); color: #fff;
-  background: var(--accent);
+  border-color: rgba(255,255,255,.65); color: var(--chrome-light);
+  background: #2d6a4f;
 }
 
 /* Theme toggle — sits in the same pill row as the language switcher; the
@@ -1174,13 +1174,13 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 .post-category {
   font-family: 'JetBrains Mono', monospace; font-size: 0.69rem; letter-spacing: .07em;
   padding: 6px 16px; border-radius: 20px;
-  background: var(--accent); color: #fff;
+  background: var(--accent); color: var(--surface);
   border: 1px solid var(--accent);
   transition: background .2s, border-color .2s;
 }
 .post-category:hover { background: #235940; border-color: #235940; }
 .post-category--sub { background: transparent; color: var(--accent); }
-.post-category--sub:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+.post-category--sub:hover { background: var(--accent); color: var(--surface); border-color: var(--accent); }
 
 /* Post tags */
 .post-tags {
@@ -1745,7 +1745,7 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 .journey-event--featured .journey-node {
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
+  color: var(--surface);
   width: 32px;
   height: 32px;
   top: 0;
