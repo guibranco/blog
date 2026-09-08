@@ -192,7 +192,7 @@ image: /assets/img/og-default.jpg
                   {%- for p in e.projects -%}
                   <li class="journey-project">
                     <p class="journey-project-name">
-                      {%- if p.url -%}<a href="{{ p.url }}" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> {{ p.name }}</a>{%- else -%}{{ p.name }}{%- endif -%}
+                      {%- if p.url -%}<a href="{{ p.url }}" target="_blank" rel="noopener"><i class="{{ p.icon | default: 'fab fa-github' }}" aria-hidden="true"></i> {{ p.name }}</a>{%- else -%}{{ p.name }}{%- endif -%}
                     </p>
                     {%- if p.description %}<p class="journey-project-desc">{% include i18n-block.html pt=p.description.pt en=p.description.en %}</p>{%- endif -%}
                     {%- if p.screenshot %}
