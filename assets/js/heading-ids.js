@@ -28,7 +28,6 @@
   );
 
   article.querySelectorAll('h2, h3').forEach(function (heading) {
-    if (!heading.id) heading.id = uniqueId(slugify(heading.textContent.trim()), usedIds);
-    else usedIds.add(heading.id);
+    heading.id = uniqueId(heading.id || slugify(heading.textContent.trim()), usedIds);
   });
 })();
