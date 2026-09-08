@@ -740,6 +740,28 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 .article-inner h2,
 .article-inner h3 { scroll-margin-top: 1.25rem; }
 
+/* Per-heading deep link — appended by assets/js/anchor-links.js */
+.heading-anchor {
+  display: inline-block;
+  margin-left: .5rem;
+  color: var(--ink-light);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity .15s ease, color .15s ease;
+}
+.article-inner h2:hover > .heading-anchor,
+.article-inner h2:focus-within > .heading-anchor,
+.article-inner h3:hover > .heading-anchor,
+.article-inner h3:focus-within > .heading-anchor {
+  opacity: 1;
+}
+.heading-anchor:hover,
+.heading-anchor:focus-visible { color: var(--accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .heading-anchor { transition: none; }
+}
+
 /* ─────────────────────────────────────
    POST — table of contents (post-toc.html + assets/js/toc.js)
 ───────────────────────────────────── */
