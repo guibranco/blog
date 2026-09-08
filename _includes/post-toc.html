@@ -1,0 +1,13 @@
+<!-- Built client-side from the rendered headings — see assets/js/toc.js.
+     Hidden until the script confirms there are enough headings to justify it. -->
+<nav class="post-toc" id="post-toc" aria-label="{{ _t.toc_title }}" hidden>
+  <details id="post-toc-details">
+    <summary class="post-toc-summary">
+      <i class="fas fa-list-ul" aria-hidden="true"></i>
+      <span data-i18n="toc_title">{{ _t.toc_title }}</span>
+      <i class="fas fa-chevron-down post-toc-chevron" aria-hidden="true"></i>
+    </summary>
+    <ol class="post-toc-list" id="post-toc-list"></ol>
+  </details>
+</nav>
+<script src="{{ '/assets/js/toc.js' | relative_url }}" defer></script>

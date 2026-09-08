@@ -734,6 +734,76 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
   font-size: 1.15rem; font-weight: 700; color: var(--ink); margin: 2rem 0 .75rem;
 }
 
+.article-inner h2,
+.article-inner h3 { scroll-margin-top: 1.25rem; }
+
+/* ─────────────────────────────────────
+   POST — table of contents (post-toc.html + assets/js/toc.js)
+───────────────────────────────────── */
+.article-card--post { display: flex; flex-direction: column; }
+
+.post-toc {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--tag-bg);
+  margin-bottom: 1.75rem;
+}
+.post-toc[hidden] { display: none; }
+
+.post-toc-summary {
+  display: flex; align-items: center; gap: .6rem;
+  padding: .9rem 1.1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-muted);
+  cursor: pointer; list-style: none;
+}
+.post-toc-summary::-webkit-details-marker { display: none; }
+.post-toc-chevron { margin-left: auto; font-size: .7rem; transition: transform .2s ease; }
+.post-toc details[open] .post-toc-chevron { transform: rotate(180deg); }
+
+.post-toc-list,
+.post-toc-list .post-toc-sublist { list-style: none; margin: 0; padding: 0; }
+.post-toc-list {
+  padding: 0 1.1rem 1rem;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.post-toc-list .post-toc-sublist { padding-left: 1rem; margin-top: .35rem; }
+.post-toc-list li { margin: .4rem 0; }
+.post-toc-list a {
+  display: block;
+  border-left: 2px solid var(--border);
+  padding-left: .75rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .78rem; line-height: 1.5;
+  color: var(--ink-muted);
+  transition: color .15s ease, border-color .15s ease;
+}
+.post-toc-list a:hover { color: var(--ink); border-color: var(--ink-muted); }
+.post-toc-list a.active { color: var(--accent); border-color: var(--accent); font-weight: 600; }
+
+@media (min-width: 900px) {
+  .article-card--post {
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    gap: 2.5rem;
+  }
+  .article-card--post .article-inner { flex: 1 1 auto; min-width: 0; }
+  .post-toc {
+    flex: 0 0 240px;
+    position: sticky;
+    top: 1.5rem;
+    margin-bottom: 0;
+  }
+  .post-toc-list { max-height: calc(100vh - 8rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post-toc-chevron { transition: none; }
+  .post-toc-list a { transition: none; }
+}
+
 /* Lead paragraph */
 .lead {
   font-size: 1.1rem; line-height: 1.7; color: var(--ink-muted);
