@@ -111,13 +111,13 @@ pagination:
           {% assign _featured_lang_t = site.data.i18n[featured.lang] %}
           {% assign _site_t = site.data.i18n["pt-BR"] %}
           <article class="featured-card">
-            <div class="featured-image">
+            <a class="featured-image" href="{{ featured.url | relative_url }}" tabindex="-1" aria-hidden="true">
               {% if _featured_image %}
                 <img src="{{ _featured_image | relative_url }}" alt="{{ featured.title }}">
               {% else %}
                 <div class="featured-placeholder"><span>{{ featured.title | slice: 0 }}</span></div>
               {% endif %}
-            </div>
+            </a>
             <div class="featured-body">
               <span class="lang-badge" title="{{ _featured_lang_t.lang_name }}"><i class="fas fa-globe"></i> {{ _featured_lang_t.lang_label }}</span>
               {% if featured.categories.size > 0 %}
