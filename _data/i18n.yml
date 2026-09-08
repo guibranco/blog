@@ -140,6 +140,11 @@ pt-BR:
   table_article: "Artigo"
   table_date: "Data"
   travels_country_unknown: "Não especificado"
+  filter_year: "Ano"
+  filter_all_countries: "Todos os países"
+  filter_all_years: "Todos os anos"
+  travels_no_results: "Nenhum post para este filtro."
+  post_map_title: "No mapa"
 
 en:
   home: "Home"
@@ -283,3 +288,8 @@ en:
   table_article: "Article"
   table_date: "Date"
   travels_country_unknown: "Unspecified"
+  filter_year: "Year"
+  filter_all_countries: "All countries"
+  filter_all_years: "All years"
+  travels_no_results: "No posts match this filter."
+  post_map_title: "On the map"

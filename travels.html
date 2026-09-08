@@ -45,21 +45,57 @@ permalink: /viagens/
     <div class="content-wrap">
 
       {% if travel_posts.size > 0 %}
-      <div class="article-card travel-map-card">
-        <div id="map"></div>
-      </div>
-
-      <!-- Card: artigos por país -->
       {% assign all_countries = "" | split: "" %}
+      {% assign all_years = "" | split: "" %}
       {% for post in travel_posts %}
         {% assign _pcs = post.countries %}
         {% if _pcs.size == 0 %}{% assign _pcs = _t.travels_country_unknown | split: "|" %}{% endif %}
         {% for c in _pcs %}
           {% unless all_countries contains c %}{% assign all_countries = all_countries | push: c %}{% endunless %}
         {% endfor %}
+        {% assign _py = post.date | date: "%Y" %}
+        {% unless all_years contains _py %}{% assign all_years = all_years | push: _py %}{% endunless %}
       {% endfor %}
       {% assign all_countries = all_countries | sort %}
+      {% assign all_years = all_years | sort | reverse %}
 
+      <!-- Filtros: país e ano (assets/js/travels-filter.js mantém mapa, tabela e URL em sincronia) -->
+      <div class="article-card travel-filters-card">
+        <form class="travel-filters" id="travel-filters" action="" method="get">
+          <div class="travel-filter">
+            <label for="travel-filter-country" data-i18n="table_country">{{ _t.table_country }}</label>
+            <select id="travel-filter-country" name="country">
+              <option value="" data-i18n="filter_all_countries">{{ _t.filter_all_countries }}</option>
+              {% for country in all_countries %}
+                {% assign _c_entry = nil %}
+                {% for _e in site.data.countries %}
+                  {% if _e.name == country %}{% assign _c_entry = _e %}{% break %}{% endif %}
+                {% endfor %}
+                {% if _c_entry %}
+                <option value="{{ _c_entry.slug }}" data-country="{{ _c_entry.slug }}">{{ _c_entry.name }}</option>
+                {% else %}
+                <option value="{{ country | escape }}">{{ country }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+          <div class="travel-filter">
+            <label for="travel-filter-year" data-i18n="filter_year">{{ _t.filter_year }}</label>
+            <select id="travel-filter-year" name="year">
+              <option value="" data-i18n="filter_all_years">{{ _t.filter_all_years }}</option>
+              {% for year in all_years %}
+              <option value="{{ year }}">{{ year }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </form>
+      </div>
+
+      <div class="article-card travel-map-card">
+        <div id="map"></div>
+      </div>
+
+      <!-- Card: artigos por país -->
       <div class="article-card">
         <div class="section-row">
           <h2 class="section-title" data-i18n="travels_table_title">{{ _t.travels_table_title }}</h2>
@@ -131,83 +167,42 @@ permalink: /viagens/
   {% if travel_posts.size > 0 %}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
-    // Pins gerados pelo Liquid — suporta `location` (objeto) e `locations` (array)
-    const pins = [
+    // Modelo gerado pelo Liquid — um item por post, com `location` (objeto)
+    // e/ou `locations` (array) achatados em `locations`. Países ficam como
+    // slugs de countries.yml (ou o nome cru quando não há entrada).
+    window.__travelPosts = [
       {% for post in travel_posts %}
-
-        {% comment %}── Formato array: locations: [{lat,lng,label}, ...] ──{% endcomment %}
-        {% if post.locations %}
-          {% for loc in post.locations %}
-          {
-            lat:   {{ loc.lat | default: "null" }},
-            lng:   {{ loc.lng | default: "null" }},
-            label: {{ loc.label | jsonify | replace: '</', '<\/' }},
-            title: {{ post.title | jsonify | replace: '</', '<\/' }},
-            date:  {{ post.date | date: '%d/%m/%Y' | jsonify }},
-            url:   {{ post.url | relative_url | jsonify | replace: '</', '<\/' }}
-          },
-          {% endfor %}
-        {% endif %}
-
-        {% comment %}── Formato objeto: location: {lat, lng, label} ──{% endcomment %}
-        {% if post.location %}
-          {% assign loc = post.location %}
-          {
-            lat:   {{ loc.lat | default: "null" }},
-            lng:   {{ loc.lng | default: "null" }},
-            label: {{ loc.label | jsonify | replace: '</', '<\/' }},
-            title: {{ post.title | jsonify | replace: '</', '<\/' }},
-            date:  {{ post.date | date: '%d/%m/%Y' | jsonify }},
-            url:   {{ post.url | relative_url | jsonify | replace: '</', '<\/' }}
-          },
-        {% endif %}
-
+        {% assign _pcs = post.countries %}
+        {% if _pcs.size == 0 %}{% assign _pcs = _t.travels_country_unknown | split: "|" %}{% endif %}
+        {% assign _keys = "" | split: "" %}
+        {% for c in _pcs %}
+          {% assign _key = c %}
+          {% for _e in site.data.countries %}{% if _e.name == c %}{% assign _key = _e.slug %}{% break %}{% endif %}{% endfor %}
+          {% assign _keys = _keys | push: _key %}
+        {% endfor %}
+        {% assign _pub_day = post.date | date: "%Y-%m-%d" %}
+        {% assign _mod_day = post.last_modified_at | date: "%Y-%m-%d" %}
+        {
+          title:     {{ post.title | jsonify | replace: '</', '<\/' }},
+          url:       {{ post.url | relative_url | jsonify | replace: '</', '<\/' }},
+          year:      {{ post.date | date: '%Y' | jsonify }},
+          ts:        {{ post.date | date: '%s' }},
+          date:      {{ post.date | date: '%Y-%m-%d' | jsonify }},
+          updated:   {% if post.last_modified_at and _mod_day != _pub_day %}{{ post.last_modified_at | date: '%Y-%m-%d' | jsonify }}{% else %}null{% endif %},
+          countries: {{ _keys | jsonify }},
+          locations: [
+            {% if post.locations %}{% for loc in post.locations %}
+            { lat: {{ loc.lat | default: "null" }}, lng: {{ loc.lng | default: "null" }}, label: {{ loc.label | jsonify | replace: '</', '<\/' }} },
+            {% endfor %}{% endif %}
+            {% if post.location %}
+            { lat: {{ post.location.lat | default: "null" }}, lng: {{ post.location.lng | default: "null" }}, label: {{ post.location.label | jsonify | replace: '</', '<\/' }} },
+            {% endif %}
+          ]
+        },
       {% endfor %}
     ];
-
-    // Remove o trailing comma do último elemento (gerado pelo Liquid acima)
-    // O array já é válido porque o JS ignora trailing commas em ES5+
-
-    const map = L.map('map');
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
-    }).addTo(map);
-
-    function buildPopup(p) {
-      const popup = document.createElement('div');
-
-      const strong = document.createElement('strong');
-      const link = document.createElement('a');
-      link.href = p.url;
-      link.textContent = p.title;
-      strong.appendChild(link);
-      popup.appendChild(strong);
-
-      popup.appendChild(document.createElement('br'));
-
-      const small = document.createElement('small');
-      small.style.fontFamily = 'monospace';
-      small.textContent = `${p.label} · ${p.date}`;
-      popup.appendChild(small);
-
-      return popup;
-    }
-
-    const markers = pins
-      .filter(p => Number.isFinite(p.lat) && Number.isFinite(p.lng))
-      .map(p => {
-        const m = L.marker([p.lat, p.lng]).addTo(map);
-        m.bindPopup(buildPopup(p));
-        return m;
-      });
-
-    if (markers.length === 1) {
-      map.setView([markers[0]._latlng.lat, markers[0]._latlng.lng], 8);
-    } else if (markers.length > 1) {
-      map.fitBounds(L.featureGroup(markers).getBounds().pad(0.15));
-    }
   </script>
+  <script src="{{ '/assets/js/travels-filter.js' | relative_url }}" defer></script>
   {% endif %}
 
   {% include sidebar-script.html %}
