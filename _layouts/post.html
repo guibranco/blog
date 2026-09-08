@@ -199,6 +199,7 @@
           <p class="related-title" data-i18n="related_title">{{ _t.related_title }}</p>
           <div class="related-grid">
             {% for post in related_posts %}
+            {% assign _rel_lang_t = site.data.i18n[post.lang] %}
             <a href="{{ post.url | relative_url }}" class="related-card">
               {% if post.image %}
               <div class="related-card-image" style="background-image: url('{{ post.image | relative_url }}');"></div>
@@ -206,6 +207,7 @@
               <div class="related-card-image related-card-placeholder">{{ post.title | slice: 0 }}</div>
               {% endif %}
               <div class="related-card-body">
+                <span class="lang-badge" title="{{ _rel_lang_t.lang_name }}"><i class="fas fa-globe"></i> {{ _rel_lang_t.lang_label }}</span>
                 <p class="related-card-title">{{ post.title }}</p>
                 <p class="related-card-meta">
                   {{ post.date | date: _t.date_short }}

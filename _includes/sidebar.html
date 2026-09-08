@@ -65,18 +65,34 @@
       <ul class="sidebar-nav-group sidebar-nav-categories">
         {% assign sorted_categories = site.data.categories | sort: "name" %}
         {% for cat in sorted_categories %}
-          {% assign cat_is_open = false %}
-          {% if page.category == cat.name %}{% assign cat_is_open = true %}{% endif %}
-          {% if page.categories contains cat.name %}{% assign cat_is_open = true %}{% endif %}
+          {% comment %}── A category is "active" when the current page is that category page,
+             or a post/subcategory page that belongs to it (one or several) ──{% endcomment %}
+          {% assign cat_is_active = false %}
+          {% if page.category == cat.name %}{% assign cat_is_active = true %}{% endif %}
+          {% if page.categories contains cat.name %}{% assign cat_is_active = true %}{% endif %}
+
           {% assign sorted_subs = cat.subcategories | sort: "name" %}
+
+          {% comment %}── Which of this category's subcategories are active. Posts carry
+             page.subcategories as ["Category/Sub", ...] (possibly several); generated
+             subcategory pages carry page.category + page.subcategory ──{% endcomment %}
+          {% assign active_sub_slugs = "" | split: "" %}
           {% for sub in sorted_subs %}
-            {% if page.subcategory == sub.name %}{% assign cat_is_open = true %}{% endif %}
+            {% assign _sub_key = cat.name | append: "/" | append: sub.name %}
+            {% if page.category == cat.name and page.subcategory == sub.name %}
+              {% assign active_sub_slugs = active_sub_slugs | push: sub.slug %}
+            {% elsif page.subcategories contains _sub_key %}
+              {% assign active_sub_slugs = active_sub_slugs | push: sub.slug %}
+            {% endif %}
           {% endfor %}
+
+          {% assign cat_is_open = cat_is_active %}
+          {% if active_sub_slugs.size > 0 %}{% assign cat_is_open = true %}{% endif %}
 
           {% if cat.subcategories.size > 0 %}
           <li class="has-children{% if cat_is_open %} open{% endif %}">
             <a href="{{ site.baseurl }}/categorias/{{ cat.slug }}/"
-               {% if page.category == cat.name or page.categories contains cat.name %}class="active"{% endif %}>
+               {% if cat_is_active %}class="active"{% endif %}>
               <i class="{{ cat.icon }}"></i> {{ cat.name }}
             </a>
             <a href="{{ site.baseurl }}/feed/{{ cat.slug }}.xml" class="sidebar-rss" title="RSS {{ cat.name }}"><i class="fas fa-rss"></i></a>
@@ -87,7 +103,7 @@
               {% for sub in sorted_subs %}
               <li>
                 <a href="{{ site.baseurl }}/categorias/{{ cat.slug }}/{{ sub.slug }}/"
-                   {% if page.subcategory == sub.name %}class="active"{% endif %}>
+                   {% if active_sub_slugs contains sub.slug %}class="active"{% endif %}>
                   {{ sub.name }}
                 </a>
                 <a href="{{ site.baseurl }}/feed/{{ cat.slug }}-{{ sub.slug }}.xml" class="sidebar-rss" title="RSS {{ sub.name }}"><i class="fas fa-rss"></i></a>
@@ -98,7 +114,7 @@
           {% else %}
           <li>
             <a href="{{ site.baseurl }}/categorias/{{ cat.slug }}/"
-               {% if page.category == cat.name or page.categories contains cat.name %}class="active"{% endif %}>
+               {% if cat_is_active %}class="active"{% endif %}>
               <i class="{{ cat.icon }}"></i> {{ cat.name }}
             </a>
             <a href="{{ site.baseurl }}/feed/{{ cat.slug }}.xml" class="sidebar-rss" title="RSS {{ cat.name }}"><i class="fas fa-rss"></i></a>
@@ -123,6 +139,10 @@
             <i class="fas fa-map-location-dot"></i> <span data-i18n="travels">Viagens</span>
           </a>
         </li>
+      </ul>
+
+      {%- comment -%} Structural / meta links, separated from the content listings above {%- endcomment -%}
+      <ul class="sidebar-nav-group sidebar-nav-meta">
         <li>
           <a href="{{ site.baseurl }}/trajetoria/"{% if include.active_page == "journey" %} class="active"{% endif %}>
             <i class="fas fa-route"></i> <span data-i18n="journey_nav">Minha trajetória</span>

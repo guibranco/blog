@@ -2,10 +2,18 @@
 {%- assign _schema_cat_data = site.data.categories | where: "name", _schema_cat | first -%}
 {%- assign _schema_cat_slug = _schema_cat | slugify: 'latin' -%}
 {%- if _schema_cat_data -%}{%- assign _schema_cat_slug = _schema_cat_data.slug -%}{%- endif -%}
-{%- if page.subcategory -%}
-  {%- assign _schema_sub_slug = page.subcategory | slugify: 'latin' -%}
+{%- comment -%}── Posts store their subcategory in page.subcategories as ["Category/Sub", ...]; category pages use page.subcategory. Resolve one name for the linear breadcrumb trail. ──{%- endcomment -%}
+{%- assign _schema_sub = page.subcategory -%}
+{%- unless _schema_sub -%}
+  {%- for _s in page.subcategories -%}
+    {%- assign _s_parts = _s | split: "/" -%}
+    {%- if _s_parts[0] == _schema_cat -%}{%- assign _schema_sub = _s | remove_first: _s_parts[0] | remove_first: "/" -%}{%- endif -%}
+  {%- endfor -%}
+{%- endunless -%}
+{%- if _schema_sub -%}
+  {%- assign _schema_sub_slug = _schema_sub | slugify: 'latin' -%}
   {%- if _schema_cat_data -%}
-    {%- assign _schema_sub_data = _schema_cat_data.subcategories | where: "name", page.subcategory | first -%}
+    {%- assign _schema_sub_data = _schema_cat_data.subcategories | where: "name", _schema_sub | first -%}
     {%- if _schema_sub_data -%}{%- assign _schema_sub_slug = _schema_sub_data.slug -%}{%- endif -%}
   {%- endif -%}
 {%- endif -%}
@@ -34,8 +42,8 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}{{ site.baseurl }}/" },
-    { "@type": "ListItem", "position": 2, "name": "{{ _schema_cat | escape }}", "item": "{{ site.url }}{{ site.baseurl }}/categorias/{{ _schema_cat_slug }}/" }{% if page.subcategory %},
-    { "@type": "ListItem", "position": 3, "name": "{{ page.subcategory | escape }}", "item": "{{ site.url }}{{ site.baseurl }}/categorias/{{ _schema_cat_slug }}/{{ _schema_sub_slug }}/" },
+    { "@type": "ListItem", "position": 2, "name": "{{ _schema_cat | escape }}", "item": "{{ site.url }}{{ site.baseurl }}/categorias/{{ _schema_cat_slug }}/" }{% if _schema_sub %},
+    { "@type": "ListItem", "position": 3, "name": "{{ _schema_sub | escape }}", "item": "{{ site.url }}{{ site.baseurl }}/categorias/{{ _schema_cat_slug }}/{{ _schema_sub_slug }}/" },
     { "@type": "ListItem", "position": 4, "name": "{{ page.title | escape }}", "item": "{{ page.url | absolute_url }}" }{% else %},
     { "@type": "ListItem", "position": 3, "name": "{{ page.title | escape }}", "item": "{{ page.url | absolute_url }}" }{% endif %}
   ]

@@ -4,31 +4,38 @@
   <a href="{{ site.baseurl }}/"><span data-i18n="home">{{ _bct.home }}</span></a>
   <span aria-hidden="true">›</span>
   {% if page.layout == 'post' %}
-    {% assign _bc_cat = page.categories | first %}
-    {% if _bc_cat %}
-      {% assign _cat_data = site.data.categories | where: "name", _bc_cat | first %}
-      {% assign _cat_slug = _bc_cat | slugify: 'latin' %}
-      {% if _cat_data %}{% assign _cat_slug = _cat_data.slug %}{% endif %}
-      <a href="{{ site.baseurl }}/categorias/{{ _cat_slug }}/">{{ _bc_cat }}</a>
-      <span aria-hidden="true">›</span>
-
-      {% comment %}── page.subcategories is ["Category/Sub", ...] — find the one matching the breadcrumb's category ──{% endcomment %}
-      {% assign _bc_sub = "" %}
-      {% for subcat in page.subcategories %}
-        {% assign _bc_parts = subcat | split: "/" %}
-        {% if _bc_parts[0] == _bc_cat %}
-          {% assign _bc_sub = subcat | remove_first: _bc_parts[0] | remove_first: "/" %}
-        {% endif %}
+    {% comment %}── Categories: list every one the post belongs to, each linked ──{% endcomment %}
+    {% if page.categories.size > 0 %}
+      {% for _bc_cat in page.categories %}
+        {% assign _cat_data = site.data.categories | where: "name", _bc_cat | first %}
+        {% assign _cat_slug = _bc_cat | slugify: 'latin' %}
+        {% if _cat_data %}{% assign _cat_slug = _cat_data.slug %}{% endif %}
+        {% unless forloop.first %}<span aria-hidden="true">·</span>{% endunless %}
+        <a href="{{ site.baseurl }}/categorias/{{ _cat_slug }}/">{{ _bc_cat }}</a>
       {% endfor %}
-
-      {% if _bc_sub != "" %}
-        {% assign _sub_data = _cat_data.subcategories | where: "name", _bc_sub | first %}
-        {% assign _sub_slug = _bc_sub | slugify: 'latin' %}
-        {% if _sub_data %}{% assign _sub_slug = _sub_data.slug %}{% endif %}
-        <a href="{{ site.baseurl }}/categorias/{{ _cat_slug }}/{{ _sub_slug }}/">{{ _bc_sub }}</a>
-        <span aria-hidden="true">›</span>
-      {% endif %}
+      <span aria-hidden="true">›</span>
     {% endif %}
+
+    {% comment %}── Subcategories: page.subcategories is ["Category/Sub", ...] — list every one, each linked to its own category ──{% endcomment %}
+    {% if page.subcategories.size > 0 %}
+      {% for _bc_scat in page.subcategories %}
+        {% assign _bc_parts = _bc_scat | split: "/" %}
+        {% assign _bc_pcat = _bc_parts[0] %}
+        {% assign _bc_sub = _bc_scat | remove_first: _bc_pcat | remove_first: "/" %}
+        {% assign _bc_pcat_data = site.data.categories | where: "name", _bc_pcat | first %}
+        {% assign _bc_pcat_slug = _bc_pcat | slugify: 'latin' %}
+        {% if _bc_pcat_data %}{% assign _bc_pcat_slug = _bc_pcat_data.slug %}{% endif %}
+        {% assign _bc_sub_slug = _bc_sub | slugify: 'latin' %}
+        {% if _bc_pcat_data %}
+          {% assign _bc_sub_data = _bc_pcat_data.subcategories | where: "name", _bc_sub | first %}
+          {% if _bc_sub_data %}{% assign _bc_sub_slug = _bc_sub_data.slug %}{% endif %}
+        {% endif %}
+        {% unless forloop.first %}<span aria-hidden="true">·</span>{% endunless %}
+        <a href="{{ site.baseurl }}/categorias/{{ _bc_pcat_slug }}/{{ _bc_sub_slug }}/">{{ _bc_sub }}</a>
+      {% endfor %}
+      <span aria-hidden="true">›</span>
+    {% endif %}
+
     <span aria-current="page">{{ page.title | truncate: 50 }}</span>
   {% elsif page.layout == 'category' %}
     {% if page.subcategory %}
