@@ -799,6 +799,8 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
     top: 1.5rem;
     margin-bottom: 0;
   }
+  /* Collapsed: shrink to the summary's width and give the article the freed space back */
+  .post-toc:has(> details:not([open])) { flex: 0 0 auto; }
   .post-toc-list { max-height: calc(100vh - 8rem); }
 }
 
