@@ -255,11 +255,30 @@
   <script>
     const bar = document.getElementById('reading-progress');
     const btt = document.getElementById('back-to-top');
+    const articleBody = document.querySelector('.article-inner');
+
+    /* Progress is measured against the article body only, so the footer
+       and comments don't count toward it — reaches 100% at its end. */
+    let progressTicking = false;
+    function updateReadingProgress() {
+      if (articleBody) {
+        const articleTop = articleBody.getBoundingClientRect().top + window.scrollY;
+        const scrollableHeight = Math.max(articleBody.offsetHeight - window.innerHeight, 1);
+        const progress = Math.min(Math.max((window.scrollY - articleTop) / scrollableHeight, 0), 1);
+        bar.style.width = (progress * 100) + '%';
+      }
+      progressTicking = false;
+    }
+    updateReadingProgress();
+
     window.addEventListener('scroll', () => {
-      const doc = document.documentElement;
-      bar.style.width = Math.min(doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100, 100) + '%';
       btt.classList.toggle('visible', window.scrollY > 400);
+      if (!progressTicking) {
+        requestAnimationFrame(updateReadingProgress);
+        progressTicking = true;
+      }
     }, { passive: true });
+    window.addEventListener('resize', () => requestAnimationFrame(updateReadingProgress), { passive: true });
     btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
     document.getElementById('share-btn')?.addEventListener('click', async () => {
