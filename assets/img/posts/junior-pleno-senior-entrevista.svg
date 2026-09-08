@@ -42,8 +42,8 @@
     <rect x="550" y="172" width="24" height="24" fill="#93c97a" opacity="0.4"/>
     <rect x="582" y="172" width="24" height="24" fill="none" stroke="#b85c00" stroke-dasharray="3 3"/>
   </g>
-  <text x="470" y="232" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="1.6" fill="#8a8078">UM BOX 10×10, UMA COR POR DIA</text>
-  <text x="470" y="248" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="1.6" fill="#b85c00">…E O DIA 29/02?</text>
+  <text x="470" y="232" font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="0.8" fill="#8a8078">UM BOX 10×10, UMA COR POR DIA</text>
+  <text x="470" y="248" font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="0.8" fill="#b85c00">…E O DIA 29/02?</text>
 
   <line x1="44" y1="336" x2="636" y2="336" stroke="#d9d0c2"/>
   <text x="44" y="360" font-family="'JetBrains Mono', monospace" font-size="11" letter-spacing="1.4" fill="#8a8078">GUILHERME BRANCO STRACINI</text>
