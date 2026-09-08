@@ -642,6 +642,9 @@ a { color: inherit; text-decoration: none; }
   z-index: 9999;
   transition: width .1s linear;
 }
+@media (prefers-reduced-motion: reduce), print {
+  #reading-progress { display: none; }
+}
 
 /* Pagination nav */
 .pagination {
