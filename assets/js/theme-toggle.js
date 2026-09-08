@@ -18,9 +18,10 @@
 
   function updateIcon() {
     if (!btn) return;
+    var isDark = currentTheme() === 'dark';
     var icon = btn.querySelector('i');
-    if (!icon) return;
-    icon.className = currentTheme() === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    if (icon) icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    btn.setAttribute('aria-pressed', String(isDark));
   }
 
   function applyTheme(theme) {
@@ -30,6 +31,7 @@
   }
 
   updateIcon();
+  syncGiscusTheme(currentTheme());
 
   if (btn) {
     btn.addEventListener('click', function () {
