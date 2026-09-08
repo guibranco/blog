@@ -1178,7 +1178,7 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
   border: 1px solid var(--accent);
   transition: background .2s, border-color .2s;
 }
-.post-category:hover { background: #235940; border-color: #235940; }
+.post-category:hover { background: #235940; border-color: #235940; color: var(--chrome-light); }
 .post-category--sub { background: transparent; color: var(--accent); }
 .post-category--sub:hover { background: var(--accent); color: var(--surface); border-color: var(--accent); }
 
