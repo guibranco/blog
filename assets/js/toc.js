@@ -4,21 +4,13 @@
   var MIN_HEADINGS = 3;
   var DESKTOP_QUERY = '(min-width: 900px)';
 
-  function slugify(text) {
-    var slug = text
-      .normalize('NFD').replace(/[̀-ͯ]/g, '') // strip accents
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '');
-    return slug || 'section';
-  }
-
-  function uniqueId(base, used) {
-    var id = base;
-    var n = 2;
-    while (used.has(id)) { id = base + '-' + n; n++; }
-    used.add(id);
-    return id;
+  /* Heading text minus any already-appended heading-anchor "#" link
+     (see anchor-links.js) — read defensively in case it ran first. */
+  function headingLabel(heading) {
+    var clone = heading.cloneNode(true);
+    var anchor = clone.querySelector('.heading-anchor');
+    if (anchor) anchor.remove();
+    return clone.textContent.trim();
   }
 
   function init() {
@@ -29,21 +21,16 @@
     var headings = Array.prototype.slice.call(article.querySelectorAll('h2, h3'));
     if (headings.length < MIN_HEADINGS) return;
 
-    var usedIds = new Set(
-      Array.prototype.map.call(document.querySelectorAll('[id]'), function (el) { return el.id; })
-    );
-
     var list = document.getElementById('post-toc-list');
     var links = [];
     var lastH2Li = null;
 
     headings.forEach(function (heading) {
-      if (!heading.id) heading.id = uniqueId(slugify(heading.textContent.trim()), usedIds);
-      else usedIds.add(heading.id);
+      if (!heading.id) return;
 
       var a = document.createElement('a');
       a.href = '#' + heading.id;
-      a.textContent = heading.textContent.trim();
+      a.textContent = headingLabel(heading);
 
       var li = document.createElement('li');
       li.appendChild(a);
