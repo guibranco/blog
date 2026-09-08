@@ -632,10 +632,19 @@ a { color: inherit; text-decoration: none; }
   background: #2d6a4f;
 }
 
-/* Theme toggle — sits in the same pill row as the language switcher; the
-   sidebar is permanently dark in both themes, so it reuses .lang-btn's
-   fixed rgba() styling rather than the --ink/--surface tokens. */
-.theme-toggle { padding: 3px 10px; }
+/* Theme toggle — sits in the same pill row as the language switcher. Kept
+   as its own class (not .lang-btn) so lang-switcher.js's language-selection
+   logic doesn't also treat clicks on it as a language change. The sidebar
+   is permanently dark in both themes, so it reuses the same fixed rgba()
+   styling as .lang-btn rather than the --ink/--surface tokens. */
+.theme-toggle {
+  font-size: 0.68rem;
+  background: none; border: 1px solid rgba(255,255,255,.2);
+  color: rgba(255,255,255,.45); border-radius: 20px;
+  padding: 3px 10px; cursor: pointer;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.theme-toggle:hover { border-color: rgba(255,255,255,.5); color: rgba(255,255,255,.8); }
 
 /* Share button */
 .share-btn {

@@ -190,7 +190,7 @@
       {% for pair in site.data.i18n %}
         <button class="lang-btn" data-lang="{{ pair[0] }}" title="{{ pair[1].lang_name }}">{{ pair[1].lang_label }}</button>
       {% endfor %}
-      <button id="theme-toggle" class="lang-btn theme-toggle" type="button"
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false"
               aria-label="Alternar tema claro/escuro" data-i18n-aria="theme_toggle_aria">
         <i class="fas fa-moon" aria-hidden="true"></i>
       </button>
