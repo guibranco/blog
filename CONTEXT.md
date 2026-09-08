@@ -1,6 +1,6 @@
 # Tecnologia & Viagens Blog
 
-A Jekyll blog mixing software engineering and travel/career writing. This glossary defines how content is modeled — a Post's shape and how it relates to Category, Tag, Series, Trip, and Country.
+A Jekyll blog mixing software engineering and travel/career writing. This glossary defines how content is modeled — a Post's shape (Hero, Gallery, Category, Tag, Series, Trip, Country) and the site's two standalone pages, Journey and Editorial Notes.
 
 ## Language
 
@@ -32,9 +32,17 @@ _Avoid_: Travel post — use Trip.
 **Country**:
 One of a curated set of nations a Trip visited, defined in `_data/countries.yml` and declared per-Post via the `countries` front matter field. Curated the same way as Category — an unregistered or misspelled value fails the audit — because it drives the grouping in the travels page's "articles by country" table. Deliberately hand-authored per Trip rather than derived from `location`/`locations` labels, since a label's trailing segment isn't always a Country (e.g. "Comino" is part of Malta, not its own Country).
 
-**Cover image**:
-A Post's on-page hero background (front matter field `cover`). Normally an SVG authored to match the site's brand tokens (Playfair Display / Source Serif 4 / JetBrains Mono; palette including `#f5f0e8`, `#2d6a4f`, `#1a1714`, `#b85c00`), sized to 1200×630.
+**Hero**:
+A Post's primary image — shown in list/card thumbnails, at the top of the Post page, and via Open Graph/Twitter Card when shared. Nearly every Post has one. Authored one of two ways: an SVG matching the site's brand tokens (Playfair Display / Source Serif 4 / JetBrains Mono; palette including `#f5f0e8`, `#2d6a4f`, `#1a1714`, `#b85c00`) plus a separate raster file for sharing — the illustrated-post shape (front matter fields `cover` + `image`) — or a single raster photo serving both roles directly — the travel-post shape (`image` only, no `cover`).
+_Avoid_: Cover image, Social image, featured image, post image, OG image, thumbnail — Hero is canonical regardless of which front-matter field or file shape backs it.
 
-**Social image**:
-The raster image that feeds Open Graph/Twitter card tags (front matter field `image`). Must be a raster format (PNG/JPG/GIF) — social crawlers don't reliably render SVG.
-_Avoid_: OG image, thumbnail — Social image is canonical.
+**Gallery**:
+A set of images embedded in a Post's body content (not front matter) and shown to readers via a lightbox, enabled per-Post with the `gallery: true` front matter flag. Independent of Hero — a Post may have a Gallery, a Hero, both, or neither, though nearly every Post has a Hero.
+
+**Journey**:
+The standalone page at `/trajetoria/`, a timeline of the author's life and career (`_data/journey.yml`). Not a Post — carries no Category, Tag, or Series. Authored bilingually in a single file (both pt-BR and en, switched client-side), unlike a Post, which has exactly one Post language.
+_Avoid_: Timeline — Journey is the canonical name for the page; "timeline" describes its layout, not the concept.
+
+**Editorial Notes**:
+The standalone page at `/notas-editoriais/`, documenting the blog's own production process — why it exists, how posts get made (including AI's role), and its sourcing/correction/privacy policies (`_data/editorial.yml`). Not a Post; structured the same way as Journey (single bilingual file, no Category, Tag, or Series) despite unrelated content — the two are independent concepts, not variants of a shared "page" type.
+_Avoid_: Colophon, About page — Editorial Notes is canonical.
