@@ -1002,6 +1002,53 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 .highlight .gi { color: #c3e88d; }
 .highlight .gh, .highlight .gu { color: #82aaff; font-weight: 700; }
 
+/* ─────────────────────────────────────
+   TABLE SCROLL WRAPPER — assets/js/table-scroll.js wraps every table in
+   the article body with this, so wide tables never force page-level
+   horizontal scroll on narrow viewports.
+───────────────────────────────────── */
+.table-scroll {
+  position: relative;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+.table-scroll table { margin: 0; }
+.table-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Fading edges signal there's more to scroll to — only shown on the side(s)
+   that actually have more content, per updateEdges() in table-scroll.js. */
+.table-scroll::before,
+.table-scroll::after {
+  content: '';
+  position: absolute; top: 0; bottom: 0; width: 28px;
+  pointer-events: none; opacity: 0; z-index: 2;
+  transition: opacity .2s ease;
+}
+.table-scroll::before { left: 0; background: linear-gradient(to right, var(--card-bg), transparent); }
+.table-scroll::after  { right: 0; background: linear-gradient(to left, var(--card-bg), transparent); }
+.table-scroll.can-scroll-left::before  { opacity: 1; }
+.table-scroll.can-scroll-right::after  { opacity: 1; }
+
+/* Sticky first column — every table style in this codebase already treats
+   it as a row label (bold and/or nowrap), so pin it while the rest scrolls. */
+.table-scroll table td:first-child,
+.table-scroll table th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--card-bg);
+}
+.table-scroll .compare-table th:first-child,
+.table-scroll .travels-table th:first-child { background: var(--ink); }
+.table-scroll .at-table th:first-child { background: var(--surface-warm); }
+.table-scroll table tr:hover td:first-child { background: var(--surface-warm); }
+
+@media (prefers-reduced-motion: reduce) {
+  .table-scroll::before,
+  .table-scroll::after { transition: none; }
+}
+
 /* AT commands table */
 .at-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.84rem; }
 .at-table th {
