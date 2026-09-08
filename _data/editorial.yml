@@ -1,0 +1,212 @@
+# =============================================================================
+#  editorial.yml — content for the "Notas editoriais / Editorial notes" page
+#  (rendered by /notas-editoriais/  ->  editorial.html)
+# -----------------------------------------------------------------------------
+#  CONTENT vs PRESENTATION
+#  - This file holds the content. Layout is in editorial.html, styles in
+#    assets/css/main.css (.ed-* rules). The hero strings live in _data/i18n.yml
+#    (editorial_* keys) and are swapped client-side by lang-switcher.js.
+#  - Every reader-facing string is bilingual: `pt` (pt-BR) + `en`. Prose blocks
+#    (`body`, `text`) may contain inline HTML (<p>, <strong>, <a>). editorial.html
+#    renders the pt copy visible and the en copy hidden; the language switcher
+#    flips them. With JavaScript off, the pt copy shows.
+#
+#  EDITING
+#  - `sections` is an ordered list of narrative blocks. Add/reorder freely.
+#  - The `history`, flows and `article_types` blocks are structured so the
+#    small diagrams stay in sync with the prose.
+#  - Nothing here is auto-published as fact — see the "distinctions" block.
+# =============================================================================
+
+meta:
+  updated: "2026-09"
+  updated_label: { pt: "Revisado em", en: "Reviewed" }
+  note_label: { pt: "Documento vivo", en: "Living document" }
+  note:
+    pt: "Esta página é um documento vivo. Ela descreve como o blog é feito hoje e será atualizada quando o processo mudar."
+    en: "This page is a living document. It describes how the blog is made today and will be updated when the process changes."
+
+# --- Short history (rendered as a small timeline) ---------------------------
+history_label: { pt: "Como o blog evoluiu", en: "How the blog evolved" }
+history:
+  - year: "2015"
+    title: { pt: "O blog é criado", en: "The blog is created" }
+    text:
+      pt: "O blog nasce por volta de 2015 — sem uma rotina de publicação, mais como um lugar reservado para escrever."
+      en: "The blog starts around 2015 — with no publishing routine, more as a reserved place to write."
+  - year: "2020"
+    title: { pt: "Publicação regular, no WordPress", en: "Regular publishing, on WordPress" }
+    text:
+      pt: "É só por volta de 2020, durante a pandemia de COVID-19, que a publicação vira hábito. Nessa época o blog roda em WordPress."
+      en: "It's only around 2020, during the COVID-19 pandemic, that publishing becomes a habit. Back then the blog runs on WordPress."
+  - year: "2026"
+    title: { pt: "Migração para Jekyll + GitHub Pages", en: "Migration to Jekyll + GitHub Pages" }
+    text:
+      pt: "Em 2026 o blog migra para Jekyll no GitHub Pages, com design próprio. A IA teve um papel importante nessa migração — o <strong>Claude</strong> ajudou na migração e na implementação."
+      en: "In 2026 the blog moves to Jekyll on GitHub Pages, with a hand-built design. AI played an important part in that migration — <strong>Claude</strong> helped with the migration and the implementation."
+  # TODO (optional): add more detail here later — e.g. the first post, the
+  # original platform/theme, or why the migration happened. Leave as-is if not.
+
+# --- How to read what's on the blog (the editorial distinction) ------------
+distinctions:
+  label: { pt: "Como ler o que está aqui", en: "How to read what's here" }
+  intro:
+    pt: "Um mesmo artigo costuma misturar quatro tipos de conteúdo. Vale saber qual é qual:"
+    en: "A single article usually mixes four kinds of content. It helps to know which is which:"
+  items:
+    - tag: { pt: "Experiência pessoal", en: "Personal experience" }
+      text:
+        pt: "O que eu de fato vivi, construí ou observei. É a matéria-prima de quase tudo aqui."
+        en: "What I actually lived, built or observed. It's the raw material for almost everything here."
+    - tag: { pt: "Interpretação", en: "Interpretation" }
+      text:
+        pt: "A minha leitura daquilo — opinião, conclusão, recomendação. Pode estar errada e pode mudar."
+        en: "My reading of it — opinion, conclusion, recommendation. It can be wrong and it can change."
+    - tag: { pt: "Informação externa", en: "External information" }
+      text:
+        pt: "Fatos, números, especificações e regras que vêm de fontes de fora, checadas e referenciadas."
+        en: "Facts, figures, specs and rules that come from outside sources, checked and referenced."
+    - tag: { pt: "Síntese com IA", en: "AI-assisted synthesis" }
+      text:
+        pt: "Texto organizado, estruturado ou expandido com ajuda de IA a partir do meu material. Não torna nada verdadeiro por si só."
+        en: "Text organized, structured or expanded with AI help from my material. That alone doesn't make anything true."
+
+# --- Article types (cards) ------------------------------------------------
+article_types:
+  label: { pt: "Tipos de artigo", en: "Article types" }
+  items:
+    - id: technical
+      icon: "fas fa-code"
+      title: { pt: "Técnico", en: "Technical" }
+      text:
+        pt: "Problema, investigação, arquitetura, implementação e o que deu errado. Quase sempre com um repositório no GitHub como companhia."
+        en: "A problem, the investigation, architecture, implementation and what went wrong. Almost always with a GitHub repository as its companion."
+    - id: travel
+      icon: "fas fa-suitcase-rolling"
+      title: { pt: "Viagem", en: "Travel" }
+      text:
+        pt: "Roteiro, custos reais e o que a viagem foi de verdade — reconstruída a partir de registros pessoais, não só da memória."
+        en: "The itinerary, real costs and what the trip actually was — reconstructed from personal records, not just memory."
+    - id: theoretical
+      icon: "fas fa-lightbulb"
+      title: { pt: "Teórico", en: "Theoretical" }
+      text:
+        pt: "Um conceito destrinchado. Quase sempre com origem prática: uma dor, uma conversa ou uma decisão real que virou pergunta."
+        en: "A concept unpacked. Almost always with a practical origin: a pain point, a conversation or a real decision that turned into a question."
+    - id: personal
+      icon: "fas fa-user-pen"
+      title: { pt: "Pessoal / carreira", en: "Personal / career" }
+      text:
+        pt: "Relatos de carreira, mudança de país e escolhas — contados com números e datas sempre que possível."
+        en: "Career stories, moving countries and choices — told with numbers and dates wherever possible."
+
+# --- Flow: how raw material becomes an article --------------------------
+flow_content:
+  label: { pt: "Da matéria-prima ao artigo", en: "From raw material to article" }
+  steps:
+    - { pt: "Experiência", en: "Experience" }
+    - { pt: "Notas & conversa", en: "Notes & conversation" }
+    - { pt: "Pesquisa", en: "Research" }
+    - { pt: "Estrutura", en: "Structure" }
+    - { pt: "Artigo", en: "Article" }
+
+# --- Flow: travel documentation (Before / During / After) -----------------
+flow_travel:
+  label: { pt: "Como uma viagem vira post", en: "How a trip becomes a post" }
+  stages:
+    - id: before
+      title: { pt: "Antes", en: "Before" }
+      items:
+        - { pt: "Pesquisa e planejamento", en: "Research and planning" }
+        - { pt: "Roteiro e reservas", en: "Itinerary and reservations" }
+        - { pt: "Expectativas", en: "Expectations" }
+    - id: during
+      title: { pt: "Durante", en: "During" }
+      items:
+        - { pt: "Lugares e observações", en: "Places and observations" }
+        - { pt: "Fotos e gastos", en: "Photos and expenses" }
+        - { pt: "O roteiro que aconteceu de verdade", en: "The itinerary that actually happened" }
+    - id: after
+      title: { pt: "Depois", en: "After" }
+      items:
+        - { pt: "Reconstrução do que aconteceu", en: "Reconstruction of what happened" }
+        - { pt: "Lições e recomendações", en: "Lessons and recommendations" }
+        - { pt: "Expectativa x realidade", en: "Expectation vs. reality" }
+
+# --- Flow: technical article <-> repository ------------------------------
+flow_technical:
+  label: { pt: "Artigo e código, lado a lado", en: "Article and code, side by side" }
+  steps:
+    - { pt: "Artigo", en: "Article" }
+    - { pt: "Código", en: "Code" }
+    - { pt: "Commits", en: "Commits" }
+    - { pt: "Experimentos", en: "Experiments" }
+    - { pt: "Entendimento atualizado", en: "Updated understanding" }
+
+# --- Narrative sections (ordered) --------------------------------------
+sections:
+  - id: why
+    icon: "fas fa-compass"
+    title: { pt: "Por que este blog existe", en: "Why this blog exists" }
+    body:
+      pt: "<p>Antes de qualquer coisa, este blog é um caderno técnico. Um lugar para registrar o que aprendi, o que construí, para onde viajei e como resolvi (ou não) um problema — de um jeito que eu mesmo consiga consultar depois.</p><p>Ele também é um arquivo pessoal: documentação de projetos, de decisões de carreira e de viagens, e um espaço para organizar ideias que, de outra forma, ficariam soltas. Não é um produto e não tenta convencer ninguém de nada — é o registro de alguém que prefere escrever para entender.</p>"
+      en: "<p>Before anything else, this blog is a technical notebook. A place to record what I learned, what I built, where I traveled and how I solved (or didn't) a problem — in a way I can look up later myself.</p><p>It's also a personal archive: documentation of projects, career decisions and travels, and a space to organize ideas that would otherwise stay loose. It isn't a product and it isn't trying to convince anyone of anything — it's the record of someone who'd rather write in order to understand.</p>"
+
+  - id: how-posts-are-created
+    icon: "fas fa-pen-nib"
+    title: { pt: "Como os posts são feitos", en: "How posts are made" }
+    body:
+      pt: "<p>Quase todo post começa em material meu: uma experiência, notas soltas, uma conversa, um experimento, uma observação, um projeto, uma viagem ou um problema que apareceu no caminho. Esse material bruto raramente já é um texto — são pedaços.</p><p>A partir daí, a IA pode ajudar a transformar os pedaços em algo estruturado: organizar as ideias, propor uma estrutura, melhorar a legibilidade, expandir explicações, apontar lacunas, pesquisar referências externas, adicionar citações e até transformar uma conversa numa série de artigos. Nada disso torna uma afirmação verdadeira automaticamente — a responsabilidade pelo que fica publicado continua sendo minha.</p>"
+      en: "<p>Almost every post starts from my own material: an experience, loose notes, a conversation, an experiment, an observation, a project, a trip, or a problem that came up along the way. That raw material is rarely already a text — it's fragments.</p><p>From there, AI can help turn the fragments into something structured: organize the ideas, propose a structure, improve readability, expand explanations, point out gaps, research external references, add citations, and even turn a conversation into a series of articles. None of that makes a statement automatically true — what gets published is still my responsibility.</p>"
+
+  - id: travel
+    icon: "fas fa-suitcase-rolling"
+    title: { pt: "Documentação de viagens", en: "Travel documentation" }
+    body:
+      pt: "<p>Posts de viagem são montados em três tempos — <strong>antes</strong>, <strong>durante</strong> e <strong>depois</strong> — e o mais importante é o \"depois\": a reconstrução honesta do que aconteceu, comparada com o que eu esperava.</p><p>Quando faz sentido, os relatos são cruzados com registros pessoais — histórico de localização do Google, extrato de cartão, reservas, fotos e anotações — para acertar horários e valores em vez de confiar na memória. Esses registros são pessoais: informação sensível é revisada antes de publicar, e detalhe nenhum entra no ar só para provar o método.</p>"
+      en: "<p>Travel posts are built in three stages — <strong>before</strong>, <strong>during</strong> and <strong>after</strong> — and the \"after\" matters most: the honest reconstruction of what happened, compared with what I expected.</p><p>Where it makes sense, the accounts are cross-referenced with personal records — Google location history, card statements, reservations, photos and notes — to get times and amounts right instead of trusting memory. Those records are personal: sensitive information is reviewed before publishing, and no detail goes live just to prove the method.</p>"
+
+  - id: technical
+    icon: "fas fa-code"
+    title: { pt: "Artigos técnicos", en: "Technical articles" }
+    body:
+      pt: "<p>Artigos técnicos costumam vir acompanhados de um repositório no GitHub. O texto explica o problema, a investigação, a arquitetura, a implementação, os experimentos, as falhas, os resultados e o que ficou de lição. O repositório mostra a implementação de verdade — e como ela mudou ao longo do tempo.</p><p>A ligação é essa: <strong>artigo → código → commits → experimentos → entendimento atualizado</strong>. Quando um repositório já existe, ele é reaproveitado como companhia viva do texto, em vez de um trecho de código congelado.</p>"
+      en: "<p>Technical articles usually come with a GitHub repository. The text explains the problem, the investigation, the architecture, the implementation, the experiments, the failures, the results and the lessons. The repository shows the real implementation — and how it changed over time.</p><p>That's the link: <strong>article → code → commits → experiments → updated understanding</strong>. When a repository already exists, it's reused as a living companion to the text, rather than a frozen code snippet.</p>"
+
+  - id: theoretical
+    icon: "fas fa-lightbulb"
+    title: { pt: "Artigos teóricos", en: "Theoretical articles" }
+    body:
+      pt: "<p>Muito do conteúdo que parece teórico começou prático. O caminho costuma ser: <strong>experiência → conversa / reflexão → pesquisa → estrutura → artigo</strong>. Uma decisão real, uma dor concreta ou uma pergunta que surgiu num projeto viram o ponto de partida.</p><p>Uma única experiência pode virar um post, vários posts relacionados, uma série, ou uma investigação técnica e teórica mais funda. Por isso alguns textos abstratos têm uma origem bem concreta — e é bom lê-los sabendo disso.</p>"
+      en: "<p>A lot of what looks theoretical started out practical. The path is usually: <strong>experience → conversation / reflection → research → structure → article</strong>. A real decision, a concrete pain point or a question that came up in a project becomes the starting point.</p><p>A single experience can become one post, several related posts, a series, or a deeper technical and theoretical investigation. That's why some abstract pieces have a very concrete origin — and it's worth reading them with that in mind.</p>"
+
+  - id: ai
+    icon: "fas fa-robot"
+    title: { pt: "O papel da IA", en: "The role of AI" }
+    body:
+      pt: "<p>A IA faz parte do fluxo de publicação deste blog, e não faz sentido esconder isso. Ela ajuda a estruturar, pesquisar, conectar e escrever — e teve papel importante na migração de 2026 para Jekyll + GitHub Pages, feita com o <strong>Claude</strong>.</p><p>O que a IA não é: a autora das experiências. Elas são minhas. A divisão que uso é simples:</p>"
+      en: "<p>AI is part of this blog's publishing workflow, and there's no point hiding it. It helps structure, research, connect and write — and it played an important part in the 2026 migration to Jekyll + GitHub Pages, done with <strong>Claude</strong>.</p><p>What AI is not: the author of the experiences. Those are mine. The split I use is simple:</p>"
+    quote:
+      pt: "Eu trago a experiência, o contexto, as perguntas e o julgamento. A IA ajuda a estruturar, pesquisar, conectar e expressar."
+      en: "I bring the experience, the context, the questions and the judgment. AI helps structure, research, connect and express them."
+
+  - id: sources
+    icon: "fas fa-book"
+    title: { pt: "Fontes e referências", en: "Sources and references" }
+    body:
+      pt: "<p>Quando um post depende de fatos externos, eles vêm de fontes verificáveis: documentação oficial, especificações técnicas, material acadêmico ou de pesquisa, sites de referência e fontes primárias — e fontes secundárias confiáveis quando cabível.</p><p>As referências existem para apoiar e dar contexto à experiência do autor, não para substituí-la. Se um número ou uma regra importa para o argumento, ele é checado e linkado.</p>"
+      en: "<p>When a post depends on external facts, they come from verifiable sources: official documentation, technical specifications, academic or research material, authoritative websites and primary sources — and reputable secondary sources where appropriate.</p><p>References are there to support and contextualize the author's experience, not to replace it. If a number or a rule matters to the argument, it's checked and linked.</p>"
+
+  - id: corrections
+    icon: "fas fa-arrows-rotate"
+    title: { pt: "Correções e evolução", en: "Corrections and evolution" }
+    body:
+      pt: "<p>Os posts não são publicações imutáveis. Informação envelhece, implementações mudam, links somem e uma experiência nova pode derrubar uma conclusão antiga.</p><p>Quando faz sentido, um post é atualizado em vez de ficar congelado. A data de \"atualizado em\" no artigo indica quando isso aconteceu por último.</p>"
+      en: "<p>Posts aren't immutable publications. Information ages, implementations change, links disappear, and a new experience can overturn an old conclusion.</p><p>Where it makes sense, a post is updated rather than left frozen. The \"updated on\" date in the article shows when that last happened.</p>"
+
+  - id: privacy
+    icon: "fas fa-shield-halved"
+    title: { pt: "Privacidade", en: "Privacy" }
+    body:
+      pt: "<p>O blog envolve histórico de viagem, gastos, projetos e experiências pessoais. Informação sensível — de terceiros ou minha — é revisada antes de publicar, e dados privados não vão ao ar só para demonstrar o método.</p><p>Nomes de pessoas privadas são omitidos ou generalizados; identificadores como reservas e códigos de confirmação são removidos; coordenadas e metadados de fotos são limpos.</p>"
+      en: "<p>The blog involves travel history, expenses, projects and personal experiences. Sensitive information — other people's or mine — is reviewed before publishing, and private data doesn't go live just to demonstrate the method.</p><p>Private individuals are left unnamed or generalized; identifiers such as bookings and confirmation codes are removed; photo coordinates and metadata are stripped.</p>"

@@ -1,0 +1,282 @@
+---
+layout: null
+permalink: /notas-editoriais/
+title: "Notas editoriais"
+description: "Por que este blog existe, como ele evoluiu, e como cada artigo é produzido — incluindo o papel da IA, a documentação de viagens, a relação com o GitHub, e as políticas de fontes, correções e privacidade."
+image: /assets/img/og-default.jpg
+---
+<!DOCTYPE html>
+{% include resolve-lang.html %}
+<html lang="{{ _lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} — {{ site.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+  {% seo %}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  {% include analytics.html %}
+</head>
+<body>
+
+  {% include sidebar.html active_page="editorial" %}
+
+  <!-- ══════════ MAIN ══════════ -->
+  <div class="main">
+
+    {%- assign _ed = site.data.editorial -%}
+    {%- assign _sections = _ed.sections -%}
+
+    <section class="hero">
+      <p class="hero-eyebrow" data-i18n="editorial_eyebrow">{{ _t.editorial_eyebrow }}</p>
+      <h1 class="hero-title" data-i18n="editorial_title">{{ _t.editorial_title }}</h1>
+      <p class="hero-desc" data-i18n="editorial_lead">{{ _t.editorial_lead }}</p>
+      {%- if _ed.meta.updated %}
+      <p class="ed-meta">{% include i18n-block.html pt=_ed.meta.updated_label.pt en=_ed.meta.updated_label.en %} <time datetime="{{ _ed.meta.updated }}">{{ _ed.meta.updated }}</time></p>
+      {%- endif %}
+    </section>
+
+    <div class="content-wrap ed-wrap">
+
+      {%- if _ed.meta.note %}
+      <div class="callout callout-tip" role="note">
+        <div class="callout-label">{% include i18n-block.html pt=_ed.meta.note_label.pt en=_ed.meta.note_label.en %}</div>
+        {% include i18n-block.html pt=_ed.meta.note.pt en=_ed.meta.note.en %}
+      </div>
+      {%- endif %}
+
+      {%- comment -%} 01 — Why this blog exists {%- endcomment -%}
+      {%- assign _s = _sections | where: "id", "why" | first -%}
+      {%- if _s %}
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-title-wrap"><h2>{% include i18n-block.html pt=_s.title.pt en=_s.title.en %}</h2></div>
+      </div>
+      <div class="ed-prose">
+        <div class="i18n-pt" lang="pt-BR">{{ _s.body.pt }}</div>
+        <div class="i18n-en" lang="en" hidden>{{ _s.body.en }}</div>
+      </div>
+      {%- endif %}
+
+      {%- comment -%} History timeline {%- endcomment -%}
+      {%- if _ed.history and _ed.history != empty %}
+      <div class="ed-block">
+        <p class="ed-block-label">{% include i18n-block.html pt=_ed.history_label.pt en=_ed.history_label.en %}</p>
+        <ol class="ed-timeline" role="list">
+          {%- for h in _ed.history -%}
+          <li class="ed-timeline-step">
+            <span class="ed-timeline-year">{{ h.year }}</span>
+            <span class="ed-timeline-title">{% include i18n-block.html pt=h.title.pt en=h.title.en %}</span>
+            <span class="ed-timeline-text">{% include i18n-block.html pt=h.text.pt en=h.text.en %}</span>
+          </li>
+          {%- endfor -%}
+        </ol>
+      </div>
+      {%- endif %}
+
+      <div class="divider">· · ·</div>
+
+      {%- comment -%} 02 — How posts are made {%- endcomment -%}
+      {%- assign _s = _sections | where: "id", "how-posts-are-created" | first -%}
+      {%- if _s %}
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-title-wrap"><h2>{% include i18n-block.html pt=_s.title.pt en=_s.title.en %}</h2></div>
+      </div>
+      <div class="ed-prose">
+        <div class="i18n-pt" lang="pt-BR">{{ _s.body.pt }}</div>
+        <div class="i18n-en" lang="en" hidden>{{ _s.body.en }}</div>
+      </div>
+      {%- endif %}
+
+      {%- if _ed.flow_content %}
+      <div class="ed-block">
+        <p class="ed-block-label">{% include i18n-block.html pt=_ed.flow_content.label.pt en=_ed.flow_content.label.en %}</p>
+        <ol class="ed-flow" role="list">
+          {%- for st in _ed.flow_content.steps -%}
+          <li class="ed-flow-step">{% include i18n-block.html pt=st.pt en=st.en %}</li>
+          {%- endfor -%}
+        </ol>
+      </div>
+      {%- endif %}
+
+      {%- if _ed.article_types %}
+      <div class="ed-block">
+        <p class="ed-block-label">{% include i18n-block.html pt=_ed.article_types.label.pt en=_ed.article_types.label.en %}</p>
+        <div class="ed-cards">
+          {%- for c in _ed.article_types.items -%}
+          <div class="ed-card">
+            <p class="ed-card-title"><i class="{{ c.icon }}" aria-hidden="true"></i> {% include i18n-block.html pt=c.title.pt en=c.title.en %}</p>
+            <p class="ed-card-text">{% include i18n-block.html pt=c.text.pt en=c.text.en %}</p>
+          </div>
+          {%- endfor -%}
+        </div>
+      </div>
+      {%- endif %}
+
+      {%- if _ed.distinctions %}
+      <div class="ed-distinctions">
+        <p class="ed-block-label">{% include i18n-block.html pt=_ed.distinctions.label.pt en=_ed.distinctions.label.en %}</p>
+        <p class="ed-distinctions-intro">{% include i18n-block.html pt=_ed.distinctions.intro.pt en=_ed.distinctions.intro.en %}</p>
+        <ul class="ed-distinction-list" role="list">
+          {%- for it in _ed.distinctions.items -%}
+          <li class="ed-distinction">
+            <span class="ed-distinction-tag">{% include i18n-block.html pt=it.tag.pt en=it.tag.en %}</span>
+            <span class="ed-distinction-text">{% include i18n-block.html pt=it.text.pt en=it.text.en %}</span>
+          </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+      {%- endif %}
+
+      <div class="divider">· · ·</div>
+
+      {%- comment -%} 03 — Travel documentation {%- endcomment -%}
+      {%- assign _s = _sections | where: "id", "travel" | first -%}
+      {%- if _s %}
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-title-wrap"><h2>{% include i18n-block.html pt=_s.title.pt en=_s.title.en %}</h2></div>
+      </div>
+      <div class="ed-prose">
+        <div class="i18n-pt" lang="pt-BR">{{ _s.body.pt }}</div>
+        <div class="i18n-en" lang="en" hidden>{{ _s.body.en }}</div>
+      </div>
+      {%- endif %}
+
+      {%- if _ed.flow_travel %}
+      <div class="ed-block">
+        <p class="ed-block-label">{% include i18n-block.html pt=_ed.flow_travel.label.pt en=_ed.flow_travel.label.en %}</p>
+        <div class="ed-stages">
+          {%- for stg in _ed.flow_travel.stages -%}
+          <div class="ed-stage ed-stage--{{ stg.id }}">
+            <p class="ed-stage-title">{% include i18n-block.html pt=stg.title.pt en=stg.title.en %}</p>
+            <ul role="list">
+              {%- for it in stg.items -%}<li>{% include i18n-block.html pt=it.pt en=it.en %}</li>{%- endfor -%}
+            </ul>
+          </div>
+          {%- endfor -%}
+        </div>
+      </div>
+      {%- endif %}
+
+      <div class="divider">· · ·</div>
+
+      {%- comment -%} 04 — Technical articles {%- endcomment -%}
+      {%- assign _s = _sections | where: "id", "technical" | first -%}
+      {%- if _s %}
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-title-wrap"><h2>{% include i18n-block.html pt=_s.title.pt en=_s.title.en %}</h2></div>
+      </div>
+      <div class="ed-prose">
+        <div class="i18n-pt" lang="pt-BR">{{ _s.body.pt }}</div>
+        <div class="i18n-en" lang="en" hidden>{{ _s.body.en }}</div>
+      </div>
+      {%- endif %}
+
+      {%- if _ed.flow_technical %}
+      <div class="ed-block">
+        <p class="ed-block-label">{% include i18n-block.html pt=_ed.flow_technical.label.pt en=_ed.flow_technical.label.en %}</p>
+        <ol class="ed-flow" role="list">
+          {%- for st in _ed.flow_technical.steps -%}
+          <li class="ed-flow-step">{% include i18n-block.html pt=st.pt en=st.en %}</li>
+          {%- endfor -%}
+        </ol>
+      </div>
+      {%- endif %}
+
+      <div class="divider">· · ·</div>
+
+      {%- comment -%} 05 — Theoretical articles {%- endcomment -%}
+      {%- assign _s = _sections | where: "id", "theoretical" | first -%}
+      {%- if _s %}
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div class="section-title-wrap"><h2>{% include i18n-block.html pt=_s.title.pt en=_s.title.en %}</h2></div>
+      </div>
+      <div class="ed-prose">
+        <div class="i18n-pt" lang="pt-BR">{{ _s.body.pt }}</div>
+        <div class="i18n-en" lang="en" hidden>{{ _s.body.en }}</div>
+      </div>
+      {%- endif %}
+
+      <div class="divider">· · ·</div>
+
+      {%- comment -%} 06 — The role of AI {%- endcomment -%}
+      {%- assign _s = _sections | where: "id", "ai" | first -%}
+      {%- if _s %}
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div class="section-title-wrap"><h2>{% include i18n-block.html pt=_s.title.pt en=_s.title.en %}</h2></div>
+      </div>
+      <div class="ed-prose">
+        <div class="i18n-pt" lang="pt-BR">{{ _s.body.pt }}</div>
+        <div class="i18n-en" lang="en" hidden>{{ _s.body.en }}</div>
+      </div>
+      {%- if _s.quote %}
+      <blockquote class="ed-quote">
+        <p><span class="i18n-pt" lang="pt-BR">{{ _s.quote.pt }}</span><span class="i18n-en" lang="en" hidden>{{ _s.quote.en }}</span></p>
+      </blockquote>
+      {%- endif %}
+      {%- endif %}
+
+      <div class="divider">· · ·</div>
+
+      {%- comment -%} 07 — Sources and references {%- endcomment -%}
+      {%- assign _s = _sections | where: "id", "sources" | first -%}
+      {%- if _s %}
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div class="section-title-wrap"><h2>{% include i18n-block.html pt=_s.title.pt en=_s.title.en %}</h2></div>
+      </div>
+      <div class="ed-prose">
+        <div class="i18n-pt" lang="pt-BR">{{ _s.body.pt }}</div>
+        <div class="i18n-en" lang="en" hidden>{{ _s.body.en }}</div>
+      </div>
+      {%- endif %}
+
+      <div class="divider">· · ·</div>
+
+      {%- comment -%} 08 — Corrections and evolution {%- endcomment -%}
+      {%- assign _s = _sections | where: "id", "corrections" | first -%}
+      {%- if _s %}
+      <div class="section-header">
+        <div class="section-num">08</div>
+        <div class="section-title-wrap"><h2>{% include i18n-block.html pt=_s.title.pt en=_s.title.en %}</h2></div>
+      </div>
+      <div class="ed-prose">
+        <div class="i18n-pt" lang="pt-BR">{{ _s.body.pt }}</div>
+        <div class="i18n-en" lang="en" hidden>{{ _s.body.en }}</div>
+      </div>
+      {%- endif %}
+
+      <div class="divider">· · ·</div>
+
+      {%- comment -%} 09 — Privacy {%- endcomment -%}
+      {%- assign _s = _sections | where: "id", "privacy" | first -%}
+      {%- if _s %}
+      <div class="section-header">
+        <div class="section-num">09</div>
+        <div class="section-title-wrap"><h2>{% include i18n-block.html pt=_s.title.pt en=_s.title.en %}</h2></div>
+      </div>
+      <div class="ed-prose">
+        <div class="i18n-pt" lang="pt-BR">{{ _s.body.pt }}</div>
+        <div class="i18n-en" lang="en" hidden>{{ _s.body.en }}</div>
+      </div>
+      {%- endif %}
+
+    </div>
+
+    {% include footer.html %}
+
+  </div>
+
+  {% include sidebar-script.html %}
+
+</body>
+</html>
