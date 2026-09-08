@@ -63,13 +63,14 @@
       });
       var popup = document.createElement('div');
       popup.textContent = loc.label;
-      var marker = L.marker([loc.lat, loc.lng], { icon: icon, title: loc.label, keyboard: true })
-        .addTo(map)
-        .bindPopup(popup);
+      var marker = L.marker([loc.lat, loc.lng], { icon: icon, title: loc.label, keyboard: true });
       // divIcon has no `alt`; Leaflet already gives it role="button" + tabindex.
-      var iconEl = marker.getElement();
-      if (iconEl) iconEl.setAttribute('aria-label', (i + 1) + '. ' + loc.label);
-      return marker;
+      // The icon element only exists once the map has a view, so label on 'add'.
+      marker.on('add', function () {
+        var iconEl = marker.getElement();
+        if (iconEl) iconEl.setAttribute('aria-label', (i + 1) + '. ' + loc.label);
+      });
+      return marker.addTo(map).bindPopup(popup);
     });
 
     if (markers.length === 1) {
