@@ -1791,3 +1791,224 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 @media (prefers-reduced-motion: reduce) {
   .journey-rail-wrap { scroll-behavior: auto; }
 }
+
+/* ─────────────────────────────────────
+   EDITORIAL NOTES — /notas-editoriais/  (editorial.html + _data/editorial.yml)
+   Shares tokens and components with the "My journey" page.
+───────────────────────────────────── */
+.ed-wrap { max-width: 1000px; margin-left: auto; margin-right: auto; width: 100%; }
+
+.ed-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(250, 249, 246, .45);
+  margin-top: 1.25rem;
+}
+.ed-meta time { color: rgba(250, 249, 246, .72); }
+
+.ed-prose { font-size: 1rem; line-height: 1.75; color: var(--ink); }
+.ed-prose p { margin: 0 0 1rem; }
+.ed-prose p:last-child { margin-bottom: 0; }
+.ed-prose strong { font-weight: 600; }
+.ed-prose a { color: var(--accent); border-bottom: 1px solid transparent; }
+.ed-prose a:hover { border-bottom-color: var(--accent); }
+
+.ed-block { margin: 1.9rem 0; }
+.ed-block-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: .9rem;
+}
+
+/* --- history timeline --- */
+.ed-timeline {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  position: relative;
+}
+.ed-timeline::before {
+  content: '';
+  position: absolute;
+  left: 9px; right: 9px;
+  top: 9px;
+  height: 2px;
+  background: var(--border);
+  z-index: 0;
+}
+.ed-timeline-step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  padding-top: 1.7rem;
+}
+.ed-timeline-step::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--accent);
+}
+.ed-timeline-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+.ed-timeline-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 0.98rem;
+  line-height: 1.25;
+  color: var(--ink);
+}
+.ed-timeline-text { font-size: .84rem; line-height: 1.55; color: var(--ink-muted); }
+.ed-timeline-text strong { color: var(--ink); font-weight: 600; }
+
+/* --- linear flow (steps separated by arrows) --- */
+.ed-flow {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem .2rem;
+  align-items: center;
+}
+.ed-flow-step {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: .02em;
+  padding: .5rem .8rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--tag-bg);
+  color: var(--ink-muted);
+}
+.ed-flow-step::after {
+  content: '\2192';
+  color: var(--accent);
+  font-size: .85rem;
+  margin: 0 .1rem 0 .55rem;
+}
+.ed-flow-step:last-child {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.ed-flow-step:last-child::after { content: none; }
+
+/* --- article-type cards --- */
+.ed-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: .85rem;
+}
+.ed-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  background: #fff;
+}
+.ed-card-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: .95rem;
+  color: var(--ink);
+  margin-bottom: .35rem;
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+}
+.ed-card-title i { color: var(--accent-warm); font-size: .85rem; }
+.ed-card-text { font-size: .84rem; line-height: 1.6; color: var(--ink-muted); }
+
+/* --- before / during / after --- */
+.ed-stages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .85rem;
+}
+.ed-stage {
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: .9rem 1rem 1rem;
+  background: #fff;
+}
+.ed-stage--during { border-top-color: var(--accent-warm); }
+.ed-stage--after { border-top-color: var(--ink-light); }
+.ed-stage-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: .6rem;
+}
+.ed-stage ul { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
+.ed-stage li {
+  font-size: .82rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  padding-left: .9rem;
+  position: relative;
+}
+.ed-stage li::before { content: '·'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+/* --- four-way editorial distinction --- */
+.ed-distinctions {
+  margin: 1.9rem 0;
+  padding: 1.25rem 1.4rem;
+  background: var(--tag-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.ed-distinctions-intro { font-size: .9rem; color: var(--ink-muted); margin-bottom: 1rem; }
+.ed-distinction-list { list-style: none; display: flex; flex-direction: column; gap: .85rem; }
+.ed-distinction { display: flex; flex-direction: column; gap: .3rem; }
+.ed-distinction-tag {
+  align-self: flex-start;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 20px;
+  padding: 2px 9px;
+}
+.ed-distinction-text { font-size: .88rem; line-height: 1.6; color: var(--ink); }
+
+/* --- AI pull quote --- */
+.ed-quote {
+  margin: 1.5rem 0 0;
+  padding: .25rem 0 .25rem 1.25rem;
+  border-left: 3px solid var(--accent);
+}
+.ed-quote p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .ed-timeline, .ed-stages { grid-template-columns: 1fr; }
+  .ed-timeline::before { display: none; }
+  .ed-timeline-step { padding-top: 0; padding-left: 1.7rem; }
+  .ed-timeline-step::before { top: 3px; }
+  .ed-quote p { font-size: 1rem; }
+}

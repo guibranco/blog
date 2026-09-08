@@ -129,6 +129,11 @@
           </a>
         </li>
         <li>
+          <a href="{{ site.baseurl }}/notas-editoriais/"{% if include.active_page == "editorial" %} class="active"{% endif %}>
+            <i class="fas fa-scroll"></i> <span data-i18n="editorial_nav">Notas editoriais</span>
+          </a>
+        </li>
+        <li>
           <a href="{{ site.baseurl }}/mapa-do-site/"{% if include.active_page == "sitemap" %} class="active"{% endif %}>
             <i class="fas fa-sitemap"></i> <span data-i18n="sitemap_nav">Mapa do site</span>
           </a>

@@ -111,6 +111,9 @@ events:
       pt: "Antes de qualquer projeto \"de verdade\", os primeiros códigos eram scripts soltos de ajuda para os fóruns e comunidades das quais eu participava. Logo depois vieram os primeiros projetos: páginas estáticas e, na sequência, um sistema de login — tudo nas tecnologias que vinham empacotadas com o Dreamweaver: ASP Classic, ColdFusion e PHP. Dessas três, fiquei no PHP."
       en: "Before any \"real\" project, the first bits of code were loose helper scripts for the forums and communities I was part of. Then came the first actual projects: static pages, followed by a login system — all in the technologies bundled with Dreamweaver: ASP Classic, ColdFusion and PHP. Of the three, I stuck with PHP."
     technologies: ["ASP Classic", "ColdFusion", "PHP", "Dreamweaver"]
+    links:
+      - label: { pt: "Meu primeiro portfólio (arquivo)", en: "My first portfolio (archived)" }
+        url: "https://zerocool.com.br/portfolio/"
 
   - id: html-brasil
     date: "2006"
@@ -122,8 +125,13 @@ events:
       pt: "Cheguei a moderador da <strong>HTML Brasil</strong>, a segunda maior comunidade de desenvolvimento web do Orkut — atrás só da PHP Brasil. A divisão etária era nítida: adultos na PHP Brasil, crianças e adolescentes na HTML Brasil. Quase todos os moderadores e admins tinham menos de 16 anos."
       en: "I became a moderator of <strong>HTML Brasil</strong>, the second-biggest web-development community on Orkut — behind only PHP Brasil. The age split was obvious: adults in PHP Brasil, kids and teenagers in HTML Brasil. Almost every moderator and admin was under 16."
     outcome:
-      pt: "Também começamos o projeto de um portal para a comunidade, nos moldes do iMasters ou do Script Brasil — para publicar notícias e tutoriais de desenvolvimento. Fiquei responsável pelo backend; o frontend era de outra pessoa. O site nunca foi ao ar."
-      en: "We also started a portal project for the community, along the lines of iMasters or Script Brasil — for publishing development news and tutorials. I was responsible for the backend; the frontend was someone else's work. The site never launched."
+      pt: "Também começamos o projeto de um portal para a comunidade, nos moldes do iMasters ou do Script Brasil — para publicar notícias e tutoriais de desenvolvimento. Fiquei responsável pelo backend; o frontend era de outra pessoa. O site nunca foi ao ar. Em paralelo, eu montava um site pessoal só de tutoriais meus, que também não chegou a lançar."
+      en: "We also started a portal project for the community, along the lines of iMasters or Script Brasil — for publishing development news and tutorials. I was responsible for the backend; the frontend was someone else's work. The site never launched. In parallel, I was building a personal site with just my own tutorials, which also never went live."
+    links:
+      - label: { pt: "Portal da HTML Brasil (arquivo)", en: "HTML Brasil portal (archived)" }
+        url: "https://guilhermebranco.com.br/htmlbrasil/"
+      - label: { pt: "Meu site pessoal de tutoriais (arquivo)", en: "My personal tutorials site (archived)" }
+        url: "https://guilhermebranco.com.br/gbranco/"
 
   - id: gremio-etec
     date: "2007"
@@ -134,6 +142,9 @@ events:
     description:
       pt: "Construí o site do grêmio estudantil da minha escola técnica: fórum, portal de notícias, chat online, portal de vídeos e uma seção de eventos — tudo num projeto só."
       en: "Built the student-union website for my technical school: a forum, a news portal, live chat, a video portal, and an events section — all in one project."
+    links:
+      - label: { pt: "Site do grêmio da ETEC (arquivo)", en: "ETEC student-union site (archived)" }
+        url: "https://guilhermebranco.com.br/eteca/"
 
   - id: first-code
     date: "2007"
@@ -207,6 +218,11 @@ events:
         description:
           pt: "Plataforma de avaliações de produtos com gamificação (PHP / CodeIgniter)."
           en: "A gamified product-review platform (PHP / CodeIgniter)."
+      - name: "Desafios"
+        url: "https://guilhermebranco.com.br/desafios/"
+        description:
+          pt: "Feito depois do EBAOH para propor desafios de programação. Nunca foi ao ar (arquivo)."
+          en: "Built after EBAOH to post programming challenges. Never went live (archived)."
     links:
       - label: { pt: "Perfil no GitHub", en: "GitHub profile" }
         url: "https://github.com/guibranco"
@@ -246,6 +262,9 @@ events:
     description:
       pt: "Curso técnico de 1.200 horas: montagem e manutenção de micros, redes, e desenvolvimento de sistemas e sites."
       en: "A 1,200-hour technical course: PC assembly and maintenance, networking, and building systems and websites."
+    links:
+      - label: { pt: "TCC do curso técnico (arquivo)", en: "Technical-course final project (archived)" }
+        url: "https://guilhermebranco.com.br/TCC-SENAC/"
 
   - id: bom-negocio-rv
     date: "2010"
@@ -261,6 +280,9 @@ events:
     lessons:
       pt: "Um freela sem contrato nem cliente direto é fácil de levar calote — e o calote pode vir do outro freelancer, não só do cliente final."
       en: "A freelance gig with no contract and no direct client is easy to get stiffed on — and the non-payment can come from the other freelancer, not just the end client."
+    links:
+      - label: { pt: "Site do Bom Negócio RV (arquivo)", en: "Bom Negócio RV site (archived)" }
+        url: "https://guilhermebranco.com.br/bom-negocio-rv/"
 
   - id: fatec
     date: "2011"
