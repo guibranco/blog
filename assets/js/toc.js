@@ -35,6 +35,7 @@
 
     var list = document.getElementById('post-toc-list');
     var links = [];
+    var lastH2Li = null;
 
     headings.forEach(function (heading) {
       if (!heading.id) heading.id = uniqueId(slugify(heading.textContent.trim()), usedIds);
@@ -47,17 +48,17 @@
       var li = document.createElement('li');
       li.appendChild(a);
 
-      if (heading.tagName === 'H3' && list.lastElementChild) {
-        var parentLi = list.lastElementChild;
-        var sub = parentLi.querySelector('.post-toc-sublist');
+      if (heading.tagName === 'H3' && lastH2Li) {
+        var sub = lastH2Li.querySelector('.post-toc-sublist');
         if (!sub) {
           sub = document.createElement('ol');
           sub.className = 'post-toc-sublist';
-          parentLi.appendChild(sub);
+          lastH2Li.appendChild(sub);
         }
         sub.appendChild(li);
       } else {
         list.appendChild(li);
+        if (heading.tagName === 'H2') lastH2Li = li;
       }
 
       links.push(a);
