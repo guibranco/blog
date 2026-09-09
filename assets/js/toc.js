@@ -2,7 +2,22 @@
   'use strict';
 
   var MIN_HEADINGS = 3;
-  var DESKTOP_QUERY = '(min-width: 900px)';
+  /* Side-column layout threshold — keep in sync with the .post-toc media query in main.css. */
+  var DESKTOP_QUERY = '(min-width: 1200px)';
+  /* Set to 'collapsed' while the reader has closed the side column; cleared when they reopen it. */
+  var STORAGE_KEY = 'toc';
+  /* Matches the toc-fade-out animation in main.css. */
+  var CLOSE_ANIMATION_MS = 250;
+
+  function readCollapsed() {
+    try { return localStorage.getItem(STORAGE_KEY) === 'collapsed'; } catch (e) { return false; }
+  }
+  function writeCollapsed(collapsed) {
+    try {
+      if (collapsed) localStorage.setItem(STORAGE_KEY, 'collapsed');
+      else localStorage.removeItem(STORAGE_KEY);
+    } catch (e) {}
+  }
 
   /* Heading text minus any already-appended heading-anchor "#" link
      (see anchor-links.js) — read defensively in case it ran first. */
@@ -53,18 +68,38 @@
 
     toc.hidden = false;
 
-    /* ── Desktop: always expanded. Mobile: collapsed by default, user-toggleable. ── */
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ── Side column: open by default, unless the reader collapsed it on an earlier
+       post (the flag only applies here). Narrower layouts: collapsed by default,
+       user-toggleable, never remembered. ── */
     var details = document.getElementById('post-toc-details');
+    var summary = details.querySelector('summary');
     var desktopMQ = window.matchMedia(DESKTOP_QUERY);
     var syncOpen = function (mq) {
-      if (mq.matches) details.setAttribute('open', '');
+      if (mq.matches && !readCollapsed()) details.setAttribute('open', '');
       else details.removeAttribute('open');
     };
     syncOpen(desktopMQ);
     desktopMQ.addEventListener('change', syncOpen);
 
+    /* Reader toggles (mouse or keyboard both arrive as a click on the summary):
+       remember the choice in the side-column layout, and there let the column
+       fade out before the native close hides it. */
+    summary.addEventListener('click', function (e) {
+      if (!desktopMQ.matches) return;
+      var closing = details.open;
+      writeCollapsed(closing);
+      if (!closing || reducedMotion || details.classList.contains('is-closing')) return;
+      e.preventDefault();
+      details.classList.add('is-closing');
+      setTimeout(function () {
+        details.classList.remove('is-closing');
+        details.removeAttribute('open');
+      }, CLOSE_ANIMATION_MS);
+    });
+
     /* ── Smooth scroll + hash update, respecting prefers-reduced-motion. ── */
-    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     list.addEventListener('click', function (e) {
       var a = e.target.closest('a');
       if (!a) return;

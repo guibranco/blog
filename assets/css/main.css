@@ -920,9 +920,11 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 .post-toc-list a:hover { color: var(--ink); border-color: var(--ink-muted); }
 .post-toc-list a.active { color: var(--accent); border-color: var(--accent); font-weight: 600; }
 
-@media (min-width: 900px) {
+/* Side-column layout. Below 1200px the 290px sidebar plus the card paddings leave
+   too little room for text beside a 240px column, so narrower viewports keep the
+   in-flow block above. Keep the width in sync with DESKTOP_QUERY in toc.js. */
+@media (min-width: 1200px) {
   .article-card--post {
-    position: relative; /* containing block for the collapsed, floating TOC below */
     flex-direction: row-reverse;
     align-items: flex-start;
     gap: 2.5rem;
@@ -935,20 +937,48 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
     top: 1.5rem;
     margin-bottom: 0;
   }
-  /* Collapsed: leave the flex row entirely and float as a pill in the card's
-     top-right corner, vertically centred in the card's 3rem top padding. The
-     article body then spans the full card width — no column or gap is reserved. */
+  /* Collapsed: the nav shrinks to a zero-width sticky anchor at the right edge of
+     the text (and the row's gap goes), so the article gets the full card width.
+     The pill hangs off the anchor, lifted into the card's 3rem top padding while
+     at rest; once that scrolls off, the anchor pins and the pill rides 1.5rem
+     below the viewport top over the text corner, then leaves with the card. */
+  .article-card--post:has(> .post-toc > details:not([open])) { gap: 0; }
   .post-toc:has(> details:not([open])) {
+    --toc-pill-lift: 2.7rem;
+    flex: 0 0 0;
+    width: 0;
+    min-width: 0;
+    top: calc(1.5rem + var(--toc-pill-lift));
+    z-index: 2;
+    border: 0;
+    background: transparent;
+  }
+  .post-toc:has(> details:not([open])) > details {
     position: absolute;
-    top: 1.5rem;
-    right: .75rem;
-    transform: translateY(-50%);
+    top: calc(-1 * var(--toc-pill-lift));
+    right: -2.75rem; /* .75rem in from the card edge, inside its 3.5rem padding */
+    white-space: nowrap;
+    border: 1px solid var(--border);
     border-radius: 999px;
+    background: var(--tag-bg);
     box-shadow: 0 2px 10px rgba(26, 23, 20, .08);
   }
   .post-toc:has(> details:not([open])) .post-toc-summary { padding: .5rem 1rem; }
   .post-toc-list { max-height: calc(100vh - 8rem); }
 }
+
+/* Motion (side-column layout only): whichever state appears fades in, and the
+   list slides into place. Closing is delayed by toc.js so the column can fade
+   out under .is-closing before the pill takes over. */
+@media (min-width: 1200px) and (prefers-reduced-motion: no-preference) {
+  .post-toc > details[open] { animation: toc-fade-in .25s ease; }
+  .post-toc > details[open] .post-toc-list { animation: toc-reveal .25s ease; }
+  .post-toc > details.is-closing { animation: toc-fade-out .25s ease forwards; }
+  .post-toc:has(> details:not([open])) > details { animation: toc-fade-in .25s ease; }
+}
+@keyframes toc-fade-in { from { opacity: 0; } }
+@keyframes toc-fade-out { to { opacity: 0; } }
+@keyframes toc-reveal { from { opacity: 0; transform: translateY(-6px); } }
 
 @media (prefers-reduced-motion: reduce) {
   .post-toc-chevron { transition: none; }
