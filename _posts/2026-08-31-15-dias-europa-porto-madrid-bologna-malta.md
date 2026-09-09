@@ -108,7 +108,7 @@ Comprei tudo pela Kiwi.com, em dirhams. A fatura tem 27 linhas. Vale a pena olha
     <tr><td>Viena → Palma de Mallorca</td><td>23/04</td><td>108,91</td><td>27,43</td></tr>
     <tr><td>Palma → Porto</td><td>23/04</td><td>50,81</td><td>12,80</td></tr>
     <tr><td>Porto → Bologna</td><td>30/04</td><td>118,09</td><td>29,75</td></tr>
-    <tr><td>Bologna → Catania → Malta</td><td>02/05</td><td>62,89</td><td>15,84</td></tr>
+    <tr><td>Bologna → Malta</td><td>02/05</td><td>62,89</td><td>15,84</td></tr>
     <tr><td>Malta → Viena</td><td>07/05</td><td>215,60</td><td>54,31</td></tr>
     <tr><td>Viena → Bucareste</td><td>07/05</td><td>111,33</td><td>28,04</td></tr>
     <tr><td>Bucareste → Dubai</td><td>07/05</td><td>1.116,38</td><td>281,20</td></tr>
@@ -138,11 +138,19 @@ Oito voos por 652 euros parece bom. E é. Só que os voos foram menos da metade 
   Os extras somaram AED 2.128,73 — 45,1% do total. Só a "garantia Kiwi.com", que cobre a perda de conexão entre companhias que não têm acordo entre si, custou AED 647, mais que qualquer trecho exceto os dois intercontinentais. Levar 7 kg de bagagem de mão custou AED 493. Sentar em algum lugar do avião custou AED 624.
 </div>
 
+<div class="personal-story">
+  <div class="personal-story-label">
+    <i class="fas fa-user-circle"></i> Minha experiência — Janela em todos os trechos
+  </div>
+  <p>Os AED 624 de assento marcado têm uma explicação simples: era minha primeira viagem desse tipo, e eu queria ir na janela em todos os trechos. Hoje não faço mais isso. Dependendo da viagem, prefiro corredor — facilita levantar para ir ao banheiro ou esticar as pernas. Em voo longo e de dia, ainda prefiro janela.</p>
+  <p>Em low cost, deixo a companhia escolher (assento aleatório) e torço por corredor: são voos rápidos, sem custo de assento e geralmente à noite. Em voo longo, companhia cara ou destino essencialmente novo, geralmente pago pela janela — o que, ultimamente, é bem raro.</p>
+</div>
+
 Isso não é crítica à Kiwi — é o modelo. Quando você costura nove voos de companhias diferentes que não conversam entre si, alguém precisa assumir o risco de você perder uma conexão. Esse alguém cobra por isso. O erro é achar que o preço do voo é o preço da viagem.
 
 <div class="callout callout-tip">
   <div class="callout-label">A tarifa flexível se pagou</div>
-  Paguei mais caro para poder alterar os trechos. Precisei. A volta comprada era Malta → Viena → Bucareste → Dubai no dia 07/05. A volta que aconteceu foi Malta → Cagliari → Budapeste → Dubai no dia 08/05, e ainda me deu três horas na Sardenha de brinde. Se eu tivesse comprado a tarifa promocional, teria perdido a passagem inteira.
+  Paguei mais caro para poder alterar os trechos. Precisei — duas vezes. O trecho Bologna → Malta que está na fatura não foi o que eu voei: troquei a passagem por um voo com escala em Catania, e é por isso que a parada na Sicília não aparece na fatura original. A volta comprada era Malta → Viena → Bucareste → Dubai no dia 07/05. A volta que aconteceu foi Malta → Cagliari → Budapeste → Dubai no dia 08/05, e ainda me deu três horas na Sardenha de brinde. Se eu tivesse comprado a tarifa promocional, teria perdido a passagem inteira.
 </div>
 
 **Câmbio usado:** o dirham é atrelado ao dólar (AED 3,6725 = US$ 1), e o euro estava em torno de US$ 1,08 em abril de 2022. Isso dá aproximadamente **AED 3,97 por euro**, que é a taxa usada em todas as conversões deste post. Não use a taxa de hoje para converter valores de 2022 — a diferença passa de 10%.
@@ -163,7 +171,9 @@ A conexão em Palma era de seis horas e meia. Peguei um carro na Sixt no balcão
     <i class="fas fa-user-circle"></i> Minha experiência — Duas jaquetas às pressas
   </div>
   <p>Eu vinha de Dubai. Em abril, Dubai já passa dos 35 graus. Eu não tinha uma única peça de roupa de frio na mala, e ia passar duas semanas entre Porto, Madri e Bologna em abril.</p>
-  <p>Resolvi isso em 25 minutos, num centro comercial em Portals Nous, a caminho do almoço. Duas jaquetas, compradas às pressas numa escala de avião. Foram as únicas roupas de frio que eu tive na viagem inteira.</p>
+  <p>Não era só a mala: eu não tinha levado roupa de frio para Dubai. O que eu tinha por lá era uma jaqueta que ganhei da Talabat, uma jaqueta do Palmeiras — nenhuma das duas me pareceu adequada para essa viagem — e uma jaqueta grossa de inverno, que nem cogitei pegar: em Dubai já era quase verão, e eu não fazia ideia de como estava a Europa naquela época do ano.</p>
+  <p>Resolvi isso em 25 minutos, num centro comercial em Portals Nous, a caminho do almoço. Duas jaquetas, compradas às pressas numa escala de avião. Foram as únicas roupas de frio que eu tive na viagem inteira — e foram suficientes.</p>
+  <p>O plano era voltar ao Brasil ainda no primeiro ano de Dubai e trazer o resto das roupas nessa ida. Não voltei. Minha primeira ida ao Brasil depois da mudança só aconteceu em 2024, quando eu já morava em Dublin — e foi nessa ocasião que o resto das minhas roupas de frio finalmente saiu de São Paulo, direto para Dublin.</p>
 </div>
 
 Passei pela Marina Port de Mallorca, rodei um pouco pela costa e almocei no **Mesón Ca'n Pedro**, em Génova, das 12h57 às 13h47. É uma casa enorme, tradicional, sempre cheia — daquelas em que o garçom trabalha em silêncio e nada dá errado. Devolvi o carro e às 14h11 já estava de volta ao aeroporto.
@@ -273,7 +283,7 @@ Fiquei na casa de uma amiga em comum, em Chamartín. Quarenta minutos depois de 
 
 Acordei às 14h. O dia 29 foi o único dia de turismo puro da viagem inteira: **Palácio Real** das 14h49 às 15h57, depois a pé até a **Chocolatería San Ginés**, passando pela Plaza Mayor no caminho — a praça onde foi rodado *Vantage Point*.
 
-Terminei o dia no **Marrakech Lounge**, na Calle de Ferraz, onde fiquei quatro horas e meia fumando narguilé. Nenhuma relação com o Marrakech do Porto além do nome. Das 22h29 às 03h29, jantar tardio na **La Mamona**, em Ponzano.
+Terminei o dia no **Marrakech Lounge**, na Calle de Ferraz, onde fiquei quatro horas e meia fumando narguilé. Nenhuma relação com o Marrakech do Porto além do nome. Das 22h29 às 03h29, balada na **La Mamona**, em Ponzano — a pista fica no subsolo.
 
 <div class="personal-story">
   <div class="personal-story-label">
@@ -358,7 +368,7 @@ Peguei o trem para o aeroporto às 17h47 da segunda-feira.
   <div class="section-title-wrap"><h2>Dias 11 a 17 — Malta, finalmente</h2></div>
 </div>
 
-O voo saiu de Bologna às 20h04 — quatro horas e meia depois do horário original do bilhete. Escala de 35 minutos em Catania e pouso em Malta às 23h32. À 00h13 eu estava na casa do casal.
+O voo saiu de Bologna às 20h04 — quatro horas e meia depois do horário do bilhete original, que eu tinha trocado por um voo com escala em Catania. Foram 35 minutos na Sicília e pouso em Malta às 23h32. À 00h13 eu estava na casa do casal.
 
 Depois de dez dias correndo, a semana em Malta foi a única parte da viagem que teve ritmo de férias.
 
@@ -559,7 +569,7 @@ Decolagem às 22h30. Pouso em Dubai às 05h50 do dia 9 de maio. Em casa, em JLT,
   <p class="references-title">Referências</p>
   <ol class="references-list">
     <li>
-      Kiwi.com s.r.o. <strong>Fatura 2022-17141779, reserva 211193884.</strong>
+      Kiwi.com s.r.o. <strong>Fatura 2022-1714XXXX, reserva 21119XXXX.</strong>
       Emitida em 28/03/2022. Documento pessoal.
     </li>
     <li>
