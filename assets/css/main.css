@@ -922,19 +922,31 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 
 @media (min-width: 900px) {
   .article-card--post {
+    position: relative; /* containing block for the collapsed, floating TOC below */
     flex-direction: row-reverse;
     align-items: flex-start;
     gap: 2.5rem;
   }
   .article-card--post .article-inner { flex: 1 1 auto; min-width: 0; }
+  /* Expanded: a 240px sticky column beside the article */
   .post-toc {
     flex: 0 0 240px;
     position: sticky;
     top: 1.5rem;
     margin-bottom: 0;
   }
-  /* Collapsed: shrink to the summary's width and give the article the freed space back */
-  .post-toc:has(> details:not([open])) { flex: 0 0 auto; }
+  /* Collapsed: leave the flex row entirely and float as a pill in the card's
+     top-right corner, vertically centred in the card's 3rem top padding. The
+     article body then spans the full card width — no column or gap is reserved. */
+  .post-toc:has(> details:not([open])) {
+    position: absolute;
+    top: 1.5rem;
+    right: .75rem;
+    transform: translateY(-50%);
+    border-radius: 999px;
+    box-shadow: 0 2px 10px rgba(26, 23, 20, .08);
+  }
+  .post-toc:has(> details:not([open])) .post-toc-summary { padding: .5rem 1rem; }
   .post-toc-list { max-height: calc(100vh - 8rem); }
 }
 
