@@ -1,6 +1,6 @@
 # Tecnologia & Viagens Blog
 
-A Jekyll blog mixing software engineering and travel/career writing. This glossary defines how content is modeled — a Post's shape (Hero, Gallery, Category, Tag, Series, Trip, Country) and the site's two standalone pages, Journey and Editorial Notes.
+A Jekyll blog mixing software engineering and travel/career writing. This glossary defines how content is modeled — a Post's shape (Hero, Gallery, Category, Tag, Series, Trip, Country, Published date, Updated date, Table of Contents) and the site's two standalone pages, Journey and Editorial Notes.
 
 ## Language
 
@@ -38,6 +38,18 @@ _Avoid_: Cover image, Social image, featured image, post image, OG image, thumbn
 
 **Gallery**:
 A set of images embedded in a Post's body content (not front matter) and shown to readers via a lightbox, enabled per-Post with the `gallery: true` front matter flag. Independent of Hero — a Post may have a Gallery, a Hero, both, or neither, though nearly every Post has a Hero.
+
+**Published date**:
+The day a Post went live (front matter `date`). Every Post has one and it is always shown with the Post.
+_Avoid_: Date, post date, created date.
+
+**Updated date**:
+The most recent day a Post's content changed after it went live, shown beside the Published date only when it falls on a different day. Derived from the Post's edit history (ADR 0007), never hand-authored.
+_Avoid_: Last modified, modification date — those name the mechanism and the front matter field, not the concept; Revised on.
+
+**Table of Contents**:
+A navigable list of a Post's section headings, offered alongside the Post body only when the Post has enough sections to be worth jumping between. Readers see it as "Sumário" in the Portuguese UI; that is display copy for the same concept, as with Tag/"Tópico". Abbreviated TOC in code.
+_Avoid_: Summary — in English that names an abstract, and a Post's description already plays that role.
 
 **Journey**:
 The standalone page at `/trajetoria/`, a timeline of the author's life and career (`_data/journey.yml`). Not a Post — carries no Category, Tag, or Series. Authored bilingually in a single file (both pt-BR and en, switched client-side), unlike a Post, which has exactly one Post language.
