@@ -94,10 +94,12 @@ def load_tag_slugs() -> set[str]:
 def load_country_names() -> set[str]:
     """Return the set of country names registered in _data/countries.yml.
 
-    Unlike categories/tags, `countries:` front matter stores the display
-    name directly (e.g. "Malta"), not a slug — there's no /paises/{slug}/
-    page, so countries.yml exists purely to catch typos/inconsistent
-    naming in the travels-page "articles by country" table.
+    Unlike categories/tags, `countries:` front matter stores the English
+    display name directly (e.g. "Malta", "United Kingdom") — the `name`
+    key of each entry — not a slug. There's no /paises/{slug}/ page, so
+    countries.yml exists to catch typos/inconsistent naming in the
+    travels-page "articles by country" table and to carry the pt-BR
+    translation (`name_pt`) shown when the UI language is pt-BR.
     """
     if not COUNTRIES_DATA_FILE.exists():
         return set()

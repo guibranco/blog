@@ -118,6 +118,8 @@
   slug: blue-lagoon
 - name: boas-praticas
   slug: boas-praticas
+- name: bologna
+  slug: bologna
 - name: bolt
   slug: bolt
 - name: bootcamp
@@ -130,6 +132,8 @@
   slug: build
 - name: cache
   slug: cache
+- name: cagliari
+  slug: cagliari
 - name: calendarific
   slug: calendarific
   redirect_from:
@@ -354,6 +358,8 @@
   slug: entrevista-tecnica
 - name: environment
   slug: environment
+- name: espanha
+  slug: espanha
 - name: esportes
   slug: esportes
 - name: estagio
@@ -566,6 +572,8 @@
   slug: irpf
 - name: iso-20022
   slug: iso-20022
+- name: italia
+  slug: italia
 - name: java
   slug: java
   redirect_from:
@@ -654,8 +662,12 @@
   slug: london
 - name: londres
   slug: londres
+- name: madrid
+  slug: madrid
 - name: mailhog
   slug: mailhog
+- name: mallorca
+  slug: mallorca
 - name: malta
   slug: malta
 - name: mariadb
@@ -668,12 +680,16 @@
   slug: matematica-financeira
 - name: md5
   slug: md5
+- name: mdina
+  slug: mdina
 - name: mediterraneo
   slug: mediterraneo
 - name: mei
   slug: mei
   redirect_from:
     - /tags/mei/
+- name: mellieha
+  slug: mellieha
 - name: mensageria
   slug: mensageria
   redirect_from:
@@ -762,6 +778,8 @@
   slug: paceville
 - name: paises-baixos
   slug: paises-baixos
+- name: palma-de-mallorca
+  slug: palma-de-mallorca
 - name: pandemia
   slug: pandemia
 - name: pejotizacao
@@ -890,6 +908,8 @@
   slug: resharper
 - name: rolling-deploy
   slug: rolling-deploy
+- name: roteiro
+  slug: roteiro
 - name: rsync
   slug: rsync
 - name: rust
@@ -900,8 +920,12 @@
   slug: salario
   redirect_from:
     - /tags/salario/
+- name: santiago-de-compostela
+  slug: santiago-de-compostela
 - name: sarande
   slug: sarande
+- name: sardenha
+  slug: sardenha
 - name: schema
   slug: schema
 - name: scripts
@@ -1086,6 +1110,8 @@
   slug: vagas
   redirect_from:
     - /tags/vagas/
+- name: valletta
+  slug: valletta
 - name: valor-hora
   slug: valor-hora
   redirect_from:
@@ -1098,6 +1124,8 @@
   slug: viagem
 - name: vida-noturna
   slug: vida-noturna
+- name: vila-nova-de-gaia
+  slug: vila-nova-de-gaia
 - name: vinculo-empregaticio
   slug: vinculo-empregaticio
 - name: visto-de-trabalho

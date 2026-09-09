@@ -66,7 +66,7 @@ blog/                                 # nome do repositório
 ├── _data/
 │   ├── categories.yml                # Categorias/subcategorias (nome, slug, ícone, redirect_from)
 │   ├── tags.yml                      # Tags (nome, slug, redirect_from) — uma página por entrada
-│   ├── countries.yml                 # Países visitados em posts de viagem (nome, slug) — lista curada
+│   ├── countries.yml                 # Países visitados em posts de viagem (nome em inglês, slug, name_pt) — lista curada
 │   ├── i18n.yml                      # Strings de UI em pt-BR e en
 │   └── quotes.yml                    # Lista de quotes da sidebar
 │
@@ -353,7 +353,7 @@ A sidebar suporta dois campos distintos:
 | `series_part` | number | — | Número da parte dentro da série |
 | `location` | object | — | Post de viagem com **um** ponto: `{ lat, lng, label }` — aparece no mapa de `/viagens/` |
 | `locations` | list | — | Post de viagem com **múltiplos** pontos: `[{ lat, lng, label }, ...]` |
-| `countries` | list | — | País(es) visitados no post (ex.: `[Malta]`, `[Albânia, Grécia]`) — devem existir em `_data/countries.yml`; usado na tabela "Artigos por país" de `/viagens/` |
+| `countries` | list | — | País(es) visitados no post, **em inglês** (ex.: `[Malta]`, `[Albania, Greece]`) — cada valor deve ser igual ao `name` de uma entrada em `_data/countries.yml`; a tradução em pt-BR (`name_pt`) é exibida quando a UI está em pt-BR. Usado na tabela "Artigos por país" de `/viagens/` |
 
 ---
 

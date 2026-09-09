@@ -80,10 +80,12 @@
       el.alt = (showEn && el.dataset.altEn) ? el.dataset.altEn : el.dataset.altPt;
     });
 
-    var nameKey = subtag === 'pt' ? 'name' : 'name_' + subtag; // countries.yml: name (pt-BR) + name_en
+    // countries.yml: name (English, canonical) + name_<subtag> translations (name_pt)
+    var nameKey = 'name_' + subtag;
     document.querySelectorAll('[data-country]').forEach(function (el) {
       var entry = countries[el.dataset.country];
-      if (entry?.[nameKey]) el.textContent = entry[nameKey];
+      var label = entry?.[nameKey] || entry?.name;
+      if (label) el.textContent = label;
     });
 
     document.querySelectorAll('[data-date]').forEach(function (el) {

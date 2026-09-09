@@ -11,7 +11,7 @@ tags: [viagem, amsterda, holanda, paises-baixos, koningsdag, kings-day, irlanda,
 reading_time: 18
 image: /assets/img/posts/amsterda-2026.jpg
 gallery: true
-countries: [Países Baixos]
+countries: [Netherlands]
 location:
   lat: 52.3676
   lng: 4.9041
