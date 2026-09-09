@@ -20,12 +20,13 @@
   var lang = window.__siteLang || 'pt-BR';
   function t() { return i18n[lang] || i18n[window.__siteLang] || {}; }
 
+  // countries.yml: `name` is the English (canonical) label, `name_<subtag>`
+  // the translation for the active UI language (e.g. name_pt).
   function countryName(key) {
     var entry = countries[key];
     if (!entry) return key;
     var subtag = lang.split('-')[0].toLowerCase();
-    var nameKey = subtag === 'pt' ? 'name' : 'name_' + subtag;
-    return entry[nameKey] || entry.name;
+    return entry['name_' + subtag] || entry.name;
   }
 
   // Mirrors the site's date_short ("%d/%m/%Y" / "%m/%d/%Y") on an ISO date.
@@ -111,7 +112,7 @@
       });
     });
 
-    // Liquid sorts by the pt-BR name (code-point order); keep that order.
+    // Liquid sorts by the canonical English name (code-point order); keep that order.
     var keys = Object.keys(groups).sort(function (a, b) {
       var na = countries[a] ? countries[a].name : a;
       var nb = countries[b] ? countries[b].name : b;
