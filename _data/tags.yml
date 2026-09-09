@@ -814,6 +814,8 @@
   slug: previdencia-privada
 - name: primary-key
   slug: primary-key
+- name: primeiro-emprego
+  slug: primeiro-emprego
 - name: probabilidade
   slug: probabilidade
 - name: processo-seletivo
@@ -832,6 +834,8 @@
   slug: programadores
   redirect_from:
     - /tags/programadores/
+- name: projetos
+  slug: projetos
 - name: provider
   slug: provider
 - name: python
