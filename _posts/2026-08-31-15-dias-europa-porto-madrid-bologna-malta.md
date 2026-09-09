@@ -116,7 +116,7 @@ Comprei tudo pela Kiwi.com, em dirhams. A fatura tem 27 linhas. Vale a pena olha
   </tbody>
 </table>
 
-Oito voos por 652 euros parece bom. E é. Só que os voos foram menos da metade da conta.
+Oito voos na fatura por 652 euros parece bom. E é. Só que os voos foram menos da metade da conta.
 
 <table class="compare-table">
   <thead>
@@ -150,7 +150,7 @@ Isso não é crítica à Kiwi — é o modelo. Quando você costura nove voos de
 
 <div class="callout callout-tip">
   <div class="callout-label">A tarifa flexível se pagou</div>
-  Paguei mais caro para poder alterar os trechos. Precisei — duas vezes. O trecho Bologna → Malta que está na fatura não foi o que eu voei: troquei a passagem por um voo com escala em Catania, e é por isso que a parada na Sicília não aparece na fatura original. A volta comprada era Malta → Viena → Bucareste → Dubai no dia 07/05. A volta que aconteceu foi Malta → Cagliari → Budapeste → Dubai no dia 08/05, e ainda me deu três horas na Sardenha de brinde. Se eu tivesse comprado a tarifa promocional, teria perdido a passagem inteira.
+  Paguei mais caro para poder alterar os trechos. Precisei — duas vezes. O trecho Bologna → Malta que está na fatura não foi o que eu voei: troquei a passagem por um voo com escala em Catania, e é por isso que a parada na Sicília não aparece na fatura original. A volta comprada era Malta → Viena → Bucareste → Dubai no dia 07/05. A volta que aconteceu foi Malta → Cagliari → Budapeste → Dubai no dia 08/05, e ainda me deu três horas na Sardenha de brinde. Foi assim que os oito voos da fatura viraram os nove que eu voei. Se eu tivesse comprado a tarifa promocional, teria perdido a passagem inteira.
 </div>
 
 **Câmbio usado:** o dirham é atrelado ao dólar (AED 3,6725 = US$ 1), e o euro estava em torno de US$ 1,08 em abril de 2022. Isso dá aproximadamente **AED 3,97 por euro**, que é a taxa usada em todas as conversões deste post. Não use a taxa de hoje para converter valores de 2022 — a diferença passa de 10%.
