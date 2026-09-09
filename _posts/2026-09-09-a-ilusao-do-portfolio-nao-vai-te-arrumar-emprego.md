@@ -34,7 +34,7 @@ O GitHub existe desde 2008. Durante a maior parte desse tempo ele foi ferramenta
 
 O hábito de publicar progresso de estudo tem uma data mais ou menos identificável: em junho de 2016, um desenvolvedor chamado Alexander Kallaway propôs um desafio pessoal — programar pelo menos uma hora por dia durante 100 dias seguidos e publicar o progresso, o que virou a hashtag #100DaysOfCode. Repare no propósito original: era **disciplina de estudo com prestação de contas pública**. Não era peça de contratação. A distorção veio depois.
 
-O ponto de virada foi 2020. Confinamento, juros baixos, mercado de tecnologia inflacionado e uma promessa que circulou em escala industrial: seis meses de curso e você troca de vida. Os números do próprio GitHub mostram o tamanho da enxurrada — o relatório Octoverse de 2020 registrou mais de 60 milhões de novos repositórios criados no período e uma entrada expressiva de gente que não era desenvolvedora: estudantes, professores, analistas de dados, designers. A plataforma fechou aquele ano com mais de 56 milhões de contas.
+O ponto de virada foi 2020. Confinamento, juros baixos, mercado de tecnologia inflacionado e uma promessa que circulou em escala industrial: seis meses de curso e você troca de vida. Os números do próprio GitHub mostram o tamanho da enxurrada — o relatório Octoverse de 2020 registrou mais de 60 milhões de novos repositórios criados no período e uma entrada expressiva de gente que não era desenvolvedora: estudantes, professores, analistas de dados, designers. A plataforma fechou aquele ano com mais de 56 milhões de desenvolvedores.
 
 E aqui está a parte que interessa. Para quem vendia curso, "monte um portfólio" resolvia um problema comercial específico:
 
@@ -53,7 +53,7 @@ E aqui está a parte que interessa. Para quem vendia curso, "monte um portfólio
   </div>
 </div>
 
-Cinco anos depois, o conselho continua sendo repetido por gente bem-intencionada que nunca participou de uma contratação — enquanto o volume tornou o sinal ainda mais fraco. O Octoverse de 2025 aponta mais de 180 milhões de desenvolvedores na plataforma, com cerca de 36 milhões de contas novas em um único ano e 395 milhões de repositórios públicos. Um link para um repositório não é escassez. É ruído.
+Cinco anos depois, o conselho continua sendo repetido por gente bem-intencionada que nunca participou de uma contratação — enquanto o volume tornou o sinal ainda mais fraco. O Octoverse de 2025 aponta mais de 180 milhões de desenvolvedores na plataforma, com cerca de 36 milhões de novos desenvolvedores em um único ano e 395 milhões de repositórios públicos. Um link para um repositório não é escassez. É ruído.
 
 <div class="divider">· · ·</div>
 
@@ -284,7 +284,7 @@ Caminhos que produzem esse tipo de material, em ordem de facilidade:
 3. **Contribua em projeto aberto que você já usa.** Comece pequeno: corrigir documentação, reproduzir bug, escrever teste que faltava. Interagir com mantenedor e passar por code review de estranho é exatamente a habilidade que a vaga quer ver.
 4. **Escreva sobre o que você resolveu.** Um post curto — o problema, as opções, a escolha, o que quebrou depois — demonstra raciocínio de um jeito que nenhum repositório demonstra.
 
-E continue fazendo clone de Netflix, se isso te ensina. Só chame pelo nome: é treino. Treino vai na sua pasta de estudos, não na apresentação profissional.
+E continue fazendo clone de Netflix, se isso te ensina. Só chame pelo nome: é treino. Treino vai na sua pasta de estudos, não à apresentação profissional.
 
 <div class="divider">· · ·</div>
 
