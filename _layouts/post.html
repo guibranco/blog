@@ -112,6 +112,9 @@
         <script src="{{ '/assets/js/table-scroll.js' | relative_url }}" defer></script>
       </div>
 
+      <!-- Card: mapa do post (só quando há location/locations no front matter) -->
+      {% include post-map.html %}
+
       <!-- Series pager: jump to previous / next part -->
       {% include series-pager.html %}
 

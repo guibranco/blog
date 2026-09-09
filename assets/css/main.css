@@ -292,6 +292,72 @@ a { color: inherit; text-decoration: none; }
 #map { height: 65vh; min-height: 420px; width: 100%; display: block; }
 @media (max-width: 600px) { #map { height: 55vh; min-height: 320px; } }
 
+/* OSM tiles are light-only; flip them under the dark theme (both maps) */
+[data-theme="dark"] .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(.85) contrast(.9); }
+
+/* Filters — /viagens/ (travels.html + assets/js/travels-filter.js) */
+.travel-filters-card { padding: 1.25rem 1.5rem; }
+.travel-filters { display: flex; flex-wrap: wrap; gap: .9rem 1.75rem; align-items: flex-end; }
+.travel-filter { display: flex; flex-direction: column; gap: .35rem; min-width: 180px; }
+.travel-filter label {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.59rem;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--ink-light);
+}
+.travel-filter select {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+  padding: .45rem .7rem; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--card-bg); color: var(--ink);
+  cursor: pointer;
+}
+.travel-filter select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.travels-table-empty {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+  color: var(--ink-light); text-align: center; padding: 1.5rem;
+}
+/* Shown over the map when the active filter has no mapped locations */
+.travel-map-card { position: relative; }
+.travel-map-empty {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  z-index: 500; /* above Leaflet's tile/marker panes (≤400), below its controls (1000) */
+  margin: 0; padding: .7rem 1.1rem; border-radius: 8px;
+  background: var(--card-bg); color: var(--ink-muted); border: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: .04em;
+  box-shadow: 0 2px 12px rgba(0,0,0,.15); pointer-events: none;
+}
+.travel-map-empty[hidden] { display: none; }
+
+/* Post mini map — _includes/post-map.html + assets/js/post-map.js */
+.post-map {
+  height: 340px; width: 100%;
+  border-radius: 10px; overflow: hidden;
+  border: 1px solid var(--border); background: var(--surface-warm);
+}
+@media (max-width: 600px) { .post-map { height: 260px; } }
+.leaflet-marker-icon.post-map-marker {
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--accent); color: var(--chrome-light);
+  border: 2px solid var(--chrome-light);
+  box-shadow: 0 2px 6px rgba(0,0,0,.35);
+  font-family: 'JetBrains Mono', monospace; font-size: .72rem; font-weight: 500;
+}
+.leaflet-marker-icon.post-map-marker:focus-visible { outline: 2px solid var(--accent-warm); outline-offset: 2px; }
+.post-map-list { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.post-map-list-btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.69rem; letter-spacing: .04em;
+  padding: 4px 12px 4px 4px; border-radius: 20px; cursor: pointer;
+  background: var(--tag-bg); border: 1px solid var(--border); color: var(--ink-muted);
+  transition: border-color .2s, color .2s;
+}
+.post-map-list-btn:hover,
+.post-map-list-btn:focus-visible { border-color: var(--accent); color: var(--ink); }
+.post-map-list-num {
+  width: 20px; height: 20px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--accent); color: var(--chrome-light); font-size: .62rem;
+}
+
 /* ─────────────────────────────────────
    PHOTO GALLERY (lightbox)
 ───────────────────────────────────── */

@@ -1,0 +1,29 @@
+{% comment %}
+  Mini map for travel posts — rendered only when the post declares
+  `location` (object) or `locations` (array) in its front matter. Leaflet is
+  fetched lazily by assets/js/post-map.js once the card scrolls into view.
+{% endcomment %}
+{% if page.location or page.locations %}
+{% comment %} Same merge as the /viagens/ model: `locations` first, then `location`. {% endcomment %}
+{% assign _map_locs = "" | split: "" %}
+{% if page.locations %}{% assign _map_locs = _map_locs | concat: page.locations %}{% endif %}
+{% if page.location %}{% assign _map_locs = _map_locs | push: page.location %}{% endif %}
+<div class="article-card article-card--map">
+  <p class="card-section-title">
+    <i class="fas fa-map-location-dot"></i> &nbsp;<span data-i18n="post_map_title">{{ _t.post_map_title }}</span>
+  </p>
+  <div class="post-map" id="post-map"
+       data-locations="{{ _map_locs | jsonify | escape }}"
+       aria-label="{{ _t.post_map_title }}" data-i18n-aria="post_map_title"></div>
+  <ol class="post-map-list">
+    {% for loc in _map_locs %}
+    <li>
+      <button type="button" class="post-map-list-btn" data-index="{{ forloop.index0 }}">
+        <span class="post-map-list-num">{{ forloop.index }}</span>{{ loc.label }}
+      </button>
+    </li>
+    {% endfor %}
+  </ol>
+</div>
+<script src="{{ '/assets/js/post-map.js' | relative_url }}" defer></script>
+{% endif %}
