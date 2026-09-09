@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Nove aeroportos em quinze dias: a primeira viagem depois de me mudar para Dubai"
 description: "Em abril de 2022, uma semana em Malta virou quinze dias entre Mallorca, Porto, Santiago, Madri, Bologna, Malta e Cagliari. O roteiro real, os custos reais e o que eu faria diferente."
 date: 2026-08-31
@@ -10,6 +11,7 @@ tags: [viagem, roteiro, europa, emirados-arabes-unidos, dubai, espanha, palma-de
 reading_time: 16
 image: /assets/img/posts/famous-view-porto-douro-river-portugal-europe.png
 gallery: true
+countries: [Spain, Portugal, Italy, Malta]
 locations:
   - lat: 39.5696
     lng: 2.6502

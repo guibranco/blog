@@ -1,29 +1,36 @@
 # Country registry for the travels page.
-# `name` is the pt-BR display name and MUST match the value used in a post's
-# `countries:` front matter (the blog audit checks this). `name_en` is the
-# English label shown when the UI language is EN; `slug` ties the two together
-# for the client-side language switch.
-- name: Albânia
+# `name` is the English display name and MUST match the value used in a post's
+# `countries:` front matter (the blog audit checks this). `name_pt` is the
+# pt-BR label shown when the UI language is pt-BR; `slug` is the stable key
+# behind the /viagens/ `?country=` filter and the client-side language switch.
+# Keep entries sorted by `name`.
+- name: Albania
   slug: albania
-  name_en: Albania
-- name: Emirados Árabes Unidos
-  slug: emirados-arabes-unidos
-  name_en: United Arab Emirates
-- name: Grécia
-  slug: grecia
-  name_en: Greece
-- name: Irlanda
-  slug: irlanda
-  name_en: Ireland
+  name_pt: Albânia
+- name: Greece
+  slug: greece
+  name_pt: Grécia
+- name: Ireland
+  slug: ireland
+  name_pt: Irlanda
+- name: Italy
+  slug: italy
+  name_pt: Itália
 - name: Malta
   slug: malta
-  name_en: Malta
-- name: Países Baixos
-  slug: paises-baixos
-  name_en: Netherlands
+  name_pt: Malta
+- name: Netherlands
+  slug: netherlands
+  name_pt: Países Baixos
 - name: Portugal
   slug: portugal
-  name_en: Portugal
-- name: Reino Unido
-  slug: reino-unido
-  name_en: United Kingdom
+  name_pt: Portugal
+- name: Spain
+  slug: spain
+  name_pt: Espanha
+- name: United Arab Emirates
+  slug: united-arab-emirates
+  name_pt: Emirados Árabes Unidos
+- name: United Kingdom
+  slug: united-kingdom
+  name_pt: Reino Unido

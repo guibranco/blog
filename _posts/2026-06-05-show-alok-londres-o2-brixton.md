@@ -11,7 +11,7 @@ tags: [viagem, londres, london, irlanda, show, alok, o2-brixton, leicester-squar
 reading_time: 11
 image: /assets/img/posts/londres-2026.jpg
 gallery: true
-countries: [Reino Unido]
+countries: [United Kingdom]
 location:
   lat: 51.5074
   lng: -0.1278
