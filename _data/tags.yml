@@ -204,6 +204,8 @@
     - /tags/comecar/
 - name: comino
   slug: comino
+- name: comportamento-profissional
+  slug: comportamento-profissional
 - name: composer
   slug: composer
   redirect_from:
@@ -220,6 +222,8 @@
   slug: contratacao
 - name: contrato
   slug: contrato
+- name: contrato-de-experiencia
+  slug: contrato-de-experiencia
 - name: corfu
   slug: corfu
 - name: cosmos-db
@@ -382,6 +386,8 @@
   slug: expatriado
 - name: extensions
   slug: extensions
+- name: faculdade
+  slug: faculdade
 - name: fail2ban
   slug: fail2ban
 - name: farfetch
@@ -556,6 +562,8 @@
   slug: integrity
 - name: inteligencia-artificial
   slug: inteligencia-artificial
+- name: intercambio
+  slug: intercambio
 - name: investimento
   slug: investimento
 - name: investimentos
@@ -902,6 +910,8 @@
   slug: renda-fixa
 - name: renda-variavel
   slug: renda-variavel
+- name: reputacao-profissional
+  slug: reputacao-profissional
 - name: reserva-de-emergencia
   slug: reserva-de-emergencia
 - name: resharper
@@ -1134,6 +1144,8 @@
   slug: visual-studio
 - name: visual-studio-code
   slug: visual-studio-code
+- name: voluntariado
+  slug: voluntariado
 - name: vpn
   slug: vpn
 - name: vps

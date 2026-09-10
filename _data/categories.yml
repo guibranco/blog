@@ -4,6 +4,8 @@
   subcategories:
     - name: "Behind the Scenes"
       slug: behind-the-scenes
+    - name: "Case Studies"
+      slug: case-studies
     - name: "Working Abroad"
       slug: working-abroad
       redirect_from:
