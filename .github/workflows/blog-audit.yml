@@ -7,6 +7,7 @@ on:
       - '_data/tags.yml'
       - '_data/categories.yml'
       - '_data/countries.yml'
+      - 'assets/img/posts/**'
   pull_request:
   workflow_dispatch:
 
@@ -24,6 +25,10 @@ jobs:
         uses: actions/setup-python@v7
         with:
           python-version: '3.12'
+
+      # Pillow powers the Gallery photo metadata check (EXIF orientation / GPS)
+      - name: Install image tooling
+        run: python3 -m pip install --quiet "Pillow>=11.2"
 
       - name: Audit structure
         id: audit
