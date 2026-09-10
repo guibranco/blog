@@ -12,7 +12,7 @@ reading_time: 9
 cover: /assets/img/posts/postmortem-carreira-02-experiencia-troca-projeto.svg
 image: /assets/img/posts/postmortem-carreira-02-experiencia-troca-projeto.png
 series: postmortem-de-carreira
-series_order: 2
+series_part: 2
 ---
 
 <p class="lead">Ele entrou numa consultoria, foi alocado num projeto ruim, pediu para trocar de projeto por volta do segundo mês e foi dispensado dentro do contrato de experiência. Publicou num grupo que tinha sido perseguido pelo gestor. Aí alguém olhou o currículo que ele mesmo tinha deixado público, e a conversa mudou de assunto.</p>
@@ -109,10 +109,12 @@ Muita gente trata o período de experiência como formalidade de RH. Ele é uma 
 
 O que isso significa na prática, dos dois lados:
 
-- **Para a empresa:** é a janela em que desfazer a contratação custa quase nada. Depois dela, o custo sobe — aviso prévio, multa de FGTS, tempo de reposição, impacto no time.
-- **Para você:** é a janela em que sair também custa quase nada. Aliás, é a única em que sair de uma empresa não vira uma linha estranha no currículo.
+- **Para a empresa:** é a janela em que desfazer a contratação custa menos — não zero. Dispensa sem justa causa antes do prazo obriga a pagar, pelo art. 479 da CLT, metade da remuneração que faltava até o fim do contrato, além das verbas rescisórias normais. Depois da janela, o custo muda de patamar — aviso prévio, multa de FGTS, tempo de reposição, impacto no time.
+- **Para você:** sair também custa menos, mas não é de graça. Quem pede demissão antes do prazo pode ser cobrado pelos prejuízos que a saída causar à empresa (art. 480), com teto no mesmo valor do art. 479. A cobrança depende de a empresa demonstrar o prejuízo, o que raramente acontece — mas a regra existe. E é a única janela em que sair de uma empresa não vira uma linha estranha no currículo.
 
-Como a janela é curta e barata, gestor decide rápido dentro dela. Não é frieza; é o desenho do instrumento. Quem entra no período de experiência achando que tem noventa dias de estabilidade entendeu ao contrário: tem noventa dias de fragilidade máxima, para os dois lados.
+Uma exceção que vale conhecer: se o contrato tiver a cláusula assecuratória do direito recíproco de rescisão antecipada (art. 481), nada disso se aplica — a saída antecipada, partindo de qualquer lado, segue as regras do contrato por prazo indeterminado, com aviso prévio e demais verbas. Essa cláusula é comum em contratos de experiência; leia o seu.
+
+Como a janela é curta e relativamente barata, gestor decide rápido dentro dela. Não é frieza; é o desenho do instrumento. Quem entra no período de experiência achando que tem noventa dias de estabilidade entendeu ao contrário: tem noventa dias de fragilidade máxima, para os dois lados.
 
 <div class="divider">· · ·</div>
 

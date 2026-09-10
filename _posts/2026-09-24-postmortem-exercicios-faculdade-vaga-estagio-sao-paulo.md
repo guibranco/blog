@@ -12,7 +12,7 @@ reading_time: 10
 cover: /assets/img/posts/postmortem-carreira-03-estagio-faculdade.svg
 image: /assets/img/posts/postmortem-carreira-03-estagio-faculdade.png
 series: postmortem-de-carreira
-series_order: 3
+series_part: 3
 ---
 
 <p class="lead">Primeiro veio o pedido de ajuda com um exercício. Depois com a lista inteira. Na terceira semana ele já postava o PDF completo da disciplina e pedia que o grupo resolvesse. Umas semanas mais tarde, apareceu com um desabafo indignado sobre uma vaga de estágio presencial em São Paulo — como é que um empresário espera que alguém se mude para a capital e se sustente com aquele valor? Os dois posts, o do PDF e o da indignação, são a mesma história contada duas vezes.</p>
@@ -105,15 +105,15 @@ Os números públicos de 2025 e 2026, e eles não são difíceis de achar:
     <tr><th>Recorte</th><th>Bolsa-auxílio</th><th>Fonte</th></tr>
   </thead>
   <tbody>
-    <tr><td>Média nacional (base salarial)</td><td>~R$ 1.954</td><td>Indeed, 2026</td></tr>
-    <tr><td>Média Sudeste</td><td>~R$ 2.074</td><td>Cia. de Estágios, 2025</td></tr>
-    <tr><td>Empresas de tecnologia</td><td>~R$ 2.392</td><td>Cia. de Estágios, 2025</td></tr>
-    <tr><td>Programas "premium", 30h</td><td>até R$ 3.379</td><td>O Trainee, 1º sem. 2026</td></tr>
-    <tr><td>Faixa típica em anúncios</td><td>R$ 1.000 – R$ 2.000</td><td>Glassdoor, 2026</td></tr>
+    <tr><td>Média nacional (base salarial)</td><td>~R$ 1.954</td><td>Indeed, via Na Prática (jul. 2026)</td></tr>
+    <tr><td>Média Sudeste</td><td>~R$ 2.074</td><td>Cia. de Estágios, via Exame (abr. 2025)</td></tr>
+    <tr><td>Empresas de tecnologia</td><td>~R$ 2.392</td><td>Cia. de Estágios, via Exame (abr. 2025)</td></tr>
+    <tr><td>Programas "premium", 30h</td><td>até R$ 3.379</td><td>O Trainee, via Na Prática (jul. 2026)</td></tr>
+    <tr><td>Faixa típica em anúncios</td><td>R$ 1.000 – R$ 2.000</td><td>Glassdoor, via Na Prática (jul. 2026)</td></tr>
   </tbody>
 </table>
 
-Os recortes são diferentes — pesquisa de vagas geridas por agente de integração não é a mesma coisa que base de anúncios — e por isso as médias divergem. Mas a ordem de grandeza é consistente e está disponível para qualquer pessoa com um navegador.
+Os recortes são diferentes — pesquisa de vagas geridas por agente de integração não é a mesma coisa que base de anúncios — e por isso as médias divergem. Mas a ordem de grandeza é consistente e está disponível para qualquer pessoa com um navegador. Os valores de Indeed e Glassdoor são os reproduzidos pela Na Prática em julho de 2026; agregadores mudam com frequência — em setembro de 2026 o Indeed já mostrava R$ 2.056.
 
 Quem faz essa pesquisa antes chega a uma conclusão útil: *a vaga que eu vi está abaixo da média, e existem programas melhores.* Quem não faz chega à conclusão inútil: *o mercado é absurdo.* A primeira produz uma estratégia. A segunda produz um post.
 
@@ -213,11 +213,11 @@ Nada aqui exige talento excepcional. Exige sequência.
       <a href="https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2008/lei/l11788.htm" target="_blank">planalto.gov.br</a>
     </li>
     <li>
-      Na Prática. <strong>Qual o salário de um estagiário em 2026?</strong>
+      Na Prática. <strong>Qual o salário de um estagiário em 2026? Publicado em 2 de julho de 2026; fonte dos valores atribuídos a Indeed, O Trainee e Glassdoor; consultado em 10 de setembro de 2026.</strong>
       <a href="https://napratica.org.br/noticias/qual-o-salario-de-um-estagiario-em-2026" target="_blank">napratica.org.br</a>
     </li>
     <li>
-      Exame / Companhia de Estágios. <strong>Guia Bolsa-Auxílio de Estágio: médias por setor e região.</strong>
+      Exame / Companhia de Estágios. <strong>Guia Bolsa-Auxílio de Estágio 2025: médias por setor e região. Publicado em 29 de abril de 2025; consultado em 10 de setembro de 2026.</strong>
       <a href="https://exame.com/carreira/quanto-ganha-um-estagiario-em-2025-veja-os-10-setores-com-os-melhores-pagamentos/" target="_blank">exame.com</a>
     </li>
     <li>

@@ -12,7 +12,7 @@ reading_time: 10
 cover: /assets/img/posts/postmortem-carreira-04-aiesec-egito.svg
 image: /assets/img/posts/postmortem-carreira-04-aiesec-egito.png
 series: postmortem-de-carreira
-series_order: 4
+series_part: 4
 ---
 
 <p class="lead">Ela encontrou uma vaga de intercâmbio voluntário no Egito, achou estranho e levou ao grupo. Até aí, tudo certo. O que veio depois foi a escalada: em poucos comentários a suspeita virou acusação, e a discussão passou a tratar um programa de intercâmbio estudantil com quase oitenta anos de existência como uma operação de tráfico de pessoas. Foi preciso um punhado de gente explicando o modelo do programa para a conversa voltar ao chão.</p>
@@ -116,7 +116,7 @@ Colocados lado a lado, aliciamento e intercâmbio voluntário são quase opostos
 
 Repare na linha da passagem, que é a mais contraintuitiva: **é o aliciador que paga a sua viagem.** É assim que a dívida nasce e é assim que a liberdade some do outro lado. Um programa que exige que você banque o próprio deslocamento é chato, caro e excludente — mas é o oposto do mecanismo de captura.
 
-E a linha da remuneração é a que dispensa toda a discussão do caso: a vaga dizia, na própria descrição, que era voluntariado não remunerado. Nenhuma armadilha se anuncia assim.
+E a linha da remuneração pesa, mas não encerra a discussão: a vaga dizia, na própria descrição, que era voluntariado não remunerado. Isso sozinho não prova legitimidade — golpe também sabe se vestir de voluntariado. É um sinal apontando na direção contrária à do aliciamento, que sempre promete renda; o que decide é o conjunto das outras linhas: organização com histórico público, documentação e contrato por escrito, condições da viagem claras e quem paga o quê.
 
 <div class="divider">· · ·</div>
 

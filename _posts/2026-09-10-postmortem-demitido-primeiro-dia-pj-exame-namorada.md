@@ -12,7 +12,7 @@ reading_time: 10
 cover: /assets/img/posts/postmortem-carreira-01-pj-primeiro-dia.svg
 image: /assets/img/posts/postmortem-carreira-01-pj-primeiro-dia.png
 series: postmortem-de-carreira
-series_order: 1
+series_part: 1
 ---
 
 <p class="lead">Ele foi contratado às pressas, começou numa segunda-feira e foi dispensado antes do fim do expediente do mesmo dia. Saiu no meio da tarde para levar a namorada a um exame agendado, sem avisar ninguém, porque não tinha nenhuma reunião na agenda. Nos dias seguintes escreveu um post anônimo num grupo grande de tecnologia acusando a empresa e, em paralelo, publicou uma avaliação negativa no Glassdoor — essa com o nome real, o dele e o da empresa. O post viralizou. Quase toda a discussão girou em torno da parte errada da história.</p>
