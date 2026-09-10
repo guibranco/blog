@@ -12,6 +12,7 @@ reading_time: 10
 cover: /assets/img/posts/postmortem-carreira-03-estagio-faculdade.svg
 image: /assets/img/posts/postmortem-carreira-03-estagio-faculdade.png
 series: postmortem-de-carreira
+series_title: "Postmortem de carreira"
 series_part: 3
 ---
 
@@ -19,7 +20,9 @@ series_part: 3
 
 <div class="callout callout-tip">
   <div class="callout-label">Como esta série funciona</div>
-  Nenhum nome de pessoa, empresa, grupo ou perfil aparece aqui. Prints são anonimizados e alguns detalhes foram alterados ou generalizados para impedir identificação. O objetivo não é rir de ninguém — é destrinchar o padrão por trás do caso, porque o mesmo erro se repete às centenas todo mês, com gente diferente.
+  <p><strong>Este não é um relato pessoal: nada do que está descrito aqui aconteceu comigo.</strong> Os casos desta série foram publicados por outras pessoas em grupos de carreira e tecnologia que eu acompanho — no Facebook, no Reddit e em outras redes sociais. O que eu tenho é a versão de quem postou, somada ao que outras pessoas acrescentaram nos comentários da mesma discussão. Não conheço ninguém envolvido e não tenho acesso ao outro lado da história. Neste post, o caso junta dois episódios do mesmo autor — os exercícios terceirizados e a indignação com uma vaga de estágio —, e o objetivo é mostrar por que os dois são o mesmo problema.</p>
+  <p>Isso impõe um limite que vale deixar explícito: a análise é feita em cima do relato, não dos fatos. Parte das informações pode ser falsa, incompleta ou mal contada por quem publicou. Os casos em que a veracidade me pareceu duvidosa não viraram post — a série existe para destrinchar erros e situações atípicas que aconteceram de verdade no mundo real, e uma história inventada não serve para isso.</p>
+  <p>Nenhum nome de pessoa, empresa, grupo ou perfil aparece aqui. Prints são anonimizados e alguns detalhes foram alterados ou generalizados para impedir identificação. O objetivo não é rir de ninguém — é entender o padrão por trás do caso, porque o mesmo erro se repete às centenas todo mês, com gente diferente.</p>
 </div>
 
 <div class="section-header">
