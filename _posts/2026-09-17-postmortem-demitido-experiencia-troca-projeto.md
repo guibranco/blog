@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Sete empresas em 2,7 anos: o pedido de troca de projeto que virou demissão"
 description: "Ele pediu para sair de um projeto problemático ainda dentro do contrato de experiência e foi dispensado. Chamou de perseguição do gestor. O currículo dele explicava a decisão melhor do que qualquer teoria."
 date: 2026-09-17

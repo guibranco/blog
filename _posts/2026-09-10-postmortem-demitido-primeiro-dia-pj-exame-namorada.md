@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Demitido no primeiro dia: o PJ, o exame agendado e o Glassdoor"
 description: "Contratado às pressas como PJ, ele saiu no primeiro dia para levar a namorada a um exame agendado e foi dispensado na mesma tarde. O erro não foi ter saído — foi tudo o que veio antes e, principalmente, depois."
 date: 2026-09-10

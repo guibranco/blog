@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "O diploma sem o aprendizado: quem terceirizou os exercícios e depois reclamou da vaga"
 description: "Ele pediu ao grupo que resolvesse os exercícios da faculdade — três, quatro semanas seguidas. Depois publicou um desabafo sobre uma vaga de estágio em São Paulo. Os dois posts eram o mesmo problema."
 date: 2026-09-24

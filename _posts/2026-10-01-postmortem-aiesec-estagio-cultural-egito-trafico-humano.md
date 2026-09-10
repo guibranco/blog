@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: pt-BR
 title: "Estágio cultural no Egito: quando a desconfiança certa vira a conclusão errada"
 description: "Uma vaga de intercâmbio voluntário no Egito virou suspeita de tráfico humano num grupo de carreira. O instinto de desconfiar estava correto — o que faltou foi o passo seguinte, que leva cinco minutos."
 date: 2026-10-01
