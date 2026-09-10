@@ -380,6 +380,10 @@ a { color: inherit; text-decoration: none; }
   transition: transform .3s ease, opacity .3s ease;
 }
 .photo-gallery a:hover img { transform: scale(1.05); opacity: .9; }
+/* _includes/photo.html wraps the <img> in a <picture> (AVIF/WebP srcset) —
+   make it fill the 4:3 cell exactly like the bare <img> did */
+.photo-gallery a picture { display: block; width: 100%; height: 100%; }
+.article-inner picture { display: block; max-width: 100%; }
 @media (max-width: 480px) {
   .photo-gallery { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: .5rem; }
 }

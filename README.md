@@ -53,6 +53,7 @@ blog/                                 # nome do repositório
 │   ├── breadcrumb.html               # Categoria › Subcategoria › Artigo
 │   ├── series.html                   # Navegação de série dentro do artigo
 │   ├── resolve-lang.html             # Resolve `_lang`/`_t` (idioma + tabela de traduções) de uma página
+│   ├── photo.html                    # Foto de galeria responsiva: <picture> AVIF/WebP + width/height + GLightbox
 │   ├── schema.html                   # JSON-LD (schema.org)
 │   └── analytics.html
 │
@@ -68,7 +69,8 @@ blog/                                 # nome do repositório
 │   ├── tags.yml                      # Tags (nome, slug, redirect_from) — uma página por entrada
 │   ├── countries.yml                 # Países visitados em posts de viagem (nome em inglês, slug, name_pt) — lista curada
 │   ├── i18n.yml                      # Strings de UI em pt-BR e en
-│   └── quotes.yml                    # Lista de quotes da sidebar
+│   ├── quotes.yml                    # Lista de quotes da sidebar
+│   └── images.json                   # GERADO por build_images.py (gitignored): dimensões + derivados das fotos
 │
 ├── assets/
 │   ├── css/
@@ -78,7 +80,9 @@ blog/                                 # nome do repositório
 │   └── img/
 │       ├── cover.jpg                 # Imagem de fundo da sidebar
 │       ├── avatar.png                # Foto de perfil circular
-│       └── posts/                    # Imagens/covers dos artigos
+│       ├── posts/                    # Imagens/covers dos artigos
+│       │   └── <post-slug>/          # Fotos de galeria do post (originais sanitizados — sem EXIF/GPS)
+│       └── derived/                  # GERADO por build_images.py (gitignored): AVIF/WebP em 480/960/1600px
 │
 ├── docs/
 │   ├── adr/                          # Architecture Decision Records
@@ -86,11 +90,12 @@ blog/                                 # nome do repositório
 │
 ├── .github/
 │   ├── workflows/
-│   │   ├── deploy.yml                # Build + deploy no GitHub Pages (push em main)
-│   │   ├── blog-audit.yml            # Roda audit_blog.py em push/PR que tocam posts ou dados
+│   │   ├── deploy.yml                # build_images.py + jekyll build + deploy no GitHub Pages (push em main)
+│   │   ├── blog-audit.yml            # Roda audit_blog.py em push/PR que tocam posts, dados ou fotos
 │   │   └── sync-category-tag-data.yml # Registra categorias/tags novas automaticamente em PRs
 │   └── scripts/
 │       ├── audit_blog.py             # Audita a estrutura do blog
+│       ├── build_images.py           # Sanitiza fotos de galeria e gera os derivados AVIF/WebP + images.json
 │       └── create_missing_pages.py   # Sincroniza _data/categories.yml e _data/tags.yml
 │
 ├── index.html                        # Página inicial (paginada)
@@ -188,7 +193,7 @@ Se apenas `image` for definido, ele é usado tanto no site quanto no Open Graph 
 
 Ver [Front matter — referência completa](#-front-matter--referência-completa) para todos os campos disponíveis, incluindo `series*` e `location`/`locations`/`countries` para posts de viagem.
 
-**3.** Escreva o conteúdo em Markdown. Componentes visuais customizados como callouts, blocos de código com syntax highlighting e cards podem ser usados diretamente com HTML inline.
+**3.** Escreva o conteúdo em Markdown. Componentes visuais customizados como callouts, blocos de código com syntax highlighting e cards podem ser usados diretamente com HTML inline. Fotos de galeria entram pelo include `photo.html` — ver [Galeria de fotos](#galeria-de-fotos).
 
 **4.** Publique via branch + pull request — **não dê push direto em `main`**:
 
@@ -222,9 +227,11 @@ Audita a estrutura inteira do blog e escreve um relatório em `audit-report.md` 
 | Tag usada mas não registrada em `_data/tags.yml` | ✅ erro |
 | `image:`/`cover:` apontando para um arquivo local inexistente | ✅ erro |
 | `image:` (og:image) num formato não-raster (deve ser png/jpg/jpeg/gif) | ✅ erro |
+| Foto de galeria (`assets/img/posts/<slug>/`) com GPS no EXIF ou orientação EXIF não aplicada nos pixels | ✅ erro |
 | Imagem externa referenciada no corpo do post retornando erro HTTP | ⚠️ aviso (⚠️ apenas o `image:` de capa é bloqueante) |
 | `description`/`reading_time`/`image` ausentes | ⚠️ aviso |
 | `cover:` num formato inesperado | ⚠️ aviso |
+| Foto de galeria com outros metadados EXIF/XMP remanescentes | ⚠️ aviso |
 
 Rodar localmente:
 
@@ -232,6 +239,27 @@ Rodar localmente:
 python3 .github/scripts/audit_blog.py
 # lê audit-report.md ao final, ou o output impresso no terminal
 ```
+
+A checagem de fotos precisa do Pillow (`pip install Pillow`); sem ele, ela é pulada com um aviso e o resto da auditoria roda normalmente.
+
+### `.github/scripts/build_images.py`
+
+Pipeline de fotos de galeria ([ADR-0011](docs/adr/0011-gallery-derivatives-at-build-time-sanitized-sources.md)). Para cada `.jpg`/`.jpeg`/`.png` dentro de uma pasta por post (`assets/img/posts/<post-slug>/`):
+
+1. **Sanitiza o original no lugar** se ele ainda tiver metadados: aplica a orientação EXIF nos pixels e remove EXIF/XMP (GPS, modelo do celular, data…), mantendo o perfil ICC. O JPEG é reencodado com as próprias tabelas de quantização, então a perda é desprezível. Idempotente — arquivo já limpo não é tocado. **Esse arquivo sanitizado é o que deve ser commitado**: é o `href` que o GLightbox abre em resolução cheia e o fallback do `<img>`.
+2. **Gera derivados AVIF e WebP** em 480/960/1600 px (nunca amplia; fonte mais estreita que 1600 px ganha também um degrau na largura nativa) em `assets/img/derived/<post-slug>/`, com um hash curto da fonte no nome.
+3. **Escreve `_data/images.json`** com largura/altura intrínsecas e os conjuntos de derivados — é o que `_includes/photo.html` lê para montar o `<picture>`.
+
+Derivados e manifesto são **saída de build** (gitignored): o `deploy.yml` roda o script antes do `jekyll build`, com `assets/img/derived/` em cache entre execuções. Localmente:
+
+```bash
+python3 -m pip install "Pillow>=11.2"
+python3 .github/scripts/build_images.py            # sanitiza + gera só o que falta
+python3 .github/scripts/build_images.py --force    # regenera tudo
+python3 .github/scripts/build_images.py --no-sanitize
+```
+
+Fotos em HEIC não são suportadas — converta para JPEG antes de colocar na pasta.
 
 ### `.github/scripts/create_missing_pages.py`
 
@@ -254,8 +282,8 @@ Além dos generators de categoria/tag/feed (ver [seção acima](#-gerenciando-ca
 
 | Workflow | Dispara em | O que faz |
 |---|---|---|
-| `deploy.yml` | push em `main` (ou manual) | `jekyll build` + deploy no GitHub Pages |
-| `blog-audit.yml` | push/PR tocando posts ou `_data/{tags,categories,countries}.yml` | Roda `audit_blog.py` |
+| `deploy.yml` | push em `main` (ou manual) | `build_images.py` (derivados em cache) + `jekyll build` + deploy no GitHub Pages |
+| `blog-audit.yml` | push/PR tocando posts, `_data/{tags,categories,countries}.yml` ou `assets/img/posts/**` | Roda `audit_blog.py` |
 | `sync-category-tag-data.yml` | abertura/atualização de PR | Roda `create_missing_pages.py` e comita/comenta o resultado |
 
 ---
@@ -399,6 +427,29 @@ Os componentes abaixo são usados como HTML inline dentro do Markdown.
 <div class="divider">· · ·</div>
 ```
 
+### Galeria de fotos
+
+Requer `gallery: true` no front matter (carrega o GLightbox). As fotos ficam na pasta do post, `assets/img/posts/<post-slug>/`, e cada uma entra pelo include `photo.html` — nunca por `<img>` escrito à mão:
+
+```liquid
+<div class="photo-gallery">
+  {% include photo.html src="/assets/img/posts/meu-artigo/01-canal-entardecer.jpg"
+     alt="Canal do centro histórico ao fim da tarde, com casas de canal e um barco"
+     title="Centro histórico, no fim da tarde da chegada — 25/04"
+     gallery="amsterda" %}
+  {% include photo.html src="/assets/img/posts/meu-artigo/02-oosterdok.jpg"
+     alt="Pôr do sol no Oosterdok visto da ponte"
+     title="Pôr do sol no Oosterdok — 25/04"
+     gallery="amsterda" %}
+</div>
+```
+
+O include gera `<a class="glightbox" href="<original>" data-gallery data-title>` envolvendo um `<picture>` com `srcset` AVIF/WebP em 480/960/1600 px, `sizes` ajustado à grade da galeria, `width`/`height` intrínsecos (zero layout shift), `loading="lazy"` e `decoding="async"`. O GLightbox continua abrindo o original em resolução cheia. As regras editoriais de `alt` e `title` (→ `data-title`) são as mesmas de antes: `alt` descreve o que aparece na foto; `title` é a legenda do lightbox.
+
+Parâmetros opcionais: `sizes` (sobrescreve o `sizes`), `loading="eager"` (foto acima da dobra), `class` e `lightbox=false` (foto avulsa no corpo do texto, sem lightbox, em largura total).
+
+Os derivados vêm de `.github/scripts/build_images.py` ([Scripts e automação](#-scripts-e-automação)); sem eles — clone novo, ou foto fora de uma pasta por post — o include cai no `<img>` simples de antes.
+
 ---
 
 ## 💻 Desenvolvimento local
@@ -422,6 +473,13 @@ Para rodar a auditoria de estrutura localmente antes de abrir um PR:
 
 ```bash
 python3 .github/scripts/audit_blog.py
+```
+
+Fotos de galeria: sem os derivados, `jekyll serve` mostra o `<img>` simples. Para ver o `<picture>` responsivo como em produção (e para sanitizar fotos novas antes de commitar):
+
+```bash
+python3 -m pip install "Pillow>=11.2"
+python3 .github/scripts/build_images.py
 ```
 
 ### Plugins utilizados
@@ -460,7 +518,7 @@ Todos os tokens estão em `assets/css/main.css` como variáveis CSS em `:root`.
 ## 📚 Documentação adicional
 
 - **[CONTEXT.md](CONTEXT.md)** — glossário de domínio: o que é um Post, Category, Subcategory, Tag, Series e Trip, e como se relacionam.
-- **[docs/adr/](docs/adr/)** — Architecture Decision Records explicando por que categoria/tag/feed viraram páginas geradas em vez de arquivos físicos, e como o workflow de posts escritos com apoio de IA funciona.
+- **[docs/adr/](docs/adr/)** — Architecture Decision Records explicando por que categoria/tag/feed viraram páginas geradas em vez de arquivos físicos, como o workflow de posts escritos com apoio de IA funciona, e por que as fotos de galeria são sanitizadas no repositório e servidas via derivados gerados no build.
 - **[docs/agents/](docs/agents/)** — documentação voltada a agentes de IA (onde ficam as issues, como o domínio é modelado).
 - **[CLAUDE.md](CLAUDE.md)** — instruções para agentes de IA (Claude Code) que trabalham neste repositório.
 

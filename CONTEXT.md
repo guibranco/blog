@@ -37,7 +37,7 @@ A Post's primary image — shown in list/card thumbnails, at the top of the Post
 _Avoid_: Cover image, Social image, featured image, post image, OG image, thumbnail — Hero is canonical regardless of which front-matter field or file shape backs it.
 
 **Gallery**:
-A set of images embedded in a Post's body content (not front matter) and shown to readers via a lightbox, enabled per-Post with the `gallery: true` front matter flag. Independent of Hero — a Post may have a Gallery, a Hero, both, or neither, though nearly every Post has a Hero.
+A set of images embedded in a Post's body content (not front matter) and shown to readers via a lightbox, enabled per-Post with the `gallery: true` front matter flag. Independent of Hero — a Post may have a Gallery, a Hero, both, or neither, though nearly every Post has a Hero. A Gallery photo lives in the Post's image folder (`/assets/img/posts/<post-slug>/`, ADR 0009) and is placed with `_includes/photo.html`; the committed file is the sanitized original (orientation baked, EXIF/GPS stripped) that the lightbox opens, while the smaller AVIF/WebP variants the page actually loads are build output, never authored or committed (ADR 0011).
 
 **Published date**:
 The day a Post went live (front matter `date`). Every Post has one and it is always shown with the Post.

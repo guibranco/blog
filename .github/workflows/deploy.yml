@@ -32,6 +32,28 @@ jobs:
         id: pages
         uses: actions/configure-pages@v6
 
+      # Gallery photos → AVIF/WebP derivatives + _data/images.json (ADR-0011).
+      # Build output, never committed: the derivatives folder is cached across
+      # runs keyed on the source photos, so a routine deploy re-encodes nothing.
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Install image tooling
+        run: python3 -m pip install --quiet "Pillow>=11.2"
+
+      - name: Restore image derivatives cache
+        uses: actions/cache@v4
+        with:
+          path: assets/img/derived
+          key: img-derived-${{ hashFiles('assets/img/posts/**', '.github/scripts/build_images.py') }}
+          restore-keys: |
+            img-derived-
+
+      - name: Build responsive image derivatives
+        run: python3 .github/scripts/build_images.py
+
       - name: Build with Jekyll
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:

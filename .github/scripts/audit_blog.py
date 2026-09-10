@@ -2,7 +2,8 @@
 """
 audit_blog.py — Jekyll blog structure auditor
 Checks for missing category pages, tag pages, feed files,
-incomplete post front matter, and broken external images.
+incomplete post front matter, broken external images, and
+Gallery photos that still carry EXIF orientation / GPS metadata.
 Reports via GitHub annotations and $GITHUB_STEP_SUMMARY.
 """
 
@@ -71,6 +72,17 @@ SKIP_DOMAINS = {
 VALID_OG_IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif"}
 # `cover:` is the on-page hero graphic — any standard web image format is fine.
 VALID_COVER_EXTENSIONS = {".svg", ".png", ".jpg", ".jpeg", ".gif", ".webp"}
+
+# Gallery photos live in per-post folders (ADR-0009) and are sanitized by
+# .github/scripts/build_images.py — orientation baked into the pixels,
+# EXIF/XMP stripped (ADR-0011). A committed photo that still carries GPS
+# coordinates leaks the author's position (the Editorial Notes promise cleaned
+# metadata), and an unbaked orientation breaks the intrinsic width/height the
+# responsive <picture> markup relies on — both are blocking.
+PHOTO_FOLDER_ROOT    = ASSETS_DIR / "img" / "posts"
+PHOTO_EXTENSIONS     = {".jpg", ".jpeg", ".png"}
+EXIF_ORIENTATION_TAG = 0x0112
+EXIF_GPS_IFD_TAG     = 0x8825
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -310,6 +322,69 @@ def gh_error(file: str, message: str):
     print(f"::error file={file}::{message}")
 
 
+def gallery_photos() -> list[Path]:
+    """Raster photos inside per-post folders: assets/img/posts/<slug>/…"""
+    if not PHOTO_FOLDER_ROOT.exists():
+        return []
+    return sorted(
+        path
+        for folder in PHOTO_FOLDER_ROOT.iterdir() if folder.is_dir()
+        for path in folder.rglob("*")
+        if path.is_file() and path.suffix.lower() in PHOTO_EXTENSIONS
+    )
+
+
+def check_photo_metadata(issues: dict) -> None:
+    """Flag Gallery photos that build_images.py has not sanitized yet.
+
+    GPS coordinates or an unbaked EXIF orientation are blocking; any other
+    leftover EXIF/XMP is a warning. Needs Pillow — skipped (with a warning)
+    when it isn't installed, so the rest of the audit still runs.
+    """
+    photos = gallery_photos()
+    if not photos:
+        return
+    try:
+        from PIL import Image
+    except ImportError:
+        issues["photo_metadata_skipped"] = "Pillow not installed (python3 -m pip install Pillow)"
+        print("::warning::Gallery photo metadata check skipped — Pillow not installed")
+        return
+
+    fix_hint = "run `python3 .github/scripts/build_images.py` and commit the rewritten photo"
+    for photo in photos:
+        rel = str(photo.relative_to(ROOT))
+        try:
+            with Image.open(photo) as im:
+                exif = im.getexif()
+                orientation = exif.get(EXIF_ORIENTATION_TAG, 1)
+                has_gps = bool(exif.get_ifd(EXIF_GPS_IFD_TAG))
+                other_tags = [t for t in exif if t not in (EXIF_ORIENTATION_TAG, EXIF_GPS_IFD_TAG)]
+                has_xmp = bool(im.info.get("xmp"))
+        except Exception as e:
+            issues["unsanitized_photos"].append({"file": rel, "problems": [f"unreadable ({e})"], "blocking": True})
+            gh_error(rel, f"Gallery photo could not be opened: {e}")
+            continue
+
+        problems: list[str] = []
+        blocking = False
+        if has_gps:
+            problems.append("GPS coordinates in EXIF")
+            blocking = True
+        if orientation != 1:
+            problems.append(f"EXIF orientation {orientation} not baked into the pixels")
+            blocking = True
+        if other_tags or has_xmp:
+            problems.append("leftover EXIF/XMP metadata")
+        if problems:
+            issues["unsanitized_photos"].append({"file": rel, "problems": problems, "blocking": blocking})
+            message = f"Gallery photo not sanitized: {'; '.join(problems)} — {fix_hint}"
+            if blocking:
+                gh_error(rel, message)
+            else:
+                gh_warning(rel, message)
+
+
 # ── Audit ─────────────────────────────────────────────────────────────────────
 
 def audit() -> tuple[dict, set, set]:
@@ -328,6 +403,8 @@ def audit() -> tuple[dict, set, set]:
         "invalid_subcategories":      [],   # {file, subcategory, reason}
         "missing_local_images":       [],   # {file, field, path}
         "invalid_image_extensions":   [],   # {file, field, path, extension, expected}
+        "unsanitized_photos":         [],   # {file, problems, blocking}
+        "photo_metadata_skipped":     None, # reason string when the check couldn't run
     }
 
     all_tags: set[str] = set()
@@ -532,6 +609,9 @@ def audit() -> tuple[dict, set, set]:
                     else:
                         gh_warning(rel, msg)
 
+    # ── Check Gallery photo metadata (per-post folders) ────────────────────────
+    check_photo_metadata(issues)
+
     return issues, all_tags, all_cats
 
 
@@ -547,14 +627,17 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
         len(issues["invalid_lang"]) +
         len(issues["missing_local_images"]) +
         len([i for i in issues["broken_external_images"] if i["location"] == "front matter image"]) +
-        len([i for i in issues["invalid_image_extensions"] if i["field"] == "image"])
+        len([i for i in issues["invalid_image_extensions"] if i["field"] == "image"]) +
+        len([i for i in issues["unsanitized_photos"] if i["blocking"]])
     )
     total_warnings = (
         len(issues["posts_without_image"]) +
         len(issues["posts_without_description"]) +
         len(issues["posts_without_reading_time"]) +
         len([i for i in issues["broken_external_images"] if i["location"] == "body image"]) +
-        len([i for i in issues["invalid_image_extensions"] if i["field"] == "cover"])
+        len([i for i in issues["invalid_image_extensions"] if i["field"] == "cover"]) +
+        len([i for i in issues["unsanitized_photos"] if not i["blocking"]]) +
+        (1 if issues["photo_metadata_skipped"] else 0)
     )
 
     post_count = len(list(POSTS_DIR.glob("*.md"))) if POSTS_DIR.exists() else 0
@@ -655,6 +738,23 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
         lines.append("✅ All `image:`/`cover:` fields use the expected format.")
     lines.append("")
 
+    # ── Gallery photo metadata ────────────────────────────────────────────────
+    lines.append("## Gallery photo metadata\n")
+    if issues["photo_metadata_skipped"]:
+        lines.append(f"⚠️ Check skipped — {issues['photo_metadata_skipped']}.")
+    elif issues["unsanitized_photos"]:
+        lines.append(f"**{len(issues['unsanitized_photos'])} photo(s) still carry metadata:**\n")
+        for item in issues["unsanitized_photos"]:
+            icon = "❌" if item["blocking"] else "⚠️"
+            lines.append(f"- {icon} `{item['file']}` — {'; '.join(item['problems'])}")
+        lines.append(
+            "\nRun `python3 .github/scripts/build_images.py` and commit the rewritten photo(s) "
+            "— see [ADR-0011](docs/adr/0011-gallery-derivatives-at-build-time-sanitized-sources.md)."
+        )
+    else:
+        lines.append("✅ All Gallery photos are sanitized (orientation baked, no EXIF/GPS/XMP).")
+    lines.append("")
+
     # ── External images ───────────────────────────────────────────────────────
     lines.append("## External images\n")
     if issues["broken_external_images"]:
@@ -735,7 +835,8 @@ def main():
         len(issues["missing_local_images"]) +
         len([i for i in issues["broken_external_images"]
              if i["location"] == "front matter image"]) +
-        len([i for i in issues["invalid_image_extensions"] if i["field"] == "image"])
+        len([i for i in issues["invalid_image_extensions"] if i["field"] == "image"]) +
+        len([i for i in issues["unsanitized_photos"] if i["blocking"]])
     )
     sys.exit(1 if blocking > 0 else 0)
 
