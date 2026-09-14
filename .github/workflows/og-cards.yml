@@ -1,0 +1,170 @@
+name: Open Graph cards
+
+# Renders the 1200×630 og:image for every post in the PR that has no
+# hand-made raster yet (templated from the front matter, or rasterized from
+# its hand-authored `cover:` SVG), fills `image:` in, and commits both to the
+# PR branch — see .github/scripts/build_og_cards.py and ADR-0012.
+#
+# Manual runs never touch the branch unless `commit` is ticked: they upload
+# the rendered PNG+SVG as an artifact, which is how to preview a card or
+# re-render one after a template change.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - '_posts/**'
+  workflow_dispatch:
+    inputs:
+      posts:
+        description: "Post files to render, space-separated (empty = every post that qualifies)"
+        required: false
+        default: ''
+      commit:
+        description: "Commit the cards to this branch (otherwise only upload a preview artifact)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: og-cards-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  cards:
+    name: Render cards
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pick the posts to render
+        id: posts
+        env:
+          EVENT: ${{ github.event_name }}
+          BASE_REF: ${{ github.base_ref }}
+          INPUT_POSTS: ${{ inputs.posts }}
+          INPUT_COMMIT: ${{ inputs.commit }}
+        run: |
+          if [ "$EVENT" = "pull_request" ]; then
+            git fetch origin "$BASE_REF" --quiet
+            # Added (A) or Modified (M) posts in the PR, NUL-delimited so file
+            # names only ever travel as shell array elements.
+            git diff --name-only --diff-filter=AM -z \
+              "origin/$BASE_REF...HEAD" \
+              -- '_posts/*.md' > "$RUNNER_TEMP/posts.txt"
+            echo "commit=true" >> "$GITHUB_OUTPUT"
+          else
+            # Manual run: the given list, or every post when empty.
+            printf '%s' "$INPUT_POSTS" | tr -s ' ' '\0' > "$RUNNER_TEMP/posts.txt"
+            echo "commit=${INPUT_COMMIT:-false}" >> "$GITHUB_OUTPUT"
+          fi
+
+          if [ "$EVENT" != "pull_request" ] || [ -s "$RUNNER_TEMP/posts.txt" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "Posts:"; tr '\0' '\n' < "$RUNNER_TEMP/posts.txt"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "No post files changed — nothing to render."
+          fi
+
+      - name: Set up Python
+        if: steps.posts.outputs.run == 'true'
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Install renderer
+        if: steps.posts.outputs.run == 'true'
+        run: |
+          if ! ldconfig -p | grep -q 'libcairo.so.2'; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq --no-install-recommends libcairo2 fontconfig
+          fi
+          python3 -m pip install --quiet "cairosvg>=2.7" "Pillow>=11.2" pyyaml
+
+      # The brand fonts are pinned to one google/fonts commit inside the
+      # script, so the cache key only rolls when that pin (or the script) does.
+      - name: Restore brand fonts
+        if: steps.posts.outputs.run == 'true'
+        uses: actions/cache@v4
+        with:
+          path: .github/fonts
+          key: og-fonts-${{ hashFiles('.github/scripts/build_og_cards.py') }}
+
+      - name: Fetch brand fonts
+        if: steps.posts.outputs.run == 'true'
+        run: python3 .github/scripts/build_og_cards.py --download-fonts
+
+      - name: Render cards
+        if: steps.posts.outputs.run == 'true'
+        id: render
+        env:
+          COMMIT: ${{ steps.posts.outputs.commit }}
+        run: |
+          mapfile -d '' -t files < "$RUNNER_TEMP/posts.txt"
+          if [ "$COMMIT" = "true" ]; then
+            python3 .github/scripts/build_og_cards.py "${files[@]}"
+          else
+            # Preview: render what the generator would produce for these posts
+            # (even ones that already have a card) into a scratch dir.
+            python3 .github/scripts/build_og_cards.py "${files[@]}" \
+              --preview --out-dir "$RUNNER_TEMP/og-preview" --keep-svg
+          fi
+
+      - name: Upload preview
+        if: steps.posts.outputs.run == 'true' && steps.posts.outputs.commit != 'true' && steps.render.outputs.generated_count != '0'
+        uses: actions/upload-artifact@v7
+        with:
+          name: og-cards-preview
+          path: ${{ runner.temp }}/og-preview
+          retention-days: 14
+
+      - name: Commit cards
+        if: steps.posts.outputs.run == 'true' && steps.posts.outputs.commit == 'true' && steps.render.outputs.generated_count != '0'
+        id: commit
+        env:
+          HEAD_REF: ${{ github.head_ref || github.ref_name }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add -- 'assets/img/posts/*.png' '_posts/*.md'
+          if git diff --cached --quiet; then
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+            echo "Cards already up to date — nothing to commit."
+            exit 0
+          fi
+          git commit -m "chore: render Open Graph cards"
+
+          # sync-category-tag-data.yml may have pushed to this branch in the
+          # meantime; it touches _data/, we touch posts + PNGs, so a rebase of
+          # our single commit always applies cleanly.
+          git pull --rebase --quiet origin "$HEAD_REF"
+          git push origin "HEAD:$HEAD_REF"
+          echo "committed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Comment on PR
+        if: github.event_name == 'pull_request' && steps.commit.outputs.committed == 'true'
+        uses: actions/github-script@v9
+        env:
+          PR_COMMENT: ${{ steps.render.outputs.pr_comment }}
+        with:
+          script: |
+            const body = process.env.PR_COMMENT;
+            if (!body) return;
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner:        context.repo.owner,
+              repo:         context.repo.repo,
+              body,
+            });
