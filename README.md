@@ -92,11 +92,14 @@ blog/                                 # nome do repositório
 │   ├── workflows/
 │   │   ├── deploy.yml                # build_images.py + jekyll build + deploy no GitHub Pages (push em main)
 │   │   ├── blog-audit.yml            # Roda audit_blog.py em push/PR que tocam posts, dados ou fotos
-│   │   └── sync-category-tag-data.yml # Registra categorias/tags novas automaticamente em PRs
-│   └── scripts/
-│       ├── audit_blog.py             # Audita a estrutura do blog
-│       ├── build_images.py           # Sanitiza fotos de galeria e gera os derivados AVIF/WebP + images.json
-│       └── create_missing_pages.py   # Sincroniza _data/categories.yml e _data/tags.yml
+│   │   ├── sync-category-tag-data.yml # Registra categorias/tags novas automaticamente em PRs
+│   │   └── og-cards.yml              # Gera o og:image (PNG 1200×630) dos posts sem imagem e comita no PR
+│   ├── scripts/
+│   │   ├── audit_blog.py             # Audita a estrutura do blog
+│   │   ├── build_images.py           # Sanitiza fotos de galeria e gera os derivados AVIF/WebP + images.json
+│   │   ├── build_og_cards.py         # Renderiza o card Open Graph a partir do front matter (ou rasteriza o cover SVG)
+│   │   └── create_missing_pages.py   # Sincroniza _data/categories.yml e _data/tags.yml
+│   └── fonts/                        # GERADO por build_og_cards.py --download-fonts (gitignored): TTFs da marca
 │
 ├── index.html                        # Página inicial (paginada)
 ├── search.html                       # Página de busca (/busca/)
@@ -186,10 +189,13 @@ tags: [docker, linux, automação]
 reading_time: 8
 cover: /assets/img/posts/meu-artigo-cover.svg    # opcional — imagem usada no site (hero do post e card na listagem)
 image: /assets/img/posts/meu-artigo-cover.png    # opcional — imagem estática usada no Open Graph/Twitter card e no schema.org (via jekyll-seo-tag)
+card_style: dark                                 # opcional — força o estilo do card gerado (dark ou cream)
 ---
 ```
 
 Se apenas `image` for definido, ele é usado tanto no site quanto no Open Graph (comportamento antigo, ainda suportado). `cover` serve para permitir uma imagem animada (SVG) na página sem quebrar o preview em redes sociais, que exigem um raster estático.
+
+**Post sem foto não precisa de imagem nenhuma.** Ao abrir o PR, o workflow `og-cards.yml` renderiza o card Open Graph (PNG 1200×630) a partir do próprio front matter — título, descrição, categoria, série, data, tags — no estilo *cream editorial* (padrão) ou *dark tech* (Coding e Infrastructure), grava-o em `assets/img/posts/<slug-do-post>.png`, preenche `image:` e comita na branch. Se o post já tiver um `cover:` SVG desenhado à mão, é esse SVG que vira o PNG. Posts de viagem (`location`/`locations`/`countries`) e posts que já declaram um `image:` raster não são tocados. Ver `build_og_cards.py` em [Scripts e automação](#-scripts-e-automação) e [ADR-0012](docs/adr/0012-og-cards-generated-in-ci-from-front-matter.md).
 
 Ver [Front matter — referência completa](#-front-matter--referência-completa) para todos os campos disponíveis, incluindo `series*` e `location`/`locations`/`countries` para posts de viagem.
 
@@ -207,6 +213,7 @@ git push origin feat/novo-artigo-sobre-x
 Abra o PR no GitHub. Ao abrir/atualizar o PR:
 
 - `sync-category-tag-data.yml` registra categorias/subcategorias/tags novas em `_data/` automaticamente (só roda em eventos de `pull_request` — um push direto em `main` pula essa etapa silenciosamente).
+- `og-cards.yml` renderiza e comita o card Open Graph dos posts alterados que ainda não têm `image:` (idem — só em `pull_request`).
 - `blog-audit.yml` audita o post (front matter obrigatório, `lang:` válido, categorias/tags registradas, imagens locais e externas) e comenta os problemas encontrados — ver [Scripts e automação](#-scripts-e-automação).
 
 Depois de mergear, o GitHub Pages detecta o push em `main`, roda o build do Jekyll (`deploy.yml`) e publica em ~60 segundos.
@@ -261,6 +268,26 @@ python3 .github/scripts/build_images.py --no-sanitize
 
 Fotos em HEIC não são suportadas — converta para JPEG antes de colocar na pasta.
 
+### `.github/scripts/build_og_cards.py`
+
+Gera o card Open Graph ([ADR-0012](docs/adr/0012-og-cards-generated-in-ci-from-front-matter.md)) dos posts que não são de viagem e ainda não têm um `image:` raster. Chamado pelo workflow `og-cards.yml` com os posts alterados no PR; para cada um:
+
+- **sem `cover:` nem `image:`** → renderiza um card a partir do front matter (título dividido em manchete + complemento nos primeiros dois-pontos, descrição, categoria › subcategoria, série/parte, data, tempo de leitura e, no estilo dark, as tags como chips). O estilo vem da primeira categoria — *dark tech* para Coding e Infrastructure, *cream editorial* para o resto — ou de `card_style: dark|cream` no front matter;
+- **com `cover:` SVG e sem `image:`** → rasteriza o próprio SVG desenhado à mão (escala uniforme, fundo na cor do SVG);
+- grava `assets/img/posts/<slug-do-post>.png` e escreve `image:` no post. O PNG leva um marcador (`Software: guibranco/blog build_og_cards.py`) — um card gerado é re-renderizado sempre que o post muda no PR; um PNG feito à mão com o mesmo nome nunca é sobrescrito.
+
+A tipografia é a mesma do site (Playfair Display, Source Serif 4, JetBrains Mono), baixada do `google/fonts` num commit fixo para `.github/fonts/` (gitignored) e exposta ao CairoSVG via um `fonts.conf` privado; se alguma família não resolver, o script falha em vez de renderizar com fonte substituta. Localmente (Linux/macOS com libcairo):
+
+```bash
+python3 -m pip install cairosvg "Pillow>=11.2" pyyaml
+python3 .github/scripts/build_og_cards.py --download-fonts        # uma vez
+python3 .github/scripts/build_og_cards.py --dry-run               # o que seria renderizado
+python3 .github/scripts/build_og_cards.py _posts/2026-04-10-meu-novo-artigo.md
+python3 .github/scripts/build_og_cards.py --svg-only --out-dir /tmp/cards --no-front-matter   # só o SVG (funciona no Windows, sem cairo)
+```
+
+Para pré-visualizar um card sem comitar nada, rode `og-cards.yml` manualmente (Actions → *Open Graph cards* → *Run workflow*) sem marcar *commit*: o PNG e o SVG sobem como artifact.
+
 ### `.github/scripts/create_missing_pages.py`
 
 Chamado pelo workflow `sync-category-tag-data.yml` com a lista de posts alterados no PR. Não cria páginas — categoria/subcategoria/tag "existe" a partir do momento em que está registrada em `_data/categories.yml`/`_data/tags.yml`, e as páginas nascem sozinhas no build seguinte (ver [ADR-0001](docs/adr/0001-stub-files-for-category-tag-feed-pages.md)). O script só garante que as entradas estejam lá:
@@ -285,6 +312,7 @@ Além dos generators de categoria/tag/feed (ver [seção acima](#-gerenciando-ca
 | `deploy.yml` | push em `main` (ou manual) | `build_images.py` (derivados em cache) + `jekyll build` + deploy no GitHub Pages |
 | `blog-audit.yml` | push/PR tocando posts, `_data/{tags,categories,countries}.yml` ou `assets/img/posts/**` | Roda `audit_blog.py` |
 | `sync-category-tag-data.yml` | abertura/atualização de PR | Roda `create_missing_pages.py` e comita/comenta o resultado |
+| `og-cards.yml` | abertura/atualização de PR tocando `_posts/**` (ou manual) | Roda `build_og_cards.py` nos posts alterados e comita o PNG + `image:`; manual sem *commit* só sobe um artifact de preview |
 
 ---
 
@@ -372,8 +400,9 @@ A sidebar suporta dois campos distintos:
 | `subcategories` | list | — | `"Categoria/Subcategoria"` — cada item precisa existir em `_data/categories.yml` |
 | `tags` | list | — | Tags (aparecem no rodapé do artigo); cada uma vira uma entrada em `_data/tags.yml` e uma página `/topicos/{slug}/` |
 | `reading_time` | number | — | Tempo estimado de leitura em minutos |
-| `image` | path | — | Imagem de capa (og:image/Twitter card) — precisa ser raster (png/jpg/jpeg/gif) |
-| `cover` | path | — | Hero visual da página do post (SVG, PNG, JPG, GIF ou WebP) |
+| `image` | path | — | Imagem de capa (og:image/Twitter card) — precisa ser raster (png/jpg/jpeg/gif). Se ausente num post que não é de viagem, `og-cards.yml` gera e preenche |
+| `cover` | path | — | Hero visual da página do post (SVG, PNG, JPG, GIF ou WebP). Um `cover` SVG sem `image` é rasterizado pelo `og-cards.yml` |
+| `card_style` | string | — | `dark` ou `cream` — força o estilo do card gerado (padrão: dark para Coding/Infrastructure, cream para o resto) |
 | `gallery` | boolean | — | Ativa o lightbox (GLightbox) para imagens `.glightbox` no corpo do post |
 | `featured` | boolean | — | Fixa o post na seção de destaques da home |
 | `series` | string | — | Slug da série (agrupa posts na navegação de série e em `/series/`) |
@@ -518,7 +547,7 @@ Todos os tokens estão em `assets/css/main.css` como variáveis CSS em `:root`.
 ## 📚 Documentação adicional
 
 - **[CONTEXT.md](CONTEXT.md)** — glossário de domínio: o que é um Post, Category, Subcategory, Tag, Series e Trip, e como se relacionam.
-- **[docs/adr/](docs/adr/)** — Architecture Decision Records explicando por que categoria/tag/feed viraram páginas geradas em vez de arquivos físicos, como o workflow de posts escritos com apoio de IA funciona, e por que as fotos de galeria são sanitizadas no repositório e servidas via derivados gerados no build.
+- **[docs/adr/](docs/adr/)** — Architecture Decision Records explicando por que categoria/tag/feed viraram páginas geradas em vez de arquivos físicos, como o workflow de posts escritos com apoio de IA funciona, por que as fotos de galeria são sanitizadas no repositório e servidas via derivados gerados no build, e por que o card Open Graph é renderizado no CI e comitado no PR.
 - **[docs/agents/](docs/agents/)** — documentação voltada a agentes de IA (onde ficam as issues, como o domínio é modelado).
 - **[CLAUDE.md](CLAUDE.md)** — instruções para agentes de IA (Claude Code) que trabalham neste repositório.
 

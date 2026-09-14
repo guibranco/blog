@@ -9,3 +9,5 @@ __pycache__
 # Build output of .github/scripts/build_images.py (ADR-0011) — regenerated on deploy
 assets/img/derived/
 _data/images.json
+# Brand fonts fetched by .github/scripts/build_og_cards.py --download-fonts (ADR-0012)
+.github/fonts/
