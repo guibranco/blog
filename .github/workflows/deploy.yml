@@ -44,7 +44,7 @@ jobs:
         run: python3 -m pip install --quiet "Pillow>=11.2"
 
       - name: Restore image derivatives cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: assets/img/derived
           key: img-derived-${{ hashFiles('assets/img/posts/**', '.github/scripts/build_images.py') }}
