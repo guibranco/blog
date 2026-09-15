@@ -9,7 +9,6 @@ subcategories:
   - "Infrastructure/Cloud"
   - "Infrastructure/DevOps"
 tags: [always-free, cloud, free-tier, hospedagem, hosting, iaas, network, networking, oci, openvpn, oracle, provider, vpn, wireguard, pivpn, ubuntu, linux, ssh, ufw, fail2ban, seguranca, firewall, servidor]
-reading_time: 12
 image: /assets/img/posts/vpn.jpg
 ---
 

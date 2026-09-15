@@ -8,7 +8,6 @@ categories: [Hobbies]
 subcategories:
   - "Hobbies/Travel & Places"
 tags: [viagem, malta, st-julians, paceville, sliema, comino, blue-lagoon, golden-bay, blue-grotto, st-peters-pool, marsaskala, crystal-lagoon, mediterraneo, irlanda, dublin, praia, vida-noturna, beach-club, bolt, kiwi, guia-de-viagem, custos-reais, travel, places, locations, nightlife, beach]
-reading_time: 22
 image: /assets/img/posts/malta-2026.jpg
 gallery: true
 countries: [Malta]

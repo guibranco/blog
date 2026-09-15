@@ -9,7 +9,6 @@ subcategories:
   - "Coding/Testing"
   - "Infrastructure/DevOps"
 tags: [testes, teste, testing, unit-test, load-test, stress-test, e2e-test, end-to-end-test, integration-test, qualidade, performance, desenvolvimento]
-reading_time: 3
 image: /assets/img/posts/testing.jpg
 ---
 

@@ -8,7 +8,6 @@ categories: [Career]
 subcategories:
   - "Career/Case Studies"
 tags: [carreira, estagio, faculdade, primeiro-emprego, custo-de-vida, comportamento-profissional]
-reading_time: 10
 cover: /assets/img/posts/postmortem-carreira-03-estagio-faculdade.svg
 image: /assets/img/posts/postmortem-carreira-03-estagio-faculdade.png
 series: postmortem-de-carreira

@@ -8,7 +8,6 @@ categories: [Career]
 subcategories:
   - "Career/Working Abroad"
 tags: [trabalho-no-exterior, dublin, irlanda, carreira-internacional, expatriado, outsurance, seguros, insurtech, relocation, critical-skills, visto-de-trabalho, cidadania-europeia, csharp, dotnet, azure, azure-devops, cosmos-db, service-bus, terraform, iso-20022, fintech, billing, hibrido, europa]
-reading_time: 31
 cover: /assets/img/posts/trabalhando-pelo-mundo-dublin.svg
 image: /assets/img/posts/trabalhando-pelo-mundo-dublin.png
 series: trabalhando-pelo-mundo

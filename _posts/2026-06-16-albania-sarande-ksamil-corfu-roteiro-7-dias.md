@@ -8,7 +8,6 @@ categories: [Hobbies]
 subcategories:
   - "Hobbies/Travel & Places"
 tags: [viagem, albania, sarande, ksamil, corfu, europa, beach-club, ferry, aluguel-de-carro, irlanda, dublin, custo-beneficio, guia-de-viagem, balcas, travel, places, locations]
-reading_time: 21
 image: /assets/img/posts/albania-2026.jpg
 gallery: true
 countries: [Albania, Greece]

@@ -8,7 +8,6 @@ categories: [Investments]
 subcategories:
   - "Investments/Financial Independence"
 tags: [independencia-financeira, reserva-de-emergencia, aposentadoria, investimentos, lci, lca, tesouro-direto, previdencia-privada, renda-fixa, renda-variavel, fiis, criptomoedas, educacao-financeira]
-reading_time: 14
 cover: /assets/img/posts/independencia-financeira.svg
 image: /assets/img/posts/independencia-financeira.png
 ---

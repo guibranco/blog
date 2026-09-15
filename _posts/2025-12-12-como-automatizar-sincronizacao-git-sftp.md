@@ -9,7 +9,6 @@ subcategories:
   - "Coding/Python"
   - "Infrastructure/DevOps"
 tags: [git, ftp, sftp, python, automacao, devops, sincronizacao, legado, ci-cd, gitpython, md5, hash, scripts]
-reading_time: 7
 image: /assets/img/posts/git-ftp-sync.png
 ---
 

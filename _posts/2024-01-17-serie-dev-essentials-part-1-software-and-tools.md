@@ -9,7 +9,6 @@ subcategories:
   - "Coding/Tips & Tricks"
   - "Coding/C#"
 tags: [dotnet, setup, software, tools, visual-studio, visual-studio-code, produtividade, devtools, docker, git, postman, insomnia, nodejs, php, python, rust]
-reading_time: 3
 image: /assets/img/posts/setup-scaled.jpg
 series: dev-essentials
 series_title: "Dev Essentials"

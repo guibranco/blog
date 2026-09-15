@@ -8,7 +8,6 @@ categories: [Career]
 subcategories:
   - "Career/Case Studies"
 tags: [carreira, intercambio, trabalho-no-exterior, voluntariado, seguranca, comportamento-profissional]
-reading_time: 10
 cover: /assets/img/posts/postmortem-carreira-04-aiesec-egito.svg
 image: /assets/img/posts/postmortem-carreira-04-aiesec-egito.png
 series: postmortem-de-carreira

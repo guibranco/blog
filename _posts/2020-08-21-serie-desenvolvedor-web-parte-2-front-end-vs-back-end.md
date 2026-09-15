@@ -8,7 +8,6 @@ categories: [Career]
 subcategories:
   - "Career/Getting Started"
 tags: [back-end, backend, carreira, css, desenvolvimento, front-end, frontend, html, javascript, nodejs, php, estudos, salario]
-reading_time: 8
 image: /assets/img/posts/backend-vs-frontend.jpg
 series: serie-desenvolvedor-web
 series_title: "Série: Desenvolvedor web"

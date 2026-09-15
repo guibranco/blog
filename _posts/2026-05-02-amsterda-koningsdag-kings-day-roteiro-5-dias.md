@@ -8,7 +8,6 @@ categories: [Hobbies]
 subcategories:
   - "Hobbies/Travel & Places"
 tags: [viagem, amsterda, holanda, paises-baixos, koningsdag, kings-day, irlanda, dublin, coffeeshop, red-light-district, adam-toren, europa, travel, places, locations]
-reading_time: 18
 image: /assets/img/posts/amsterda-2026.jpg
 gallery: true
 countries: [Netherlands]

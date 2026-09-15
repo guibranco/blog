@@ -8,7 +8,6 @@ categories: [Investments]
 subcategories:
   - "Investments/Betting & Odds"
 tags: [apostas, bet365, odds, arbitrage, probabilidade, futebol, esportes, sure-bet, matematica-financeira]
-reading_time: 6
 cover: /assets/img/posts/betting-odds-arbitrage.svg
 image: /assets/img/posts/betting-odds-arbitrage.png
 ---

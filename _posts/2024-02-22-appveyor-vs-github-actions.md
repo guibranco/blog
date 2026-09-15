@@ -9,7 +9,6 @@ subcategories:
   - "Coding/C#"
   - "Infrastructure/DevOps"
 tags: [appveyor, github-actions, ci, cd, ci-cd, devops, dotnet, csharp, automacao, pipeline, windows, linux, build, deploy, continuous-integration, continuous-deployment]
-reading_time: 4
 image: /assets/img/posts/GitHubActionsVSAppVeyor.png
 ---
 

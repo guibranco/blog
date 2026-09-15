@@ -10,7 +10,6 @@ subcategories:
   - "Coding/C#"
   - "Infrastructure/DevOps"
 tags: [dotnet, dotnet-framework, net-framework, github-actions, ci-cd, build, deploy, pipeline, yaml, msbuild, nuget, vstest, coverage, csharp, automacao, workflows, teste, testes, tests, testing]
-reading_time: 6
 image: /assets/img/posts/GitHubActionsLogo.png
 ---
 

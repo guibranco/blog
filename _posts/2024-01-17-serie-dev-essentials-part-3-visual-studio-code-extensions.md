@@ -11,7 +11,6 @@ tags: [visual-studio-code, extensions, produtividade, setup, php, csharp, python
 series: dev-essentials
 series_title: "Dev Essentials"
 series_part: 3
-reading_time: 2
 image: /assets/img/posts/logo-vsc.png
 ---
 

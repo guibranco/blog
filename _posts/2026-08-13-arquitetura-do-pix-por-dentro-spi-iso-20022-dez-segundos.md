@@ -9,7 +9,6 @@ subcategories:
   - "Coding/Architecture"
 tags: [pix, arquitetura, architecture, iso-20022, dotnet, rabbitmq, sistemas-financeiros, financial-systems, banco-central, central-bank]
 medium_tags: [pix, software-architecture, dotnet, rabbitmq, fintech]
-reading_time: 20
 cover: /assets/img/posts/pix-arquitetura-capa.svg
 image: /assets/img/posts/pix-arquitetura-capa.png
 series: pix-bs2

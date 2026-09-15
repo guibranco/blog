@@ -9,7 +9,6 @@ categories: [Career]
 subcategories:
   - "Career/Freelancing"
 tags: [freelancer, carreira, salario, desenvolvedor, financeiro, pj, valor-hora, gestao, ti, mercado-de-trabalho]
-reading_time: 13
 cover: /assets/img/posts/quanto-cobrar-2026.svg
 image: /assets/img/posts/quanto-cobrar-2026.png
 ---

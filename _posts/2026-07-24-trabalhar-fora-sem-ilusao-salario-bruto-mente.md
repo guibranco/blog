@@ -8,7 +8,6 @@ categories: [Career]
 subcategories:
   - "Career/Working Abroad"
 tags: [trabalho-no-exterior, custo-de-vida, dublin, dubai, carne-leao, trabalho-remoto]
-reading_time: 9
 cover: /assets/img/posts/trabalhar-fora-p2-conta-real.svg
 image: /assets/img/posts/trabalhar-fora-p2-conta-real.png
 series: trabalhar-fora-sem-ilusao

@@ -8,7 +8,6 @@ categories: [Infrastructure]
 subcategories:
   - "Infrastructure/DevOps"
 tags: [rabbitmq, lavinmq, cloudamqp, mensageria, message-broker, php, infraestrutura, iaas, filas, arquitetura]
-reading_time: 4
 image: /assets/img/posts/rabbitmq-server.jpg
 ---
 

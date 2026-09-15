@@ -9,7 +9,6 @@ subcategories:
   - "Coding/Tips & Tricks"
   - "Career/Getting Started"
 tags: [linguagem-de-programacao, iniciante, carreira, javascript, php, python, csharp, java, mobile, frontend, backend, devops, ti]
-reading_time: 8
 image: /assets/img/posts/rear-view-programmer-working-all-night-long.jpg
 ---
 

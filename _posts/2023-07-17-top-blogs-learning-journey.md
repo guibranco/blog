@@ -10,7 +10,6 @@ subcategories:
   - "Coding/C#"
   - "Career/Getting Started"
 tags: [blogs, aprendizado, recursos, csharp, dotnet, clean-code, carreira, software-engineering, leitura]
-reading_time: 3
 image: /assets/img/posts/blogs.jpg
 ---
 

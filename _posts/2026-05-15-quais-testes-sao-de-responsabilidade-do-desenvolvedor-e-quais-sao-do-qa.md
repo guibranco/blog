@@ -8,7 +8,6 @@ categories: [Career, Coding]
 subcategories:
   - "Coding/Testing"
 tags: [dev, developer, desenvolvedor, qa, quality-assurance, automation, automation-engineer, software-engineer, testes, tests, teste, testes, user-acceptance, testing, unit-test, integration-test, load-test, e2e-test, uat, qa, qualidade, white-box, end-to-end, black-box, desenvolvedor, pirâmide-de-testes]
-reading_time: 6
 cover: /assets/img/posts/dev-vs-qa-testes.svg
 image: /assets/img/posts/dev-vs-qa-testes.png
 ---

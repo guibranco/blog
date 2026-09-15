@@ -10,7 +10,6 @@ subcategories:
   - "Coding/C#"
   - "Infrastructure/DevOps"
 tags: [uuid, primary-key, database, sql, performance, b-tree, uuidv7, ulid, arquitetura, backend, csharp, dotnet]
-reading_time: 7
 image: /assets/img/posts/uuid.png
 ---
 

@@ -12,7 +12,6 @@ tags: [dotnet, resharper, jetbrains, extensions, csharp, produtividade, code-qua
 series: dev-essentials
 series_title: "Dev Essentials"
 series_part: 4
-reading_time: 2
 image: /assets/img/posts/logo_resharper.png
 
 ---

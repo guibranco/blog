@@ -10,7 +10,6 @@ subcategories:
   - "Coding/Databases"
   - "Infrastructure/DevOps"
 tags: [database, github, github-actions, migration, sql, pipeline, testing, ci-cd, devops, mysql, mariadb, postgresql, mssql, schema, versioning, docker, shell-script, continuous-integration, infrastructure-as-code, gitops, db-migration, query-builder, orm, checksum, integrity]
-reading_time: 10
 image: /assets/img/posts/database-migration.jpg
 ---
 

@@ -12,7 +12,6 @@ tags: [dotnet, visual-studio, extensions, produtividade, csharp, setup, devtools
 series: dev-essentials
 series_title: "Dev Essentials"
 series_part: 2
-reading_time: 2
 image: /assets/img/posts/logo-vs-v2.png
 ---
 

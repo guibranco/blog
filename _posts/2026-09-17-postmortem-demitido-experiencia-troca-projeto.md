@@ -8,7 +8,6 @@ categories: [Career]
 subcategories:
   - "Career/Case Studies"
 tags: [carreira, curriculo, contrato-de-experiencia, gestao, comportamento-profissional]
-reading_time: 9
 cover: /assets/img/posts/postmortem-carreira-02-experiencia-troca-projeto.svg
 image: /assets/img/posts/postmortem-carreira-02-experiencia-troca-projeto.png
 series: postmortem-de-carreira
