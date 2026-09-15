@@ -8,7 +8,6 @@ Gallery photos that still carry EXIF orientation / GPS metadata.
 Reports via GitHub annotations and $GITHUB_STEP_SUMMARY.
 """
 
-import math
 import os
 import re
 import sys
@@ -479,17 +478,20 @@ def audit() -> tuple[dict, set, set]:
         # of minutes, and it is worth a warning once it drifts from what the
         # plugin would compute, since that is the value it silently replaces.
         raw_reading_time = fm.get("reading_time")
-        manual_reading_time = "" if isinstance(raw_reading_time, list) else str(raw_reading_time or "")
-        manual_reading_time = manual_reading_time.strip().strip('"').strip("'")
-        if manual_reading_time:
-            if not manual_reading_time.isdigit() or int(manual_reading_time) < 1:
+        if isinstance(raw_reading_time, list) and raw_reading_time:
+            issues["invalid_reading_time"].append({"file": rel, "value": raw_reading_time})
+            gh_warning(rel, f"`reading_time: {raw_reading_time}` is not a positive whole number of minutes")
+        elif not isinstance(raw_reading_time, list):
+            manual_reading_time = str(raw_reading_time or "").strip().strip('"').strip("'")
+            if manual_reading_time and (not manual_reading_time.isdigit() or int(manual_reading_time) < 1):
                 issues["invalid_reading_time"].append({"file": rel, "value": manual_reading_time})
                 gh_warning(rel, f"`reading_time: {manual_reading_time}` is not a positive whole number of minutes")
-            else:
+            elif manual_reading_time:
                 manual = int(manual_reading_time)
                 computed = reading_time.estimate(body, reading_time_config)
-                tolerance = max(READING_TIME_DRIFT_MIN, math.ceil(computed * READING_TIME_DRIFT_RATIO))
-                if abs(manual - computed) > tolerance:
+                difference = abs(manual - computed)
+                tolerance = computed * READING_TIME_DRIFT_RATIO
+                if difference > READING_TIME_DRIFT_MIN and difference > tolerance:
                     issues["reading_time_drift"].append({"file": rel, "manual": manual, "computed": computed})
                     gh_warning(
                         rel,

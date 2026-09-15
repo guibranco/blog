@@ -39,7 +39,7 @@ module Jekyll
       'seconds_per_image' => 10
     }.freeze
 
-    FENCED_CODE   = /^[ \t]{0,3}(`{3,}|~{3,})[^\n]*\n.*?^[ \t]{0,3}\1[ \t]*$\n?/m
+    FENCED_CODE   = /^[ \t]{0,3}((`|~)\2{2,})(?!\2)[^\n]*\n.*?^[ \t]{0,3}\1\2*[ \t]*$\n?/m
     PRE_BLOCK     = %r{<pre\b[^>]*>.*?</pre\s*>}mi
     HTML_COMMENT  = /<!--.*?-->/m
     SCRIPT_STYLE  = %r{<(script|style)\b[^>]*>.*?</\1\s*>}mi
@@ -75,12 +75,34 @@ module Jekyll
 
     # Estimated reading time in whole minutes (never below 1).
     def estimate(body, config = nil)
-      config = DEFAULTS.merge((config || {}).transform_keys(&:to_s))
+      config = validated_config(config)
       counts = count(body)
       minutes = counts['prose'].to_f / config['words_per_minute'] +
                 counts['code'].to_f / config['code_words_per_minute'] +
                 counts['images'] * config['seconds_per_image'] / 60.0
       [minutes.ceil, 1].max
+    end
+
+    def validated_config(config = nil)
+      unless config.nil? || config.is_a?(Hash)
+        raise Errors::FatalException, 'Invalid reading_time configuration: expected a mapping'
+      end
+
+      merged = DEFAULTS.merge((config || {}).transform_keys(&:to_s))
+      {
+        'words_per_minute' => 'a positive number',
+        'code_words_per_minute' => 'a positive number',
+        'seconds_per_image' => 'a non-negative number'
+      }.each do |key, requirement|
+        value = merged[key]
+        valid = value.is_a?(Numeric) && value.real? && value.finite? &&
+                (key == 'seconds_per_image' ? value >= 0 : value.positive?)
+        next if valid
+
+        raise Errors::FatalException,
+              "Invalid reading_time configuration: `reading_time.#{key}` must be #{requirement} (got #{value.inspect})"
+      end
+      merged
     end
 
     def words(text)
@@ -105,8 +127,7 @@ module Jekyll
     priority :normal
 
     def generate(site)
-      config = site.config['reading_time']
-      config = {} unless config.is_a?(Hash)
+      config = ReadingTime.validated_config(site.config['reading_time'])
 
       site.posts.docs.each do |post|
         next unless post.data['reading_time'].nil? # manual override wins

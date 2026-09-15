@@ -42,7 +42,7 @@ DEFAULTS = {
     "seconds_per_image": 10,
 }
 
-FENCED_CODE   = re.compile(r"^[ \t]{0,3}(`{3,}|~{3,})[^\n]*\n.*?^[ \t]{0,3}\1[ \t]*$\n?", re.S | re.M)
+FENCED_CODE   = re.compile(r"^[ \t]{0,3}((`|~)\2{2,})(?!\2)[^\n]*\n.*?^[ \t]{0,3}\1\2*[ \t]*$\n?", re.S | re.M)
 PRE_BLOCK     = re.compile(r"<pre\b[^>]*>.*?</pre\s*>", re.S | re.I)
 HTML_COMMENT  = re.compile(r"<!--.*?-->", re.S)
 SCRIPT_STYLE  = re.compile(r"<(script|style)\b[^>]*>.*?</\1\s*>", re.S | re.I)
@@ -61,6 +61,12 @@ IMAGE_MARKERS = [
     re.compile(r"<img\b", re.I),                       # <img …>
     re.compile(r"\{%-?\s*include\s+photo\.html\b"),    # {% include photo.html … %}
 ]
+
+CONFIG_NUMBER = re.compile(r"[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?")
+
+
+class ReadingTimeConfigError(ValueError):
+    """Raised when the reading-time configuration cannot be calculated safely."""
 
 
 @dataclass(frozen=True)
@@ -114,7 +120,7 @@ def count(body: str) -> Counts:
 
 def estimate(body: str, config: dict | None = None) -> int:
     """Estimated reading time in whole minutes (never below 1)."""
-    cfg = {**DEFAULTS, **(config or {})}
+    cfg = validated_config(config)
     c = count(body)
     minutes = (
         c.prose / cfg["words_per_minute"]
@@ -124,27 +130,78 @@ def estimate(body: str, config: dict | None = None) -> int:
     return max(math.ceil(minutes), 1)
 
 
+def validated_config(config: dict | None = None) -> dict:
+    if config is not None and not isinstance(config, dict):
+        raise ReadingTimeConfigError(
+            "Invalid reading_time configuration: expected a mapping"
+        )
+
+    merged = {**DEFAULTS, **(config or {})}
+    requirements = {
+        "words_per_minute": ("a positive number", lambda value: value > 0),
+        "code_words_per_minute": ("a positive number", lambda value: value > 0),
+        "seconds_per_image": ("a non-negative number", lambda value: value >= 0),
+    }
+    for key, (description, predicate) in requirements.items():
+        value = merged[key]
+        valid = (
+            isinstance(value, (int, float))
+            and not isinstance(value, bool)
+            and math.isfinite(value)
+            and predicate(value)
+        )
+        if not valid:
+            raise ReadingTimeConfigError(
+                f"Invalid reading_time configuration: `reading_time.{key}` "
+                f"must be {description} (got {value!r})"
+            )
+    return merged
+
+
 def load_config(config_file: Path = CONFIG_FILE) -> dict:
     """Read the `reading_time:` block of _config.yml without PyYAML.
 
-    Only flat `key: <integer>` lines indented under `reading_time:` are
+    Only flat `key: <number>` lines indented under `reading_time:` are
     understood — the same shape the Ruby plugin documents.
     """
     if not config_file.exists():
         return {}
-    overrides: dict[str, int] = {}
+    overrides: dict[str, int | float] = {}
     in_block = False
     for line in config_file.read_text(encoding="utf-8").splitlines():
-        if re.match(r"^reading_time:\s*(#.*)?$", line):
+        block = re.match(r"^reading_time:\s*(.*?)\s*$", line)
+        if block:
+            trailing = block.group(1)
+            if trailing and not trailing.startswith("#"):
+                raise ReadingTimeConfigError(
+                    "Invalid reading_time configuration: expected a mapping"
+                )
             in_block = True
             continue
         if in_block:
-            m = re.match(r"^\s+([a-z_]+):\s*(\d+)\s*(#.*)?$", line)
+            m = re.match(r"^\s+([a-z_]+):\s*(.*?)\s*$", line)
             if m and m.group(1) in DEFAULTS:
-                overrides[m.group(1)] = int(m.group(2))
+                key = m.group(1)
+                raw_value = re.sub(r"\s+#.*$", "", m.group(2)).strip()
+                if not CONFIG_NUMBER.fullmatch(raw_value):
+                    requirement = (
+                        "a non-negative number"
+                        if key == "seconds_per_image"
+                        else "a positive number"
+                    )
+                    raise ReadingTimeConfigError(
+                        f"Invalid reading_time configuration: `reading_time.{key}` "
+                        f"must be {requirement} (got {raw_value!r})"
+                    )
+                overrides[key] = (
+                    float(raw_value)
+                    if any(marker in raw_value.lower() for marker in (".", "e"))
+                    else int(raw_value)
+                )
                 continue
             if line.strip() and not line.startswith((" ", "\t")):
                 in_block = False
+    validated_config(overrides)
     return overrides
 
 
