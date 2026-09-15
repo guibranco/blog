@@ -2,11 +2,13 @@
 """
 audit_blog.py — Jekyll blog structure auditor
 Checks for missing category pages, tag pages, feed files,
-incomplete post front matter, broken external images, and
+incomplete post front matter, hand-authored reading times that drifted
+from the computed estimate, broken external images, and
 Gallery photos that still carry EXIF orientation / GPS metadata.
 Reports via GitHub annotations and $GITHUB_STEP_SUMMARY.
 """
 
+import math
 import os
 import re
 import sys
@@ -16,6 +18,9 @@ import urllib.error
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import reading_time  # noqa: E402 — sibling module, port of _plugins/reading_time.rb
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
@@ -29,8 +34,16 @@ SUMMARY_FILE = ROOT / "audit-report.md"
 
 REQUIRED_FRONT_MATTER = [
     "layout", "title", "description", "date",
-    "categories", "tags", "reading_time", "image",
+    "categories", "tags", "image",
 ]
+
+# `reading_time:` is optional — _plugins/reading_time.rb computes it from the
+# body at build time (ADR-0013). A hand-authored value is an override, so the
+# audit only warns when it has drifted from what the plugin would compute:
+# beyond this ratio, and never for a one-minute difference, since rounding
+# alone produces that on short posts.
+READING_TIME_DRIFT_RATIO = 0.10
+READING_TIME_DRIFT_MIN   = 1     # minutes
 
 # `lang:` drives the language badge and the site's own UI-language fallback
 # for that post (see _includes/post-card.html, _includes/resolve-lang.html) —
@@ -395,7 +408,8 @@ def audit() -> tuple[dict, set, set]:
         "invalid_lang":               [],   # {file, lang, reason}
         "posts_without_image":        [],
         "posts_without_description":  [],
-        "posts_without_reading_time": [],
+        "reading_time_drift":         [],   # {file, manual, computed}
+        "invalid_reading_time":       [],   # {file, value}
         "broken_external_images":     [],   # {file, url, status}
         "skipped_external_images":    [],   # {file, url, reason}
         "unregistered_categories":    [],   # {file, category}
@@ -411,6 +425,7 @@ def audit() -> tuple[dict, set, set]:
     all_cats: set[str] = set()
     categories_data = load_categories_data()
     countries_data = load_country_names()
+    reading_time_config = reading_time.load_config()
 
     # url -> [(relative_file, front_matter_image)]
     url_to_posts: dict[str, list[tuple[str, bool]]] = defaultdict(list)
@@ -458,8 +473,29 @@ def audit() -> tuple[dict, set, set]:
             issues["posts_without_image"].append(rel)
         if "description" not in fm:
             issues["posts_without_description"].append(rel)
-        if "reading_time" not in fm:
-            issues["posts_without_reading_time"].append(rel)
+
+        # `reading_time:` is optional — the Jekyll plugin fills it in from the
+        # body (ADR-0013). A manual override must be a positive whole number
+        # of minutes, and it is worth a warning once it drifts from what the
+        # plugin would compute, since that is the value it silently replaces.
+        raw_reading_time = fm.get("reading_time")
+        manual_reading_time = "" if isinstance(raw_reading_time, list) else str(raw_reading_time or "")
+        manual_reading_time = manual_reading_time.strip().strip('"').strip("'")
+        if manual_reading_time:
+            if not manual_reading_time.isdigit() or int(manual_reading_time) < 1:
+                issues["invalid_reading_time"].append({"file": rel, "value": manual_reading_time})
+                gh_warning(rel, f"`reading_time: {manual_reading_time}` is not a positive whole number of minutes")
+            else:
+                manual = int(manual_reading_time)
+                computed = reading_time.estimate(body, reading_time_config)
+                tolerance = max(READING_TIME_DRIFT_MIN, math.ceil(computed * READING_TIME_DRIFT_RATIO))
+                if abs(manual - computed) > tolerance:
+                    issues["reading_time_drift"].append({"file": rel, "manual": manual, "computed": computed})
+                    gh_warning(
+                        rel,
+                        f"`reading_time: {manual}` drifted from the computed estimate ({computed} min) "
+                        "— remove the field to let _plugins/reading_time.rb compute it, or update it"
+                    )
 
         # Categories must be registered in _data/categories.yml (drives nav,
         # breadcrumbs and schema.org markup — an unregistered category silently
@@ -633,7 +669,8 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
     total_warnings = (
         len(issues["posts_without_image"]) +
         len(issues["posts_without_description"]) +
-        len(issues["posts_without_reading_time"]) +
+        len(issues["reading_time_drift"]) +
+        len(issues["invalid_reading_time"]) +
         len([i for i in issues["broken_external_images"] if i["location"] == "body image"]) +
         len([i for i in issues["invalid_image_extensions"] if i["field"] == "cover"]) +
         len([i for i in issues["unsanitized_photos"] if not i["blocking"]]) +
@@ -776,13 +813,36 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
         lines.append("✅ All external images reachable.")
     lines.append("")
 
+    # ── Reading time ──────────────────────────────────────────────────────────
+    lines.append("## Reading time (`reading_time:`)\n")
+    if issues["reading_time_drift"] or issues["invalid_reading_time"]:
+        if issues["invalid_reading_time"]:
+            lines.append(f"**{len(issues['invalid_reading_time'])} invalid value(s):**\n")
+            for item in issues["invalid_reading_time"]:
+                lines.append(f"- `{item['file']}` — `reading_time: {item['value']}` is not a positive whole number")
+            lines.append("")
+        if issues["reading_time_drift"]:
+            lines.append(
+                f"**{len(issues['reading_time_drift'])} manual value(s) drifted from the computed estimate** "
+                f"(more than {int(READING_TIME_DRIFT_RATIO * 100)}% and more than "
+                f"{READING_TIME_DRIFT_MIN} min apart):\n"
+            )
+            for item in issues["reading_time_drift"]:
+                lines.append(f"- `{item['file']}` — front matter says `{item['manual']}`, computed `{item['computed']}` min")
+            lines.append(
+                "\nRemove the field to let `_plugins/reading_time.rb` compute it, or update the override "
+                "— see [ADR-0013](docs/adr/0013-reading-time-computed-from-body.md)."
+            )
+    else:
+        lines.append("✅ Every manual `reading_time:` matches the computed estimate (or the field is absent and computed at build time).")
+    lines.append("")
+
     # ── Front matter ──────────────────────────────────────────────────────────
     lines.append("## Post front matter\n")
 
     for field, key in [
         ("`image:`",        "posts_without_image"),
         ("`description:`",  "posts_without_description"),
-        ("`reading_time:`", "posts_without_reading_time"),
     ]:
         if issues[key]:
             lines.append(f"### Missing {field} ({len(issues[key])} posts)\n")
@@ -792,18 +852,17 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
 
     other = [
         i for i in issues["incomplete_front_matter"]
-        if any(f not in {"image", "description", "reading_time"} for f in i["missing"])
+        if any(f not in {"image", "description"} for f in i["missing"])
     ]
     if other:
         lines.append(f"### Other missing fields ({len(other)} posts)\n")
         for item in other:
-            fields = [f for f in item["missing"] if f not in {"image", "description", "reading_time"}]
+            fields = [f for f in item["missing"] if f not in {"image", "description"}]
             if fields:
                 lines.append(f"- `{item['file']}` — {', '.join(f'`{f}`' for f in fields)}")
         lines.append("")
 
-    if not any([issues["posts_without_image"], issues["posts_without_description"],
-                issues["posts_without_reading_time"], other]):
+    if not any([issues["posts_without_image"], issues["posts_without_description"], other]):
         lines.append("✅ All posts have complete front matter.")
 
     lines += ["", "---", "_Generated by `.github/scripts/audit_blog.py`_"]

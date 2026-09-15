@@ -1,6 +1,6 @@
 # Tecnologia & Viagens Blog
 
-A Jekyll blog mixing software engineering and travel/career writing. This glossary defines how content is modeled — a Post's shape (Hero, Gallery, Category, Tag, Series, Trip, Country, Published date, Updated date, Table of Contents) and the site's two standalone pages, Journey and Editorial Notes.
+A Jekyll blog mixing software engineering and travel/career writing. This glossary defines how content is modeled — a Post's shape (Hero, Gallery, Category, Tag, Series, Trip, Country, Published date, Updated date, Reading time, Table of Contents) and the site's two standalone pages, Journey and Editorial Notes.
 
 ## Language
 
@@ -46,6 +46,10 @@ _Avoid_: Date, post date, created date.
 **Updated date**:
 The most recent day a Post's content changed after it went live, shown beside the Published date only when it falls on a different day. Derived from the Post's edit history (ADR 0007), never hand-authored.
 _Avoid_: Last modified, modification date — those name the mechanism and the front matter field, not the concept; Revised on.
+
+**Reading time**:
+The estimated whole minutes a Post takes to read, shown as "~N min" on the Post page, on post cards, in the home's featured block and in the search index. Derived at build time from the Post body's word count — prose at 200 words per minute, code blocks at 150, plus 10 seconds per image (ADR 0013) — never hand-authored. A `reading_time` front matter value is an override for the rare Post where the estimate is wrong; the audit warns when an override drifts away from the estimate, and a Trip's Gallery counts toward it because readers look at the photos.
+_Avoid_: Read time, time to read, word count — the number shown is minutes, and the word count is the mechanism.
 
 **Table of Contents**:
 A navigable list of a Post's section headings, offered alongside the Post body only when the Post has enough sections to be worth jumping between. Readers see it as "Sumário" in the Portuguese UI; that is display copy for the same concept, as with Tag/"Tópico". Abbreviated TOC in code.

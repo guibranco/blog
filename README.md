@@ -62,7 +62,8 @@ blog/                                 # nome do repositório
 │   ├── tag_pages_generator.rb        # Gera /topicos/{slug}/
 │   ├── feed_generator.rb             # Gera /feed/{cat}.xml e /feed/{cat}-{sub}.xml
 │   ├── git_last_modified.rb          # Calcula a data real de "última atualização" via histórico do git
-│   └── localized_date.rb             # Filtro Liquid `localized_date` — nomes de mês em pt-BR/en
+│   ├── localized_date.rb             # Filtro Liquid `localized_date` — nomes de mês em pt-BR/en
+│   └── reading_time.rb               # Calcula `reading_time` a partir do texto quando o front matter não define
 │
 ├── _data/
 │   ├── categories.yml                # Categorias/subcategorias (nome, slug, ícone, redirect_from)
@@ -186,7 +187,6 @@ categories: [Infrastructure]
 subcategories:
   - "Infrastructure/DevOps"                       # opcional — "Categoria/Subcategoria"
 tags: [docker, linux, automação]
-reading_time: 8
 cover: /assets/img/posts/meu-artigo-cover.svg    # opcional — imagem usada no site (hero do post e card na listagem)
 image: /assets/img/posts/meu-artigo-cover.png    # opcional — imagem estática usada no Open Graph/Twitter card e no schema.org (via jekyll-seo-tag)
 card_style: dark                                 # opcional — força o estilo do card gerado (dark ou cream)
@@ -194,6 +194,8 @@ card_style: dark                                 # opcional — força o estilo 
 ```
 
 Se apenas `image` for definido, ele é usado tanto no site quanto no Open Graph (comportamento antigo, ainda suportado). `cover` serve para permitir uma imagem animada (SVG) na página sem quebrar o preview em redes sociais, que exigem um raster estático.
+
+**Não informe `reading_time`.** O plugin `_plugins/reading_time.rb` calcula o tempo de leitura no build a partir do próprio texto — prosa a 200 palavras/min, blocos de código a 150, mais 10 s por imagem — e o valor aparece na página do post, nos cards, na home e na busca como se estivesse no front matter. Um `reading_time:` escrito à mão continua valendo como override, mas o `audit_blog.py` avisa quando ele destoa do valor calculado. Ver [ADR-0013](docs/adr/0013-reading-time-computed-from-body.md).
 
 **Post sem foto não precisa de imagem nenhuma.** Ao abrir o PR, o workflow `og-cards.yml` renderiza o card Open Graph (PNG 1200×630) a partir do próprio front matter — título, descrição, categoria, série, data, tags — no estilo *cream editorial* (padrão) ou *dark tech* (Coding e Infrastructure), grava-o em `assets/img/posts/<slug-do-post>.png`, preenche `image:` e comita na branch. Se o post já tiver um `cover:` SVG desenhado à mão, é esse SVG que vira o PNG. Posts de viagem (`location`/`locations`/`countries`) e posts que já declaram um `image:` raster não são tocados. Ver `build_og_cards.py` em [Scripts e automação](#-scripts-e-automação) e [ADR-0012](docs/adr/0012-og-cards-generated-in-ci-from-front-matter.md).
 
@@ -236,7 +238,8 @@ Audita a estrutura inteira do blog e escreve um relatório em `audit-report.md` 
 | `image:` (og:image) num formato não-raster (deve ser png/jpg/jpeg/gif) | ✅ erro |
 | Foto de galeria (`assets/img/posts/<slug>/`) com GPS no EXIF ou orientação EXIF não aplicada nos pixels | ✅ erro |
 | Imagem externa referenciada no corpo do post retornando erro HTTP | ⚠️ aviso (⚠️ apenas o `image:` de capa é bloqueante) |
-| `description`/`reading_time`/`image` ausentes | ⚠️ aviso |
+| `description`/`image` ausentes | ⚠️ aviso |
+| `reading_time:` manual destoando do valor calculado (mais de 10% e mais de 1 min) ou que não é um inteiro positivo | ⚠️ aviso |
 | `cover:` num formato inesperado | ⚠️ aviso |
 | Foto de galeria com outros metadados EXIF/XMP remanescentes | ⚠️ aviso |
 
@@ -304,6 +307,7 @@ Além dos generators de categoria/tag/feed (ver [seção acima](#-gerenciando-ca
 
 - **`git_last_modified.rb`** — para cada post/página, percorre o histórico do git e compara o **corpo** (conteúdo após o front matter) entre revisões consecutivas, achando o commit mais recente que de fato mudou o texto — um commit que só mexeu em front matter (tags, `reading_time`, `lang`…) é ignorado. O resultado vira `page.last_modified_at`, usado por `_includes/post-dates.html` (mostra "Atualizado em" só quando o dia é diferente do de publicação) e lido automaticamente pelo `jekyll-sitemap` para o `<lastmod>` do `sitemap.xml`. **Requer histórico completo do git** — o checkout do `deploy.yml` usa `fetch-depth: 0` de propósito; um clone raso faz todo post parecer "atualizado hoje".
 - **`localized_date.rb`** — filtro Liquid `localized_date: date, format, lang`. `%B` do `strftime` do Ruby usa o locale da própria máquina de build (normalmente inglês, mesmo com `%d de %B de %Y`), então esse filtro troca `%B` pelo nome do mês certo (pt-BR ou en) antes de formatar, sem depender do locale do runner.
+- **`reading_time.rb`** — preenche `page.reading_time` (minutos inteiros) em todo post que não define o campo no front matter, contando as palavras do corpo: prosa a 200 palavras/min, blocos de código (``` ou `<pre>`) a 150, mais 10 s por imagem; tags HTML, Liquid, comentários e URLs de links não contam. Um `reading_time:` manual sempre vence. As taxas podem ser ajustadas num bloco `reading_time:` do `_config.yml` (`words_per_minute`, `code_words_per_minute`, `seconds_per_image`). `.github/scripts/reading_time.py` é a mesma conta em Python, usada pelo `audit_blog.py` (aviso de drift) e pelo `build_og_cards.py` (tempo de leitura no card) — mudou um, mude o outro. Ver [ADR-0013](docs/adr/0013-reading-time-computed-from-body.md).
 
 ### Workflows (`.github/workflows/`)
 
@@ -399,7 +403,7 @@ A sidebar suporta dois campos distintos:
 | `categories` | list | — | Categorias (aparecem como pills e na nav) — devem existir em `_data/categories.yml` |
 | `subcategories` | list | — | `"Categoria/Subcategoria"` — cada item precisa existir em `_data/categories.yml` |
 | `tags` | list | — | Tags (aparecem no rodapé do artigo); cada uma vira uma entrada em `_data/tags.yml` e uma página `/topicos/{slug}/` |
-| `reading_time` | number | — | Tempo estimado de leitura em minutos |
+| `reading_time` | number | — | Override manual do tempo de leitura, em minutos inteiros. Se ausente, `_plugins/reading_time.rb` calcula a partir do texto no build ([ADR-0013](docs/adr/0013-reading-time-computed-from-body.md)); se presente e muito diferente do calculado, `audit_blog.py` avisa |
 | `image` | path | — | Imagem de capa (og:image/Twitter card) — precisa ser raster (png/jpg/jpeg/gif). Se ausente num post que não é de viagem, `og-cards.yml` gera e preenche |
 | `cover` | path | — | Hero visual da página do post (SVG, PNG, JPG, GIF ou WebP). Um `cover` SVG sem `image` é rasterizado pelo `og-cards.yml` |
 | `card_style` | string | — | `dark` ou `cream` — força o estilo do card gerado (padrão: dark para Coding/Infrastructure, cream para o resto) |
