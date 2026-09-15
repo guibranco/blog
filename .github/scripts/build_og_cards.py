@@ -9,9 +9,11 @@ script closes that gap for every Post that is not a Trip and has no hand-made
 raster yet:
 
   • no `cover:` and no `image:`   → a templated card is rendered from the front
-    matter (title, description, category, subcategory, date, series, tags) in
-    one of the two documented cover styles — cream editorial or dark tech —
-    picked by the Post's first Category (override with `card_style:`);
+    matter (title, description, category, subcategory, date, series, tags,
+    reading time — computed from the body by reading_time.py, the port of
+    _plugins/reading_time.rb, when the front matter has none) in one of the
+    two documented cover styles — cream editorial or dark tech — picked by
+    the Post's first Category (override with `card_style:`);
   • `cover:` is an SVG, no `image:` → that hand-authored SVG is rasterized as-is
     (same renderer, same fonts), letterboxed onto its own background colour;
   • `image:` already names a real raster (travel photo, hand-made PNG) or the
@@ -56,6 +58,9 @@ from dataclasses import dataclass, field
 from datetime import date, datetime
 from pathlib import Path
 from xml.sax.saxutils import escape as xml_escape
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import reading_time  # noqa: E402 — sibling module, port of _plugins/reading_time.rb
 
 try:
     import yaml
@@ -146,6 +151,7 @@ class Post:
     slug: str
     fm: dict
     fm_text: str          # raw front matter block, without the --- fences
+    body: str = ""        # everything after the front matter (for the reading-time estimate)
 
     @property
     def rel(self) -> str:
@@ -170,7 +176,7 @@ def read_post(path: Path) -> Post:
     fm = yaml.safe_load(fm_text) or {}
     if not isinstance(fm, dict):
         raise ValueError(f"{path}: front matter is not a mapping")
-    return Post(path=path, slug=post_slug(path), fm=fm, fm_text=fm_text)
+    return Post(path=path, slug=post_slug(path), fm=fm, fm_text=fm_text, body=text[m.end():])
 
 
 def as_list(value) -> list[str]:
@@ -477,7 +483,11 @@ def build_content(post: Post) -> Content:
     if series_title:
         part = fm.get("series_part")
         series = series_title if part in (None, "") else f"{series_title} · {PART_WORD.get(lang, 'Part')} {part}"
+    # A manual `reading_time:` wins; otherwise the same estimate the Jekyll
+    # plugin makes at build time, so the card matches the page (ADR-0013).
     reading = fm.get("reading_time")
+    if reading in (None, ""):
+        reading = reading_time.estimate(post.body, reading_time.load_config())
     return Content(
         title_head=head,
         title_kicker=kicker,
