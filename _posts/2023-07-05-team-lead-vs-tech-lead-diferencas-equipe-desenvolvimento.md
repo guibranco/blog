@@ -8,7 +8,6 @@ categories: [Career]
 subcategories:
   - "Career/Leadership"
 tags: [team-lead, tech-lead, lideranca, carreira, gestao-de-pessoas, engenharia-de-software]
-reading_time: 6
 cover: /assets/img/posts/team-lead-vs-tech-lead.svg
 image: /assets/img/posts/team-lead-vs-tech-lead.png
 ---

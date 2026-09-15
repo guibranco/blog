@@ -8,7 +8,6 @@ categories: [Coding]
 subcategories:
   - "Coding/Architecture"
 tags: [arquitetura, microservicos, monolito, monorepo, deploy, boas-praticas]
-reading_time: 13
 cover: /assets/img/posts/repositorio-nao-e-arquitetura.svg
 image: /assets/img/posts/repositorio-nao-e-arquitetura.png
 ---

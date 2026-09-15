@@ -8,7 +8,6 @@ categories: [Hobbies]
 subcategories:
   - "Hobbies/Travel & Places"
 tags: [viagem, londres, london, irlanda, show, alok, o2-brixton, leicester-square, covent-garden, hostel, uk, england, europa, travel, places, locations]
-reading_time: 11
 image: /assets/img/posts/londres-2026.jpg
 gallery: true
 countries: [United Kingdom]

@@ -10,7 +10,6 @@ subcategories:
   - "Infrastructure/DevOps"
   - "Infrastructure/Cloud"
 tags: [oci, cloudamqp, vercel, github-pages, nginx, wireguard, homelab, self-hosting, infra, cloud, oracle, ssd-nodes, pivpn, rabbitmq, php, csharp, dotnet, github-actions, appveyor, healthchecks, uptimerobot, side-projects, portfolio]
-reading_time: 8
 cover: /assets/img/posts/infra-banner.svg
 image: /assets/img/posts/infra-map.png
 ---

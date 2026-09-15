@@ -8,7 +8,6 @@ categories: [Career]
 subcategories:
   - "Career/Working Abroad"
 tags: [trabalho-no-exterior, dubai, emirados-arabes-unidos, carreira-internacional, expatriado, talabat, delivery-hero, remoto, relocation, visto-de-trabalho, csharp, dotnet, aws, postgresql, sql-server, golang, microsservicos, ddd, tdd, qcommerce, on-call, salario, imposto]
-reading_time: 26
 cover: /assets/img/posts/trabalhando-pelo-mundo-dubai.svg
 image: /assets/img/posts/trabalhando-pelo-mundo-dubai.png
 series: trabalhando-pelo-mundo

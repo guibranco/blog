@@ -8,7 +8,6 @@ categories: [Infrastructure]
 subcategories:
   - "Infrastructure/Telecommunications"
 tags: [sms, api, gsm, android, twilio, gateway, simbox, php, iot, automação]
-reading_time: 12
 image: /assets/img/posts/envio-sms-internet.png
 ---
 

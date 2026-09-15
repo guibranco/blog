@@ -9,7 +9,6 @@ subcategories:
   - "Career/Behind the Scenes"
 tags: [pix, banco-central, central-bank, carreira, career, sistemas-financeiros, financial-systems, bastidores, pandemia]
 medium_tags: [pix, fintech, career, on-call, brazil]
-reading_time: 26
 cover: /assets/img/posts/pix-bs2-bastidores.svg
 image: /assets/img/posts/pix-bs2-bastidores.png
 series: pix-bs2

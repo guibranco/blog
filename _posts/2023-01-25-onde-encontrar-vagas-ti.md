@@ -8,7 +8,6 @@ categories: [Career]
 subcategories:
   - "Career/Job Market"
 tags: [vagas, emprego, ti, carreira, freelancer, estagio, github, linkedin, remote]
-reading_time: 4
 image: /assets/img/posts/interview.jpg
 ---
 

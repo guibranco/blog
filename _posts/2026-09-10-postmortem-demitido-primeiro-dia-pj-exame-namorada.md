@@ -8,7 +8,6 @@ categories: [Career]
 subcategories:
   - "Career/Case Studies"
 tags: [carreira, pj, clt, contratacao, reputacao-profissional, comportamento-profissional]
-reading_time: 10
 cover: /assets/img/posts/postmortem-carreira-01-pj-primeiro-dia.svg
 image: /assets/img/posts/postmortem-carreira-01-pj-primeiro-dia.png
 series: postmortem-de-carreira

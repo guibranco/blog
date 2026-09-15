@@ -10,7 +10,6 @@ subcategories:
   - "Coding/Testing"
   - "Infrastructure/DevOps"
 tags: [docker, docker-compose, nginx, apache, php, php-fpm, mysql, mariadb, redis, mongodb, rabbitmq, mailhog, container, devops, devsecops, environment, dev-environment, developer-environment, infra, linux, windows, queue, smtp, sql, no-sql, nosql, database, web-server, webserver, server, healthcheck, message-broker, cache, local-environment]
-reading_time: 15
 image: /assets/img/posts/playing-with-docker.png
 ---
 

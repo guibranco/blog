@@ -9,7 +9,6 @@ categories: [Infrastructure]
 subcategories:
   - "Infrastructure/DevOps"
 tags: [php, deploy, vps, ubuntu, nginx, github-actions, ci-cd, certbot, ssl, systemd, websocket, mariadb, composer, linux, infraestrutura]
-reading_time: 12
 cover: /assets/img/posts/php-deploy.svg
 image: /assets/img/posts/php-deploy.png
 ---

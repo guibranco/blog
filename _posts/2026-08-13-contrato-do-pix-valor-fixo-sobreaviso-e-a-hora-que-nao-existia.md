@@ -9,7 +9,6 @@ subcategories:
   - "Career/Behind the Scenes"
 tags: [pix, contrato, pj, clt, sobreaviso, on-call, carreira, career, consultoria, hora-extra, vinculo-empregaticio, banco-central]
 medium_tags: [pix, contracting, career, on-call, freelancing]
-reading_time: 14
 cover: /assets/img/posts/pix-contrato-capa.svg
 image: /assets/img/posts/pix-contrato-capa.png
 series: pix-bs2

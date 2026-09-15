@@ -17,7 +17,7 @@ status: accepted
 ## Consequences
 
 - New posts omit `reading_time`. The README's post recipe and front matter reference say so; `git_last_modified.rb`'s "front-matter-only edits are not updates" rule (ADR-0007) is unaffected, and removing the field from an existing post is such an edit.
-- The 60 existing posts keep their hand-authored values for now (the override path), so nothing visible changes on merge. The audit's new warning lists the ones that have drifted; deleting the field from those posts is the fix, one line each, and can be done post by post or in one sweep.
+- The 60 existing posts kept their hand-authored values when the plugin merged (the override path), so nothing visible changed then. The field was removed from all of them in one follow-up sweep, so every post now shows the computed value; the audit's drift warning remains for any override added later.
 - Word counts are made on the source, so the Liquid output of an include (a photo caption, a series box) is not counted; the include's own parameters are stripped as Liquid. This slightly undercounts captions and is accepted — the alternative, rendering every post before counting, would move the plugin to a render hook and reintroduce the ordering problem above.
 - The counts are not localized: pt-BR and en share the rates. Revisit if the corpus grows enough to show a real per-language difference; the config block already exists for it.
 - See [`CONTEXT.md`](../../CONTEXT.md)'s new **Reading time** term.

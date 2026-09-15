@@ -8,7 +8,6 @@ categories: [Career]
 subcategories:
   - "Career/Job Market"
 tags: [carreira, desenvolvedores, mercado-de-trabalho, oportunidades, programadores, vagas, salario, senioridade, estagio, ti]
-reading_time: 4
 image: /assets/img/posts/coding-desktop.jpg
 ---
 

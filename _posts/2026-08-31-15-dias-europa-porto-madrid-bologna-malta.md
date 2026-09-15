@@ -8,7 +8,6 @@ categories: [Hobbies]
 subcategories:
   - "Hobbies/Travel & Places"
 tags: [viagem, roteiro, europa, emirados-arabes-unidos, dubai, espanha, palma-de-mallorca, mallorca, santiago-de-compostela, madrid, portugal, porto, vila-nova-de-gaia, italia, bologna, cagliari, sardenha, malta, valletta, mdina, sliema, mellieha]
-reading_time: 16
 image: /assets/img/posts/famous-view-porto-douro-river-portugal-europe.png
 gallery: true
 countries: [Spain, Portugal, Italy, Malta]

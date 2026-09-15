@@ -8,7 +8,6 @@ categories: [Career]
 subcategories:
   - "Career/Job Market"
 tags: [carreira, mercado-de-trabalho, portfolio, github, junior, estagio, primeiro-emprego, bootcamp, contratacao, open-source, projetos, pandemia]
-reading_time: 14
 cover: /assets/img/posts/ilusao-do-portfolio.svg
 image: /assets/img/posts/ilusao-do-portfolio.png
 medium_tags: [carreira, programacao, portfolio, github, mercado-de-trabalho]

@@ -8,7 +8,6 @@ categories: [Coding]
 subcategories:
   - "Coding/Tips & Tricks"
 tags: [github, open-source, bancos, brasil, api, dados, json, csv, xml, sfn]
-reading_time: 2
 image: /assets/img/posts/logo-bancos-brasileiros.png
 ---
 

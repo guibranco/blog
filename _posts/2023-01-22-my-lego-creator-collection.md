@@ -8,7 +8,6 @@ categories: [Hobbies]
 subcategories:
   - "Hobbies/LEGO"
 tags: [lego, colecao, hobbies, lego-creator, creator-expert]
-reading_time: 3
 image: /assets/img/posts/lego-10197-1.jpg
 gallery: true
 ---

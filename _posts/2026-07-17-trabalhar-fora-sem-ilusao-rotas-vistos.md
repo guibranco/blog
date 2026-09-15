@@ -8,7 +8,6 @@ categories: [Career]
 subcategories:
   - "Career/Working Abroad"
 tags: [trabalho-no-exterior, visto-de-trabalho, carreira-internacional, irlanda, critical-skills-permit, eu-blue-card]
-reading_time: 9
 cover: /assets/img/posts/trabalhar-fora-p1-rotas-vistos.svg
 image: /assets/img/posts/trabalhar-fora-p1-rotas-vistos.png
 series: trabalhar-fora-sem-ilusao

@@ -9,7 +9,6 @@ subcategories:
   - "Coding/Tips & Tricks"
   - "Coding/C#"
 tags: [api, feriados, holidayapi, calendarific, sdk, csharp, rust, integracao, banco-de-dados, library]
-reading_time: 4
 image: /assets/img/posts/calendar.jpg
 ---
 

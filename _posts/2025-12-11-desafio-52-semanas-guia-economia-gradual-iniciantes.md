@@ -8,7 +8,6 @@ categories: [Investments]
 subcategories:
   - "Investments/Getting Started"
 tags: [desafio-52-semanas, poupanca, educacao-financeira, investimentos, financas-pessoais, habitos, economia, planejamento-financeiro]
-reading_time: 6
 cover: /assets/img/posts/desafio-52-semanas.svg
 image: /assets/img/posts/desafio-52-semanas.png
 ---

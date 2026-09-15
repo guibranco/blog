@@ -10,7 +10,6 @@ subcategories:
   - "Coding/C#"
   - "Infrastructure/DevOps"
 tags: [csharp, dotnet, dotnet10, deploy, vps, ubuntu, nginx, github-actions, ci-cd, certbot, ssl, systemd, oci, healthchecks, load-balancing, kestrel, rsync, rolling-deploy, linux, infraestrutura, zero-downtime]
-reading_time: 18
 image: /assets/img/posts/csharp-deploy-dotnet10.png
 ---
 

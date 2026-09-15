@@ -8,7 +8,6 @@ categories: [Career]
 subcategories:
   - "Career/Job Market"
 tags: [mercado-de-trabalho, junior, pandemia, layoffs, llm, trabalho-remoto, carreira, tecnologia, contratacao, emprego, dev, big-tech, startups, sênior, inteligencia-artificial, remoto, hibrido, bootcamp]
-reading_time: 12
 cover: /assets/img/posts/capa-tesoura-mercado-junior.svg
 image: /assets/img/posts/capa-tesoura-mercado-junior-og.png
 ---

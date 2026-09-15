@@ -8,7 +8,6 @@ categories: [Investments]
 subcategories:
   - "Investments/Getting Started"
 tags: [investimento, investir, iniciante, renda-fixa, renda-variavel, cdb, tesouro-direto, acoes, fiis, educacao-financeira, poupanca, diversificacao]
-reading_time: 5
 image: /assets/img/posts/stock-exchange-counter.jpg
 ---
 

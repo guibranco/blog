@@ -8,7 +8,6 @@ categories: [Investments]
 subcategories:
   - "Investments/Resources"
 tags: [bloco-de-notas, investimento, investir, financeiro, renda-variavel, renda-fixa, acoes, fiis, educacao-financeira]
-reading_time: 2
 image: /assets/img/posts/stock-exchange-panels.jpg
 ---
 

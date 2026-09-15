@@ -8,7 +8,6 @@ categories: [Career]
 subcategories:
   - "Career/Working Abroad"
 tags: [trabalho-no-exterior, curriculo, dublin, irlanda, pps-number, adaptacao]
-reading_time: 10
 cover: /assets/img/posts/trabalhar-fora-p3-chegada.svg
 image: /assets/img/posts/trabalhar-fora-p3-chegada.png
 series: trabalhar-fora-sem-ilusao
