@@ -39,7 +39,8 @@
   {%- endif -%}
 {%- endif -%}
 {%- assign _schema_lang = page.lang | default: "pt-BR" -%}
-{%- assign _schema_url = page.url | absolute_url -%}
+{%- comment -%}── Same resolution as jekyll-seo-tag's <link rel="canonical">: an explicit `canonical_url` wins, else the page URL made absolute. ──{%- endcomment -%}
+{%- assign _schema_url = page.canonical_url | default: page.url | absolute_url -%}
 {%- assign _schema_series_url = site.url | append: site.baseurl | append: "/series/" -%}
 {%- comment -%}── sameAs: the profile URLs in site.social — not `website` (that is the Person's url) and not `whatsapp` (a chat deep link, not a profile). ──{%- endcomment -%}
 {%- assign _schema_profile_keys = "github,linkedin,medium,stackoverflow,youtube,instagram,facebook,pinterest,reddit,strava,spotify,soundcloud" | split: "," -%}

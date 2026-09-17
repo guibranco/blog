@@ -19,9 +19,11 @@ module Jekyll
     # tables, figures, scripts, styles and inline SVG are dropped (they don't
     # read as an answer), and so are the section-header component's number
     # and the "· · ·" divider, which sit between one section's text and the
-    # next heading. Headings that are not questions are ignored along with
-    # their content, so a post can mix ordinary sections with Q&A ones; a
-    # question with nothing but dropped blocks after it is skipped.
+    # next heading. A heading that is not a question produces no entry of
+    # its own, so a post can mix ordinary sections with Q&A ones; a
+    # lower-level heading nested under a question (an <h3> under an <h2>)
+    # does not end that answer, so its content stays in the parent's answer.
+    # A question with nothing but dropped blocks after it is skipped.
     #
     # Google's FAQPage guidelines require every listed question and answer to
     # be visible on the page, which is why the pairs come from the body and
