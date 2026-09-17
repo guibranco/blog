@@ -85,7 +85,7 @@ the rest as text.
 </fieldset>
 </form>
 <p class="calc-error" role="alert" hidden></p>
-<div class="calc-results" role="status" aria-live="polite" aria-atomic="true"></div>
+<div class="calc-results" aria-live="polite" aria-atomic="true"></div>
 <noscript><p class="calc-note">{{ _lab.noscript }}</p></noscript>
 <details class="calc-details">
 <summary>{{ _lab.assumptions_summary }}</summary>
@@ -185,9 +185,9 @@ the rest as text.
   // Progressive charge: each slice of `amount` inside a band pays that band's rate.
   function progressive(amount, bands) {
     var total = 0, lower = 0;
-    for (var i = 0; i < bands.length; i++) {
-      var top = bandTop(bands[i]);
-      if (amount > lower) total += (Math.min(amount, top) - lower) * Number(bands[i].rate);
+    for (const band of bands) {
+      var top = bandTop(band);
+      if (amount > lower) total += (Math.min(amount, top) - lower) * Number(band.rate);
       if (amount <= top) break;
       lower = top;
     }
@@ -210,15 +210,15 @@ the rest as text.
   // Annual rate when it changes mid-year: each period weighted by its share of days.
   function blendedRate(periods) {
     var days = 0, weighted = 0;
-    for (var i = 0; i < periods.length; i++) {
-      var n = dayCount(periods[i].from, periods[i].to);
-      days += n; weighted += n * Number(periods[i].rate);
+    for (const period of periods) {
+      var n = dayCount(period.from, period.to);
+      days += n; weighted += n * Number(period.rate);
     }
     return days ? weighted / days : 0;
   }
   function ageLimit(limits, age) {
-    for (var i = 0; i < limits.length; i++) {
-      if (limits[i].max_age == null || age <= Number(limits[i].max_age)) return Number(limits[i].pct);
+    for (const limit of limits) {
+      if (limit.max_age == null || age <= Number(limit.max_age)) return Number(limit.pct);
     }
     return 0;
   }
@@ -282,10 +282,16 @@ the rest as text.
     if (text != null) node.textContent = text;
     return node;
   }
+  function row(table, label, value, cls) {
+    var tr = el('tr', cls);
+    tr.appendChild(el('td', null, label));
+    tr.appendChild(el('td', null, value));
+    table.appendChild(tr);
+  }
   function init(root) {
-    root.setAttribute('data-calc-init', '');
+    root.dataset.calcInit = '';
     var data = JSON.parse(root.querySelector('[data-calc-data]').textContent);
-    var lang = root.getAttribute('data-lang') || 'pt-BR';
+    var lang = root.dataset.lang || 'pt-BR';
     var L = data.labels[lang] || data.labels['pt-BR'];
     var locale = LOCALES[lang] || lang;
     var form = root.querySelector('.calc-form');
@@ -299,13 +305,7 @@ the rest as text.
     }
     function pct(value, digits) { return new Intl.NumberFormat(locale, { style: 'percent', maximumFractionDigits: digits == null ? 1 : digits }).format(value); }
     function field(name) { return form.elements[name]; }
-    function num(name) { var v = parseFloat(field(name).value); return isFinite(v) ? v : NaN; }
-    function row(table, label, value, cls) {
-      var tr = el('tr', cls);
-      tr.appendChild(el('td', null, label));
-      tr.appendChild(el('td', null, value));
-      table.appendChild(tr);
-    }
+    function num(name) { var v = Number.parseFloat(field(name).value); return Number.isFinite(v) ? v : Number.NaN; }
     function headline(card, label, value, other) {
       card.appendChild(el('p', 'calc-headline-label', label));
       card.appendChild(el('p', 'calc-headline', value));
@@ -313,7 +313,7 @@ the rest as text.
     }
     function render() {
       var ieGross = num('ie-gross'), pension = num('ie-pension'), brGross = num('br-gross'), deps = num('br-dependents'), fx = num('fx');
-      var ok = [ieGross, pension, brGross, deps, fx].every(function (v) { return isFinite(v) && v >= 0; }) && fx > 0;
+      var ok = [ieGross, pension, brGross, deps, fx].every(function (v) { return Number.isFinite(v) && v >= 0; }) && fx > 0;
       error.hidden = ok;
       if (!ok) { error.textContent = L.invalid; return; }
       var ie = ireland({ gross: ieGross, pensionPct: pension, status: field('ie-status').value, age: Number(field('ie-age').value) }, data);
@@ -359,8 +359,7 @@ the rest as text.
     form.hidden = false;
     render();
   }
-  var roots = document.querySelectorAll('[data-calc="net-salary-ie-br"]:not([data-calc-init])');
-  for (var i = 0; i < roots.length; i++) init(roots[i]);
+  for (const root of document.querySelectorAll('[data-calc="net-salary-ie-br"]:not([data-calc-init])')) init(root);
 })();
 </script>
 </div>
