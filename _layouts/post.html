@@ -113,6 +113,10 @@
         <script src="{{ '/assets/js/table-scroll.js' | relative_url }}" defer></script>
       </div>
 
+      <!-- Card: compartilhar (Web Share API + links diretos + copiar link) -->
+      {% include share.html %}
+      <script src="{{ '/assets/js/share.js' | relative_url }}" defer></script>
+
       <!-- Card: mapa do post (só quando há location/locations no front matter) -->
       {% include post-map.html %}
 
@@ -287,18 +291,7 @@
     }, { passive: true });
     window.addEventListener('resize', () => requestAnimationFrame(updateReadingProgress), { passive: true });
     btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    document.getElementById('share-btn')?.addEventListener('click', async () => {
-      const data = { title: document.title, url: location.href };
-      if (navigator.share) {
-        await navigator.share(data);
-      } else {
-        await navigator.clipboard.writeText(location.href);
-        const toast = document.getElementById('share-toast');
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2000);
-      }
-    });
+    /* #share-btn (hero) and the share card are wired by assets/js/share.js. */
   </script>
   {% include sidebar-script.html %}
 

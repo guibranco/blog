@@ -1,0 +1,45 @@
+{%- comment -%}
+share.html — the share card under a post's body (issue #192).
+
+  {% include share.html %}     (post.html, right after the post card)
+
+Plain links to LinkedIn, X, WhatsApp and Reddit share intents — no widget,
+no third-party script, nothing loaded from them — plus a copy-link button.
+assets/js/share.js reveals the "Share…" button when the browser has the Web
+Share API (the native sheet on phones) and gives the copy button its
+confirmation; without JavaScript the links and the printed URL still work.
+The text shared is the post title and its canonical URL (the same URL the
+<link rel="canonical"> and the JSON-LD carry). Icons are Font Awesome until
+the SVG sprite of #186 lands.
+{%- endcomment -%}
+{%- assign _share_url = page.canonical_url | default: page.url | absolute_url -%}
+{%- assign _share_title = page.title -%}
+{%- assign _share_text = _share_title | append: " — " | append: site.title -%}
+{%- assign _share_u = _share_url | url_encode | replace: "+", "%20" -%}
+{%- assign _share_t = _share_title | url_encode | replace: "+", "%20" -%}
+<div class="article-card article-card--share">
+  <p class="card-section-title">
+    <i class="fas fa-share-nodes"></i> &nbsp;<span data-i18n="share_aria">{{ _t.share_aria }}</span>
+  </p>
+  <div class="post-share" data-share-url="{{ _share_url }}" data-share-title="{{ _share_title | escape }}" data-share-text="{{ _share_text | escape }}">
+    <button type="button" class="post-share-btn post-share-btn--native" data-share-native hidden>
+      <i class="fas fa-share-nodes" aria-hidden="true"></i> <span data-i18n="share_native">{{ _t.share_native }}</span>
+    </button>
+    <a class="post-share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url={{ _share_u }}" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-linkedin-in" aria-hidden="true"></i> <span>LinkedIn</span>
+    </a>
+    <a class="post-share-btn" href="https://x.com/intent/post?text={{ _share_t }}&amp;url={{ _share_u }}" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-x-twitter" aria-hidden="true"></i> <span>X</span>
+    </a>
+    <a class="post-share-btn" href="https://wa.me/?text={{ _share_t }}%20{{ _share_u }}" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i> <span>WhatsApp</span>
+    </a>
+    <a class="post-share-btn" href="https://www.reddit.com/submit?url={{ _share_u }}&amp;title={{ _share_t }}" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-reddit-alien" aria-hidden="true"></i> <span>Reddit</span>
+    </a>
+    <button type="button" class="post-share-btn" data-share-copy>
+      <i class="fas fa-link" aria-hidden="true"></i> <span data-i18n="share_copy" data-share-copy-label>{{ _t.share_copy }}</span>
+    </button>
+  </div>
+  <p class="post-share-url"><a href="{{ _share_url }}">{{ _share_url }}</a></p>
+</div>
