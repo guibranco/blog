@@ -58,6 +58,7 @@ blog/                                 # nome do repositório
 │   ├── schema-series.html            # Nó ItemList de uma série — usado por schema.html e por series.html (/series/)
 │   ├── timeline.html                 # Roteiro de viagem dia a dia (linha do tempo) a partir de _data/trips/<slug>.yml
 │   ├── trip-summary.html             # Resumo financeiro (por dia, extras, por categoria) somado dos mesmos dados
+│   ├── share.html                    # Card "compartilhar" do post: Web Share API, links diretos (LinkedIn, X, WhatsApp, Reddit) e copiar link
 │   ├── analytics.html
 │   └── calculators/                  # Calculadoras interativas — um include por calculadora (markup + CSS + JS)
 │       └── net-salary-ie-br.html     # Salário líquido Irlanda × Brasil
@@ -90,7 +91,8 @@ blog/                                 # nome do repositório
 │   ├── css/
 │   │   └── main.css                  # Estilos compartilhados (tokens CSS em :root)
 │   ├── js/
-│   │   └── lang-switcher.js          # Troca o idioma da UI no cliente + detecta idioma do navegador
+│   │   ├── lang-switcher.js          # Troca o idioma da UI no cliente + detecta idioma do navegador
+│   │   └── share.js                  # Botão de compartilhar do hero e card share.html: navigator.share, cópia de link com confirmação
 │   └── img/
 │       ├── cover.jpg                 # Imagem de fundo da sidebar
 │       ├── avatar.png                # Foto de perfil circular

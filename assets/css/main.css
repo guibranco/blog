@@ -818,6 +818,33 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 .article-card--tags  { background: var(--surface-warm); }
 .article-card--related { background: var(--card-bg); }
 .article-card--comments { background: var(--card-bg); }
+.article-card--share { background: var(--card-bg); }
+
+/* Share card (_includes/share.html + assets/js/share.js) — plain links to the
+   networks' share intents, a copy-link button, and a native-share button the
+   script reveals only when navigator.share exists. */
+.post-share { display: flex; flex-wrap: wrap; gap: .5rem; }
+.post-share-btn {
+  display: inline-flex; align-items: center; gap: .45rem;
+  padding: .45rem .95rem; border: 1px solid var(--border); border-radius: 20px;
+  background: var(--card-bg); color: var(--ink);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; line-height: 1.2;
+  text-decoration: none; cursor: pointer;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.post-share-btn[hidden] { display: none; }
+.post-share-btn:hover,
+.post-share-btn:focus-visible { border-color: var(--accent); color: var(--accent); }
+.post-share-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.post-share-btn--native { background: var(--accent); border-color: var(--accent); color: var(--chrome-light); }
+.post-share-btn--native:hover,
+.post-share-btn--native:focus-visible { background: var(--accent); color: var(--chrome-light); filter: brightness(1.1); }
+.post-share-btn.is-copied { border-color: var(--accent); background: var(--accent-light); color: var(--accent); }
+.post-share-url {
+  margin: .9rem 0 0; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+  color: var(--ink-light); overflow-wrap: anywhere;
+}
+.post-share-url a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 
 .card-section-title {
   font-family: 'JetBrains Mono', monospace;
