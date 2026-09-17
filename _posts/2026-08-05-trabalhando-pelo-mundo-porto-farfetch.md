@@ -170,7 +170,9 @@ Com a fronteira fechada, tudo o que dava para adiantar foi feito **remotamente, 
 
 No começo de dezembro veio a lista de documentos para iniciar o contrato, e ela expôs o abismo de vocabulário entre os dois países. **Certificado de habilitações** é o diploma. **Comprovativo de IBAN** é o comprovante de conta bancária. Eu emperrei nos dois: não tinha diploma, e minha conta internacional só operava em dólar.
 
-Os dois se resolveram sem drama. O diploma acabou não sendo exigido naquele momento, e a Multivision optou por **me pagar em dólares na conta que eu já tinha**, em vez de me obrigar a abrir uma conta em euros ainda do Brasil. O faturamento saía pelo **CNPJ da minha empresa brasileira**.
+Os dois se resolveram sem drama. O diploma acabou não sendo exigido naquele momento. Já a conta eu precisei abrir: uma conta no **Millennium BCP**, aberta ainda do Brasil entre dezembro e janeiro, com a papelada facilitada pela Multivision e pela **Ei! Assessoria Migratória**, a agência que intermediava o visto. Era nela que o pagamento caía, **em euros**. Dali o dinheiro seguia por um de dois caminhos: transferência com conversão para a minha conta em dólar no BS2, para receber no Brasil, ou compra de criptomoeda (USDT/BUSD) na Binance com saque para uma conta em reais.
+
+O faturamento saía pelos **recibos verdes**, não por CNPJ brasileiro — a abertura de atividade nas Finanças só ficou registrada em **2 de fevereiro de 2021**, dois meses depois de eu ter começado. E, como eu estava temporariamente remoto no Brasil — a ideia sempre foi que a mudança ia acontecer —, precisei preencher o **Mod. 22-RFI**, o formulário que aciona a convenção entre Brasil e Portugal para evitar a dupla tributação, para ser tributado apenas em Portugal.
 
 <div class="callout callout-tip">
   <div class="callout-label">Pequeno glossário para brasileiro</div>
@@ -191,6 +193,22 @@ Na época eu **não tinha passaporte português**. Hoje eu tenho, por descendên
 </div>
 
 E teve um personagem que não existe no vocabulário brasileiro do mesmo jeito: o **contabilista**. Em Portugal, quem trabalha por recibos verdes praticamente não sobrevive sem um — é ele quem cuida da abertura de atividade, das declarações e do calendário de obrigações.
+
+Quem me convenceu disso não foi um contabilista — foi a própria **Ei! Assessoria Migratória**, ainda no fim de 2019. A agência mandou um documento que abria com um aviso em negrito: ela não tinha habilitação para falar de impostos, só de legalização de cidadãos de fora da União Europeia, e o que vinha a seguir tinha sido escrito por uma contabilidade parceira, "para evitar coimas (multas) a consultores que não se informaram antecipadamente". O resumo do que valia na época para quem abre atividade como prestador de serviços:
+
+<table class="compare-table">
+  <thead>
+    <tr><th>Obrigação</th><th>Regra em 2019/2020</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>IVA</td><td>Declaração trimestral a partir de 10.000 € de faturação anual, com prazos em 15 de maio, agosto, novembro e fevereiro — e quem está no regime de IVA entrega a declaração mesmo sem recibo emitido, "a zeros"</td></tr>
+    <tr><td>Segurança Social</td><td>Isenção de contribuição nos primeiros 12 meses de atividade; depois, declaração trimestral até o último dia de abril, julho, outubro e janeiro</td></tr>
+    <tr><td>IRS</td><td>Retenção na fonte nos recibos verdes a partir de 10.000 € de rendimentos</td></tr>
+    <tr><td>Cessação</td><td>Encerrar a atividade nas Finanças não avisa a Segurança Social — sem entregar a cessação lá também, a contribuição mínima continua a ser cobrada todo mês</td></tr>
+  </tbody>
+</table>
+
+Com 3.600 € por mês, o limiar dos 10.000 € ficava para trás no terceiro mês, e os recibos saíam com IVA a 23%. E o pacote do contabilista indicado pela agência dava a dimensão do custo de manter tudo isso em dia: consulta inicial a 40 € + IVA, pacote trimestral de recibos, IVA e Segurança Social a 100 € + IVA, e a declaração de IRS a 85 € + IVA.
 
 ### Como era o recibo na prática
 
@@ -501,8 +519,10 @@ Quando a viagem para Dubai finalmente se concretizou, eu encerrei os dois víncu
     <tr><td>17/11/2020</td><td>Proposta aceita, por telefone</td></tr>
     <tr><td>Dezembro de 2020</td><td>Documentação, onboarding virtual e início no time Scouts</td></tr>
     <tr><td>Dezembro de 2020</td><td>NIF, contabilista e planejamento da mudança para o Porto</td></tr>
+    <tr><td>Dezembro de 2020 a janeiro de 2021</td><td>Abertura da conta no Millennium BCP, ainda do Brasil — já existia em 25/01/2021</td></tr>
     <tr><td>12/01/2021</td><td>A recrutadora que conduziu meu processo deixa a Multivision</td></tr>
     <tr><td>26/01/2021</td><td>Primeira mensagem da Talabat no LinkedIn — que eu não respondi</td></tr>
+    <tr><td>02/02/2021</td><td>Abertura de atividade nas Finanças de Portugal — os recibos verdes passam a existir formalmente</td></tr>
     <tr><td>Fevereiro de 2021</td><td>Início do contrato part-time remoto com a Grace Kennedy Financial Group (Jamaica), via The Bridge Social — em paralelo com a Farfetch</td></tr>
     <tr><td>04/03/2021</td><td>Follow-up da recrutadora de Dubai — dessa vez eu respondo</td></tr>
     <tr><td>17/03/2021</td><td>Primeira call com a Talabat</td></tr>
@@ -528,6 +548,14 @@ Quando a viagem para Dubai finalmente se concretizou, eu encerrei os dois víncu
     <li>
       Farfetch. <strong>About Farfetch.</strong>
       <a href="https://www.farfetch.com/" target="_blank">farfetch.com</a>
+    </li>
+    <li>
+      Multivision. <strong>IT Outsourcing — consultoria de tecnologia em Portugal.</strong>
+      <a href="https://multivision.pt/" target="_blank">multivision.pt</a>
+    </li>
+    <li>
+      Ei! Assessoria Migratória. <strong>Legalização de cidadãos de Estados terceiros em Portugal.</strong>
+      <a href="https://eimigrante.pt/" target="_blank">eimigrante.pt</a>
     </li>
     <li>
       Autoridade Tributária e Aduaneira. <strong>Portal das Finanças — trabalhadores independentes.</strong>
