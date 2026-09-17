@@ -56,7 +56,9 @@ blog/                                 # nome do repositório
 │   ├── photo.html                    # Foto de galeria responsiva: <picture> AVIF/WebP + width/height + GLightbox
 │   ├── schema.html                   # JSON-LD (schema.org) do post: Article, BreadcrumbList, ItemList (série), FAQPage
 │   ├── schema-series.html            # Nó ItemList de uma série — usado por schema.html e por series.html (/series/)
-│   └── analytics.html
+│   ├── analytics.html
+│   └── calculators/                  # Calculadoras interativas — um include por calculadora (markup + CSS + JS)
+│       └── net-salary-ie-br.html     # Salário líquido Irlanda × Brasil
 │
 ├── _plugins/                         # Generators e filtros Ruby customizados (ver "Scripts e automação")
 │   ├── category_pages_generator.rb   # Gera /categorias/{cat}/ e /categorias/{cat}/{sub}/
@@ -66,13 +68,16 @@ blog/                                 # nome do repositório
 │   ├── localized_date.rb             # Filtro Liquid `localized_date` — nomes de mês em pt-BR/en
 │   ├── reading_time.rb               # Calcula `reading_time` a partir do texto quando o front matter não define
 │   ├── schema_filters.rb             # Filtros Liquid `faq_items` e `json_ld_string` usados pelo schema.html
-│   └── seo_tag_json_ld_opt_out.rb    # Adiciona `json_ld=false` ao `{% seo %}` — o layout de post emite o próprio JSON-LD
+│   ├── seo_tag_json_ld_opt_out.rb    # Adiciona `json_ld=false` ao `{% seo %}` — o layout de post emite o próprio JSON-LD
+│   └── money.rb                      # Filtros Liquid `money` e `percent` — formatação por idioma nas tabelas das calculadoras
 │
 ├── _data/
 │   ├── categories.yml                # Categorias/subcategorias (nome, slug, ícone, redirect_from)
 │   ├── tags.yml                      # Tags (nome, slug, redirect_from) — uma página por entrada
 │   ├── countries.yml                 # Países visitados em posts de viagem (nome em inglês, slug, name_pt) — lista curada
 │   ├── i18n.yml                      # Strings de UI em pt-BR e en
+│   ├── calculators/                  # Alíquotas, faixas, fontes e textos de cada calculadora (um .yml por include)
+│   │   └── net-salary-ie-br.yml      # Tabelas fiscais de 2026 — Irlanda (PAYE/USC/PRSI/pensão) e Brasil (INSS/IRRF/FGTS)
 │   ├── quotes.yml                    # Lista de quotes da sidebar
 │   └── images.json                   # GERADO por build_images.py (gitignored): dimensões + derivados das fotos
 │
@@ -312,6 +317,7 @@ Além dos generators de categoria/tag/feed (ver [seção acima](#-gerenciando-ca
 - **`localized_date.rb`** — filtro Liquid `localized_date: date, format, lang`. `%B` do `strftime` do Ruby usa o locale da própria máquina de build (normalmente inglês, mesmo com `%d de %B de %Y`), então esse filtro troca `%B` pelo nome do mês certo (pt-BR ou en) antes de formatar, sem depender do locale do runner.
 - **`reading_time.rb`** — preenche `page.reading_time` (minutos inteiros) em todo post que não define o campo no front matter, contando as palavras do corpo: prosa a 200 palavras/min, blocos de código (``` ou `<pre>`) a 150, mais 10 s por imagem; tags HTML, Liquid, comentários e URLs de links não contam. Um `reading_time:` manual sempre vence. As taxas podem ser ajustadas num bloco `reading_time:` do `_config.yml` (`words_per_minute`, `code_words_per_minute`, `seconds_per_image`). `.github/scripts/reading_time.py` é a mesma conta em Python, usada pelo `audit_blog.py` (aviso de drift) e pelo `build_og_cards.py` (tempo de leitura no card) — mudou um, mude o outro. Ver [ADR-0013](docs/adr/0013-reading-time-computed-from-body.md).
 - **`schema_filters.rb`** — dois filtros Liquid usados por `_includes/schema.html`. `faq_items` extrai pares pergunta/resposta do HTML renderizado do post (títulos `h2`–`h4` terminados em `?` e o texto até o próximo título do mesmo nível ou superior — um título de nível inferior aninhado sob a pergunta não encerra a resposta —, sem código, tabelas e figuras; perguntas cuja resposta fica vazia depois disso são omitidas) para o nó `FAQPage`, ativado por `faq: true` no front matter. `json_ld_string` serializa texto livre como string JSON com `</` escapado, para que título, descrição ou resposta nunca fechem o `<script>` — use-o em vez de `escape`, que geraria `&amp;` literal dentro do JSON.
+- **`money.rb`** — filtros Liquid `money: moeda, idioma` (`{{ 44000 | money: "EUR", "pt-BR" }}` → `€ 44.000`; inteiros sem decimais, o resto com dois) e `percent: idioma` (`{{ 0.005 | percent: "pt-BR" }}` → `0,5%`). Usados pelas tabelas estáticas das [calculadoras](#calculadora); Liquid não formata número sozinho. Ver [ADR-0015](docs/adr/0015-calculators-as-self-contained-includes-with-data-driven-rates.md).
 - **`seo_tag_json_ld_opt_out.rb`** — adiciona a flag `json_ld=false` ao `{% seo %}` do `jekyll-seo-tag`, nos moldes de `title=false`. O layout de post usa `{% seo json_ld=false %}`: as meta tags continuam vindo da gem, mas o JSON-LD vem inteiro do `schema.html` (um `@graph` com `Article`, `BreadcrumbList`, `ItemList` da série e `FAQPage`) — sem a flag, a gem emitiria um `BlogPosting` descrevendo o mesmo artigo uma segunda vez. As demais páginas continuam com o JSON-LD da gem. Ver [ADR-0014](docs/adr/0014-post-json-ld-graph-replaces-seo-tag-node.md).
 
 ### Workflows (`.github/workflows/`)
@@ -488,6 +494,22 @@ O include gera `<a class="glightbox" href="<original>" data-gallery data-title>`
 Parâmetros opcionais: `sizes` (sobrescreve o `sizes`), `loading="eager"` (foto acima da dobra), `class` e `lightbox=false` (foto avulsa no corpo do texto, sem lightbox, em largura total).
 
 Os derivados vêm de `.github/scripts/build_images.py` ([Scripts e automação](#-scripts-e-automação)); sem eles — clone novo, ou foto fora de uma pasta por post — o include cai no `<img>` simples de antes.
+
+### Calculadora
+
+Uma calculadora é um include em `_includes/calculators/` que se basta: markup, `<style>` com escopo na própria classe (usando os tokens do `main.css`, então segue o tema escuro) e JS puro, sem biblioteca. Entra no post com uma linha:
+
+```liquid
+{% include calculators/net-salary-ie-br.html %}
+```
+
+Todos os números — alíquotas, faixas, créditos, câmbio padrão — ficam em `_data/calculators/<nome>.yml`, junto com `tax_year`, `updated`, a lista `sources` (URL, o que cobre e a data em que foi conferido na tabela oficial) e os textos da interface por idioma do post (`labels.pt-BR` / `labels.en`). Virar o ano fiscal é editar esse arquivo; o JS só conhece a *forma* de uma tabela progressiva ou de uma tabela por faixa, nunca um valor. O include renderiza as mesmas tabelas em HTML dentro de um `<details>` (formatadas por `money`/`percent`) e entrega o arquivo inteiro ao script como JSON — com JavaScript desligado, o leitor vê as tabelas que a calculadora usaria; com ele ligado, o formulário aparece e o resultado é anunciado por `aria-live`. Ver [ADR-0015](docs/adr/0015-calculators-as-self-contained-includes-with-data-driven-rates.md).
+
+Regras ao escrever uma nova: nenhuma linha em branco na saída do include e nenhuma tag HTML dentro de string no JS (monte o DOM com `createElement`) — o kramdown fecha o bloco HTML numa linha em branco e conta tags para achar o fim do bloco. Aceita `id="..."` para embutir a mesma calculadora duas vezes na mesma página.
+
+| Calculadora | Include | Dados | O que faz |
+|---|---|---|---|
+| Salário líquido Irlanda × Brasil | `calculators/net-salary-ie-br.html` | `_data/calculators/net-salary-ie-br.yml` | PAYE, USC, PRSI e pensão de um lado; INSS, IRRF (com a redução da Lei 15.270/2025), 13º, férias e FGTS do outro; líquido mensal e anual nas duas moedas |
 
 ---
 

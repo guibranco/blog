@@ -59,6 +59,10 @@ _Avoid_: Summary — in English that names an abstract, and a Post's description
 A Post's question-and-answer content, opted in per Post with the `faq: true` front matter flag. A question is any section heading (`h2`–`h4`) whose text ends in a question mark; its answer is the prose that follows, up to the next heading of the same or a higher level. Both are read from the rendered body at build time and never hand-authored, because the pairs must be visible on the page to be valid. Feeds the `FAQPage` structured data on the Post page (ADR 0014) and nothing a reader sees; a Post with question-shaped headings that is not a Q&A piece is simply not flagged.
 _Avoid_: Q&A, Perguntas frequentes — as the domain term; "Perguntas frequentes" is only what a Post may title the section.
 
+**Calculator**:
+An interactive widget a Post embeds in its body with a single include from `_includes/calculators/` (ADR 0015). Its rates, bands, sources and UI copy live in the same-named file under `_data/calculators/`, so a new tax year is a data edit, never a logic edit; the include carries its own scoped markup, styles and vanilla JavaScript, states the tax year and the official sources it was checked against, and renders those tables server-side so the page stays readable with JavaScript off. Independent of Category, Tag and Series; a Post may embed any number of Calculators, and the copy follows the Post language.
+_Avoid_: Widget, Tool, Simulator — Calculator is canonical even when the thing converts or compares rather than computes.
+
 **Journey**:
 The standalone page at `/trajetoria/`, a timeline of the author's life and career (`_data/journey.yml`). Not a Post — carries no Category, Tag, or Series. Authored bilingually in a single file (both pt-BR and en, switched client-side), unlike a Post, which has exactly one Post language.
 _Avoid_: Timeline — Journey is the canonical name for the page; "timeline" describes its layout, not the concept.
