@@ -11,6 +11,7 @@ subcategories:
 tags: [freelancer, carreira, salario, desenvolvedor, financeiro, pj, valor-hora, gestao, ti, mercado-de-trabalho]
 cover: /assets/img/posts/quanto-cobrar-2026.svg
 image: /assets/img/posts/quanto-cobrar-2026.png
+faq: true
 ---
 
 <p class="lead">Uma das maiores dificuldades de um desenvolvedor em início de carreira é saber qual valor cobrar pelo seu produto, seu sistema ou site — e se esse valor será justo tanto para ele quanto para seus clientes. Neste artigo vou comentar sobre isso e falar como chegar ao valor hora a ser cobrado.</p>

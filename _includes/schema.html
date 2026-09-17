@@ -1,3 +1,24 @@
+{%- comment -%}
+  Structured data for a post page — one JSON-LD @graph holding:
+
+    Article         the post: author Person (sameAs → the profiles in
+                    site.social), publisher, inLanguage from `lang`,
+                    dateModified from git_last_modified.rb, keywords and
+                    articleSection; for a Trip, `about` (its Countries) and
+                    `contentLocation` (its `locations`/`location` points as
+                    TouristDestination + GeoCoordinates, each contained in the
+                    Country its label ends with); for a Series part, `isPartOf`
+                    and `position` (= series_part).
+    BreadcrumbList  Home › Category [› Subcategory] › Post.
+    ItemList        the Series the post belongs to, parts in series_part order
+                    (schema-series.html — the same node /series/ emits).
+    FAQPage         the post's question headings and their answers, only when
+                    the front matter sets `faq: true` (faq_items filter).
+
+  The post layout renders the seo tag with json_ld=false so jekyll-seo-tag's
+  own BlogPosting node is not emitted next to this graph (ADR-0014). Free text
+  goes through `json_ld_string`, never `escape` — see _plugins/schema_filters.rb.
+{%- endcomment -%}
 {%- assign _schema_cat = page.categories | first -%}
 {%- assign _schema_cat_data = site.data.categories | where: "name", _schema_cat | first -%}
 {%- assign _schema_cat_slug = _schema_cat | slugify: 'latin' -%}
@@ -17,35 +38,111 @@
     {%- if _schema_sub_data -%}{%- assign _schema_sub_slug = _schema_sub_data.slug -%}{%- endif -%}
   {%- endif -%}
 {%- endif -%}
+{%- assign _schema_lang = page.lang | default: "pt-BR" -%}
+{%- assign _schema_url = page.url | absolute_url -%}
+{%- assign _schema_series_url = site.url | append: site.baseurl | append: "/series/" -%}
+{%- comment -%}── sameAs: the profile URLs in site.social — not `website` (that is the Person's url) and not `whatsapp` (a chat deep link, not a profile). ──{%- endcomment -%}
+{%- assign _schema_profile_keys = "github,linkedin,medium,stackoverflow,youtube,instagram,facebook,pinterest,reddit,strava,spotify,soundcloud" | split: "," -%}
+{%- assign _schema_same_as = "" | split: "" -%}
+{%- for _k in _schema_profile_keys -%}
+  {%- assign _v = site.social[_k] -%}
+  {%- if _v -%}{%- assign _schema_same_as = _schema_same_as | push: _v -%}{%- endif -%}
+{%- endfor -%}
+{%- comment -%}── Trip points: `locations` then `location`, the same merge as post-map.html. ──{%- endcomment -%}
+{%- assign _schema_locs = "" | split: "" -%}
+{%- if page.locations -%}{%- assign _schema_locs = _schema_locs | concat: page.locations -%}{%- endif -%}
+{%- if page.location -%}{%- assign _schema_locs = _schema_locs | push: page.location -%}{%- endif -%}
+{%- assign _schema_faq = "" | split: "" -%}
+{%- if page.faq -%}{%- assign _schema_faq = content | faq_items -%}{%- endif -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "{{ page.title | escape }}",
-  "description": "{{ page.description | escape }}",
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  "author": {
-    "@type": "Person",
-    "name": "{{ site.author }}",
-    "url": "{{ page.author.url | default: site.social.website }}"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "{{ site.title }}"
-  }{% if page.image %},
-  "image": "{{ page.image | absolute_url }}"{% endif %}
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}{{ site.baseurl }}/" },
-    { "@type": "ListItem", "position": 2, "name": "{{ _schema_cat | escape }}", "item": "{{ site.url }}{{ site.baseurl }}/categorias/{{ _schema_cat_slug }}/" }{% if _schema_sub %},
-    { "@type": "ListItem", "position": 3, "name": "{{ _schema_sub | escape }}", "item": "{{ site.url }}{{ site.baseurl }}/categorias/{{ _schema_cat_slug }}/{{ _schema_sub_slug }}/" },
-    { "@type": "ListItem", "position": 4, "name": "{{ page.title | escape }}", "item": "{{ page.url | absolute_url }}" }{% else %},
-    { "@type": "ListItem", "position": 3, "name": "{{ page.title | escape }}", "item": "{{ page.url | absolute_url }}" }{% endif %}
+  "@graph": [
+    {
+      "@type": "Article",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ _schema_url }}" },
+      "url": "{{ _schema_url }}",
+      "headline": {{ page.title | json_ld_string }},
+      {%- if page.description %}
+      "description": {{ page.description | json_ld_string }},
+      {%- endif %}
+      "inLanguage": "{{ _schema_lang }}",
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+      {%- if page.image %}
+      "image": "{{ page.image | absolute_url }}",
+      {%- endif %}
+      {%- if page.categories.size > 0 %}
+      "articleSection": {{ page.categories | jsonify }},
+      {%- endif %}
+      {%- if page.tags.size > 0 %}
+      "keywords": {{ page.tags | join: ", " | json_ld_string }},
+      {%- endif %}
+      {%- if page.series %}
+      "isPartOf": { "@type": "CreativeWorkSeries", "name": {{ page.series_title | default: page.series | json_ld_string }}, "url": "{{ _schema_series_url }}" },
+      {%- if page.series_part %}
+      "position": {{ page.series_part }},
+      {%- endif %}
+      {%- endif %}
+      {%- if page.countries.size > 0 %}
+      "about": [{% for _c in page.countries %}{ "@type": "Country", "name": {{ _c | json_ld_string }} }{% unless forloop.last %}, {% endunless %}{% endfor %}],
+      {%- endif %}
+      {%- if _schema_locs.size > 0 %}
+      "contentLocation": [
+        {%- for _loc in _schema_locs %}
+        {%- comment -%}── Country of a point: the label's last ", " segment matched against the post's Countries (English `name` or pt-BR `name_pt`), else the post's only Country. ──{%- endcomment -%}
+        {%- assign _loc_country = nil -%}
+        {%- assign _loc_tail = _loc.label | split: "," | last | strip -%}
+        {%- for _c in page.countries -%}
+          {%- assign _c_data = site.data.countries | where: "name", _c | first -%}
+          {%- if _loc_tail == _c or _loc_tail == _c_data.name_pt -%}{%- assign _loc_country = _c -%}{%- endif -%}
+        {%- endfor -%}
+        {%- if _loc_country == nil and page.countries.size == 1 -%}{%- assign _loc_country = page.countries[0] -%}{%- endif %}
+        { "@type": "TouristDestination", "name": {{ _loc.label | json_ld_string }}{% if _loc.lat and _loc.lng %}, "geo": { "@type": "GeoCoordinates", "latitude": {{ _loc.lat }}, "longitude": {{ _loc.lng }} }{% endif %}{% if _loc_country %}, "containedInPlace": { "@type": "Country", "name": {{ _loc_country | json_ld_string }} }{% endif %} }{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      ],
+      {%- endif %}
+      "author": {
+        "@type": "Person",
+        "name": {{ page.author.name | default: site.author | json_ld_string }},
+        "url": "{{ page.author.url | default: site.social.website }}",
+        {%- if site.author_avatar %}
+        "image": "{{ site.author_avatar | absolute_url }}",
+        {%- endif %}
+        {%- if site.author_bio %}
+        "description": {{ site.author_bio | json_ld_string }},
+        {%- endif %}
+        "sameAs": {{ _schema_same_as | jsonify }}
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": {{ site.title | json_ld_string }},
+        "url": "{{ site.url }}{{ site.baseurl }}/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}{{ site.baseurl }}/" },
+        { "@type": "ListItem", "position": 2, "name": {{ _schema_cat | json_ld_string }}, "item": "{{ site.url }}{{ site.baseurl }}/categorias/{{ _schema_cat_slug }}/" }{% if _schema_sub %},
+        { "@type": "ListItem", "position": 3, "name": {{ _schema_sub | json_ld_string }}, "item": "{{ site.url }}{{ site.baseurl }}/categorias/{{ _schema_cat_slug }}/{{ _schema_sub_slug }}/" },
+        { "@type": "ListItem", "position": 4, "name": {{ page.title | json_ld_string }}, "item": "{{ _schema_url }}" }{% else %},
+        { "@type": "ListItem", "position": 3, "name": {{ page.title | json_ld_string }}, "item": "{{ _schema_url }}" }{% endif %}
+      ]
+    }
+    {%- if page.series %},
+    {% include schema-series.html slug=page.series %}
+    {%- endif %}
+    {%- if _schema_faq.size > 0 %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for _q in _schema_faq %}
+        { "@type": "Question", "name": {{ _q.question | json_ld_string }}, "acceptedAnswer": { "@type": "Answer", "text": {{ _q.answer | json_ld_string }} } }{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      ]
+    }
+    {%- endif %}
   ]
 }
 </script>

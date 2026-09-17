@@ -1,0 +1,20 @@
+{%- comment -%}
+  One ItemList JSON-LD node (no <script>, no @context) for the Series whose
+  slug is `include.slug`: its parts in `series_part` order. Rendered inside the
+  @graph of _includes/schema.html (post pages, next to the series banner) and
+  of series.html (the /series/ index), so both places emit the same node.
+{%- endcomment -%}
+{%- assign _ss_posts = site.posts | where: "series", include.slug | sort: "series_part" -%}
+{%- assign _ss_first = _ss_posts | first -%}
+{
+      "@type": "ItemList",
+      "name": {{ _ss_first.series_title | default: include.slug | json_ld_string }},
+      "url": "{{ site.url }}{{ site.baseurl }}/series/",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": {{ _ss_posts | size }},
+      "itemListElement": [
+        {%- for _ss_post in _ss_posts %}
+        { "@type": "ListItem", "position": {{ _ss_post.series_part | default: forloop.index }}, "name": {{ _ss_post.title | json_ld_string }}, "url": "{{ _ss_post.url | absolute_url }}" }{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      ]
+    }
