@@ -1,0 +1,330 @@
+# Rates and bands for _includes/calculators/net-salary-ie-br.html (ADR-0015).
+#
+# Everything the calculator needs to turn a gross salary into a net one lives
+# here, so a new tax year is a data edit, not a logic edit: bump `tax_year`,
+# update the numbers, refresh `sources[].verified`. The include renders these
+# tables as the static fallback and hands the whole file to the script.
+#
+# Money is in the country's currency; rates are fractions (0.2 = 20%).
+# Progressive bands are listed bottom-up with `up_to` as the top of the band
+# (null = no upper limit).
+
+tax_year: 2026
+updated: 2026-09-17
+
+fx:
+  # Default EUR→BRL rate offered in the form; readers can overwrite it.
+  eur_brl: 5.91
+  as_of: 2026-09-17
+
+ireland:
+  currency: EUR
+  income_tax:
+    rates:
+      standard: 0.20
+      higher: 0.40
+    # Standard rate cut-off point (income taxed at 20% up to this amount).
+    bands:
+      single: 44000
+      single_parent: 48000
+      married_one_income: 53000
+    # Annual tax credits, subtracted from the tax computed on the bands.
+    credits:
+      personal_single: 2000
+      personal_married: 4000
+      employee: 2000
+      single_person_child_carer: 1900
+  usc:
+    # No USC at all when total income is at or below this amount.
+    exempt_up_to: 13000
+    bands:
+      - { up_to: 12012, rate: 0.005 }
+      - { up_to: 28700, rate: 0.02 }
+      - { up_to: 70044, rate: 0.03 }
+      - { up_to: null,  rate: 0.08 }
+  prsi:
+    class: A
+    # Employee rate changes on 1 October each year under the PRSI roadmap;
+    # the calculator blends the periods by their share of days in the year.
+    periods:
+      - { from: 2026-01-01, to: 2026-09-30, rate: 0.042 }
+      - { from: 2026-10-01, to: 2026-12-31, rate: 0.0435 }
+    # No employee PRSI when weekly pay is at or below this amount.
+    weekly_threshold: 352
+    # Weekly credit of `max`, reduced by one sixth of pay over `weekly_threshold`
+    # (+0.01), gone once weekly pay exceeds `taper_upper`.
+    credit:
+      max: 12
+      taper_upper: 424
+  pension:
+    # Employee contributions get income tax relief only (no USC/PRSI relief),
+    # limited to an age-based share of earnings, earnings capped at earnings_cap.
+    earnings_cap: 115000
+    age_limits:
+      - { max_age: 29,   pct: 0.15 }
+      - { max_age: 39,   pct: 0.20 }
+      - { max_age: 49,   pct: 0.25 }
+      - { max_age: 54,   pct: 0.30 }
+      - { max_age: 59,   pct: 0.35 }
+      - { max_age: null, pct: 0.40 }
+
+brazil:
+  currency: BRL
+  minimum_wage: 1621.00
+  inss:
+    # Employee (CLT) contribution, progressive by band, capped at `ceiling`.
+    ceiling: 8475.55
+    bands:
+      - { up_to: 1621.00, rate: 0.075 }
+      - { up_to: 2902.84, rate: 0.09 }
+      - { up_to: 4354.27, rate: 0.12 }
+      - { up_to: 8475.55, rate: 0.14 }
+  irrf:
+    # Monthly withholding table: tax = base × rate − deduct, base = gross −
+    # max(INSS + dependents × dependent_deduction, simplified_discount).
+    bands:
+      - { up_to: 2428.80, rate: 0,     deduct: 0 }
+      - { up_to: 2826.65, rate: 0.075, deduct: 182.16 }
+      - { up_to: 3751.05, rate: 0.15,  deduct: 394.16 }
+      - { up_to: 4664.68, rate: 0.225, deduct: 675.49 }
+      - { up_to: null,    rate: 0.275, deduct: 908.73 }
+    dependent_deduction: 189.59
+    simplified_discount: 607.20
+    # Lei 15.270/2025 (from 2026): the tax is reduced by its full amount when
+    # the month's gross taxable income is at or below `full_up_to`, and by
+    # `constant − factor × gross` (never more than the tax) up to
+    # `partial_up_to`. Also applied to the 13º salário.
+    reduction:
+      full_up_to: 5000.00
+      partial_up_to: 7350.00
+      constant: 978.62
+      factor: 0.133145
+  # Employer deposit, not deducted from pay; shown as a separate line.
+  fgts_rate: 0.08
+  # One extra month's pay (13º) and one third on top of the vacation month.
+  thirteenth_salary: true
+  vacation_bonus: 0.333333
+
+# Official tables each figure was checked against, with the check date.
+sources:
+  - label: "Revenue — Tax rates, bands and reliefs (2026)"
+    url: "https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/tax-relief-charts/index.aspx"
+    covers: "Irish income tax bands and credits"
+    verified: 2026-09-17
+  - label: "Revenue — Standard rates and thresholds of USC (2026)"
+    url: "https://www.revenue.ie/en/jobs-and-pensions/usc/standard-rates-thresholds.aspx"
+    covers: "USC bands"
+    verified: 2026-09-17
+  - label: "gov.ie — Advance notice for 2026: PRSI changes"
+    url: "https://assets.gov.ie/static/documents/b9146265/20251008_Advance_Notice_2026_Final.pdf"
+    covers: "PRSI Class A employee rates and the 1 October 2026 increase"
+    verified: 2026-09-17
+  - label: "Citizens Information — Paying social insurance (PRSI)"
+    url: "https://www.citizensinformation.ie/en/social-welfare/irish-social-welfare-system/social-insurance-prsi/paying-social-insurance/"
+    covers: "€352 weekly threshold and the tapered €12 PRSI credit"
+    verified: 2026-09-17
+  - label: "Revenue — Tax relief on pension contributions"
+    url: "https://www.revenue.ie/en/jobs-and-pensions/pension/relief/index.aspx"
+    covers: "Age-related limits, €115,000 cap, no USC/PRSI relief"
+    verified: 2026-09-17
+  - label: "INSS — Tabela de contribuição mensal (Portaria Interministerial MPS/MF nº 13/2026)"
+    url: "https://www.gov.br/inss/pt-br/direitos-e-deveres/inscricao-e-contribuicao/tabela-de-contribuicao-mensal"
+    covers: "INSS bands and ceiling"
+    verified: 2026-09-17
+  - label: "Receita Federal — Tributação de 2026 (tabela mensal, deduções e redução da Lei 15.270/2025)"
+    url: "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/2026"
+    covers: "IRRF bands, dependent deduction, simplified discount, reduction formula"
+    verified: 2026-09-17
+  - label: "Receita Federal — Exemplos de aplicação da Lei 15.270/2025"
+    url: "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/exemplos-de-aplicacao-da-lei-15-270-2025"
+    covers: "Worked examples of the reduction (base is the month's gross taxable income)"
+    verified: 2026-09-17
+  - label: "Planalto — Lei nº 15.270, de 26 de novembro de 2025"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm"
+    covers: "Reduction thresholds; art. 3º-A §3º extends it to the 13º salário"
+    verified: 2026-09-17
+
+# UI copy, keyed by Post language (resolve-lang.html picks the table).
+labels:
+  pt-BR:
+    title: "Calculadora: salário líquido na Irlanda × Brasil"
+    eyebrow: "ano fiscal [year] · tabelas atualizadas em [updated]"
+    intro: "Preencha o bruto de cada lado e compare o que sobra. Os dois resultados aparecem nas duas moedas, com o câmbio que você escolher."
+    ireland: "Irlanda (PAYE)"
+    brazil: "Brasil (CLT)"
+    gross_annual_eur: "Salário bruto anual (€)"
+    status: "Situação fiscal"
+    status_single: "Solteiro(a)"
+    status_single_parent: "Mãe/pai solo (Single Person Child Carer)"
+    status_married_one_income: "Casado(a), uma renda"
+    pension_pct: "Contribuição para pensão (% do bruto)"
+    pension_hint: "Só a sua parte. O matching da empresa não entra no líquido."
+    age: "Faixa etária (limite do alívio fiscal da pensão)"
+    age_under_30: "até 29"
+    age_30_39: "30 a 39"
+    age_40_49: "40 a 49"
+    age_50_54: "50 a 54"
+    age_55_59: "55 a 59"
+    age_60_plus: "60 ou mais"
+    gross_monthly_brl: "Salário bruto mensal (R$)"
+    dependents: "Dependentes para o IRRF"
+    fx: "Câmbio: 1 € em R$"
+    fx_hint: "Padrão de [as_of]. Troque pela cotação do dia."
+    results_title: "Resultado"
+    net_monthly: "Líquido mensal"
+    net_monthly_hint_br: "Mês comum, sem 13º nem férias"
+    net_monthly_avg: "Média mensal"
+    net_monthly_avg_hint_br: "Líquido anual ÷ 12, com 13º e férias"
+    net_annual: "Líquido anual"
+    effective_rate: "Descontos sobre o bruto"
+    breakdown: "Detalhe"
+    gross: "Bruto"
+    paye: "Imposto de renda (PAYE)"
+    usc: "USC"
+    prsi: "PRSI"
+    pension: "Pensão (sua parte)"
+    pension_no_relief: "Parte da contribuição acima do limite de alívio: sem dedução no imposto."
+    inss: "INSS"
+    irrf: "IRRF"
+    irrf_reduction: "Redução da Lei 15.270"
+    thirteenth: "13º salário (líquido)"
+    vacation_bonus: "Terço de férias (líquido extra)"
+    fgts: "FGTS depositado (não entra no líquido)"
+    annual_with_fgts: "Anual com FGTS"
+    in_other_currency: "≈ [value] ao câmbio informado"
+    assumptions_summary: "Premissas e tabelas usadas"
+    assumptions_intro: "Tudo abaixo vem das tabelas oficiais de [year]; o que não está aqui não entra na conta: benefícios, bônus, horas extras, plano de saúde, VR/VA, vale-transporte, BIK, health insurance, tax back e deduções individuais."
+    table_item: "Item"
+    table_value: "Valor"
+    table_band: "Faixa"
+    table_rate: "Alíquota"
+    table_deduct: "Parcela a deduzir"
+    ie_bands_title: "Irlanda — imposto de renda"
+    ie_band_single: "20% até (solteiro)"
+    ie_band_single_parent: "20% até (mãe/pai solo)"
+    ie_band_married_one_income: "20% até (casado, uma renda)"
+    ie_higher_rate: "Acima da faixa"
+    ie_credit_personal: "Crédito pessoal (solteiro / casado)"
+    ie_credit_employee: "Crédito de empregado (PAYE)"
+    ie_credit_spccc: "Crédito Single Person Child Carer"
+    ie_usc_title: "Irlanda — USC"
+    ie_usc_exempt: "Isento até (renda total)"
+    ie_prsi_title: "Irlanda — PRSI classe A (empregado)"
+    ie_prsi_period: "[from] a [to]"
+    ie_prsi_threshold: "Sem PRSI até (por semana)"
+    ie_prsi_credit: "Crédito semanal de até [max], reduzido em ⅙ do que passa de [threshold], zero acima de [upper]"
+    ie_pension_title: "Irlanda — alívio fiscal da pensão"
+    ie_pension_cap: "Teto de rendimentos considerado"
+    ie_pension_age: "Limite por idade"
+    ie_pension_note: "Alívio só no imposto de renda; USC e PRSI incidem sobre o bruto cheio."
+    br_inss_title: "Brasil — INSS (empregado)"
+    br_inss_ceiling: "Teto de contribuição"
+    br_irrf_title: "Brasil — IRRF mensal"
+    br_irrf_dependent: "Dedução por dependente"
+    br_irrf_simplified: "Desconto simplificado (quando maior que as deduções legais)"
+    br_reduction_title: "Brasil — redução da Lei 15.270/2025"
+    br_reduction_full: "Imposto zerado até (bruto mensal)"
+    br_reduction_partial: "Redução de [constant] − [factor] × bruto, até"
+    br_reduction_note: "Vale também para o 13º. Acima do limite, não há redução."
+    br_other_title: "Brasil — o resto do pacote"
+    br_fgts: "FGTS (depósito do empregador)"
+    br_thirteenth: "13º salário"
+    br_thirteenth_value: "um salário extra, tributado à parte"
+    br_vacation: "Férias"
+    br_vacation_value: "um mês com ⅓ a mais, tributado junto"
+    sources_title: "Fontes oficiais consultadas"
+    verified_on: "verificado em [date]"
+    noscript: "Sem JavaScript, a calculadora não roda — as tabelas abaixo são as que ela usaria."
+    disclaimer: "Estimativa para comparar ordens de grandeza, não cálculo de folha. Confirme com um contador antes de decidir qualquer coisa."
+    invalid: "Preencha valores válidos."
+  en:
+    title: "Calculator: net salary in Ireland vs Brazil"
+    eyebrow: "tax year [year] · tables updated [updated]"
+    intro: "Enter the gross on each side and compare what is left. Both results show in both currencies, at the exchange rate you choose."
+    ireland: "Ireland (PAYE)"
+    brazil: "Brazil (CLT)"
+    gross_annual_eur: "Gross annual salary (€)"
+    status: "Tax status"
+    status_single: "Single"
+    status_single_parent: "Single parent (Single Person Child Carer)"
+    status_married_one_income: "Married, one income"
+    pension_pct: "Pension contribution (% of gross)"
+    pension_hint: "Your share only. Employer matching is not part of net pay."
+    age: "Age band (pension relief limit)"
+    age_under_30: "under 30"
+    age_30_39: "30 to 39"
+    age_40_49: "40 to 49"
+    age_50_54: "50 to 54"
+    age_55_59: "55 to 59"
+    age_60_plus: "60 or over"
+    gross_monthly_brl: "Gross monthly salary (R$)"
+    dependents: "Dependants for IRRF"
+    fx: "Exchange rate: 1 € in R$"
+    fx_hint: "Default as of [as_of]. Replace with today's rate."
+    results_title: "Result"
+    net_monthly: "Net monthly"
+    net_monthly_hint_br: "Regular month, no 13th or holiday bonus"
+    net_monthly_avg: "Monthly average"
+    net_monthly_avg_hint_br: "Annual net ÷ 12, including the 13th and holiday bonus"
+    net_annual: "Net annual"
+    effective_rate: "Deductions as a share of gross"
+    breakdown: "Breakdown"
+    gross: "Gross"
+    paye: "Income tax (PAYE)"
+    usc: "USC"
+    prsi: "PRSI"
+    pension: "Pension (your share)"
+    pension_no_relief: "Part of the contribution is above the relief limit and gets no tax deduction."
+    inss: "INSS"
+    irrf: "IRRF"
+    irrf_reduction: "Lei 15.270 reduction"
+    thirteenth: "13th salary (net)"
+    vacation_bonus: "Holiday third (extra net)"
+    fgts: "FGTS deposited (not in net pay)"
+    annual_with_fgts: "Annual including FGTS"
+    in_other_currency: "≈ [value] at the rate given"
+    assumptions_summary: "Assumptions and tables used"
+    assumptions_intro: "Everything below comes from the official [year] tables; what is not here is not counted: benefits, bonuses, overtime, health insurance, meal vouchers, BIK, tax back and individual deductions."
+    table_item: "Item"
+    table_value: "Value"
+    table_band: "Band"
+    table_rate: "Rate"
+    table_deduct: "Deduction"
+    ie_bands_title: "Ireland — income tax"
+    ie_band_single: "20% up to (single)"
+    ie_band_single_parent: "20% up to (single parent)"
+    ie_band_married_one_income: "20% up to (married, one income)"
+    ie_higher_rate: "Above the band"
+    ie_credit_personal: "Personal credit (single / married)"
+    ie_credit_employee: "Employee (PAYE) credit"
+    ie_credit_spccc: "Single Person Child Carer credit"
+    ie_usc_title: "Ireland — USC"
+    ie_usc_exempt: "Exempt up to (total income)"
+    ie_prsi_title: "Ireland — PRSI class A (employee)"
+    ie_prsi_period: "[from] to [to]"
+    ie_prsi_threshold: "No PRSI up to (per week)"
+    ie_prsi_credit: "Weekly credit of up to [max], reduced by ⅙ of pay over [threshold], nil above [upper]"
+    ie_pension_title: "Ireland — pension tax relief"
+    ie_pension_cap: "Earnings cap"
+    ie_pension_age: "Limit by age"
+    ie_pension_note: "Relief on income tax only; USC and PRSI apply to the full gross."
+    br_inss_title: "Brazil — INSS (employee)"
+    br_inss_ceiling: "Contribution ceiling"
+    br_irrf_title: "Brazil — monthly IRRF"
+    br_irrf_dependent: "Deduction per dependant"
+    br_irrf_simplified: "Simplified discount (when larger than the legal deductions)"
+    br_reduction_title: "Brazil — Lei 15.270/2025 reduction"
+    br_reduction_full: "Tax reduced to zero up to (monthly gross)"
+    br_reduction_partial: "Reduction of [constant] − [factor] × gross, up to"
+    br_reduction_note: "Also applies to the 13th salary. No reduction above the limit."
+    br_other_title: "Brazil — the rest of the package"
+    br_fgts: "FGTS (employer deposit)"
+    br_thirteenth: "13th salary"
+    br_thirteenth_value: "one extra month's pay, taxed separately"
+    br_vacation: "Holidays"
+    br_vacation_value: "one month paid with ⅓ on top, taxed together"
+    sources_title: "Official sources checked"
+    verified_on: "checked on [date]"
+    noscript: "Without JavaScript the calculator does not run — the tables below are the ones it would use."
+    disclaimer: "An estimate for comparing orders of magnitude, not a payslip. Check with an accountant before deciding anything."
+    invalid: "Enter valid values."
