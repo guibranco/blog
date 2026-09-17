@@ -15,6 +15,7 @@ location:
   lat: 51.5074
   lng: -0.1278
   label: "Londres, Inglaterra"
+trip: londres-2026
 ---
 
 <p class="lead">Três dias em Londres para o show do Alok na O2 Academy Brixton — com direito a M&M's World, LEGO Store, Borough Market e o Noodle Inn de Covent Garden. Tudo isso saindo de Dublin de Ryanair por menos de € 50,00 por pessoa entre ida e volta.</p>
@@ -103,36 +104,9 @@ O que aparece são **€ 25,27 em dois lançamentos do próprio Steam Engine** �
   <div class="section-title-wrap"><h2>Timeline — dia a dia (horários reais do GPS)</h2></div>
 </div>
 
-<table class="compare-table">
-  <thead>
-    <tr>
-      <th>Dia</th>
-      <th>Data</th>
-      <th>Principais atividades (horário local)</th>
-      <th>Gasto confirmado no extrato</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Dia 1 — Chegada</td>
-      <td>04/06 (Qui)</td>
-      <td>Saída de casa 19h50 · Aeroporto de Dublin 20h19 · Voo 23h00–00h28 · National Express 01h30–02h56 · Táxi ao hostel · Publove 03h09</td>
-      <td>€ 64,45 (ônibus) + € 12,56 (táxi)</td>
-    </tr>
-    <tr>
-      <td>Dia 2 — Show</td>
-      <td>05/06 (Sex)</td>
-      <td>Saída do hostel 12h29 · Metrô a Oxford Circus 12h38–12h46 · Primark + almoço 13h00–13h36 · Caminhada a Leicester Square 13h36–14h08 · M&amp;M's World e LEGO 14h08–15h11 · Voi de volta 15h11–15h26 · Hostel 15h26–19h07 · Ônibus a Brixton 19h07–19h22 · O2 Academy 19h22–23h27 · Tia Maria 23h32–01h25 · KFC 01h30–02h22 · Hostel 02h26</td>
-      <td>≈ € 371 (compras, show, bares)</td>
-    </tr>
-    <tr>
-      <td>Dia 3 — Partida</td>
-      <td>06/06 (Sáb)</td>
-      <td>Saída do hostel 11h01 · Borough Market 11h52–15h29 · Leicester Square (2.ª volta) 16h14–16h31 · Noodle Inn, Covent Garden 16h39–17h35 · Liverpool Street 18h04 · Stansted Express 18h21–19h08 · Aeroporto (LEGO Store) 19h09–22h17 · Voo 22h17–23h20 · Casa 01h01</td>
-      <td>≈ € 148 (compras, comida, transporte)</td>
-    </tr>
-  </tbody>
-</table>
+Cada lançamento aparece no dia em que aconteceu, com o valor debitado e, quando a conta foi dividida, por quantos. Os totais de cada dia são a soma desses lançamentos — os mesmos números do resumo financeiro mais abaixo.
+
+{% include timeline.html %}
 
 <div class="callout callout-tip">
   <div class="callout-label">O que o GPS corrigiu do meu relato</div>
@@ -283,6 +257,12 @@ Do Covent Garden, pegamos um ônibus às **17h44** até a **Liverpool Street** (
 </div>
 
 Todos os valores abaixo saíram do extrato do Revolut, em euro (o cartão converte automaticamente). A taxa implícita no período foi de **≈ € 1,16 por £ 1** — derivada dos dois lançamentos da LEGO, os únicos em que eu tinha o valor em libra e o valor debitado em euro.
+
+Os totais por dia e por categoria saem da linha do tempo da seção 03 — são os mesmos lançamentos, somados. O que foi pago fora do cartão ou fora do dia a dia (voos, hostel, ingresso, o transporte urbano que o extrato não separa por dia) entra como "fora da linha do tempo":
+
+{% include trip-summary.html %}
+
+E esta é a visão do extrato, lançamento a lançamento, ordenada por valor:
 
 <table class="compare-table">
   <thead>

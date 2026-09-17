@@ -9,14 +9,17 @@ module Jekyll
   #   {{ 8475.55 | money: "BRL", "en" }}     → "R$ 8,475.55"
   #   {{ 0.005   | percent: "pt-BR" }}       → "0,5%"
   #
-  # Whole amounts print without decimals; anything else prints two. pt-BR
-  # separators are "." and ","; every other language gets "," and ".".
+  # Whole amounts print without decimals; anything else prints two — or pass a
+  # fixed number of decimals as the third argument (`money: "EUR", _lang, 2`)
+  # for a column where amounts must line up. pt-BR separators are "." and
+  # ","; every other language gets "," and ".".
   module MoneyFilters
-    SYMBOLS = { 'EUR' => '€', 'BRL' => 'R$' }.freeze
+    SYMBOLS = { 'EUR' => '€', 'BRL' => 'R$', 'GBP' => '£', 'USD' => 'US$' }.freeze
 
-    def money(input, currency = 'EUR', lang = 'pt-BR')
+    def money(input, currency = 'EUR', lang = 'pt-BR', decimals = nil)
       value = input.to_f
-      decimals = (value % 1).zero? ? 0 : 2
+      decimals = (value % 1).zero? ? 0 : 2 if decimals.nil?
+      decimals = decimals.to_i
       int, frac = format("%.#{decimals}f", value.abs).split('.')
       thousands, decimal = pt?(lang) ? ['.', ','] : [',', '.']
       int = int.reverse.scan(/\d{1,3}/).join(thousands).reverse
@@ -25,8 +28,10 @@ module Jekyll
       "#{sign}#{SYMBOLS.fetch(currency.to_s, currency)} #{number}"
     end
 
-    def percent(input, lang = 'pt-BR')
-      value = (input.to_f * 100).round(4)
+    # {{ 0.248123 | percent: "en", 1 }} → "24.8%"; without the second argument
+    # the value is rounded to four decimals and trailing zeros are dropped.
+    def percent(input, lang = 'pt-BR', decimals = nil)
+      value = (input.to_f * 100).round(decimals.nil? ? 4 : decimals.to_i)
       str = value == value.to_i ? value.to_i.to_s : value.to_s
       str = str.tr('.', ',') if pt?(lang)
       "#{str}%"

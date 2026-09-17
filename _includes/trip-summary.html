@@ -1,0 +1,140 @@
+{%- comment -%}
+trip-summary.html — the financial summary of a Trip's Itinerary, rolled up
+from the same _data/trips/<slug>.yml that timeline.html renders (ADR-0016),
+so the two can never disagree.
+
+  {% include trip-summary.html %}
+  {% include trip-summary.html trip="malta-2026" %}
+
+Three tables: by day (debited total and, when any cost carries a `split`,
+my share), the `extras` paid outside the day-by-day flow, and by category
+(activity type, days + extras) with each type's share of the trip total.
+Amounts in a currency other than the trip's are listed and summed per
+currency, but never mixed into the trip totals.
+
+No blank line is emitted on purpose: the include is used inside Markdown.
+{%- endcomment -%}
+{%- include resolve-lang.html -%}
+{%- assign _ts_slug = include.trip | default: page.trip -%}
+{%- assign _trip = site.data.trips[_ts_slug] -%}
+{%- if _trip -%}
+{%- assign _cur = _trip.currency | default: "EUR" -%}
+{%- assign _types = site.data.activity_types -%}
+{%- assign _has_split = false -%}
+{%- assign _other_codes = "" | split: "" -%}
+{%- assign _days_total = 0 -%}
+{%- assign _days_share = 0 -%}
+{%- assign _days_count = 0 -%}
+{%- for _day in _trip.days -%}
+{%- for _a in _day.activities -%}
+{%- assign _days_count = _days_count | plus: 1 -%}
+{%- if _a.split and _a.split > 1 -%}{%- assign _has_split = true -%}{%- endif -%}
+{%- if _a.cost and _a.currency and _a.currency != _cur -%}{%- unless _other_codes contains _a.currency -%}{%- assign _other_codes = _other_codes | push: _a.currency -%}{%- endunless -%}{%- endif -%}
+{%- endfor -%}
+{%- endfor -%}
+{%- for _x in _trip.extras -%}
+{%- if _x.split and _x.split > 1 -%}{%- assign _has_split = true -%}{%- endif -%}
+{%- if _x.cost and _x.currency and _x.currency != _cur -%}{%- unless _other_codes contains _x.currency -%}{%- assign _other_codes = _other_codes | push: _x.currency -%}{%- endunless -%}{%- endif -%}
+{%- endfor -%}
+<div class="trip-summary">
+<p class="trip-summary-title">{{ _t.summary_by_day }}</p>
+<table class="compare-table">
+<thead><tr><th>{{ _t.timeline_col_day }}</th><th>{{ _t.timeline_col_date }}</th><th>{{ _t.summary_activities }}</th><th>{{ _t.summary_total }}</th>{% if _has_split %}<th>{{ _t.timeline_my_share }}</th>{% endif %}</tr></thead>
+<tbody>
+{%- for _day in _trip.days -%}
+{%- assign _day_total = 0 -%}
+{%- assign _day_share = 0 -%}
+{%- for _a in _day.activities -%}
+{%- if _a.cost -%}
+{%- assign _a_cur = _a.currency | default: _cur -%}
+{%- if _a_cur == _cur -%}
+{%- assign _split = _a.split | default: 1 -%}
+{%- assign _share = _a.cost | times: 1.0 | divided_by: _split -%}
+{%- assign _day_total = _day_total | plus: _a.cost -%}
+{%- assign _day_share = _day_share | plus: _share -%}
+{%- endif -%}
+{%- endif -%}
+{%- endfor -%}
+{%- assign _day_total = _day_total | round: 2 -%}
+{%- assign _day_share = _day_share | round: 2 -%}
+{%- assign _days_total = _days_total | plus: _day_total -%}
+{%- assign _days_share = _days_share | plus: _day_share %}
+<tr><td>{{ _t.timeline_day }} {{ forloop.index }}{% if _day.title %} — {{ _day.title }}{% endif %}</td><td>{{ _day.date | date: _t.date_short }}</td><td>{{ _day.activities | size }}</td><td>{{ _day_total | money: _cur, _lang, 2 }}</td>{% if _has_split %}<td>{{ _day_share | money: _cur, _lang, 2 }}</td>{% endif %}</tr>
+{%- endfor -%}
+{%- assign _days_total = _days_total | round: 2 -%}
+{%- assign _days_share = _days_share | round: 2 %}
+<tr class="trip-summary-total"><td>{{ _t.timeline_days_total }}</td><td></td><td>{{ _days_count }}</td><td>{{ _days_total | money: _cur, _lang, 2 }}</td>{% if _has_split %}<td>{{ _days_share | money: _cur, _lang, 2 }}</td>{% endif %}</tr>
+</tbody>
+</table>
+{%- assign _extras_total = 0 -%}
+{%- assign _extras_share = 0 -%}
+{%- if _trip.extras and _trip.extras.size > 0 %}
+<p class="trip-summary-title">{{ _t.summary_extras }}</p>
+<table class="compare-table">
+<thead><tr><th>{{ _t.summary_item }}</th><th>{{ _t.summary_category }}</th><th>{{ _t.summary_total }}</th></tr></thead>
+<tbody>
+{%- for _x in _trip.extras -%}
+{%- assign _type = _types[_x.type] | default: _types.other -%}
+{%- assign _x_cur = _x.currency | default: _cur -%}
+{%- if _x.cost and _x_cur == _cur -%}
+{%- assign _split = _x.split | default: 1 -%}
+{%- assign _share = _x.cost | times: 1.0 | divided_by: _split -%}
+{%- assign _extras_total = _extras_total | plus: _x.cost -%}
+{%- assign _extras_share = _extras_share | plus: _share -%}
+{%- endif %}
+<tr><td>{{ _x.title }}</td><td><i class="fas {{ _type.icon }}" aria-hidden="true"></i> {{ _type.label[_lang] }}</td><td>{% if _x.cost %}{{ _x.cost | money: _x_cur, _lang, 2 }}{% if _x.split and _x.split > 1 %} ÷{{ _x.split }}{% endif %}{% else %}—{% endif %}</td></tr>
+{%- endfor -%}
+{%- assign _extras_total = _extras_total | round: 2 -%}
+{%- assign _extras_share = _extras_share | round: 2 %}
+<tr class="trip-summary-total"><td colspan="2">{{ _t.summary_total }}</td><td>{{ _extras_total | money: _cur, _lang, 2 }}</td></tr>
+</tbody>
+</table>
+{%- endif -%}
+{%- assign _grand_total = _days_total | plus: _extras_total | round: 2 -%}
+{%- assign _grand_share = _days_share | plus: _extras_share | round: 2 %}
+<p class="trip-summary-title">{{ _t.summary_by_category }}</p>
+<table class="compare-table">
+<thead><tr><th>{{ _t.summary_category }}</th><th>{{ _t.summary_total }}</th><th>{{ _t.summary_share }}</th></tr></thead>
+<tbody>
+{%- for _kv in _types -%}
+{%- assign _key = _kv[0] -%}
+{%- assign _type = _kv[1] -%}
+{%- assign _cat_total = 0 -%}
+{%- for _day in _trip.days -%}
+{%- for _a in _day.activities -%}
+{%- assign _a_type = _a.type | default: "other" -%}
+{%- assign _a_cur = _a.currency | default: _cur -%}
+{%- if _a.cost and _a_type == _key and _a_cur == _cur -%}{%- assign _cat_total = _cat_total | plus: _a.cost -%}{%- endif -%}
+{%- endfor -%}
+{%- endfor -%}
+{%- for _x in _trip.extras -%}
+{%- assign _x_type = _x.type | default: "other" -%}
+{%- assign _x_cur = _x.currency | default: _cur -%}
+{%- if _x.cost and _x_type == _key and _x_cur == _cur -%}{%- assign _cat_total = _cat_total | plus: _x.cost -%}{%- endif -%}
+{%- endfor -%}
+{%- if _cat_total > 0 -%}
+{%- assign _cat_total = _cat_total | round: 2 -%}
+{%- assign _pct = _cat_total | times: 1.0 | divided_by: _grand_total %}
+<tr><td><i class="fas {{ _type.icon }}" aria-hidden="true"></i> {{ _type.label[_lang] }}</td><td>{{ _cat_total | money: _cur, _lang, 2 }}</td><td>{{ _pct | percent: _lang, 1 }}</td></tr>
+{%- endif -%}
+{%- endfor %}
+<tr class="trip-summary-total"><td>{{ _t.summary_grand_total }}</td><td>{{ _grand_total | money: _cur, _lang, 2 }}</td><td>100%</td></tr>
+</tbody>
+</table>
+<p class="trip-summary-grand"><strong>{{ _t.summary_grand_total }}: {{ _grand_total | money: _cur, _lang, 2 }}</strong>{% if _grand_share != _grand_total %} · {{ _t.timeline_my_share }}: {{ _grand_share | money: _cur, _lang, 2 }}{% endif %}
+{%- if _other_codes.size > 0 -%}
+{%- assign _other_parts = "" | split: "" -%}
+{%- for _code in _other_codes -%}
+{%- assign _code_total = 0 -%}
+{%- for _day in _trip.days -%}{%- for _a in _day.activities -%}{%- if _a.cost and _a.currency == _code -%}{%- assign _code_total = _code_total | plus: _a.cost -%}{%- endif -%}{%- endfor -%}{%- endfor -%}
+{%- for _x in _trip.extras -%}{%- if _x.cost and _x.currency == _code -%}{%- assign _code_total = _code_total | plus: _x.cost -%}{%- endif -%}{%- endfor -%}
+{%- assign _code_total = _code_total | round: 2 -%}
+{%- capture _part -%}{{ _code_total | money: _code, _lang, 2 }}{%- endcapture -%}
+{%- assign _other_parts = _other_parts | push: _part -%}
+{%- endfor %} · {{ _t.summary_other_currency }}: {{ _other_parts | join: ", " }}
+{%- endif -%}
+</p>
+</div>
+{%- else -%}
+<p class="callout callout-warn">trip-summary.html: no trip data found for "{{ _ts_slug }}" — add _data/trips/{{ _ts_slug }}.yml or set `trip:` in the front matter.</p>
+{%- endif -%}
