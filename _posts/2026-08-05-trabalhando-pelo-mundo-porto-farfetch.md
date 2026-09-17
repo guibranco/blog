@@ -40,16 +40,18 @@ No papel, inclusive, o modelo era **híbrido**: eu deveria estar no escritório 
 
 Antes do Porto eu estava no **Banco BS2**, contratado via **K2 Partnering** — ou seja, o modelo consultoria não era novidade para mim. Entrei em julho de 2019, na tribo de **B2B**, na squad de **API Banking**: desenvolvimento do produto de *banking as a service* do banco (devs.bs2.com), incluindo o projeto de open banking, com APIs e serviços em C# .NET Core, Dapper, Entity Framework e DDD, sistemas distribuídos em RabbitMQ, deploy em Docker, e cerimônias ágeis sobre Team Foundation Server.
 
-Em março de 2020 passei para o **time de projetos especiais**, sediado em Belo Horizonte, já dentro da divisão de serviços financeiros do banco. Cheguei a me mudar de fato — e voltei uma semana depois, quando a quarentena fechou tudo. O time inteiro foi para o remoto e, desse jeito, meio no improviso, nós implementamos o [**SPI/PIX**]({{ site.baseurl }}/artigos/construindo-o-pix-no-bs2-bastidores-de-um-prazo-do-banco-central/), o sistema de pagamentos instantâneos do Banco Central. O escopo incluía mensageria [**ISO 20022**]({{ site.baseurl }}/artigos/arquitetura-do-pix-por-dentro-spi-iso-20022-dez-segundos/) — ADMI (administração), CAMT (gestão de caixa), PACS (compensação e liquidação de pagamentos) e REDA (dados de referência) —, a arquitetura das soluções de **PIX Direto e PIX Indireto** dentro do BS2, e o sistema de contabilização dos parceiros de PIX Indireto, além de suporte direto a clientes internos no processo de integração. A stack seguia em C# .NET Core, Dapper, Entity Framework e DDD, com sistemas distribuídos em RabbitMQ, deploy em Docker e as mesmas cerimônias de Scrum/Kanban — agora sobre **Azure DevOps**. Foi um período corrido: o Banco Central com prazo fechado, o país inteiro esperando, e um time distribuído construindo integração de pagamento instantâneo de dentro de casa.
+Em março de 2020 passei para o **time de projetos especiais**, sediado em Belo Horizonte, já dentro da divisão de serviços financeiros do banco. Cheguei a embarcar de fato: desci em Confins numa segunda-feira, 16 de março, larguei as malas num AirBnB e fui direto para o escritório — e na quinta-feira, dia 19, já estava de volta em São Paulo, depois de dois dias de escritório, quando a quarentena fechou tudo. A mudança nunca mais foi retomada. O time inteiro foi para o remoto e, desse jeito, meio no improviso, nós implementamos o [**SPI/PIX**]({{ site.baseurl }}/artigos/construindo-o-pix-no-bs2-bastidores-de-um-prazo-do-banco-central/), o sistema de pagamentos instantâneos do Banco Central. O escopo incluía mensageria [**ISO 20022**]({{ site.baseurl }}/artigos/arquitetura-do-pix-por-dentro-spi-iso-20022-dez-segundos/) — ADMI (administração), CAMT (gestão de caixa), PACS (compensação e liquidação de pagamentos) e REDA (dados de referência) —, a arquitetura das soluções de **PIX Direto e PIX Indireto** dentro do BS2, e o sistema de contabilização dos parceiros de PIX Indireto, além de suporte direto a clientes internos no processo de integração. A stack seguia em C# .NET Core, Dapper, Entity Framework e DDD, com sistemas distribuídos em RabbitMQ, deploy em Docker e as mesmas cerimônias de Scrum/Kanban — agora sobre **Azure DevOps**. Foi um período corrido: o Banco Central com prazo fechado, o país inteiro esperando, e um time distribuído construindo integração de pagamento instantâneo de dentro de casa.
+
+Esse projeto rendeu uma série própria, [**Desenvolvendo o PIX**]({{ site.baseurl }}/series/#pix-bs2) — os bastidores do prazo do Banco Central, a anatomia do contrato e a arquitetura vista por dentro. Aqui ele entra só como ponto de partida: era o lugar de onde eu estava saindo quando o Porto apareceu.
 
 <div class="personal-story">
   <div class="personal-story-label">
-    <i class="fas fa-user-circle"></i> Minha experiência — a mudança que durou uma semana
+    <i class="fas fa-user-circle"></i> Minha experiência — a mudança que durou três dias
   </div>
-  <p>Tem uma simetria meio absurda nessa história que eu só fui perceber muito depois. Em 2020 eu me mudei para Belo Horizonte e voltei em sete dias porque a pandemia fechou tudo. Em 2021 eu não me mudei para o Porto — também porque a pandemia fechou tudo. Duas mudanças de endereço engolidas pelo mesmo evento, com resultados opostos: uma virou remoto, a outra virou demissão.</p>
+  <p>Tem uma simetria meio absurda nessa história que eu só fui perceber muito depois. Em 2020 eu me mudei para Belo Horizonte numa segunda-feira e voltei na quinta, porque a pandemia fechou tudo. Em 2021 eu não me mudei para o Porto — também porque a pandemia fechou tudo. Duas mudanças de endereço engolidas pelo mesmo evento, com resultados opostos: uma virou remoto, a outra virou demissão.</p>
 </div>
 
-Quando o recrutador da Multivision me chamou, eu estava num lugar confortável: PJ, ganhando o equivalente a um sênior de São Paulo, remoto, num projeto que tinha acabado de entregar algo relevante. E ainda assim, no horizonte, existia a possibilidade de eu ter que me mudar para Belo Horizonte quando as coisas normalizassem.
+Quando a recrutadora da Multivision me chamou, eu estava num lugar confortável: PJ, ganhando o equivalente a um sênior de São Paulo, remoto, num projeto que tinha acabado de entregar algo relevante. E ainda assim, no horizonte, existia a possibilidade de a mudança para Belo Horizonte voltar à pauta quando as coisas normalizassem.
 
 Se era para mudar de cidade de qualquer forma, eu preferia mudar de continente. **Morar e trabalhar na Europa sempre foi o plano** — nunca foi uma ideia que surgiu com a vaga. A vaga só apareceu na hora em que o plano finalmente ficou viável.
 
@@ -62,7 +64,7 @@ Vale lembrar do momento: **fim de 2020**. Pandemia em curso, mercado de tecnolog
   <div class="section-title-wrap"><h2>O processo seletivo</h2></div>
 </div>
 
-Como nos outros dois países da série, tudo começou no **LinkedIn**. Em **3 de novembro de 2020**, uma recrutadora da **Multivision** — consultoria de tecnologia portuguesa — me mandou uma mensagem procurando um *.NET Engineer* com conhecimento em **Kafka e Elasticsearch** para um cliente no Porto. O recrutador não era da Farfetch, e isso muda a natureza do processo: você passa por duas avaliações em sequência, uma da consultoria e outra do cliente onde vai ficar alocado.
+Como nos outros dois países da série, tudo começou no **LinkedIn**. Em **3 de novembro de 2020**, uma recrutadora da **Multivision** — consultoria de tecnologia portuguesa — me mandou uma mensagem procurando um *.NET Engineer* com conhecimento em **Kafka e Elasticsearch** para um cliente no Porto. A recrutadora não era da Farfetch, e isso muda a natureza do processo: você passa por duas avaliações em sequência, uma da consultoria e outra do cliente onde vai ficar alocado.
 
 A primeira call foi no dia seguinte, por Zoom. Ela apresentou a Multivision, apresentou a Farfetch — que eu já conhecia, por sinal, porque minha namorada na época queria uma bolsa do site — e explicou o projeto. Deixou claro desde o começo que o vínculo podia ser **contrato ou recibos verdes**, e perguntou se eu entendia a diferença entre os dois. No fim, a pergunta inevitável: pretensão salarial.
 
@@ -492,8 +494,8 @@ Quando a viagem para Dubai finalmente se concretizou, eu encerrei os dois víncu
   </thead>
   <tbody>
     <tr><td>Julho de 2019</td><td>Entrada no Banco BS2 via K2 Partnering — squad de API Banking, tribo B2B, São Paulo</td></tr>
-    <tr><td>Março de 2020</td><td>Passagem para o time de projetos especiais (BH) — mudança de uma semana e volta para SP pela quarentena</td></tr>
-    <tr><td>2020</td><td>Implementação do SPI/PIX, com o time todo em remoto</td></tr>
+    <tr><td>16 a 19/03/2020</td><td>Passagem para o time de projetos especiais (BH) — três dias em Belo Horizonte, dois de escritório, e volta para SP pela quarentena</td></tr>
+    <tr><td>Março a novembro de 2020</td><td>Implementação do SPI/PIX, com o time todo em remoto — lançamento nacional em 16/11/2020</td></tr>
     <tr><td>03/11/2020</td><td>Primeiro contato da recrutadora da Multivision no LinkedIn</td></tr>
     <tr><td>12 e 17/11/2020</td><td>Entrevistas com a Farfetch — técnica e com o líder técnico</td></tr>
     <tr><td>17/11/2020</td><td>Proposta aceita, por telefone</td></tr>
