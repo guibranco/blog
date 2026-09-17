@@ -1,0 +1,182 @@
+# Itinerary of _posts/2026-06-05-show-alok-londres-o2-brixton.md (ADR-0016).
+#
+# One entry per day, each with its activities in order. `cost` is the amount
+# actually debited, in `currency` (per item when it differs from the trip's);
+# `split` is how many people it was divided by, so the includes can roll up
+# both the debited total and my share. Anything paid outside the day-by-day
+# flow (flights bought months earlier, prepaid lodging, a city transport
+# total the statement does not break down by day) goes under `extras`.
+# Every figure below is stated in the post; nothing here is estimated.
+currency: EUR
+days:
+  - date: 2026-06-04
+    title: "Chegada"
+    activities:
+      - time: "19:50"
+        type: transport
+        title: "Saída de casa, em Dublin"
+      - time: "20:19"
+        type: flight
+        title: "Aeroporto de Dublin"
+      - time: "23:00"
+        end: "00:28"
+        type: flight
+        title: "Voo DUB → STN (Ryanair)"
+        note: "Ida e volta compradas antes, em outro cartão — nos extras"
+      - time: "01:30"
+        end: "02:56"
+        type: transport
+        title: "National Express, Stansted → Londres"
+        cost: 64.45
+        split: 3
+      - type: transport
+        title: "Táxi ao hostel (Viking Cars)"
+        cost: 12.56
+        split: 3
+      - time: "03:09"
+        type: lodging
+        title: "Check-in no Publove @ The Steam Engine"
+        note: "Duas noites pagas antes (£ 40) — nos extras"
+  - date: 2026-06-05
+    title: "Show"
+    activities:
+      - time: "12:29"
+        type: walk
+        title: "Saída do hostel"
+      - time: "12:38"
+        end: "12:46"
+        type: transport
+        title: "Metrô Lambeth North → Oxford Circus"
+        note: "Transport for London: € 42,79 nos três dias, nos extras"
+      - time: "13:00"
+        end: "13:36"
+        type: food
+        title: "Primark e almoço no Five Guys, Oxford Street"
+        cost: 28.22
+      - time: "13:36"
+        end: "14:08"
+        type: walk
+        title: "Caminhada até Leicester Square (2,1 km)"
+      - time: "14:08"
+        end: "15:11"
+        type: shopping
+        title: "M&M's World, Leicester Square (1.ª visita)"
+        cost: 76.19
+      - type: shopping
+        title: "LEGO Store — flor #40460 e minifiguras"
+        cost: 15.11
+        note: "£ 12,99"
+      - type: shopping
+        title: "Souvenirs (Kapoor Brothers) — shots e chaveiros"
+        cost: 18.02
+      - time: "15:11"
+        end: "15:26"
+        type: transport
+        title: "Voi, bicicleta elétrica de volta ao hostel (2,4 km)"
+        cost: 5.53
+        note: "Cupom de viagem grátis não aplicado"
+      - time: "15:26"
+        end: "19:07"
+        type: rest
+        title: "Hostel"
+      - time: "19:07"
+        end: "19:22"
+        type: transport
+        title: "Ônibus a Brixton"
+      - time: "19:22"
+        end: "23:27"
+        type: event
+        title: "Show do Alok — O2 Academy Brixton"
+        cost: 123.36
+        note: "Bar, três lançamentos, rodadas para o grupo; o ingresso (£ 45,55) está nos extras"
+      - time: "23:32"
+        end: "01:25"
+        type: nightlife
+        title: "Tia Maria Brazilian Bar, Vauxhall"
+        cost: 33.48
+      - time: "01:30"
+        end: "02:22"
+        type: food
+        title: "KFC, Kennington Lane"
+        cost: 65.58
+        split: 3
+      - type: transport
+        title: "Uber, dois trechos na madrugada"
+        cost: 24.47
+        split: 3
+      - time: "02:26"
+        type: lodging
+        title: "Hostel"
+  - date: 2026-06-06
+    title: "Partida"
+    activities:
+      - time: "11:01"
+        type: transport
+        title: "Saída do hostel — Bethnal Green e ônibus pelo rio"
+      - time: "11:52"
+        end: "15:29"
+        type: sight
+        title: "Borough Market"
+      - type: food
+        title: "Turnips, Borough Market — copos de fruta com chocolate"
+        cost: 11.05
+      - type: food
+        title: "Costa Coffee"
+        cost: 4.48
+      - time: "16:14"
+        end: "16:31"
+        type: shopping
+        title: "M&M's World, Leicester Square (2.ª visita)"
+        cost: 43.41
+      - time: "16:39"
+        end: "17:35"
+        type: food
+        title: "Noodle Inn, Covent Garden"
+        cost: 75.31
+        split: 3
+      - time: "17:44"
+        end: "18:04"
+        type: transport
+        title: "Ônibus Covent Garden → Liverpool Street"
+      - time: "18:21"
+        end: "19:08"
+        type: transport
+        title: "Stansted Express"
+        cost: 20
+        currency: GBP
+        approx: true
+        note: "Pago pela Wise, fora do extrato do Revolut"
+      - time: "19:09"
+        end: "22:17"
+        type: shopping
+        title: "Aeroporto de Stansted — LEGO Store (#40953 London Bus e minifiguras)"
+        cost: 18.57
+        note: "£ 15,98"
+      - time: "22:17"
+        end: "23:20"
+        type: flight
+        title: "Voo STN → DUB"
+      - time: "01:01"
+        type: transport
+        title: "Casa"
+extras:
+  - type: flight
+    title: "Voos DUB ⇄ STN (Ryanair), ida e volta, em outro cartão"
+    cost: 47.00
+  - type: lodging
+    title: "Publove @ The Steam Engine, duas noites, pagas antes"
+    cost: 40.00
+    currency: GBP
+  - type: event
+    title: "Ingresso do show, pré-venda de 28/01/2026"
+    cost: 45.55
+    currency: GBP
+  - type: transport
+    title: "Transport for London — metrô e ônibus nos três dias"
+    cost: 42.79
+  - type: drinks
+    title: "The Steam Engine — consumo no pub do hostel"
+    cost: 25.27
+  - type: shopping
+    title: "Boots"
+    cost: 8.60

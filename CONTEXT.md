@@ -29,6 +29,10 @@ An ordered group of Posts forming one multi-part piece, declared via the `series
 A Post carrying a `location` or `locations` front matter value (lat/lng/label) plus a `countries` value naming the Country/Countries it covers. Independent of Category — a Trip can belong to any Category, not just a travel-related one. A single Trip may span more than one Country (e.g. a road trip crossing a border).
 _Avoid_: Travel post — use Trip.
 
+**Itinerary**:
+A Trip's day-by-day plan as data: the file `_data/trips/<slug>.yml` a Post names with its `trip` front matter field (ADR 0016), holding each day's date, title and ordered activities — type, time, title, note, cost, how many people the cost was split by, currency when it differs from the Trip's — plus the extras paid outside the day-by-day flow. It is rendered by two includes from the same file, the timeline and the financial summary, and every total a reader sees (per day, per category, my share, the Trip total) is summed at build time, never hand-authored. Optional: a Trip without an Itinerary still has its `location`/`locations` for the map.
+_Avoid_: Timeline, Schedule — as the domain term; "timeline" is the way the Itinerary is drawn on the page, and the Journey page has a timeline that has nothing to do with Trips.
+
 **Country**:
 One of a curated set of nations a Trip visited, defined in `_data/countries.yml` and declared per-Post via the `countries` front matter field. Identified by its English name (the entry's `name`, e.g. "United Kingdom") — that is the value a Post declares and the audit checks; the pt-BR label (`name_pt`, e.g. "Reino Unido") is a display translation applied only when the UI language is pt-BR (ADR 0010). Curated the same way as Category — an unregistered or misspelled value fails the audit — because it drives the grouping in the travels page's "articles by country" table. Deliberately hand-authored per Trip rather than derived from `location`/`locations` labels, since a label's trailing segment isn't always a Country (e.g. "Comino" is part of Malta, not its own Country).
 

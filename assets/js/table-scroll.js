@@ -30,7 +30,9 @@
   }
 
   tables.forEach(function (table) {
-    if (table.closest('.table-scroll')) return;
+    // A hidden table (the print-only fallback of a timeline) would only get
+    // an empty, margin-bearing wrapper on screen.
+    if (table.hidden || table.closest('.table-scroll')) return;
 
     var wrapper = document.createElement('div');
     wrapper.className = 'table-scroll';

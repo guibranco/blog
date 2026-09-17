@@ -1,0 +1,45 @@
+# Activity types for a Trip's Itinerary (_data/trips/*.yml → _includes/timeline.html
+# and trip-summary.html, ADR-0016). `icon` is a Font Awesome 6 solid class;
+# `label` is the category name per Post language, used as the icon's text
+# alternative and as the row label in the summary by category.
+#
+# An activity whose `type` is not listed here falls back to `other`.
+flight:
+  icon: fa-plane
+  label: { pt-BR: "Voo", en: "Flight" }
+transport:
+  icon: fa-bus
+  label: { pt-BR: "Transporte", en: "Transport" }
+walk:
+  icon: fa-person-walking
+  label: { pt-BR: "Caminhada", en: "Walk" }
+lodging:
+  icon: fa-bed
+  label: { pt-BR: "Hospedagem", en: "Lodging" }
+food:
+  icon: fa-utensils
+  label: { pt-BR: "Comida", en: "Food" }
+drinks:
+  icon: fa-martini-glass
+  label: { pt-BR: "Bebidas", en: "Drinks" }
+nightlife:
+  icon: fa-music
+  label: { pt-BR: "Balada", en: "Nightlife" }
+event:
+  icon: fa-ticket
+  label: { pt-BR: "Evento", en: "Event" }
+sight:
+  icon: fa-camera
+  label: { pt-BR: "Passeio", en: "Sightseeing" }
+beach:
+  icon: fa-umbrella-beach
+  label: { pt-BR: "Praia", en: "Beach" }
+shopping:
+  icon: fa-bag-shopping
+  label: { pt-BR: "Compras", en: "Shopping" }
+rest:
+  icon: fa-mug-hot
+  label: { pt-BR: "Descanso", en: "Rest" }
+other:
+  icon: fa-circle-dot
+  label: { pt-BR: "Outros", en: "Other" }

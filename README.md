@@ -56,6 +56,8 @@ blog/                                 # nome do repositório
 │   ├── photo.html                    # Foto de galeria responsiva: <picture> AVIF/WebP + width/height + GLightbox
 │   ├── schema.html                   # JSON-LD (schema.org) do post: Article, BreadcrumbList, ItemList (série), FAQPage
 │   ├── schema-series.html            # Nó ItemList de uma série — usado por schema.html e por series.html (/series/)
+│   ├── timeline.html                 # Roteiro de viagem dia a dia (linha do tempo) a partir de _data/trips/<slug>.yml
+│   ├── trip-summary.html             # Resumo financeiro (por dia, extras, por categoria) somado dos mesmos dados
 │   ├── analytics.html
 │   └── calculators/                  # Calculadoras interativas — um include por calculadora (markup + CSS + JS)
 │       └── net-salary-ie-br.html     # Salário líquido Irlanda × Brasil
@@ -78,6 +80,9 @@ blog/                                 # nome do repositório
 │   ├── i18n.yml                      # Strings de UI em pt-BR e en
 │   ├── calculators/                  # Alíquotas, faixas, fontes e textos de cada calculadora (um .yml por include)
 │   │   └── net-salary-ie-br.yml      # Tabelas fiscais de 2026 — Irlanda (PAYE/USC/PRSI/pensão) e Brasil (INSS/IRRF/FGTS)
+│   ├── trips/                        # Roteiro de cada post de viagem: dias, atividades, custos, extras (um .yml por post)
+│   │   └── londres-2026.yml          # Piloto — show do Alok em Londres
+│   ├── activity_types.yml            # Tipos de atividade do roteiro: ícone Font Awesome + rótulo em pt-BR/en
 │   ├── quotes.yml                    # Lista de quotes da sidebar
 │   └── images.json                   # GERADO por build_images.py (gitignored): dimensões + derivados das fotos
 │
@@ -426,6 +431,7 @@ A sidebar suporta dois campos distintos:
 | `series_part` | number | — | Número da parte dentro da série |
 | `location` | object | — | Post de viagem com **um** ponto: `{ lat, lng, label }` — aparece no mapa de `/viagens/` |
 | `locations` | list | — | Post de viagem com **múltiplos** pontos: `[{ lat, lng, label }, ...]` |
+| `trip` | string | — | Slug do roteiro em `_data/trips/<slug>.yml` — lido por `{% include timeline.html %}` e `{% include trip-summary.html %}` ([Timeline de viagem](#timeline-de-viagem)) |
 | `countries` | list | — | País(es) visitados no post, **em inglês** (ex.: `[Malta]`, `[Albania, Greece]`) — cada valor deve ser igual ao `name` de uma entrada em `_data/countries.yml`; a tradução em pt-BR (`name_pt`) é exibida quando a UI está em pt-BR. Usado na tabela "Artigos por país" de `/viagens/` |
 
 ---
@@ -510,6 +516,19 @@ Regras ao escrever uma nova: nenhuma linha em branco na saída do include e nenh
 | Calculadora | Include | Dados | O que faz |
 |---|---|---|---|
 | Salário líquido Irlanda × Brasil | `calculators/net-salary-ie-br.html` | `_data/calculators/net-salary-ie-br.yml` | PAYE, USC, PRSI e pensão de um lado; INSS, IRRF (com a redução da Lei 15.270/2025), 13º, férias e FGTS do outro; líquido mensal e anual nas duas moedas |
+
+### Timeline de viagem
+
+Substitui a tabela "dias × atividades × custo" dos posts de viagem. O roteiro fica em `_data/trips/<slug>.yml` — o post aponta para ele com `trip: <slug>` no front matter — e dois includes leem o mesmo arquivo:
+
+```liquid
+{% include timeline.html %}        {# linha do tempo vertical, um bloco por dia #}
+{% include trip-summary.html %}    {# resumo financeiro: por dia, extras, por categoria #}
+```
+
+Cada dia tem `date`, `title` (opcional) e `activities`; cada atividade tem `type` (chave de `_data/activity_types.yml`, que dá o ícone e o rótulo), `title`, e opcionalmente `time`/`end`, `note`, `cost`, `split` (por quantas pessoas a conta foi dividida), `currency` (quando difere da moeda do roteiro) e `approx: true`. Gastos fora do dia a dia — passagem comprada meses antes, hospedagem pré-paga, o transporte urbano que o extrato não separa por dia — vão em `extras`. **Nenhum total é digitado**: o total de cada dia, a "minha parcela" (com os `split`), os totais por categoria e o total da viagem são somados no build pelos dois includes, então a linha do tempo e o resumo nunca discordam. Valores em outra moeda aparecem mas ficam fora dos totais, somados à parte.
+
+A linha do tempo é um `<ol>` de dias com um `<ul>` de atividades por dia — sem CSS ela continua legível como lista — e vem seguida de uma `<table hidden>` com as mesmas linhas, que o `main.css` exibe só em `@media print`. A 360px as linhas quebram (o valor desce para baixo do título) em vez de rolar. Ver [ADR-0016](docs/adr/0016-trip-itinerary-as-data-with-computed-totals.md).
 
 ---
 
