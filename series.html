@@ -64,7 +64,7 @@ permalink: /series/
           {% for slug in series_slugs %}
             {% assign s_posts = all_series_posts | where: "series", slug | sort: "series_part" %}
             {% assign s_first = s_posts | first %}
-            <div class="series-banner series-index-item">
+            <div class="series-banner series-index-item" id="{{ slug }}">
               <div class="series-banner-header">
                 <span class="series-banner-label"><i class="fas fa-layer-group"></i> {{ s_first.series_title }}</span>
                 <span class="series-banner-progress">

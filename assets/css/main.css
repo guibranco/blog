@@ -1558,7 +1558,7 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
   .series-banner-header { flex-direction: column; align-items: flex-start; gap: .4rem; }
 }
 .series-index-grid { display: flex; flex-direction: column; gap: 1.5rem; }
-.series-index-item { border-radius: 12px; }
+.series-index-item { border-radius: 12px; scroll-margin-top: 1.5rem; }
 
 /* Bottom-of-article series pager */
 .series-pager { border-radius: 16px; padding: 1.5rem 2rem; }
