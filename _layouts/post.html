@@ -10,7 +10,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }} — {{ site.title }}</title>
   {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
-  {% seo %}
+  {% comment %}── json_ld=false: schema.html below emits the post's JSON-LD; the gem's BlogPosting node would duplicate it (ADR-0014). ──{% endcomment %}
+  {% seo json_ld=false %}
   {% include schema.html %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">

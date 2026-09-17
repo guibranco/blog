@@ -1,6 +1,6 @@
 # Tecnologia & Viagens Blog
 
-A Jekyll blog mixing software engineering and travel/career writing. This glossary defines how content is modeled — a Post's shape (Hero, Gallery, Category, Tag, Series, Trip, Country, Published date, Updated date, Reading time, Table of Contents) and the site's two standalone pages, Journey and Editorial Notes.
+A Jekyll blog mixing software engineering and travel/career writing. This glossary defines how content is modeled — a Post's shape (Hero, Gallery, Category, Tag, Series, Trip, Country, Published date, Updated date, Reading time, Table of Contents, FAQ) and the site's two standalone pages, Journey and Editorial Notes.
 
 ## Language
 
@@ -54,6 +54,10 @@ _Avoid_: Read time, time to read, word count — the number shown is minutes, an
 **Table of Contents**:
 A navigable list of a Post's section headings, offered alongside the Post body only when the Post has enough sections to be worth jumping between. Readers see it as "Sumário" in the Portuguese UI; that is display copy for the same concept, as with Tag/"Tópico". Abbreviated TOC in code.
 _Avoid_: Summary — in English that names an abstract, and a Post's description already plays that role.
+
+**FAQ**:
+A Post's question-and-answer content, opted in per Post with the `faq: true` front matter flag. A question is any section heading (`h2`–`h4`) whose text ends in a question mark; its answer is the prose that follows, up to the next heading of the same or a higher level. Both are read from the rendered body at build time and never hand-authored, because the pairs must be visible on the page to be valid. Feeds the `FAQPage` structured data on the Post page (ADR 0014) and nothing a reader sees; a Post with question-shaped headings that is not a Q&A piece is simply not flagged.
+_Avoid_: Q&A, Perguntas frequentes — as the domain term; "Perguntas frequentes" is only what a Post may title the section.
 
 **Journey**:
 The standalone page at `/trajetoria/`, a timeline of the author's life and career (`_data/journey.yml`). Not a Post — carries no Category, Tag, or Series. Authored bilingually in a single file (both pt-BR and en, switched client-side), unlike a Post, which has exactly one Post language.

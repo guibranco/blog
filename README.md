@@ -54,7 +54,8 @@ blog/                                 # nome do repositório
 │   ├── series.html                   # Navegação de série dentro do artigo
 │   ├── resolve-lang.html             # Resolve `_lang`/`_t` (idioma + tabela de traduções) de uma página
 │   ├── photo.html                    # Foto de galeria responsiva: <picture> AVIF/WebP + width/height + GLightbox
-│   ├── schema.html                   # JSON-LD (schema.org)
+│   ├── schema.html                   # JSON-LD (schema.org) do post: Article, BreadcrumbList, ItemList (série), FAQPage
+│   ├── schema-series.html            # Nó ItemList de uma série — usado por schema.html e por series.html (/series/)
 │   └── analytics.html
 │
 ├── _plugins/                         # Generators e filtros Ruby customizados (ver "Scripts e automação")
@@ -63,7 +64,9 @@ blog/                                 # nome do repositório
 │   ├── feed_generator.rb             # Gera /feed/{cat}.xml e /feed/{cat}-{sub}.xml
 │   ├── git_last_modified.rb          # Calcula a data real de "última atualização" via histórico do git
 │   ├── localized_date.rb             # Filtro Liquid `localized_date` — nomes de mês em pt-BR/en
-│   └── reading_time.rb               # Calcula `reading_time` a partir do texto quando o front matter não define
+│   ├── reading_time.rb               # Calcula `reading_time` a partir do texto quando o front matter não define
+│   ├── schema_filters.rb             # Filtros Liquid `faq_items` e `json_ld_string` usados pelo schema.html
+│   └── seo_tag_json_ld_opt_out.rb    # Adiciona `json_ld=false` ao `{% seo %}` — o layout de post emite o próprio JSON-LD
 │
 ├── _data/
 │   ├── categories.yml                # Categorias/subcategorias (nome, slug, ícone, redirect_from)
@@ -188,7 +191,7 @@ subcategories:
   - "Infrastructure/DevOps"                       # opcional — "Categoria/Subcategoria"
 tags: [docker, linux, automação]
 cover: /assets/img/posts/meu-artigo-cover.svg    # opcional — imagem usada no site (hero do post e card na listagem)
-image: /assets/img/posts/meu-artigo-cover.png    # opcional — imagem estática usada no Open Graph/Twitter card e no schema.org (via jekyll-seo-tag)
+image: /assets/img/posts/meu-artigo-cover.png    # opcional — imagem estática usada no Open Graph/Twitter card e no schema.org (via _includes/schema.html)
 card_style: dark                                 # opcional — força o estilo do card gerado (dark ou cream)
 ---
 ```
@@ -308,6 +311,8 @@ Além dos generators de categoria/tag/feed (ver [seção acima](#-gerenciando-ca
 - **`git_last_modified.rb`** — para cada post/página, percorre o histórico do git e compara o **corpo** (conteúdo após o front matter) entre revisões consecutivas, achando o commit mais recente que de fato mudou o texto — um commit que só mexeu em front matter (tags, `reading_time`, `lang`…) é ignorado. O resultado vira `page.last_modified_at`, usado por `_includes/post-dates.html` (mostra "Atualizado em" só quando o dia é diferente do de publicação) e lido automaticamente pelo `jekyll-sitemap` para o `<lastmod>` do `sitemap.xml`. **Requer histórico completo do git** — o checkout do `deploy.yml` usa `fetch-depth: 0` de propósito; um clone raso faz todo post parecer "atualizado hoje".
 - **`localized_date.rb`** — filtro Liquid `localized_date: date, format, lang`. `%B` do `strftime` do Ruby usa o locale da própria máquina de build (normalmente inglês, mesmo com `%d de %B de %Y`), então esse filtro troca `%B` pelo nome do mês certo (pt-BR ou en) antes de formatar, sem depender do locale do runner.
 - **`reading_time.rb`** — preenche `page.reading_time` (minutos inteiros) em todo post que não define o campo no front matter, contando as palavras do corpo: prosa a 200 palavras/min, blocos de código (``` ou `<pre>`) a 150, mais 10 s por imagem; tags HTML, Liquid, comentários e URLs de links não contam. Um `reading_time:` manual sempre vence. As taxas podem ser ajustadas num bloco `reading_time:` do `_config.yml` (`words_per_minute`, `code_words_per_minute`, `seconds_per_image`). `.github/scripts/reading_time.py` é a mesma conta em Python, usada pelo `audit_blog.py` (aviso de drift) e pelo `build_og_cards.py` (tempo de leitura no card) — mudou um, mude o outro. Ver [ADR-0013](docs/adr/0013-reading-time-computed-from-body.md).
+- **`schema_filters.rb`** — dois filtros Liquid usados por `_includes/schema.html`. `faq_items` extrai pares pergunta/resposta do HTML renderizado do post (títulos `h2`–`h4` terminados em `?` e o texto até o próximo título do mesmo nível ou superior — um título de nível inferior aninhado sob a pergunta não encerra a resposta —, sem código, tabelas e figuras; perguntas cuja resposta fica vazia depois disso são omitidas) para o nó `FAQPage`, ativado por `faq: true` no front matter. `json_ld_string` serializa texto livre como string JSON com `</` escapado, para que título, descrição ou resposta nunca fechem o `<script>` — use-o em vez de `escape`, que geraria `&amp;` literal dentro do JSON.
+- **`seo_tag_json_ld_opt_out.rb`** — adiciona a flag `json_ld=false` ao `{% seo %}` do `jekyll-seo-tag`, nos moldes de `title=false`. O layout de post usa `{% seo json_ld=false %}`: as meta tags continuam vindo da gem, mas o JSON-LD vem inteiro do `schema.html` (um `@graph` com `Article`, `BreadcrumbList`, `ItemList` da série e `FAQPage`) — sem a flag, a gem emitiria um `BlogPosting` descrevendo o mesmo artigo uma segunda vez. As demais páginas continuam com o JSON-LD da gem. Ver [ADR-0014](docs/adr/0014-post-json-ld-graph-replaces-seo-tag-node.md).
 
 ### Workflows (`.github/workflows/`)
 
@@ -409,6 +414,7 @@ A sidebar suporta dois campos distintos:
 | `card_style` | string | — | `dark` ou `cream` — força o estilo do card gerado (padrão: dark para Coding/Infrastructure, cream para o resto) |
 | `gallery` | boolean | — | Ativa o lightbox (GLightbox) para imagens `.glightbox` no corpo do post |
 | `featured` | boolean | — | Fixa o post na seção de destaques da home |
+| `faq` | boolean | — | Emite um nó `FAQPage` no JSON-LD do post: todo título `h2`–`h4` cujo texto termina em `?` vira uma `Question`, e o texto até o próximo título do mesmo nível ou superior (sem código, tabelas e figuras; um `h3` aninhado sob a pergunta continua dentro da resposta) vira a `Answer` — perguntas que ficam sem texto de resposta são omitidas. Só marque posts que de fato têm uma seção de perguntas e respostas visível |
 | `series` | string | — | Slug da série (agrupa posts na navegação de série e em `/series/`) |
 | `series_title` | string | — | Título de exibição da série |
 | `series_part` | number | — | Número da parte dentro da série |
@@ -522,7 +528,7 @@ python3 .github/scripts/build_images.py
 | Plugin | Função |
 |---|---|
 | `jekyll-feed` | Gera `/feed.xml` automaticamente |
-| `jekyll-seo-tag` | Meta tags Open Graph e Twitter Card |
+| `jekyll-seo-tag` | Meta tags Open Graph e Twitter Card; JSON-LD só nas páginas que não são posts — no post, `_includes/schema.html` assume (ver `seo_tag_json_ld_opt_out.rb`) |
 | `jekyll-sitemap` | Gera `/sitemap.xml` automaticamente (lê `last_modified_at` quando presente) |
 | `jekyll-paginate-v2` | Paginação avançada da página inicial |
 | `jekyll-redirect-from` | Redirecionamentos via front matter |
