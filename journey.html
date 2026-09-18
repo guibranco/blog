@@ -77,7 +77,7 @@ image: /assets/img/og-default.jpg
       {%- assign _cols = _axis_end | minus: _min_year | plus: 1 -%}
       {%- assign _rail_w = _cols | times: _year_px | plus: _pad | plus: 48 -%}
       {%- comment -%}No tabindex on the scroller: keyboard users reach the rail through its year nodes (links), and the browser scrolls each focused node into view.{%- endcomment -%}
-      <nav class="journey-rail-wrap" role="region" aria-label="{{ _t.journey_title }}" aria-describedby="journey-hint">
+      <nav class="journey-rail-wrap" aria-label="{{ _t.journey_title }}" aria-describedby="journey-hint">
         <div class="journey-rail" style="width: {{ _rail_w }}px;">
 
           {%- assign _points = "" -%}

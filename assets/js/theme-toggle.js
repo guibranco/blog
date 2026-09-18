@@ -7,7 +7,7 @@
   var systemMQ = window.matchMedia('(prefers-color-scheme: dark)');
 
   function currentTheme() {
-    return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    return root.dataset.theme === 'dark' ? 'dark' : 'light';
   }
 
   /* Giscus theme for each site theme: `transparent_dark` blends with the dark
@@ -32,7 +32,7 @@
   }
 
   function applyTheme(theme) {
-    root.setAttribute('data-theme', theme);
+    root.dataset.theme = theme;
     updateIcon();
     syncGiscusTheme(theme);
   }
@@ -62,7 +62,7 @@
      this re-sync covers a toggle that happened while the iframe was loading. */
   window.addEventListener('message', function (event) {
     if (event.origin !== 'https://giscus.app') return;
-    if (!(event.data && event.data.giscus)) return;
+    if (!event.data?.giscus) return;
     syncGiscusTheme(currentTheme());
   });
 })();

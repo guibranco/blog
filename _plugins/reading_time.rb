@@ -33,6 +33,8 @@ module Jekyll
   # audit_blog.py (drift check) and build_og_cards.py (card label) — keep the
   # two in sync when changing anything below.
   module ReadingTime
+    extend self
+
     DEFAULTS = {
       'words_per_minute' => 200,
       'code_words_per_minute' => 150,
@@ -57,8 +59,6 @@ module Jekyll
       /<img\b/i,                              # <img …>
       /\{%-?\s*include\s+photo\.html\b/       # {% include photo.html … %}
     ].freeze
-
-    module_function
 
     # Word counts of a post body: { 'prose' => n, 'code' => n, 'images' => n }.
     def count(body)

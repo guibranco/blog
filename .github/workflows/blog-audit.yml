@@ -28,7 +28,7 @@ jobs:
 
       # Pillow powers the Gallery photo metadata check (EXIF orientation / GPS)
       - name: Install image tooling
-        run: "python3 -m pip install --quiet --only-binary :all: -r .github/scripts/requirements-images.txt"
+        run: "python3 -m pip install --quiet --require-hashes --only-binary :all: -r .github/scripts/requirements-images.txt"
 
       - name: Audit structure
         id: audit

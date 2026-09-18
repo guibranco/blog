@@ -1,11 +1,16 @@
 <script>
   (function () {
+    var theme = 'light';
     try {
       var stored = localStorage.getItem('theme');
-      var theme = (stored === 'light' || stored === 'dark')
-        ? stored
-        : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', theme);
-    } catch (e) {}
+      if (stored === 'light' || stored === 'dark') {
+        theme = stored;
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+    } catch (e) {
+      // localStorage can throw (private mode, blocked storage): fall back to light.
+    }
+    document.documentElement.dataset.theme = theme;
   })();
 </script>

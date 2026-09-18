@@ -10,14 +10,14 @@ Params
   title     GLightbox caption (data-title) — optional
   gallery   GLightbox group (data-gallery) — optional
   sizes     override the `sizes` attribute — optional
-  lightbox  false renders a standalone <picture> with no GLightbox link
+  lightbox  false renders a standalone picture element with no GLightbox link
   loading   "eager" for an above-the-fold photo — default "lazy"
-  class     extra class(es) on the <a> (or on <img> when lightbox=false)
+  class     extra class(es) on the link (or on the image when lightbox=false)
 
 Reads site.data.images (_data/images.json, written by
 .github/scripts/build_images.py). Without an entry — a flat file outside a
 per-post folder, or derivatives not generated yet — it degrades to the plain
-<img> markup galleries used before, so nothing breaks; GLightbox still opens
+image markup galleries used before, so nothing breaks; GLightbox still opens
 the full-resolution original either way.
 {%- endcomment -%}
 {%- assign _key = include.src | remove_first: "/assets/img/posts/" -%}

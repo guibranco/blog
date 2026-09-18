@@ -1,14 +1,25 @@
 # Python packages for build_og_cards.py (og-cards.yml): the image set plus
-# CairoSVG for rasterizing SVG covers, with its whole dependency tree pinned so
-# `--only-binary :all:` resolves to wheels only. Runner is Python 3.12; every
-# pin below ships a py3 or cp312 manylinux wheel. Dependabot bumps them.
+# CairoSVG for rasterizing SVG covers, with its whole dependency tree pinned
+# and hashed, so `--only-binary :all:` resolves to wheels only and pip's
+# hash-checking mode rejects anything that is not exactly these files. Runner
+# is Python 3.12 on x86_64 Linux; the hashes are of the py3 / cp312 manylinux
+# wheels (one per package). Dependabot bumps pins and hashes together.
 -r requirements-images.txt
-PyYAML==6.0.3
-cairosvg==2.9.1
-cairocffi==1.7.1
-cffi==2.1.1
-pycparser==3.0
-cssselect2==0.10.1
-tinycss2==1.5.1
-webencodings==0.6.1
-defusedxml==0.7.1
+PyYAML==6.0.3 \
+    --hash=sha256:ba1cc08a7ccde2d2ec775841541641e4548226580ab850948cbfda66a1befcdc
+cairosvg==2.9.1 \
+    --hash=sha256:f91c5628e834be024a0ed4544d76261cd84016a4c73bcdf26c386495825c05a1
+cairocffi==1.7.1 \
+    --hash=sha256:9803a0e11f6c962f3b0ae2ec8ba6ae45e957a146a004697a1ac1bbf16b073b3f
+cffi==2.1.1 \
+    --hash=sha256:c1453022f490d2459a11819d83ad1d586e9ff65a12ac3e705ffebd46d3685dcf
+pycparser==3.0 \
+    --hash=sha256:b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992
+cssselect2==0.10.1 \
+    --hash=sha256:25cc4494d55985d6a6da359be48da6ce98c28dcbafa2314c383ace3fc32ec868
+tinycss2==1.5.1 \
+    --hash=sha256:3415ba0f5839c062696996998176c4a3751d18b7edaaeeb658c9ce21ec150661
+webencodings==0.6.1 \
+    --hash=sha256:7fab6269c8bf237c657876b52058ccb182e861518d1c695c1a9aaa8c1c105d5b
+defusedxml==0.7.1 \
+    --hash=sha256:a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61
