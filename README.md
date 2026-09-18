@@ -61,6 +61,7 @@ blog/                                 # nome do repositório
 │   ├── share.html                    # Card "compartilhar" do post: Web Share API, links diretos (LinkedIn, X, WhatsApp, Reddit) e copiar link
 │   ├── analytics.html
 │   └── calculators/                  # Calculadoras interativas — um include por calculadora (markup + CSS + JS)
+│       └── shared/                   # Partials que toda calculadora embute no build: estilo, helpers JS, folha CLT
 │       └── net-salary-ie-br.html     # Salário líquido Irlanda × Brasil
 │
 ├── _plugins/                         # Generators e filtros Ruby customizados (ver "Scripts e automação")
@@ -519,7 +520,7 @@ Uma calculadora é um include em `_includes/calculators/` que se basta: markup, 
 
 Todos os números — alíquotas, faixas, créditos, câmbio padrão — ficam em `_data/calculators/<nome>.yml`, junto com `tax_year`, `updated`, a lista `sources` (URL, o que cobre e a data em que foi conferido na tabela oficial) e os textos da interface por idioma do post (`labels.pt-BR` / `labels.en`). Uma tabela que mais de uma calculadora usa fica uma vez só em `_data/calculators/shared/<tema>.yml` (mesmo formato, sem `labels`), lida com `site.data.calculators.shared["<tema>"]` e entregue ao script num segundo bloco JSON — hoje é o caso da folha CLT do Brasil, que a calculadora Irlanda × Brasil, a CLT × PJ e as tabelas do próprio post de CLT × PJ leem de `shared/brazil-clt.yml`. Virar o ano fiscal é editar esses arquivos; o JS só conhece a *forma* de uma tabela progressiva ou de uma tabela por faixa, nunca um valor. O include renderiza as mesmas tabelas em HTML dentro de um `<details>` (formatadas por `money`/`percent`) e entrega os dados ao script como JSON — com JavaScript desligado, o leitor vê as tabelas que a calculadora usaria; com ele ligado, o formulário aparece e o resultado é anunciado por `aria-live`. Ver [ADR-0015](docs/adr/0015-calculators-as-self-contained-includes-with-data-driven-rates.md) e [ADR-0017](docs/adr/0017-shared-calculator-rate-tables-and-two-regime-comparisons.md).
 
-Regras ao escrever uma nova: nenhuma linha em branco na saída do include e nenhuma tag HTML dentro de string no JS (monte o DOM com `createElement`) — o kramdown fecha o bloco HTML numa linha em branco e conta tags para achar o fim do bloco. Aceita `id="..."` para embutir a mesma calculadora duas vezes na mesma página.
+Regras ao escrever uma nova: nenhuma linha em branco na saída do include e nenhuma tag HTML dentro de string no JS (monte o DOM com `createElement`) — o kramdown fecha o bloco HTML numa linha em branco e conta tags para achar o fim do bloco. Aceita `id="..."` para embutir a mesma calculadora duas vezes na mesma página. O que toda calculadora repete fica em `_includes/calculators/shared/` e entra no include em tempo de build: `style.html` (o `<style>`), `lib.js` (faixas progressivas, bisseção, `el`/`row`/`headline`, formatadores, `setup`/`start`), `brazil-clt.js` (INSS, IRRF, holerite CLT) e `brazil-clt-tables.html` (as tabelas estáticas do CLT). Os partials de HTML entram com `{% include %}`; os de JS, dentro do `<script>` da calculadora, com `{% capture %}{% include %}{% endcapture %}` e `{{ _lib | strip }}`, para não sobrar linha em branco.
 
 | Calculadora | Include | Dados | O que faz |
 |---|---|---|---|
