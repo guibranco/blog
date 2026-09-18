@@ -41,7 +41,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install image tooling
-        run: "python3 -m pip install --quiet --only-binary :all: -r .github/scripts/requirements-images.txt"
+        run: "python3 -m pip install --quiet --require-hashes --only-binary :all: -r .github/scripts/requirements-images.txt"
 
       - name: Restore image derivatives cache
         uses: actions/cache@v6
