@@ -8,6 +8,13 @@ Params
   trip   slug of the file under _data/trips/ — optional; defaults to the
          Post's `trip` front matter field
 
+Trip file options read here
+  totals     false hides every computed total (day, trip, print column) —
+             for a trip whose costs are only partly itemized, so the page
+             never shows a total that competes with the post's own figures
+  first_day  number of the first day (default 1; the Albania post counts
+             from "Dia 0")
+
 Renders one entry per day with its activities (icon per type from
 _data/activity_types.yml, time, title, note, cost) and the day's totals
 computed from the activity costs: the debited amount, and "my share" when
@@ -24,6 +31,9 @@ and a blank line would let kramdown close the HTML block early.
 {%- if _trip -%}
 {%- assign _cur = _trip.currency | default: "EUR" -%}
 {%- assign _types = site.data.activity_types -%}
+{%- assign _show_totals = true -%}
+{%- if _trip.totals == false -%}{%- assign _show_totals = false -%}{%- endif -%}
+{%- assign _first_day = _trip.first_day | default: 1 -%}
 {%- assign _trip_total = 0 -%}
 {%- assign _trip_share = 0 -%}
 {%- assign _day_totals = "" | split: "" -%}
@@ -54,9 +64,10 @@ and a blank line would let kramdown close the HTML block early.
 {%- assign _trip_share = _trip_share | plus: _day_share -%}
 {%- assign _day_totals = _day_totals | push: _day_total -%}
 {%- assign _day_shares = _day_shares | push: _day_share -%}
-{%- assign _wd = _day.date | date: "%u" | minus: 1 %}
+{%- assign _wd = _day.date | date: "%u" | minus: 1 -%}
+{%- assign _day_num = forloop.index0 | plus: _first_day %}
 <li class="timeline-day">
-<div class="timeline-day-head"><h4 class="timeline-day-title"><span class="timeline-day-num">{{ _t.timeline_day }} {{ forloop.index }}</span>{% if _day.title %}{{ _day.title }}{% endif %}</h4><time class="timeline-day-date" datetime="{{ _day.date | date: '%Y-%m-%d' }}">{{ _day.date | date: _t.timeline_date_format }} ({{ _t.weekday_short[_wd] }})</time></div>
+<div class="timeline-day-head"><h4 class="timeline-day-title"><span class="timeline-day-num">{{ _t.timeline_day }} {{ _day_num }}</span>{% if _day.title %}{{ _day.title }}{% endif %}</h4><time class="timeline-day-date" datetime="{{ _day.date | date: '%Y-%m-%d' }}">{{ _day.date | date: _t.timeline_date_format }} ({{ _t.weekday_short[_wd] }})</time></div>
 <ul class="timeline-activities">
 {%- for _a in _day.activities -%}
 {%- assign _type = _types[_a.type] | default: _types.other -%}
@@ -64,22 +75,29 @@ and a blank line would let kramdown close the HTML block early.
 <li class="timeline-activity timeline-type-{{ _a.type | default: 'other' }}"><span class="timeline-icon" title="{{ _type.label[_lang] }}"><i class="fas {{ _type.icon }}" aria-hidden="true"></i><span class="visually-hidden">{{ _type.label[_lang] }}: </span></span><span class="timeline-body">{% if _a.time %}<span class="timeline-time">{{ _a.time }}{% if _a.end %}–{{ _a.end }}{% endif %}</span>{% endif %}<span class="timeline-title">{{ _a.title }}</span>{% if _a.note %}<span class="timeline-note">{{ _a.note }}</span>{% endif %}</span>{% if _a.cost %}<span class="timeline-cost">{% if _a.approx %}<span class="timeline-approx" title="{{ _t.timeline_approx }}">≈</span> {% endif %}{{ _a.cost | money: _a_cur, _lang, 2 }}{% if _a.split and _a.split > 1 %} <span class="timeline-split" title="{{ _t.timeline_split_by }} {{ _a.split }}">÷{{ _a.split }}</span>{% endif %}</span>{% endif %}</li>
 {%- endfor %}
 </ul>
+{%- if _show_totals %}
 <p class="timeline-day-total"><span>{{ _t.timeline_day_total }}</span> <strong>{{ _day_total | money: _cur, _lang, 2 }}</strong>{% if _day_share != _day_total %} · {{ _t.timeline_my_share }} {{ _day_share | money: _cur, _lang, 2 }}{% endif %}{% if _day_other.size > 0 %} · {{ _t.timeline_outside_total }}: {{ _day_other | join: ", " }}{% endif %}</p>
+{%- endif %}
 </li>
 {%- endfor %}
 </ol>
 {%- assign _trip_total = _trip_total | round: 2 -%}
-{%- assign _trip_share = _trip_share | round: 2 %}
+{%- assign _trip_share = _trip_share | round: 2 -%}
+{%- if _show_totals %}
 <p class="timeline-total">{{ _t.timeline_days_total }}: <strong>{{ _trip_total | money: _cur, _lang, 2 }}</strong>{% if _trip_share != _trip_total %} · {{ _t.timeline_my_share }} {{ _trip_share | money: _cur, _lang, 2 }}{% endif %}</p>
+{%- endif %}
 <table class="timeline-table" hidden>
 <caption>{{ _t.timeline_print_caption }}</caption>
-<thead><tr><th>{{ _t.timeline_col_day }}</th><th>{{ _t.timeline_col_date }}</th><th>{{ _t.timeline_col_activities }}</th><th>{{ _t.timeline_col_total }}</th></tr></thead>
+<thead><tr><th>{{ _t.timeline_col_day }}</th><th>{{ _t.timeline_col_date }}</th><th>{{ _t.timeline_col_activities }}</th>{% if _show_totals %}<th>{{ _t.timeline_col_total }}</th>{% endif %}</tr></thead>
 <tbody>
 {%- for _day in _trip.days -%}
+{%- assign _day_num = forloop.index0 | plus: _first_day -%}
 {%- capture _acts -%}{%- for _a in _day.activities -%}{%- assign _a_cur = _a.currency | default: _cur -%}{%- unless forloop.first %} · {% endunless -%}{%- if _a.time -%}{{ _a.time }} {% endif -%}{{ _a.title }}{%- if _a.cost %} ({{ _a.cost | money: _a_cur, _lang, 2 }}){% endif -%}{%- endfor -%}{%- endcapture %}
-<tr><td>{{ _t.timeline_day }} {{ forloop.index }}{% if _day.title %} — {{ _day.title }}{% endif %}</td><td>{{ _day.date | date: _t.date_short }}</td><td>{{ _acts }}</td><td>{{ _day_totals[forloop.index0] | money: _cur, _lang, 2 }}</td></tr>
+<tr><td>{{ _t.timeline_day }} {{ _day_num }}{% if _day.title %} — {{ _day.title }}{% endif %}</td><td>{{ _day.date | date: _t.date_short }}</td><td>{{ _acts }}</td>{% if _show_totals %}<td>{{ _day_totals[forloop.index0] | money: _cur, _lang, 2 }}</td>{% endif %}</tr>
 {%- endfor %}
+{%- if _show_totals %}
 <tr><td colspan="3">{{ _t.timeline_days_total }}</td><td>{{ _trip_total | money: _cur, _lang, 2 }}</td></tr>
+{%- endif %}
 </tbody>
 </table>
 </div>

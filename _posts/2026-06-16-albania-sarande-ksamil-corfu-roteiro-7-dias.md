@@ -11,6 +11,7 @@ tags: [viagem, albania, sarande, ksamil, corfu, europa, beach-club, ferry, alugu
 image: /assets/img/posts/albania-2026.jpg
 gallery: true
 countries: [Albania, Greece]
+trip: albania-2026
 locations:
   - lat: 41.3275
     lng: 19.8187
@@ -202,66 +203,9 @@ Ficamos em dois AirBnBs, com menos de 10 minutos de carro entre si. O custo foi 
 
 Todos os horários abaixo saíram do histórico de localização, não da memória. A diferença entre o que a gente lembra e o que aconteceu é maior do que parece — em quase todos os dias eu teria chutado uma ou duas horas a menos de beach club e uma ou duas a mais de sono.
 
-<table class="compare-table">
-  <thead>
-    <tr>
-      <th>Dia</th>
-      <th>Data</th>
-      <th>Principais atividades (horário local)</th>
-      <th>Gasto estimado/pessoa</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Dia 0 — Chegada</td>
-      <td>08/06 (Seg)</td>
-      <td>Aeroporto de Dublin 09h00 · DUB→STN · Stansted 13h09–17h33 · STN→TIA 17h33–21h14 · Espera e jantar no aeroporto de Tirana até 00h50 · Aluguel dos carros</td>
-      <td>≈ € 148 (bagagem no portão) + voos · ≈ € 10 (jantar em Tirana)</td>
-    </tr>
-    <tr>
-      <td>Dia 1</td>
-      <td>09/06 (Ter)</td>
-      <td>Chegada em Sarande 03h46 · Saída do AirBnB 12h51 · Bora Bora (Ksamil) 13h30–15h04 · Principotes 15h04–20h59 · Mercado 22h10 · Recolhimento 22h35</td>
-      <td>≈ € 145</td>
-    </tr>
-    <tr>
-      <td>Dia 2</td>
-      <td>10/06 (Qua)</td>
-      <td>Caminhada ao porto + bilheteria 09h40–10h12 · Ferry 10h12–12h12 (chegada horário grego) · Táxi ao Gouvia Marina 12h49–13h00 · Almoço 13h03–13h38 · Passeio de barco 13h42–17h35 · Ferry volta 18h59–19h17 · Jantar perto do porto 19h17–20h45 · Piscina no Panorama</td>
-      <td>≈ € 155</td>
-    </tr>
-    <tr>
-      <td>Dia 3</td>
-      <td>11/06 (Qui)</td>
-      <td>Saída 10h19 · Poda Beach Club 12h29–18h23 · Jantar Kamay 18h39–19h30 · Volta ao AirBnB 20h24–22h16 · Bianco 22h52–04h42</td>
-      <td>≈ € 97 + ★ € 300 (Bianco, ver nota)</td>
-    </tr>
-    <tr>
-      <td>Dia 4</td>
-      <td>12/06 (Sex)</td>
-      <td>Acordou 13h30 · Bateria do carro 13h53–16h44 · Poda 17h24–19h23 · Ice Rolls 19h35–20h47 · Kamay 20h47–21h34 · Bianco 21h41–23h58 · Poda (pista) 00h03–01h32</td>
-      <td>≈ € 85</td>
-    </tr>
-    <tr>
-      <td>Dia 5</td>
-      <td>13/06 (Sáb)</td>
-      <td>Saída 12h05 · Ksamil (almoço + Orange Beach Club) 13h32–18h49 · Mercado 19h31 · AirBnB 19h45–23h29 · Vibe 360° 23h49–01h56 (1.º jogo do Brasil na Copa)</td>
-      <td>≈ € 45</td>
-    </tr>
-    <tr>
-      <td>Dia 6</td>
-      <td>14/06 (Dom)</td>
-      <td>Saída 09h34 · Embarque no passeio 10h09 · Navegação 10h14–11h52 · Praia de Kroreza 11h52–14h13 · Retorno 14h13–15h16 · AirBnB · Mercado 21h10 · Recolhimento 21h38 (Lost Seaside foi só parte do grupo)</td>
-      <td>≈ € 50</td>
-    </tr>
-    <tr>
-      <td>Dia 7 — Partida</td>
-      <td>15/06 (Seg)</td>
-      <td>Saída de Sarande 04h28 · Chegada em Tirana 07h39 · Entrega dos carros · TIA→LPL 10h17–13h33 · Imigração em Liverpool · LPL→DUB 15h40–16h22 · Casa em Dublin 17h57</td>
-      <td>≈ € 15 (comida nos aeroportos + snacks)</td>
-    </tr>
-  </tbody>
-</table>
+Cada atividade traz o valor que o texto cita para ela — em euro ou em lek — e, quando a conta foi do grupo, por quantos foi dividida. A estimativa por pessoa de cada dia continua no resumo financeiro, no fim do post; a linha do tempo não soma, porque as estimativas incluem mercado e dinheiro vivo que o texto não itemiza.
+
+{% include timeline.html %}
 
 <div class="callout callout-tip">
   <div class="callout-label">O que o GPS desmentiu do meu próprio relato</div>
