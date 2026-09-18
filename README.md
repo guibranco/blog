@@ -118,7 +118,7 @@ blog/                                 # nome do repositório
 │   │   ├── build_images.py           # Sanitiza fotos de galeria e gera os derivados AVIF/WebP + images.json
 │   │   ├── build_og_cards.py         # Renderiza o card Open Graph a partir do front matter (ou rasteriza o cover SVG)
 │   │   ├── create_missing_pages.py   # Sincroniza _data/categories.yml e _data/tags.yml
-│   │   ├── requirements-images.txt   # Pillow, versão exata — instalado com --only-binary :all: (deploy, audit); Dependabot atualiza
+│   │   ├── requirements-images.txt   # Pillow, versão exata + hash sha256 da wheel — pip em modo --require-hashes e --only-binary :all: (deploy, audit); Dependabot atualiza
 │   │   └── requirements-og-cards.txt # CairoSVG + PyYAML + árvore de dependências, versões exatas (og-cards)
 │   └── fonts/                        # GERADO por build_og_cards.py --download-fonts (gitignored): TTFs da marca
 │

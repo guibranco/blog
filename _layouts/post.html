@@ -236,12 +236,12 @@
       <!-- Card 5: comentários -->
       <div class="article-card article-card--comments">
         <div class="article-comments" id="giscus-host">
-          {% comment %}── Giscus is injected by script so its theme can match the site's theme from the first paint (theme-init.html sets data-theme on <html> before this runs); assets/js/theme-toggle.js keeps it in sync afterwards. ──{% endcomment %}
+          {% comment %}── Giscus is injected by script so its theme can match the site's theme from the first paint (theme-init.html sets data-theme on the root element before this runs); assets/js/theme-toggle.js keeps it in sync afterwards. ──{% endcomment %}
           <script>
             (function () {
               var host = document.getElementById('giscus-host');
               if (!host) return;
-              var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+              var isDark = document.documentElement.dataset.theme === 'dark';
               var s = document.createElement('script');
               s.src = 'https://giscus.app/client.js';
               s.crossOrigin = 'anonymous';
