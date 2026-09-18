@@ -1,0 +1,38 @@
+{%- comment -%}
+calculators/shared/brazil-clt-tables.html — the static (no-JavaScript) tables
+of the Brazilian CLT payslip: INSS bands, the monthly IRRF table and the Lei
+15.270/2025 reduction. Shared by every Calculator that reads
+_data/calculators/shared/brazil-clt.yml (ADR-0017).
+
+Reads the caller's variables: `_br` (the shared data file), `_lab` (the
+Calculator's labels, which must carry the br_* and table_* keys) and `_lang`.
+No blank lines in the output (kramdown).
+{%- endcomment -%}
+<p class="calc-static-title">{{ _lab.br_inss_title }}</p>
+<table class="calc-static"><thead><tr><th>{{ _lab.table_band }}</th><th>{{ _lab.table_rate }}</th></tr></thead><tbody>
+{%- assign _lower = 0 -%}
+{%- for _b in _br.inss.bands %}
+<tr><td>{{ _lower | money: "BRL", _lang }} – {{ _b.up_to | money: "BRL", _lang }}</td><td>{{ _b.rate | percent: _lang }}</td></tr>
+{%- assign _lower = _b.up_to | plus: 0.01 -%}
+{%- endfor %}
+<tr><td>{{ _lab.br_inss_ceiling }}</td><td>{{ _br.inss.ceiling | money: "BRL", _lang }}</td></tr>
+</tbody></table>
+<p class="calc-static-title">{{ _lab.br_irrf_title }}</p>
+<table class="calc-static"><thead><tr><th>{{ _lab.table_band }}</th><th>{{ _lab.table_rate }}</th><th>{{ _lab.table_deduct }}</th></tr></thead><tbody>
+{%- assign _lower = 0 -%}
+{%- for _b in _br.irrf.bands %}
+<tr><td>{% if _b.up_to %}{{ _lower | money: "BRL", _lang }} – {{ _b.up_to | money: "BRL", _lang }}{% else %}&gt; {{ _lower | money: "BRL", _lang }}{% endif %}</td><td>{{ _b.rate | percent: _lang }}</td><td>{{ _b.deduct | money: "BRL", _lang }}</td></tr>
+{%- assign _lower = _b.up_to -%}
+{%- endfor %}
+<tr><td>{{ _lab.br_irrf_dependent }}</td><td colspan="2">{{ _br.irrf.dependent_deduction | money: "BRL", _lang }}</td></tr>
+<tr><td>{{ _lab.br_irrf_simplified }}</td><td colspan="2">{{ _br.irrf.simplified_discount | money: "BRL", _lang }}</td></tr>
+</tbody></table>
+<p class="calc-static-title">{{ _lab.br_reduction_title }}</p>
+<table class="calc-static"><thead><tr><th>{{ _lab.table_item }}</th><th>{{ _lab.table_value }}</th></tr></thead><tbody>
+<tr><td>{{ _lab.br_reduction_full }}</td><td>{{ _br.irrf.reduction.full_up_to | money: "BRL", _lang }}</td></tr>
+{%- assign _red_const = _br.irrf.reduction.constant | money: "BRL", _lang -%}
+{%- assign _red_factor = _br.irrf.reduction.factor | append: "" -%}
+{%- if _lang == "pt-BR" -%}{%- assign _red_factor = _red_factor | replace: ".", "," -%}{%- endif %}
+<tr><td>{{ _lab.br_reduction_partial | replace: "[constant]", _red_const | replace: "[factor]", _red_factor }}</td><td>{{ _br.irrf.reduction.partial_up_to | money: "BRL", _lang }}</td></tr>
+<tr><td colspan="2">{{ _lab.br_reduction_note }}</td></tr>
+</tbody></table>
