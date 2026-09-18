@@ -80,6 +80,7 @@ blog/                                 # nome do repositório
 │   ├── countries.yml                 # Países visitados em posts de viagem (nome em inglês, slug, name_pt) — lista curada
 │   ├── i18n.yml                      # Strings de UI em pt-BR e en
 │   ├── calculators/                  # Alíquotas, faixas, fontes e textos de cada calculadora (um .yml por include)
+│   │   └── shared/                   # Tabelas que mais de uma calculadora usa (ex.: folha CLT do Brasil)
 │   │   └── net-salary-ie-br.yml      # Tabelas fiscais de 2026 — Irlanda (PAYE/USC/PRSI/pensão) e Brasil (INSS/IRRF/FGTS)
 │   ├── trips/                        # Roteiro de cada post de viagem: dias, atividades, custos, extras (um .yml por post)
 │   │   ├── londres-2026.yml          # Show do Alok em Londres — totais calculados
@@ -516,13 +517,15 @@ Uma calculadora é um include em `_includes/calculators/` que se basta: markup, 
 {% include calculators/net-salary-ie-br.html %}
 ```
 
-Todos os números — alíquotas, faixas, créditos, câmbio padrão — ficam em `_data/calculators/<nome>.yml`, junto com `tax_year`, `updated`, a lista `sources` (URL, o que cobre e a data em que foi conferido na tabela oficial) e os textos da interface por idioma do post (`labels.pt-BR` / `labels.en`). Virar o ano fiscal é editar esse arquivo; o JS só conhece a *forma* de uma tabela progressiva ou de uma tabela por faixa, nunca um valor. O include renderiza as mesmas tabelas em HTML dentro de um `<details>` (formatadas por `money`/`percent`) e entrega o arquivo inteiro ao script como JSON — com JavaScript desligado, o leitor vê as tabelas que a calculadora usaria; com ele ligado, o formulário aparece e o resultado é anunciado por `aria-live`. Ver [ADR-0015](docs/adr/0015-calculators-as-self-contained-includes-with-data-driven-rates.md).
+Todos os números — alíquotas, faixas, créditos, câmbio padrão — ficam em `_data/calculators/<nome>.yml`, junto com `tax_year`, `updated`, a lista `sources` (URL, o que cobre e a data em que foi conferido na tabela oficial) e os textos da interface por idioma do post (`labels.pt-BR` / `labels.en`). Uma tabela que mais de uma calculadora usa fica uma vez só em `_data/calculators/shared/<tema>.yml` (mesmo formato, sem `labels`), lida com `site.data.calculators.shared["<tema>"]` e entregue ao script num segundo bloco JSON — hoje é o caso da folha CLT do Brasil, que a calculadora Irlanda × Brasil, a CLT × PJ e as tabelas do próprio post de CLT × PJ leem de `shared/brazil-clt.yml`. Virar o ano fiscal é editar esses arquivos; o JS só conhece a *forma* de uma tabela progressiva ou de uma tabela por faixa, nunca um valor. O include renderiza as mesmas tabelas em HTML dentro de um `<details>` (formatadas por `money`/`percent`) e entrega os dados ao script como JSON — com JavaScript desligado, o leitor vê as tabelas que a calculadora usaria; com ele ligado, o formulário aparece e o resultado é anunciado por `aria-live`. Ver [ADR-0015](docs/adr/0015-calculators-as-self-contained-includes-with-data-driven-rates.md) e [ADR-0017](docs/adr/0017-shared-calculator-rate-tables-and-two-regime-comparisons.md).
 
 Regras ao escrever uma nova: nenhuma linha em branco na saída do include e nenhuma tag HTML dentro de string no JS (monte o DOM com `createElement`) — o kramdown fecha o bloco HTML numa linha em branco e conta tags para achar o fim do bloco. Aceita `id="..."` para embutir a mesma calculadora duas vezes na mesma página.
 
 | Calculadora | Include | Dados | O que faz |
 |---|---|---|---|
-| Salário líquido Irlanda × Brasil | `calculators/net-salary-ie-br.html` | `_data/calculators/net-salary-ie-br.yml` | PAYE, USC, PRSI e pensão de um lado; INSS, IRRF (com a redução da Lei 15.270/2025), 13º, férias e FGTS do outro; líquido mensal e anual nas duas moedas |
+| Salário líquido Irlanda × Brasil | `calculators/net-salary-ie-br.html` | `_data/calculators/net-salary-ie-br.yml` + `shared/brazil-clt.yml` | PAYE, USC, PRSI e pensão de um lado; INSS, IRRF (com a redução da Lei 15.270/2025), 13º, férias e FGTS do outro; líquido mensal e anual nas duas moedas |
+| CLT × PJ | `calculators/clt-vs-pj-br.html` | `_data/calculators/clt-vs-pj-br.yml` + `shared/brazil-clt.yml` | Pacote anual do CLT (líquido, benefícios, FGTS) contra a nota do PJ no Simples (DAS pelo Anexo III ou V conforme o Fator R, INSS e IRRF sobre o pró-labore, contador, taxas); a nota que empata, o custo do CLT para a empresa e a margem de negociação entre os dois |
+| Contrato × recibos verdes (Portugal) | `calculators/contrato-vs-recibos-verdes-pt.html` | `_data/calculators/contrato-vs-recibos-verdes-pt.yml` | Catorze pagamentos, Segurança Social a 11% e IRS por escalões de um lado; Segurança Social de independente (21,4% sobre 70%, teto, mínimo, isenção no 1º ano), IRS do regime simplificado (coeficiente, regra dos 15%, reduções dos dois primeiros anos) e contabilista do outro; o recibo que empata e o que a empresa paga em cada caso |
 
 ### Timeline de viagem
 

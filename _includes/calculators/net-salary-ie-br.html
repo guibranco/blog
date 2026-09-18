@@ -9,63 +9,27 @@ Params
   id   prefix for the form's element ids — optional; only needed to embed
        the calculator twice in the same Post
 
-Rates, bands, sources and UI copy come from _data/calculators/net-salary-ie-br.yml;
-copy is picked by the Post language. The rate tables are rendered here as
-plain HTML (the no-JavaScript fallback) and the same data is handed to the
-script as JSON. The output has no blank lines on purpose: the Post body is
-Markdown, and a blank line would let kramdown close the HTML block and parse
-the rest as text.
+Irish rates, sources and UI copy come from _data/calculators/net-salary-ie-br.yml;
+the Brazilian CLT tables come from _data/calculators/shared/brazil-clt.yml,
+which the CLT × PJ calculator reads too (ADR-0017). Copy is picked by the Post
+language. The rate tables are rendered here as plain HTML (the no-JavaScript
+fallback) and the same data is handed to the script as JSON. The output has
+no blank lines on purpose: the Post body is Markdown, and a blank line would
+let kramdown close the HTML block and parse the rest as text.
 {%- endcomment -%}
 {%- include resolve-lang.html -%}
 {%- assign _calc = site.data.calculators["net-salary-ie-br"] -%}
 {%- assign _lab = _calc.labels[_lang] | default: _calc.labels["pt-BR"] -%}
 {%- assign _id = include.id | default: "calc-net-salary" -%}
 {%- assign _ie = _calc.ireland -%}
-{%- assign _br = _calc.brazil -%}
-{%- assign _updated = _calc.updated | date: _t.date_short -%}
+{%- assign _br = site.data.calculators.shared["brazil-clt"] -%}
+{%- assign _updated_on = _calc.updated -%}
+{%- if _br.updated > _updated_on -%}{%- assign _updated_on = _br.updated -%}{%- endif -%}
+{%- assign _updated = _updated_on | date: _t.date_short -%}
+{%- assign _sources = _calc.sources | concat: _br.sources -%}
 {%- assign _fx_as_of = _calc.fx.as_of | date: _t.date_short -%}
 <div class="calc calc-net-salary" data-calc="net-salary-ie-br" data-lang="{{ _lang }}" data-id="{{ _id }}">
-<style>
-.calc { border: 1px solid var(--border); border-radius: 12px; background: var(--card-bg); padding: 1.4rem 1.5rem; margin: 2rem 0; font-size: .95rem; line-height: 1.5; }
-.calc [hidden] { display: none !important; }
-.calc-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-light); margin-bottom: .3rem; }
-.calc-title { font-family: 'Playfair Display', Georgia, serif; font-size: 1.35rem; font-weight: 700; color: var(--ink); line-height: 1.25; margin: 0 0 .5rem; }
-.calc-intro { color: var(--ink-muted); font-size: .92rem; margin: 0 0 1.1rem; }
-.calc-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; margin: 0 0 1.25rem; }
-.calc-fs { border: 1px solid var(--border); border-radius: 10px; padding: .6rem 1rem 1rem; min-width: 0; margin: 0; background: var(--surface); }
-.calc-fs legend { font-family: 'JetBrains Mono', monospace; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); padding: 0 .4rem; font-weight: 500; }
-.calc-field { display: flex; flex-direction: column; gap: .3rem; margin-top: .7rem; }
-.calc-field label { font-size: .84rem; font-weight: 600; color: var(--ink); line-height: 1.35; }
-.calc-field input, .calc-field select { width: 100%; min-width: 0; font: inherit; font-size: 1rem; padding: .5rem .65rem; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); color: var(--ink); }
-.calc-field input:focus-visible, .calc-field select:focus-visible, .calc-details summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.calc-hint { font-size: .76rem; color: var(--ink-light); line-height: 1.4; margin: 0; }
-.calc-error { color: var(--accent-warm); font-size: .85rem; margin: 0 0 .8rem; }
-.calc-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
-.calc-card { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; background: var(--surface); min-width: 0; }
-.calc-card-title { font-family: 'JetBrains Mono', monospace; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-light); margin: 0 0 .6rem; }
-.calc-headline { font-family: 'Playfair Display', Georgia, serif; font-size: 1.7rem; font-weight: 700; color: var(--accent); line-height: 1.1; margin: 0; }
-.calc-headline-label { font-size: .78rem; color: var(--ink-muted); margin: .6rem 0 .1rem; }
-.calc-sub { font-size: .78rem; color: var(--ink-light); margin: 0; font-family: 'JetBrains Mono', monospace; }
-.calc-table { width: 100%; border-collapse: collapse; font-size: .82rem; margin: .9rem 0 0; }
-.calc-table td { padding: .35rem 0; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--ink); }
-.calc-table td:last-child { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: .76rem; white-space: nowrap; padding-left: .6rem; }
-.calc-table tr.calc-total td { font-weight: 600; border-bottom: 0; }
-.calc-table tr.calc-muted td { color: var(--ink-light); }
-.calc-note { font-size: .76rem; color: var(--ink-light); margin: .5rem 0 0; }
-.calc-details { margin-top: 1.25rem; border-top: 1px solid var(--border); padding-top: .9rem; }
-.calc-details summary { cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 500; }
-.calc-details-intro { font-size: .84rem; color: var(--ink-muted); margin: .8rem 0 0; }
-.calc-static-title { font-family: 'JetBrains Mono', monospace; font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-light); margin: 1.1rem 0 .3rem; }
-.calc-static { width: 100%; border-collapse: collapse; font-size: .8rem; margin: 0; }
-.calc-static th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); padding: .35rem .5rem .35rem 0; border-bottom: 1px solid var(--border); font-weight: 500; }
-.calc-static td { padding: .35rem .5rem .35rem 0; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--ink); }
-.calc-static td:last-child, .calc-static th:last-child { text-align: right; white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: .74rem; padding-right: 0; }
-.calc-sources { font-size: .78rem; color: var(--ink-muted); padding-left: 1.1rem; margin: .4rem 0 0; }
-.calc-sources li { margin-bottom: .25rem; }
-.calc-sources a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
-.calc-disclaimer { font-size: .78rem; color: var(--ink-light); margin: 1rem 0 0; font-style: italic; }
-@media (max-width: 600px) { .calc { padding: 1.1rem 1rem; } .calc-headline { font-size: 1.5rem; } }
-</style>
+{% include calculators/shared/style.html -%}
 <p class="calc-eyebrow">{{ _lab.eyebrow | replace: "[year]", _calc.tax_year | replace: "[updated]", _updated }}</p>
 <p class="calc-title">{{ _lab.title }}</p>
 <p class="calc-intro">{{ _lab.intro }}</p>
@@ -132,34 +96,7 @@ the rest as text.
 {%- endfor %}
 <tr><td colspan="2">{{ _lab.ie_pension_note }}</td></tr>
 </tbody></table>
-<p class="calc-static-title">{{ _lab.br_inss_title }}</p>
-<table class="calc-static"><thead><tr><th>{{ _lab.table_band }}</th><th>{{ _lab.table_rate }}</th></tr></thead><tbody>
-{%- assign _lower = 0 -%}
-{%- for _b in _br.inss.bands %}
-<tr><td>{{ _lower | money: "BRL", _lang }} – {{ _b.up_to | money: "BRL", _lang }}</td><td>{{ _b.rate | percent: _lang }}</td></tr>
-{%- assign _lower = _b.up_to | plus: 0.01 -%}
-{%- endfor %}
-<tr><td>{{ _lab.br_inss_ceiling }}</td><td>{{ _br.inss.ceiling | money: "BRL", _lang }}</td></tr>
-</tbody></table>
-<p class="calc-static-title">{{ _lab.br_irrf_title }}</p>
-<table class="calc-static"><thead><tr><th>{{ _lab.table_band }}</th><th>{{ _lab.table_rate }}</th><th>{{ _lab.table_deduct }}</th></tr></thead><tbody>
-{%- assign _lower = 0 -%}
-{%- for _b in _br.irrf.bands %}
-<tr><td>{% if _b.up_to %}{{ _lower | money: "BRL", _lang }} – {{ _b.up_to | money: "BRL", _lang }}{% else %}&gt; {{ _lower | money: "BRL", _lang }}{% endif %}</td><td>{{ _b.rate | percent: _lang }}</td><td>{{ _b.deduct | money: "BRL", _lang }}</td></tr>
-{%- assign _lower = _b.up_to -%}
-{%- endfor %}
-<tr><td>{{ _lab.br_irrf_dependent }}</td><td colspan="2">{{ _br.irrf.dependent_deduction | money: "BRL", _lang }}</td></tr>
-<tr><td>{{ _lab.br_irrf_simplified }}</td><td colspan="2">{{ _br.irrf.simplified_discount | money: "BRL", _lang }}</td></tr>
-</tbody></table>
-<p class="calc-static-title">{{ _lab.br_reduction_title }}</p>
-<table class="calc-static"><thead><tr><th>{{ _lab.table_item }}</th><th>{{ _lab.table_value }}</th></tr></thead><tbody>
-<tr><td>{{ _lab.br_reduction_full }}</td><td>{{ _br.irrf.reduction.full_up_to | money: "BRL", _lang }}</td></tr>
-{%- assign _red_const = _br.irrf.reduction.constant | money: "BRL", _lang -%}
-{%- assign _red_factor = _br.irrf.reduction.factor | append: "" -%}
-{%- if _lang == "pt-BR" -%}{%- assign _red_factor = _red_factor | replace: ".", "," -%}{%- endif %}
-<tr><td>{{ _lab.br_reduction_partial | replace: "[constant]", _red_const | replace: "[factor]", _red_factor }}</td><td>{{ _br.irrf.reduction.partial_up_to | money: "BRL", _lang }}</td></tr>
-<tr><td colspan="2">{{ _lab.br_reduction_note }}</td></tr>
-</tbody></table>
+{% include calculators/shared/brazil-clt-tables.html -%}
 <p class="calc-static-title">{{ _lab.br_other_title }}</p>
 <table class="calc-static"><thead><tr><th>{{ _lab.table_item }}</th><th>{{ _lab.table_value }}</th></tr></thead><tbody>
 <tr><td>{{ _lab.br_fgts }}</td><td>{{ _br.fgts_rate | percent: _lang }}</td></tr>
@@ -168,7 +105,7 @@ the rest as text.
 </tbody></table>
 <p class="calc-static-title">{{ _lab.sources_title }}</p>
 <ol class="calc-sources">
-{%- for _s in _calc.sources -%}
+{%- for _s in _sources -%}
 {%- assign _s_date = _s.verified | date: _t.date_short %}
 <li><a href="{{ _s.url }}" target="_blank" rel="noopener">{{ _s.label }}</a> — {{ _s.covers }} ({{ _lab.verified_on | replace: "[date]", _s_date }})</li>
 {%- endfor %}
@@ -176,32 +113,16 @@ the rest as text.
 </details>
 <p class="calc-disclaimer">{{ _lab.disclaimer }}</p>
 <script type="application/json" data-calc-data>{{ _calc | jsonify }}</script>
+<script type="application/json" data-calc-shared>{{ _br | jsonify }}</script>
 <script>
 (function () {
   'use strict';
   var NS = window.BlogCalculators = window.BlogCalculators || {};
-  // ── Pure functions (also exposed for tests) ────────────────────────────
-  function bandTop(band) { return band.up_to == null ? Infinity : Number(band.up_to); }
-  // Progressive charge: each slice of `amount` inside a band pays that band's rate.
-  function progressive(amount, bands) {
-    var total = 0, lower = 0;
-    for (const band of bands) {
-      var top = bandTop(band);
-      if (amount > lower) total += (Math.min(amount, top) - lower) * Number(band.rate);
-      if (amount <= top) break;
-      lower = top;
-    }
-    return total;
-  }
-  // Bracket table (IRRF style): whole base × the band's rate, minus the band's deduction.
-  function bracket(base, bands) {
-    for (var i = 0; i < bands.length; i++) {
-      if (base <= bandTop(bands[i]) || i === bands.length - 1) {
-        return Math.max(0, base * Number(bands[i].rate) - Number(bands[i].deduct || 0));
-      }
-    }
-    return 0;
-  }
+  {%- capture _lib -%}{%- include calculators/shared/lib.js -%}{%- endcapture %}
+  {{ _lib | strip }}
+  {%- capture _lib -%}{%- include calculators/shared/brazil-clt.js -%}{%- endcapture %}
+  {{ _lib | strip }}
+  // ── Ireland × Brazil (also exposed for tests) ────────────────────────
   function dayCount(from, to) {
     var a = new Date(String(from).slice(0, 10) + 'T00:00:00Z');
     var b = new Date(String(to).slice(0, 10) + 'T00:00:00Z');
@@ -245,19 +166,6 @@ the rest as text.
       paye: paye, usc: usc, prsi: prsi, prsiRate: prsiRate, net: net, netMonthly: net / 12,
       deductions: gross - net, effectiveRate: gross > 0 ? (gross - net) / gross : 0 };
   }
-  function inss(gross, br) { return progressive(Math.min(gross, br.inss.ceiling), br.inss.bands); }
-  // One Brazilian payslip: INSS, then IRRF on gross less the larger of the legal deductions or the simplified discount, then the 2026 reduction.
-  function payslip(gross, dependents, br) {
-    var i = inss(gross, br);
-    var legal = i + dependents * br.irrf.dependent_deduction;
-    var deduction = Math.max(legal, br.irrf.simplified_discount);
-    var base = Math.max(0, gross - deduction);
-    var tax = bracket(base, br.irrf.bands);
-    var r = br.irrf.reduction, reduction = 0;
-    if (gross <= r.full_up_to) reduction = tax;
-    else if (gross <= r.partial_up_to) reduction = Math.min(tax, Math.max(0, r.constant - r.factor * gross));
-    return { gross: gross, inss: i, base: base, taxBefore: tax, reduction: reduction, irrf: tax - reduction, net: gross - i - (tax - reduction) };
-  }
   // Brazil: a regular month, plus the year (11 regular months, the holiday month with its third, the 13th taxed on its own).
   function brazil(inp, data) {
     var br = data.brazil, g = inp.gross, d = inp.dependents;
@@ -266,7 +174,7 @@ the rest as text.
     var thirteenth = br.thirteenth_salary ? payslip(g, d, br) : { gross: 0, net: 0 };
     var annualGross = g * 11 + holiday.gross + thirteenth.gross;
     var netAnnual = month.net * 11 + holiday.net + thirteenth.net;
-    return { gross: g, inss: month.inss, irrf: month.irrf, irrfBefore: month.taxBefore, reduction: month.reduction,
+    return { gross: g, inss: month.inss, irrf: month.irrf, irrfBefore: month.irrfBefore, reduction: month.reduction,
       netMonthly: month.net, netThirteenth: thirteenth.net, holidayExtraNet: holiday.net - month.net,
       annualGross: annualGross, netAnnual: netAnnual, netMonthlyAvg: netAnnual / 12,
       fgtsMonthly: g * br.fgts_rate, fgtsAnnual: annualGross * br.fgts_rate,
@@ -275,42 +183,12 @@ the rest as text.
   NS.netSalaryIeBr = { progressive: progressive, bracket: bracket, blendedRate: blendedRate, ireland: ireland, brazil: brazil, payslip: payslip };
   // ── DOM ────────────────────────────────────────────────────────────────
   if (typeof document === 'undefined') return;
-  var LOCALES = { 'pt-BR': 'pt-BR', 'en': 'en-IE' };
-  function el(tag, cls, text) {
-    var node = document.createElement(tag);
-    if (cls) node.className = cls;
-    if (text != null) node.textContent = text;
-    return node;
-  }
-  function row(table, label, value, cls) {
-    var tr = el('tr', cls);
-    tr.appendChild(el('td', null, label));
-    tr.appendChild(el('td', null, value));
-    table.appendChild(tr);
-  }
   function init(root) {
-    root.dataset.calcInit = '';
-    var data = JSON.parse(root.querySelector('[data-calc-data]').textContent);
-    var lang = root.dataset.lang || 'pt-BR';
-    var L = data.labels[lang] || data.labels['pt-BR'];
-    var locale = LOCALES[lang] || lang;
-    var form = root.querySelector('.calc-form');
-    var results = root.querySelector('.calc-results');
-    var error = root.querySelector('.calc-error');
-    var fmt = {};
-    function money(value, currency, decimals) {
-      var key = currency + decimals;
-      if (!fmt[key]) fmt[key] = new Intl.NumberFormat(locale, { style: 'currency', currency: currency, minimumFractionDigits: decimals, maximumFractionDigits: decimals });
-      return fmt[key].format(value);
-    }
-    function pct(value, digits) { return new Intl.NumberFormat(locale, { style: 'percent', maximumFractionDigits: digits == null ? 1 : digits }).format(value); }
-    function field(name) { return form.elements[name]; }
-    function num(name) { var v = Number.parseFloat(field(name).value); return Number.isFinite(v) ? v : Number.NaN; }
-    function headline(card, label, value, other) {
-      card.appendChild(el('p', 'calc-headline-label', label));
-      card.appendChild(el('p', 'calc-headline', value));
-      card.appendChild(el('p', 'calc-sub', L.in_other_currency.replace('[value]', other)));
-    }
+    var ui = setup(root), data = ui.data, L = ui.labels, money = ui.fmt.money, pct = ui.fmt.pct;
+    var field = ui.field, num = ui.num, results = ui.results, error = ui.error;
+    data.brazil = JSON.parse(root.querySelector('[data-calc-shared]').textContent);
+    // A headline whose sub-line is the same amount in the other currency.
+    function priced(card, label, value, other) { headline(card, label, value, L.in_other_currency.replace('[value]', other)); }
     function render() {
       var ieGross = num('ie-gross'), pension = num('ie-pension'), brGross = num('br-gross'), deps = num('br-dependents'), fx = num('fx');
       var ok = [ieGross, pension, brGross, deps, fx].every(function (v) { return Number.isFinite(v) && v >= 0; }) && fx > 0;
@@ -321,8 +199,8 @@ the rest as text.
       results.textContent = '';
       var ieCard = el('section', 'calc-card');
       ieCard.appendChild(el('p', 'calc-card-title', L.ireland));
-      headline(ieCard, L.net_monthly, money(ie.netMonthly, 'EUR', 0), money(ie.netMonthly * fx, 'BRL', 0));
-      headline(ieCard, L.net_annual, money(ie.net, 'EUR', 0), money(ie.net * fx, 'BRL', 0));
+      priced(ieCard,L.net_monthly, money(ie.netMonthly, 'EUR', 0), money(ie.netMonthly * fx, 'BRL', 0));
+      priced(ieCard,L.net_annual, money(ie.net, 'EUR', 0), money(ie.net * fx, 'BRL', 0));
       var t1 = el('table', 'calc-table');
       row(t1, L.gross, money(ie.gross, 'EUR', 2));
       row(t1, L.paye, '− ' + money(ie.paye, 'EUR', 2));
@@ -336,9 +214,9 @@ the rest as text.
       results.appendChild(ieCard);
       var brCard = el('section', 'calc-card');
       brCard.appendChild(el('p', 'calc-card-title', L.brazil));
-      headline(brCard, L.net_monthly + ' — ' + L.net_monthly_hint_br, money(br.netMonthly, 'BRL', 0), money(br.netMonthly / fx, 'EUR', 0));
-      headline(brCard, L.net_monthly_avg + ' — ' + L.net_monthly_avg_hint_br, money(br.netMonthlyAvg, 'BRL', 0), money(br.netMonthlyAvg / fx, 'EUR', 0));
-      headline(brCard, L.net_annual, money(br.netAnnual, 'BRL', 0), money(br.netAnnual / fx, 'EUR', 0));
+      priced(brCard,L.net_monthly + ' — ' + L.net_monthly_hint_br, money(br.netMonthly, 'BRL', 0), money(br.netMonthly / fx, 'EUR', 0));
+      priced(brCard,L.net_monthly_avg + ' — ' + L.net_monthly_avg_hint_br, money(br.netMonthlyAvg, 'BRL', 0), money(br.netMonthlyAvg / fx, 'EUR', 0));
+      priced(brCard,L.net_annual, money(br.netAnnual, 'BRL', 0), money(br.netAnnual / fx, 'EUR', 0));
       var t2 = el('table', 'calc-table');
       row(t2, L.gross, money(br.gross, 'BRL', 2));
       row(t2, L.inss, '− ' + money(br.inss, 'BRL', 2));
@@ -354,10 +232,7 @@ the rest as text.
       brCard.appendChild(t2);
       results.appendChild(brCard);
     }
-    form.addEventListener('input', render);
-    form.addEventListener('submit', function (e) { e.preventDefault(); render(); });
-    form.hidden = false;
-    render();
+    start(ui, render);
   }
   for (const root of document.querySelectorAll('[data-calc="net-salary-ie-br"]:not([data-calc-init])')) init(root);
 })();

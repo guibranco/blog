@@ -1,0 +1,254 @@
+{%- comment -%}
+calculators/clt-vs-pj-br.html — CLT salary vs PJ invoice, both in Brazil.
+A Calculator (ADR-0015): one include, everything self-contained.
+
+  {% include calculators/clt-vs-pj-br.html %}
+  {% include calculators/clt-vs-pj-br.html id="calc-b" %}   (second copy on one page)
+
+Params
+  id   prefix for the form's element ids — optional; only needed to embed
+       the calculator twice in the same Post
+
+The Simples Nacional annexes, the pró-labore rules, the employer-cost premises,
+sources and UI copy come from _data/calculators/clt-vs-pj-br.yml; the CLT
+payslip tables (INSS, IRRF, the Lei 15.270 reduction, FGTS, 13º, férias) come
+from _data/calculators/shared/brazil-clt.yml, which the Ireland × Brazil
+calculator reads too (ADR-0017). The stylesheet, the JavaScript helpers, the
+CLT payslip functions and the CLT static tables are the partials under
+calculators/shared/, inlined here at build time. Copy is picked by the Post
+language. The rate tables are rendered as plain HTML (the no-JavaScript
+fallback) and the same data is handed to the script as JSON. The output has
+no blank lines on purpose: the Post body is Markdown, and a blank line would
+let kramdown close the HTML block and parse the rest as text.
+{%- endcomment -%}
+{%- include resolve-lang.html -%}
+{%- assign _calc = site.data.calculators["clt-vs-pj-br"] -%}
+{%- assign _br = site.data.calculators.shared["brazil-clt"] -%}
+{%- assign _lab = _calc.labels[_lang] | default: _calc.labels["pt-BR"] -%}
+{%- assign _id = include.id | default: "calc-clt-pj" -%}
+{%- assign _pj = _calc.pj -%}
+{%- assign _emp = _calc.employer -%}
+{%- assign _updated_on = _calc.updated -%}
+{%- if _br.updated > _updated_on -%}{%- assign _updated_on = _br.updated -%}{%- endif -%}
+{%- assign _updated = _updated_on | date: _t.date_short -%}
+{%- assign _sources = _calc.sources | concat: _br.sources -%}
+{%- assign _thr = _pj.simples.fator_r_threshold | percent: _lang -%}
+<div class="calc calc-clt-pj" data-calc="clt-vs-pj-br" data-lang="{{ _lang }}" data-id="{{ _id }}">
+{% include calculators/shared/style.html -%}
+<p class="calc-eyebrow">{{ _lab.eyebrow | replace: "[year]", _br.tax_year | replace: "[updated]", _updated }}</p>
+<p class="calc-title">{{ _lab.title }}</p>
+<p class="calc-intro">{{ _lab.intro }}</p>
+<form class="calc-form" hidden novalidate autocomplete="off">
+<fieldset class="calc-fs">
+<legend>{{ _lab.clt }}</legend>
+<div class="calc-field"><label for="{{ _id }}-clt-gross">{{ _lab.clt_gross }}</label><input id="{{ _id }}-clt-gross" name="clt-gross" type="number" inputmode="decimal" min="0" step="100" value="12000"></div>
+<div class="calc-field"><label for="{{ _id }}-dependents">{{ _lab.dependents }}</label><input id="{{ _id }}-dependents" name="dependents" type="number" inputmode="numeric" min="0" max="20" step="1" value="0" aria-describedby="{{ _id }}-dependents-hint"><p class="calc-hint" id="{{ _id }}-dependents-hint">{{ _lab.dependents_hint }}</p></div>
+<div class="calc-field"><label for="{{ _id }}-meal">{{ _lab.meal_voucher }}</label><input id="{{ _id }}-meal" name="meal" type="number" inputmode="decimal" min="0" step="50" value="1100"></div>
+<div class="calc-field"><label for="{{ _id }}-health">{{ _lab.health_plan }}</label><input id="{{ _id }}-health" name="health" type="number" inputmode="decimal" min="0" step="50" value="600" aria-describedby="{{ _id }}-benefits-hint"><p class="calc-hint" id="{{ _id }}-benefits-hint">{{ _lab.benefits_hint }}</p></div>
+</fieldset>
+<fieldset class="calc-fs">
+<legend>{{ _lab.pj }}</legend>
+<div class="calc-field"><label for="{{ _id }}-pj-invoice">{{ _lab.pj_invoice }}</label><input id="{{ _id }}-pj-invoice" name="pj-invoice" type="number" inputmode="decimal" min="0" step="100" value="15000"></div>
+<div class="calc-field"><label for="{{ _id }}-prolabore">{{ _lab.prolabore_pct }}</label><input id="{{ _id }}-prolabore" name="prolabore" type="number" inputmode="decimal" min="0" max="100" step="1" value="28" aria-describedby="{{ _id }}-prolabore-hint"><p class="calc-hint" id="{{ _id }}-prolabore-hint">{{ _lab.prolabore_hint | replace: "[threshold]", _thr }}</p></div>
+<div class="calc-field"><label for="{{ _id }}-accountant">{{ _lab.accountant }}</label><input id="{{ _id }}-accountant" name="accountant" type="number" inputmode="decimal" min="0" step="10" value="250"></div>
+<div class="calc-field"><label for="{{ _id }}-fees">{{ _lab.fees }}</label><input id="{{ _id }}-fees" name="fees" type="number" inputmode="decimal" min="0" step="10" value="30"></div>
+<div class="calc-field"><label for="{{ _id }}-months">{{ _lab.months }}</label><select id="{{ _id }}-months" name="months"><option value="12">{{ _lab.months_12 }}</option><option value="11">{{ _lab.months_11 }}</option></select></div>
+</fieldset>
+</form>
+<p class="calc-error" role="alert" hidden></p>
+<div class="calc-results" aria-live="polite" aria-atomic="true"></div>
+<noscript><p class="calc-note">{{ _lab.noscript }}</p></noscript>
+<details class="calc-details">
+<summary>{{ _lab.assumptions_summary }}</summary>
+<p class="calc-details-intro">{{ _lab.assumptions_intro | replace: "[year]", _br.tax_year }}</p>
+{% include calculators/shared/brazil-clt-tables.html -%}
+<p class="calc-static-title">{{ _lab.simples_iii_title | replace: "[threshold]", _thr }}</p>
+<table class="calc-static"><thead><tr><th>{{ _lab.simples_band }}</th><th>{{ _lab.table_rate }}</th><th>{{ _lab.table_deduct }}</th></tr></thead><tbody>
+{%- assign _lower = 0 -%}
+{%- for _b in _pj.simples.annexes.iii.bands %}
+<tr><td>{{ _lower | money: "BRL", _lang }} – {{ _b.up_to | money: "BRL", _lang }}</td><td>{{ _b.rate | percent: _lang }}</td><td>{{ _b.deduct | money: "BRL", _lang }}</td></tr>
+{%- assign _lower = _b.up_to | plus: 0.01 -%}
+{%- endfor %}
+<tr><td colspan="3">{{ _lab.simples_note }}</td></tr>
+</tbody></table>
+<p class="calc-static-title">{{ _lab.simples_v_title | replace: "[threshold]", _thr }}</p>
+<table class="calc-static"><thead><tr><th>{{ _lab.simples_band }}</th><th>{{ _lab.table_rate }}</th><th>{{ _lab.table_deduct }}</th></tr></thead><tbody>
+{%- assign _lower = 0 -%}
+{%- for _b in _pj.simples.annexes.v.bands %}
+<tr><td>{{ _lower | money: "BRL", _lang }} – {{ _b.up_to | money: "BRL", _lang }}</td><td>{{ _b.rate | percent: _lang }}</td><td>{{ _b.deduct | money: "BRL", _lang }}</td></tr>
+{%- assign _lower = _b.up_to | plus: 0.01 -%}
+{%- endfor %}
+</tbody></table>
+<p class="calc-static-title">{{ _lab.prolabore_title }}</p>
+<table class="calc-static"><thead><tr><th>{{ _lab.table_item }}</th><th>{{ _lab.table_value }}</th></tr></thead><tbody>
+<tr><td>{{ _lab.prolabore_inss }}</td><td>{{ _pj.prolabore.inss_rate | percent: _lang }}</td></tr>
+<tr><td>{{ _lab.prolabore_floor }}</td><td>{{ _br.minimum_wage | money: "BRL", _lang }}</td></tr>
+</tbody></table>
+<p class="calc-static-title">{{ _lab.employer_title }}</p>
+<table class="calc-static"><thead><tr><th>{{ _lab.table_item }}</th><th>{{ _lab.table_value }}</th></tr></thead><tbody>
+<tr><td>{{ _lab.employer_charges }}</td><td>{{ _emp.charges_rate | percent: _lang }}</td></tr>
+<tr><td>{{ _lab.employer_fgts }}</td><td>{{ _br.fgts_rate | percent: _lang }}</td></tr>
+<tr><td>{{ _lab.employer_fine }}</td><td>{{ _emp.fgts_fine_rate | percent: _lang }}</td></tr>
+<tr><td colspan="2">{{ _lab.employer_note }}</td></tr>
+</tbody></table>
+<p class="calc-static-title">{{ _lab.br_other_title }}</p>
+<table class="calc-static"><thead><tr><th>{{ _lab.table_item }}</th><th>{{ _lab.table_value }}</th></tr></thead><tbody>
+<tr><td>{{ _lab.br_fgts }}</td><td>{{ _br.fgts_rate | percent: _lang }}</td></tr>
+<tr><td>{{ _lab.br_thirteenth }}</td><td>{{ _lab.br_thirteenth_value }}</td></tr>
+<tr><td>{{ _lab.br_vacation }}</td><td>{{ _lab.br_vacation_value }}</td></tr>
+</tbody></table>
+<p class="calc-static-title">{{ _lab.sources_title }}</p>
+<ol class="calc-sources">
+{%- for _s in _sources -%}
+{%- assign _s_date = _s.verified | date: _t.date_short %}
+<li><a href="{{ _s.url }}" target="_blank" rel="noopener">{{ _s.label }}</a> — {{ _s.covers }} ({{ _lab.verified_on | replace: "[date]", _s_date }})</li>
+{%- endfor %}
+</ol>
+</details>
+<p class="calc-disclaimer">{{ _lab.disclaimer }}</p>
+<script type="application/json" data-calc-data>{{ _calc | jsonify }}</script>
+<script type="application/json" data-calc-shared>{{ _br | jsonify }}</script>
+<script>
+(function () {
+  'use strict';
+  var NS = window.BlogCalculators = window.BlogCalculators || {};
+  {%- capture _lib -%}{%- include calculators/shared/lib.js -%}{%- endcapture %}
+  {{ _lib | strip }}
+  {%- capture _lib -%}{%- include calculators/shared/brazil-clt.js -%}{%- endcapture %}
+  {{ _lib | strip }}
+  // ── CLT × PJ (also exposed for tests) ────────────────────────────────
+  // CLT: a regular month; the year as 11 regular months, the holiday month with its third and the 13th
+  // taxed on its own; benefits and FGTS on top; and what the same salary costs the employer, with the
+  // monthly provisions for the 13th and the holiday month carrying the same charges.
+  function clt(inp, data) {
+    var br = data.brazil, emp = data.employer, g = inp.gross, d = inp.dependents;
+    var month = payslip(g, d, br);
+    var holiday = payslip(g * (1 + br.vacation_bonus), d, br);
+    var thirteenth = br.thirteenth_salary ? payslip(g, d, br) : { gross: 0, net: 0 };
+    var annualGross = g * 11 + holiday.gross + thirteenth.gross;
+    var netAnnual = month.net * 11 + holiday.net + thirteenth.net;
+    var benefitsAnnual = (inp.mealVoucher + inp.healthPlan) * 12;
+    var fgtsAnnual = annualGross * br.fgts_rate;
+    var packageAnnual = netAnnual + benefitsAnnual + fgtsAnnual;
+    var provisionBase = g + thirteenth.gross / 12 + holiday.gross / 12;
+    var employerMonthly = provisionBase * (1 + emp.charges_rate + br.fgts_rate * (1 + emp.fgts_fine_rate)) + inp.mealVoucher + inp.healthPlan;
+    return { gross: g, inss: month.inss, irrf: month.irrf, reduction: month.reduction, netMonthly: month.net,
+      effectiveRate: g > 0 ? (g - month.net) / g : 0,
+      netThirteenth: thirteenth.net, holidayExtraNet: holiday.net - month.net,
+      netAnnual: netAnnual, benefitsAnnual: benefitsAnnual, fgtsAnnual: fgtsAnnual, packageAnnual: packageAnnual,
+      extrasAnnual: packageAnnual - month.net * 12,
+      employerMonthly: employerMonthly, employerTimes: g > 0 ? employerMonthly / g : 0 };
+  }
+  // Simples Nacional effective rate for the revenue of the last twelve months: (RBT12 × rate − deduction) ÷ RBT12.
+  function simplesRate(rbt12, bands) {
+    var band = bands[bands.length - 1];
+    for (const b of bands) { if (rbt12 <= bandTop(b)) { band = b; break; } }
+    return rbt12 > 0 ? (rbt12 * Number(band.rate) - Number(band.deduct || 0)) / rbt12 : Number(bands[0].rate);
+  }
+  // PJ: one invoice a month under the Simples — the DAS by the annex the Fator R selects, the partner's INSS
+  // and IRRF on the pró-labore, accountant and fees — and the year as `months` invoices.
+  function pj(inp, data) {
+    var br = data.brazil, s = data.pj.simples, pl = data.pj.prolabore;
+    var invoice = inp.invoice, months = inp.months;
+    var rbt12 = invoice * months;
+    var prolabore = Math.max(invoice * inp.prolaborePct / 100, br.minimum_wage);
+    var fatorR = invoice > 0 ? prolabore / invoice : 1;
+    // The tolerance keeps 28% typed in the form from rounding to just under the threshold.
+    var annex = s.annexes[fatorR + 1e-9 >= s.fator_r_threshold ? 'iii' : 'v'];
+    var ceiling = bandTop(annex.bands[annex.bands.length - 1]);
+    var dasRate = simplesRate(Math.min(rbt12, ceiling), annex.bands);
+    var das = invoice * dasRate;
+    var inssPl = Math.min(prolabore, br.inss.ceiling) * pl.inss_rate;
+    var t = irrf(prolabore, inssPl, inp.dependents, br);
+    var available = invoice - das - inssPl - t.tax - inp.accountant - inp.fees;
+    return { invoice: invoice, months: months, rbt12: rbt12, overCeiling: rbt12 > ceiling, prolabore: prolabore, fatorR: fatorR,
+      annex: annex.label, dasRate: dasRate, das: das, inssProlabore: inssPl, irrfProlabore: t.tax, reduction: t.reduction,
+      accountant: inp.accountant, fees: inp.fees, available: available, availableAnnual: available * months,
+      burden: invoice > 0 ? (invoice - available) / invoice : 0 };
+  }
+  // The monthly invoice at which the PJ's year equals the CLT's package (the year grows with the invoice).
+  function breakEven(packageAnnual, inp, data) {
+    var hi = Math.max(packageAnnual / inp.months, 1) * 4 + data.brazil.minimum_wage * 12;
+    return solve(function (i) { return pj(i, data).availableAnnual; }, inp, 'invoice', packageAnnual, hi);
+  }
+  NS.cltVsPjBr = { progressive: progressive, bracket: bracket, irrf: irrf, payslip: payslip, clt: clt, pj: pj, simplesRate: simplesRate, breakEven: breakEven };
+  // ── DOM ────────────────────────────────────────────────────────────────
+  if (typeof document === 'undefined') return;
+  function init(root) {
+    var ui = setup(root), data = ui.data, L = ui.labels, F = ui.fmt;
+    data.brazil = JSON.parse(root.querySelector('[data-calc-shared]').textContent);
+    function money(value, decimals) { return F.money(value, 'BRL', decimals); }
+    function render() {
+      var g = ui.num('clt-gross'), deps = ui.num('dependents'), meal = ui.num('meal'), health = ui.num('health');
+      var invoice = ui.num('pj-invoice'), plPct = ui.num('prolabore'), acct = ui.num('accountant'), fees = ui.num('fees');
+      var months = Number(ui.field('months').value);
+      var ok = [g, deps, meal, health, invoice, plPct, acct, fees].every(function (v) { return Number.isFinite(v) && v >= 0; }) && plPct <= 100;
+      ui.error.hidden = ok;
+      if (!ok) { ui.error.textContent = L.invalid; return; }
+      var pjInp = { invoice: invoice, prolaborePct: plPct, accountant: acct, fees: fees, months: months, dependents: Math.floor(deps) };
+      var c = clt({ gross: g, dependents: Math.floor(deps), mealVoucher: meal, healthPlan: health }, data);
+      var p = pj(pjInp, data);
+      var even = breakEven(c.packageAnnual, pjInp, data);
+      var freeAnnual = p.availableAnnual - c.extrasAnnual;
+      var diff = p.availableAnnual - c.packageAnnual;
+      ui.results.textContent = '';
+      var vCard = el('section', 'calc-card calc-verdict');
+      vCard.appendChild(el('p', 'calc-card-title', L.verdict));
+      headline(vCard, L.break_even, money(even, 0), g > 0 ? L.times_gross.replace('[times]', F.times(even / g)) : null);
+      var t0 = el('table', 'calc-table');
+      var diffText = L.diff_tie;
+      if (diff >= 1) diffText = L.diff_pj_ahead.replace('[value]', money(diff, 0));
+      else if (diff <= -1) diffText = L.diff_clt_ahead.replace('[value]', money(-diff, 0));
+      row(t0, L.diff_row, diffText);
+      row(t0, L.employer_row, L.employer_times.replace('[value]', money(c.employerMonthly, 0)).replace('[times]', F.times(c.employerTimes)));
+      if (g > 0) row(t0, L.margin_row, L.margin_value.replace('[low]', F.times(even / g)).replace('[high]', F.times(c.employerTimes)));
+      vCard.appendChild(t0);
+      ui.results.appendChild(vCard);
+      var cCard = el('section', 'calc-card');
+      cCard.appendChild(el('p', 'calc-card-title', L.clt));
+      headline(cCard, L.net_monthly, money(c.netMonthly, 0), L.net_monthly_hint);
+      headline(cCard, L.package_annual, money(c.packageAnnual, 0), L.package_hint);
+      var t1 = el('table', 'calc-table');
+      row(t1, L.gross, money(c.gross, 2));
+      row(t1, L.inss, '− ' + money(c.inss, 2));
+      row(t1, L.irrf, '− ' + money(c.irrf, 2));
+      if (c.reduction > 0) row(t1, L.irrf_reduction, '+ ' + money(c.reduction, 2), 'calc-muted');
+      row(t1, L.net_monthly, money(c.netMonthly, 2), 'calc-total');
+      row(t1, L.effective_rate, F.pct(c.effectiveRate), 'calc-muted');
+      row(t1, L.thirteenth, money(c.netThirteenth, 2));
+      row(t1, L.vacation_bonus, money(c.holidayExtraNet, 2));
+      row(t1, L.benefits_annual, money(c.benefitsAnnual, 2));
+      row(t1, L.fgts, money(c.fgtsAnnual, 2));
+      row(t1, L.package_annual, money(c.packageAnnual, 2), 'calc-total');
+      row(t1, L.employer_cost, money(c.employerMonthly, 2) + ' (' + F.times(c.employerTimes) + ')', 'calc-muted');
+      cCard.appendChild(t1);
+      ui.results.appendChild(cCard);
+      var pCard = el('section', 'calc-card');
+      pCard.appendChild(el('p', 'calc-card-title', L.pj));
+      headline(pCard, L.free_monthly, money(freeAnnual / 12, 0), L.free_monthly_hint);
+      headline(pCard, L.available_annual, money(p.availableAnnual, 0), L.available_annual_hint.replace('[months]', String(months)));
+      var t2 = el('table', 'calc-table');
+      row(t2, L.invoice, money(p.invoice, 2));
+      row(t2, L.das.replace('[annex]', p.annex).replace('[rate]', F.pct(p.dasRate, 2)), '− ' + money(p.das, 2));
+      row(t2, L.prolabore.replace('[fator]', F.pct(p.fatorR, 0)), money(p.prolabore, 2), 'calc-muted');
+      row(t2, L.inss_prolabore, '− ' + money(p.inssProlabore, 2));
+      row(t2, L.irrf_prolabore, '− ' + money(p.irrfProlabore, 2));
+      if (p.reduction > 0) row(t2, L.irrf_reduction, '+ ' + money(p.reduction, 2), 'calc-muted');
+      row(t2, L.accountant_row, '− ' + money(p.accountant, 2));
+      row(t2, L.fees_row, '− ' + money(p.fees, 2));
+      row(t2, L.available_monthly, money(p.available, 2), 'calc-total');
+      row(t2, L.burden, F.pct(p.burden), 'calc-muted');
+      row(t2, L.available_annual + ' — ' + L.available_annual_hint.replace('[months]', String(months)), money(p.availableAnnual, 2), 'calc-total');
+      row(t2, L.reserve, '− ' + money(c.extrasAnnual, 2));
+      row(t2, L.free_annual, money(freeAnnual, 2), 'calc-total');
+      row(t2, L.free_monthly_row, money(freeAnnual / 12, 2), 'calc-total');
+      pCard.appendChild(t2);
+      if (p.overCeiling) pCard.appendChild(el('p', 'calc-note', L.over_ceiling));
+      ui.results.appendChild(pCard);
+    }
+    start(ui, render);
+  }
+  for (const root of document.querySelectorAll('[data-calc="clt-vs-pj-br"]:not([data-calc-init])')) init(root);
+})();
+</script>
+</div>

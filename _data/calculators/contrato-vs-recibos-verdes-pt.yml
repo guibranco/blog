@@ -1,0 +1,291 @@
+# Rates and bands for _includes/calculators/contrato-vs-recibos-verdes-pt.html
+# (ADR-0015): net income in Portugal under an employment contract (categoria A)
+# and under recibos verdes (trabalhador independente, categoria B, regime
+# simplificado). A new tax year is a data edit, not a logic edit: bump
+# `tax_year`, update the numbers, refresh `sources[].verified`.
+#
+# Money is in EUR; rates are fractions (0.11 = 11%). Progressive bands are
+# listed bottom-up with `up_to` as the top of the band (null = no upper limit)
+# and the script charges each slice at its own rate — the "parcela a abater"
+# of the official table is the same thing written the other way round.
+
+tax_year: 2026
+updated: 2026-09-18
+
+currency: EUR
+# Indexante dos Apoios Sociais — Portaria n.º 480-A/2025/1.
+ias: 537.13
+
+irs:
+  # Art. 68.º CIRS, redação da Lei n.º 73-A/2025 (OE 2026): rendimento
+  # coletável, taxa normal.
+  brackets:
+    - { up_to: 8342,  rate: 0.125 }
+    - { up_to: 12587, rate: 0.157 }
+    - { up_to: 17838, rate: 0.212 }
+    - { up_to: 23089, rate: 0.241 }
+    - { up_to: 29397, rate: 0.311 }
+    - { up_to: 43090, rate: 0.349 }
+    - { up_to: 46566, rate: 0.431 }
+    - { up_to: 86634, rate: 0.446 }
+    - { up_to: null,  rate: 0.48 }
+  # Art. 68.º-A: taxa adicional de solidariedade on the rendimento coletável.
+  solidarity:
+    - { up_to: 80000,  rate: 0 }
+    - { up_to: 250000, rate: 0.025 }
+    - { up_to: null,   rate: 0.05 }
+  # Art. 25.º n.º 1 a): dedução específica da categoria A = 8,54 × IAS, or the
+  # mandatory social contributions when they are higher (n.º 2). The same
+  # amount is the floor of the 15% rule for the regime simplificado.
+  specific_deduction_ias: 8.54
+
+employee:
+  # Subsídio de férias and subsídio de Natal: fourteen payments a year.
+  payments: 14
+  # Segurança Social, regime geral: worker and employer shares, no ceiling.
+  ss_rate: 0.11
+  employer_ss_rate: 0.2375
+
+independent:
+  # Segurança Social dos trabalhadores independentes: the rate applies to the
+  # relevant income — a share of the services invoiced, declared quarterly —
+  # with the average monthly relevant income capped at `ss_monthly_cap_ias` ×
+  # IAS and a minimum monthly contribution. The first twelve months of a first
+  # activity are exempt.
+  ss_rate: 0.214
+  ss_relevant_share: 0.70
+  ss_monthly_cap_ias: 12
+  ss_monthly_minimum: 20
+  # Art. 31.º CIRS, regime simplificado: coefficient for the professions in the
+  # art. 151.º table (programadores, analistas, consultores...), reduced by 50%
+  # in the year the activity starts and by 25% in the following one (n.º 10,
+  # when there is no category A or H income).
+  coefficient: 0.75
+  activity_years:
+    - { year: 1, coefficient_reduction: 0.50, ss_exempt: true }
+    - { year: 2, coefficient_reduction: 0.25, ss_exempt: false }
+    - { year: 3, coefficient_reduction: 0,    ss_exempt: false }
+  # Art. 31.º n.º 13: the positive difference between this share of the gross
+  # and the justified expenses (the dedução específica or the social
+  # contributions when higher, plus the activity's invoiced expenses) is added
+  # to the taxable income.
+  expense_floor_share: 0.15
+  # Art. 31.º n.º 2: social contributions above this share of the gross are
+  # deductible from the taxable income.
+  ss_deductible_over_share: 0.10
+  # Art. 101.º n.º 1: withholding on each receipt when the client keeps
+  # organised accounts — an advance on the annual IRS, not an extra tax —
+  # which can be waived while the year's forecast stays under the CIVA
+  # art. 53.º threshold (art. 101.º-B).
+  withholding_rate: 0.23
+  withholding_dispensed_up_to: 15000
+  # IVA charged on top of the receipt and handed to the state; the art. 53.º
+  # exemption covers the first year and turnovers under the threshold.
+  iva_rate: 0.23
+  iva_exempt_up_to: 15000
+
+# Official tables each figure was checked against, with the check date.
+sources:
+  - label: "Portal das Finanças — CIRS, artigo 68.º (taxas gerais, redação da Lei n.º 73-A/2025)"
+    url: "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/cirs_rep/Pages/irs68.aspx"
+    covers: "The nine 2026 IRS brackets and rates"
+    verified: 2026-09-18
+  - label: "Portal das Finanças — CIRS, artigo 68.º-A (taxa adicional de solidariedade)"
+    url: "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/cirs_rep/Pages/irs68a.aspx"
+    covers: "2.5% between €80,000 and €250,000, 5% above"
+    verified: 2026-09-18
+  - label: "Portal das Finanças — CIRS, artigo 25.º (dedução específica da categoria A)"
+    url: "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/cirs_rep/Pages/irs25.aspx"
+    covers: "8,54 × IAS, or the social contributions when higher"
+    verified: 2026-09-18
+  - label: "Portal das Finanças — CIRS, artigo 31.º (regime simplificado)"
+    url: "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/cirs_rep/Pages/irs31.aspx"
+    covers: "0.75 coefficient, 50%/25% reductions in the first two years, the 15% expense rule, social contributions above 10% deductible"
+    verified: 2026-09-18
+  - label: "Portal das Finanças — CIRS, artigo 101.º (retenção na fonte)"
+    url: "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/cirs_rep/Pages/irs101.aspx"
+    covers: "23% withholding on the art. 151.º professions"
+    verified: 2026-09-18
+  - label: "Portal das Finanças — CIVA, artigo 53.º (regime de isenção)"
+    url: "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/civa_rep/Pages/iva53.aspx"
+    covers: "€15,000 turnover threshold, also the ceiling for waiving the IRS withholding (CIRS art. 101.º-B)"
+    verified: 2026-09-18
+  - label: "Diário da República — Portaria n.º 480-A/2025/1 (IAS 2026)"
+    url: "https://diariodarepublica.pt/dr/detalhe/portaria/480-a-2025-993056222"
+    covers: "IAS of €537.13 from 1 January 2026"
+    verified: 2026-09-18
+  - label: "Segurança Social — Trabalhadores por conta de outrem (taxas contributivas)"
+    url: "https://www.seg-social.pt/trabalhadores-por-conta-de-outrem"
+    covers: "11% worker and 23.75% employer, regime geral"
+    verified: 2026-09-18
+  - label: "Segurança Social — Trabalhadores independentes (remunerações e contribuições)"
+    url: "https://www.seg-social.pt/ptss/pssd/menu/trabalho/remuneracoes-contribuicoes/trabalhadores-independentes"
+    covers: "21.4% on 70% of the services invoiced, 12 × IAS cap, €20 minimum, first twelve months exempt"
+    verified: 2026-09-18
+  - label: "DECO PROteste — Recibos verdes: obrigações para com a Segurança Social"
+    url: "https://www.deco.proteste.pt/dinheiro/impostos/noticias/recibos-verdes-obrigacoes-trabalhadores-independentes-seguranca-social"
+    covers: "Cross-check of the independent workers' rules with the 2026 IAS values"
+    verified: 2026-09-18
+
+# UI copy, keyed by Post language (resolve-lang.html picks the table).
+labels:
+  pt-BR:
+    title: "Calculadora: contrato × recibos verdes em Portugal"
+    eyebrow: "ano fiscal [year] · tabelas atualizadas em [updated]"
+    intro: "O mesmo trabalho, dois vínculos. De um lado o contrato de trabalho, com Segurança Social a 11% e IRS sobre catorze pagamentos; do outro os recibos verdes, com Segurança Social a 21,4% sobre 70% do faturado e IRS pelo regime simplificado. A calculadora mostra o líquido anual dos dois e quanto é preciso faturar para empatar."
+    contract: "Contrato de trabalho"
+    independent: "Recibos verdes"
+    contract_gross: "Salário bruto mensal (€)"
+    contract_gross_hint: "Catorze pagamentos por ano: doze meses mais os subsídios de férias e de Natal."
+    invoice: "Valor mensal faturado, sem IVA (€)"
+    invoice_hint: "O que vai no recibo antes do IVA. Em dias: diária × dias úteis."
+    activity_year: "Ano de atividade"
+    year_1: "1º ano — Segurança Social isenta, coeficiente −50%"
+    year_2: "2º ano — coeficiente −25%"
+    year_3: "3º ano em diante"
+    accountant: "Contabilista (€ por mês)"
+    months: "Meses faturados no ano"
+    months_12: "12 — sem parar"
+    months_11: "11 — um mês de férias sem recibo"
+    verdict: "Resultado"
+    break_even: "Recibo mensal que empata com esse contrato"
+    times_gross: "[times] o salário mensal do contrato"
+    diff_row: "Recibos verdes com o valor informado, no ano"
+    diff_independent_ahead: "recibos verdes na frente por [value]"
+    diff_contract_ahead: "contrato na frente por [value]"
+    diff_tie: "empate"
+    company_row: "O que a empresa paga no ano"
+    company_value: "[contract] no contrato · [independent] nos recibos"
+    net_per_payment: "Líquido por pagamento"
+    net_per_payment_hint: "Catorze vezes por ano"
+    net_annual: "Líquido anual"
+    net_monthly_avg: "Média mensal"
+    net_monthly_avg_hint: "Líquido anual ÷ 12"
+    gross_annual: "Bruto anual ([payments] pagamentos)"
+    gross_annual_independent: "Faturado no ano ([months] recibos)"
+    with_iva: "Com IVA ([rate]) no recibo"
+    ss: "Segurança Social ([rate])"
+    ss_independent: "Segurança Social ([rate] sobre [share] do faturado)"
+    ss_exempt: "Segurança Social — isenta no 1º ano"
+    specific_deduction: "Dedução específica"
+    taxable: "Rendimento coletável"
+    taxable_independent: "Rendimento coletável (coeficiente [coefficient])"
+    irs: "IRS"
+    solidarity: "Adicional de solidariedade"
+    accountant_row: "Contabilista"
+    effective_rate: "Descontos sobre o bruto"
+    withholding: "Retido na fonte nos recibos ([rate]) — adiantamento do IRS"
+    withholding_none: "Retenção na fonte — dispensada abaixo de [limit]"
+    employer_cost: "Custo para a empresa (ano, com [rate] de Segurança Social)"
+    assumptions_summary: "Premissas e tabelas usadas"
+    assumptions_intro: "Tudo abaixo vem das tabelas oficiais de [year], para um contribuinte sozinho, sem dependentes e residente em Portugal. Fora da conta: deduções à coleta (despesas gerais, saúde, educação, habitação), tributação conjunta, IRS Jovem, mínimo de existência, subsídio de alimentação, contabilidade organizada e o ajuste de ±25% na base da Segurança Social — quase tudo isso vale igual nos dois vínculos."
+    table_item: "Item"
+    table_value: "Valor"
+    table_band: "Faixa"
+    table_rate: "Taxa"
+    brackets_title: "IRS — escalões (rendimento coletável anual)"
+    solidarity_title: "IRS — taxa adicional de solidariedade"
+    contract_title: "Contrato de trabalho"
+    contract_payments: "Pagamentos por ano"
+    contract_ss: "Segurança Social do trabalhador"
+    contract_employer_ss: "Segurança Social da empresa"
+    contract_specific: "Dedução específica (8,54 × IAS, ou as contribuições se maiores)"
+    ias: "IAS"
+    independent_title: "Recibos verdes"
+    independent_ss: "Segurança Social, sobre [share] do faturado"
+    independent_ss_cap: "Teto do rendimento relevante mensal (12 × IAS)"
+    independent_ss_min: "Contribuição mínima mensal"
+    independent_ss_exempt: "Isenção: os primeiros doze meses de atividade"
+    independent_coefficient: "Coeficiente do regime simplificado (profissões da tabela do art. 151.º)"
+    independent_reductions: "Redução do coeficiente: 50% no 1º ano, 25% no 2º"
+    independent_floor: "Regra dos 15%: soma-se ao coletável o que faltar para 15% do bruto em despesas justificadas (a dedução específica ou a Segurança Social, se maior, mais o contabilista)"
+    independent_ss_deduct: "Dedução da Segurança Social acima de [share] do bruto"
+    independent_withholding: "Retenção na fonte"
+    independent_withholding_limit: "Dispensa de retenção enquanto a previsão do ano fica abaixo de"
+    independent_iva: "IVA sobre o recibo"
+    independent_iva_limit: "Isenção de IVA (art. 53.º) até"
+    sources_title: "Fontes oficiais consultadas"
+    verified_on: "verificado em [date]"
+    noscript: "Sem JavaScript, a calculadora não roda — as tabelas abaixo são as que ela usaria."
+    disclaimer: "Estimativa para comparar ordens de grandeza, não simulação oficial. O IRS é anual e acerta-se na declaração do ano seguinte; confirme com um contabilista antes de decidir qualquer coisa."
+    invalid: "Preencha valores válidos."
+  en:
+    title: "Calculator: contract vs recibos verdes in Portugal"
+    eyebrow: "tax year [year] · tables updated [updated]"
+    intro: "The same work, two arrangements. On one side an employment contract, with 11% Social Security and IRS on fourteen payments; on the other recibos verdes, with 21.4% Social Security on 70% of what is invoiced and IRS under the simplified regime. The calculator shows both annual nets and how much must be invoiced to break even."
+    contract: "Employment contract"
+    independent: "Recibos verdes"
+    contract_gross: "Gross monthly salary (€)"
+    contract_gross_hint: "Fourteen payments a year: twelve months plus the holiday and Christmas allowances."
+    invoice: "Monthly amount invoiced, before VAT (€)"
+    invoice_hint: "What goes on the receipt before IVA. By the day: day rate × working days."
+    activity_year: "Year of activity"
+    year_1: "1st year — Social Security exempt, coefficient −50%"
+    year_2: "2nd year — coefficient −25%"
+    year_3: "3rd year onwards"
+    accountant: "Accountant (€ per month)"
+    months: "Months invoiced per year"
+    months_12: "12 — no break"
+    months_11: "11 — one month off without a receipt"
+    verdict: "Result"
+    break_even: "Monthly receipt that breaks even with this contract"
+    times_gross: "[times] the contract's monthly salary"
+    diff_row: "Recibos verdes at the amount given, per year"
+    diff_independent_ahead: "recibos verdes ahead by [value]"
+    diff_contract_ahead: "contract ahead by [value]"
+    diff_tie: "tie"
+    company_row: "What the company pays per year"
+    company_value: "[contract] on the contract · [independent] on receipts"
+    net_per_payment: "Net per payment"
+    net_per_payment_hint: "Fourteen times a year"
+    net_annual: "Net annual"
+    net_monthly_avg: "Monthly average"
+    net_monthly_avg_hint: "Annual net ÷ 12"
+    gross_annual: "Gross annual ([payments] payments)"
+    gross_annual_independent: "Invoiced per year ([months] receipts)"
+    with_iva: "With VAT ([rate]) on the receipt"
+    ss: "Social Security ([rate])"
+    ss_independent: "Social Security ([rate] on [share] of the invoiced amount)"
+    ss_exempt: "Social Security — exempt in the 1st year"
+    specific_deduction: "Specific deduction"
+    taxable: "Taxable income"
+    taxable_independent: "Taxable income (coefficient [coefficient])"
+    irs: "IRS"
+    solidarity: "Solidarity surtax"
+    accountant_row: "Accountant"
+    effective_rate: "Deductions as a share of gross"
+    withholding: "Withheld on the receipts ([rate]) — an advance on the IRS"
+    withholding_none: "Withholding — waived below [limit]"
+    employer_cost: "Cost to the company (year, with [rate] Social Security)"
+    assumptions_summary: "Assumptions and tables used"
+    assumptions_intro: "Everything below comes from the official [year] tables, for a single taxpayer with no dependants resident in Portugal. Not counted: tax credits (general expenses, health, education, housing), joint taxation, IRS Jovem, the subsistence minimum, meal allowance, organised accounts and the ±25% adjustment of the Social Security base — nearly all of which apply equally to both arrangements."
+    table_item: "Item"
+    table_value: "Value"
+    table_band: "Band"
+    table_rate: "Rate"
+    brackets_title: "IRS — brackets (annual taxable income)"
+    solidarity_title: "IRS — solidarity surtax"
+    contract_title: "Employment contract"
+    contract_payments: "Payments per year"
+    contract_ss: "Worker's Social Security"
+    contract_employer_ss: "Employer's Social Security"
+    contract_specific: "Specific deduction (8.54 × IAS, or the contributions when higher)"
+    ias: "IAS"
+    independent_title: "Recibos verdes"
+    independent_ss: "Social Security, on [share] of the invoiced amount"
+    independent_ss_cap: "Cap on the monthly relevant income (12 × IAS)"
+    independent_ss_min: "Minimum monthly contribution"
+    independent_ss_exempt: "Exemption: the first twelve months of activity"
+    independent_coefficient: "Simplified-regime coefficient (professions in the art. 151.º table)"
+    independent_reductions: "Coefficient reduction: 50% in the 1st year, 25% in the 2nd"
+    independent_floor: "15% rule: whatever is missing to reach 15% of gross in justified expenses (the specific deduction or Social Security, whichever is higher, plus the accountant) is added to taxable income"
+    independent_ss_deduct: "Social Security above [share] of gross is deductible"
+    independent_withholding: "Withholding at source"
+    independent_withholding_limit: "Withholding waived while the year's forecast stays below"
+    independent_iva: "VAT on the receipt"
+    independent_iva_limit: "VAT exemption (art. 53.º) up to"
+    sources_title: "Official sources checked"
+    verified_on: "checked on [date]"
+    noscript: "Without JavaScript the calculator does not run — the tables below are the ones it would use."
+    disclaimer: "An estimate for comparing orders of magnitude, not an official simulation. IRS is annual and settled on the following year's return; check with an accountant before deciding anything."
+    invalid: "Enter valid values."
