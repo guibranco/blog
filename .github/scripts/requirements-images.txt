@@ -1,0 +1,5 @@
+# Python packages for build_images.py and the photo-metadata check in
+# audit_blog.py (deploy.yml, blog-audit.yml). Exact pins, installed with
+# `--only-binary :all:` so no setup.py ever runs on the runner; Dependabot
+# bumps them (see .github/dependabot.yml). Pillow >= 11.2 is the floor: AVIF.
+Pillow==12.3.0
