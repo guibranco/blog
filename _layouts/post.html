@@ -231,23 +231,33 @@
 
       <!-- Card 5: comentários -->
       <div class="article-card article-card--comments">
-        <div class="article-comments">
-          <script src="https://giscus.app/client.js"
-                  data-repo="guibranco/blog"
-                  data-repo-id="R_kgDORsK33A"
-                  data-category="Comments"
-                  data-category-id="DIC_kwDORsK33M4C5z8L"
-                  data-mapping="pathname"
-                  data-strict="0"
-                  data-reactions-enabled="1"
-                  data-emit-metadata="0"
-                  data-input-position="top"
-                  data-theme="light"
-                  data-lang="{{ _t.giscus_lang }}"
-                  data-loading="lazy"
-                  crossorigin="anonymous"
-                  async>
+        <div class="article-comments" id="giscus-host">
+          {% comment %}── Giscus is injected by script so its theme can match the site's theme from the first paint (theme-init.html sets data-theme on <html> before this runs); assets/js/theme-toggle.js keeps it in sync afterwards. ──{% endcomment %}
+          <script>
+            (function () {
+              var host = document.getElementById('giscus-host');
+              if (!host) return;
+              var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+              var s = document.createElement('script');
+              s.src = 'https://giscus.app/client.js';
+              s.crossOrigin = 'anonymous';
+              s.async = true;
+              s.dataset.repo = 'guibranco/blog';
+              s.dataset.repoId = 'R_kgDORsK33A';
+              s.dataset.category = 'Comments';
+              s.dataset.categoryId = 'DIC_kwDORsK33M4C5z8L';
+              s.dataset.mapping = 'pathname';
+              s.dataset.strict = '0';
+              s.dataset.reactionsEnabled = '1';
+              s.dataset.emitMetadata = '0';
+              s.dataset.inputPosition = 'top';
+              s.dataset.theme = isDark ? 'transparent_dark' : 'light';
+              s.dataset.lang = '{{ _t.giscus_lang }}';
+              s.dataset.loading = 'lazy';
+              host.appendChild(s);
+            })();
           </script>
+          <noscript><p>{{ _t.comments_need_js }}</p></noscript>
         </div>
       </div>
 

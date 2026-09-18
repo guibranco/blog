@@ -10,10 +10,17 @@
     return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
   }
 
+  /* Giscus theme for each site theme: `transparent_dark` blends with the dark
+     card background instead of painting GitHub's own dark blue box inside it.
+     Keep in step with the injector in _layouts/post.html. */
+  function giscusThemeFor(theme) {
+    return theme === 'dark' ? 'transparent_dark' : 'light';
+  }
+
   function syncGiscusTheme(theme) {
     var iframe = document.querySelector('iframe.giscus-frame');
     if (!iframe) return;
-    iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: giscusThemeFor(theme) } } }, 'https://giscus.app');
   }
 
   function updateIcon() {
@@ -51,8 +58,8 @@
 
   /* Giscus lazy-loads its iframe, so the first opportunity to reach it is
      whenever it posts anything back to the parent (e.g. its ready/resize
-     message) — that's also when its own data-theme="light" default needs
-     correcting to match the site's current theme. */
+     message). The injector in post.html already starts it in the right theme;
+     this re-sync covers a toggle that happened while the iframe was loading. */
   window.addEventListener('message', function (event) {
     if (event.origin !== 'https://giscus.app') return;
     if (!(event.data && event.data.giscus)) return;

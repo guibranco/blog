@@ -1,0 +1,14 @@
+# Python packages for build_og_cards.py (og-cards.yml): the image set plus
+# CairoSVG for rasterizing SVG covers, with its whole dependency tree pinned so
+# `--only-binary :all:` resolves to wheels only. Runner is Python 3.12; every
+# pin below ships a py3 or cp312 manylinux wheel. Dependabot bumps them.
+-r requirements-images.txt
+PyYAML==6.0.3
+cairosvg==2.9.1
+cairocffi==1.7.1
+cffi==2.1.1
+pycparser==3.0
+cssselect2==0.10.1
+tinycss2==1.5.1
+webencodings==0.6.1
+defusedxml==0.7.1

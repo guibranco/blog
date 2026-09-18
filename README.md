@@ -112,7 +112,9 @@ blog/                                 # nome do repositório
 │   │   ├── audit_blog.py             # Audita a estrutura do blog
 │   │   ├── build_images.py           # Sanitiza fotos de galeria e gera os derivados AVIF/WebP + images.json
 │   │   ├── build_og_cards.py         # Renderiza o card Open Graph a partir do front matter (ou rasteriza o cover SVG)
-│   │   └── create_missing_pages.py   # Sincroniza _data/categories.yml e _data/tags.yml
+│   │   ├── create_missing_pages.py   # Sincroniza _data/categories.yml e _data/tags.yml
+│   │   ├── requirements-images.txt   # Pillow, versão exata — instalado com --only-binary :all: (deploy, audit); Dependabot atualiza
+│   │   └── requirements-og-cards.txt # CairoSVG + PyYAML + árvore de dependências, versões exatas (og-cards)
 │   └── fonts/                        # GERADO por build_og_cards.py --download-fonts (gitignored): TTFs da marca
 │
 ├── index.html                        # Página inicial (paginada)
@@ -263,7 +265,7 @@ python3 .github/scripts/audit_blog.py
 # lê audit-report.md ao final, ou o output impresso no terminal
 ```
 
-A checagem de fotos precisa do Pillow (`pip install Pillow`); sem ele, ela é pulada com um aviso e o resto da auditoria roda normalmente.
+A checagem de fotos precisa do Pillow (`pip install -r .github/scripts/requirements-images.txt`); sem ele, ela é pulada com um aviso e o resto da auditoria roda normalmente.
 
 ### `.github/scripts/build_images.py`
 
@@ -276,7 +278,7 @@ Pipeline de fotos de galeria ([ADR-0011](docs/adr/0011-gallery-derivatives-at-bu
 Derivados e manifesto são **saída de build** (gitignored): o `deploy.yml` roda o script antes do `jekyll build`, com `assets/img/derived/` em cache entre execuções. Localmente:
 
 ```bash
-python3 -m pip install "Pillow>=11.2"
+python3 -m pip install -r .github/scripts/requirements-images.txt
 python3 .github/scripts/build_images.py            # sanitiza + gera só o que falta
 python3 .github/scripts/build_images.py --force    # regenera tudo
 python3 .github/scripts/build_images.py --no-sanitize
@@ -295,7 +297,7 @@ Gera o card Open Graph ([ADR-0012](docs/adr/0012-og-cards-generated-in-ci-from-f
 A tipografia é a mesma do site (Playfair Display, Source Serif 4, JetBrains Mono), baixada do `google/fonts` num commit fixo para `.github/fonts/` (gitignored) e exposta ao CairoSVG via um `fonts.conf` privado; se alguma família não resolver, o script falha em vez de renderizar com fonte substituta. Localmente (Linux/macOS com libcairo):
 
 ```bash
-python3 -m pip install cairosvg "Pillow>=11.2" pyyaml
+python3 -m pip install -r .github/scripts/requirements-og-cards.txt
 python3 .github/scripts/build_og_cards.py --download-fonts        # uma vez
 python3 .github/scripts/build_og_cards.py --dry-run               # o que seria renderizado
 python3 .github/scripts/build_og_cards.py _posts/2026-04-10-meu-novo-artigo.md
@@ -558,7 +560,7 @@ python3 .github/scripts/audit_blog.py
 Fotos de galeria: sem os derivados, `jekyll serve` mostra o `<img>` simples. Para ver o `<picture>` responsivo como em produção (e para sanitizar fotos novas antes de commitar):
 
 ```bash
-python3 -m pip install "Pillow>=11.2"
+python3 -m pip install -r .github/scripts/requirements-images.txt
 python3 .github/scripts/build_images.py
 ```
 

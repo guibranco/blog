@@ -11,3 +11,15 @@ updates:
       - "dependencies"
     commit-message:
       prefix: "ci"
+  # Pinned Python packages of the CI scripts (.github/scripts/requirements-*.txt)
+  - package-ecosystem: "pip"
+    directory: "/.github/scripts"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "America/Sao_Paulo"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "ci"
