@@ -9,20 +9,24 @@ Params
   id   prefix for the form's element ids — optional; only needed to embed
        the calculator twice in the same Post
 
-Rates, bands, sources and UI copy come from _data/calculators/net-salary-ie-br.yml;
-copy is picked by the Post language. The rate tables are rendered here as
-plain HTML (the no-JavaScript fallback) and the same data is handed to the
-script as JSON. The output has no blank lines on purpose: the Post body is
-Markdown, and a blank line would let kramdown close the HTML block and parse
-the rest as text.
+Irish rates, sources and UI copy come from _data/calculators/net-salary-ie-br.yml;
+the Brazilian CLT tables come from _data/calculators/shared/brazil-clt.yml,
+which the CLT × PJ calculator reads too (ADR-0017). Copy is picked by the Post
+language. The rate tables are rendered here as plain HTML (the no-JavaScript
+fallback) and the same data is handed to the script as JSON. The output has
+no blank lines on purpose: the Post body is Markdown, and a blank line would
+let kramdown close the HTML block and parse the rest as text.
 {%- endcomment -%}
 {%- include resolve-lang.html -%}
 {%- assign _calc = site.data.calculators["net-salary-ie-br"] -%}
 {%- assign _lab = _calc.labels[_lang] | default: _calc.labels["pt-BR"] -%}
 {%- assign _id = include.id | default: "calc-net-salary" -%}
 {%- assign _ie = _calc.ireland -%}
-{%- assign _br = _calc.brazil -%}
-{%- assign _updated = _calc.updated | date: _t.date_short -%}
+{%- assign _br = site.data.calculators.shared["brazil-clt"] -%}
+{%- assign _updated_on = _calc.updated -%}
+{%- if _br.updated > _updated_on -%}{%- assign _updated_on = _br.updated -%}{%- endif -%}
+{%- assign _updated = _updated_on | date: _t.date_short -%}
+{%- assign _sources = _calc.sources | concat: _br.sources -%}
 {%- assign _fx_as_of = _calc.fx.as_of | date: _t.date_short -%}
 <div class="calc calc-net-salary" data-calc="net-salary-ie-br" data-lang="{{ _lang }}" data-id="{{ _id }}">
 <style>
@@ -168,7 +172,7 @@ the rest as text.
 </tbody></table>
 <p class="calc-static-title">{{ _lab.sources_title }}</p>
 <ol class="calc-sources">
-{%- for _s in _calc.sources -%}
+{%- for _s in _sources -%}
 {%- assign _s_date = _s.verified | date: _t.date_short %}
 <li><a href="{{ _s.url }}" target="_blank" rel="noopener">{{ _s.label }}</a> — {{ _s.covers }} ({{ _lab.verified_on | replace: "[date]", _s_date }})</li>
 {%- endfor %}
@@ -176,6 +180,7 @@ the rest as text.
 </details>
 <p class="calc-disclaimer">{{ _lab.disclaimer }}</p>
 <script type="application/json" data-calc-data>{{ _calc | jsonify }}</script>
+<script type="application/json" data-calc-shared>{{ _br | jsonify }}</script>
 <script>
 (function () {
   'use strict';
@@ -291,6 +296,7 @@ the rest as text.
   function init(root) {
     root.dataset.calcInit = '';
     var data = JSON.parse(root.querySelector('[data-calc-data]').textContent);
+    data.brazil = JSON.parse(root.querySelector('[data-calc-shared]').textContent);
     var lang = root.dataset.lang || 'pt-BR';
     var L = data.labels[lang] || data.labels['pt-BR'];
     var locale = LOCALES[lang] || lang;

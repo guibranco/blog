@@ -1,0 +1,273 @@
+# Rates for _includes/calculators/clt-vs-pj-br.html (ADR-0015): the PJ side of
+# the CLT × PJ comparison — Simples Nacional annexes, the Fator R rule and the
+# partner's INSS on the pró-labore — plus the employer-cost premises used for
+# the CLT side. The CLT payslip tables (INSS, IRRF, FGTS, 13º, férias) are
+# shared with the Ireland × Brazil calculator and live in shared/brazil-clt.yml
+# (ADR-0017); a new tax year is a data edit in these two files, never a logic
+# edit.
+#
+# Money is in BRL; rates are fractions (0.06 = 6%). Simples bands are listed
+# bottom-up with `up_to` as the top of the band (gross revenue in 12 months).
+
+tax_year: 2026
+updated: 2026-09-18
+
+pj:
+  simples:
+    # LC 123/2006, art. 18 §5º-J: when payroll (pró-labore included) is at or
+    # above this share of revenue, the Anexo V activities are taxed by Anexo III.
+    fator_r_threshold: 0.28
+    # Effective rate = (RBT12 × rate − deduct) ÷ RBT12, RBT12 being the
+    # revenue of the last twelve months. Above the last band the company
+    # leaves the Simples; Lucro Presumido is not modelled.
+    annexes:
+      iii:
+        label: "Anexo III"
+        bands:
+          - { up_to: 180000,  rate: 0.06,  deduct: 0 }
+          - { up_to: 360000,  rate: 0.112, deduct: 9360 }
+          - { up_to: 720000,  rate: 0.135, deduct: 17640 }
+          - { up_to: 1800000, rate: 0.16,  deduct: 35640 }
+          - { up_to: 3600000, rate: 0.21,  deduct: 125640 }
+          - { up_to: 4800000, rate: 0.33,  deduct: 648000 }
+      v:
+        label: "Anexo V"
+        bands:
+          - { up_to: 180000,  rate: 0.155, deduct: 0 }
+          - { up_to: 360000,  rate: 0.18,  deduct: 4500 }
+          - { up_to: 720000,  rate: 0.195, deduct: 9900 }
+          - { up_to: 1800000, rate: 0.205, deduct: 17100 }
+          - { up_to: 3600000, rate: 0.23,  deduct: 62100 }
+          - { up_to: 4800000, rate: 0.305, deduct: 540000 }
+  prolabore:
+    # Partner's INSS (contribuinte individual) withheld from the pró-labore,
+    # capped at the INSS ceiling from the shared file; the company's 20% is
+    # inside the DAS for Anexos III and V. The pró-labore is never below the
+    # minimum wage.
+    inss_rate: 0.11
+
+employer:
+  # What a CLT salary costs a company outside the Simples on top of the gross:
+  # INSS patronal 20% + RAT 1% + terceiros 5.8%. FGTS (8%) comes from the
+  # shared file. Both apply to the salary plus the monthly provisions for the
+  # 13º and for the holiday month with its third.
+  charges_rate: 0.268
+  # Provision for the 40% fine on the FGTS balance, due on dismissal.
+  fgts_fine_rate: 0.40
+
+# Official tables each figure was checked against, with the check date. The
+# CLT payslip sources are listed in shared/brazil-clt.yml.
+sources:
+  - label: "Planalto — Lei Complementar nº 123/2006, Anexos III e V (redação da LC 155/2016) e art. 18 §5º-J"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm"
+    covers: "Simples Nacional bands, nominal rates and deductions; the 28% Fator R rule"
+    verified: 2026-09-18
+  - label: "Planalto — Lei nº 8.212/1991, arts. 21 e 22"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l8212cons.htm"
+    covers: "11% contribuinte individual on the pró-labore; 20% employer INSS"
+    verified: 2026-09-18
+
+# UI copy, keyed by Post language (resolve-lang.html picks the table).
+labels:
+  pt-BR:
+    title: "Calculadora: CLT × PJ"
+    eyebrow: "ano fiscal [year] · tabelas atualizadas em [updated]"
+    intro: "Salário CLT de um lado, nota fiscal do PJ do outro. A calculadora desconta INSS, IRRF, 13º, férias e FGTS de um lado; DAS do Simples, INSS e IRRF sobre o pró-labore, contador e taxas do outro — e diz quanto o PJ precisa faturar para empatar."
+    clt: "CLT"
+    pj: "PJ (Simples Nacional)"
+    clt_gross: "Salário bruto mensal (R$)"
+    dependents: "Dependentes para o IRRF"
+    dependents_hint: "Vale para o salário e para o pró-labore."
+    meal_voucher: "Vale-refeição ou alimentação (R$ por mês)"
+    health_plan: "Plano de saúde pago pela empresa (R$ por mês)"
+    benefits_hint: "Zero se a vaga não oferece. Entram no pacote do CLT; o PJ paga do próprio bolso."
+    pj_invoice: "Nota fiscal mensal (R$)"
+    prolabore_pct: "Pró-labore (% da nota)"
+    prolabore_hint: "A partir de [threshold], o Fator R leva a empresa ao Anexo III. Abaixo disso, Anexo V. Nunca menor que um salário mínimo."
+    accountant: "Contador (R$ por mês)"
+    fees: "Certificado digital, taxas e banco (R$ por mês)"
+    months: "Meses faturados no ano"
+    months_12: "12 — sem parar"
+    months_11: "11 — um mês de férias de verdade"
+    verdict: "Resultado"
+    break_even: "Nota mensal que empata com esse CLT"
+    times_gross: "[times] o salário bruto CLT"
+    diff_row: "PJ com a nota informada, no ano"
+    diff_pj_ahead: "PJ na frente por [value]"
+    diff_clt_ahead: "CLT na frente por [value]"
+    diff_tie: "empate"
+    employer_row: "Custo do CLT para a empresa, por mês"
+    employer_times: "[value] ([times] o salário)"
+    margin_row: "Margem de negociação"
+    margin_value: "entre [low] e [high] o salário"
+    net_monthly: "Líquido mensal"
+    net_monthly_hint: "Mês comum, sem 13º nem férias"
+    package_annual: "Pacote anual"
+    package_hint: "Líquido do ano + benefícios + FGTS"
+    gross: "Bruto"
+    inss: "INSS"
+    irrf: "IRRF"
+    irrf_reduction: "Redução da Lei 15.270"
+    effective_rate: "Descontos sobre o bruto"
+    thirteenth: "13º salário (líquido)"
+    vacation_bonus: "Terço de férias (líquido extra)"
+    benefits_annual: "VR/VA e plano de saúde (ano)"
+    fgts: "FGTS depositado (ano)"
+    employer_cost: "Custo para a empresa (mês)"
+    free_monthly: "Sobra livre por mês"
+    free_monthly_hint: "Depois de guardar o que a CLT pagaria"
+    available_annual: "Disponível no ano"
+    available_annual_hint: "[months] notas, depois de impostos e custos"
+    invoice: "Nota fiscal"
+    das: "DAS ([annex] · [rate])"
+    prolabore: "Pró-labore (Fator R [fator])"
+    inss_prolabore: "INSS sobre o pró-labore"
+    irrf_prolabore: "IRRF sobre o pró-labore"
+    accountant_row: "Contador"
+    fees_row: "Certificado, taxas e banco"
+    available_monthly: "Disponível no mês"
+    burden: "Carga sobre a nota"
+    reserve: "Reserva do que a CLT paga por fora (13º, terço, benefícios, FGTS)"
+    free_annual: "Sobra livre no ano"
+    free_monthly_row: "Sobra livre por mês (÷ 12)"
+    over_ceiling: "Faturamento acima do teto do Simples Nacional: a conta usa a última faixa, mas a empresa teria de migrar para o Lucro Presumido."
+    assumptions_summary: "Premissas e tabelas usadas"
+    assumptions_intro: "Tudo abaixo vem das tabelas oficiais de [year]. Fora da conta: ISS que varia por município, RAT e FAP por atividade, Lucro Presumido, horas extras, bônus, férias vendidas, seguro-desemprego e a multa do FGTS na demissão. A distribuição de lucros do PJ é isenta e já está dentro do disponível."
+    table_item: "Item"
+    table_value: "Valor"
+    table_band: "Faixa"
+    table_rate: "Alíquota"
+    table_deduct: "Parcela a deduzir"
+    br_inss_title: "CLT — INSS (empregado)"
+    br_inss_ceiling: "Teto de contribuição"
+    br_irrf_title: "CLT e pró-labore — IRRF mensal"
+    br_irrf_dependent: "Dedução por dependente"
+    br_irrf_simplified: "Desconto simplificado (quando maior que as deduções legais)"
+    br_reduction_title: "Redução da Lei 15.270/2025"
+    br_reduction_full: "Imposto zerado até (bruto mensal)"
+    br_reduction_partial: "Redução de [constant] − [factor] × bruto, até"
+    br_reduction_note: "Vale para o salário, para o 13º e para o pró-labore. Acima do limite, não há redução."
+    simples_iii_title: "Simples Nacional — Anexo III (Fator R de [threshold] ou mais)"
+    simples_v_title: "Simples Nacional — Anexo V (Fator R abaixo de [threshold])"
+    simples_band: "Receita bruta em 12 meses"
+    simples_note: "Alíquota efetiva = (RBT12 × alíquota − parcela a deduzir) ÷ RBT12. A calculadora usa a nota mensal × meses faturados como RBT12."
+    prolabore_title: "Pró-labore"
+    prolabore_inss: "INSS do sócio (contribuinte individual), até o teto"
+    prolabore_floor: "Piso"
+    employer_title: "Custo do CLT para a empresa"
+    employer_charges: "Encargos sobre salário e provisões (INSS patronal 20% + RAT 1% + terceiros 5,8%)"
+    employer_fgts: "FGTS sobre salário e provisões"
+    employer_fine: "Provisão da multa do FGTS (sobre o depósito)"
+    employer_note: "Provisões mensais de 1/12 do 13º e de 1/12 das férias com o terço; VR/VA e plano de saúde somados por fora. Empresa do Simples já paga a parte patronal dentro do DAS e custa menos."
+    br_other_title: "CLT — o resto do pacote"
+    br_fgts: "FGTS (depósito do empregador)"
+    br_thirteenth: "13º salário"
+    br_thirteenth_value: "um salário extra, tributado à parte"
+    br_vacation: "Férias"
+    br_vacation_value: "um mês com ⅓ a mais, tributado junto"
+    sources_title: "Fontes oficiais consultadas"
+    verified_on: "verificado em [date]"
+    noscript: "Sem JavaScript, a calculadora não roda — as tabelas abaixo são as que ela usaria."
+    disclaimer: "Estimativa para comparar ordens de grandeza, não cálculo de folha nem parecer contábil. Confirme com um contador antes de decidir qualquer coisa."
+    invalid: "Preencha valores válidos."
+  en:
+    title: "Calculator: CLT vs PJ"
+    eyebrow: "tax year [year] · tables updated [updated]"
+    intro: "A CLT salary on one side, a PJ invoice on the other. The calculator takes INSS, IRRF, the 13th, holidays and FGTS off one side; the Simples DAS, INSS and IRRF on the pró-labore, accountant and fees off the other — and says how much the PJ must invoice to break even."
+    clt: "CLT"
+    pj: "PJ (Simples Nacional)"
+    clt_gross: "Gross monthly salary (R$)"
+    dependents: "Dependants for IRRF"
+    dependents_hint: "Applies to the salary and to the pró-labore."
+    meal_voucher: "Meal voucher (R$ per month)"
+    health_plan: "Health plan paid by the employer (R$ per month)"
+    benefits_hint: "Zero if the job does not offer them. They count in the CLT package; the PJ pays for them."
+    pj_invoice: "Monthly invoice (R$)"
+    prolabore_pct: "Pró-labore (% of the invoice)"
+    prolabore_hint: "From [threshold] up, the Fator R puts the company in Anexo III. Below it, Anexo V. Never less than one minimum wage."
+    accountant: "Accountant (R$ per month)"
+    fees: "Digital certificate, fees and bank (R$ per month)"
+    months: "Months invoiced per year"
+    months_12: "12 — no break"
+    months_11: "11 — one real month of holidays"
+    verdict: "Result"
+    break_even: "Monthly invoice that breaks even with this CLT"
+    times_gross: "[times] the CLT gross salary"
+    diff_row: "PJ at the invoice given, per year"
+    diff_pj_ahead: "PJ ahead by [value]"
+    diff_clt_ahead: "CLT ahead by [value]"
+    diff_tie: "tie"
+    employer_row: "What the CLT costs the employer, per month"
+    employer_times: "[value] ([times] the salary)"
+    margin_row: "Negotiation margin"
+    margin_value: "between [low] and [high] the salary"
+    net_monthly: "Net monthly"
+    net_monthly_hint: "Regular month, no 13th or holiday bonus"
+    package_annual: "Annual package"
+    package_hint: "Net for the year + benefits + FGTS"
+    gross: "Gross"
+    inss: "INSS"
+    irrf: "IRRF"
+    irrf_reduction: "Lei 15.270 reduction"
+    effective_rate: "Deductions as a share of gross"
+    thirteenth: "13th salary (net)"
+    vacation_bonus: "Holiday third (extra net)"
+    benefits_annual: "Meal voucher and health plan (year)"
+    fgts: "FGTS deposited (year)"
+    employer_cost: "Cost to the employer (month)"
+    free_monthly: "Free per month"
+    free_monthly_hint: "After setting aside what the CLT would pay"
+    available_annual: "Available per year"
+    available_annual_hint: "[months] invoices, after taxes and costs"
+    invoice: "Invoice"
+    das: "DAS ([annex] · [rate])"
+    prolabore: "Pró-labore (Fator R [fator])"
+    inss_prolabore: "INSS on the pró-labore"
+    irrf_prolabore: "IRRF on the pró-labore"
+    accountant_row: "Accountant"
+    fees_row: "Certificate, fees and bank"
+    available_monthly: "Available per month"
+    burden: "Burden on the invoice"
+    reserve: "Set aside what the CLT pays on top (13th, holiday third, benefits, FGTS)"
+    free_annual: "Free per year"
+    free_monthly_row: "Free per month (÷ 12)"
+    over_ceiling: "Revenue above the Simples Nacional ceiling: the figures use the last band, but the company would have to move to Lucro Presumido."
+    assumptions_summary: "Assumptions and tables used"
+    assumptions_intro: "Everything below comes from the official [year] tables. Not counted: ISS, which varies by city, RAT and FAP by activity, Lucro Presumido, overtime, bonuses, sold holidays, unemployment insurance and the FGTS fine on dismissal. The PJ's profit distribution is tax-free and already inside the available amount."
+    table_item: "Item"
+    table_value: "Value"
+    table_band: "Band"
+    table_rate: "Rate"
+    table_deduct: "Deduction"
+    br_inss_title: "CLT — INSS (employee)"
+    br_inss_ceiling: "Contribution ceiling"
+    br_irrf_title: "CLT and pró-labore — monthly IRRF"
+    br_irrf_dependent: "Deduction per dependant"
+    br_irrf_simplified: "Simplified discount (when larger than the legal deductions)"
+    br_reduction_title: "Lei 15.270/2025 reduction"
+    br_reduction_full: "Tax reduced to zero up to (monthly gross)"
+    br_reduction_partial: "Reduction of [constant] − [factor] × gross, up to"
+    br_reduction_note: "Applies to the salary, the 13th and the pró-labore. No reduction above the limit."
+    simples_iii_title: "Simples Nacional — Anexo III (Fator R of [threshold] or more)"
+    simples_v_title: "Simples Nacional — Anexo V (Fator R below [threshold])"
+    simples_band: "Gross revenue in 12 months"
+    simples_note: "Effective rate = (RBT12 × rate − deduction) ÷ RBT12. The calculator uses the monthly invoice × months invoiced as RBT12."
+    prolabore_title: "Pró-labore"
+    prolabore_inss: "Partner's INSS (contribuinte individual), up to the ceiling"
+    prolabore_floor: "Floor"
+    employer_title: "What the CLT costs the employer"
+    employer_charges: "Charges on salary and provisions (employer INSS 20% + RAT 1% + terceiros 5.8%)"
+    employer_fgts: "FGTS on salary and provisions"
+    employer_fine: "Provision for the FGTS fine (on the deposit)"
+    employer_note: "Monthly provisions of 1/12 of the 13th and 1/12 of the holiday month with its third; meal voucher and health plan added on top. A company in the Simples already pays the employer share inside the DAS and costs less."
+    br_other_title: "CLT — the rest of the package"
+    br_fgts: "FGTS (employer deposit)"
+    br_thirteenth: "13th salary"
+    br_thirteenth_value: "one extra month's pay, taxed separately"
+    br_vacation: "Holidays"
+    br_vacation_value: "one month paid with ⅓ on top, taxed together"
+    sources_title: "Official sources checked"
+    verified_on: "checked on [date]"
+    noscript: "Without JavaScript the calculator does not run — the tables below are the ones it would use."
+    disclaimer: "An estimate for comparing orders of magnitude, not a payslip or accounting advice. Check with an accountant before deciding anything."
+    invalid: "Enter valid values."

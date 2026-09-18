@@ -224,6 +224,12 @@ Com 3.600 € por mês, o limiar dos 10.000 € ficava para trás no terceiro m�
   </tbody>
 </table>
 
+### Contrato ou recibos verdes, com as tabelas de 2026 {#faca-a-conta}
+
+O recibo acima é de 2021, e as regras mudaram desde então. Para refazer a conta com os números de hoje — a pergunta que a recrutadora me fez na primeira call —, a calculadora abaixo põe os dois vínculos lado a lado: o contrato de trabalho, com os catorze pagamentos, a Segurança Social a 11% e o IRS por escalões; e os recibos verdes, com a Segurança Social a 21,4% sobre 70% do faturado, o IRS do regime simplificado — coeficiente, regra dos 15%, o desconto nos dois primeiros anos de atividade — e o contabilista. Ela diz quanto é preciso faturar para empatar com um contrato, e quanto a empresa paga em cada caso, que é a parte que ninguém conta na entrevista.
+
+{% include calculators/contrato-vs-recibos-verdes-pt.html %}
+
 ### Quanto custaria morar no Porto
 
 Enquanto a papelada corria, eu montei uma planilha de custo de vida. Não achei o arquivo original para este post, mas os números que ficaram na memória são estes:

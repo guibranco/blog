@@ -1,0 +1,322 @@
+{%- comment -%}
+calculators/contrato-vs-recibos-verdes-pt.html — net income in Portugal under an
+employment contract vs recibos verdes (trabalhador independente).
+A Calculator (ADR-0015): one include, everything self-contained.
+
+  {% include calculators/contrato-vs-recibos-verdes-pt.html %}
+  {% include calculators/contrato-vs-recibos-verdes-pt.html id="calc-b" %}   (second copy on one page)
+
+Params
+  id   prefix for the form's element ids — optional; only needed to embed
+       the calculator twice in the same Post
+
+Rates, bands, sources and UI copy come from
+_data/calculators/contrato-vs-recibos-verdes-pt.yml; copy is picked by the Post
+language. The rate tables are rendered here as plain HTML (the no-JavaScript
+fallback) and the same data is handed to the script as JSON. The output has no
+blank lines on purpose: the Post body is Markdown, and a blank line would let
+kramdown close the HTML block and parse the rest as text.
+{%- endcomment -%}
+{%- include resolve-lang.html -%}
+{%- assign _calc = site.data.calculators["contrato-vs-recibos-verdes-pt"] -%}
+{%- assign _lab = _calc.labels[_lang] | default: _calc.labels["pt-BR"] -%}
+{%- assign _id = include.id | default: "calc-contrato-rv" -%}
+{%- assign _emp = _calc.employee -%}
+{%- assign _ind = _calc.independent -%}
+{%- assign _updated = _calc.updated | date: _t.date_short -%}
+{%- assign _ss_share = _ind.ss_relevant_share | percent: _lang -%}
+{%- assign _ss_over = _ind.ss_deductible_over_share | percent: _lang -%}
+{%- assign _coef = _ind.coefficient | append: "" -%}
+{%- if _lang == "pt-BR" -%}{%- assign _coef = _coef | replace: ".", "," -%}{%- endif -%}
+<div class="calc calc-contrato-rv" data-calc="contrato-vs-recibos-verdes-pt" data-lang="{{ _lang }}" data-id="{{ _id }}">
+<style>
+.calc { border: 1px solid var(--border); border-radius: 12px; background: var(--card-bg); padding: 1.4rem 1.5rem; margin: 2rem 0; font-size: .95rem; line-height: 1.5; }
+.calc [hidden] { display: none !important; }
+.calc-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-light); margin-bottom: .3rem; }
+.calc-title { font-family: 'Playfair Display', Georgia, serif; font-size: 1.35rem; font-weight: 700; color: var(--ink); line-height: 1.25; margin: 0 0 .5rem; }
+.calc-intro { color: var(--ink-muted); font-size: .92rem; margin: 0 0 1.1rem; }
+.calc-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; margin: 0 0 1.25rem; }
+.calc-fs { border: 1px solid var(--border); border-radius: 10px; padding: .6rem 1rem 1rem; min-width: 0; margin: 0; background: var(--surface); }
+.calc-fs legend { font-family: 'JetBrains Mono', monospace; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); padding: 0 .4rem; font-weight: 500; }
+.calc-field { display: flex; flex-direction: column; gap: .3rem; margin-top: .7rem; }
+.calc-field label { font-size: .84rem; font-weight: 600; color: var(--ink); line-height: 1.35; }
+.calc-field input, .calc-field select { width: 100%; min-width: 0; font: inherit; font-size: 1rem; padding: .5rem .65rem; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); color: var(--ink); }
+.calc-field input:focus-visible, .calc-field select:focus-visible, .calc-details summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.calc-hint { font-size: .76rem; color: var(--ink-light); line-height: 1.4; margin: 0; }
+.calc-error { color: var(--accent-warm); font-size: .85rem; margin: 0 0 .8rem; }
+.calc-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+.calc-card { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; background: var(--surface); min-width: 0; }
+.calc-verdict { grid-column: 1 / -1; }
+.calc-card-title { font-family: 'JetBrains Mono', monospace; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-light); margin: 0 0 .6rem; }
+.calc-headline { font-family: 'Playfair Display', Georgia, serif; font-size: 1.7rem; font-weight: 700; color: var(--accent); line-height: 1.1; margin: 0; }
+.calc-headline-label { font-size: .78rem; color: var(--ink-muted); margin: .6rem 0 .1rem; }
+.calc-sub { font-size: .78rem; color: var(--ink-light); margin: 0; font-family: 'JetBrains Mono', monospace; }
+.calc-table { width: 100%; border-collapse: collapse; font-size: .82rem; margin: .9rem 0 0; }
+.calc-table td { padding: .35rem 0; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--ink); }
+.calc-table td:last-child { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: .76rem; white-space: nowrap; padding-left: .6rem; }
+.calc-table tr.calc-total td { font-weight: 600; border-bottom: 0; }
+.calc-table tr.calc-muted td { color: var(--ink-light); }
+.calc-note { font-size: .76rem; color: var(--ink-light); margin: .5rem 0 0; }
+.calc-details { margin-top: 1.25rem; border-top: 1px solid var(--border); padding-top: .9rem; }
+.calc-details summary { cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 500; }
+.calc-details-intro { font-size: .84rem; color: var(--ink-muted); margin: .8rem 0 0; }
+.calc-static-title { font-family: 'JetBrains Mono', monospace; font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-light); margin: 1.1rem 0 .3rem; }
+.calc-static { width: 100%; border-collapse: collapse; font-size: .8rem; margin: 0; }
+.calc-static th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); padding: .35rem .5rem .35rem 0; border-bottom: 1px solid var(--border); font-weight: 500; }
+.calc-static td { padding: .35rem .5rem .35rem 0; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--ink); }
+.calc-static td:last-child, .calc-static th:last-child { text-align: right; white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: .74rem; padding-right: 0; }
+.calc-sources { font-size: .78rem; color: var(--ink-muted); padding-left: 1.1rem; margin: .4rem 0 0; }
+.calc-sources li { margin-bottom: .25rem; }
+.calc-sources a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.calc-disclaimer { font-size: .78rem; color: var(--ink-light); margin: 1rem 0 0; font-style: italic; }
+@media (max-width: 600px) { .calc { padding: 1.1rem 1rem; } .calc-headline { font-size: 1.5rem; } }
+</style>
+<p class="calc-eyebrow">{{ _lab.eyebrow | replace: "[year]", _calc.tax_year | replace: "[updated]", _updated }}</p>
+<p class="calc-title">{{ _lab.title }}</p>
+<p class="calc-intro">{{ _lab.intro }}</p>
+<form class="calc-form" hidden novalidate autocomplete="off">
+<fieldset class="calc-fs">
+<legend>{{ _lab.contract }}</legend>
+<div class="calc-field"><label for="{{ _id }}-contract-gross">{{ _lab.contract_gross }}</label><input id="{{ _id }}-contract-gross" name="contract-gross" type="number" inputmode="decimal" min="0" step="50" value="3000" aria-describedby="{{ _id }}-contract-gross-hint"><p class="calc-hint" id="{{ _id }}-contract-gross-hint">{{ _lab.contract_gross_hint }}</p></div>
+</fieldset>
+<fieldset class="calc-fs">
+<legend>{{ _lab.independent }}</legend>
+<div class="calc-field"><label for="{{ _id }}-invoice">{{ _lab.invoice }}</label><input id="{{ _id }}-invoice" name="invoice" type="number" inputmode="decimal" min="0" step="50" value="3600" aria-describedby="{{ _id }}-invoice-hint"><p class="calc-hint" id="{{ _id }}-invoice-hint">{{ _lab.invoice_hint }}</p></div>
+<div class="calc-field"><label for="{{ _id }}-year">{{ _lab.activity_year }}</label><select id="{{ _id }}-year" name="year"><option value="1">{{ _lab.year_1 }}</option><option value="2">{{ _lab.year_2 }}</option><option value="3" selected>{{ _lab.year_3 }}</option></select></div>
+<div class="calc-field"><label for="{{ _id }}-accountant">{{ _lab.accountant }}</label><input id="{{ _id }}-accountant" name="accountant" type="number" inputmode="decimal" min="0" step="5" value="50"></div>
+<div class="calc-field"><label for="{{ _id }}-months">{{ _lab.months }}</label><select id="{{ _id }}-months" name="months"><option value="12">{{ _lab.months_12 }}</option><option value="11">{{ _lab.months_11 }}</option></select></div>
+</fieldset>
+</form>
+<p class="calc-error" role="alert" hidden></p>
+<div class="calc-results" aria-live="polite" aria-atomic="true"></div>
+<noscript><p class="calc-note">{{ _lab.noscript }}</p></noscript>
+<details class="calc-details">
+<summary>{{ _lab.assumptions_summary }}</summary>
+<p class="calc-details-intro">{{ _lab.assumptions_intro | replace: "[year]", _calc.tax_year }}</p>
+<p class="calc-static-title">{{ _lab.brackets_title }}</p>
+<table class="calc-static"><thead><tr><th>{{ _lab.table_band }}</th><th>{{ _lab.table_rate }}</th></tr></thead><tbody>
+{%- assign _lower = 0 -%}
+{%- for _b in _calc.irs.brackets %}
+<tr><td>{% if _b.up_to %}{{ _lower | money: "EUR", _lang }} – {{ _b.up_to | money: "EUR", _lang }}{% else %}&gt; {{ _lower | money: "EUR", _lang }}{% endif %}</td><td>{{ _b.rate | percent: _lang }}</td></tr>
+{%- assign _lower = _b.up_to -%}
+{%- endfor %}
+</tbody></table>
+<p class="calc-static-title">{{ _lab.solidarity_title }}</p>
+<table class="calc-static"><thead><tr><th>{{ _lab.table_band }}</th><th>{{ _lab.table_rate }}</th></tr></thead><tbody>
+{%- assign _lower = 0 -%}
+{%- for _b in _calc.irs.solidarity %}
+<tr><td>{% if _b.up_to %}{{ _lower | money: "EUR", _lang }} – {{ _b.up_to | money: "EUR", _lang }}{% else %}&gt; {{ _lower | money: "EUR", _lang }}{% endif %}</td><td>{{ _b.rate | percent: _lang }}</td></tr>
+{%- assign _lower = _b.up_to -%}
+{%- endfor %}
+</tbody></table>
+<p class="calc-static-title">{{ _lab.contract_title }}</p>
+<table class="calc-static"><thead><tr><th>{{ _lab.table_item }}</th><th>{{ _lab.table_value }}</th></tr></thead><tbody>
+<tr><td>{{ _lab.contract_payments }}</td><td>{{ _emp.payments }}</td></tr>
+<tr><td>{{ _lab.contract_ss }}</td><td>{{ _emp.ss_rate | percent: _lang }}</td></tr>
+<tr><td>{{ _lab.contract_employer_ss }}</td><td>{{ _emp.employer_ss_rate | percent: _lang }}</td></tr>
+<tr><td>{{ _lab.contract_specific }}</td><td>{{ _calc.ias | times: _calc.irs.specific_deduction_ias | money: "EUR", _lang, 2 }}</td></tr>
+<tr><td>{{ _lab.ias }}</td><td>{{ _calc.ias | money: "EUR", _lang, 2 }}</td></tr>
+</tbody></table>
+<p class="calc-static-title">{{ _lab.independent_title }}</p>
+<table class="calc-static"><thead><tr><th>{{ _lab.table_item }}</th><th>{{ _lab.table_value }}</th></tr></thead><tbody>
+<tr><td>{{ _lab.independent_ss | replace: "[share]", _ss_share }}</td><td>{{ _ind.ss_rate | percent: _lang }}</td></tr>
+<tr><td>{{ _lab.independent_ss_cap }}</td><td>{{ _calc.ias | times: _ind.ss_monthly_cap_ias | money: "EUR", _lang, 2 }}</td></tr>
+<tr><td>{{ _lab.independent_ss_min }}</td><td>{{ _ind.ss_monthly_minimum | money: "EUR", _lang }}</td></tr>
+<tr><td colspan="2">{{ _lab.independent_ss_exempt }}</td></tr>
+<tr><td>{{ _lab.independent_coefficient }}</td><td>{{ _coef }}</td></tr>
+<tr><td colspan="2">{{ _lab.independent_reductions }}</td></tr>
+<tr><td colspan="2">{{ _lab.independent_floor }}</td></tr>
+<tr><td colspan="2">{{ _lab.independent_ss_deduct | replace: "[share]", _ss_over }}</td></tr>
+<tr><td>{{ _lab.independent_withholding }}</td><td>{{ _ind.withholding_rate | percent: _lang }}</td></tr>
+<tr><td>{{ _lab.independent_withholding_limit }}</td><td>{{ _ind.withholding_dispensed_up_to | money: "EUR", _lang }}</td></tr>
+<tr><td>{{ _lab.independent_iva }}</td><td>{{ _ind.iva_rate | percent: _lang }}</td></tr>
+<tr><td>{{ _lab.independent_iva_limit }}</td><td>{{ _ind.iva_exempt_up_to | money: "EUR", _lang }}</td></tr>
+</tbody></table>
+<p class="calc-static-title">{{ _lab.sources_title }}</p>
+<ol class="calc-sources">
+{%- for _s in _calc.sources -%}
+{%- assign _s_date = _s.verified | date: _t.date_short %}
+<li><a href="{{ _s.url }}" target="_blank" rel="noopener">{{ _s.label }}</a> — {{ _s.covers }} ({{ _lab.verified_on | replace: "[date]", _s_date }})</li>
+{%- endfor %}
+</ol>
+</details>
+<p class="calc-disclaimer">{{ _lab.disclaimer }}</p>
+<script type="application/json" data-calc-data>{{ _calc | jsonify }}</script>
+<script>
+(function () {
+  'use strict';
+  var NS = window.BlogCalculators = window.BlogCalculators || {};
+  // ── Pure functions (also exposed for tests) ────────────────────────────
+  function bandTop(band) { return band.up_to == null ? Infinity : Number(band.up_to); }
+  // Progressive charge: each slice of `amount` inside a band pays that band's rate.
+  function progressive(amount, bands) {
+    var total = 0, lower = 0;
+    for (const band of bands) {
+      var top = bandTop(band);
+      if (amount > lower) total += (Math.min(amount, top) - lower) * Number(band.rate);
+      if (amount <= top) break;
+      lower = top;
+    }
+    return total;
+  }
+  function yearRule(years, year) {
+    var rule = years[years.length - 1];
+    for (const y of years) { if (Number(y.year) === year) rule = y; }
+    return rule;
+  }
+  // Employment contract: fourteen payments, Social Security on all of it, IRS on the gross less the
+  // specific deduction (or the contributions when they are higher), plus the solidarity surtax.
+  function contract(inp, data) {
+    var e = data.employee, gross = inp.monthly * e.payments;
+    var ss = gross * e.ss_rate;
+    var specific = Math.max(data.ias * data.irs.specific_deduction_ias, ss);
+    var taxable = Math.max(0, gross - specific);
+    var irs = progressive(taxable, data.irs.brackets);
+    var solidarity = progressive(taxable, data.irs.solidarity);
+    var net = gross - ss - irs - solidarity;
+    return { gross: gross, ss: ss, specific: specific, taxable: taxable, irs: irs, solidarity: solidarity, net: net,
+      netPerPayment: net / e.payments, netMonthlyAvg: net / 12, employerAnnual: gross * (1 + e.employer_ss_rate),
+      effectiveRate: gross > 0 ? (gross - net) / gross : 0 };
+  }
+  // Recibos verdes: Social Security on a share of the invoiced amount (capped, with a minimum, exempt in the
+  // first year); IRS under the simplified regime — the coefficient for the year of activity, the 15% expense
+  // rule, contributions above 10% of the gross deductible — plus the solidarity surtax and the accountant.
+  function independent(inp, data) {
+    var t = data.independent, gross = inp.monthly * inp.months, rule = yearRule(t.activity_years, inp.year);
+    var relevantMonthly = Math.min(gross / 12 * t.ss_relevant_share, data.ias * t.ss_monthly_cap_ias);
+    var ssMonthly = rule.ss_exempt ? 0 : Math.max(t.ss_monthly_minimum, relevantMonthly * t.ss_rate);
+    var ss = ssMonthly * 12;
+    var accountant = inp.accountant * 12;
+    var coefficient = t.coefficient * (1 - Number(rule.coefficient_reduction || 0));
+    var specific = data.ias * data.irs.specific_deduction_ias;
+    var floorAddition = Math.max(0, gross * t.expense_floor_share - Math.max(specific, ss) - accountant);
+    var beforeSs = gross * coefficient + floorAddition;
+    var ssDeduction = Math.min(beforeSs, Math.max(0, ss - gross * t.ss_deductible_over_share));
+    var taxable = beforeSs - ssDeduction;
+    var irs = progressive(taxable, data.irs.brackets);
+    var solidarity = progressive(taxable, data.irs.solidarity);
+    var net = gross - ss - irs - solidarity - accountant;
+    return { gross: gross, months: inp.months, ssExempt: !!rule.ss_exempt, ss: ss, coefficient: coefficient,
+      floorAddition: floorAddition, ssDeduction: ssDeduction, taxable: taxable, irs: irs, solidarity: solidarity,
+      accountant: accountant, net: net, netMonthlyAvg: net / 12,
+      withholding: gross > t.withholding_dispensed_up_to ? gross * t.withholding_rate : 0,
+      ivaAnnual: gross * t.iva_rate, effectiveRate: gross > 0 ? (gross - net) / gross : 0 };
+  }
+  // The monthly receipt at which the independent's year equals the contract's net, by bisection.
+  function breakEven(targetNet, inp, data) {
+    var lo = 0, hi = Math.max(targetNet / inp.months, 1) * 4 + data.ias * 12;
+    for (var i = 0; i < 80; i++) {
+      var mid = (lo + hi) / 2;
+      if (independent(Object.assign({}, inp, { monthly: mid }), data).net < targetNet) lo = mid; else hi = mid;
+    }
+    return (lo + hi) / 2;
+  }
+  NS.contratoVsRecibosVerdesPt = { progressive: progressive, contract: contract, independent: independent, breakEven: breakEven };
+  // ── DOM ────────────────────────────────────────────────────────────────
+  if (typeof document === 'undefined') return;
+  var LOCALES = { 'pt-BR': 'pt-BR', 'en': 'en-IE' };
+  function el(tag, cls, text) {
+    var node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text != null) node.textContent = text;
+    return node;
+  }
+  function row(table, label, value, cls) {
+    var tr = el('tr', cls);
+    tr.appendChild(el('td', null, label));
+    tr.appendChild(el('td', null, value));
+    table.appendChild(tr);
+  }
+  function init(root) {
+    root.dataset.calcInit = '';
+    var data = JSON.parse(root.querySelector('[data-calc-data]').textContent);
+    var lang = root.dataset.lang || 'pt-BR';
+    var L = data.labels[lang] || data.labels['pt-BR'];
+    var locale = LOCALES[lang] || lang;
+    var form = root.querySelector('.calc-form');
+    var results = root.querySelector('.calc-results');
+    var error = root.querySelector('.calc-error');
+    var fmt = {};
+    function money(value, decimals) {
+      if (!fmt[decimals]) fmt[decimals] = new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR', minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+      return fmt[decimals].format(value);
+    }
+    function pct(value, digits) { return new Intl.NumberFormat(locale, { style: 'percent', maximumFractionDigits: digits == null ? 1 : digits }).format(value); }
+    function times(value) { return new Intl.NumberFormat(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value) + '×'; }
+    function plain(value) { return new Intl.NumberFormat(locale, { maximumFractionDigits: 4 }).format(value); }
+    function field(name) { return form.elements[name]; }
+    function num(name) { var v = Number.parseFloat(field(name).value); return Number.isFinite(v) ? v : Number.NaN; }
+    function headline(card, label, value, sub) {
+      card.appendChild(el('p', 'calc-headline-label', label));
+      card.appendChild(el('p', 'calc-headline', value));
+      if (sub) card.appendChild(el('p', 'calc-sub', sub));
+    }
+    function render() {
+      var salary = num('contract-gross'), monthly = num('invoice'), acct = num('accountant');
+      var year = Number(field('year').value), months = Number(field('months').value);
+      var ok = [salary, monthly, acct].every(function (v) { return Number.isFinite(v) && v >= 0; });
+      error.hidden = ok;
+      if (!ok) { error.textContent = L.invalid; return; }
+      var t = data.independent, e = data.employee;
+      var indInp = { monthly: monthly, months: months, year: year, accountant: acct };
+      var c = contract({ monthly: salary }, data);
+      var r = independent(indInp, data);
+      var even = breakEven(c.net, indInp, data);
+      var diff = r.net - c.net;
+      results.textContent = '';
+      var vCard = el('section', 'calc-card calc-verdict');
+      vCard.appendChild(el('p', 'calc-card-title', L.verdict));
+      headline(vCard, L.break_even, money(even, 0), salary > 0 ? L.times_gross.replace('[times]', times(even / salary)) : null);
+      var t0 = el('table', 'calc-table');
+      var diffText = L.diff_tie;
+      if (diff >= 1) diffText = L.diff_independent_ahead.replace('[value]', money(diff, 0));
+      else if (diff <= -1) diffText = L.diff_contract_ahead.replace('[value]', money(-diff, 0));
+      row(t0, L.diff_row, diffText);
+      row(t0, L.company_row, L.company_value.replace('[contract]', money(c.employerAnnual, 0)).replace('[independent]', money(r.gross, 0)));
+      vCard.appendChild(t0);
+      results.appendChild(vCard);
+      var cCard = el('section', 'calc-card');
+      cCard.appendChild(el('p', 'calc-card-title', L.contract));
+      headline(cCard, L.net_per_payment, money(c.netPerPayment, 0), L.net_per_payment_hint);
+      headline(cCard, L.net_annual, money(c.net, 0), null);
+      var t1 = el('table', 'calc-table');
+      row(t1, L.gross_annual.replace('[payments]', String(e.payments)), money(c.gross, 2));
+      row(t1, L.ss.replace('[rate]', pct(e.ss_rate, 2)), '− ' + money(c.ss, 2));
+      row(t1, L.taxable, money(c.taxable, 2), 'calc-muted');
+      row(t1, L.irs, '− ' + money(c.irs, 2));
+      if (c.solidarity > 0) row(t1, L.solidarity, '− ' + money(c.solidarity, 2));
+      row(t1, L.net_annual, money(c.net, 2), 'calc-total');
+      row(t1, L.effective_rate, pct(c.effectiveRate), 'calc-muted');
+      row(t1, L.net_monthly_avg + ' — ' + L.net_monthly_avg_hint, money(c.netMonthlyAvg, 2), 'calc-muted');
+      row(t1, L.employer_cost.replace('[rate]', pct(e.employer_ss_rate, 2)), money(c.employerAnnual, 2), 'calc-muted');
+      cCard.appendChild(t1);
+      results.appendChild(cCard);
+      var rCard = el('section', 'calc-card');
+      rCard.appendChild(el('p', 'calc-card-title', L.independent));
+      headline(rCard, L.net_monthly_avg, money(r.netMonthlyAvg, 0), L.net_monthly_avg_hint);
+      headline(rCard, L.net_annual, money(r.net, 0), null);
+      var t2 = el('table', 'calc-table');
+      row(t2, L.gross_annual_independent.replace('[months]', String(months)), money(r.gross, 2));
+      row(t2, L.with_iva.replace('[rate]', pct(t.iva_rate, 2)), money(r.gross + r.ivaAnnual, 2), 'calc-muted');
+      if (r.ssExempt) row(t2, L.ss_exempt, '− ' + money(0, 2));
+      else row(t2, L.ss_independent.replace('[rate]', pct(t.ss_rate, 2)).replace('[share]', pct(t.ss_relevant_share, 0)), '− ' + money(r.ss, 2));
+      row(t2, L.taxable_independent.replace('[coefficient]', plain(r.coefficient)), money(r.taxable, 2), 'calc-muted');
+      row(t2, L.irs, '− ' + money(r.irs, 2));
+      if (r.solidarity > 0) row(t2, L.solidarity, '− ' + money(r.solidarity, 2));
+      row(t2, L.accountant_row, '− ' + money(r.accountant, 2));
+      row(t2, L.net_annual, money(r.net, 2), 'calc-total');
+      row(t2, L.effective_rate, pct(r.effectiveRate), 'calc-muted');
+      if (r.withholding > 0) row(t2, L.withholding.replace('[rate]', pct(t.withholding_rate, 2)), money(r.withholding, 2), 'calc-muted');
+      else row(t2, L.withholding_none.replace('[limit]', money(t.withholding_dispensed_up_to, 0)), money(0, 2), 'calc-muted');
+      rCard.appendChild(t2);
+      results.appendChild(rCard);
+    }
+    form.addEventListener('input', render);
+    form.addEventListener('submit', function (e) { e.preventDefault(); render(); });
+    form.hidden = false;
+    render();
+  }
+  for (const root of document.querySelectorAll('[data-calc="contrato-vs-recibos-verdes-pt"]:not([data-calc-init])')) init(root);
+})();
+</script>
+</div>

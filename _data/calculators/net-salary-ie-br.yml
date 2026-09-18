@@ -1,9 +1,10 @@
 # Rates and bands for _includes/calculators/net-salary-ie-br.html (ADR-0015).
 #
-# Everything the calculator needs to turn a gross salary into a net one lives
-# here, so a new tax year is a data edit, not a logic edit: bump `tax_year`,
-# update the numbers, refresh `sources[].verified`. The include renders these
-# tables as the static fallback and hands the whole file to the script.
+# Everything the calculator needs for the Irish side lives here, so a new tax
+# year is a data edit, not a logic edit: bump `tax_year`, update the numbers,
+# refresh `sources[].verified`. The Brazilian CLT tables are shared with the
+# CLT × PJ calculator and live in shared/brazil-clt.yml (ADR-0017). The
+# include renders both as the static fallback and hands them to the script.
 #
 # Money is in the country's currency; rates are fractions (0.2 = 20%).
 # Progressive bands are listed bottom-up with `up_to` as the top of the band
@@ -68,44 +69,8 @@ ireland:
       - { max_age: 59,   pct: 0.35 }
       - { max_age: null, pct: 0.40 }
 
-brazil:
-  currency: BRL
-  minimum_wage: 1621.00
-  inss:
-    # Employee (CLT) contribution, progressive by band, capped at `ceiling`.
-    ceiling: 8475.55
-    bands:
-      - { up_to: 1621.00, rate: 0.075 }
-      - { up_to: 2902.84, rate: 0.09 }
-      - { up_to: 4354.27, rate: 0.12 }
-      - { up_to: 8475.55, rate: 0.14 }
-  irrf:
-    # Monthly withholding table: tax = base × rate − deduct, base = gross −
-    # max(INSS + dependents × dependent_deduction, simplified_discount).
-    bands:
-      - { up_to: 2428.80, rate: 0,     deduct: 0 }
-      - { up_to: 2826.65, rate: 0.075, deduct: 182.16 }
-      - { up_to: 3751.05, rate: 0.15,  deduct: 394.16 }
-      - { up_to: 4664.68, rate: 0.225, deduct: 675.49 }
-      - { up_to: null,    rate: 0.275, deduct: 908.73 }
-    dependent_deduction: 189.59
-    simplified_discount: 607.20
-    # Lei 15.270/2025 (from 2026): the tax is reduced by its full amount when
-    # the month's gross taxable income is at or below `full_up_to`, and by
-    # `constant − factor × gross` (never more than the tax) up to
-    # `partial_up_to`. Also applied to the 13º salário.
-    reduction:
-      full_up_to: 5000.00
-      partial_up_to: 7350.00
-      constant: 978.62
-      factor: 0.133145
-  # Employer deposit, not deducted from pay; shown as a separate line.
-  fgts_rate: 0.08
-  # One extra month's pay (13º) and one third on top of the vacation month.
-  thirteenth_salary: true
-  vacation_bonus: 0.333333
-
-# Official tables each figure was checked against, with the check date.
+# Official tables each figure was checked against, with the check date. The
+# Brazilian sources are listed in shared/brazil-clt.yml.
 sources:
   - label: "Revenue — Tax rates, bands and reliefs (2026)"
     url: "https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/tax-relief-charts/index.aspx"
@@ -126,22 +91,6 @@ sources:
   - label: "Revenue — Tax relief on pension contributions"
     url: "https://www.revenue.ie/en/jobs-and-pensions/pension/relief/index.aspx"
     covers: "Age-related limits, €115,000 cap, no USC/PRSI relief"
-    verified: 2026-09-17
-  - label: "INSS — Tabela de contribuição mensal (Portaria Interministerial MPS/MF nº 13/2026)"
-    url: "https://www.gov.br/inss/pt-br/direitos-e-deveres/inscricao-e-contribuicao/tabela-de-contribuicao-mensal"
-    covers: "INSS bands and ceiling"
-    verified: 2026-09-17
-  - label: "Receita Federal — Tributação de 2026 (tabela mensal, deduções e redução da Lei 15.270/2025)"
-    url: "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/2026"
-    covers: "IRRF bands, dependent deduction, simplified discount, reduction formula"
-    verified: 2026-09-17
-  - label: "Receita Federal — Exemplos de aplicação da Lei 15.270/2025"
-    url: "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/exemplos-de-aplicacao-da-lei-15-270-2025"
-    covers: "Worked examples of the reduction (base is the month's gross taxable income)"
-    verified: 2026-09-17
-  - label: "Planalto — Lei nº 15.270, de 26 de novembro de 2025"
-    url: "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm"
-    covers: "Reduction thresholds; art. 3º-A §3º extends it to the 13º salário"
     verified: 2026-09-17
 
 # UI copy, keyed by Post language (resolve-lang.html picks the table).

@@ -87,7 +87,7 @@ Toda discussão de CLT × PJ que ignora os parâmetros do ano vira achismo. Este
 
 A mudança mais mal compreendida desde 2020: o desconto é **progressivo**. A alíquota de cada faixa incide só sobre a parcela do salário que cai naquela faixa.
 
-{% assign _br = site.data.calculators["net-salary-ie-br"].brazil -%}
+{% assign _br = site.data.calculators.shared["brazil-clt"] -%}
 {%- assign _lower = 0 %}
 <table class="compare-table">
 <thead><tr><th>Faixa de salário de contribuição</th><th>Alíquota</th></tr></thead>
@@ -144,11 +144,11 @@ O que a Lei 15.270/2025 criou foi um **redutor aplicado depois** do cálculo nor
   O pró-labore de um PJ costuma ficar entre R$ 3.000,00 e R$ 5.500,00. Até 2025, esse valor pagava IR. Em 2026, quase sempre não paga. Sozinha, essa mudança melhorou o lado PJ da equação em algumas centenas de reais por mês — e barateou a estratégia do Fator R, que você vai ler na seção 05.
 </div>
 
-### Faça a conta do CLT {#faca-a-conta-do-clt}
+### Faça a sua conta {#faca-a-conta-do-clt}
 
-Antes de comparar com o PJ, veja quanto sobra de um salário CLT com essas tabelas: INSS progressivo, IRRF com o redutor, 13º e férias com o terço, e o FGTS à parte. O lado esquerdo da calculadora é a Irlanda — ignore, ou use para comparar com uma oferta de fora.
+Antes de seguir pelas definições, coloque os seus números na calculadora. De um lado o salário CLT, com INSS progressivo, IRRF com o redutor, 13º, férias com o terço, benefícios e o FGTS à parte; do outro a nota fiscal do PJ, com o DAS do Simples (Anexo III ou V, conforme o Fator R), o INSS e o IRRF sobre o pró-labore, contador e taxas. Ela devolve quanto o PJ precisa faturar para empatar com aquele CLT — e quanto a empresa gasta com ele, que é o outro lado da negociação. As seções seguintes explicam cada linha.
 
-{% include calculators/net-salary-ie-br.html %}
+{% include calculators/clt-vs-pj-br.html %}
 
 <div class="divider">· · ·</div>
 
