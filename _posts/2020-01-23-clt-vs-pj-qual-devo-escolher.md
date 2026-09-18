@@ -87,34 +87,68 @@ Toda discussão de CLT × PJ que ignora os parâmetros do ano vira achismo. Este
 
 A mudança mais mal compreendida desde 2020: o desconto é **progressivo**. A alíquota de cada faixa incide só sobre a parcela do salário que cai naquela faixa.
 
-| Faixa de salário de contribuição | Alíquota |
-|---|---|
-| Até R$ 1.621,00 | 7,5% |
-| De R$ 1.621,01 a R$ 2.902,84 | 9% |
-| De R$ 2.902,85 a R$ 4.354,27 | 12% |
-| De R$ 4.354,28 a R$ 8.475,55 | 14% |
+{% assign _br = site.data.calculators["net-salary-ie-br"].brazil -%}
+{%- assign _lower = 0 %}
+<table class="compare-table">
+<thead><tr><th>Faixa de salário de contribuição</th><th>Alíquota</th></tr></thead>
+<tbody>
+{%- for _b in _br.inss.bands -%}
+{%- assign _lower_money = _lower | money: "BRL", "pt-BR", 2 -%}
+{%- assign _top_money = _b.up_to | money: "BRL", "pt-BR", 2 %}
+<tr><td>{% if forloop.first %}Até {{ _top_money }}{% else %}De {{ _lower_money }} a {{ _top_money }}{% endif %}</td><td>{{ _b.rate | percent: "pt-BR" }}</td></tr>
+{%- assign _lower = _b.up_to | plus: 0.01 -%}
+{%- endfor %}
+</tbody>
+</table>
 
-Quem ganha R$ 12.000,00 não paga 14% de INSS. Paga R$ 988,09 — o teto —, o que dá 8,2% efetivos.
+Quem ganha R$ 12.000,00 não paga 14% de INSS. Paga R$ 988,09 — o teto —, o que dá 8,2% efetivos. A tabela acima é lida do mesmo arquivo de dados que alimenta a calculadora mais abaixo: quando a tabela do ano muda, os dois mudam juntos.
 
 ### Imposto de Renda 2026
 
-A tabela progressiva mensal continua a mesma de 2023 (isenção formal em R$ 2.428,80, desconto simplificado de R$ 607,20, dedução de R$ 189,59 por dependente). O que a Lei 15.270/2025 criou foi um **redutor aplicado depois** do cálculo normal:
+{% assign _irrf = _br.irrf -%}
+{%- assign _first_band = _irrf.bands | first %}
+A tabela progressiva mensal continua a mesma de 2023 (isenção formal em {{ _first_band.up_to | money: "BRL", "pt-BR", 2 }}, desconto simplificado de {{ _irrf.simplified_discount | money: "BRL", "pt-BR", 2 }}, dedução de {{ _irrf.dependent_deduction | money: "BRL", "pt-BR", 2 }} por dependente):
 
+{% assign _prev_top = 0 %}
 <table class="compare-table">
-  <thead>
-    <tr><th>Rendimento tributável mensal</th><th>Redutor</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Até R$ 5.000,00</td><td>Zera o imposto <span class="check">✓</span></td></tr>
-    <tr><td>De R$ 5.000,01 a R$ 7.350,00</td><td>R$ 978,62 − (0,133145 × rendimento) <span class="partial">~</span></td></tr>
-    <tr><td>Acima de R$ 7.350,00</td><td>Nenhum <span class="cross">✗</span></td></tr>
-  </tbody>
+<thead><tr><th>Base de cálculo mensal</th><th>Alíquota</th><th>Parcela a deduzir</th></tr></thead>
+<tbody>
+{%- for _b in _irrf.bands -%}
+{%- assign _lower_money = _prev_top | plus: 0.01 | money: "BRL", "pt-BR", 2 -%}
+{%- assign _prev_money = _prev_top | money: "BRL", "pt-BR", 2 -%}
+{%- assign _top_money = _b.up_to | money: "BRL", "pt-BR", 2 %}
+<tr><td>{% if forloop.first %}Até {{ _top_money }}{% elsif _b.up_to %}De {{ _lower_money }} a {{ _top_money }}{% else %}Acima de {{ _prev_money }}{% endif %}</td><td>{% if _b.rate == 0 %}isento{% else %}{{ _b.rate | percent: "pt-BR" }}{% endif %}</td><td>{% if _b.deduct == 0 %}—{% else %}{{ _b.deduct | money: "BRL", "pt-BR", 2 }}{% endif %}</td></tr>
+{%- assign _prev_top = _b.up_to -%}
+{%- endfor %}
+</tbody>
+</table>
+
+O que a Lei 15.270/2025 criou foi um **redutor aplicado depois** do cálculo normal:
+
+{% assign _red = _irrf.reduction -%}
+{%- assign _red_full = _red.full_up_to | money: "BRL", "pt-BR", 2 -%}
+{%- assign _red_partial = _red.partial_up_to | money: "BRL", "pt-BR", 2 -%}
+{%- assign _red_const = _red.constant | money: "BRL", "pt-BR", 2 -%}
+{%- assign _red_factor = _red.factor | append: "" | replace: ".", "," %}
+<table class="compare-table">
+<thead><tr><th>Rendimento tributável mensal</th><th>Redutor</th></tr></thead>
+<tbody>
+<tr><td>Até {{ _red_full }}</td><td>Zera o imposto <span class="check">✓</span></td></tr>
+<tr><td>Acima de {{ _red_full }}, até {{ _red_partial }}</td><td>{{ _red_const }} − ({{ _red_factor }} × rendimento) <span class="partial">~</span></td></tr>
+<tr><td>Acima de {{ _red_partial }}</td><td>Nenhum <span class="cross">✗</span></td></tr>
+</tbody>
 </table>
 
 <div class="callout callout-tip">
   <div class="callout-label">Por que isso muda a conta do PJ</div>
-  O pró-labore de um PJ costuma ficar entre R$ 3.000,00 e R$ 5.500,00. Até 2025, esse valor pagava IR. Em 2026, quase sempre não paga. Sozinha, essa mudança melhorou o lado PJ da equação em algumas centenas de reais por mês — e barateou a estratégia do Fator R, que você vai ver na seção 05.
+  O pró-labore de um PJ costuma ficar entre R$ 3.000,00 e R$ 5.500,00. Até 2025, esse valor pagava IR. Em 2026, quase sempre não paga. Sozinha, essa mudança melhorou o lado PJ da equação em algumas centenas de reais por mês — e barateou a estratégia do Fator R, que você vai ler na seção 05.
 </div>
+
+### Faça a conta do CLT {#faca-a-conta-do-clt}
+
+Antes de comparar com o PJ, veja quanto sobra de um salário CLT com essas tabelas: INSS progressivo, IRRF com o redutor, 13º e férias com o terço, e o FGTS à parte. O lado esquerdo da calculadora é a Irlanda — ignore, ou use para comparar com uma oferta de fora.
+
+{% include calculators/net-salary-ie-br.html %}
 
 <div class="divider">· · ·</div>
 

@@ -30,6 +30,7 @@ locations:
   - lat: 35.9122
     lng: 14.5019
     label: "Sliema, Malta"
+trip: malta-2026
 ---
 
 <p class="lead">Oito dias em Malta no fim de agosto, saindo de Dublin por € 283 ida e volta com escala em Manchester. Quatro praias completamente diferentes entre si, oito festas, a Blue Lagoon de Comino, um passeio perdido por dormir demais e um total de € 2.322,36 do bolso. Este é o relato completo — com todos os números e os gráficos de onde o dinheiro foi.</p>
@@ -163,66 +164,9 @@ Isso teve efeito prático real no roteiro: encontrar-se implicava 20 a 30 minuto
   <div class="section-title-wrap"><h2>Timeline — dia a dia</h2></div>
 </div>
 
-<table class="compare-table">
-  <thead>
-    <tr>
-      <th>Dia</th>
-      <th>Data</th>
-      <th>Principais atividades</th>
-      <th>Gasto/pessoa</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Dia 1 — Chegada</td>
-      <td>22/08 (Sáb)</td>
-      <td>DUB→MAN 06h09 · MAN→MLA 09h08 · Pouso em Malta 13h44 · Hotel 14h04 · Hugo's + pool party no Society 20h09–22h50 · Toy Room (by Pacha) 00h05–03h40</td>
-      <td>≈ € 132</td>
-    </tr>
-    <tr>
-      <td>Dia 2</td>
-      <td>23/08 (Dom)</td>
-      <td>Golden Bay 13h19–18h27 · Café del Mar (festa Sundays) 20h54–01h02 · Hotel para trocar de roupa · Havana em Paceville 01h50–04h30, já na madrugada de segunda</td>
-      <td>≈ € 316</td>
-    </tr>
-    <tr>
-      <td>Dia 3</td>
-      <td>24/08 (Seg)</td>
-      <td>Almoço no Hugo's 13h24–14h17 · St. Peter's Pool 15h01–16h52 · Marsaskala 17h17–18h02 · Blue Grotto 18h27–19h44 · Pizza no Claudio's · Irish Pub e duas baladas</td>
-      <td>≈ € 84</td>
-    </tr>
-    <tr>
-      <td>Dia 4</td>
-      <td>25/08 (Ter)</td>
-      <td>★ Passeio da manhã perdido · Ferry Sliema→Comino 15h04–16h19 · Blue Lagoon e Crystal Lagoon até 19h20 · Volta a Sliema 20h18 · Souvenirs · Asian Kingdom</td>
-      <td>≈ € 201</td>
-    </tr>
-    <tr>
-      <td>Dia 5</td>
-      <td>26/08 (Qua)</td>
-      <td>Festa do Branco no Toy Room Beach Club (Sliema) 14h20–19h · Jantar no Asian Kingdom · Footloose em Paceville até 05h</td>
-      <td>≈ € 205</td>
-    </tr>
-    <tr>
-      <td>Dia 6</td>
-      <td>27/08 (Qui)</td>
-      <td>Praia em Sliema + caminhada de 5,8 km pela orla 13h39–15h23 · Asian Kingdom · Jantar no UMI 21h52–23h24</td>
-      <td>≈ € 253</td>
-    </tr>
-    <tr>
-      <td>Dia 7</td>
-      <td>28/08 (Sex)</td>
-      <td>Dia de descanso · Piscina do hotel · KFC e série no quarto</td>
-      <td>≈ € 53</td>
-    </tr>
-    <tr>
-      <td>Dia 8 — Partida</td>
-      <td>29/08 (Sáb)</td>
-      <td>Late checkout às 13h · Recepção até 16h48 · Sorvete no RivaReno 16h50–17h05 · Bolt ao aeroporto 17h05–17h20 · MLA→DUB 20h00 (atrasou)</td>
-      <td>≈ € 110</td>
-    </tr>
-  </tbody>
-</table>
+Cada atividade aparece no dia em que aconteceu, com o valor que o texto cita para ela e, quando a conta foi dividida, por quantos. O gasto por dia e por categoria continua na seção 16, com os números fechados da planilha — a linha do tempo não soma, porque nem tudo que entrou na planilha está itemizado aqui.
+
+{% include timeline.html %}
 
 <div class="callout callout-warn">
   <div class="callout-label">★ Nota sobre o Dia 4 — o passeio que virou pó</div>

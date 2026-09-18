@@ -110,7 +110,7 @@ Se você fosse começar amanhã, na ordem:
 3. **Procure a porta lateral** — lista de escassez, faixa de recém-formado, faixa etária.
 4. **Monte a lista de empresas que comprovadamente patrocinam** naquele país. Vinte nomes é suficiente.
 5. **Refaça o CV** em duas páginas, sem foto, orientado a impacto.
-6. **Calcule o líquido, não o bruto**, com aluguel real da cidade de destino.
+6. **Calcule o líquido, não o bruto**, com aluguel real da cidade de destino — [a calculadora da parte 2]({{ site.baseurl }}/artigos/trabalhar-fora-sem-ilusao-salario-bruto-mente/#faca-a-sua-conta) faz a parte do imposto com as tabelas de 2026.
 7. **Some o custo de manter o pé no Brasil** e decida o que fica, o que vende e o que aluga.
 8. **Fale com um contador** antes de mexer em qualquer coisa — saída definitiva, PJ, investimentos. Errar a ordem aqui custa caro e é difícil de desfazer.
 9. **Reserve orçamento para moradia temporária** — a menos que a empresa cubra. Conte com quatro a seis semanas entre hostel e Airbnb até fechar um contrato de verdade. Não é imprevisto, é o padrão. Se há patrocínio envolvido, confirme por escrito o que o pacote inclui antes de orçar do próprio bolso.

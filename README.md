@@ -82,7 +82,10 @@ blog/                                 # nome do repositório
 │   ├── calculators/                  # Alíquotas, faixas, fontes e textos de cada calculadora (um .yml por include)
 │   │   └── net-salary-ie-br.yml      # Tabelas fiscais de 2026 — Irlanda (PAYE/USC/PRSI/pensão) e Brasil (INSS/IRRF/FGTS)
 │   ├── trips/                        # Roteiro de cada post de viagem: dias, atividades, custos, extras (um .yml por post)
-│   │   └── londres-2026.yml          # Piloto — show do Alok em Londres
+│   │   ├── londres-2026.yml          # Show do Alok em Londres — totais calculados
+│   │   ├── malta-2026.yml            # Malta em 8 dias — totals: false (custos por atividade, sem soma)
+│   │   ├── amsterda-2026.yml         # Amsterdã no Koningsdag — totals: false
+│   │   └── albania-2026.yml          # Albânia em 7 dias — totals: false, first_day: 0
 │   ├── activity_types.yml            # Tipos de atividade do roteiro: ícone Font Awesome + rótulo em pt-BR/en
 │   ├── quotes.yml                    # Lista de quotes da sidebar
 │   └── images.json                   # GERADO por build_images.py (gitignored): dimensões + derivados das fotos
@@ -533,6 +536,8 @@ Substitui a tabela "dias × atividades × custo" dos posts de viagem. O roteiro 
 Cada dia tem `date`, `title` (opcional) e `activities`; cada atividade tem `type` (chave de `_data/activity_types.yml`, que dá o ícone e o rótulo), `title`, e opcionalmente `time`/`end`, `note`, `cost`, `split` (por quantas pessoas a conta foi dividida), `currency` (quando difere da moeda do roteiro) e `approx: true`. Gastos fora do dia a dia — passagem comprada meses antes, hospedagem pré-paga, o transporte urbano que o extrato não separa por dia — vão em `extras`. **Nenhum total é digitado**: o total de cada dia, a "minha parcela" (com os `split`), os totais por categoria e o total da viagem são somados no build pelos dois includes, então a linha do tempo e o resumo nunca discordam. Valores em outra moeda aparecem mas ficam fora dos totais, somados à parte.
 
 A linha do tempo é um `<ol>` de dias com um `<ul>` de atividades por dia — sem CSS ela continua legível como lista — e vem seguida de uma `<table hidden>` com as mesmas linhas, que o `main.css` exibe só em `@media print`. A 360px as linhas quebram (o valor desce para baixo do título) em vez de rolar. Ver [ADR-0016](docs/adr/0016-trip-itinerary-as-data-with-computed-totals.md).
+
+Duas opções no arquivo do roteiro: `totals: false` esconde todos os totais calculados (por dia, da viagem e a coluna da tabela de impressão) — para roteiros em que o texto só itemiza parte dos gastos, como Malta, Amsterdã e Albânia, onde os totais por dia continuam sendo os da planilha ou do extrato do próprio post; e `first_day: 0` muda a numeração quando o post conta a partir do "Dia 0". Só use `trip-summary.html` num roteiro com totais.
 
 ---
 

@@ -1,0 +1,312 @@
+# Itinerary of _posts/2026-06-16-albania-sarande-ksamil-corfu-roteiro-7-dias.md (ADR-0016).
+#
+# Times come from the post's day-by-day table and sections (Google location
+# history). Group amounts carry the split the post gives ("para 4 pessoas",
+# "para 7 pessoas"); per-person amounts the post already divided are entered
+# as such, without a split. Amounts in lek keep their currency; `approx`
+# marks the figures the post itself calls estimates.
+#
+# The post counts from "Dia 0" (the arrival day), hence first_day: 0.
+#
+# totals: false — the post's per-day figures are the author's estimates per
+# person, which include market runs and cash the prose does not itemize, so
+# the timeline shows costs per activity and leaves the totals to the post's
+# own summary.
+currency: EUR
+totals: false
+first_day: 0
+days:
+  - date: 2026-06-08
+    title: "Chegada"
+    activities:
+      - time: "09:00"
+        type: flight
+        title: "Aeroporto de Dublin — voo DUB → STN"
+        note: "Passagens do grupo pela Kiwi, € 849 no total; minha parte nos extras"
+      - type: flight
+        title: "Bagagem de mão paga no portão de embarque em Dublin"
+        cost: 60.00
+      - time: "13:09"
+        end: "17:33"
+        type: rest
+        title: "Espera em Stansted"
+      - time: "17:33"
+        end: "21:14"
+        type: flight
+        title: "Voo STN → TIA"
+      - time: "21:14"
+        end: "00:50"
+        type: food
+        title: "Espera e jantar no aeroporto de Tirana"
+        cost: 10.00
+        approx: true
+      - type: transport
+        title: "Aluguel do VW T-Cross, sete dias (€ 35 por dia)"
+        cost: 245.00
+        split: 4
+        note: "Aparece no extrato como \"Airport Taxi\"; o VW Polo do outro grupo saiu por € 25 por dia"
+      - type: transport
+        title: "Tanque cheio no primeiro posto"
+        cost: 77.00
+      - type: transport
+        title: "Pedágio Tirana → Sarande"
+        cost: 0.85
+  - date: 2026-06-09
+    title: "Ksamil — Bora Bora e Principotes"
+    activities:
+      - time: "03:46"
+        type: lodging
+        title: "Chegada ao AirBnB em Sarande"
+        note: "Menos de € 200 por pessoa pelas sete noites — nos extras"
+      - time: "12:51"
+        type: transport
+        title: "Saída para Ksamil — 21,7 km em 39 minutos"
+      - time: "13:30"
+        end: "15:04"
+        type: food
+        title: "Almoço no Bora Bora, na praia — quatro pessoas"
+        cost: 130.00
+        split: 4
+      - time: "15:04"
+        end: "20:59"
+        type: beach
+        title: "Principotes Ksamil Beach Club — cama à beira-mar para o grupo, com Prosecco e frutas"
+        cost: 300.00
+        split: 4
+        note: "Sem negociar; a mesma cama tinha sido oferecida ao outro grupo por € 200"
+      - type: drinks
+        title: "Principotes — cervejas e vinho ao longo do dia"
+        cost: 150.00
+        split: 4
+      - time: "22:10"
+        type: shopping
+        title: "Mercado em Sarande"
+      - time: "22:35"
+        type: rest
+        title: "Recolhimento"
+  - date: 2026-06-10
+    title: "Corfu, Grécia"
+    activities:
+      - time: "09:40"
+        end: "10:12"
+        type: walk
+        title: "Caminhada ao porto de Sarande e bilheteria da Finikas Lines"
+      - time: "10:12"
+        end: "12:12"
+        type: transport
+        title: "Ferry Sarande → Corfu (chegada no horário grego) — ida e volta"
+        cost: 64.00
+      - time: "12:49"
+        end: "13:00"
+        type: transport
+        title: "Van táxi do porto ao D-Marin Gouvia Marina, sete pessoas"
+        cost: 55.00
+        split: 7
+      - time: "13:03"
+        end: "13:38"
+        type: food
+        title: "Almoço na marina — gyro de porco"
+        cost: 12.00
+        approx: true
+      - time: "13:42"
+        end: "17:35"
+        type: sight
+        title: "Passeio de barco — 44 km, três a quatro paradas para nadar, por pessoa"
+        cost: 50.00
+      - type: transport
+        title: "Dois táxis da marina ao porto, € 25 cada"
+        cost: 50.00
+        split: 7
+      - time: "18:59"
+        end: "19:17"
+        type: transport
+        title: "Ferry de volta a Sarande"
+      - time: "19:17"
+        end: "20:45"
+        type: food
+        title: "Jantar no My Family, a poucos passos do cais"
+      - type: rest
+        title: "Piscina privativa do AirBnB dos amigos (Panorama) e mercado"
+  - date: 2026-06-11
+    title: "Poda Beach Club e Bianco"
+    activities:
+      - time: "10:19"
+        type: transport
+        title: "Saída do Panorama"
+      - time: "12:29"
+        end: "18:23"
+        type: beach
+        title: "Poda Beach Club — cama à beira-mar com Prosecco"
+        cost: 100.00
+        split: 4
+      - type: drinks
+        title: "Poda — cervejas, drinks de vodca, whisky e mojitos, quatro pessoas"
+        cost: 130.00
+        split: 4
+      - type: food
+        title: "Almoço no restaurante do Poda, por pessoa"
+        cost: 20.00
+        approx: true
+      - time: "18:39"
+        end: "19:30"
+        type: food
+        title: "Kamay Beach Restaurant, perto da Mão de Ksamil, por pessoa"
+        cost: 20.00
+        approx: true
+      - time: "20:24"
+        end: "22:16"
+        type: rest
+        title: "Banho e troca de roupa no apartamento"
+      - time: "22:52"
+        end: "04:42"
+        type: nightlife
+        title: "Bianco — rooftop e balada do térreo"
+        cost: 300.00
+        note: "Ponto fora da curva: narguilé, drinks e bebidas oferecidas ao longo da noite"
+      - type: transport
+        title: "Táxi do Bianco ao AirBnB — o T-Cross não ligou"
+        cost: 50.00
+  - date: 2026-06-12
+    title: "Resolução da bateria e Bianco rooftop"
+    activities:
+      - time: "13:30"
+        type: rest
+        title: "Acordamos no Panorama"
+      - time: "13:57"
+        end: "16:44"
+        type: transport
+        title: "Bateria do T-Cross trocada por um eletricista — coberto pelo seguro da locadora"
+      - type: food
+        title: "Almoço no Tre Ishujt, em frente ao Bianco"
+      - time: "17:24"
+        end: "19:23"
+        type: beach
+        title: "Poda — praia pública, sem pagar nada"
+      - type: food
+        title: "Jantar no Poda, quatro pessoas"
+        cost: 6500
+        currency: ALL
+        split: 4
+        approx: true
+      - time: "19:35"
+        end: "20:47"
+        type: food
+        title: "Ice Rolls, na Rruga Riviera — por sorvete"
+        cost: 700
+        currency: ALL
+        approx: true
+      - time: "20:47"
+        end: "21:34"
+        type: food
+        title: "Kamay"
+      - time: "21:41"
+        end: "23:58"
+        type: nightlife
+        title: "Bianco rooftop — mojitos, whisky e cerveja, quatro pessoas"
+        cost: 50.00
+        split: 4
+        approx: true
+      - time: "00:03"
+        end: "01:32"
+        type: nightlife
+        title: "Poda, ambiente fechado"
+  - date: 2026-06-13
+    title: "Groovy Grill, Orange e Copa do Mundo"
+    activities:
+      - time: "12:05"
+        type: transport
+        title: "Saída para Ksamil (chegada 12h32)"
+      - type: food
+        title: "Almoço no Groovy Grill, quatro pessoas"
+        cost: 70.00
+        split: 4
+      - time: "13:32"
+        end: "18:49"
+        type: beach
+        title: "Orange Beach Club — piscina gratuita e espreguiçadeiras sem cobrança, com consumo no bar"
+      - time: "19:31"
+        type: shopping
+        title: "Mercado"
+      - time: "19:45"
+        end: "23:29"
+        type: rest
+        title: "AirBnB"
+      - type: drinks
+        title: "Garrafa de whisky do mercado em frente ao bar"
+        cost: 30.00
+        approx: true
+      - time: "23:49"
+        end: "01:56"
+        type: event
+        title: "Vibe 360° — primeiro jogo do Brasil na Copa"
+  - date: 2026-06-14
+    title: "Passeios de barco"
+    activities:
+      - time: "09:34"
+        type: transport
+        title: "Saída"
+      - time: "10:09"
+        type: sight
+        title: "El Niño Boat Tours Sarande — por pessoa"
+        cost: 30.00
+        note: "Os outros seis foram no passeio Viking, ≈ € 40 por pessoa"
+      - time: "10:14"
+        end: "11:52"
+        type: sight
+        title: "Navegação — Turtle Cave, Secret Beach, Cape Qefali e Kakome Bay"
+      - time: "11:52"
+        end: "14:13"
+        type: beach
+        title: "Praia de Kroreza"
+      - time: "14:13"
+        end: "15:16"
+        type: sight
+        title: "Retorno, com parada no Crystal-clear"
+      - type: rest
+        title: "AirBnB — descanso antes da madrugada de direção"
+      - time: "21:10"
+        type: shopping
+        title: "Mercado"
+      - time: "21:38"
+        type: rest
+        title: "Recolhimento"
+  - date: 2026-06-15
+    title: "Partida"
+    activities:
+      - time: "04:28"
+        type: transport
+        title: "Saída de Sarande — 237 km em 3h11"
+      - time: "07:39"
+        type: transport
+        title: "Aeroporto de Tirana e entrega dos carros"
+      - time: "10:17"
+        end: "13:33"
+        type: flight
+        title: "Voo TIA → LPL (Ryanair UK)"
+      - type: other
+        title: "Imigração do Reino Unido em Liverpool e Burger King"
+      - type: food
+        title: "Comida nos aeroportos e snacks"
+        cost: 15.00
+        approx: true
+      - time: "15:40"
+        end: "16:22"
+        type: flight
+        title: "Voo LPL → DUB"
+      - time: "17:57"
+        type: transport
+        title: "Casa em Dublin"
+extras:
+  - type: flight
+    title: "Voos DUB → STN → TIA → LPL → DUB (Kiwi), minha parte de € 849 do grupo"
+    cost: 141.50
+  - type: lodging
+    title: "AirBnB em Sarande, sete noites, por pessoa"
+    cost: 200.00
+    approx: true
+  - type: other
+    title: "Taxas dos três saques em ATM"
+    cost: 23.18
+  - type: other
+    title: "eSIM de dados, três recargas (líquido de estorno)"
+    cost: 21.29

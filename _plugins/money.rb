@@ -14,7 +14,7 @@ module Jekyll
   # for a column where amounts must line up. pt-BR separators are "." and
   # ","; every other language gets "," and ".".
   module MoneyFilters
-    SYMBOLS = { 'EUR' => '€', 'BRL' => 'R$', 'GBP' => '£', 'USD' => 'US$' }.freeze
+    SYMBOLS = { 'EUR' => '€', 'BRL' => 'R$', 'GBP' => '£', 'USD' => 'US$', 'ALL' => 'Lek' }.freeze
 
     def money(input, currency = 'EUR', lang = 'pt-BR', decimals = nil)
       value = input.to_f

@@ -609,6 +609,10 @@ Vou começar pelo problema, porque ele é real e não adianta romantizar. **Dubl
 
 E, mesmo assim, eu fiquei. O que diz bastante sobre o que entra do outro lado da balança.
 
+Para colocar número nessa conta antes de seguir: a calculadora abaixo aplica as tabelas irlandesas de 2026 — imposto de renda por faixa e créditos, USC, PRSI e a dedução da pensão — a um salário bruto e mostra o líquido, ao lado do que o mesmo cargo deixaria em CLT no Brasil. O aluguel não está nela; é a subtração seguinte.
+
+{% include calculators/net-salary-ie-br.html %}
+
 ### O que pesa a favor: qualidade de vida e ambiente
 
 A **qualidade de vida** aqui é boa de um jeito que não aparece em planilha: a rotina cabe no dia, a cidade é caminhável, o resto da Europa está a um voo curto, e existe vida fora do trabalho sem que isso exija esforço.

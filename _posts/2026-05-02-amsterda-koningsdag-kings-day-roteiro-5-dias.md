@@ -11,6 +11,7 @@ tags: [viagem, amsterda, holanda, paises-baixos, koningsdag, kings-day, irlanda,
 image: /assets/img/posts/amsterda-2026.jpg
 gallery: true
 countries: [Netherlands]
+trip: amsterda-2026
 location:
   lat: 52.3676
   lng: 4.9041
@@ -177,48 +178,9 @@ O nosso chalé, com as duas camas de solteiro, saiu por **€ 718,02** no total:
   <div class="section-title-wrap"><h2>Timeline — dia a dia</h2></div>
 </div>
 
-<table class="compare-table">
-  <thead>
-    <tr>
-      <th>Dia</th>
-      <th>Data</th>
-      <th>Principais atividades</th>
-      <th>Gasto no cartão</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Dia 1 — Chegada</td>
-      <td>25/04 (Sáb)</td>
-      <td>Direto da balada ao aeroporto (9h32) · Voo DUB→AMS ≈ 12h45–15h45 · Trem Schiphol→Duivendrecht 16h37 · Check-in 17h11 · Metrô ao Centraal 18h23 · Damrak, Dam e Rokin · Noite no Red Light District até 23h45</td>
-      <td>— (voo comprado em 27/02; ver §02)</td>
-    </tr>
-    <tr>
-      <td>Dia 2 — Koningsnacht</td>
-      <td>26/04 (Dom)</td>
-      <td>Metrô ao Centraal 12h03 · Caminhada de 2h pelo centro · Jordaan e Zeedijk · Volta a pé para casa (5,6 km!) · Metrô 22h24 · Balsa ao A'DAM Toren · <strong>Madam</strong> 23h06–02h38</td>
-      <td>≈ € 168,37</td>
-    </tr>
-    <tr>
-      <td>Dia 3 — Koningsdag</td>
-      <td>27/04 (Seg)</td>
-      <td>Acordou 13h22 · Metrô ao Centraal 13h47 · Red Light District 14h26–15h50 · Caminhada de 1 km em 1h36 (multidão) · Haarlemmerstraat/Brouwersgracht 17h26–22h20 · Volta ao centro histórico até 00h30</td>
-      <td>≈ € 332,40</td>
-    </tr>
-    <tr>
-      <td>Dia 4</td>
-      <td>28/04 (Ter)</td>
-      <td>Descanso até 16h52 · Carro ao <strong>Leidseplein</strong> 17h13–19h31 · Caminhada de 5 km até o centro histórico · Rokin 21h48 · Noite no centro até 01h05</td>
-      <td>≈ € 193,59</td>
-    </tr>
-    <tr>
-      <td>Dia 5 — Partida</td>
-      <td>29/04 (Qua)</td>
-      <td>Acordou 10h57 · Metrô até Lelylaan 11h02 · Trem Lelylaan→Schiphol 11h25 · Aeroporto 11h34–13h37 · Voo AMS→DUB 13h37–14h14 (horário irlandês) · Ônibus ao centro de Dublin · Casa 15h21</td>
-      <td>≈ € 267,90 + € 55,05 liquidados depois</td>
-    </tr>
-  </tbody>
-</table>
+Os horários são os do GPS; os valores só aparecem nas atividades que o extrato consegue ligar a um lançamento. O que caiu no cartão por dia de liquidação — e por categoria — está no resumo financeiro, mais abaixo; a linha do tempo não soma, porque o extrato agrupa, não itemiza.
+
+{% include timeline.html %}
 
 <div class="callout callout-warn">
   <div class="callout-label">Sobre os horários e os valores</div>

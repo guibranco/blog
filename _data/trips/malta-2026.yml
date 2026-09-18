@@ -1,0 +1,362 @@
+# Itinerary of _posts/2026-08-30-malta-st-julians-comino-roteiro-8-dias.md (ADR-0016).
+#
+# Times come from the post's own day-by-day table and sections (phone
+# location history). `cost` is only ever an amount the post states, in the
+# post's own words: group amounts carry the `split` the post gives (Bolt rides
+# were shared by three, the pizza "€ 19,33 por pessoa", the UMI dinner "pelos
+# quatro"); amounts without a stated split are the author's own.
+#
+# totals: false — the post's per-day and per-category figures come from the
+# author's spreadsheet and include items the prose does not itemize (rounds
+# paid on other cards, small purchases), so the timeline shows what each
+# activity cost without summing days: the post's charts stay the source for
+# the totals.
+currency: EUR
+totals: false
+days:
+  - date: 2026-08-22
+    title: "Chegada"
+    activities:
+      - time: "06:09"
+        type: flight
+        title: "Voo DUB → MAN (Ryanair)"
+        note: "Passagens Dublin → Manchester → Malta → Dublin pela Kiwi, € 283 no total — nos extras"
+      - time: "09:08"
+        type: flight
+        title: "Voo MAN → MLA, pouso em Malta às 13h44"
+      - time: "13:44"
+        end: "14:04"
+        type: transport
+        title: "Ônibus TD3, aeroporto → St. Julian's"
+        cost: 3.00
+      - time: "14:04"
+        type: lodging
+        title: "Check-in no ASTE Hotel, St. Julian's"
+        note: "Sete noites, € 685,68 na minha parte — nos extras"
+      - type: food
+        title: "Jantar no Hugo's, Paceville — combo nº 6 com nuggets"
+        cost: 20.40
+      - time: "20:09"
+        end: "22:50"
+        type: nightlife
+        title: "Pool party no So City Rooftop (Society Hotel)"
+        cost: 22.00
+        note: "Uma rodada; a entrada e a primeira rodada foram pagas pelo amigo"
+      - time: "21:56"
+        type: shopping
+        title: "Shop Express — água, cerveja, chiclete, vape e chinelos"
+        cost: 19.80
+      - time: "00:05"
+        end: "03:40"
+        type: nightlife
+        title: "Toy Room (by Pacha), Paceville — entrada com a promoter"
+        cost: 25.00
+        note: "Paga por Revolut na calçada; incluía um beach club no dia seguinte, que não usamos"
+      - type: drinks
+        title: "Toy Room — pulseira de consumo, duas recargas"
+        cost: 40.00
+  - date: 2026-08-23
+    title: "Golden Bay, Café del Mar e Havana"
+    activities:
+      - time: "13:19"
+        type: transport
+        title: "Bolt, ASTE → Golden Bay (14,6 km)"
+        cost: 30.00
+        split: 3
+      - time: "13:19"
+        end: "18:27"
+        type: beach
+        title: "Golden Bay — três espreguiçadeiras e dois guarda-sóis no Yarin Beach"
+        cost: 35.00
+        note: "Paguei o conjunto; os outros dois compraram o resto nos cartões deles"
+      - type: drinks
+        title: "Bar Munchies Golden Bay, duas comandas"
+        cost: 16.60
+      - time: "18:27"
+        type: transport
+        title: "Bolt, Golden Bay → hotel"
+        cost: 30.40
+        split: 3
+      - time: "20:54"
+        type: transport
+        title: "Bolt, hotel → Café del Mar (Qawra)"
+        cost: 30.00
+        split: 3
+      - time: "20:54"
+        end: "01:02"
+        type: event
+        title: "Café del Mar — festa Sundays, ingresso VIP"
+        cost: 50.00
+        note: "Os dois ingressos normais do grupo custaram € 25 cada, mais € 5 na porta para subir a VIP"
+      - type: drinks
+        title: "Café del Mar — cinco das nove rodadas do grupo, no meu cartão"
+        cost: 87.00
+      - time: "01:02"
+        type: transport
+        title: "Bolt, Café del Mar → hotel"
+        cost: 30.00
+        split: 3
+      - time: "01:50"
+        end: "04:30"
+        type: nightlife
+        title: "Havana, Paceville — entrada"
+        cost: 20.00
+        note: "Já era segunda-feira; contabilizado no dia em que a noite começou"
+      - type: drinks
+        title: "Havana — uma comanda de € 20,70 e quatro rodadas de € 5,90"
+        cost: 44.30
+  - date: 2026-08-24
+    title: "St. Peter's Pool, Marsaskala e Blue Grotto"
+    activities:
+      - time: "13:24"
+        end: "14:17"
+        type: food
+        title: "Almoço no Hugo's — combo sem nuggets"
+        cost: 15.40
+      - time: "14:31"
+        type: transport
+        title: "Bolt, hotel → St. Peter's Pool (14,8 km)"
+        cost: 30.00
+        split: 3
+      - time: "15:01"
+        end: "16:52"
+        type: beach
+        title: "St. Peter's Pool — água e Coca-Cola do ambulante"
+        cost: 8.00
+      - time: "17:17"
+        end: "18:02"
+        type: transport
+        title: "Van avulsa, St. Peter's → Marsaskala"
+        cost: 20.00
+        split: 3
+      - type: beach
+        title: "Marsaskala — três Gatorades e três águas de um vendedor local"
+        cost: 9.00
+        note: "Não paramos na praia: 45 minutos de caminhada e espera pelo Bolt"
+      - time: "18:02"
+        type: transport
+        title: "Bolt, Marsaskala → Blue Grotto"
+        cost: 15.00
+        split: 3
+      - time: "18:27"
+        end: "19:44"
+        type: beach
+        title: "Blue Grotto"
+      - time: "19:44"
+        end: "20:05"
+        type: transport
+        title: "Bolt, Blue Grotto → hotel"
+        cost: 18.30
+        split: 3
+        note: "A primeira corrida, de € 30, foi recusada pelo motorista por estarmos molhados"
+      - time: "21:00"
+        type: food
+        title: "Claudio's Pizza — três pizzas e quatro refrigerantes"
+        cost: 58.00
+        split: 3
+      - type: nightlife
+        title: "Irish Pub de Paceville, com as amigas"
+      - time: "23:59"
+        type: nightlife
+        title: "Flow Club — uma rodada com o cupom compre 1 leve 2"
+        cost: 5.40
+      - time: "00:34"
+        type: nightlife
+        title: "Qube Club — outra rodada"
+        cost: 5.90
+      - time: "01:47"
+        type: shopping
+        title: "La Dolceria — água"
+        cost: 2.20
+  - date: 2026-08-25
+    title: "Comino, Blue Lagoon e Crystal Lagoon"
+    activities:
+      - time: "09:00"
+        type: sight
+        title: "Passeio de barco da GetYourGuide, perdido por dormir demais"
+        cost: 52.50
+        note: "Dois ingressos de € 26,25, sem cancelamento — prejuízo integral"
+      - time: "14:43"
+        type: transport
+        title: "Bolt, hotel → Sliema"
+        cost: 11.90
+        split: 3
+      - time: "15:04"
+        type: sight
+        title: "Passeio substituto pelo Booking, saída de Sliema (Luzzu Cruises)"
+        cost: 40.00
+        note: "Pago na hora por um amigo; transferi a minha parte depois"
+      - time: "16:19"
+        end: "19:20"
+        type: beach
+        title: "Blue Lagoon (Comino), grutas e Crystal Lagoon"
+      - type: drinks
+        title: "Bar do ferry — três compras (15h36, 18h50 e 19h23)"
+        cost: 24.00
+      - time: "18:38"
+        type: event
+        title: "Ingresso da festa do branco do dia seguinte, comprado no site do Toy Room Beach Club"
+        cost: 16.50
+        note: "€ 15 de ingresso e € 1,50 de taxas; na porta seria € 20"
+      - time: "20:18"
+        type: transport
+        title: "Volta a Sliema"
+      - time: "20:48"
+        type: shopping
+        title: "Souvenirs em Sliema — oito copinhos de shot e uma bermuda branca"
+        cost: 33.45
+      - type: food
+        title: "Jantar no Asian Kingdom, Sliema"
+        cost: 21.30
+      - time: "21:05"
+        type: other
+        title: "Banheiro do shopping atrás do Burger King"
+        cost: 1.00
+      - time: "22:06"
+        type: transport
+        title: "Bolt, Sliema → hotel"
+        cost: 12.40
+        split: 3
+        approx: true
+        note: "O primeiro motorista cancelou; o amigo pediu outro, praticamente pelo mesmo valor"
+  - date: 2026-08-26
+    title: "Festa do branco no Toy Room Beach Club e Footloose"
+    activities:
+      - time: "11:23"
+        type: food
+        title: "Café da manhã tardio no Basic Foods and Drinks"
+        cost: 21.73
+      - type: transport
+        title: "Bolt, hotel → Toy Room Beach Club (Sliema)"
+        cost: 12.00
+        split: 3
+      - time: "14:20"
+        end: "19:00"
+        type: event
+        title: "Festa do branco — Toy Room Beach Club, Sliema"
+        note: "Ingresso comprado na véspera, € 16,50"
+      - type: beach
+        title: "Double premium perto da piscina principal"
+        cost: 70.00
+        split: 2
+        note: "Pago por um amigo na hora; acertei por Revolut"
+      - type: drinks
+        title: "Pulseira de consumo — € 40 às 14h37 e € 20 às 17h05"
+        cost: 60.00
+      - time: "19:00"
+        type: transport
+        title: "Bolt, beach club → St. Julian's"
+        cost: 15.30
+        split: 3
+      - time: "20:04"
+        type: food
+        title: "Jantar no Asian Kingdom de St. Julian's — noodle de carne"
+        cost: 23.30
+      - time: "23:23"
+        type: shopping
+        title: "Shop Express Cy — mojito e gin em lata, duas compras (€ 19 e € 10,96)"
+        cost: 29.96
+      - time: "00:05"
+        type: nightlife
+        title: "Footloose, Paceville — entrada com duas bebidas"
+        cost: 20.00
+      - time: "01:01"
+        end: "03:41"
+        type: drinks
+        title: "Footloose — quatro comandas"
+        cost: 47.30
+      - time: "04:52"
+        type: shopping
+        title: "Shop Express, na volta a pé"
+        cost: 7.84
+  - date: 2026-08-27
+    title: "Sliema, mal-entendidos e o jantar no UMI"
+    activities:
+      - type: transport
+        title: "Bolt, hotel → praia rochosa depois do Il-Fortizza, Sliema"
+        cost: 8.30
+        split: 2
+      - time: "13:39"
+        end: "15:23"
+        type: beach
+        title: "Sliema a pé — Il-Fortizza, Exiles Bay e a orla até St. Julian's (5,75 km)"
+      - time: "13:49"
+        type: drinks
+        title: "Água de 2 litros num truck de sorvete"
+        cost: 2.50
+      - time: "15:25"
+        type: shopping
+        title: "Sandália, para substituir o chinelo que arrebentou"
+        cost: 9.99
+      - time: "16:03"
+        type: food
+        title: "Asian Kingdom de St. Julian's — o mesmo pedido da primeira vez"
+        cost: 19.80
+      - time: "21:13"
+        type: transport
+        title: "Bolt, St. Julian's → UMI, St. Paul's Bay"
+        cost: 19.40
+      - time: "21:50"
+        type: food
+        title: "Jantar no UMI — Sushi & Asian Fusion, mesa para quatro"
+        cost: 113.00
+        split: 4
+      - type: walk
+        title: "Caminhada do UMI ao Canifor Hotel (1,42 km)"
+      - time: "00:05"
+        type: transport
+        title: "Bolt, Canifor Hotel → ASTE"
+        cost: 19.90
+      - time: "00:29"
+        type: food
+        title: "Basic Foods and Drinks, ao chegar"
+        cost: 5.00
+  - date: 2026-08-28
+    title: "O dia de não fazer nada"
+    activities:
+      - time: "05:06"
+        type: food
+        title: "KFC pelo Wolt — primeiro pedido, pago com RevPoints"
+        cost: 25.55
+        note: "O Caramel Sundae não veio; € 2 de volta como crédito"
+      - type: rest
+        title: "Piscina da cobertura e série no quarto"
+      - time: "23:41"
+        type: food
+        title: "KFC pelo Wolt — segundo pedido, € 29,82 com o crédito de € 2"
+        cost: 27.82
+  - date: 2026-08-29
+    title: "Late checkout, sorvete e a volta"
+    activities:
+      - time: "11:00"
+        end: "13:00"
+        type: lodging
+        title: "Late checkout no ASTE — € 15 por hora"
+        note: "Os € 30 estão na conta da hospedagem, nos extras"
+      - time: "13:00"
+        end: "16:48"
+        type: rest
+        title: "Recepção do hotel, com a mala do lado"
+      - time: "16:50"
+        end: "17:05"
+        type: food
+        title: "Último sorvete no RivaReno — duas compras de € 6"
+        cost: 12.00
+      - time: "17:05"
+        end: "17:20"
+        type: transport
+        title: "Bolt, St. Julian's → aeroporto (8,6 km)"
+        cost: 16.00
+      - type: shopping
+        title: "Free shop — três perfumes e Toblerone"
+        cost: 82.17
+      - time: "21:23"
+        type: flight
+        title: "Voo MLA → DUB, previsto para as 20h; pouso em Dublin às 00h11"
+extras:
+  - type: flight
+    title: "Passagens Dublin → Manchester → Malta → Dublin (Kiwi), com a taxa de serviço"
+    cost: 283.00
+  - type: lodging
+    title: "ASTE Hotel, sete noites — minha parte, com o late checkout"
+    cost: 685.68

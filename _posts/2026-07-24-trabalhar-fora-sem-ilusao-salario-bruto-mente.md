@@ -129,7 +129,7 @@ E aqui está o custo que não é financeiro: aos trinta e tantos anos, com salá
   Não compare salário com salário. Compare <strong>o que sobra depois da moradia</strong>. E seja honesto sobre a sua linha de base: se hoje você mora com a família, tem imóvel quitado ou paga aluguel subsidiado, seu custo atual não é o custo de mercado do Brasil — é um benefício que você vai perder na mudança. Refaça a conta com o aluguel real que você pagaria no Brasil hoje, sozinho. Só então a comparação faz sentido.
 </div>
 
-### Faça a sua conta
+### Faça a sua conta {#faca-a-sua-conta}
 
 Antes de chegar na moradia, tire a prova da primeira subtração. Coloque o bruto de uma oferta irlandesa de um lado e o seu salário CLT do outro: a calculadora usa as tabelas oficiais de 2026 dos dois países — PAYE, USC, PRSI e pensão na Irlanda; INSS, IRRF com a redução da Lei 15.270, 13º e férias no Brasil — e mostra os dois líquidos nas duas moedas, com o câmbio que você quiser. O FGTS aparece à parte, porque é dinheiro que existe, mas não cai na conta.
 
