@@ -96,7 +96,7 @@ jobs:
       # script, so the cache key only rolls when that pin (or the script) does.
       - name: Restore brand fonts
         if: steps.posts.outputs.run == 'true'
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: .github/fonts
           key: og-fonts-${{ hashFiles('.github/scripts/build_og_cards.py') }}
