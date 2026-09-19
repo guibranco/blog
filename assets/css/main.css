@@ -1592,6 +1592,22 @@ a.pagination-btn:hover { border-color: var(--accent); color: var(--accent); }
 .series-pager .series-banner-header { margin-bottom: 1rem; }
 @media (max-width: 600px) { .series-pager { border-radius: 12px; padding: 1.25rem 1.25rem; } }
 
+/* ── Archive page (/arquivo/) ──────────────────────────────────────────────── */
+.archive-years { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1.75rem; }
+.archive-year { scroll-margin-top: 1.5rem; }
+.archive-heat { display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; margin: 0 0 1.5rem; }
+.archive-heat-cell { height: 10px; border-radius: 3px; background: var(--border); }
+.archive-heat-1 { background: var(--accent-light-border); }
+.archive-heat-2 { background: var(--accent); opacity: .55; }
+.archive-heat-3 { background: var(--accent); }
+.archive-month-title {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.69rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--accent); font-weight: 500; margin: 0;
+}
+.archive-item-cats { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+.archive-item .tag-group-item-date i { margin-right: 3px; }
+@media (max-width: 768px) { .archive-heat { gap: 3px; } }
+
 /* ── Tags pages ────────────────────────────────────────────────────────────── */
 .section-meta {
   font-family: 'JetBrains Mono', monospace;

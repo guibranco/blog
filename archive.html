@@ -1,0 +1,139 @@
+---
+layout: null
+permalink: /arquivo/
+---
+<!DOCTYPE html>
+{% include resolve-lang.html %}
+{%- comment -%}
+  Archive: every published Post exactly once, newest first, grouped by year
+  and then by month. Dates and month headings are rendered in both UI
+  languages through the `localized_date` filter (pt-BR visible, en hidden)
+  and swapped client-side by assets/js/lang-switcher.js, like the rest of the
+  bilingual chrome — with JavaScript off the pt-BR text shows.
+{%- endcomment -%}
+{% assign _pt = site.data.i18n["pt-BR"] %}
+{% assign _en = site.data.i18n["en"] %}
+{% assign _years = site.posts | group_by_exp: "p", "p.date | date: '%Y'" %}
+<html lang="{{ _lang }}">
+<head>
+  {% include theme-init.html %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ _t.archive_title }} — {{ site.title }}</title>
+  <meta name="description" content="{{ _t.archive_lead }}">
+  {% seo %}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  {% include analytics.html %}
+</head>
+<body>
+
+  {% include sidebar.html active_page="archive" %}
+
+  <!-- ══════════ MAIN ══════════ -->
+  <div class="main">
+
+    <section class="hero">
+      <p class="hero-eyebrow" data-i18n="archive_eyebrow">{{ _t.archive_eyebrow }}</p>
+      <h1 class="hero-title" data-i18n="archive_title">{{ _t.archive_title }}</h1>
+      <p class="hero-desc">
+        {{ site.posts | size }} <span data-i18n="{% if site.posts.size != 1 %}articles_plural{% else %}article_singular{% endif %}">{% if site.posts.size != 1 %}{{ _t.articles_plural }}{% else %}{{ _t.article_singular }}{% endif %}</span>
+        · {{ _years | size }} <span data-i18n="{% if _years.size != 1 %}years_plural{% else %}year_singular{% endif %}">{% if _years.size != 1 %}{{ _t.years_plural }}{% else %}{{ _t.year_singular }}{% endif %}</span>
+        · <span data-i18n="archive_lead">{{ _t.archive_lead }}</span>
+      </p>
+    </section>
+
+    <div class="content-wrap">
+
+      {% if _years.size > 0 %}
+      <!-- Jump to a year -->
+      <nav class="archive-years" aria-label="{{ _t.archive_years_aria }}" data-i18n-aria="archive_years_aria">
+        {% for y in _years %}
+        <a class="tag-index-item" href="#ano-{{ y.name }}">{{ y.name }} <span class="tag-count">{{ y.items | size }}</span></a>
+        {% endfor %}
+      </nav>
+
+      <!-- One card per year, one group per month -->
+      {% for y in _years %}
+        {% assign _months = y.items | group_by_exp: "p", "p.date | date: '%Y-%m'" %}
+        <div class="article-card archive-year" id="ano-{{ y.name }}">
+          <div class="section-row">
+            <h2 class="section-title">{{ y.name }}</h2>
+            <span class="section-meta">
+              {{ y.items | size }}
+              <span data-i18n="{% if y.items.size != 1 %}articles_plural{% else %}article_singular{% endif %}">{% if y.items.size != 1 %}{{ _t.articles_plural }}{% else %}{{ _t.article_singular }}{% endif %}</span>
+            </span>
+          </div>
+
+          {% comment %} Twelve cells, January to December, shaded by how many posts the month has {% endcomment %}
+          <div class="archive-heat" role="img" aria-label="{{ _t.archive_heat_aria }}" data-i18n-aria="archive_heat_aria">
+            {% for m in (1..12) %}
+              {% assign _mm = m | prepend: "0" | slice: -2, 2 %}
+              {% assign _ym = y.name | append: "-" | append: _mm %}
+              {% assign _mg = _months | where: "name", _ym | first %}
+              {% assign _n = _mg.items | size %}
+              {% if _n == 0 %}{% assign _level = 0 %}{% elsif _n == 1 %}{% assign _level = 1 %}{% elsif _n <= 3 %}{% assign _level = 2 %}{% else %}{% assign _level = 3 %}{% endif %}
+              <span class="archive-heat-cell archive-heat-{{ _level }}" title="{{ _mm }}/{{ y.name }} · {{ _n }}"></span>
+            {% endfor %}
+          </div>
+
+          {% for mg in _months %}
+            {% assign _first = mg.items | first %}
+            {% assign _m_pt = _first.date | localized_date: _pt.archive_month_format, "pt-BR" %}
+            {% assign _m_en = _first.date | localized_date: _en.archive_month_format, "en" %}
+            <div class="tag-group archive-month">
+              <div class="tag-group-header">
+                <h3 class="archive-month-title">{% include i18n-block.html pt=_m_pt en=_m_en %}</h3>
+                <span class="tag-group-count">
+                  {{ mg.items | size }}
+                  <span data-i18n="{% if mg.items.size != 1 %}articles_plural{% else %}article_singular{% endif %}">{% if mg.items.size != 1 %}{{ _t.articles_plural }}{% else %}{{ _t.article_singular }}{% endif %}</span>
+                </span>
+              </div>
+              <ul class="tag-group-list">
+                {% for post in mg.items %}
+                {% assign _pl = site.data.i18n[post.lang] %}
+                {% assign _d_pt = post.date | localized_date: _pt.date_format, "pt-BR" %}
+                {% assign _d_en = post.date | localized_date: _en.date_format, "en" %}
+                <li class="tag-group-item archive-item">
+                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                  <span class="tag-group-item-meta">
+                    {% if post.categories.size > 0 or post.subcategories.size > 0 %}
+                    <span class="archive-item-cats">
+                      {% for cat in post.categories limit: 2 %}<span class="cat-pill">{{ cat }}</span>{% endfor %}
+                      {% for sub in post.subcategories limit: 1 %}
+                        {% assign _ai_parts = sub | split: "/" %}
+                        {% assign _ai_label = sub | remove_first: _ai_parts[0] | remove_first: "/" %}
+                        <span class="cat-pill cat-pill--sub">{{ _ai_label }}</span>
+                      {% endfor %}
+                    </span>
+                    {% endif %}
+                    <span class="lang-badge" title="{{ _pl.lang_name }}"><i class="fas fa-globe"></i> {{ _pl.lang_label }}</span>
+                    <span class="tag-group-item-date"><i class="fa-regular fa-calendar"></i> {% include i18n-block.html pt=_d_pt en=_d_en %}</span>
+                    {% if post.reading_time %}<span class="tag-group-item-date"><i class="fa-regular fa-clock"></i> ~{{ post.reading_time }} min</span>{% endif %}
+                  </span>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+      {% else %}
+      <div class="article-card">
+        <p class="empty-state" data-i18n="empty_no_articles">{{ _t.empty_no_articles }}</p>
+      </div>
+      {% endif %}
+
+    </div>
+
+    {% include footer.html %}
+
+  </div>
+
+  {% include sidebar-script.html %}
+
+</body>
+</html>

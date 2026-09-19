@@ -64,7 +64,7 @@ A Post's question-and-answer content, opted in per Post with the `faq: true` fro
 _Avoid_: Q&A, Perguntas frequentes — as the domain term; "Perguntas frequentes" is only what a Post may title the section.
 
 **Calculator**:
-An interactive widget a Post embeds in its body with a single include from `_includes/calculators/` (ADR 0015). Its rates, bands, sources and UI copy live in the same-named file under `_data/calculators/` — a table that more than one Calculator reads lives once under `_data/calculators/shared/` (ADR 0017) — so a new tax year is a data edit, never a logic edit; the include carries its own scoped markup, styles and vanilla JavaScript, states the tax year and the official sources it was checked against, and renders those tables server-side so the page stays readable with JavaScript off. Independent of Category, Tag and Series; a Post may embed any number of Calculators, and the copy follows the Post language.
+An interactive widget a Post embeds in its body with a single include from `_includes/calculators/` (ADR 0015). Its rates, bands, sources and UI copy live in the same-named file under `_data/calculators/` — a table that more than one Calculator reads lives once under `_data/calculators/shared/` (ADR 0017) — so a new tax year is a data edit, never a logic edit; the include carries its own markup and, assembled at build time from the partials in `_includes/calculators/shared/`, its scoped styles and vanilla JavaScript; it states the tax year and the official sources it was checked against, and renders those tables server-side so the page stays readable with JavaScript off. Independent of Category, Tag and Series; a Post may embed any number of Calculators, and the copy follows the Post language.
 _Avoid_: Widget, Tool, Simulator — Calculator is canonical even when the thing converts or compares rather than computes.
 
 **Journey**:
@@ -74,3 +74,7 @@ _Avoid_: Timeline — Journey is the canonical name for the page; "timeline" des
 **Editorial Notes**:
 The standalone page at `/notas-editoriais/`, documenting the blog's own production process — why it exists, how posts get made (including AI's role), and its sourcing/correction/privacy policies (`_data/editorial.yml`). Not a Post; structured the same way as Journey (single bilingual file, no Category, Tag, or Series) despite unrelated content — the two are independent concepts, not variants of a shared "page" type.
 _Avoid_: Colophon, About page — Editorial Notes is canonical.
+
+**Archive**:
+The standalone page at `/arquivo/`: every published Post exactly once, newest first, grouped by year and then by month, each line carrying the Post's title, publish date, Reading Time, language and Category chips, with a per-year count and a twelve-cell strip of Posts per month. Not a Post — carries no Category, Tag or Series. Like Journey it is one file for both UI languages: month headings and dates are rendered twice through `localized_date` and switched client-side, so the page reads correctly with JavaScript off (pt-BR) and in either language with it on.
+_Avoid_: History, Timeline, All posts — Archive is canonical; "timeline" belongs to Journey and Trip.

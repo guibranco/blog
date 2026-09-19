@@ -139,6 +139,11 @@
             <i class="fas fa-map-location-dot"></i> <span data-i18n="travels">Viagens</span>
           </a>
         </li>
+        <li>
+          <a href="{{ site.baseurl }}/arquivo/"{% if include.active_page == "archive" %} class="active"{% endif %}>
+            <i class="fas fa-box-archive"></i> <span data-i18n="archive_nav">Arquivo</span>
+          </a>
+        </li>
       </ul>
 
       {%- comment -%} Structural / meta links, separated from the content listings above {%- endcomment -%}
