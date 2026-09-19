@@ -11,6 +11,11 @@ tags: [viagem, roteiro, europa, emirados-arabes-unidos, dubai, espanha, palma-de
 image: /assets/img/posts/famous-view-porto-douro-river-portugal-europe.png
 gallery: true
 countries: [Spain, Portugal, Italy, Malta]
+fx:
+  from: AED
+  to: EUR
+  rate: 3.97
+  as_of: 2022-04
 locations:
   - lat: 39.5696
     lng: 2.6502
@@ -152,7 +157,9 @@ Isso não é crítica à Kiwi — é o modelo. Quando você costura nove voos de
   Paguei mais caro para poder alterar os trechos. Precisei — duas vezes. O trecho Bologna → Malta que está na fatura não foi o que eu voei: troquei a passagem por um voo com escala em Catania, e é por isso que a parada na Sicília não aparece na fatura original. A volta comprada era Malta → Viena → Bucareste → Dubai no dia 07/05. A volta que aconteceu foi Malta → Cagliari → Budapeste → Dubai no dia 08/05, e ainda me deu três horas na Sardenha de brinde. Foi assim que os oito voos da fatura viraram os nove que eu voei. Se eu tivesse comprado a tarifa promocional, teria perdido a passagem inteira.
 </div>
 
-**Câmbio usado:** o dirham é atrelado ao dólar (AED 3,6725 = US$ 1), e o euro estava em torno de US$ 1,08 em abril de 2022. Isso dá aproximadamente **AED 3,97 por euro**, que é a taxa usada em todas as conversões deste post. Não use a taxa de hoje para converter valores de 2022 — a diferença passa de 10%.
+**Câmbio usado:** o dirham é atrelado ao dólar (AED 3,6725 = US$ 1), e o euro estava em torno de US$ 1,08 em abril de 2022. Isso dá aproximadamente **AED 3,97 por euro**, que é a taxa usada em todas as conversões deste post. Não use a taxa de hoje para converter valores de 2022 — a diferença passa de 10%. Para qualquer valor que eu não tenha convertido no texto, o conversor abaixo usa essa mesma taxa.
+
+{% include calculators/fx-converter.html %}
 
 <div class="divider">· · ·</div>
 

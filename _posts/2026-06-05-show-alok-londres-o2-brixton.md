@@ -16,14 +16,21 @@ location:
   lng: -0.1278
   label: "Londres, Inglaterra"
 trip: londres-2026
+fx:
+  from: GBP
+  to: EUR
+  rate: 0.8621
+  as_of: 2026-06
 ---
 
 <p class="lead">Três dias em Londres para o show do Alok na O2 Academy Brixton — com direito a M&M's World, LEGO Store, Borough Market e o Noodle Inn de Covent Garden. Tudo isso saindo de Dublin de Ryanair por menos de € 50,00 por pessoa entre ida e volta.</p>
 
 <div class="callout callout-tip">
   <div class="callout-label">Como este relato foi reconstruído</div>
-  Os horários e valores deste post não vêm de memória: foram reconstruídos a partir do meu <strong>histórico de localização do Google Timeline</strong> e cruzados com o <strong>extrato do Revolut</strong>. Como o cartão converte automaticamente, os débitos aparecem em euro — a taxa implícita no período foi de <strong>≈ € 1,16 por £ 1</strong>. Onde o valor está marcado como <em>confirmado no extrato</em>, é um débito real; o resto é estimativa de conta dividida ou pagamento em dinheiro.
+  Os horários e valores deste post não vêm de memória: foram reconstruídos a partir do meu <strong>histórico de localização do Google Timeline</strong> e cruzados com o <strong>extrato do Revolut</strong>. Como o cartão converte automaticamente, os débitos aparecem em euro — a taxa implícita no período foi de <strong>≈ € 1,16 por £ 1</strong>, e é ela que o conversor logo abaixo usa. Onde o valor está marcado como <em>confirmado no extrato</em>, é um débito real; o resto é estimativa de conta dividida ou pagamento em dinheiro.
 </div>
+
+{% include calculators/fx-converter.html %}
 
 <div class="callout callout-tip">
   <div class="callout-label">Moeda e pagamentos</div>

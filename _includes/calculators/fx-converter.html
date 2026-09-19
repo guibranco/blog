@@ -1,0 +1,120 @@
+{%- comment -%}
+calculators/fx-converter.html — converts between a travel Post's local currency
+and the currency it quotes, at the rate that applied during the trip.
+A Calculator (ADR-0015) whose figures come from the Post's front matter, not
+from a data file (ADR-0018):
+
+  fx:
+    from: AED        # the trip's local currency
+    to: EUR          # the currency the Post converts into
+    rate: 3.97       # how many `from` one `to` bought (1 EUR = 3.97 AED)
+    as_of: 2022-04   # when that rate applied
+
+  {% include calculators/fx-converter.html %}
+  {% include calculators/fx-converter.html id="calc-b" %}   (second copy on one page)
+
+Renders nothing at all when the Post has no `fx`. Copy comes from
+_data/calculators/fx-converter.yml, picked by the Post language; the
+stylesheet and the JavaScript helpers are the partials under
+calculators/shared/. The reference table is rendered as plain HTML (the
+no-JavaScript fallback) and the rate is handed to the script as JSON. No blank
+lines in the output (kramdown).
+{%- endcomment -%}
+{%- assign _fx = page.fx -%}
+{%- if _fx and _fx.rate -%}
+{%- include resolve-lang.html -%}
+{%- assign _calc = site.data.calculators["fx-converter"] -%}
+{%- assign _lab = _calc.labels[_lang] | default: _calc.labels["pt-BR"] -%}
+{%- assign _id = include.id | default: "calc-fx" -%}
+{%- comment -%} `as_of` may be a year-month string or a full date: give it a day so it parses either way. {%- endcomment -%}
+{%- assign _as_of_raw = _fx.as_of | append: "" -%}
+{%- if _as_of_raw.size == 7 -%}{%- assign _as_of_raw = _as_of_raw | append: "-01" -%}{%- endif -%}
+{%- assign _as_of = _as_of_raw | localized_date: _lab.as_of_format, _lang -%}
+{%- assign _one = 1 | money: _fx.to, _lang -%}
+{%- assign _rate = _fx.rate | money: _fx.from, _lang -%}
+{%- assign _one_from = 1 | money: _fx.from, _lang -%}
+{%- assign _inverse = 1.0 | divided_by: _fx.rate | money: _fx.to, _lang, 4 -%}
+<div class="calc calc-fx" data-calc="fx-converter" data-lang="{{ _lang }}" data-id="{{ _id }}" data-as-of="{{ _as_of }}">
+{% include calculators/shared/style.html -%}
+<p class="calc-eyebrow">{{ _lab.eyebrow | replace: "[as_of]", _as_of }}</p>
+<p class="calc-title">{{ _lab.title | replace: "[from]", _fx.from | replace: "[to]", _fx.to }}</p>
+<p class="calc-intro">{{ _lab.intro | replace: "[one]", _one | replace: "[rate]", _rate | replace: "[as_of]", _as_of }}</p>
+<form class="calc-form" hidden novalidate autocomplete="off">
+<fieldset class="calc-fs">
+<legend>{{ _lab.historical | replace: "[as_of]", _as_of }}</legend>
+<div class="calc-field"><label for="{{ _id }}-from">{{ _lab.amount_from | replace: "[from]", _fx.from }}</label><input id="{{ _id }}-from" name="amount-from" type="number" inputmode="decimal" min="0" step="1" value="100"></div>
+<div class="calc-field"><label for="{{ _id }}-to">{{ _lab.amount_to | replace: "[to]", _fx.to }}</label><input id="{{ _id }}-to" name="amount-to" type="number" inputmode="decimal" min="0" step="0.01" aria-describedby="{{ _id }}-amount-hint"><p class="calc-hint" id="{{ _id }}-amount-hint">{{ _lab.amount_hint }}</p></div>
+</fieldset>
+<fieldset class="calc-fs">
+<legend>{{ _lab.today }}</legend>
+<div class="calc-field"><label for="{{ _id }}-today">{{ _lab.rate_today | replace: "[one]", _one | replace: "[from]", _fx.from }}</label><input id="{{ _id }}-today" name="rate-today" type="number" inputmode="decimal" min="0" step="0.0001" placeholder="{{ _fx.rate }}" aria-describedby="{{ _id }}-today-hint"><p class="calc-hint" id="{{ _id }}-today-hint">{{ _lab.rate_today_hint | replace: "[from]", _fx.from | replace: "[to]", _fx.to }}</p></div>
+</fieldset>
+</form>
+<p class="calc-error" role="alert" hidden></p>
+<div class="calc-results" aria-live="polite" aria-atomic="true"></div>
+<noscript><p class="calc-note">{{ _lab.noscript }}</p></noscript>
+<details class="calc-details">
+<summary>{{ _lab.assumptions_summary }}</summary>
+<p class="calc-details-intro">{{ _lab.assumptions_intro | replace: "[as_of]", _as_of }}</p>
+<p class="calc-static-title">{{ _lab.table_title | replace: "[as_of]", _as_of }}</p>
+<table class="calc-static"><thead><tr><th>{{ _lab.table_from | replace: "[from]", _fx.from }}</th><th>{{ _lab.table_to | replace: "[to]", _fx.to }}</th></tr></thead><tbody>
+{%- for _amt in _calc.reference_amounts %}
+<tr><td>{{ _amt | money: _fx.from, _lang }}</td><td>{{ _amt | times: 1.0 | divided_by: _fx.rate | money: _fx.to, _lang, 2 }}</td></tr>
+{%- endfor %}
+<tr><td>{{ _lab.inverse }}</td><td>{{ _one_from }} = {{ _inverse }}</td></tr>
+</tbody></table>
+</details>
+<p class="calc-disclaimer">{{ _lab.disclaimer }}</p>
+<script type="application/json" data-calc-data>{{ _calc | jsonify }}</script>
+<script type="application/json" data-calc-fx>{{ _fx | jsonify }}</script>
+<script>
+(function () {
+  'use strict';
+  var NS = window.BlogCalculators = window.BlogCalculators || {};
+  {%- capture _lib -%}{%- include calculators/shared/lib.js -%}{%- endcapture %}
+  {{ _lib | strip }}
+  // ── Conversion (also exposed for tests): `rate` is how many `from` one `to` buys ──
+  function toQuoted(amountFrom, rate) { return rate > 0 ? amountFrom / rate : 0; }
+  function toLocal(amountTo, rate) { return amountTo * rate; }
+  NS.fxConverter = { toQuoted: toQuoted, toLocal: toLocal };
+  // ── DOM ────────────────────────────────────────────────────────────────
+  if (typeof document === 'undefined') return;
+  function init(root) {
+    var ui = setup(root), L = ui.labels, F = ui.fmt;
+    var fx = JSON.parse(root.querySelector('[data-calc-fx]').textContent);
+    var rate = Number(fx.rate), asOf = root.dataset.asOf || '';
+    var fromField = ui.field('amount-from'), toField = ui.field('amount-to');
+    // The placeholders every label may carry; [amount], [rate] and [diff] are filled where the value is known.
+    function fill(text) { return text.replace('[as_of]', asOf).replace('[from]', fx.from).replace('[to]', fx.to).replace('[one]', F.money(1, fx.to, 0)); }
+    function card(title, amountFrom, amountTo, rateUsed, sub) {
+      var c = el('section', 'calc-card');
+      c.appendChild(el('p', 'calc-card-title', title));
+      headline(c, fill(L.result_label).replace('[amount]', F.money(amountFrom, fx.from, 2)), F.money(amountTo, fx.to, 2), fill(L.rate_line).replace('[rate]', F.money(rateUsed, fx.from, 4)));
+      headline(c, fill(L.result_label_reverse).replace('[amount]', F.money(amountTo, fx.to, 2)), F.money(amountFrom, fx.from, 2), sub);
+      return c;
+    }
+    function render(source) {
+      var amountFrom = ui.num('amount-from'), amountTo = ui.num('amount-to'), today = ui.num('rate-today');
+      if (source === toField && Number.isFinite(amountTo)) { amountFrom = toLocal(amountTo, rate); fromField.value = amountFrom.toFixed(2); }
+      else if (Number.isFinite(amountFrom)) { amountTo = toQuoted(amountFrom, rate); toField.value = amountTo.toFixed(2); }
+      var ok = Number.isFinite(amountFrom) && amountFrom >= 0 && (Number.isNaN(today) || today >= 0);
+      ui.error.hidden = ok;
+      if (!ok) { ui.error.textContent = L.invalid; return; }
+      ui.results.textContent = '';
+      ui.results.appendChild(card(fill(L.result_historical), amountFrom, toQuoted(amountFrom, rate), rate, null));
+      if (Number.isFinite(today) && today > 0) {
+        var diff = today / rate - 1;
+        var sub = Math.abs(diff) < 0.0005 ? fill(L.diff_same) : fill(L.diff_line).replace('[diff]', (diff > 0 ? '+' : '') + F.pct(diff));
+        ui.results.appendChild(card(fill(L.result_today), amountFrom, toQuoted(amountFrom, today), today, sub));
+      }
+    }
+    ui.form.addEventListener('input', function (e) { render(e.target); });
+    ui.form.addEventListener('submit', function (e) { e.preventDefault(); render(null); });
+    ui.form.hidden = false;
+    render(null);
+  }
+  for (const root of document.querySelectorAll('[data-calc="fx-converter"]:not([data-calc-init])')) init(root);
+})();
+</script>
+</div>
+{%- endif -%}

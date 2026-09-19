@@ -1,0 +1,76 @@
+# UI copy and reference amounts for _includes/calculators/fx-converter.html
+# (ADR-0015, ADR-0018). Unlike the other Calculators this one carries no rate:
+# the rate, the currency pair and the date it applied come from the Post's
+# front matter —
+#
+#   fx:
+#     from: AED        # the trip's local currency (ISO 4217)
+#     to: EUR          # the currency the Post converts into
+#     rate: 3.97       # how many `from` one `to` bought: 1 EUR = 3.97 AED
+#     as_of: 2022-04   # when that rate applied (year-month, or a full date)
+#
+# — because each travel Post documents the rate of its own trip, never a
+# current one. `updated` stamps this file's copy, not any rate.
+
+updated: 2026-09-19
+
+# Amounts in the `from` currency shown in the static (no-JavaScript) table.
+reference_amounts: [10, 50, 100, 500, 1000]
+
+labels:
+  pt-BR:
+    eyebrow: "câmbio histórico · [as_of]"
+    title: "Conversor: [from] ↔ [to]"
+    intro: "[one] = [rate] em [as_of] — a taxa usada nas conversões deste post, não a cotação de hoje. Para comparar com o presente, digite a cotação atual no segundo campo; a página não busca câmbio."
+    historical: "No câmbio de [as_of]"
+    amount_from: "Valor em [from]"
+    amount_to: "Valor em [to]"
+    amount_hint: "Preencha qualquer um dos dois; o outro acompanha."
+    today: "Hoje (opcional)"
+    rate_today: "Cotação de hoje: [one] em [from]"
+    rate_today_hint: "Não buscamos cotação. Digite a que você encontrar, no mesmo sentido: quantos [from] um [to] compra."
+    result_historical: "Ao câmbio de [as_of]"
+    result_today: "Ao câmbio de hoje, informado por você"
+    result_label: "[amount] em [to]"
+    result_label_reverse: "[amount] em [from]"
+    rate_line: "[one] = [rate]"
+    diff_line: "[diff] em relação a [as_of]"
+    diff_same: "igual ao câmbio de [as_of]"
+    as_of_format: "%B de %Y"
+    assumptions_summary: "Tabela de referência e premissas"
+    assumptions_intro: "A taxa é a do post, fixada em [as_of]; ela não é atualizada e não representa a cotação de hoje. Sem taxas de conversão de cartão, IOF ou spread de casa de câmbio."
+    table_title: "Referência no câmbio de [as_of]"
+    table_from: "[from]"
+    table_to: "[to]"
+    inverse: "Sentido inverso"
+    noscript: "Sem JavaScript, o conversor não roda — a tabela abaixo usa a mesma taxa."
+    disclaimer: "Taxa histórica, registrada para explicar os valores deste post. Para uma viagem hoje, consulte a cotação do dia."
+    invalid: "Preencha valores válidos."
+  en:
+    eyebrow: "historical rate · [as_of]"
+    title: "Converter: [from] ↔ [to]"
+    intro: "[one] = [rate] in [as_of] — the rate used for every conversion in this post, not today's. To compare with the present, type today's rate in the second field; the page fetches no rates."
+    historical: "At the [as_of] rate"
+    amount_from: "Amount in [from]"
+    amount_to: "Amount in [to]"
+    amount_hint: "Fill in either one; the other follows."
+    today: "Today (optional)"
+    rate_today: "Today's rate: [one] in [from]"
+    rate_today_hint: "No rates are fetched. Type the one you find, in the same direction: how many [from] one [to] buys."
+    result_historical: "At the [as_of] rate"
+    result_today: "At today's rate, as you typed it"
+    result_label: "[amount] in [to]"
+    result_label_reverse: "[amount] in [from]"
+    rate_line: "[one] = [rate]"
+    diff_line: "[diff] compared with [as_of]"
+    diff_same: "same as the [as_of] rate"
+    as_of_format: "%B %Y"
+    assumptions_summary: "Reference table and assumptions"
+    assumptions_intro: "The rate is the post's own, fixed in [as_of]; it is never updated and is not today's rate. Card conversion fees, taxes and exchange-bureau spreads are not included."
+    table_title: "Reference at the [as_of] rate"
+    table_from: "[from]"
+    table_to: "[to]"
+    inverse: "The other way round"
+    noscript: "Without JavaScript the converter does not run — the table below uses the same rate."
+    disclaimer: "A historical rate, kept to explain this post's figures. For a trip today, check the day's rate."
+    invalid: "Enter valid values."
