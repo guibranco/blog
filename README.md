@@ -130,6 +130,7 @@ blog/                                 # nome do repositório
 ├── travels.html                      # Página de viagens (/viagens/) — mapa + tabela por país
 ├── series.html                       # Índice de séries (/series/)
 ├── tags.html                         # Todos os tópicos (/topicos/)
+├── archive.html                      # Arquivo cronológico: todos os artigos por ano e mês (/arquivo/)
 ├── sitemap.html                      # Mapa do site navegável para humanos (/mapa-do-site/)
 ├── 404.html                          # Página de erro 404
 ├── CONTEXT.md                        # Glossário de domínio (Post, Category, Tag, Series, Trip…)
@@ -139,7 +140,7 @@ blog/                                 # nome do repositório
 └── README.md
 ```
 
-> Cada arquivo de página no root (`travels.html`, `tags.html`, `series.html`, `search.html`, `sitemap.html`…) tem nome de arquivo em inglês, mas `permalink:` em português (`/viagens/`, `/topicos/`, `/mapa-do-site/`…) — essa é a URL pública do blog, que é em pt-BR.
+> Cada arquivo de página no root (`travels.html`, `tags.html`, `series.html`, `search.html`, `archive.html`, `sitemap.html`…) tem nome de arquivo em inglês, mas `permalink:` em português (`/viagens/`, `/topicos/`, `/arquivo/`, `/mapa-do-site/`…) — essa é a URL pública do blog, que é em pt-BR.
 
 Categoria, subcategoria, tag e feed RSS **não são arquivos individuais** — são gerados no build a partir de `_data/categories.yml` e `_data/tags.yml`. Ver [ADR-0001](docs/adr/0001-stub-files-for-category-tag-feed-pages.md), [ADR-0003](docs/adr/0003-tag-pages-generated-from-data-file.md), [ADR-0004](docs/adr/0004-category-pages-generated-from-data-file.md) e [ADR-0005](docs/adr/0005-feed-pages-generated-from-data-file.md).
 

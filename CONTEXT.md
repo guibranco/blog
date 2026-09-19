@@ -74,3 +74,7 @@ _Avoid_: Timeline — Journey is the canonical name for the page; "timeline" des
 **Editorial Notes**:
 The standalone page at `/notas-editoriais/`, documenting the blog's own production process — why it exists, how posts get made (including AI's role), and its sourcing/correction/privacy policies (`_data/editorial.yml`). Not a Post; structured the same way as Journey (single bilingual file, no Category, Tag, or Series) despite unrelated content — the two are independent concepts, not variants of a shared "page" type.
 _Avoid_: Colophon, About page — Editorial Notes is canonical.
+
+**Archive**:
+The standalone page at `/arquivo/`: every published Post exactly once, newest first, grouped by year and then by month, each line carrying the Post's title, publish date, Reading Time, language and Category chips, with a per-year count and a twelve-cell strip of Posts per month. Not a Post — carries no Category, Tag or Series. Like Journey it is one file for both UI languages: month headings and dates are rendered twice through `localized_date` and switched client-side, so the page reads correctly with JavaScript off (pt-BR) and in either language with it on.
+_Avoid_: History, Timeline, All posts — Archive is canonical; "timeline" belongs to Journey and Trip.
