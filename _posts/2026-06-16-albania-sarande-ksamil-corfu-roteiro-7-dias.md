@@ -12,6 +12,11 @@ image: /assets/img/posts/albania-2026.jpg
 gallery: true
 countries: [Albania, Greece]
 trip: albania-2026
+fx:
+  from: ALL
+  to: EUR
+  rate: 90
+  as_of: 2026-06
 locations:
   - lat: 41.3275
     lng: 19.8187
@@ -36,8 +41,10 @@ locations:
 
 <div class="callout callout-tip">
   <div class="callout-label">Moeda e pagamentos</div>
-  A moeda local é o Lek albanês (ALL). O euro é amplamente aceito nas cidades turísticas como Sarande, Ksamil e Tirana. <strong>Muitos estabelecimentos não aceitam cartão</strong>, e os que aceitam geralmente exigem consumo mínimo de aproximadamente 1.000 Leks (≈ € 10,55). A conversão de rua era de <strong>90 Leks para 1 Euro</strong>. Pagamentos por cartão (Wise, Revolut, AIB, Bank of Ireland) são cobrados em Leks e convertidos automaticamente pela própria instituição.
+  A moeda local é o Lek albanês (ALL). O euro é amplamente aceito nas cidades turísticas como Sarande, Ksamil e Tirana. <strong>Muitos estabelecimentos não aceitam cartão</strong>, e os que aceitam geralmente exigem consumo mínimo de aproximadamente 1.000 Leks (≈ € 10,55). A conversão de rua era de <strong>90 Leks para 1 Euro</strong> — e é essa a taxa do conversor logo abaixo, para qualquer valor que o texto não converta. Pagamentos por cartão (Wise, Revolut, AIB, Bank of Ireland) são cobrados em Leks e convertidos automaticamente pela própria instituição.
 </div>
+
+{% include calculators/fx-converter.html %}
 
 <div class="callout callout-warn">
   <div class="callout-label">Caixas automáticos (ATMs) — os números reais</div>
