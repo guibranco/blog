@@ -100,7 +100,7 @@ Cinco minutos de pesquisa entregam o modelo inteiro, porque ele é público. A A
   </div>
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-briefcase"></i> Talento Global</div>
-    <div class="provider-detail">Estágio profissional em empresa, com duração que pode chegar a 72 semanas. <strong>Algumas vagas pagam bolsa-auxílio.</strong> Exige inglês avançado e experiência prévia na área de atuação.</div>
+    <div class="provider-detail">Estágio profissional em empresa. No Short Term, dura de seis a oito semanas e não exige experiência prévia; no Long Term, dura de nove a 72 semanas e exige experiência prévia na área de atuação. <strong>Algumas vagas pagam bolsa-auxílio.</strong> Exige inglês avançado.</div>
   </div>
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-chalkboard-teacher"></i> Professor Global</div>
@@ -108,7 +108,7 @@ Cinco minutos de pesquisa entregam o modelo inteiro, porque ele é público. A A
   </div>
 </div>
 
-Ou seja, nem todo intercâmbio da AIESEC é só trabalho social, e em alguns o estágio chega a ser remunerado. Mas o modelo financeiro é o mesmo em todos: depois de aprovado na seleção, o participante paga uma taxa administrativa à organização — no voluntariado, levantamentos recentes citam algo em torno de R$ 1.625, variando por escritório local — e arca com passagem aérea, visto e seguro saúde.
+Ou seja, nem todo intercâmbio da AIESEC é só trabalho social, e em alguns o estágio chega a ser remunerado. Mas o modelo financeiro é o mesmo em todos: depois de aprovado na seleção, o participante paga uma taxa administrativa à organização, que varia conforme o escritório local, e arca com passagem aérea, visto e seguro saúde.
 
 E a seleção não é formalidade. A empresa ou ONG de destino entrevista e dá a palavra final, em conjunto com o escritório local. O candidato precisa atender ao perfil social, cultural e financeiro da vaga, da organização e do país — o que inclui ter como pagar a entrada.
 
@@ -143,7 +143,7 @@ Repare na linha da passagem, que é a mais contraintuitiva. Empresa séria tamb�
 
 O sinal de alerta, portanto, não é alguém pagar a sua viagem. **É alguém pagar a viagem de quem não tem experiência nenhuma, com pressa e sem seleção.** É assim que a dívida nasce e a liberdade some do outro lado. Um programa que cobra de você e exige que você banque o próprio deslocamento é chato, caro e excludente — mas é o oposto do mecanismo de captura.
 
-E a linha da remuneração é a que dispensa boa parte da discussão do caso: a vaga dizia, na própria descrição, o que pagava e o que não pagava. Nenhuma armadilha se anuncia assim.
+E a linha da remuneração é um sinal positivo: a vaga dizia, na própria descrição, o que pagava e o que não pagava. Ainda assim, isso não é prova conclusiva de segurança. Antes de seguir, verifique também a organização, o contrato, o visto e o processo seletivo, pois promessas de pagamento podem não ser cumpridas integralmente.
 
 <div class="divider">· · ·</div>
 
@@ -252,7 +252,7 @@ E essa escolha deveria seguir os objetivos de longo prazo, não a ansiedade do m
       <a href="https://www.ohchr.org/en/press-releases/2026/02/un-report-details-grave-abuses-against-those-trafficked-scam-centres" target="_blank">ohchr.org</a>
     </li>
     <li>
-      VICE News. <strong>In Dubai, Chinese Industrial-Scale Scam Mills Are Thriving (07/2024).</strong>
+      VICE News. <strong>In Dubai, Chinese Industrial-Scale Scam Mills Are Thriving (05/2023).</strong>
       <a href="https://www.vice.com/en/article/dubai-chinese-scam-mills/" target="_blank">vice.com</a>
     </li>
     <li>
