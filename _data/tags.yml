@@ -782,6 +782,8 @@
   slug: orm
 - name: outsurance
   slug: outsurance
+- name: over-employment
+  slug: over-employment
 - name: paceville
   slug: paceville
 - name: paises-baixos
@@ -826,6 +828,8 @@
   slug: porto
 - name: portugal
   slug: portugal
+- name: post-mortem
+  slug: post-mortem
 - name: postgresql
   slug: postgresql
 - name: postman
