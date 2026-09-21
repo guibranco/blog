@@ -559,10 +559,21 @@ bundle install
 # Iniciar servidor local com live reload
 bundle exec jekyll serve
 
+# Incluir posts agendados (com `date` no futuro) — ver abaixo
+bundle exec jekyll serve --future
+
 # Acesse em: http://localhost:4000/blog
 ```
 
 `git_last_modified.rb` lê o histórico do git a partir do clone local — rode os comandos acima dentro de um clone normal (não raso) para ver as datas de "atualizado em" corretas em desenvolvimento.
+
+**Posts agendados.** O Jekyll ignora, por padrão, todo post cuja `date` ainda não chegou — e é comum haver artigos em `_posts/` datados semanas à frente. Sem `--future`, um post assim não aparece na home, nas listagens, no feed nem em `/artigos/<slug>/` (a URL responde 404), como se o arquivo não existisse. Com a flag, ele renderiza exatamente como vai renderizar no dia — inclusive a posição na home, a paginação e o lugar nas páginas de categoria, tag e série. O mesmo vale para um build completo:
+
+```bash
+bundle exec jekyll build --future
+```
+
+Em produção o `deploy.yml` roda **sem** a flag: um post agendado mergeado em `main` só entra no ar no primeiro build que acontecer a partir da data dele — o merge seguinte ou um disparo manual do workflow (`workflow_dispatch`). Nada roda por cron, então um post não publica sozinho na data.
 
 Para rodar a auditoria de estrutura localmente antes de abrir um PR:
 
