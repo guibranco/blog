@@ -3,8 +3,10 @@
 # Everything the calculator needs for the Irish side lives here, so a new tax
 # year is a data edit, not a logic edit: bump `tax_year`, update the numbers,
 # refresh `sources[].verified`. The Brazilian CLT tables are shared with the
-# CLT × PJ calculator and live in shared/brazil-clt.yml (ADR-0017). The
-# include renders both as the static fallback and hands them to the script.
+# CLT × PJ calculator and live in shared/brazil-clt.yml, and the default
+# EUR→BRL rate offered in the form is shared with the cost-of-living
+# calculator in shared/fx-eur-brl.yml (ADR-0017). The include renders the
+# tables as the static fallback and hands them to the script.
 #
 # Money is in the country's currency; rates are fractions (0.2 = 20%).
 # Progressive bands are listed bottom-up with `up_to` as the top of the band
@@ -12,11 +14,6 @@
 
 tax_year: 2026
 updated: 2026-09-17
-
-fx:
-  # Default EUR→BRL rate offered in the form; readers can overwrite it.
-  eur_brl: 5.91
-  as_of: 2026-09-17
 
 ireland:
   currency: EUR

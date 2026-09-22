@@ -609,7 +609,7 @@ Vou começar pelo problema, porque ele é real e não adianta romantizar. **Dubl
 
 E, mesmo assim, eu fiquei. O que diz bastante sobre o que entra do outro lado da balança.
 
-Para colocar número nessa conta antes de seguir: a calculadora abaixo aplica as tabelas irlandesas de 2026 — imposto de renda por faixa e créditos, USC, PRSI e a dedução da pensão — a um salário bruto e mostra o líquido, ao lado do que o mesmo cargo deixaria em CLT no Brasil. O aluguel não está nela; é a subtração seguinte.
+Para colocar número nessa conta antes de seguir: a calculadora abaixo aplica as tabelas irlandesas de 2026 — imposto de renda por faixa e créditos, USC, PRSI e a dedução da pensão — a um salário bruto e mostra o líquido, ao lado do que o mesmo cargo deixaria em CLT no Brasil. O aluguel não está nela; é a subtração seguinte — e a [calculadora de custo de vida da parte 2 de "Trabalhar fora sem ilusão"]({{ site.baseurl }}/artigos/trabalhar-fora-sem-ilusao-salario-bruto-mente/#custo-de-vida) faz essa parte, com Dublin e São Paulo lado a lado.
 
 {% include calculators/net-salary-ie-br.html %}
 

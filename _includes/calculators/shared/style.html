@@ -19,12 +19,17 @@ page emit it twice; the copies are identical and harmless.
 .calc-field input, .calc-field select { width: 100%; min-width: 0; font: inherit; font-size: 1rem; padding: .5rem .65rem; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); color: var(--ink); }
 .calc-field input:focus-visible, .calc-field select:focus-visible, .calc-details summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .calc-hint { font-size: .76rem; color: var(--ink-light); line-height: 1.4; margin: 0; }
+.calc-actions { grid-column: 1 / -1; display: flex; justify-content: flex-end; }
+.calc-reset { font: inherit; font-size: .8rem; padding: .45rem .9rem; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); color: var(--accent); cursor: pointer; }
+.calc-reset:hover { border-color: var(--accent); }
+.calc-reset:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .calc-error { color: var(--accent-warm); font-size: .85rem; margin: 0 0 .8rem; }
 .calc-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
 .calc-card { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; background: var(--surface); min-width: 0; }
 .calc-verdict { grid-column: 1 / -1; }
 .calc-card-title { font-family: 'JetBrains Mono', monospace; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-light); margin: 0 0 .6rem; }
 .calc-headline { font-family: 'Playfair Display', Georgia, serif; font-size: 1.7rem; font-weight: 700; color: var(--accent); line-height: 1.1; margin: 0; }
+.calc-card-neg .calc-headline { color: var(--accent-warm); }
 .calc-headline-label { font-size: .78rem; color: var(--ink-muted); margin: .6rem 0 .1rem; }
 .calc-sub { font-size: .78rem; color: var(--ink-light); margin: 0; font-family: 'JetBrains Mono', monospace; }
 .calc-table { width: 100%; border-collapse: collapse; font-size: .82rem; margin: .9rem 0 0; }

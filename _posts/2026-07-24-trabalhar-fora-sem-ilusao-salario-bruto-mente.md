@@ -135,6 +135,12 @@ Antes de chegar na moradia, tire a prova da primeira subtração. Coloque o brut
 
 {% include calculators/net-salary-ie-br.html %}
 
+### A segunda subtração: a moradia e o resto {#custo-de-vida}
+
+O líquido que saiu aí em cima ainda não é o que sobra. Falta a conta que esta parte inteira está tentando fazer: aluguel, contas, mercado, transporte, plano de saúde, creche e a vida fora de casa — nas duas cidades, com a mesma cesta. A calculadora vem preenchida com referências datadas e com fonte, para uma pessoa, em quarto dividido ou em apartamento só seu; troque o que for diferente no seu caso e ela mostra o que sobra em Dublin e em São Paulo, e quanto de líquido uma cidade teria que pagar para sobrar o mesmo que na outra.
+
+{% include calculators/cost-of-living.html %}
+
 <div class="divider">· · ·</div>
 
 <div class="section-header">

@@ -1,0 +1,17 @@
+# Default EUR→BRL exchange rate offered in the forms of every Calculator that
+# shows a figure in both currencies (ADR-0017): net-salary-ie-br and
+# cost-of-living read it, so two of them on one page start from the same
+# number. It is only a dated default — readers overwrite it in the form — and
+# never a rate the page fetches. `rate` is how many BRL one EUR bought on
+# `as_of`, rounded to two decimals to match the form's step.
+
+updated: 2026-09-22
+
+rate: 5.87
+as_of: 2026-09-22
+
+sources:
+  - label: "ECB — Euro foreign exchange reference rates (BRL)"
+    url: "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-brl.en.html"
+    covers: "Default EUR→BRL rate (reference rate of 22 September 2026, 5.8726, rounded)"
+    verified: 2026-09-22
