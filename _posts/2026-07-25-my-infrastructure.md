@@ -2,7 +2,7 @@
 layout: post
 lang: en
 title: "A Map of My Infrastructure: How I Run a Dozen Side Projects on a Budget"
-description: "A walkthrough of the small, multi-provider estate that keeps my portfolio, bots, and APIs running — five hosting surfaces, a decoupled webhook pipeline, a VPN-gated database and two monitoring layers."
+description: "A walkthrough of the small, multi-provider estate that keeps my portfolio, bots, and APIs running — five hosting surfaces, a decoupled webhook pipeline, a VPN-gated database, external data feeds and two monitoring layers."
 date: 2026-07-25
 categories: [Infrastructure]
 subcategories:
@@ -11,7 +11,7 @@ subcategories:
   - "Infrastructure/Cloud"
 tags: [oci, cloudamqp, vercel, github-pages, nginx, wireguard, homelab, self-hosting, infra, cloud, oracle, ssd-nodes, pivpn, rabbitmq, php, csharp, dotnet, github-actions, appveyor, healthchecks, uptimerobot, side-projects, portfolio]
 cover: /assets/img/posts/infra-banner.svg
-image: /assets/img/posts/infra-map.png
+image: /assets/img/posts/infra-og.png
 ---
 
 <p class="lead">I maintain a growing collection of side projects — a chat-style bot, a handful of small APIs, a couple of dashboards, and the odd legacy site I can't quite bring myself to retire. Over time these have spread across several hosting providers, and I recently sat down to draw the whole thing out. This post is a tour of that map: what runs where, and why.</p>
@@ -21,16 +21,33 @@ image: /assets/img/posts/infra-map.png
     type="image/svg+xml"
     data="{{ site.baseurl }}/assets/img/posts/infra-map-animated.svg"
     aria-label="An animated diagram of my personal infrastructure across five hosting surfaces"
-    style="width:100%;display:block;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
-    <img
-      src="{{ site.baseurl }}/assets/img/posts/infra-map.png"
+    style="width:100%;display:block;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px var(--shadow,rgba(26,23,20,.08));">
+    <img id="infra-map-raster"
+      src="{{ site.baseurl }}/assets/img/posts/infra-map-dark.png"
+      data-light="{{ site.baseurl }}/assets/img/posts/infra-map-light.png"
+      data-dark="{{ site.baseurl }}/assets/img/posts/infra-map-dark.png"
       alt="A diagram of my personal infrastructure across five hosting surfaces"
       style="width:100%;display:block;border-radius:8px;border:1px solid var(--border);">
   </object>
-  <figcaption style="text-align:center;color:var(--text-muted);font-size:.85rem;margin-top:.6rem;">
-    The live map — traffic, queue, VPN and monitoring flows animate. Static image shown if your browser blocks SVG animation.
+  <figcaption style="text-align:center;color:var(--ink-muted);font-size:.85rem;margin-top:.6rem;">
+    The live map — traffic, queue, VPN and monitoring flows animate, and it follows your light / dark theme. Static image shown if your browser blocks SVG animation.
   </figcaption>
 </figure>
+
+<script>
+(function () {
+  var img = document.getElementById('infra-map-raster');
+  if (!img) return;
+  function sync() {
+    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    var next = dark ? img.getAttribute('data-dark') : img.getAttribute('data-light');
+    if (next && img.getAttribute('src') !== next) img.setAttribute('src', next);
+  }
+  sync();
+  new MutationObserver(sync).observe(document.documentElement,
+    { attributes: true, attributeFilter: ['data-theme'] });
+})();
+</script>
 
 The map is organized by **provider**, and within each provider by **server**. On every server the ordering is deliberate: anything that isn't a web service — a background daemon, a scheduled script, a VPN — sits at the top, then the reverse proxy, then the HTTP APIs below it. Once you know that rule, you can read any box top-to-bottom and immediately tell what's exposed to the web and what isn't.
 
@@ -52,7 +69,7 @@ The estate spans five hosting surfaces, each chosen for what it's genuinely good
 
   <div class="provider-card">
     <div class="provider-name">Oracle Cloud (OCI) — 4 Always-Free VMs</div>
-    <div class="provider-detail">Four single-core always-free instances doing the heavy lifting for anything needing a real Linux box. Each is a focused, single-purpose worker: VPN gateway, webhook ingestion, queue consumer, scheduled trigger and newer APIs. Every VM runs its own NGINX as the front door — the full breakdown of what runs where is in [18 serviços em 4 VMs de 1 GB](/blog/artigos/18-servicos-4-vms-1gb-free-tier/).</div>
+    <div class="provider-detail">Four single-core always-free instances doing the heavy lifting for anything needing a real Linux box. Each is a focused, single-purpose worker: VPN gateway, webhook ingestion, queue consumer, scheduled trigger and newer APIs — including a job-vacancy labeler bot and an economic-indicators mirror. Every VM runs its own NGINX as the front door — the full breakdown of what runs where is in [18 serviços em 4 VMs de 1 GB](/blog/artigos/18-servicos-4-vms-1gb-free-tier/).</div>
   </div>
 
   <div class="provider-card">
@@ -82,6 +99,8 @@ The estate spans five hosting surfaces, each chosen for what it's genuinely good
 
 When something happens on GitHub, the delivery lands on a C# ingestion service on one of the VMs. That service does almost nothing except validate the payload and drop it onto a message queue hosted on [**CloudAMQP**](/blog/artigos/rabbitmq-gratuito-cloudamqp/) (their free tier runs a LavinMQ broker — I actually have several instances spread across regions). A separate processor on a *different* VM consumes from the queue and writes the result to the database.
 
+The bot family leans on this pattern more than once. The GStraccini-Bot queues sit behind a small **load-balanced pool** — because each free-tier LavinMQ instance is capped at two million messages a month, spreading the bot's traffic across three instances buys real headroom before I hit any limit. The job-vacancy labeler bot runs the same shape end to end: GitHub webhook → its own ingress → a dedicated Vagas queue → a worker that applies the labels.
+
 <div class="callout callout-tip">
   <div class="callout-label">Why the split?</div>
   Resilience. If the processor is down or slow, messages pile up in the queue while the ingestion service keeps happily acknowledging GitHub's deliveries — nothing is lost and GitHub never sees a failed webhook. Coupling ingestion and processing into one service (how the old PHP version worked) meant an outage in one took down the other.
@@ -102,6 +121,39 @@ Two of my newer services ingest their data exactly this way. The shared host bec
 
 <div class="section-header">
   <div class="section-num">04</div>
+  <div class="section-title-wrap"><h2>Standing on other people's data</h2></div>
+</div>
+
+Several of my services are only as good as an upstream I don't control. That's a real dependency — different in kind from the infrastructure I rent — so on the map it gets its own class: **external data providers**, the sources of record my APIs mirror or aggregate.
+
+<div class="providers-grid">
+  <div class="provider-card">
+    <div class="provider-name">Jobs — the vacancy aggregator</div>
+    <div class="provider-detail">Pulls openings from <strong>ProgramaThor</strong>, <strong>LinkedIn</strong> and <strong>GitHub</strong> issue boards. A scrape-shaped dependency: when a site changes its markup, the aggregator notices before I do.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">Sports — the agenda</div>
+    <div class="provider-detail">Fixtures and results from <strong>ESPN</strong> and <strong>O Gol</strong>. Two sources so one going quiet doesn't blank the schedule.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">Markets — stocks &amp; funds</div>
+    <div class="provider-detail">Listed-fund data from <strong>B3</strong> (the Brazilian exchange) and <strong>FIIs.com.br</strong>, feeding the stocks and REIT endpoints.</div>
+  </div>
+  <div class="provider-card">
+    <div class="provider-name">Economy — indicators</div>
+    <div class="provider-detail">The <strong>Central Bank of Brazil</strong> time-series API (BCB SGS) backs an <em>indicators</em> service — a small mirror of figures like the minimum wage and reference rates.</div>
+  </div>
+</div>
+
+<div class="callout callout-warn">
+  <div class="callout-label">Liveness isn't freshness</div>
+  A mirror has a failure mode a plain API doesn't: it can be perfectly <em>alive</em> — fast, returning 200, every probe green — while quietly serving <em>stale</em> data because the upstream sync stopped days ago. So the indicators service carries two checks, not one: a liveness ping from its <code>/health</code> endpoint, and a separate freshness ping that only fires on a successful sync. On the map that's a tri-state: green when both pass, amber when it's alive but stale, red when it's down. A green dot that means "responding" would be lying about the one thing that matters for a data mirror.
+</div>
+
+<div class="divider">· · ·</div>
+
+<div class="section-header">
+  <div class="section-num">05</div>
   <div class="section-title-wrap"><h2>A private tunnel to the database</h2></div>
 </div>
 
@@ -115,7 +167,7 @@ The database never accepts connections from the open internet. Instead, a **Wire
 <div class="divider">· · ·</div>
 
 <div class="section-header">
-  <div class="section-num">05</div>
+  <div class="section-num">06</div>
   <div class="section-title-wrap"><h2>CI/CD from two directions</h2></div>
 </div>
 
@@ -134,7 +186,7 @@ Continuous integration runs through both **GitHub Actions** and [**AppVeyor**](/
 <div class="divider">· · ·</div>
 
 <div class="section-header">
-  <div class="section-num">06</div>
+  <div class="section-num">07</div>
   <div class="section-title-wrap"><h2>Keeping an eye on all of it</h2></div>
 </div>
 
@@ -159,6 +211,6 @@ On top of that, a home-grown **Projects Monitor** service watches everything int
 
 <div class="conclusion">
   <h2>Why bother mapping it?</h2>
-  <p>Two reasons. First, drawing it forced me to notice things I'd lost track of — a legacy endpoint still receiving traffic, a service quietly depending on a broker on another continent, a box carrying more than its share of RAM. Second, the map now doubles as a launchpad: every provider, control panel and monitoring dashboard is one click away from the same diagram.</p>
+  <p>Two reasons. First, drawing it forced me to notice things I'd lost track of — a legacy endpoint still receiving traffic, a service quietly depending on a broker on another continent, a box carrying more than its share of RAM, and a whole class of upstream data sources I'd never modelled as dependencies at all. Second, the map now doubles as a launchpad: every provider, control panel and monitoring dashboard is one click away from the same diagram.</p>
   <p>The estate keeps growing, and the map grows with it. If there's interest, I'll write a follow-up on the specific tooling that keeps it maintainable — the config-driven diagram itself, the healthcheck patterns, and how I keep a dozen deployments from becoming a dozen headaches.</p>
 </div>

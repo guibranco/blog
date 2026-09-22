@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infrastructure Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,600;12..96,800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* ---- LIGHT (default) — blog cream palette ---- */
+    --bg:        #faf9f6;
+    --panel:     #ffffff;
+    --panel-2:   #f2ede6;
+    --line:      #e2dbd0;
+    --text:      #1a1714;
+    --muted:     #5a534a;
+    --wine:      #a23c58;   /* external / public traffic */
+    --vine:      #2d6a4f;   /* internal / healthy (blog green) */
+    --amber:     #b85c00;   /* queue / pending (blog amber) */
+    --down:      #c0392b;
+    --log:       #7a52a0;   /* log shipping */
+    --sky:       #3d7f9a;   /* vpn / control */
+    --shadow:    rgba(80,60,40,.12);
+  }
+  :root[data-theme="dark"]{
+    /* ---- DARK — blog dark palette ---- */
+    --bg:        #15130f;
+    --panel:     #1c1912;
+    --panel-2:   #211d15;
+    --line:      #453f35;
+    --text:      #e8e3da;
+    --muted:     #b0a99c;
+    --wine:      #d97596;   /* external / public traffic */
+    --vine:      #5fb98b;   /* internal / healthy (blog green) */
+    --amber:     #e08a3c;   /* queue / pending (blog amber) */
+    --down:      #e06a5c;
+    --log:       #b596d6;   /* log shipping */
+    --sky:       #7fb3c8;   /* vpn / control */
+    --shadow:    rgba(0,0,0,.4);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#15130f; --panel:#1c1912; --panel-2:#211d15; --line:#453f35;
+      --text:#e8e3da; --muted:#b0a99c; --wine:#d97596; --vine:#5fb98b;
+      --amber:#e08a3c; --down:#e06a5c; --log:#b596d6; --sky:#7fb3c8;
+      --shadow:rgba(0,0,0,.4);
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+    font-family:'JetBrains Mono',ui-monospace,monospace;}
+  header{display:flex;align-items:baseline;justify-content:space-between;
+    flex-wrap:wrap;gap:.5rem 2rem;padding:28px 40px 6px;}
+  h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+    font-size:clamp(22px,3.2vw,34px);letter-spacing:-.02em;margin:0;}
+  h1 .accent{color:var(--amber)}
+  .stamp{font-size:12px;color:var(--muted)}
+  .legend{display:flex;gap:1.4rem;flex-wrap:wrap;padding:4px 40px 10px;
+    font-size:11px;color:var(--muted)}
+  .legend span{display:inline-flex;align-items:center;gap:.45em}
+  .swatch{width:22px;height:0;border-top:2px dashed}
+  .dot{width:8px;height:8px;border-radius:50%}
+  #map{display:block;width:100%;height:auto;padding:0 12px 24px}
+  svg text{font-family:'JetBrains Mono',ui-monospace,monospace}
+  .grp-label{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;
+    font-size:15px;letter-spacing:.14em;text-transform:uppercase;fill:var(--muted)}
+  .grp-label.sm{font-size:11.5px;letter-spacing:.08em}
+  .node rect{fill:var(--panel);stroke:var(--line);stroke-width:1.2;rx:10}
+  .node.planned rect{stroke-dasharray:5 4;fill-opacity:.55}
+  .node.planned .title{opacity:.75}
+  .node:hover rect{stroke:var(--text)}
+  .node .title{font-size:13.5px;font-weight:700;fill:var(--text)}
+  svg .sub{font-size:10.5px;fill:var(--muted)}
+  .edge path{fill:none;stroke-width:1.6;stroke-dasharray:6 7;
+    animation:flow 1.1s linear infinite}
+  .edge.mon path, .edge.log path, .edge.proxy path, .edge.pub path{stroke-width:1;stroke-dasharray:2 6;opacity:.18;
+    animation-duration:2.6s}
+  .edge.hot path{opacity:1}
+  .edge.mon.hot path, .edge.log.hot path, .edge.proxy.hot path, .edge.pub.hot path{opacity:.85;stroke-width:1.4}
+  .edge text{font-size:9.5px;fill:var(--muted)}
+  .edge.dim path,.node.dim{opacity:.14}
+  .edge,.node{transition:opacity .25s}
+  @keyframes flow{to{stroke-dashoffset:-13}}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+  .status{animation:pulse 2.2s ease-in-out infinite}
+  @media (prefers-reduced-motion: reduce){
+    .edge path{animation:none}
+    .status{animation:none}
+    .particle{display:none}
+  }
+  footer{padding:0 40px 32px;font-size:11px;color:var(--muted);max-width:70ch}
+  footer code{color:var(--vine)}
+  .domband{font-size:9.5px;fill:var(--sky);cursor:pointer}
+  .node.hasdom{cursor:pointer}
+  #pop{position:fixed;display:none;background:var(--panel-2);
+    border:1px solid var(--line);border-radius:10px;padding:10px 14px;
+    font-size:12px;z-index:10;max-width:300px;
+    box-shadow:0 8px 24px rgba(0,0,0,.5)}
+  #pop h4{margin:0 0 6px;font-family:'Bricolage Grotesque',sans-serif;
+    font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);font-weight:600}
+  #pop a{display:block;color:var(--sky);text-decoration:none;padding:2px 0}
+  #pop a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<header>
+  <h1>Infrastructure <span class="accent">Map</span></h1>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <button id="themeToggle" aria-label="Toggle light/dark theme"
+      style="background:var(--panel-2);color:var(--muted);border:1px solid var(--line);
+      border-radius:8px;padding:6px 12px;font-family:inherit;font-size:12px;cursor:pointer;">◐ theme</button>
+    <div class="stamp" id="stamp"></div>
+  </div>
+</header>
+<div class="legend">
+  <span><i class="swatch" style="border-color:var(--wine)"></i> external / public traffic</span>
+  <span><i class="swatch" style="border-color:var(--vine)"></i> internal calls & data</span>
+  <span><i class="swatch" style="border-color:var(--sky)"></i> VPN / control</span>
+  <span><i class="swatch" style="border-color:var(--amber)"></i> message queue (AMQP)</span>
+  <span><i class="swatch" style="border-color:var(--muted);opacity:.6"></i> monitoring probes</span>
+  <span><i class="swatch" style="border-color:var(--log);opacity:.7"></i> log shipping</span>
+  <span><i class="swatch" style="border-color:var(--sky)"></i> UI → API</span>
+  <span><i class="swatch" style="border-color:var(--vine);opacity:.5"></i> NGINX → service</span>
+  <span><i class="dot" style="background:var(--vine)"></i> running</span>
+  <span><i class="dot" style="background:var(--amber)"></i> planned / empty / late</span>
+  <span><i class="dot" style="background:var(--down)"></i> down</span>
+</div>
+<svg id="map" viewBox="0 0 1400 2180" xmlns="http://www.w3.org/2000/svg" aria-label="Infrastructure map"></svg>
+<div id="pop"></div>
+
+<script>
+/* ============================================================
+   CONFIG — everything you'll ever want to change lives here.
+   nodes:  id, label, sub (small line), x, y, w, h,
+           status: 'up' | 'empty' | 'ext'   (ext = outside world)
+   groups: visual containers drawn behind their member nodes
+   edges:  from, to, kind: 'ext'|'int'|'vpn', label (optional)
+   ============================================================ */
+const CONFIG = {
+  groups: [
+    { id:'cpanel', label:'NuvemHospedagem', x:60,  y:150, w:520, h:896 },
+    { id:'osasco', label:'osasco', x:80, y:230, w:480, h:746, small:true,
+      sub:'cPanel · shared hosting' },
+    { id:'oci',    label:'Oracle Cloud (OCI) · 4× E2.1.Micro', x:620, y:210, w:560, h:970 },
+    { id:'v1grp',  label:'vinhedo1 · 24.04 minimal',  x:640, y:250, w:250, h:380, status:'up',    small:true },
+    { id:'v2grp',  label:'vinhedo2 · 24.04 minimal',  x:910, y:250, w:250, h:310, status:'up',    small:true },
+    { id:'v3grp',  label:'vinhedo3 · 24.04 minimal',  x:640, y:660, w:250, h:508, status:'up',    small:true },
+    { id:'v4grp',  label:'vinhedo4 · 24.04 minimal',  x:910, y:660, w:250, h:310, status:'up',    small:true },
+    { id:'ssdnodes',     label:'SSDNodes (planned)', x:620, y:1672, w:560, h:272, status:'planned' },
+    { id:'vercel',       label:'Vercel', sub:'edge deploys', x:70, y:1540, w:480, h:216, status:'up' },
+    { id:'extdata',     label:'External Data Providers', sub:'upstream sources of record', x:70, y:1800, w:480, h:340, status:'ext', small:true },
+    { id:'ghpages',      label:'GitHub Pages', sub:'public projects & documentation', x:620, y:1226, w:740, h:418, status:'up' },
+    { id:'camqgrp',      label:'CloudAMQP', sub:'LavinMQ · free tier', x:70, y:1070, w:340, h:446, status:'up', small:true },
+    { id:'gsbotpool', label:'GStraccini-Bot', x:84, y:1290, w:312, h:196, small:true,
+      sub:'load-balanced · 2M msg/node/mo' },
+    { id:'frankfurt1grp', label:'frankfurt1 · KVM / 2X-LARGE', x:640, y:1712, w:520, h:216, status:'planned', small:true,
+      sub:'8× Intel Silver vCPU · 32GB RAM · 480GB SSD · 16TB/mo outbound' },
+  ],
+  nodes: [
+    // outside world
+    { id:'internet', label:'Internet / Users', sub:'HTTPS · WireGuard peers', x:250, y:60,  w:200, h:56, status:'ext' },
+    { id:'ghactions',label:'GitHub Actions',   sub:'CI workflows',       x:750, y:60,  w:170, h:56, status:'ext' },
+    { id:'github',   label:'GitHub Webhooks',  sub:'webhook deliveries', x:940, y:60,  w:200, h:56, status:'ext' },
+    // CloudAMQP instances — 2x2 grid (cluster host shown on click)
+    { id:'camq-sports', label:'API BR · Sports Agenda',    sub:'us-east-1',  x:84,  y:1120, w:312, h:70, status:'up' },
+    { id:'camq-bot1',   label:'Node 1', sub:'us-east-1',  x:96, y:1350, w:138, h:56, status:'up' },
+    { id:'camq-bot2',   label:'Node 2', sub:'sa-east-1', x:250,  y:1350, w:138, h:56, status:'up' },
+    { id:'camq-bot3',   label:'Node 3', sub:'us-east-1', x:96, y:1416, w:296, h:56, status:'up' },
+    { id:'camq-vagas',  label:'API BR · Vagas', sub:'seal · eu-west-1', x:84, y:1200, w:312, h:70, status:'up' },
+    { id:'healthchecksio', label:'HealthChecks.io', sub:'dead-man\u2019s-switch pings', x:466, y:60, w:144, h:56, status:'ext' },
+    { id:'uptimerobot',    label:'UptimeRobot',     sub:'uptime monitoring',           x:620, y:60, w:122, h:56, status:'ext' },
+    { id:'appveyor',       label:'AppVeyor',        sub:'CI/CD · complementary',       x:1160, y:60, w:180, h:56, status:'ext' },
+
+    // Vercel projects
+    { id:'progressbar', label:'ProgressBar',  sub:'progress bar', x:90,  y:1610, w:200, h:52, status:'up' },
+    { id:'streakstats', label:'Streak Stats', sub:'GitHub readme',    x:302,  y:1676, w:200, h:52, status:'up' },
+    { id:'readmestats', label:'Readme Stats', sub:'GitHub readme',    x:90, y:1676, w:200, h:52, status:'up' },
+    { id:'bcb-sgs',   label:'BCB SGS',    sub:'central bank data',  x:84,  y:1856, w:222, h:52, status:'ext' },
+    { id:'programator', label:'ProgramaThor', sub:'job board',    x:314, y:1856, w:222, h:52, status:'ext' },
+    { id:'linkedin',  label:'LinkedIn',   sub:'job board',       x:84,  y:1922, w:222, h:52, status:'ext' },
+    { id:'espn',      label:'ESPN',       sub:'sports data',     x:314, y:1922, w:222, h:52, status:'ext' },
+    { id:'ogol',      label:'O Gol',      sub:'sports data',     x:84,  y:1988, w:222, h:52, status:'ext' },
+    { id:'b3',        label:'B3',         sub:'stock exchange',  x:314, y:1988, w:222, h:52, status:'ext' },
+    { id:'fiis',      label:'FIIs',       sub:'REIT data',       x:84,  y:2054, w:222, h:52, status:'ext' },
+    { id:'github-src', label:'GitHub',    sub:'vagas issues',    x:314, y:2054, w:222, h:52, status:'ext' },
+
+    // GitHub Pages sites — 3-column grid
+    { id:'portfolio', label:'Portfolio', sub:'new personal site', x:868,  y:1484, w:222, h:52, status:'up' },
+    { id:'blog',      label:'Blog',      sub:'Jekyll',            x:868,  y:1286, w:222, h:52, status:'up' },
+    { id:'bookmarks-ui', label:'Bookmarks Manager', sub:'→ vinhedo4', x:1102, y:1286, w:222, h:52, status:'up' },
+    { id:'grimoire-ui', label:'Grimoire', sub:'→ vinhedo1', x:868,  y:1418, w:222, h:52, status:'up' },
+    { id:'daftalerts-ui', label:'Daft Alerts', sub:'→ vinhedo2', x:868,  y:1352, w:222, h:52, status:'up' },
+    { id:'finorg-ui', label:'Fin Organizer', sub:'→ frankfurt1', x:634, y:1418, w:222, h:52, status:'up' },
+    { id:'exchange-ui', label:'Exchange Rates', sub:'→ vinhedo3', x:1102,  y:1352, w:222, h:52, status:'up' },
+    { id:'pr-ui', label:'Pull Request Flow View', sub:'→ vinhedo4', x:634,  y:1550, w:222, h:52, status:'up' },
+    { id:'monitor-ui', label:'Projects Monitor', sub:'→ osasco (planned)', x:1102, y:1484, w:222, h:52, status:'up' },
+    { id:'logstream-ui', label:'Log Stream', sub:'→ vinhedo3', x:634,  y:1484, w:222, h:52, status:'up' },
+    { id:'insight-ui', label:'Insight Stream', sub:'→ vinhedo2', x:1102, y:1418, w:222, h:52, status:'up' },
+    { id:'indicadores-ui', label:'API BR · Indicadores', sub:'→ vinhedo3', x:634, y:1286, w:222, h:52, status:'up' },
+    { id:'cvmaker-ui', label:'Clean CV Maker', sub:'static tool', x:634, y:1352, w:222, h:52, status:'up' },
+
+    // cPanel host
+    { id:'zerocool', label:'ZeroCool',        sub:'old portfolio · PHP',        x:96,  y:296, w:210, h:56, status:'up' },
+    { id:'email',    label:'Email',           sub:'mailboxes',                  x:96, y:796, w:210, h:56, status:'up' },
+    { id:'gsbot',    label:'GStraccini-Bot',  sub:'website / portal',                        x:96,  y:364, w:210, h:56, status:'up' },
+    { id:'monitor',  label:'Projects Monitor',sub:'watches every service',      x:316, y:296, w:210, h:56, status:'up' },
+    { id:'vagas',    label:'API BR · Vagas Aggregator',  sub:'API + service',              x:96,  y:500, w:210, h:56, status:'up' },
+    { id:'sports',   label:'API BR · Sports Agenda', sub:'API + service',       x:316, y:500, w:210, h:56, status:'up' },
+    { id:'currencies', label:'Currencies API', sub:'API', x:96,  y:648, w:210, h:56, status:'up' },
+    { id:'botdocs', label:'GStraccini-Bot Docs', sub:'documentation', x:316, y:364, w:210, h:56, status:'up' },
+    { id:'monitor-api', label:'Projects Monitor API', sub:'planned', x:316, y:648, w:210, h:56, status:'planned' },
+    { id:'playground', label:'GStraccini-Bot Playground', sub:'interactive demo', x:96, y:432, w:210, h:56, status:'up' },
+    { id:'accounts-os', label:'Accounts Balance API', sub:'API', x:96, y:716, w:210, h:56, status:'up' },
+    { id:'gsbot-api', label:'GStraccini-Bot API', sub:'API', x:316, y:716, w:210, h:56, status:'up' },
+    { id:'banks', label:'API BR · Brazilian Banks', sub:'API + service', x:96, y:568, w:210, h:56, status:'up' },
+    { id:'insight-ingest', label:'Insight Stream Ingest', sub:'PHP · email→API', x:96, y:876, w:210, h:56, status:'up' },
+    { id:'daft-ingest',    label:'Daft Alerts Ingest',    sub:'PHP · email→API', x:316, y:876, w:210, h:56, status:'up' },
+    { id:'mariadb',  label:'MariaDB',         sub:'shared database',  x:316,  y:796, w:210, h:56, status:'up' },
+
+    // vinhedo1 services
+    { id:'nginx',   label:'NGINX',    sub:'web server',  x:652, y:294, w:112, h:52, status:'up' },
+    { id:'pivpn',   label:'PiVPN',    sub:'WireGuard',   x:776, y:294, w:112, h:52, status:'up' },
+    { id:'grimoire-api', label:'Grimoire API', sub:'planned', x:652, y:360, w:226, h:52, status:'planned' },
+    { id:'vagasbot-worker', label:'Vagas Labeler · Worker', sub:'queue consumer', x:652, y:426, w:226, h:52, status:'up' },
+    { id:'vagasbot-fetch',  label:'Vagas Labeler · Ingress', sub:'webhook → AMQP', x:652, y:492, w:226, h:52, status:'up' },
+    { id:'vagasbot-api',    label:'Vagas Labeler · API', sub:'API', x:652, y:558, w:226, h:52, status:'up' },
+    // vinhedo2 services (top-right) — add domains:[...] to any node or group
+    { id:'nginx-v2',   label:'NGINX',    sub:'web server', x:922,  y:294, w:226, h:52, status:'up' },
+    { id:'webhooks-cs', label:'Webhooks · Ingress', sub:'C#', x:922, y:360, w:226, h:52, status:'up' },
+    { id:'daftalerts', label:'Daft Alerts API', sub:'planned', x:922, y:426, w:226, h:52, status:'planned' },
+    { id:'insightstream', label:'Insight Stream API', sub:'planned', x:922, y:492, w:226, h:52, status:'planned' },
+    // vinhedo3 services — daemon on top, NGINX, then APIs
+    { id:'cron', label:'Trigger jobs', sub:'shell script · cURL', x:652, y:704, w:226, h:52, status:'up' },
+    { id:'nginx-v3',   label:'NGINX',    sub:'planned', x:652, y:770, w:226, h:52, status:'planned' },
+    { id:'logstream',  label:'Log Stream API', sub:'internal only', x:652, y:836, w:226, h:52, status:'planned' },
+    { id:'stocks',   label:'Stocks API',          sub:'API · planned', x:652, y:902, w:226, h:52, status:'planned' },
+    { id:'accounts', label:'Accounts Balance API', sub:'API · planned', x:652, y:968, w:226, h:52, status:'planned' },
+    { id:'exchange', label:'Exchange Rates API', sub:'API · planned', x:652, y:1034, w:226, h:52, status:'planned' },
+    { id:'indicadores', label:'Indicadores API', sub:'API + sync worker · planned', x:652, y:1100, w:226, h:52, status:'planned' },
+    // vinhedo4 services (bottom-right)
+    // vinhedo4 services — processor daemon on top, NGINX, then APIs
+    { id:'processor', label:'Webhooks · Worker', sub:'queue consumer · PHP', x:922, y:704, w:226, h:52, status:'up' },
+    { id:'nginx-v4',   label:'NGINX',    sub:'web server', x:922,  y:770, w:226, h:52, status:'up' },
+    { id:'bookmarks-api', label:'Bookmarks API', sub:'API · planned', x:922, y:836, w:226, h:52, status:'planned' },
+    { id:'handler-api', label:'Webhooks · Ingress (general)', sub:'API', x:922, y:902, w:226, h:52, status:'up' },
+    // frankfurt1 (SSDNodes) services
+    { id:'nginx-fra',  label:'NGINX',      sub:'planned', x:652,  y:1770, w:112, h:52, status:'planned' },
+    { id:'redis-fra',  label:'Redis',      sub:'planned', x:776,  y:1770, w:112, h:52, status:'planned' },
+    { id:'pg-fra',     label:'PostgreSQL', sub:'planned', x:900,  y:1770, w:120, h:52, status:'planned' },
+    { id:'lavinmq-fra',label:'LavinMQ',    sub:'planned', x:1032, y:1770, w:116, h:52, status:'planned' },
+    { id:'es-fra',     label:'Elasticsearch', sub:'planned', x:652, y:1836, w:140, h:52, status:'planned' },
+    { id:'binance-fra', label:'Binance Bot', sub:'trading · planned', x:804, y:1836, w:150, h:52, status:'planned' },
+    { id:'finorg-fra',  label:'FinOrganizer', sub:'API · planned', x:966, y:1836, w:182, h:52, status:'planned' },
+  ],
+  edges: [
+    { from:'internet',  to:'zerocool', kind:'ext', label:'www' },
+    { from:'internet',  to:'gsbot',      kind:'ext' },
+    { from:'internet',  to:'botdocs',    kind:'ext' },
+    { from:'internet',  to:'monitor',    kind:'ext' },
+    { from:'internet',  to:'playground', kind:'ext' },
+    { from:'internet',  to:'portfolio',  kind:'ext' },
+    { from:'internet',  to:'blog',       kind:'ext' },
+    { from:'internet',  to:'bookmarks-ui',  kind:'ext' },
+    { from:'internet',  to:'grimoire-ui',   kind:'ext' },
+    { from:'internet',  to:'daftalerts-ui', kind:'ext' },
+    { from:'internet',  to:'finorg-ui',     kind:'ext' },
+    { from:'internet',  to:'exchange-ui',   kind:'ext' },
+    { from:'internet',  to:'pr-ui',         kind:'ext' },
+    { from:'internet',  to:'monitor-ui',    kind:'ext' },
+    { from:'internet',  to:'logstream-ui',  kind:'ext' },
+    { from:'internet',  to:'insight-ui',    kind:'ext' },
+    { from:'internet',  to:'cvmaker-ui',    kind:'ext' },
+    { from:'internet',  to:'progressbar',   kind:'ext' },
+    { from:'internet',  to:'streakstats',   kind:'ext' },
+    { from:'internet',  to:'readmestats',   kind:'ext' },
+    { from:'internet',  to:'vagas',    kind:'ext', label:'api' },
+    { from:'github',    to:'nginx-v2',    kind:'ext', label:'webhooks' },
+    { from:'github',    to:'appveyor',    kind:'ext', label:'triggers' },
+    { from:'appveyor',  to:'nginx-v4',    kind:'ext', label:'build webhooks' },
+
+    // NGINX entry points → local services (reverse proxy)
+    { from:'nginx',    to:'grimoire-api', kind:'proxy' },
+    { from:'nginx',    to:'vagasbot-api', kind:'proxy' },
+    { from:'nginx',    to:'vagasbot-fetch', kind:'proxy' },
+    { from:'github',   to:'nginx',   kind:'ext', label:'webhooks' },
+    { from:'vagasbot-fetch', to:'camq-vagas', kind:'mq', label:'enqueue' },
+    { from:'vagasbot-worker', to:'camq-vagas', kind:'mq', label:'consume' },
+    { from:'vagasbot-worker', to:'mariadb', kind:'int' },
+    { from:'vagasbot-api',    to:'mariadb', kind:'int' },
+    { from:'nginx-v2', to:'webhooks-cs',  kind:'proxy' },
+    { from:'nginx-v2', to:'daftalerts',   kind:'proxy' },
+    { from:'nginx-v3', to:'logstream',    kind:'proxy' },
+    { from:'nginx-v3', to:'stocks',       kind:'proxy' },
+    { from:'nginx-v3', to:'accounts',     kind:'proxy' },
+    { from:'nginx-v3', to:'exchange',     kind:'proxy' },
+    { from:'nginx-v4', to:'processor',    kind:'proxy' },
+    { from:'nginx-v4', to:'bookmarks-api',kind:'proxy' },
+    { from:'nginx-v4', to:'handler-api',  kind:'proxy' },
+    { from:'internet',  to:'pivpn',    kind:'vpn', label:'WireGuard (DB tunnel · BR exit)' },
+    { from:'ghactions', to:'pivpn',    kind:'vpn', label:'WireGuard' },
+    { from:'pivpn',     to:'mariadb',  kind:'vpn', label:'tunnel → DB' },
+    { from:'pivpn',     to:'internet', kind:'vpn', label:'BR IPv4 egress' },
+    { from:'cron',      to:'gsbot',    kind:'int', label:'trigger' },
+    { from:'cron',      to:'vagas',    kind:'int', label:'trigger' },
+    { from:'cron',      to:'sports',   kind:'int', label:'trigger' },
+    { from:'webhooks-cs', to:'gsbotpool', kind:'mq', label:'enqueue' },
+    { from:'gsbotpool', to:'processor', kind:'mq', label:'consume' },
+    { from:'processor', to:'mariadb',  kind:'int', label:'writes' },
+    { from:'logstream', to:'mariadb',  kind:'int', label:'log store' },
+    { from:'bookmarks-api', to:'mariadb', kind:'int' },
+    { from:'exchange',      to:'mariadb', kind:'int' },
+    { from:'accounts-os',   to:'mariadb', kind:'int' },
+    { from:'currencies',    to:'mariadb', kind:'int' },
+    { from:'monitor-api',   to:'mariadb', kind:'int' },
+    { from:'stocks',        to:'mariadb', kind:'int' },
+    { from:'accounts',      to:'mariadb', kind:'int' },
+    { from:'handler-api',   to:'mariadb', kind:'int' },
+    { from:'gsbot-api',     to:'mariadb', kind:'int' },
+    { from:'insightstream', to:'mariadb', kind:'int' },
+
+    // email-driven ingestion: email → PHP ingest script → HTTP API on VM
+    { from:'email',          to:'insight-ingest', kind:'int', label:'email' },
+    { from:'email',          to:'daft-ingest',    kind:'int', label:'email' },
+    { from:'insight-ingest', to:'insightstream',  kind:'int', label:'forward' },
+    { from:'daft-ingest',    to:'daftalerts',     kind:'int', label:'forward' },
+
+    // GitHub Pages UIs → their backend APIs
+    { from:'bookmarks-ui',  to:'bookmarks-api', kind:'ui' },
+    { from:'grimoire-ui',   to:'grimoire-api',  kind:'ui' },
+    { from:'daftalerts-ui', to:'daftalerts',    kind:'ui' },
+    { from:'finorg-ui',     to:'finorg-fra',    kind:'ui' },
+    { from:'exchange-ui',   to:'exchange',      kind:'ui' },
+    { from:'pr-ui',         to:'handler-api',   kind:'ui' },
+    { from:'monitor-ui',    to:'monitor-api',   kind:'ui' },
+    { from:'logstream-ui',  to:'logstream',     kind:'ui' },
+    { from:'insight-ui',    to:'insightstream', kind:'ui' },
+    { from:'nginx-v2', to:'insightstream', kind:'proxy' },
+
+    // log shipping → LogStream
+    { from:'gsbot',       to:'logstream', kind:'log' },
+    { from:'monitor',     to:'logstream', kind:'log' },
+    { from:'vagas',       to:'logstream', kind:'log' },
+    { from:'sports',      to:'logstream', kind:'log' },
+    { from:'grimoire-api',to:'logstream', kind:'log' },
+    { from:'webhooks-cs', to:'logstream', kind:'log' },
+    { from:'processor',   to:'logstream', kind:'log' },
+    { from:'cron',        to:'logstream', kind:'log' },
+    { from:'sports',    to:'camq-sports', kind:'mq', label:'AMQP' },
+    { from:'gsbot',     to:'mariadb',  kind:'int' },
+    { from:'vagas',     to:'mariadb',  kind:'int' },
+    { from:'sports',    to:'mariadb',  kind:'int' },
+    { from:'zerocool',  to:'mariadb',  kind:'int' },
+
+    // Projects Monitor probes everything
+    { from:'monitor', to:'zerocool',  kind:'mon' },
+    { from:'monitor', to:'email',     kind:'mon' },
+    { from:'monitor', to:'gsbot',     kind:'mon' },
+    { from:'monitor', to:'vagas',     kind:'mon' },
+    { from:'monitor', to:'sports',    kind:'mon' },
+    { from:'monitor', to:'mariadb',   kind:'mon' },
+    { from:'monitor', to:'camq-sports', kind:'mon' },
+    { from:'monitor', to:'camq-bot1',   kind:'mon' },
+    { from:'monitor', to:'camq-bot2',   kind:'mon' },
+    { from:'monitor', to:'camq-bot3',   kind:'mon' },
+    { from:'monitor', to:'camq-vagas',  kind:'mon' },
+    { from:'monitor', to:'nginx',     kind:'mon' },
+    { from:'monitor', to:'pivpn',     kind:'mon' },
+    { from:'monitor', to:'cron',      kind:'mon' },
+    { from:'monitor', to:'processor',   kind:'mon' },
+    { from:'monitor', to:'webhooks-cs', kind:'mon' },
+    { from:'monitor', to:'nginx-v2',   kind:'mon' },
+    { from:'monitor', to:'nginx-v3',   kind:'mon' },
+    { from:'monitor', to:'nginx-v4',   kind:'mon' },
+    { from:'monitor', to:'logstream',    kind:'mon' },
+    { from:'monitor', to:'grimoire-api', kind:'mon' },
+    { from:'monitor', to:'vagasbot-worker', kind:'mon' },
+    { from:'monitor', to:'vagasbot-fetch',  kind:'mon' },
+    { from:'monitor', to:'vagasbot-api',    kind:'mon' },
+    { from:'monitor', to:'daftalerts',  kind:'mon' },
+    { from:'monitor', to:'binance-fra', kind:'mon' },
+    { from:'monitor', to:'finorg-fra',  kind:'mon' },
+    { from:'monitor', to:'currencies', kind:'mon' },
+    { from:'monitor', to:'botdocs',    kind:'mon' },
+    { from:'monitor', to:'bookmarks-api', kind:'mon' },
+    { from:'monitor', to:'handler-api',   kind:'mon' },
+    { from:'monitor', to:'exchange',      kind:'mon' },
+    { from:'monitor', to:'monitor-api',   kind:'mon' },
+    { from:'monitor', to:'gsbot-api',     kind:'mon' },
+    { from:'monitor', to:'banks',         kind:'mon' },
+    { from:'monitor', to:'playground',    kind:'mon' },
+    { from:'monitor', to:'accounts-os',   kind:'mon' },
+    { from:'monitor', to:'insightstream', kind:'mon' },
+    { from:'monitor', to:'insight-ingest', kind:'mon' },
+    { from:'monitor', to:'daft-ingest',    kind:'mon' },
+    { from:'monitor', to:'stocks',     kind:'mon' },
+    { from:'monitor', to:'accounts',   kind:'mon' },
+
+    // external monitoring
+    { from:'vagas',       to:'healthchecksio', kind:'mon' },
+    { from:'sports',      to:'healthchecksio', kind:'mon' },
+    { from:'gsbot',       to:'healthchecksio', kind:'mon' },
+    { from:'processor',   to:'healthchecksio', kind:'mon' },
+    { from:'currencies',  to:'healthchecksio', kind:'mon' },
+    { from:'accounts-os', to:'healthchecksio', kind:'mon' },
+    { from:'vagas',       to:'uptimerobot', kind:'mon' },
+    { from:'sports',      to:'uptimerobot', kind:'mon' },
+    { from:'gsbot',       to:'uptimerobot', kind:'mon' },
+    { from:'webhooks-cs', to:'uptimerobot', kind:'mon' },
+    { from:'processor',   to:'uptimerobot', kind:'mon' },
+    { from:'banks',       to:'uptimerobot', kind:'mon' },
+    { from:'internet',    to:'nginx-v3',    kind:'ext', label:'indicadores' },
+    { from:'nginx-v3',    to:'indicadores', kind:'proxy' },
+    { from:'indicadores', to:'bcb-sgs',     kind:'ext', label:'SGS' },
+    { from:'indicadores', to:'mariadb',     kind:'int' },
+    { from:'indicadores', to:'logstream',   kind:'log' },
+    { from:'monitor',     to:'indicadores', kind:'mon' },
+    { from:'indicadores-ui', to:'indicadores', kind:'ext', label:'api' },
+    { from:'vagas',  to:'programator', kind:'ext' },
+    { from:'vagas',  to:'linkedin',    kind:'ext' },
+    { from:'vagas',  to:'github-src',  kind:'ext' },
+    { from:'sports', to:'espn',        kind:'ext' },
+    { from:'sports', to:'ogol',        kind:'ext' },
+    { from:'stocks', to:'b3',          kind:'ext' },
+    { from:'stocks', to:'fiis',        kind:'ext' },
+  ],
+
+  /* ---- live status from healthchecks.io -------------------------
+     mode: 'off' | 'badges' | 'api' | 'file'
+     badges: paste json3 badge URLs keyed by node id (public, no key,
+             three states: up / late / down)
+     api:    read-only API key — NOTE: visible to anyone who can open
+             this page, so only use on a private/VPN-only host
+     file:   same-origin status.json written by a cron job (safest)
+     In api/file modes, checks are matched to nodes by slug or tag
+     equal to the node id (or an optional  check:'...'  on the node).
+  ------------------------------------------------------------------ */
+  health: {
+    mode: 'off',
+    pollSeconds: 60,
+    badges: {
+      // cron:     'https://healthchecks.io/badge/<b1>/<b2>/vinhedo3-triggers.json3',
+      // webhooks: 'https://healthchecks.io/badge/<b1>/<b2>/webhooks.json3',
+    },
+    api:  { baseUrl: 'https://healthchecks.io', readOnlyKey: '' },
+    fileUrl: 'status.json',
+  },
+};
+
+/* ============================ renderer ============================ */
+const NS = 'http://www.w3.org/2000/svg';
+const svg = document.getElementById('map');
+const colors = { ext:'var(--wine)', int:'var(--vine)', vpn:'var(--sky)', mq:'var(--amber)', mon:'var(--muted)', log:'var(--log)', ui:'var(--sky)', proxy:'var(--vine)' };
+const el = (tag, attrs={}, parent=svg) => {
+  const e = document.createElementNS(NS, tag);
+  for (const [k,v] of Object.entries(attrs)) e.setAttribute(k, v);
+  parent.appendChild(e); return e;
+};
+const byId = Object.fromEntries([...CONFIG.nodes, ...CONFIG.groups].map(n => [n.id, n]));
+const center = n => ({ cx: n.x + n.w/2, cy: n.y + n.h/2 });
+
+// anchor on the rectangle border facing the other node
+function anchor(n, other){
+  const a = center(n), b = center(other);
+  const dx = b.cx - a.cx, dy = b.cy - a.cy;
+  if (Math.abs(dx) * n.h > Math.abs(dy) * n.w) {
+    return { x: a.cx + Math.sign(dx) * n.w/2, y: a.cy };
+  }
+  return { x: a.cx, y: a.cy + Math.sign(dy) * n.h/2 };
+}
+
+// groups
+for (const g of CONFIG.groups) {
+  const grp = el('g');
+  el('rect', { x:g.x, y:g.y, width:g.w, height:g.h, rx:16,
+    fill:'var(--panel-2)', 'fill-opacity':.35, stroke:'var(--line)',
+    'stroke-dasharray':'2 5' }, grp);
+  const t = el('text', { x:g.x+18, y:g.y+30, class:`grp-label${g.small ? ' sm' : ''}` }, grp);
+  t.textContent = g.label;
+  if (g.sub) {
+    const s = el('text', { x:g.x+18, y:g.y+48, class:'sub' }, grp);
+    s.textContent = g.sub;
+  }
+  if (g.status) {
+    el('circle', { cx:g.x+g.w-18, cy:g.y+24, r:5, class:'status',
+      fill: (g.status === 'empty' || g.status === 'planned') ? 'var(--amber)' : 'var(--vine)' }, grp);
+  }
+  if ((g.domains && g.domains.length) || g.ip || g.health) {
+    const b = el('text', { x:g.x+18, y:g.y+g.h-12, class:'domband' }, grp);
+    const n = g.domains ? g.domains.length : 0;
+    b.textContent = n ? `⌄ ${n} domain${n > 1 ? 's' : ''}` : '⌄ server info';
+    b.addEventListener('click', ev => showDomains(ev, g.label, g.domains || [], g.ip, g.health));
+  }
+}
+
+// edges (drawn under nodes)
+const edgeLayer = el('g');
+CONFIG.edges.forEach((e, i) => {
+  const a = byId[e.from], b = byId[e.to];
+  if (!a || !b) { console.warn('edge skipped, unknown node:', e); return; }
+  const p1 = anchor(a, b), p2 = anchor(b, a);
+  const mx = (p1.x + p2.x)/2, my = (p1.y + p2.y)/2;
+  // gentle curve: bend via midpoint offset perpendicular-ish
+  const d = `M ${p1.x} ${p1.y} Q ${mx} ${p1.y === p2.y ? my - 30 : my} ${p2.x} ${p2.y}`;
+  const isPub = e.kind === 'ext' && e.from === 'internet';
+  const quiet = e.kind === 'mon' || e.kind === 'log' || e.kind === 'proxy' || isPub;
+  const g = el('g', { class:`edge ${e.kind}${isPub ? ' pub' : ''}`,
+    'data-from':e.from, 'data-to':e.to }, edgeLayer);
+  const path = el('path', { id:`e${i}`, d, stroke:colors[e.kind] }, g);
+  if (!quiet) {
+    // travelling particle
+    const dot = el('circle', { r:3.2, fill:colors[e.kind], class:'particle' }, g);
+    const mo = el('animateMotion', { dur:`${2.2 + (i % 4) * 0.5}s`,
+      repeatCount:'indefinite', begin:`${(i * 0.37).toFixed(2)}s` }, dot);
+    el('mpath', { href:`#e${i}` }, mo);
+  }
+  if (e.label && !quiet) {
+    const t = el('text', { x:mx, y:my - 8, 'text-anchor':'middle' }, g);
+    t.textContent = e.label;
+  }
+});
+
+// nodes
+for (const n of CONFIG.nodes) {
+  const g = el('g', { class:`node${n.status === 'planned' ? ' planned' : ''}`, 'data-id':n.id });
+  const ext = n.status === 'ext';
+  const r = el('rect', { x:n.x, y:n.y, width:n.w, height:n.h, rx:10 }, g);
+  if (ext) { r.setAttribute('fill','var(--bg)'); r.setAttribute('stroke','var(--wine)'); }
+  const title = el('text', { x:n.x+14, y:n.y+26, class:'title' }, g);
+  title.textContent = n.label + ((n.domains && n.domains.length) || n.ip || n.health ? '  ⌄' : '');
+  if ((n.domains && n.domains.length) || n.ip || n.health) {
+    g.setAttribute('class', g.getAttribute('class') + ' hasdom');
+    g.addEventListener('click', ev => showDomains(ev, n.label, n.domains || [], n.ip, n.health));
+  }
+  if (n.sub) {
+    const sub = el('text', { x:n.x+14, y:n.y+44, class:'sub' }, g);
+    sub.textContent = n.sub;
+  }
+  if (!ext) {
+    el('circle', { cx:n.x+n.w-16, cy:n.y+16, r:5, class:'status', 'data-node':n.id,
+      fill: (n.status === 'empty' || n.status === 'planned') ? 'var(--amber)' : 'var(--vine)' }, g);
+  }
+  // hover isolation
+  g.addEventListener('mouseenter', () => focusNode(n.id));
+  g.addEventListener('mouseleave', clearFocus);
+}
+
+function focusNode(id){
+  const linked = new Set([id]);
+  document.querySelectorAll('.edge').forEach(e => {
+    const hit = e.dataset.from === id || e.dataset.to === id;
+    e.classList.toggle('dim', !hit);
+    e.classList.toggle('hot', hit);
+    if (hit) { linked.add(e.dataset.from); linked.add(e.dataset.to); }
+  });
+  document.querySelectorAll('.node').forEach(n =>
+    n.classList.toggle('dim', !linked.has(n.dataset.id)));
+}
+function clearFocus(){
+  document.querySelectorAll('.dim, .hot').forEach(x => x.classList.remove('dim','hot'));
+}
+
+/* ---------------- collapsible domain popover ---------------- */
+const pop = document.getElementById('pop');
+function showDomains(evt, title, domains, ip, health){
+  evt.stopPropagation();
+  pop.innerHTML = `<h4>${title}</h4>` +
+    (ip ? `<div style="color:var(--muted);padding:2px 0">${ip}</div>` : '') +
+    domains.map(d => {
+    const planned = d.endsWith(' (planned)');
+    const host = d.replace(' (planned)', '');
+    return planned
+      ? `<a style="color:var(--amber);pointer-events:none">${host} · planned</a>`
+      : `<a href="https://${host}" target="_blank" rel="noopener">${host}</a>`;
+  }).join('');
+  pop.style.display = 'block';
+  let x = evt.clientX + 10, y = evt.clientY + 10;
+  const r = pop.getBoundingClientRect();
+  if (x + r.width  > innerWidth  - 8) x = innerWidth  - r.width  - 8;
+  if (y + r.height > innerHeight - 8) y = innerHeight - r.height - 8;
+  pop.style.left = x + 'px';
+  pop.style.top  = y + 'px';
+}
+document.addEventListener('click', () => { pop.style.display = 'none'; });
+pop.addEventListener('click', e => e.stopPropagation());
+
+const stampEl = document.getElementById('stamp');
+stampEl.textContent = 'snapshot · ' + new Date().toISOString().slice(0,10);
+
+// theme toggle: cycles auto -> dark -> light, remembers within the session
+(function(){
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  function apply(mode){
+    if (mode === 'dark' || mode === 'light') root.setAttribute('data-theme', mode);
+    else root.removeAttribute('data-theme');
+  }
+  let mode = 'auto';
+  btn.addEventListener('click', () => {
+    mode = mode === 'auto' ? 'dark' : mode === 'dark' ? 'light' : 'auto';
+    apply(mode);
+    btn.textContent = mode === 'auto' ? '◐ theme' : mode === 'dark' ? '● dark' : '○ light';
+  });
+})();
+
+/* ---------------- live status (healthchecks.io) ---------------- */
+const STATE_COLOR = {
+  up:'var(--vine)', late:'var(--amber)', grace:'var(--amber)',
+  down:'var(--down)', paused:'var(--muted)', new:'var(--muted)',
+};
+function setStatus(id, state){
+  const dot = document.querySelector(`.status[data-node="${id}"]`);
+  if (dot && STATE_COLOR[state]) dot.setAttribute('fill', STATE_COLOR[state]);
+}
+function applyChecks(checks){
+  const lookup = {};
+  for (const c of checks) {
+    if (c.slug) lookup[c.slug] = c.status;
+    if (c.name) lookup[c.name] = c.status;
+    if (c.uuid) lookup[c.uuid] = c.status;
+    (c.tags || '').split(/\s+/).forEach(t => t && (lookup[t] = c.status));
+  }
+  for (const n of CONFIG.nodes) {
+    // tri-state: a node with { liveness, freshness } combines both checks.
+    // liveness down -> red; else freshness late/grace -> amber (stale); else green.
+    if (n.health && typeof n.health === 'object' && n.health.liveness) {
+      const live  = (lookup[n.health.liveness]  || '').toLowerCase();
+      const fresh = (lookup[n.health.freshness] || '').toLowerCase();
+      if (!live && !fresh) continue;
+      let state = 'up';
+      if (live === 'down' || live === 'paused') state = 'down';
+      else if (fresh === 'late' || fresh === 'grace' || fresh === 'down') state = 'late';
+      setStatus(n.id, state);
+      continue;
+    }
+    const s = lookup[n.check || n.id];
+    if (s) setStatus(n.id, s.toLowerCase());
+  }
+}
+async function pollHealth(){
+  const h = CONFIG.health;
+  try {
+    if (h.mode === 'badges') {
+      await Promise.all(Object.entries(h.badges).map(async ([id, url]) => {
+        const j = await (await fetch(url, { cache:'no-store' })).json();
+        setStatus(id, (j.status || '').toLowerCase());
+      }));
+    } else if (h.mode === 'api') {
+      if (!h.api.readOnlyKey) return;
+      const r = await fetch(`${h.api.baseUrl}/api/v3/checks/`,
+        { headers: { 'X-Api-Key': h.api.readOnlyKey } });
+      applyChecks((await r.json()).checks || []);
+    } else if (h.mode === 'file') {
+      const r = await fetch(h.fileUrl, { cache:'no-store' });
+      applyChecks((await r.json()).checks || []);
+    }
+    stampEl.textContent = 'live · synced ' +
+      new Date().toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' });
+  } catch (err) {
+    console.warn('health poll failed (CORS blocked? bad URL?):', err);
+    stampEl.textContent = 'snapshot · live sync unavailable';
+  }
+}
+if (CONFIG.health && CONFIG.health.mode !== 'off') {
+  pollHealth();
+  setInterval(pollHealth, (CONFIG.health.pollSeconds || 60) * 1000);
+}
+</script>
+</body>
+</html>
