@@ -1,0 +1,283 @@
+# Baselines, sources and UI copy for _includes/calculators/cost-of-living.html
+# (ADR-0015, ADR-0019): the monthly cost of one adult's life in Dublin and in
+# São Paulo, line by line, and the net pay one city needs to leave what the
+# other leaves.
+#
+# Nothing here is a legal rate. Every figure is a dated market reference —
+# what a room or a one-bed costs, a month of groceries, a transport pass, a
+# health plan, a full-time crèche place, a modest social life — pre-filled in
+# the form so the reader has a starting point, and overridden field by field.
+# The basket is the same in both cities so the comparison holds. Money is
+# monthly, in the city's currency; `as_of` is the month the references
+# describe; each line's derivation is the `basis` note the page prints next
+# to it, and `sources[].verified` is when each source was checked. Changing a
+# baseline means changing its `basis` note too. The default exchange rate
+# comes from shared/fx-eur-brl.yml (ADR-0017).
+
+updated: 2026-09-22
+as_of: 2026-09-01
+
+# Net pay pre-filled in the form: what net-salary-ie-br gives for its own
+# defaults — €65,000 gross, single, 5% pension, 30–39 → €3,801 a month;
+# R$ 15,000 gross, no dependants → R$ 11,067 in a regular month.
+defaults:
+  net_dublin: 3800
+  net_sao_paulo: 11000
+
+# Housing has two references, one per type of home, because the same select
+# fills rent and bills for both cities: `shared` is a room in a house or flat
+# shared with others, `own` a studio or one-bed for one person.
+cities:
+  dublin:
+    currency: EUR
+    housing:
+      # Daft.ie Q1 2026: double room in a house, Dublin €914; one-bed apartment,
+      # Dublin €2,012 (studio €1,519, two-bed €2,609).
+      # Bills (Numbeo, Sept 2026): basic utilities 85 m² €248.59, internet
+      # €46.86, mobile €16.57 — shared: half of the first two plus the mobile.
+      shared: { rent: 914, utilities: 165 }
+      own:    { rent: 2012, utilities: 310 }
+    groceries: 350    # ≈ €80 a week for one adult (SalaryAfterTax, Oct 2024)
+    transport: 88     # 44 × €2.00 TFI 90-minute fares; the €24 weekly cap would be ≈ €104
+    health: 160       # HIA average adult premium €1,902 a year at 1 March 2026 ÷ 12
+    childcare: 710    # €260/week (Pobal 2023/24, Dublin–DLR) − €96.30 NCS universal subsidy, × 52 ÷ 12
+    leisure: 195      # 4 × €20 meals + 8 × €7 pints + €59.35 gym (Numbeo, Sept 2026)
+  sao_paulo:
+    currency: BRL
+    housing:
+      # Room in a shared flat: WebQuarto listings mostly R$ 1,000–1,950 (Sept 2026).
+      # One-bed: 35 m² × R$ 91.14/m² (Índice QuintoAndar, July 2026) ≈ R$ 3,200
+      # + average condomínio R$ 527 (Cerus, 2026) ≈ R$ 3,700; IPTU on top.
+      # Bills (Numbeo, Sept 2026): basic utilities 85 m² R$ 481.54, internet
+      # R$ 108.85, mobile R$ 81.07 — shared: half of the first two plus the mobile.
+      shared: { rent: 1500, utilities: 375 }
+      own:    { rent: 3700, utilities: 670 }
+    groceries: 900    # cesta básica de São Paulo, DIEESE/Conab, Aug 2026: R$ 900.59 (one adult, food only)
+    transport: 240    # 44 × R$ 5.40 metro fares from 6 Jan 2026; the Bilhete Único Mensal integrado is R$ 411.13
+    health: 700       # individual plan, regional, apartamento, 34–38: R$ 550–850 in 2026
+    childcare: 3000   # full-time private crèche in São Paulo: most common band R$ 3,000–5,000 (Aug 2026)
+    leisure: 475      # 4 × R$ 45 meals + 8 × R$ 15 chopes + R$ 172.64 gym (Numbeo, Sept 2026)
+
+# Where each figure was checked, with the check date. Rents, fares, the
+# subsidy and the cesta básica come from the series that publish them; where
+# no official series exists (bills, eating out, a health plan, a crèche
+# place) the reference is a crowd-sourced or trade figure, named as such.
+# The exchange rate source is listed in shared/fx-eur-brl.yml.
+sources:
+  - label: "Daft.ie — Irish Rental Report Q1 2026"
+    url: "https://www.rte.ie/documents/news/2026/05/daft.ie-rental-report-2026q1.pdf"
+    covers: "Dublin average market rents, Q1 2026: one-bed €2,012, studio €1,519, two-bed €2,609, double room in a house €914"
+    verified: 2026-09-22
+  - label: "Numbeo — Cost of Living in Dublin"
+    url: "https://www.numbeo.com/cost-of-living/in/Dublin"
+    covers: "Basic utilities, internet, mobile plan, inexpensive meal, pint and gym in Dublin (267 contributors, September 2026)"
+    verified: 2026-09-22
+  - label: "SalaryAfterTax — Cost of living in Dublin"
+    url: "https://salaryaftertax.com/cost-of-living-calculator/ireland/dublin"
+    covers: "Groceries ≈ €80 a week for one adult (October 2024)"
+    verified: 2026-09-22
+  - label: "TFI Leap Card — TFI 90 Minute Fare"
+    url: "https://about.leapcard.ie/tfi-90-minute-fare"
+    covers: "Adult 90-minute fare €2.00; Dublin daily cap €6, weekly cap €24"
+    verified: 2026-09-22
+  - label: "Irish Examiner — Average health insurance premiums reach €1,902 (HIA market bulletin)"
+    url: "https://www.irishexaminer.com/business/economy/arid-41807432.html"
+    covers: "Health Insurance Authority: average adult premium €1,902 a year at 1 March 2026"
+    verified: 2026-09-22
+  - label: "Oireachtas — Childcare services, parliamentary question of 27 May 2025 (Pobal sector profile 2023/24)"
+    url: "https://www.oireachtas.ie/en/debates/question/2025-05-27/555/"
+    covers: "Average full-day fee 2023/24: €190 a week nationally (median), €258.57 in Dublin – Dún Laoghaire-Rathdown, the highest"
+    verified: 2026-09-22
+  - label: "National Childcare Scheme — Types of subsidy"
+    url: "https://www.ncs.gov.ie/en/types-of-subsidy/"
+    covers: "Universal subsidy €2.14 an hour for up to 45 hours a week (€96.30), not means-tested"
+    verified: 2026-09-22
+  - label: "Numbeo — Cost of Living in São Paulo"
+    url: "https://www.numbeo.com/cost-of-living/in/Sao-Paulo"
+    covers: "Basic utilities, internet, mobile plan, inexpensive meal, chope and gym in São Paulo (184 contributors, September 2026)"
+    verified: 2026-09-22
+  - label: "QuintoAndar — Valor do m² em SP por bairro (Índice QuintoAndar, julho de 2026)"
+    url: "https://www.quintoandar.com.br/guias/cidades/valor-do-m2-em-sp-por-bairro/"
+    covers: "One-bedroom apartments in São Paulo at R$ 91.14/m² in July 2026, up 7.81% in twelve months"
+    verified: 2026-09-22
+  - label: "DCI — Valor médio do condomínio chega a R$ 527 (Cerus)"
+    url: "https://www.dci.com.br/economia/valor-medio-do-condominio-chega-a-r-527-e-encarece-morar-em-apartamento/"
+    covers: "Average monthly condomínio R$ 527.45 in 2026 (R$ 516.42 in 2025), 3 August 2026"
+    verified: 2026-09-22
+  - label: "WebQuarto — Quartos para alugar em São Paulo"
+    url: "https://www.webquarto.com.br/busca/quartos/sao-paulo-sp"
+    covers: "Rooms in shared flats listed mostly between R$ 1,000 and R$ 1,950 a month, some with bills included (September 2026)"
+    verified: 2026-09-22
+  - label: "Poder360 — Preço da cesta básica cai em 25 de 27 capitais em agosto de 2026 (DIEESE/Conab)"
+    url: "https://www.poder360.com.br/poder-economia/preco-da-cesta-basica-cai-em-25-de-27-capitais-em-agosto-de-2026/"
+    covers: "Cesta básica de São Paulo R$ 900.59 in August 2026, the country's most expensive (10 September 2026)"
+    verified: 2026-09-22
+  - label: "Diário do Transporte — Novos valores das tarifas de São Paulo a partir de 6 de janeiro de 2026"
+    url: "https://diariodotransporte.com.br/2025/12/30/confira-os-novos-valores-de-integracao-modalidades-temporais-do-bilhete-unico-e-vale-transporte-das-tarifas-reajustadas-em-sao-paulo-com-as-tabelas/"
+    covers: "Bus R$ 5.30, metro and train R$ 5.40, bus + rail integration R$ 9.38, Bilhete Único Mensal R$ 257.53 (bus) and R$ 411.13 (integrated)"
+    verified: 2026-09-22
+  - label: "I Love Saúde — Quanto custa plano de saúde em 2026"
+    url: "https://blog.ilovesaude.com.br/post/quanto-custa-plano-de-saude-2026"
+    covers: "Individual plans for adults of 29–43: regional R$ 300–700, national R$ 800–1,500 a month; enfermaria 15–30% cheaper than apartamento (7 June 2026)"
+    verified: 2026-09-22
+  - label: "Correio do Povo Penedo — Mensalidades das creches no Rio e em São Paulo (Guia das Creches, O Globo)"
+    url: "https://correiodopovopenedo.com.br/noticia/2026/08/29/descubra-as-mensalidades-das-creches-no-rio-e-sao-paulo"
+    covers: "Private crèches in São Paulo: most common band R$ 1,000–3,000 part-time and R$ 3,000–5,000 full-time (29 August 2026)"
+    verified: 2026-09-22
+
+# UI copy, keyed by Post language (resolve-lang.html picks the table).
+labels:
+  pt-BR:
+    title: "Calculadora: custo de vida em Dublin × São Paulo"
+    eyebrow: "referências de [as_of] · atualizado em [updated]"
+    intro: "Os valores já preenchidos são médias de [as_of] para uma pessoa, cada um com a fonte nas premissas. Troque o que for diferente no seu caso — o aluguel que você encontrou, o plano que você tem — e veja o que sobra em cada cidade e quanto de líquido a outra teria que pagar para sobrar o mesmo."
+    profile: "Sua situação"
+    housing: "Moradia"
+    housing_shared: "Quarto em casa ou apartamento dividido"
+    housing_own: "Estúdio ou apartamento de 1 quarto só seu"
+    housing_hint: "Trocar aqui preenche de novo aluguel e contas das duas cidades com a referência desse tipo de moradia."
+    children: "Crianças em creche"
+    children_hint: "Em tempo integral. O valor por criança está em cada cidade."
+    net_dublin: "Líquido mensal em Dublin (€)"
+    net_sao_paulo: "Líquido mensal em São Paulo (R$)"
+    net_hint: "O que cai na conta. A calculadora de salário líquido, acima, dá esse número a partir do bruto."
+    fx: "Câmbio: 1 € em R$"
+    fx_hint: "Padrão de [fx_as_of] (BCE). Troque pela cotação do dia."
+    city_dublin: "Dublin"
+    city_sao_paulo: "São Paulo"
+    rent_dublin: "Moradia (aluguel)"
+    rent_sao_paulo: "Moradia (aluguel + condomínio)"
+    rent_hint_sao_paulo: "IPTU à parte, quando cobrado do inquilino."
+    utilities: "Contas (luz, gás, água, internet, celular)"
+    groceries: "Mercado"
+    transport: "Transporte público"
+    health: "Plano de saúde"
+    childcare: "Creche, por criança"
+    leisure: "Lazer (comer fora, bar, academia)"
+    reset: "Voltar às referências"
+    verdict: "Equivalência"
+    needed_in: "Líquido em [city] para sobrar o mesmo que em [other]"
+    in_other_currency: "≈ [value] ao câmbio informado"
+    ratio_row: "Cesta de Dublin em relação à de São Paulo, ao câmbio"
+    ratio_na: "—"
+    surplus: "Sobra por mês"
+    shortfall: "Falta por mês"
+    costs_total: "Total do mês"
+    income: "Líquido"
+    share_of_income: "Parcela do líquido consumida"
+    childcare_row: "Creche × [n]"
+    assumptions_summary: "Referências, fontes e premissas"
+    assumptions_intro: "Referências de [as_of] para um adulto; o que não está na lista não entra na conta: roupas, viagens, remessas, o custo de manter um pé no Brasil (imóvel, plano de familiar, contador), poupança e impostos — estes já saíram do líquido. A cesta é a mesma nas duas cidades para a comparação valer; o padrão de vida que ela compra não é."
+    basis_title: "[city] — referências"
+    table_item: "Item"
+    table_value: "Referência"
+    table_basis: "De onde vem"
+    rent_shared_row: "Moradia — quarto dividido"
+    rent_own_row: "Moradia — apartamento só seu"
+    utilities_shared_row: "Contas — dividindo"
+    utilities_own_row: "Contas — apartamento só seu"
+    childcare_static_row: "Creche, por criança"
+    sources_title: "Fontes consultadas"
+    verified_on: "verificado em [date]"
+    noscript: "Sem JavaScript, a calculadora não roda — as referências abaixo são as que ela usaria."
+    disclaimer: "Médias de mercado para comparar ordens de grandeza, não um orçamento. O seu aluguel, o seu plano e o seu lazer são os números que valem — troque os campos."
+    invalid: "Preencha valores válidos: nada negativo, câmbio maior que zero."
+    as_of_format: "%B de %Y"
+    basis:
+      dublin:
+        rent_shared: "Quarto duplo em casa dividida, média de Dublin no Daft.ie (1º trimestre de 2026). Metade de um apartamento de dois quartos sai mais: a média é € 2.609, ou € 1.305 por pessoa."
+        rent_own: "Apartamento de um quarto, média de Dublin no Daft.ie (1º trimestre de 2026); um estúdio saía € 1.519."
+        utilities_shared: "Metade de luz, gás, água e lixo de um apartamento (€ 249) e da internet (€ 47), mais o celular (€ 17) — Numbeo, setembro de 2026."
+        utilities_own: "Luz, gás, água e lixo de um apartamento (€ 249), internet (€ 47) e celular (€ 17) — Numbeo, setembro de 2026."
+        groceries: "Cerca de € 80 por semana para um adulto (SalaryAfterTax, outubro de 2024). No Aldi e no Lidl dá para gastar menos."
+        transport: "44 viagens de € 2 (TFI 90 Minute Fare), duas por dia útil. O teto semanal do Leap Card, € 24, dá ≈ € 104 no mês para quem anda mais."
+        health: "Prêmio médio por adulto em 1º de março de 2026 segundo a HIA: € 1.902 por ano. Muitas empresas pagam o plano; zere se for o seu caso."
+        childcare: "Creche em tempo integral em Dublin: ≈ € 260 por semana (Pobal, 2023/24, Dún Laoghaire-Rathdown) menos o subsídio universal do NCS (€ 2,14 por hora, até € 96,30 por semana), por criança."
+        leisure: "Quatro refeições fora (€ 20), oito pints (€ 7) e academia (€ 59) — Numbeo, setembro de 2026."
+      sao_paulo:
+        rent_shared: "Quarto em apartamento dividido: os anúncios do WebQuarto ficam em geral entre R$ 1.000 e R$ 1.950 (setembro de 2026), muitos com contas incluídas."
+        rent_own: "Apartamento de um dormitório de 35 m² a R$ 91,14/m² (Índice QuintoAndar, julho de 2026) ≈ R$ 3.200, mais o condomínio médio de R$ 527 (Cerus, 2026). IPTU à parte."
+        utilities_shared: "Metade de luz, gás, água e lixo de um apartamento (R$ 482) e da internet (R$ 109), mais o celular (R$ 81) — Numbeo, setembro de 2026."
+        utilities_own: "Luz, gás, água e lixo de um apartamento (R$ 482), internet (R$ 109) e celular (R$ 81) — Numbeo, setembro de 2026."
+        groceries: "Cesta básica de São Paulo, a mais cara do país: R$ 900,59 em agosto de 2026 (DIEESE/Conab). Só alimentação de um adulto; higiene e limpeza por fora."
+        transport: "44 viagens de metrô a R$ 5,40 (tarifa desde 6 de janeiro de 2026), duas por dia útil. O Bilhete Único Mensal integrado, ônibus + trilhos, custa R$ 411,13."
+        health: "Plano individual, cobertura regional, apartamento, faixa de 34 a 38 anos: entre R$ 550 e R$ 850 em 2026 (I Love Saúde); plano nacional vai de R$ 800 a R$ 1.500. Muitas empresas pagam o plano; zere se for o seu caso."
+        childcare: "Creche particular em período integral em São Paulo: a faixa mais comum é R$ 3.000 a R$ 5.000 (Guia das Creches do O Globo, agosto de 2026), por criança."
+        leisure: "Quatro refeições fora (R$ 45), oito chopes (R$ 15) e academia (R$ 173) — Numbeo, setembro de 2026."
+  en:
+    title: "Calculator: cost of living in Dublin vs São Paulo"
+    eyebrow: "references from [as_of] · updated [updated]"
+    intro: "The pre-filled values are [as_of] averages for one person, each with its source under the assumptions. Change whatever differs in your case — the rent you found, the plan you have — and see what is left in each city, and how much net pay the other would have to give you to leave the same."
+    profile: "Your situation"
+    housing: "Housing"
+    housing_shared: "A room in a shared house or flat"
+    housing_own: "A studio or one-bed of your own"
+    housing_hint: "Changing this re-fills rent and bills for both cities with that housing type's reference."
+    children: "Children in childcare"
+    children_hint: "Full-time. The per-child cost is under each city."
+    net_dublin: "Net monthly pay in Dublin (€)"
+    net_sao_paulo: "Net monthly pay in São Paulo (R$)"
+    net_hint: "What lands in the account. The net salary calculator above gives this number from a gross."
+    fx: "Exchange rate: 1 € in R$"
+    fx_hint: "Default as of [fx_as_of] (ECB). Replace with today's rate."
+    city_dublin: "Dublin"
+    city_sao_paulo: "São Paulo"
+    rent_dublin: "Housing (rent)"
+    rent_sao_paulo: "Housing (rent + condomínio)"
+    rent_hint_sao_paulo: "IPTU on top, when the tenant pays it."
+    utilities: "Bills (electricity, gas, water, internet, mobile)"
+    groceries: "Groceries"
+    transport: "Public transport"
+    health: "Health insurance"
+    childcare: "Childcare, per child"
+    leisure: "Leisure (eating out, drinks, gym)"
+    reset: "Back to the references"
+    verdict: "Equivalence"
+    needed_in: "Net pay in [city] to have the same left over as in [other]"
+    in_other_currency: "≈ [value] at the rate given"
+    ratio_row: "Dublin's basket against São Paulo's, at the rate given"
+    ratio_na: "—"
+    surplus: "Left over each month"
+    shortfall: "Short each month"
+    costs_total: "Month's total"
+    income: "Net pay"
+    share_of_income: "Share of net pay consumed"
+    childcare_row: "Childcare × [n]"
+    assumptions_summary: "References, sources and assumptions"
+    assumptions_intro: "[as_of] references for one adult; what is not listed is not counted: clothes, trips, money sent home, the cost of keeping a foot in Brazil (property, a relative's health plan, an accountant), savings and taxes — those already left the net. The basket is the same in both cities so the comparison holds; the standard of living it buys is not."
+    basis_title: "[city] — references"
+    table_item: "Item"
+    table_value: "Reference"
+    table_basis: "Where it comes from"
+    rent_shared_row: "Housing — shared room"
+    rent_own_row: "Housing — a place of your own"
+    utilities_shared_row: "Bills — sharing"
+    utilities_own_row: "Bills — a place of your own"
+    childcare_static_row: "Childcare, per child"
+    sources_title: "Sources checked"
+    verified_on: "checked on [date]"
+    noscript: "Without JavaScript the calculator does not run — the references below are the ones it would use."
+    disclaimer: "Market averages for comparing orders of magnitude, not a budget. Your rent, your plan and your nights out are the numbers that count — change the fields."
+    invalid: "Enter valid values: nothing negative, a rate above zero."
+    as_of_format: "%B %Y"
+    basis:
+      dublin:
+        rent_shared: "Double room in a shared house, Dublin average on Daft.ie (Q1 2026). Half of a two-bed apartment costs more: the average is €2,609, or €1,305 each."
+        rent_own: "One-bed apartment, Dublin average on Daft.ie (Q1 2026); a studio was €1,519."
+        utilities_shared: "Half of an apartment's electricity, gas, water and bins (€249) and internet (€47), plus a mobile plan (€17) — Numbeo, September 2026."
+        utilities_own: "An apartment's electricity, gas, water and bins (€249), internet (€47) and a mobile plan (€17) — Numbeo, September 2026."
+        groceries: "About €80 a week for one adult (SalaryAfterTax, October 2024). Aldi and Lidl come in under that."
+        transport: "44 fares of €2 (TFI 90 Minute Fare), two per working day. The Leap Card's €24 weekly cap works out at ≈ €104 a month for heavier use."
+        health: "Average adult premium at 1 March 2026 according to the HIA: €1,902 a year. Many employers pay for the plan; set it to zero if yours does."
+        childcare: "Full-time crèche in Dublin: ≈ €260 a week (Pobal, 2023/24, Dún Laoghaire-Rathdown) less the NCS universal subsidy (€2.14 an hour, up to €96.30 a week), per child."
+        leisure: "Four meals out (€20), eight pints (€7) and a gym (€59) — Numbeo, September 2026."
+      sao_paulo:
+        rent_shared: "Room in a shared flat: WebQuarto listings mostly sit between R$ 1,000 and R$ 1,950 (September 2026), many with bills included."
+        rent_own: "A 35 m² one-bedroom at R$ 91.14/m² (Índice QuintoAndar, July 2026) ≈ R$ 3,200, plus the average condomínio of R$ 527 (Cerus, 2026). IPTU on top."
+        utilities_shared: "Half of an apartment's electricity, gas, water and bins (R$ 482) and internet (R$ 109), plus a mobile plan (R$ 81) — Numbeo, September 2026."
+        utilities_own: "An apartment's electricity, gas, water and bins (R$ 482), internet (R$ 109) and a mobile plan (R$ 81) — Numbeo, September 2026."
+        groceries: "São Paulo's cesta básica, the country's most expensive: R$ 900.59 in August 2026 (DIEESE/Conab). Food only, for one adult; toiletries and cleaning on top."
+        transport: "44 metro fares at R$ 5.40 (fare since 6 January 2026), two per working day. The integrated monthly Bilhete Único, bus + rail, is R$ 411.13."
+        health: "Individual plan, regional cover, private room, age 34–38: R$ 550–850 in 2026 (I Love Saúde); national cover runs R$ 800–1,500. Many employers pay for the plan; set it to zero if yours does."
+        childcare: "Full-time private crèche in São Paulo: the most common band is R$ 3,000–5,000 (O Globo's Guia das Creches, August 2026), per child."
+        leisure: "Four meals out (R$ 45), eight chopes (R$ 15) and a gym (R$ 173) — Numbeo, September 2026."

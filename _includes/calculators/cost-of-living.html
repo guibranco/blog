@@ -1,0 +1,195 @@
+{%- comment -%}
+calculators/cost-of-living.html — one adult's month in Dublin and in São Paulo,
+line by line, and the net pay one city needs to leave what the other leaves.
+A Calculator (ADR-0015, ADR-0019): one include, everything self-contained.
+
+  {% include calculators/cost-of-living.html %}
+  {% include calculators/cost-of-living.html id="calc-b" %}   (second copy on one page)
+
+Params
+  id   prefix for the form's element ids — optional; only needed to embed
+       the calculator twice in the same Post
+
+Baselines, their basis notes, sources and UI copy come from
+_data/calculators/cost-of-living.yml; the default EUR→BRL rate from
+_data/calculators/shared/fx-eur-brl.yml, which the Ireland × Brazil salary
+calculator reads too (ADR-0017). Copy is picked by the Post language. The
+form starts pre-filled with the baselines — the housing select re-fills rent
+and bills for both cities, a reset button brings everything back — and every
+field can be overridden. The reference tables are rendered here as plain HTML
+(the no-JavaScript fallback) and the same data is handed to the script as
+JSON. No blank lines in the output (kramdown).
+{%- endcomment -%}
+{%- include resolve-lang.html -%}
+{%- assign _calc = site.data.calculators["cost-of-living"] -%}
+{%- assign _fx = site.data.calculators.shared["fx-eur-brl"] -%}
+{%- assign _lab = _calc.labels[_lang] | default: _calc.labels["pt-BR"] -%}
+{%- assign _id = include.id | default: "calc-cost-of-living" -%}
+{%- assign _updated = _calc.updated | date: _t.date_short -%}
+{%- assign _as_of = _calc.as_of | localized_date: _lab.as_of_format, _lang -%}
+{%- assign _fx_as_of = _fx.as_of | date: _t.date_short -%}
+{%- assign _sources = _calc.sources | concat: _fx.sources -%}
+<div class="calc calc-cost-of-living" data-calc="cost-of-living" data-lang="{{ _lang }}" data-id="{{ _id }}">
+{% include calculators/shared/style.html -%}
+<p class="calc-eyebrow">{{ _lab.eyebrow | replace: "[as_of]", _as_of | replace: "[updated]", _updated }}</p>
+<p class="calc-title">{{ _lab.title }}</p>
+<p class="calc-intro">{{ _lab.intro | replace: "[as_of]", _as_of }}</p>
+<form class="calc-form" hidden novalidate autocomplete="off">
+<fieldset class="calc-fs">
+<legend>{{ _lab.profile }}</legend>
+<div class="calc-field"><label for="{{ _id }}-housing">{{ _lab.housing }}</label><select id="{{ _id }}-housing" name="housing" aria-describedby="{{ _id }}-housing-hint"><option value="shared">{{ _lab.housing_shared }}</option><option value="own">{{ _lab.housing_own }}</option></select><p class="calc-hint" id="{{ _id }}-housing-hint">{{ _lab.housing_hint }}</p></div>
+<div class="calc-field"><label for="{{ _id }}-children">{{ _lab.children }}</label><input id="{{ _id }}-children" name="children" type="number" inputmode="numeric" min="0" max="10" step="1" value="0" aria-describedby="{{ _id }}-children-hint"><p class="calc-hint" id="{{ _id }}-children-hint">{{ _lab.children_hint }}</p></div>
+<div class="calc-field"><label for="{{ _id }}-net-dublin">{{ _lab.net_dublin }}</label><input id="{{ _id }}-net-dublin" name="net-dublin" type="number" inputmode="decimal" min="0" step="50" value="{{ _calc.defaults.net_dublin }}"></div>
+<div class="calc-field"><label for="{{ _id }}-net-sao_paulo">{{ _lab.net_sao_paulo }}</label><input id="{{ _id }}-net-sao_paulo" name="net-sao_paulo" type="number" inputmode="decimal" min="0" step="100" value="{{ _calc.defaults.net_sao_paulo }}" aria-describedby="{{ _id }}-net-hint"><p class="calc-hint" id="{{ _id }}-net-hint">{{ _lab.net_hint }}</p></div>
+<div class="calc-field"><label for="{{ _id }}-fx">{{ _lab.fx }}</label><input id="{{ _id }}-fx" name="fx" type="number" inputmode="decimal" min="0.01" step="0.01" value="{{ _fx.rate }}" aria-describedby="{{ _id }}-fx-hint"><p class="calc-hint" id="{{ _id }}-fx-hint">{{ _lab.fx_hint | replace: "[fx_as_of]", _fx_as_of }}</p></div>
+</fieldset>
+{%- for _pair in _calc.cities -%}
+{%- assign _key = _pair[0] -%}{%- assign _c = _pair[1] -%}
+{%- assign _k_city = "city_" | append: _key -%}{%- assign _k_rent = "rent_" | append: _key -%}{%- assign _k_rent_hint = "rent_hint_" | append: _key -%}
+{%- assign _rent_hint = _lab[_k_rent_hint] %}
+<fieldset class="calc-fs">
+<legend>{{ _lab[_k_city] }}</legend>
+<div class="calc-field"><label for="{{ _id }}-{{ _key }}-rent">{{ _lab[_k_rent] }}</label><input id="{{ _id }}-{{ _key }}-rent" name="{{ _key }}-rent" type="number" inputmode="decimal" min="0" step="10" value="{{ _c.housing.shared.rent }}"{% if _rent_hint %} aria-describedby="{{ _id }}-{{ _key }}-rent-hint"{% endif %}>{% if _rent_hint %}<p class="calc-hint" id="{{ _id }}-{{ _key }}-rent-hint">{{ _rent_hint }}</p>{% endif %}</div>
+<div class="calc-field"><label for="{{ _id }}-{{ _key }}-utilities">{{ _lab.utilities }}</label><input id="{{ _id }}-{{ _key }}-utilities" name="{{ _key }}-utilities" type="number" inputmode="decimal" min="0" step="5" value="{{ _c.housing.shared.utilities }}"></div>
+<div class="calc-field"><label for="{{ _id }}-{{ _key }}-groceries">{{ _lab.groceries }}</label><input id="{{ _id }}-{{ _key }}-groceries" name="{{ _key }}-groceries" type="number" inputmode="decimal" min="0" step="10" value="{{ _c.groceries }}"></div>
+<div class="calc-field"><label for="{{ _id }}-{{ _key }}-transport">{{ _lab.transport }}</label><input id="{{ _id }}-{{ _key }}-transport" name="{{ _key }}-transport" type="number" inputmode="decimal" min="0" step="5" value="{{ _c.transport }}"></div>
+<div class="calc-field"><label for="{{ _id }}-{{ _key }}-health">{{ _lab.health }}</label><input id="{{ _id }}-{{ _key }}-health" name="{{ _key }}-health" type="number" inputmode="decimal" min="0" step="10" value="{{ _c.health }}"></div>
+<div class="calc-field"><label for="{{ _id }}-{{ _key }}-childcare">{{ _lab.childcare }}</label><input id="{{ _id }}-{{ _key }}-childcare" name="{{ _key }}-childcare" type="number" inputmode="decimal" min="0" step="10" value="{{ _c.childcare }}"></div>
+<div class="calc-field"><label for="{{ _id }}-{{ _key }}-leisure">{{ _lab.leisure }}</label><input id="{{ _id }}-{{ _key }}-leisure" name="{{ _key }}-leisure" type="number" inputmode="decimal" min="0" step="10" value="{{ _c.leisure }}"></div>
+</fieldset>
+{%- endfor %}
+<div class="calc-actions"><button type="reset" class="calc-reset">{{ _lab.reset }}</button></div>
+</form>
+<p class="calc-error" role="alert" hidden></p>
+<div class="calc-results" aria-live="polite" aria-atomic="true"></div>
+<noscript><p class="calc-note">{{ _lab.noscript }}</p></noscript>
+<details class="calc-details">
+<summary>{{ _lab.assumptions_summary }}</summary>
+<p class="calc-details-intro">{{ _lab.assumptions_intro | replace: "[as_of]", _as_of }}</p>
+{%- for _pair in _calc.cities -%}
+{%- assign _key = _pair[0] -%}{%- assign _c = _pair[1] -%}{%- assign _cur = _c.currency -%}
+{%- assign _k_city = "city_" | append: _key -%}{%- assign _city_name = _lab[_k_city] -%}{%- assign _b = _lab.basis[_key] %}
+<p class="calc-static-title">{{ _lab.basis_title | replace: "[city]", _city_name }}</p>
+<table class="calc-static"><thead><tr><th>{{ _lab.table_item }}</th><th>{{ _lab.table_basis }}</th><th>{{ _lab.table_value }}</th></tr></thead><tbody>
+<tr><td>{{ _lab.rent_shared_row }}</td><td>{{ _b.rent_shared }}</td><td>{{ _c.housing.shared.rent | money: _cur, _lang }}</td></tr>
+<tr><td>{{ _lab.rent_own_row }}</td><td>{{ _b.rent_own }}</td><td>{{ _c.housing.own.rent | money: _cur, _lang }}</td></tr>
+<tr><td>{{ _lab.utilities_shared_row }}</td><td>{{ _b.utilities_shared }}</td><td>{{ _c.housing.shared.utilities | money: _cur, _lang }}</td></tr>
+<tr><td>{{ _lab.utilities_own_row }}</td><td>{{ _b.utilities_own }}</td><td>{{ _c.housing.own.utilities | money: _cur, _lang }}</td></tr>
+<tr><td>{{ _lab.groceries }}</td><td>{{ _b.groceries }}</td><td>{{ _c.groceries | money: _cur, _lang }}</td></tr>
+<tr><td>{{ _lab.transport }}</td><td>{{ _b.transport }}</td><td>{{ _c.transport | money: _cur, _lang }}</td></tr>
+<tr><td>{{ _lab.health }}</td><td>{{ _b.health }}</td><td>{{ _c.health | money: _cur, _lang }}</td></tr>
+<tr><td>{{ _lab.childcare_static_row }}</td><td>{{ _b.childcare }}</td><td>{{ _c.childcare | money: _cur, _lang }}</td></tr>
+<tr><td>{{ _lab.leisure }}</td><td>{{ _b.leisure }}</td><td>{{ _c.leisure | money: _cur, _lang }}</td></tr>
+</tbody></table>
+{%- endfor %}
+<p class="calc-static-title">{{ _lab.sources_title }}</p>
+<ol class="calc-sources">
+{%- for _s in _sources -%}
+{%- assign _s_date = _s.verified | date: _t.date_short %}
+<li><a href="{{ _s.url }}" target="_blank" rel="noopener">{{ _s.label }}</a> — {{ _s.covers }} ({{ _lab.verified_on | replace: "[date]", _s_date }})</li>
+{%- endfor %}
+</ol>
+</details>
+<p class="calc-disclaimer">{{ _lab.disclaimer }}</p>
+<script type="application/json" data-calc-data>{{ _calc | jsonify }}</script>
+<script>
+(function () {
+  'use strict';
+  var NS = window.BlogCalculators = window.BlogCalculators || {};
+  {%- capture _lib -%}{%- include calculators/shared/lib.js -%}{%- endcapture %}
+  {{ _lib | strip }}
+  // ── Cost of living (also exposed for tests) ──────────────────────────
+  var LINES = ['rent', 'utilities', 'groceries', 'transport', 'health', 'childcare', 'leisure'];
+  // A field that is empty, not a number or below zero counts as nothing.
+  function amount(v) { return Number.isFinite(v) && v > 0 ? v : 0; }
+  // One city's month: the seven lines (childcare per child times children), their total and what the net pay leaves.
+  function basket(inp) {
+    var children = Math.floor(amount(inp.children)), lines = {}, total = 0;
+    for (const key of LINES) {
+      var v = amount(inp[key]);
+      if (key === 'childcare') v *= children;
+      lines[key] = v; total += v;
+    }
+    var net = amount(inp.net);
+    return { lines: lines, children: children, total: total, net: net, surplus: net - total, share: net > 0 ? total / net : null };
+  }
+  // Two cities side by side; `fx` is how many of b's currency one of a's buys. The net pay one city needs to leave
+  // what the other leaves is its own basket plus the other city's surplus at that rate, never below zero.
+  function compare(a, b, fx) {
+    var A = basket(a), B = basket(b), rate = amount(fx);
+    return { a: A, b: B, fx: rate,
+      ratio: rate > 0 && B.total > 0 ? A.total * rate / B.total : null,
+      bNeeded: Math.max(0, B.total + A.surplus * rate),
+      aNeeded: rate > 0 ? Math.max(0, A.total + B.surplus / rate) : 0 };
+  }
+  NS.costOfLiving = { LINES: LINES, basket: basket, compare: compare };
+  // ── DOM ────────────────────────────────────────────────────────────────
+  if (typeof document === 'undefined') return;
+  function init(root) {
+    var ui = setup(root), data = ui.data, L = ui.labels, F = ui.fmt;
+    var keys = Object.keys(data.cities), a = keys[0], b = keys[1];
+    var curA = data.cities[a].currency, curB = data.cities[b].currency;
+    // Reads a field as a number; an empty field is fine (it counts as nothing), a negative one is not.
+    var negative = false;
+    function read(name) { var v = ui.num(name); if (Number.isFinite(v) && v < 0) negative = true; return v; }
+    function inputs(key) {
+      var inp = { net: read('net-' + key), children: read('children') };
+      for (const line of LINES) inp[line] = read(key + '-' + line);
+      return inp;
+    }
+    // Fills rent and bills of both cities with the reference for the housing type picked.
+    function seed(type) {
+      for (const key of keys) {
+        var h = data.cities[key].housing[type] || data.cities[key].housing.shared;
+        ui.field(key + '-rent').value = h.rent;
+        ui.field(key + '-utilities').value = h.utilities;
+      }
+    }
+    function cityCard(key, B, cur, otherCur, toOther) {
+      var short = B.surplus < 0, left = Math.abs(B.surplus);
+      var c = el('section', short ? 'calc-card calc-card-neg' : 'calc-card');
+      c.appendChild(el('p', 'calc-card-title', L['city_' + key]));
+      headline(c, short ? L.shortfall : L.surplus, F.money(left, cur, 0), L.in_other_currency.replace('[value]', F.money(toOther(left), otherCur, 0)));
+      var t = el('table', 'calc-table');
+      row(t, L['rent_' + key], F.money(B.lines.rent, cur, 0));
+      row(t, L.utilities, F.money(B.lines.utilities, cur, 0));
+      row(t, L.groceries, F.money(B.lines.groceries, cur, 0));
+      row(t, L.transport, F.money(B.lines.transport, cur, 0));
+      row(t, L.health, F.money(B.lines.health, cur, 0));
+      if (B.children > 0) row(t, L.childcare_row.replace('[n]', String(B.children)), F.money(B.lines.childcare, cur, 0));
+      row(t, L.leisure, F.money(B.lines.leisure, cur, 0));
+      row(t, L.costs_total, F.money(B.total, cur, 0), 'calc-total');
+      row(t, L.income, F.money(B.net, cur, 0));
+      if (B.share != null) row(t, L.share_of_income, F.pct(B.share), 'calc-muted');
+      row(t, short ? L.shortfall : L.surplus, F.money(left, cur, 0), 'calc-total');
+      c.appendChild(t);
+      return c;
+    }
+    function render() {
+      negative = false;
+      var inA = inputs(a), inB = inputs(b), fx = read('fx');
+      var ok = !negative && Number.isFinite(fx) && fx > 0;
+      ui.error.hidden = ok;
+      if (!ok) { ui.error.textContent = L.invalid; return; }
+      var r = compare(inA, inB, fx);
+      ui.results.textContent = '';
+      var v = el('section', 'calc-card calc-verdict');
+      v.appendChild(el('p', 'calc-card-title', L.verdict));
+      headline(v, L.needed_in.replace('[city]', L['city_' + b]).replace('[other]', L['city_' + a]), F.money(r.bNeeded, curB, 0), L.in_other_currency.replace('[value]', F.money(r.bNeeded / fx, curA, 0)));
+      headline(v, L.needed_in.replace('[city]', L['city_' + a]).replace('[other]', L['city_' + b]), F.money(r.aNeeded, curA, 0), L.in_other_currency.replace('[value]', F.money(r.aNeeded * fx, curB, 0)));
+      var t0 = el('table', 'calc-table');
+      row(t0, L.ratio_row, r.ratio == null ? L.ratio_na : F.times(r.ratio));
+      v.appendChild(t0);
+      ui.results.appendChild(v);
+      ui.results.appendChild(cityCard(a, r.a, curA, curB, function (x) { return x * fx; }));
+      ui.results.appendChild(cityCard(b, r.b, curB, curA, function (x) { return x / fx; }));
+    }
+    // The housing select re-seeds before the shared input handler renders; a reset renders once the browser has restored the values.
+    ui.form.addEventListener('input', function (e) { if (e.target && e.target.name === 'housing') seed(e.target.value); });
+    ui.form.addEventListener('reset', function () { setTimeout(render, 0); });
+    start(ui, render);
+  }
+  for (const root of document.querySelectorAll('[data-calc="cost-of-living"]:not([data-calc-init])')) init(root);
+})();
+</script>
+</div>

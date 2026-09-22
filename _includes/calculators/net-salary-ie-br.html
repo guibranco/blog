@@ -11,7 +11,9 @@ Params
 
 Irish rates, sources and UI copy come from _data/calculators/net-salary-ie-br.yml;
 the Brazilian CLT tables come from _data/calculators/shared/brazil-clt.yml,
-which the CLT × PJ calculator reads too (ADR-0017). Copy is picked by the Post
+which the CLT × PJ calculator reads too, and the default exchange rate from
+_data/calculators/shared/fx-eur-brl.yml, which the cost-of-living calculator
+reads too (ADR-0017). Copy is picked by the Post
 language. The rate tables are rendered here as plain HTML (the no-JavaScript
 fallback) and the same data is handed to the script as JSON. The output has
 no blank lines on purpose: the Post body is Markdown, and a blank line would
@@ -23,11 +25,12 @@ let kramdown close the HTML block and parse the rest as text.
 {%- assign _id = include.id | default: "calc-net-salary" -%}
 {%- assign _ie = _calc.ireland -%}
 {%- assign _br = site.data.calculators.shared["brazil-clt"] -%}
+{%- assign _fx = site.data.calculators.shared["fx-eur-brl"] -%}
 {%- assign _updated_on = _calc.updated -%}
 {%- if _br.updated > _updated_on -%}{%- assign _updated_on = _br.updated -%}{%- endif -%}
 {%- assign _updated = _updated_on | date: _t.date_short -%}
-{%- assign _sources = _calc.sources | concat: _br.sources -%}
-{%- assign _fx_as_of = _calc.fx.as_of | date: _t.date_short -%}
+{%- assign _sources = _calc.sources | concat: _br.sources | concat: _fx.sources -%}
+{%- assign _fx_as_of = _fx.as_of | date: _t.date_short -%}
 <div class="calc calc-net-salary" data-calc="net-salary-ie-br" data-lang="{{ _lang }}" data-id="{{ _id }}">
 {% include calculators/shared/style.html -%}
 <p class="calc-eyebrow">{{ _lab.eyebrow | replace: "[year]", _calc.tax_year | replace: "[updated]", _updated }}</p>
@@ -45,7 +48,7 @@ let kramdown close the HTML block and parse the rest as text.
 <legend>{{ _lab.brazil }}</legend>
 <div class="calc-field"><label for="{{ _id }}-br-gross">{{ _lab.gross_monthly_brl }}</label><input id="{{ _id }}-br-gross" name="br-gross" type="number" inputmode="decimal" min="0" step="100" value="15000"></div>
 <div class="calc-field"><label for="{{ _id }}-br-dependents">{{ _lab.dependents }}</label><input id="{{ _id }}-br-dependents" name="br-dependents" type="number" inputmode="numeric" min="0" max="20" step="1" value="0"></div>
-<div class="calc-field"><label for="{{ _id }}-fx">{{ _lab.fx }}</label><input id="{{ _id }}-fx" name="fx" type="number" inputmode="decimal" min="0.01" step="0.01" value="{{ _calc.fx.eur_brl }}" aria-describedby="{{ _id }}-fx-hint"><p class="calc-hint" id="{{ _id }}-fx-hint">{{ _lab.fx_hint | replace: "[as_of]", _fx_as_of }}</p></div>
+<div class="calc-field"><label for="{{ _id }}-fx">{{ _lab.fx }}</label><input id="{{ _id }}-fx" name="fx" type="number" inputmode="decimal" min="0.01" step="0.01" value="{{ _fx.rate }}" aria-describedby="{{ _id }}-fx-hint"><p class="calc-hint" id="{{ _id }}-fx-hint">{{ _lab.fx_hint | replace: "[as_of]", _fx_as_of }}</p></div>
 </fieldset>
 </form>
 <p class="calc-error" role="alert" hidden></p>
