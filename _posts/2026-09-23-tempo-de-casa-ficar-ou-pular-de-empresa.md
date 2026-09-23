@@ -9,7 +9,6 @@ subcategories:
   - "Career/Job Market"
 tags: [carreira, mercado-de-trabalho, tempo-de-casa, job-hopping, curriculo, contraproposta, vesting]
 cover: /assets/img/posts/tempo-de-casa/cover.svg
-image: /assets/img/posts/tempo-de-casa/cover.png
 ---
 
 <p class="lead">"Você ficou tempo demais nessa empresa" e "você troca de emprego rápido demais" são duas frases que, dependendo de quem fala, viram elogio ou crítica. Depois de mais de quinze anos de carreira em desenvolvimento de software — sete numa empresa só, seis meses em outra, quase quatro na atual — cheguei à conclusão de que nenhuma das duas está certa sozinha. O que importa é o que cada fase te dá, e até quando ela continua dando.</p>
