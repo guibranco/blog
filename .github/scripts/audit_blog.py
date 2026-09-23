@@ -335,14 +335,19 @@ def gh_error(file: str, message: str):
 
 
 def gallery_photos() -> list[Path]:
-    """Raster photos inside per-post folders: assets/img/posts/<slug>/…"""
+    """Raster photos inside per-post folders: assets/img/posts/<slug>/…
+
+    A folder's cover.* is the Post's Hero (cover.svg plus the cover.png card
+    build_og_cards.py renders from it), not a Gallery photo — same exclusion
+    as build_images.py.
+    """
     if not PHOTO_FOLDER_ROOT.exists():
         return []
     return sorted(
         path
         for folder in PHOTO_FOLDER_ROOT.iterdir() if folder.is_dir()
         for path in folder.rglob("*")
-        if path.is_file() and path.suffix.lower() in PHOTO_EXTENSIONS
+        if path.is_file() and path.suffix.lower() in PHOTO_EXTENSIONS and path.stem.lower() != "cover"
     )
 
 

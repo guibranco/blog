@@ -2,17 +2,21 @@
 # CairoSVG for rasterizing SVG covers, with its whole dependency tree pinned
 # and hashed, so `--only-binary :all:` resolves to wheels only and pip's
 # hash-checking mode rejects anything that is not exactly these files. Runner
-# is Python 3.12 on x86_64 Linux; the hashes are of the py3 / cp312 manylinux
-# wheels (one per package). Dependabot bumps pins and hashes together.
+# is Python 3.13 on x86_64 Linux (og-cards.yml); the hashes are of the py3
+# wheels, and of both the cp312 and cp313 manylinux wheels for the compiled
+# packages (PyYAML, cffi) so the file also resolves on a 3.12 runner.
+# Dependabot bumps pins and hashes together.
 -r requirements-images.txt
 PyYAML==6.0.3 \
-    --hash=sha256:ba1cc08a7ccde2d2ec775841541641e4548226580ab850948cbfda66a1befcdc
+    --hash=sha256:ba1cc08a7ccde2d2ec775841541641e4548226580ab850948cbfda66a1befcdc \
+    --hash=sha256:0f29edc409a6392443abf94b9cf89ce99889a1dd5376d94316ae5145dfedd5d6
 cairosvg==2.9.1 \
     --hash=sha256:f91c5628e834be024a0ed4544d76261cd84016a4c73bcdf26c386495825c05a1
 cairocffi==1.7.1 \
     --hash=sha256:9803a0e11f6c962f3b0ae2ec8ba6ae45e957a146a004697a1ac1bbf16b073b3f
 cffi==2.1.1 \
-    --hash=sha256:c1453022f490d2459a11819d83ad1d586e9ff65a12ac3e705ffebd46d3685dcf
+    --hash=sha256:c1453022f490d2459a11819d83ad1d586e9ff65a12ac3e705ffebd46d3685dcf \
+    --hash=sha256:a931079504ecc49efed7744c476a5c343a92fabf66dec2db95edb1b2fdc770e2
 pycparser==3.0 \
     --hash=sha256:b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992
 cssselect2==0.10.1 \

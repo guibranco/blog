@@ -19,9 +19,11 @@ raster yet:
   • `image:` already names a real raster (travel photo, hand-made PNG) or the
     Post is a Trip (`location`/`locations`/`countries`) → untouched.
 
-The output is committed as assets/img/posts/<post-slug>.png and `image:` is
-filled in (the on-page Hero falls back to `image` when there is no `cover`, so
-the generated card also serves as the Hero). A generated file carries a PNG
+The output is committed as assets/img/posts/<post-slug>.png — or, when the
+Post keeps its `cover:` SVG in its own image folder (assets/img/posts/<folder>/,
+the ADR-0009 shape), as cover.png beside that SVG — and `image:` is filled in
+(the on-page Hero falls back to `image` when there is no `cover`, so the
+generated card also serves as the Hero). A generated file carries a PNG
 text chunk naming this script, so a later run can tell it apart from a
 hand-made file with the same name: generated cards are re-rendered whenever
 their Post changes; anything else is never overwritten.
@@ -158,8 +160,19 @@ class Post:
         return self.path.relative_to(ROOT).as_posix() if self.path.is_relative_to(ROOT) else str(self.path)
 
     @property
+    def card_path(self) -> Path:
+        """Where this Post's generated card lives. A Post whose `cover:` sits in
+        its own image folder (assets/img/posts/<folder>/cover.svg, ADR-0009)
+        gets cover.png beside it; every other Post gets the flat
+        assets/img/posts/<post-slug>.png."""
+        cover = local_asset(self.fm.get("cover"))
+        if cover is not None and cover.parent != OUT_DIR and cover.parent.is_relative_to(OUT_DIR):
+            return cover.parent / "cover.png"
+        return OUT_DIR / f"{self.slug}.png"
+
+    @property
     def owned_url(self) -> str:
-        return f"/assets/img/posts/{self.slug}.png"
+        return "/" + self.card_path.relative_to(ROOT).as_posix()
 
 
 def post_slug(path: Path) -> str:
@@ -230,7 +243,7 @@ def classify(post: Post, force: bool, preview: bool = False) -> Plan:
         if is_trip(fm):
             return Plan(post, "skip", "Trip — keeps its photo")
 
-        out_png = OUT_DIR / f"{post.slug}.png"
+        out_png = post.card_path
         image = str(fm.get("image") or "").strip()
         if image:
             if image != post.owned_url:
@@ -773,8 +786,8 @@ def rasterize_cover(cover: Path, out: Path) -> None:
 def set_image_field(post: Post, value: str) -> bool:
     """Write `image: <value>` into the post's front matter, textually, keeping
     everything else byte-for-byte. Returns True when the file changed."""
-    # newline="" on both ends so the file's own line endings survive untouched.
-    # (Path.read_text/write_text only accept `newline` from Python 3.13; CI runs 3.12.)
+    # newline="" on both ends so the file's own line endings survive untouched
+    # (via open(): Path.read_text/write_text only grew `newline` in Python 3.13).
     with post.path.open(encoding="utf-8", newline="") as fh:
         text = fh.read()
     m = re.match(r"^(---[ \t]*\r?\n)(.*?)(\r?\n---[ \t]*(?:\r?\n|$))", text, re.S)
@@ -866,7 +879,7 @@ def main() -> None:
     out_dir: Path = args.out_dir if args.out_dir.is_absolute() else (ROOT / args.out_dir)
     if args.preview:
         args.no_front_matter = True
-        if out_dir.resolve() == OUT_DIR.resolve():
+        if out_dir.resolve().is_relative_to(OUT_DIR.resolve()):
             raise SystemExit("::error::--preview needs an --out-dir outside assets/img/posts/ — it must never overwrite real cards")
 
     if args.download_fonts:
@@ -922,7 +935,10 @@ def main() -> None:
     generated_files: list[str] = []
     for plan in todo:
         post = plan.post
-        out_png = out_dir / f"{post.slug}.png"
+        # A real run writes to the Post's own card path (flat, or cover.png in
+        # its folder); a custom --out-dir keeps the flat slug name so previews
+        # of several folder posts cannot collide on "cover.png".
+        out_png = post.card_path if out_dir.resolve() == OUT_DIR.resolve() else out_dir / f"{post.slug}.png"
         out_rel = out_png.relative_to(ROOT).as_posix() if out_png.is_relative_to(ROOT) else str(out_png)
         what = f"templated card ({plan.style})" if plan.action == "card" else f"rasterized cover {plan.cover.relative_to(ROOT).as_posix()}"
         if args.dry_run:
@@ -950,7 +966,7 @@ def main() -> None:
             print(f"  🖼️  {out_rel} ({size_kb} KB) ← {what}")
             generated_files.append(out_rel)
             results.append((plan, out_rel))
-            if not args.no_front_matter and out_png.parent == OUT_DIR:
+            if not args.no_front_matter and out_png == post.card_path:
                 if set_image_field(post, post.owned_url):
                     print(f"     ↳ image: {post.owned_url} written to {post.rel}")
 
