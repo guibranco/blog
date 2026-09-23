@@ -8,7 +8,6 @@ categories: [Career]
 subcategories:
   - "Career/Case Studies"
 tags: [carreira, post-mortem, over-employment, financas-pessoais, mercado-de-trabalho, reserva-de-emergencia]
-reading_time: 15
 cover: /assets/img/posts/postmortem-carreira-05-over-employment.svg
 image: /assets/img/posts/postmortem-carreira-05-over-employment.png
 series: postmortem-de-carreira
