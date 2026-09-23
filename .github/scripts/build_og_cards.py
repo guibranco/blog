@@ -773,8 +773,10 @@ def rasterize_cover(cover: Path, out: Path) -> None:
 def set_image_field(post: Post, value: str) -> bool:
     """Write `image: <value>` into the post's front matter, textually, keeping
     everything else byte-for-byte. Returns True when the file changed."""
-    # newline="" on both ends so the file's own line endings survive untouched
-    text = post.path.read_text(encoding="utf-8", newline="")
+    # newline="" on both ends so the file's own line endings survive untouched.
+    # (Path.read_text/write_text only accept `newline` from Python 3.13; CI runs 3.12.)
+    with post.path.open(encoding="utf-8", newline="") as fh:
+        text = fh.read()
     m = re.match(r"^(---[ \t]*\r?\n)(.*?)(\r?\n---[ \t]*(?:\r?\n|$))", text, re.S)
     if not m:
         raise ValueError(f"{post.rel}: no front matter block")
@@ -799,7 +801,8 @@ def set_image_field(post: Post, value: str) -> bool:
         else:
             lines.insert(anchor + 1, line)
 
-    post.path.write_text(head + newline.join(lines) + tail + text[m.end():], encoding="utf-8", newline="")
+    with post.path.open("w", encoding="utf-8", newline="") as fh:
+        fh.write(head + newline.join(lines) + tail + text[m.end():])
     return True
 
 
