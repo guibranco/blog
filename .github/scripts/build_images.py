@@ -55,6 +55,11 @@ MANIFEST     = ROOT / "_data" / "images.json"
 
 SOURCE_EXTENSIONS = {".jpg", ".jpeg", ".png"}
 
+# A folder's cover.* is the Post's Hero — cover.svg hand-authored, cover.png
+# the Open Graph card build_og_cards.py renders from it (ADR-0012) — not a
+# Gallery photo, so it is neither sanitized nor given derivatives.
+HERO_STEM = "cover"
+
 # Rungs of the srcset. Gallery thumbnails render at ~130–250 CSS px (so 480w
 # covers 1x/2x and 960w covers 3x screens); 1600w exists for a photo placed
 # standalone at full article width. A source narrower than the largest rung
@@ -88,7 +93,7 @@ def source_photos() -> list[Path]:
     photos: list[Path] = []
     for folder in sorted(p for p in SOURCE_ROOT.iterdir() if p.is_dir()):
         for path in sorted(folder.rglob("*")):
-            if path.is_file() and path.suffix.lower() in SOURCE_EXTENSIONS:
+            if path.is_file() and path.suffix.lower() in SOURCE_EXTENSIONS and path.stem.lower() != HERO_STEM:
                 photos.append(path)
     return photos
 

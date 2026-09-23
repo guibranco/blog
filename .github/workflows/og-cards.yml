@@ -81,7 +81,7 @@ jobs:
         if: steps.posts.outputs.run == 'true'
         uses: actions/setup-python@v7
         with:
-          python-version: '3.12'
+          python-version: '3.13'
 
       - name: Install renderer
         if: steps.posts.outputs.run == 'true'
@@ -138,6 +138,8 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+          # A git glob crosses '/', so this also picks up a card rendered as
+          # cover.png inside a post's own image folder.
           git add -- 'assets/img/posts/*.png' '_posts/*.md'
           if git diff --cached --quiet; then
             echo "committed=false" >> "$GITHUB_OUTPUT"
