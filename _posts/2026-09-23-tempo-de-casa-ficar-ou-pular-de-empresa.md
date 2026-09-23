@@ -2,7 +2,7 @@
 layout: post
 lang: pt-BR
 title: "Tempo de Casa: o Que Realmente Acontece Com Quem Fica e Com Quem Troca de Empresa Toda Hora"
-description: "Ficar sete anos numa empresa ou trocar a cada seis meses: o que a CLT, o vesting de equity, dados de mercado tech e quinze anos de carreira dizem sobre tempo de casa."
+description: "Ficar sete anos numa empresa ou trocar a cada seis meses: o que a CLT, o vesting de equity, dados de mercado tech e mais de quinze anos de carreira dizem sobre tempo de casa."
 date: 2026-09-23
 categories: [Career]
 subcategories:
@@ -12,7 +12,7 @@ cover: /assets/img/posts/tempo-de-casa/cover.svg
 image: /assets/img/posts/tempo-de-casa/cover.png
 ---
 
-<p class="lead">"Você ficou tempo demais nessa empresa" e "você troca de emprego rápido demais" são duas frases que, dependendo de quem fala, viram elogio ou crítica. Depois de quase quinze anos de carreira em desenvolvimento de software — sete numa empresa só, seis meses em outra, quase quatro na atual — cheguei à conclusão de que nenhuma das duas está certa sozinha. O que importa é o que cada fase te dá, e até quando ela continua dando.</p>
+<p class="lead">"Você ficou tempo demais nessa empresa" e "você troca de emprego rápido demais" são duas frases que, dependendo de quem fala, viram elogio ou crítica. Depois de mais de quinze anos de carreira em desenvolvimento de software — sete numa empresa só, seis meses em outra, quase quatro na atual — cheguei à conclusão de que nenhuma das duas está certa sozinha. O que importa é o que cada fase te dá, e até quando ela continua dando.</p>
 
 <div class="section-header">
   <div class="section-num">01</div>
@@ -128,9 +128,9 @@ O risco fica mais sério quando a pessoa não tem como comparar: se você só tr
   <div class="section-title-wrap"><h2>O mito da contraproposta</h2></div>
 </div>
 
-Um cenário comum: você recebe uma proposta externa melhor, comunica a decisão de sair, e a empresa atual reage com uma contraproposta — mais salário, às vezes uma promoção relâmpago. Existe um mito de que quem aceita acaba demitido logo depois, como punição. Não é bem isso que os dados mostram — a realidade é um pouco diferente, mas igualmente desanimadora.
+Um cenário comum: você recebe uma proposta externa melhor, comunica a decisão de sair, e a empresa atual reage com uma contraproposta — mais salário, às vezes uma promoção relâmpago. Existe uma estatística repetida à exaustão em posts de recrutador — "80% (ou 90%) de quem aceita uma contraproposta sai da empresa em seis meses" — que, ao ser rastreada, não leva a lugar nenhum. Um recrutador britânico passou anos tentando encontrar o estudo original por trás desse número e não achou nenhuma pesquisa estatisticamente robusta — só anedotas e citações que se referenciam em círculo. Vale tratar esse número específico como folclore de RH, não como dado.
 
-Segundo a Robert Half, quem aceita uma contraproposta costuma sair da empresa — por vontade própria ou não — dentro de cerca de um ano, porque os motivos que levaram à busca por outro emprego continuam lá. Outros levantamentos citados por consultorias de RH vão além: cerca de 80% a 85% das pessoas que aceitam uma contraproposta deixam a empresa em até seis meses. Não é necessariamente uma demissão-punição — é uma combinação de confiança quebrada, problema estrutural não resolvido e, quando corte de custos aparece no horizonte, esse profissional entrar naturalmente na lista de prioridades.
+Isso não significa que contraproposta seja uma escolha segura — só que o tamanho real do problema é mais modesto do que o folclore sugere. Dados do CEB citados pela Harvard Business Review apontam algo em torno de 50% de saída dentro de 12 meses, bem menos dramático que o "80–90%" repetido por aí. E numa pesquisa da própria Robert Half com empregadores australianos, das contrapropostas feitas, 46% conseguiram reter o funcionário, 7% foram recusadas de cara, e 32% foram aceitas — mas a pessoa saiu de qualquer forma dentro de 12 meses. Ou seja: mesmo pela fonte mais favorável à contraproposta, quase um terço de quem aceita sai de qualquer jeito no ano seguinte. Não é uma sentença de demissão-punição — é uma combinação de confiança já abalada e um problema estrutural que o aumento sozinho não resolve.
 
 <div class="callout callout-warn">
   <div class="callout-label">O efeito colateral</div>
@@ -144,7 +144,7 @@ Segundo a Robert Half, quem aceita uma contraproposta costuma sair da empresa �
 
 Vale lembrar que turnover alto não é bom para ninguém — nem para quem troca, nem para quem contrata. Estimativas da SHRM e da Gallup, calculadas de forma independente, convergem para a mesma faixa: substituir um funcionário custa entre 50% e 200% do salário anual dele, dependendo do nível do cargo. É por isso que empresas sérias investem em retenção — não é só discurso de RH, é conta que fecha.
 
-Em desenvolvimento de software, essa conta fica ainda mais clara. Pesquisas recentes de mercado (Indeed e LinkedIn Talent Insights) apontam um tempo médio de contratação de 90 a 120 dias para uma vaga sênior de engenharia — da abertura da vaga até a proposta aceita, sem contar o aviso prévio na empresa anterior nem o tempo até a pessoa nova ficar produtiva. Some tudo — contratação, integração, ramp-up — e o custo estimado de substituir um único engenheiro sênior fica na faixa de US$ 150 mil a US$ 250 mil ao longo de três anos, considerando recrutamento, entrevistas, onboarding e a produtividade perdida enquanto a vaga fica aberta e o novo contratado aprende o terreno.
+Em desenvolvimento de software, essa conta fica ainda mais concreta. Um levantamento de 2025 da Employ (Hiring Benchmarks Report, cobrindo especificamente software/tecnologia entre outros setores) apontou uma média de cerca de 63,5 dias para preencher uma vaga — da publicação até a proposta aceita, sem contar aviso prévio no emprego anterior nem o tempo até a pessoa nova ficar produtiva. Some isso aos 50%–200% do salário anual citados acima, e fica fácil entender por que um time de engenharia com turnover alto vive "correndo atrás" em vez de entregar.
 
 <div class="section-header">
   <div class="section-num">10</div>
@@ -176,7 +176,7 @@ Independente de qual seja o seu padrão — passagens curtas, uma única empresa
 
 <div class="personal-story">
   <div class="personal-story-label">
-    <i class="fas fa-user-circle"></i> Minha experiência — Quinze anos, seis fases
+    <i class="fas fa-user-circle"></i> Minha experiência — Mais de quinze anos, seis fases
   </div>
   <p>Minha primeira empresa, a Inovação, durou quase sete anos: um ano de estágio e seis anos de CLT, saindo de analista para coordenador — um coordenador "on-hands", boa parte do tempo sem ninguém para coordenar de fato, só tocando projetos. Depois vieram duas passagens curtas, C&amp;A e Farfetch, de seis a sete meses cada. Depois, duas de dois anos — BS2 e Talabat. E agora, quase quatro anos na OUTsurance, em Dublin, meu período mais longo desde a Inovação.</p>
 </div>
@@ -228,10 +228,11 @@ Se a maioria das respostas está do lado esquerdo, o tempo de casa — curto ou 
     <li>Ravio. <strong>Employee tenure trends in 2026: the latest data on average job tenure in tech.</strong> <a href="https://ravio.com/blog/employee-tenure-trends" target="_blank">ravio.com</a></li>
     <li>Carta, apud Hyring. <strong>Vesting Schedule</strong> (2024). <a href="https://hyring.com/free-hr-toolkit/hr-glossary/vesting-schedule" target="_blank">hyring.com</a></li>
     <li>Orrick. <strong>Equity Vesting for Startups: What founders and employees need to know.</strong> <a href="https://www.orrick.com/zh-CN/Insights/2026/04/Equity-Vesting-for-Startups-What-founders-and-employees-need-to-know" target="_blank">orrick.com</a></li>
-    <li>Robert Half Brasil. <strong>As 5 principais armadilhas da contraproposta.</strong> <a href="https://www.roberthalf.com/br/pt/insights/carreira/5-principais-armadilhas-da-contraproposta" target="_blank">roberthalf.com</a></li>
     <li>Forbes Brasil. <strong>Recrutadores Revelam as Principais Green e Red Flags em Processos Seletivos.</strong> <a href="https://forbes.com.br/carreira/2025/04/recrutadores-revelam-as-principais-green-e-red-flags-em-processos-seletivos/" target="_blank">forbes.com.br</a></li>
     <li>Robert Half, apud Exame. <strong>Troca frequente de emprego prejudica currículo, diz pesquisa</strong> (2014). <a href="https://exame.com/carreira/troca-frequente-de-emprego-prejudica-curriculo-diz-pesquisa/" target="_blank">exame.com</a></li>
     <li>SHRM / Gallup, apud Telavita. <strong>Turnover e saúde mental: como reduzir na empresa.</strong> <a href="https://www.telavita.com.br/blog/turnover-saude-mental-corporativa/" target="_blank">telavita.com.br</a></li>
-    <li>Eltexsoft. <strong>Replacing One Senior Engineer Costs $150K–$250K Over Three Years.</strong> <a href="https://eltexsoft.com/blog/engineer-replacement-cost/" target="_blank">eltexsoft.com</a></li>
+    <li>The Interview Guys. <strong>The Counteroffer Stat Everyone Cites Is Fake.</strong> <a href="https://blog.theinterviewguys.com/the-counteroffer-stat-everyone-cites-is-fake-the-real-reason-to-walk/" target="_blank">blog.theinterviewguys.com</a></li>
+    <li>Robert Half (pesquisa na Austrália), apud Ardent Workshop. <strong>Should You Accept a Counteroffer?</strong> <a href="https://www.ardentworkshop.com/blog/should-you-accept-a-counteroffer/" target="_blank">ardentworkshop.com</a></li>
+    <li>Employ. <strong>Hiring Benchmarks Report 2025</strong>, apud HR Dive. <a href="https://www.hrdive.com/news/hiring-benchmarks-report-employ-2025-more-applicants/809604" target="_blank">hrdive.com</a></li>
   </ol>
 </div>
