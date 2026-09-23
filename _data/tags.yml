@@ -220,6 +220,8 @@
   slug: continuous-deployment
 - name: continuous-integration
   slug: continuous-integration
+- name: contraproposta
+  slug: contraproposta
 - name: contratacao
   slug: contratacao
 - name: contrato
@@ -594,6 +596,8 @@
     - /tags/javascript/
 - name: jetbrains
   slug: jetbrains
+- name: job-hopping
+  slug: job-hopping
 - name: json
   slug: json
   redirect_from:
@@ -1056,6 +1060,8 @@
   slug: tech-visa
 - name: tecnologia
   slug: tecnologia
+- name: tempo-de-casa
+  slug: tempo-de-casa
 - name: terraform
   slug: terraform
 - name: tesouro-direto
@@ -1136,6 +1142,8 @@
   slug: vercel
 - name: versioning
   slug: versioning
+- name: vesting
+  slug: vesting
 - name: viagem
   slug: viagem
 - name: vida-noturna
