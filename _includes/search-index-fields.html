@@ -1,0 +1,39 @@
+{%- comment -%}
+  Search index fields for a Post (ADR-0020). Hidden from readers; read only by
+  the Pagefind CLI that indexes _site after `jekyll build` (deploy.yml).
+
+  The title and description are tagged where they are shown, on the hero's h1
+  and subtitle in post.html. This block carries the rest:
+
+  meta   — categories and tags. Searchable, boosted by the search page's
+           metaWeights, and returned with each result for display.
+  filter — date, updated, reading_time, title_key. Returned with each result
+           but never matched as words: Pagefind indexes every meta value as
+           searchable text, so a date kept in meta would make a search for
+           "23" hit every Post published on a 23rd.
+  sort   — the keys /busca/ orders by, same values as the filters. Pagefind
+           drops a page from a sorted search when it lacks the key, so every
+           Post carries all four (reading_time is always set by
+           reading_time.rb; the default only guards against a gap).
+
+  The empty `image` meta is deliberate. Without it Pagefind stores the first
+  <img> after the h1 (the Hero) as `image`/`image_alt`, and since meta is
+  searchable and Pagefind matches word prefixes, "blog", "png" or "assets"
+  would match every Post with a Hero. The search page shows no thumbnail.
+  It must be the inline form `image:`; an empty element is skipped and the
+  Hero would be captured anyway.
+
+  Values are element text, not attributes, so Pagefind decodes entities
+  ("Tips &amp; Tricks" is indexed as "Tips & Tricks").
+{%- endcomment -%}
+{%- assign _sf_date = page.date | date: "%Y-%m-%d" -%}
+{%- assign _sf_updated = page.last_modified_at | default: page.date | date: "%Y-%m-%d" -%}
+<div class="search-index-fields" hidden>
+  <span data-pagefind-meta="categories">{{ page.categories | join: ", " | escape }}</span>
+  <span data-pagefind-meta="tags">{{ page.tags | join: ", " | escape }}</span>
+  <span data-pagefind-meta="image:"></span>
+  <span data-pagefind-filter="date" data-pagefind-sort="date">{{ _sf_date }}</span>
+  <span data-pagefind-filter="updated" data-pagefind-sort="updated">{{ _sf_updated }}</span>
+  <span data-pagefind-filter="reading_time" data-pagefind-sort="reading_time">{{ page.reading_time | default: 0 }}</span>
+  <span data-pagefind-filter="title_key" data-pagefind-sort="title_key">{{ page.title | slugify: "latin" }}</span>
+</div>
