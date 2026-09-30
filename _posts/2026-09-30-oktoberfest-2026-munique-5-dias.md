@@ -13,26 +13,26 @@ image_alt: "Vista aérea da Marienplatz ao anoitecer, com o Neues Rathaus e as t
 image_credit: "Unsplash"
 image_license: "Unsplash License"
 gallery: true
-countries: [Alemanha]
+countries: [Germany]
 locations:
   - lat: 48.1315
     lng: 11.5496
-    label: "Theresienwiese, Munique"
+    label: "Theresienwiese, Munich"
   - lat: 48.1374
     lng: 11.5755
-    label: "Marienplatz, Munique"
+    label: "Marienplatz, Munich"
   - lat: 48.1377
     lng: 11.5799
-    label: "Hofbräuhaus am Platzl, Munique"
+    label: "Hofbräuhaus am Platzl, Munich"
   - lat: 48.1366
     lng: 11.5557
-    label: "Schwanthalerstraße, Munique"
+    label: "Schwanthalerstraße, Munich"
   - lat: 48.1441
     lng: 11.4951
-    label: "Laim, Munique"
+    label: "Laim, Munich"
   - lat: 48.3538
     lng: 11.7861
-    label: "Aeroporto de Munique (MUC)"
+    label: "Munich Airport (MUC)"
 trip: munique-2026
 ---
 
