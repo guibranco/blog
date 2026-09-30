@@ -32,6 +32,69 @@ SORT_KEYS = ("date", "updated", "reading_time", "title_key")
 
 HTML_LANG = re.compile(r"<html\b[^>]*\blang=\"([^\"]+)\"", re.IGNORECASE)
 SORT_VALUE = re.compile(r"data-pagefind-sort=\"([a-z_]+)\"[^>]*>([^<]*)<")
+NUMBER = re.compile(r"\d+(\.\d+)?")
+
+
+def indexed_pages(site: Path) -> list[Path]:
+    """The built pages Pagefind indexes: those tagged data-pagefind-body, outside its own output."""
+    pages = []
+    for page in sorted(site.rglob("*.html")):
+        if page.is_relative_to(site / "pagefind"):
+            continue
+        if "data-pagefind-body" in page.read_text(encoding="utf-8"):
+            pages.append(page)
+    return pages
+
+
+def page_language(html: str) -> str | None:
+    match = HTML_LANG.search(html)
+    return match.group(1).lower() if match else None
+
+
+def sort_key_errors(html: str) -> list[str]:
+    """Why sorting would drop this page, if anything is missing or malformed."""
+    sorts = {key: value.strip() for key, value in SORT_VALUE.findall(html)}
+    errors = [
+        f"no value for sort key '{key}' — sorting by it would drop this Post"
+        for key in SORT_KEYS
+        if not sorts.get(key)
+    ]
+    reading_time = sorts.get("reading_time")
+    if reading_time and not NUMBER.fullmatch(reading_time):
+        errors.append(f"reading_time '{reading_time}' is not a number")
+    return errors
+
+
+def expected_counts(site: Path, pages: list[Path]) -> tuple[Counter, list[str]]:
+    """Posts per language as built, plus every per-page problem found."""
+    expected: Counter = Counter()
+    errors = []
+    for page in pages:
+        rel = page.relative_to(site).as_posix()
+        html = page.read_text(encoding="utf-8")
+        lang = page_language(html)
+        if lang is None:
+            errors.append(f"{rel}: indexed page without <html lang>")
+            continue
+        expected[lang] += 1
+        errors.extend(f"{rel}: {error}" for error in sort_key_errors(html))
+    return expected, errors
+
+
+def indexed_counts(entry_path: Path) -> Counter:
+    """Posts per language according to Pagefind's own entry file."""
+    languages = json.loads(entry_path.read_text(encoding="utf-8")).get("languages", {})
+    return Counter({lang: info.get("page_count", 0) for lang, info in languages.items()})
+
+
+def coverage_errors(expected: Counter, indexed: Counter) -> list[str]:
+    if not expected:
+        return ["no page carries data-pagefind-body — nothing would be searchable"]
+    return [
+        f"language '{lang}': {expected[lang]} Posts built, {indexed[lang]} in the index"
+        for lang in sorted(set(expected) | set(indexed))
+        if expected[lang] != indexed[lang]
+    ]
 
 
 def main() -> None:
@@ -40,37 +103,9 @@ def main() -> None:
     if not entry_path.is_file():
         raise SystemExit(f"::error::{entry_path} not found — did Pagefind run?")
 
-    errors = []
-    expected = Counter()
-    for page in sorted(site.rglob("*.html")):
-        if page.is_relative_to(site / "pagefind"):
-            continue
-        html = page.read_text(encoding="utf-8")
-        if "data-pagefind-body" not in html:
-            continue
-        rel = page.relative_to(site).as_posix()
-
-        lang = HTML_LANG.search(html)
-        if not lang:
-            errors.append(f"{rel}: indexed page without <html lang>")
-            continue
-        expected[lang.group(1).lower()] += 1
-
-        sorts = {key: value.strip() for key, value in SORT_VALUE.findall(html)}
-        for key in SORT_KEYS:
-            if not sorts.get(key):
-                errors.append(f"{rel}: no value for sort key '{key}' — sorting by it would drop this Post")
-        if sorts.get("reading_time") and not re.fullmatch(r"\d+(\.\d+)?", sorts["reading_time"]):
-            errors.append(f"{rel}: reading_time '{sorts['reading_time']}' is not a number")
-
-    languages = json.loads(entry_path.read_text(encoding="utf-8")).get("languages", {})
-    indexed = Counter({lang: info.get("page_count", 0) for lang, info in languages.items()})
-
-    if not expected:
-        errors.append("no page carries data-pagefind-body — nothing would be searchable")
-    for lang in sorted(set(expected) | set(indexed)):
-        if expected[lang] != indexed[lang]:
-            errors.append(f"language '{lang}': {expected[lang]} Posts built, {indexed[lang]} in the index")
+    expected, errors = expected_counts(site, indexed_pages(site))
+    indexed = indexed_counts(entry_path)
+    errors.extend(coverage_errors(expected, indexed))
 
     for lang in sorted(indexed):
         print(f"{lang}: {indexed[lang]} Posts indexed")

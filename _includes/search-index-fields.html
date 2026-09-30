@@ -17,11 +17,11 @@
            reading_time.rb; the default only guards against a gap).
 
   The empty `image` meta is deliberate. Without it Pagefind stores the first
-  <img> after the h1 (the Hero) as `image`/`image_alt`, and since meta is
-  searchable and Pagefind matches word prefixes, "blog", "png" or "assets"
-  would match every Post with a Hero. The search page shows no thumbnail.
-  It must be the inline form `image:`; an empty element is skipped and the
-  Hero would be captured anyway.
+  image element after the h1 (the Hero) as `image`/`image_alt`, and since
+  meta is searchable and Pagefind matches word prefixes, "blog", "png" or
+  "assets" would match every Post with a Hero. The search page shows no
+  thumbnail. It must be the inline form `image:`; an empty element is
+  skipped and the Hero would be captured anyway.
 
   Values are element text, not attributes, so Pagefind decodes entities
   ("Tips &amp; Tricks" is indexed as "Tips & Tricks").
