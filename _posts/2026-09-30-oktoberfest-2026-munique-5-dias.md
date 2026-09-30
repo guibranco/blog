@@ -38,7 +38,7 @@ locations:
 trip: munique-2026
 ---
 
-<p class="lead">Cinco dias em Munique no fim de setembro, saindo de Dublin por € 263 ida e volta em voo direto, para a 191ª Oktoberfest. Um grupo que começou com oito pessoas e chegou em três, um quarto de hostel de seis camas dividido por cinco, 18 horas dentro da Theresienwiese, € 1.299,60 sacados em dinheiro vivo e um custo final de € 1.989,80. Este é o relato completo, com todos os números e os gráficos de onde o dinheiro foi.</p>
+<p class="lead">Cinco dias em Munique no fim de setembro, saindo de Dublin por € 263 ida e volta em voo direto, para a 191ª Oktoberfest. Um grupo que chegou a ter sete nomes e viajou em três, um quarto de hostel de seis camas dividido por cinco, 18 horas dentro da Theresienwiese, € 1.299,60 sacados em dinheiro vivo e um custo final de € 1.989,80. Este é o relato completo, com todos os números e os gráficos de onde o dinheiro foi.</p>
 
 <div class="callout callout-tip">
   <div class="callout-label">Moeda e pagamentos</div>
@@ -47,23 +47,25 @@ trip: munique-2026
 
 <div class="callout callout-warn">
   <div class="callout-label">Transparência sobre este relato</div>
-  <p>Os valores em cartão saem do <strong>extrato do Revolut</strong>, e os horários foram cruzados com o <strong>registro de localização do Google Maps Timeline</strong> e com o EXIF das fotos. Uma ressalva importante: o extrato do Revolut registra os horários <strong>uma hora atrás do horário local de Munique</strong>, e a Timeline grava algumas atividades com rótulo errado (classificou dois táxis como ônibus e um táxi como trem). Todos os horários citados aqui já estão <strong>corrigidos para o horário local</strong>, e onde a Timeline discordou da minha memória, usei a minha versão.</p>
+  <p>Os valores em cartão saem do <strong>extrato do Revolut</strong>, e os horários foram cruzados com o <strong>registro de localização do Google Maps Timeline</strong> e com o EXIF das fotos.</p>
   <p>O gasto em dinheiro dentro das tendas é <strong>a única parte estimada</strong> deste relato — por definição, não há recibo. O número foi obtido por diferença: total sacado, menos o que voltou na carteira, menos o que sei ter pago em espécie fora da Wiesn.</p>
-  <p>Este foi meu <strong>primeiro Oktoberfest</strong> e minha primeira vez em Munique.</p>
+  <p>Esta foi minha <strong>terceira Oktoberfest</strong> — e minha terceira vez em Munique. A primeira foi em <strong>2022</strong>, quando eu ainda morava em Dubai: fui com amigos da faculdade, do Brasil, um amigo que já morava em Dublin e duas amigas de um deles, também vindas do Brasil. A segunda foi em <strong>2024</strong>, já morando em Dublin, com um amigo de Dubai e dois casais de amigos meus do Brasil que moram aqui.</p>
 </div>
 
 <div class="divider">· · ·</div>
 
 <div class="section-header">
   <div class="section-num">01</div>
-  <div class="section-title-wrap"><h2>O grupo que encolheu de oito para três</h2></div>
+  <div class="section-title-wrap"><h2>O grupo que encolheu de sete para três</h2></div>
 </div>
 
 Começo por aqui porque foi isso que definiu o custo da viagem inteira.
 
-O planejamento nasceu grande. Em determinado momento havia **sete nomes confirmados ou prováveis** e um oitavo em cima do muro. Com esse tamanho, a decisão óbvia foi reservar um **quarto privativo de seis camas**, que a essa altura já era a opção mais barata por cabeça para as datas.
+A viagem começou a ser planejada no começo do ano, e por um motivo bem concreto: uma amiga que fazia intercâmbio em Dublin já tinha a passagem de saída da Irlanda comprada para Munique. A primeira formação tinha **quatro pessoas**: eu, ela, um amigo que estava de mudança de Londres para Dublin e o amigo de Manchester.
 
-Aí o grupo começou a derreter. Três pessoas desistiram, uma depois da outra. Das outras duas, uma nunca se manifestou e a outra nunca confirmou. A poucas semanas da viagem, o grupo tinha **duas pessoas confirmadas para um quarto de seis**.
+A segunda formação trouxe mais três nomes — duas amigas e um amigo de Dublin —, fechando em **sete pessoas possíveis**. Com esse tamanho, a decisão óbvia foi reservar um **quarto privativo de seis camas**, que a essa altura já era a opção mais barata por cabeça para as datas.
+
+Aí o grupo começou a derreter. A amiga do intercâmbio voltou para o Brasil ainda antes do meio do ano. O amigo que veio de Londres desistiu, dizendo que precisava guardar dinheiro. Dos três nomes da segunda leva, uma estava sem dinheiro, com outra perdi o contato e o terceiro não tinha férias para tirar. A poucas semanas da viagem, o grupo tinha **duas pessoas confirmadas para um quarto de seis**.
 
 <table class="compare-table">
   <thead>
@@ -77,7 +79,7 @@ Aí o grupo começou a derreter. Três pessoas desistiram, uma depois da outra. 
   </tbody>
 </table>
 
-No fim viajamos em três — eu, **um amigo que saiu de Manchester** e **outro de Dublin**. E aí veio a reviravolta na direção oposta: o amigo de Dublin levou **dois amigos**, que chegaram na sexta e foram embora no domingo. O quarto de seis acabou sendo **dividido por cinco pessoas**.
+No fim viajamos em três — eu, **o amigo de Manchester** e **um conhecido meu de Dublin**. E aí veio a reviravolta na direção oposta: ele levou **dois amigos** — o que eu só fiquei sabendo na hora —, que chegaram na sexta e foram embora no domingo. O quarto de seis acabou sendo **dividido por cinco pessoas**.
 
 <div class="callout callout-tip">
   <div class="callout-label">Rateio por cama, não por noite</div>
@@ -86,9 +88,9 @@ No fim viajamos em três — eu, **um amigo que saiu de Manchester** e **outro d
 </div>
 
 <div class="callout callout-tip">
-  <div class="callout-label">A lição que eu levaria para a próxima</div>
-  <p>A reserva tinha <strong>cancelamento grátis até 22/09</strong> — dois dias antes do embarque. Essa era minha única alavanca, e eu a perdi por não ter estabelecido um <strong>prazo-limite de confirmação</strong> para o grupo. Se eu tivesse cravado "me confirma até dia 15/08", teria tido cinco semanas para trocar a reserva por um quarto de três.</p>
-  <p>Em viagem de grupo para evento com data fixa, <strong>a data de cancelamento grátis é o prazo real do seu planejamento</strong>, não a data da viagem. Trate-a como deadline e comunique isso ao grupo por escrito.</p>
+  <div class="callout-label">Por que não cancelei a reserva</div>
+  <p>A reserva tinha <strong>cancelamento grátis até 22/09</strong> — dois dias antes do embarque. Mas cancelar não era uma opção: perto da festa, <strong>uma cama em quarto compartilhado estava saindo por quase € 300 a noite</strong>.</p>
+  <p>Se fôssemos só dois, eu e o amigo de Manchester, ainda valeria a pena trocar o quarto por uma barraca de camping e passar perrengue — cheguei a cogitar. Com três, a conta já ficava tranquila, e um quarto menor custava <strong>mais que o dobro</strong>. O quarto de seis ficou.</p>
 </div>
 
 <div class="divider">· · ·</div>
@@ -129,9 +131,11 @@ O voo é num **A321neo** e a Lufthansa serve, em ambos os trechos, **uma garrafi
 
 Pousei no **Terminal 2 às 14h05**. Deveria ter seguido as placas de *Ankunft* e *Einreise* até o controle de entrada e saído dali direto para a estação. Não foi o que aconteceu.
 
-Caminhei bastante, encontrei um **ônibus para o Terminal 1** saindo a cada dez minutos e entrei. Estava vazio — o que já era um sinal. Ele me deixou na área dos portões D, onde a saída estava fechada. Fui andando na direção dos portões A e B, cheguei a um controle de passaporte e me disseram que eu estava no lugar errado, e que deveria voltar para os portões D.
+Caminhei bastante, encontrei um **ônibus para o Terminal 1** saindo a cada dez minutos e entrei. Estava vazio — o que já era um sinal. Ele me deixou na área dos portões D, onde a saída estava fechada e não havia fluxo nenhum de gente. Vi mais pessoas caminhando na direção dos portões A e B e fui atrás: cheguei a um controle de passaporte e me disseram que eu estava no lugar errado, e que deveria voltar para os portões D.
 
-O que eu tinha pegado era o **transfer airside**, feito para passageiros em conexão. Como passageiro chegando, ele me despejou numa área de trânsito do T1 de onde simplesmente **não existe saída para a cidade**. O controle que encontrei perto dos portões A e B era de embarque, não de chegada.
+O que eu tinha pegado era o **transfer airside**, feito para passageiros em conexão. Como passageiro chegando, ele me despejou numa área de trânsito do T1 por onde **ninguém costuma sair para a cidade**. O controle que encontrei perto dos portões A e B era de embarque, não de chegada.
+
+De volta aos portões D, acabei achando a saída: **uma porta que estava fechada, com uma pessoa controlando o acesso**. Não é uma rota convencional para quem está naqueles portões — e era por isso que não havia ninguém indo naquela direção.
 
 Resultado: **1h15 dentro do terminal**, das 14h15 às 15h30, para um trajeto que deveria levar dez minutos.
 
@@ -142,7 +146,7 @@ Resultado: **1h15 dentro do terminal**, das 14h15 às 15h30, para um trajeto que
   <p>Se um funcionário te mandar para o lugar errado, peça explicitamente por <strong>"Einreise"</strong> — e, se possível, peça para alguém te acompanhar. Andar sozinho procurando placa em área de trânsito só faz você dar voltas.</p>
 </div>
 
-Do aeroporto até Laim foram **€ 15,10** de bilhete da Deutsche Bahn, com uma baldeação no caminho. Cheguei ao hostel às **17h11** — três horas e seis minutos depois de pousar.
+Do aeroporto até Laim foram **€ 15,10** de bilhete da Deutsche Bahn, no mesmo trem do começo ao fim, sem baldeação. Cheguei ao hostel às **17h11** — três horas e seis minutos depois de pousar.
 
 <div class="photo-gallery">
   {% include photo.html src="/assets/img/posts/munique-2026/chegada-01.jpg"
@@ -180,7 +184,7 @@ A reserva foi de um **quarto privativo de seis camas com banheiro**, pelas quatr
   </tbody>
 </table>
 
-O quarto foi ocupado por **cinco pessoas** — eu, o amigo de Manchester, o de Dublin e os dois amigos dele —, com a sexta cama vazia.
+O quarto foi ocupado por **cinco pessoas** — eu, o amigo de Manchester, o conhecido de Dublin e os dois amigos dele —, com a sexta cama vazia.
 
 **€ 68 por cama por noite** durante a Oktoberfest é um preço muito bom — hotéis perto da Theresienwiese pediam de € 150 a € 300 a diária nas mesmas datas. O que se paga por isso é localização: Laim fica a **três estações de S-Bahn** da Hackerbrücke, a entrada mais usada da Wiesn.
 
@@ -191,7 +195,7 @@ O quarto foi ocupado por **cinco pessoas** — eu, o amigo de Manchester, o de D
 
 <div class="callout callout-tip">
   <div class="callout-label">Um paga o saldo, os outros reembolsam — e o acerto é feito uma vez só</div>
-  <p>Quem pagou os <strong>€ 1.438,43</strong> no balcão foi o amigo de Manchester. O acerto entre nós foi feito depois por transferência, <strong>descontando na mesma conta o que cada um já tinha pago em dinheiro por fora</strong> — no caso dele, o aluguel do traje típico, que saiu do meu bolso na véspera.</p>
+  <p>Quem pagou os <strong>€ 1.438,43</strong> no balcão foi o amigo de Manchester. O acerto entre nós foi feito depois por transferência, <strong>descontando na mesma conta o que cada um já tinha pago em dinheiro por fora</strong> — no caso dele, o aluguel do traje típico, que saiu do meu bolso no dia seguinte.</p>
   <p>Esse é o modelo que funciona em viagem de grupo onde metade das coisas é paga em espécie: <strong>uma pessoa paga a conta grande, todo mundo anota o que pagou por fora, e no fim se faz um único encontro de contas</strong>. A alternativa — cada um pagando pedaços aleatórios ao longo de cinco dias — é a receita garantida para ninguém saber quem deve quanto no aeroporto.</p>
 </div>
 
@@ -218,7 +222,7 @@ O quarto foi ocupado por **cinco pessoas** — eu, o amigo de Manchester, o de D
 
 Cheguei ao hostel às 17h11. A primeira missão era **alugar o traje típico**, e a loja escolhida ficava na **Schwanthalerstraße 67** — a poucos minutos a pé da Theresienwiese, o que a torna uma localização ideal para os dias seguintes.
 
-Fui de tram até lá, fechei o aluguel e combinei de retirar as roupas na manhã seguinte. Detalhes completos do processo estão na seção 10.
+Fui de tram até lá, fechei a reserva, provamos as roupas — não saímos com elas — e combinamos a retirada, com o pagamento, para a manhã seguinte. Detalhes completos do processo estão na seção 10.
 
 ### A caminhada até o Hofbräuhaus
 
@@ -226,7 +230,7 @@ Saí da loja às 18h12 e fui **a pé até o Hofbräuhaus**, 1,24 km atravessando
 
 Às **18h31** eu estava diante da **Frauenkirche**, a catedral de tijolo com as duas torres de cúpula verde que são o símbolo da cidade. Dois minutos depois, na **Marienplatz**, com o Neues Rathaus inteiro dourado pelo pôr do sol e a praça decorada com as bandeirolas azul-e-branco da Baviera — decoração de Oktoberfest.
 
-No caminho passei em dois lugares: **Restaurant Flair (€ 10,00)** e **Wilde Zeiten (€ 15,00)**, entre cerveja e petisco de rua.
+Antes de sair dali, uma Helles na barraquinha de rua da esquina da Schwanthalerstraße com a Paul-Heyse-Straße (**€ 10,00**). No extrato ela aparece como **Restaurant Flair**, mas não é restaurante nenhum: é o nome comercial da maquininha de uma barraquinha de camelô, montada na entrada de um prédio. No caminho, mais uma parada, no **Wilde Zeiten (€ 15,00)**.
 
 <div class="callout callout-tip">
   <div class="callout-label">Cerveja de rua × cerveja de tenda: a escala de preços de Munique</div>
@@ -235,17 +239,24 @@ No caminho passei em dois lugares: **Restaurant Flair (€ 10,00)** e **Wilde Ze
       <tr><th>Onde</th><th>Volume</th><th>Preço</th><th>Por litro</th></tr>
     </thead>
     <tbody>
-      <tr><td>Na rua, perto da Marienplatz</td><td>0,5 L</td><td>€ 3,50</td><td>€ 7,00</td></tr>
+      <tr><td>Helles na barraquinha de rua, na esquina da loja de Tracht</td><td>0,5 L</td><td>€ 3,50</td><td>€ 7,00</td></tr>
       <tr><td>Hofbräuhaus (Platzl 9)</td><td>1,0 L</td><td>€ 11,60</td><td>€ 11,60</td></tr>
       <tr><td>Tenda Hofbräu, na Wiesn</td><td>1,0 L</td><td>€ 15,80</td><td>€ 15,80</td></tr>
     </tbody>
   </table>
-  <p>A mesma cerveja, da mesma cervejaria, custa <strong>36% a mais dentro do festival</strong> do que na cervejaria original — e <strong>mais que o dobro</strong> do que na rua. Essa é a primeira conta que todo mundo faz em Munique, e vale conhecer antes de embarcar.</p>
+  <p>A mesma cerveja, da mesma cervejaria, custa <strong>36% a mais dentro do festival</strong> do que na cervejaria original — e <strong>mais que o dobro</strong> do que uma Helles comprada na rua. Essa é a primeira conta que todo mundo faz em Munique, e vale conhecer antes de embarcar.</p>
 </div>
 
 ### Hofbräuhaus am Platzl (19h08 – 20h56)
 
 O **Hofbräuhaus** foi fundado em **1589** como a cervejaria da corte dos duques da Baviera, e hoje é provavelmente a cervejaria mais famosa do mundo. É turístico ao extremo, mas vale — até porque permite a comparação direta de preço com a tenda da mesma marca na Wiesn dois dias depois.
+
+<div class="callout callout-warn">
+  <div class="callout-label">Quase 30 minutos esperando — pela conta de outra mesa</div>
+  <p>Procurando lugar na área externa, achamos uma mesa de onde um grupo estava saindo — e, aparentemente, saindo <strong>sem pagar o que tinha consumido</strong>. Sentamos eu e meu amigo; alguns minutos depois, um casal de turistas chineses dividiu a mesa conosco.</p>
+  <p>Quando o garçom nos viu sentados ali, perguntou pelo grupo e se eles estavam com a gente, e ficou nítido que a conta não tinha sido paga. Em vez de nos atender, ele passou a atender várias outras mesas — inclusive um grupo na mesa de trás, que chegou depois de nós e antes do casal. Foram <strong>quase 30 minutos</strong> sem conseguir pedir uma caneca de cerveja. Cada grupo de mesas pertence a um garçom, então perguntar aos outros não resolvia; depois de bastante tempo, foi o casal que convenceu um deles a chamar o nosso.</p>
+  <p>E ainda assim, tanto nós quanto o casal fomos <strong>obrigados a entrar no bar e pagar antes de sermos servidos</strong>. Eu entendo o problema. Mas nos punir — talvez achando que estávamos juntos — e, pior, punir um casal que claramente não conhecia nem a gente nem o grupo anterior, deixou a desejar.</p>
+</div>
 
 **A carta de bebidas, em setembro de 2026:**
 
@@ -267,11 +278,13 @@ O **Hofbräuhaus** foi fundado em **1589** como a cervejaria da corte dos duques
 
 A conta de **duas Maß e um joelho de porco (Schweinshaxe) saiu por € 45**, paga pelo meu amigo. Fazendo a conta: € 23,20 de cerveja e cerca de € 21,80 do prato. Na tenda da Wiesn, o mesmo joelho de porco custa em torno de € 27.
 
+O joelho de porco foi só dele. Eu estava sem fome e, depois daquela espera, com raiva demais para pedir comida ali — preferi esperar e jantar fora.
+
 Um detalhe do cardápio que rende: o **Radler custa exatamente o mesmo que a cerveja pura** — € 11,60. É Helles com limonada, meio a meio, e é bebida tradicional bávara, não gambiarra de turista. Foi inventada justamente para ciclistas. Como estratégia para os dias longos de Wiesn, é imbatível: metade do álcool, mesma Maß, e ninguém estranha.
 
 ### Jantar no Unique Burger, em Laim
 
-Voltamos de Bolt (**€ 23,90**) e jantamos no **Unique Burger** (Landsbergerstraße 317), ao lado do hostel. Pedido às 21h26:
+Voltamos de Bolt (**€ 23,90**) e eu jantei no **Unique Burger** (Landsbergerstraße 317), ao lado do hostel. Pedido às 21h26:
 
 <table class="compare-table">
   <thead>
@@ -317,9 +330,9 @@ Voltamos de Bolt (**€ 23,90**) e jantamos no **Unique Burger** (Landsbergerstr
 
 O plano era retirar o traje às 9h e estar na tenda às 10h. Saímos do hostel às **11h10** — e essa hora perdida teve consequência.
 
-Retiramos o Tracht das **11h25 às 11h47**. Enquanto isso chegaram o amigo de Dublin e os dois amigos dele, vindos direto do aeroporto e **praticamente virados**. Nos encontramos ali mesmo na loja: **nós nos trocamos no local e entregamos a eles as roupas que estávamos usando**, que foram levadas para o hostel. Foi a solução mais prática possível — evitou uma viagem de ida e volta a Laim só para trocar de roupa.
+Retiramos o Tracht das **11h25 às 11h47**. Enquanto isso chegaram o conhecido de Dublin e os dois amigos dele, vindos direto do aeroporto e **praticamente virados**. Nos encontramos ali mesmo na loja: **nós nos trocamos no local e entregamos a eles as roupas que estávamos usando**, que foram levadas para o hostel. Foi a solução mais prática possível — evitou uma viagem de ida e volta a Laim só para trocar de roupa.
 
-Ao sair da loja, uma parada rápida: **Restaurant Flair, € 13,00** — duas cervejas de € 3,50 e um Jägermeister, comprados na rua ao lado da loja. É a foto de abertura da Oktoberfest para mim: Lederhosen, garrafa de Helles numa mão e a mini de Jäger na outra, na calçada, com sol a pino.
+Ao sair da loja, uma parada rápida na mesma barraquinha da esquina (o **Restaurant Flair** do extrato, **€ 13,00**) — duas Helles de € 3,50 e um Jägermeister. É a foto de abertura da Oktoberfest para mim: Lederhosen, garrafa de Helles numa mão e a mini de Jäger na outra, na calçada, com sol a pino.
 
 ### Theresienwiese (11h47 – 16h34)
 
@@ -327,12 +340,12 @@ Ao sair da loja, uma parada rápida: **Restaurant Flair, € 13,00** — duas ce
 
 Gastos em cartão: **Burtschers € 17,60** no almoço e **Burtschers € 18,00** no lanche da tarde — o mesmo lugar nas duas vezes, com linguiça no pão, cone de batata frita e refrigerante. O resto da conta do dia — toda a cerveja — saiu em dinheiro, e não deixa rastro.
 
-E aqui vale um aviso honesto sobre o que uma sexta-feira de Wiesn faz com você: **eu bebi mais do que devia e voltei sozinho**, de táxi (**€ 33,10**), às 16h34. O amigo de Manchester ficou. Ele voltou a pé, quase à meia-noite. O combinado era nos reencontrarmos à noite com o amigo de Dublin e os amigos dele — e simplesmente não aconteceu.
+E aqui vale um aviso honesto sobre o que uma sexta-feira de Wiesn faz com você: **eu bebi mais do que devia e voltei sozinho**, de táxi (**€ 33,10**), às 16h34. O amigo de Manchester ficou. Ele voltou a pé, quase à meia-noite. O combinado era nos reencontrarmos à noite com o conhecido de Dublin e os amigos dele — e simplesmente não aconteceu.
 
 <div class="callout callout-warn">
   <div class="callout-label">A cerveja da Oktoberfest é mais forte do que a cerveja normal</div>
   <p>A cerveja servida na Wiesn é a <strong>Festbier</strong>, uma receita específica do festival com teor alcoólico acima da cerveja do dia a dia — e servida em <strong>litro</strong>, não em copo de 330 ml. Três Maß equivalem a bem mais álcool do que três cervejas comuns, e a conta chega rápido justamente porque o ritmo de uma mesa de tenda é social, não medido.</p>
-  <p>Duas regras que eu sigo à risca a partir de agora: <strong>comer antes de começar</strong> e <strong>intercalar com água ou Radler</strong>. Perdi metade da sexta-feira e a noite inteira por ignorar as duas.</p>
+  <p>Três regras que ficaram dessa sexta-feira: <strong>intercalar com água</strong>, <strong>comer decentemente antes</strong> — um pão com linguiça e um cone de batata não contam — e <strong>não começar o dia com Jägermeister</strong>. Ignorei as três e perdi metade do dia e a noite inteira. No sábado e no domingo segui as regras, e não passei do ponto.</p>
 </div>
 
 <div class="photo-gallery">
@@ -361,25 +374,27 @@ O dia grande da viagem, e de longe o mais caro.
 
 ### Café da manhã no Kebab ao lado do hostel
 
-Saímos cedo e comemos no **kebab ao lado do Unique Burger**, na Landsberger Straße. Cerca de **€ 6 o kebab**, e dividimos uma Coca de 2 litros — algo em torno de **€ 20 no total**. Quem pagou foi o amigo de Dublin, em dinheiro, porque eu estava sem cash naquele momento. Dos dois amigos dele, um não comeu e o outro ficou dormindo no hostel.
+Saímos cedo e comemos no **kebab ao lado do Unique Burger**, na Landsberger Straße. Cerca de **€ 6 o kebab**, e dividimos uma Coca de 2 litros — algo em torno de **€ 20 no total**. Quem pagou foi o conhecido de Dublin, em dinheiro, porque eu estava sem cash naquele momento. Dos dois amigos dele, um não comeu e o outro ficou dormindo no hostel.
 
-### A entrada pela porta lateral (12h25)
+### A entrada — e a porta lateral da Hofbräu-Festhalle
 
-Fomos de Bolt (**€ 15,90**) e chegamos à Theresienwiese por volta das 12h25. E aí veio a primeira lição prática do sábado: **a entrada principal estava impossível**.
+Fomos de Bolt (**€ 15,90**) e chegamos à Theresienwiese por volta das 12h25. Entramos pelo portal principal mesmo — a foto que tirei às 12h39 mostra o *Willkommen zum Oktoberfest* com a multidão compactada atrás das grades e seguranças de colete amarelo controlando o fluxo; não é fila de espera, é controle de densidade — e já aproveitamos para passar no caixa eletrônico e no banheiro ali na entrada.
 
-A foto que tirei às 12h39 mostra o portal *Willkommen zum Oktoberfest* com a multidão parada, compactada atrás das grades, e seguranças de colete amarelo controlando o fluxo. Não é fila de espera — é controle de densidade.
+A lição prática do sábado veio depois, na **Hofbräu-Festhalle**: a entrada principal da tenda tinha fila e cordão de isolamento. Foi lendo o grupo de WhatsApp do Alemãozando — um brasileiro que mora em Munique e tem canais nas redes sociais — que vimos o pessoal comentar que **a entrada lateral estava livre**, coisa que quase ninguém sabe.
+
+Na lateral, o segurança pediu para esperarmos e falarmos com o supervisor — íamos dizer que tínhamos mesa lá dentro —, mas o supervisor autorizou a entrada sem nem perguntar nada. Logo depois, ainda na parte externa da tenda, havia uma segunda fila, para a área coberta. Foi aí que uma garçonete que vende as cervejas nos chamou e perguntou se queríamos pegar cerveja com ela. Dissemos que sim: ela nos levou até outra porta, sem fila, só com segurança, nos encaixou numa bancada ao lado de um grupo e foi buscar as canecas — **quatro Maß, pagas por um dos amigos do conhecido de Dublin**, mais **€ 20 ou € 30 de gorjeta** que demos a ela por ter nos colocado para dentro.
 
 <div class="callout callout-tip">
-  <div class="callout-label">Use as entradas laterais</div>
-  <p>A Theresienwiese ocupa <strong>34,5 hectares</strong> e tem <strong>várias entradas</strong>, mas a esmagadora maioria dos visitantes converge para o portal principal, que é o que aparece em toda foto de Instagram. Nós entramos <strong>pela porta lateral</strong> e levamos minutos em vez de meia hora.</p>
-  <p>Se você chegar de S-Bahn na <strong>Hackerbrücke</strong> ou de U-Bahn na <strong>Theresienwiese</strong>, já desembarca perto de entradas alternativas. Só vá ao portal principal se quiser a foto — e vá depois, por dentro.</p>
+  <div class="callout-label">A porta lateral é da tenda, não do festival</div>
+  <p>O gargalo do sábado não foi a entrada do festival, e sim a <strong>entrada da tenda</strong>. A porta principal da Hofbräu-Festhalle tinha fila e cordão; a lateral estava aberta, e quase ninguém sabia. Antes de encarar a fila, dê a volta na tenda e pergunte ao segurança — e siga os grupos de brasileiros na cidade, que avisam em tempo real.</p>
+  <p>E se uma garçonete oferecer cerveja na porta, aceite: foi ela quem nos levou por uma porta sem fila e arrumou lugar numa bancada. A gorjeta de € 20 ou € 30 foi por isso.</p>
 </div>
 
-### A tenda, das 12h25 às 00h10
+### A tenda, até 00h10
 
-**Onze horas e quarenta e cinco minutos** dentro da **Hofbräu-Festhalle**, sem sair. É a maior tenda da Oktoberfest e a mais internacional — a que concentra australianos, americanos, italianos e brasileiros. O teto é coberto por lonas pintadas em azul e branco e por enormes coroas de lúpulo penduradas; a galeria superior fica lotada o dia inteiro.
+**Quase doze horas** na Theresienwiese — das 12h25 às 00h10 —, quase todas dentro da **Hofbräu-Festhalle**, sem sair. É a maior tenda da Oktoberfest e a mais internacional — a que concentra australianos, americanos, italianos e brasileiros. O teto é coberto por lonas pintadas em azul e branco e por enormes coroas de lúpulo penduradas; a galeria superior fica lotada o dia inteiro.
 
-Gastos em cartão nesse dia foram poucos, e é justamente esse o ponto: **€ 2,50 numa barraca (Bavaria Star)** e **€ 27,50 num restaurante dentro da tenda**, já às 23h07. Todo o resto — e foi muito — saiu em dinheiro.
+Gastos em cartão nesse dia foram poucos, e é justamente esse o ponto: **€ 2,50 num energético (Bavaria Star)**, comprado do lado de fora da área do festival, numa parada para o meu amigo comprar tabaco e filtro — só o meu; o conhecido de Dublin pegou outro —, e **€ 27,50 num restaurante dentro da tenda**, já às 23h07, que sinceramente não lembro se foi comida ou mais bebida. Todo o resto — e foi muito — saiu em dinheiro.
 
 Os **cinco saques do sábado** contam a história melhor que qualquer recibo:
 
@@ -431,23 +446,23 @@ Resolvemos às 00h19 pagando **€ 50 num táxi comum, via PayPal**.
   <div class="section-title-wrap"><h2>Dia 4 — Paulaner, Hacker e perder o grupo</h2></div>
 </div>
 
-Depois de doze horas de tenda, o domingo começou tarde: **saímos do hostel às 14h45**.
+Depois de doze horas de tenda, o domingo começou tarde. O conhecido de Dublin e os dois amigos dele foram embora logo cedo, e por isso demoramos a sair: **deixamos o hostel às 14h45**, com encontro marcado às **16h45** com o amigo alemão do meu amigo, na Paulaner.
 
 Almoçamos de novo no **Unique Burger (€ 23,23)**, fomos de Bolt (**€ 15,90**) até a Schwanthalerstraße **devolver o traje típico às 15h54** — e a caução de € 100 de cada um voltou integralmente.
 
-De lá caminhamos **2,7 km** até a Theresienwiese e ficamos na parte sul do parque, perto da estátua da Bavaria, entre **17h24 e 19h11**. Comi um lanche de linguiça no **Brezn Kini (€ 15,00)**.
+De lá caminhamos **2,7 km** até a Theresienwiese e ficamos na parte sul do parque, perto da estátua da Bavaria, entre **17h24 e 19h11**. Comi um pão com linguiça e batata frita no **Brezn Kini (€ 15,00)**.
 
-Antes das 17h45 entramos na tenda-restaurante da Paulaner, para usar o banheiro e esperar o amigo alemão do meu amigo. Não era a Paulaner que procurávamos: a certa fica na outra ponta da avenida das tendas, e foi para lá que acabamos indo depois.
+Antes das 17h45 entramos na tenda-restaurante da Paulaner, para usar o banheiro e esperar o amigo alemão do meu amigo — já atrasados para o encontro. Só que era a Paulaner errada: a certa fica na outra ponta da avenida das tendas, e foi para lá que acabamos indo depois.
 
 Nesse dia trocamos de tenda: começamos na **Paulaner** e terminamos na **Hacker**.
 
 ### O fim de noite que não terminou junto
 
-Na hora de sair da Hacker, **eu e meu amigo nos separamos** e não nos encontramos mais. Fiquei bastante tempo parado esperando, encontrei outros amigos de Dublin no meio do caminho, matei mais um tempo, comi alguma coisa, voltei até a frente da Hacker — e nada. No fim, **voltei sozinho de táxi**, pago em dinheiro.
+No domingo estávamos de roupa normal — meu amigo, inclusive, com a camiseta amarela do Brasil, o que não o tornava exatamente difícil de achar. Mesmo assim, na hora de sair da Hacker, **nos separamos** e não nos encontramos mais: ele ficou conversando com outro brasileiro, eu saí da tenda, e ele, pelo visto, voltou para ir ao banheiro ou saiu por uma porta lateral ou dos fundos. Fiquei bastante tempo parado esperando, encontrei outros amigos de Dublin no meio do caminho, matei mais um tempo, comi alguma coisa, voltei até a frente da Hacker — e nada. No fim, **voltei sozinho de táxi**, pago em dinheiro.
 
 <div class="callout callout-warn">
   <div class="callout-label">Combine o ponto de encontro antes de entrar, não depois de sair</div>
-  <p>Perder alguém na Oktoberfest é a coisa mais fácil do mundo: são <strong>milhares de pessoas vestidas igual</strong>, o sinal de celular fica saturado dentro e ao redor das tendas, e do lado de fora tudo parece igual. Foi a segunda vez em três dias que o grupo se desfez sem querer.</p>
+  <p>Perder alguém na Oktoberfest é a coisa mais fácil do mundo — nem uma camiseta amarela resolve: as tendas têm <strong>mais de uma saída</strong>, o sinal de celular fica saturado dentro e ao redor delas, e do lado de fora tudo parece igual. Foi a segunda vez em três dias que o grupo se desfez sem querer.</p>
   <p>O que eu faria diferente: <strong>escolher um ponto fixo e improvável de confundir</strong> — a estátua da Bavaria, uma entrada específica, uma barraca nomeada — e combinar um <strong>horário-limite</strong> antes de entrar. E acertar de antemão que <strong>quem não aparecer até tal hora volta por conta própria</strong>, sem drama. Isso não teria evitado a separação, mas teria evitado a hora e meia de espera.</p>
 </div>
 
@@ -461,6 +476,8 @@ Na hora de sair da Hacker, **eu e meu amigo nos separamos** e não nos encontram
 Voo às **08h25**, e a manhã foi apertada do começo ao fim.
 
 Saí do hostel às **06h04** e caminhei até a estação de Laim. Comprei o bilhete às **06h16 (€ 15,10)** e peguei o trem às 06h28. E aí veio o problema: **a S1 se divide em Neufahrn** — parte da composição segue para o aeroporto e parte vai para Freising. Eu estava no vagão errado.
+
+O que me derrubou foi a ida. Na quinta eu vim do aeroporto até Laim sem trocar de trem nem de vagão — o mais provável, e aqui estou deduzindo, é que em Neufahrn tenham só acoplado a outra metade da composição ao vagão em que eu já estava, e eu nem percebi. Na volta é o inverso: o trem se separa, e eu não fazia ideia de que precisava estar na metade certa.
 
 Desci em Freising e peguei um **táxi na frente da estação: € 36,10**, às 07h15.
 
@@ -514,16 +531,20 @@ Alugamos na **Schwanthalerstraße 67**, a poucos minutos da Theresienwiese.
 
 **Retirada sexta às 11h25, devolução domingo às 15h54.** A caução voltou integral.
 
+O processo é por ticket. Na reserva, você recebe um **ticket amarelo com um número**, que diz se o aluguel já foi pago e quando é a retirada — na quinta só provamos as roupas e saímos sem elas. Na retirada, com o pagamento, o ticket é trocado por outro, que registra a caução paga e os dias de retirada e devolução, e é ele que você apresenta na hora de devolver.
+
+Um dos amigos do conhecido de Dublin perdeu o ticket dele, mas os três tinham foto, e a loja aceitou a foto para devolver a caução. Como eles foram embora no domingo de manhã, fui eu quem devolveu as roupas deles.
+
 <div class="callout callout-warn">
   <div class="callout-label">Pagamento apenas em dinheiro — e a caução pode ser em dólar</div>
-  <p>A loja <strong>só aceitava dinheiro vivo</strong>, tanto para o aluguel quanto para a caução. Isso significa que, antes mesmo de entrar na Wiesn, você já precisa ter <strong>€ 170 em espécie por pessoa</strong> no bolso.</p>
+  <p>A loja <strong>só aceitava dinheiro vivo</strong>, tanto para o aluguel quanto para a caução. Isso significa que, antes mesmo de entrar na Wiesn, você já precisa ter <strong>€ 170 em espécie por pessoa</strong> no bolso. Há um caixa eletrônico na esquina da Schwanthalerstraße com a Paul-Heyse-Straße, ao lado da loja — foi nele que saquei o dinheiro para pagar as roupas.</p>
   <p>Um detalhe curioso: a caução de € 100 <strong>podia ser feita em US$ 100</strong>. Como o valor volta integralmente, tanto faz — a não ser que você já tenha dólar em espécie sobrando, e aí economiza euro para o festival.</p>
-  <p>Duas precauções que valem a pena: <strong>peça recibo</strong> do aluguel e da caução (pagamento em cash sem comprovante é onde dá problema na devolução) e <strong>fotografe a roupa na retirada</strong>, especialmente manchas e costuras. Cerveja derramada na tenda é garantida, e você quer poder provar o que já existia.</p>
+  <p>Três precauções que valem a pena: <strong>fotografe o ticket</strong> assim que receber, <strong>peça recibo</strong> do aluguel e da caução (pagamento em cash sem comprovante é onde dá problema na devolução) e <strong>fotografe a roupa na retirada</strong>, especialmente manchas e costuras. Cerveja derramada na tenda é garantida, e você quer poder provar o que já existia.</p>
 </div>
 
 <div class="callout callout-tip">
   <div class="callout-label">Alugar perto da Theresienwiese muda a logística do dia</div>
-  <p>A Schwanthalerstraße fica a <strong>caminhada de poucos minutos da Wiesn</strong>, e isso resolveu dois problemas que eu nem tinha previsto. O primeiro: no dia da retirada, <strong>nos trocamos dentro da loja</strong> e fomos direto para o festival, sem voltar ao hostel. O segundo: quando o amigo de Dublin e os amigos dele chegaram do aeroporto direto para lá, <strong>levaram nossas roupas de volta ao hostel</strong> — o que só funcionou porque estávamos todos no mesmo ponto.</p>
+  <p>A Schwanthalerstraße fica a <strong>caminhada de poucos minutos da Wiesn</strong>, e isso resolveu dois problemas que eu nem tinha previsto. O primeiro: no dia da retirada, <strong>nos trocamos dentro da loja</strong> e fomos direto para o festival, sem voltar ao hostel. O segundo: quando o conhecido de Dublin e os amigos dele chegaram do aeroporto direto para lá, <strong>levaram nossas roupas de volta ao hostel</strong> — o que só funcionou porque estávamos todos no mesmo ponto.</p>
   <p>Se você for alugar, escolha uma loja no eixo Hauptbahnhof–Theresienwiese. A diferença de preço entre lojas é pequena; a diferença de logística é enorme.</p>
 </div>
 
@@ -753,7 +774,7 @@ Sobre **visto**: eu tenho **dupla nacionalidade brasileira e portuguesa**, entã
 
 <div class="callout callout-tip">
   <div class="callout-label">Cheque a nacionalidade de cada pessoa do grupo, não a de onde ela mora</div>
-  Num grupo que começou com oito pessoas vindas de Dublin, Manchester e Portugal, é fácil supor que "todo mundo mora na Europa, então está tudo certo". <strong>Não está.</strong> Faça a pergunta explicitamente, por escrito, no começo do planejamento — e lembre que o sistema biométrico de entrada e saída da UE (EES) está em operação plena desde 10 de abril de 2026: quem viaja com passaporte de fora da UE tem foto e digitais conferidas na fronteira.
+  Num grupo que chegou a ter sete nomes, entre Dublin, Manchester e Londres, é fácil supor que "todo mundo mora na Europa, então está tudo certo". <strong>Não está.</strong> Faça a pergunta explicitamente, por escrito, no começo do planejamento — e lembre que o sistema biométrico de entrada e saída da UE (EES) está em operação plena desde 10 de abril de 2026: quem viaja com passaporte de fora da UE tem foto e digitais conferidas na fronteira.
 </div>
 
 <div class="divider">· · ·</div>
