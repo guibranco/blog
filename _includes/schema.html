@@ -75,7 +75,7 @@
       {%- if page.image %}
       {%- comment -%}── A Hero that declares its alt text, credit or licence becomes an ImageObject (ADR-0021); otherwise the plain URL. ──{%- endcomment -%}
       {%- if page.image_alt or page.image_credit or page.image_license or page.image_license_url %}
-      "image": { "@type": "ImageObject", "url": "{{ page.image | absolute_url }}"{% if page.image_alt %}, "description": {{ page.image_alt | json_ld_string }}{% endif %}{% if page.image_credit %}, "creditText": {{ page.image_credit | json_ld_string }}{% endif %}{% if page.image_credit_url %}, "acquireLicensePage": {{ page.image_credit_url | json_ld_string }}{% endif %}{% if page.image_license_url %}, "license": {{ page.image_license_url | json_ld_string }}{% elsif page.image_license %}, "license": { "@type": "CreativeWork", "name": {{ page.image_license | json_ld_string }} }{% endif %} },
+      "image": { "@type": "ImageObject", "url": "{{ page.image | absolute_url }}"{% if page.image_alt %}, "description": {{ page.image_alt | json_ld_string }}{% endif %}{% if page.image_credit %}, "creditText": {{ page.image_credit | json_ld_string }}{% endif %}{% if page.image_license_url %}, "license": {{ page.image_license_url | json_ld_string }}{% elsif page.image_license %}, "license": { "@type": "CreativeWork", "name": {{ page.image_license | json_ld_string }} }{% endif %} },
       {%- else %}
       "image": "{{ page.image | absolute_url }}",
       {%- endif %}

@@ -196,6 +196,18 @@ def parse_front_matter(path: Path) -> tuple[dict, str]:
     return fm, ''.join(body)
 
 
+def scalar_field(fm: dict, key: str) -> str:
+    """A front matter scalar without surrounding quotes or whitespace.
+
+    parse_front_matter keeps the raw text, so `key: ""` arrives as the two
+    quote characters and a bare `key:` as an empty list — both mean "unset".
+    """
+    raw = fm.get(key, "")
+    if isinstance(raw, list):
+        return ""
+    return str(raw).strip().strip('"').strip("'").strip()
+
+
 def extract_list_field(raw) -> list[str]:
     """Parse `[foo, bar]`, a block-parsed list, or a single YAML value into a list."""
     if isinstance(raw, list):
@@ -597,13 +609,13 @@ def audit() -> tuple[dict, set, set]:
         # Hero alt text / credit / licence (ADR-0021): they describe `image:`,
         # and a `*_url` needs the text it links and an absolute http(s) URL.
         for field in HERO_TEXT_FIELDS:
-            if fm.get(field) and not fm.get("image"):
+            if scalar_field(fm, field) and not scalar_field(fm, "image"):
                 issues["invalid_hero_credit"].append({
                     "file": rel, "field": field, "reason": "is set without `image:` — there is no Hero to describe",
                 })
                 gh_warning(rel, f"`{field}` is set without `image:` — there is no Hero to describe")
         for url_field, text_field in HERO_LINK_FIELDS.items():
-            url_value = str(fm.get(url_field, "")).strip().strip('"').strip("'")
+            url_value = scalar_field(fm, url_field)
             if not url_value:
                 continue
             if not re.match(r'^https?://\S+$', url_value):
@@ -611,7 +623,7 @@ def audit() -> tuple[dict, set, set]:
                     "file": rel, "field": url_field, "reason": f"`{url_value}` is not an absolute http(s) URL",
                 })
                 gh_warning(rel, f"`{url_field}: {url_value}` is not an absolute http(s) URL")
-            if not fm.get(text_field):
+            if not scalar_field(fm, text_field):
                 issues["invalid_hero_credit"].append({
                     "file": rel, "field": url_field, "reason": f"is set without `{text_field}` — nothing is rendered",
                 })
