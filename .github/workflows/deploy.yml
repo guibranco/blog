@@ -59,6 +59,18 @@ jobs:
         env:
           JEKYLL_ENV: production
 
+      # Search index for /busca/ (ADR-0020): Pagefind reads the built Posts
+      # and writes one chunked index per Post language into _site/pagefind/.
+      # Build output, never committed.
+      - name: Install search indexer
+        run: "python3 -m pip install --quiet --require-hashes --only-binary :all: -r .github/scripts/requirements-search.txt"
+
+      - name: Build search index
+        run: python3 -m pagefind --site _site
+
+      - name: Check search index
+        run: python3 .github/scripts/check_search_index.py _site
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
 

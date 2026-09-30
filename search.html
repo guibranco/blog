@@ -56,23 +56,35 @@ permalink: /busca/
         </div>
       </form>
 
-      <!-- Sort toolbar -->
+      <!-- Sort + language toolbar -->
       <div class="search-sort-bar" id="search-sort-bar" style="display:none;">
-        <label for="sort-field" data-i18n="sort_by">Ordenar por</label>
-        <select id="sort-field">
-          <option value="" data-i18n="sort_relevance">Relevância</option>
-          <option value="title" data-i18n="sort_field_title">Ordem alfabética</option>
-          <option value="date" data-i18n="sort_field_date">Data de publicação</option>
-          <option value="updated" data-i18n="sort_field_updated">Data de atualização</option>
-          <option value="reading_time" data-i18n="sort_field_reading_time">Tempo de leitura</option>
-        </select>
-        <button type="button" id="sort-direction" class="sort-direction-btn" data-dir="desc" disabled>
-          <i class="fas fa-arrow-down-wide-short"></i>
-        </button>
+        <div class="search-tool">
+          <label for="sort-field" data-i18n="sort_by">Ordenar por</label>
+          <select id="sort-field">
+            <option value="" data-i18n="sort_relevance">Relevância</option>
+            <option value="title" data-i18n="sort_field_title">Ordem alfabética</option>
+            <option value="date" data-i18n="sort_field_date">Data de publicação</option>
+            <option value="updated" data-i18n="sort_field_updated">Data de atualização</option>
+            <option value="reading_time" data-i18n="sort_field_reading_time">Tempo de leitura</option>
+          </select>
+          <button type="button" id="sort-direction" class="sort-direction-btn" data-dir="desc" disabled>
+            <i class="fas fa-arrow-down-wide-short"></i>
+          </button>
+        </div>
+        <div class="search-tool">
+          <label for="lang-filter" data-i18n="search_lang_label">Idioma</label>
+          {% comment %}── Post languages, each named in itself (ADR-0006: a Post is en or pt-BR) ──{% endcomment %}
+          <select id="lang-filter">
+            <option value="" data-i18n="search_lang_all">Todos os idiomas</option>
+            <option value="pt-BR" lang="pt-BR">{{ site.data.i18n["pt-BR"].lang_name }}</option>
+            <option value="en" lang="en">{{ site.data.i18n.en.lang_name }}</option>
+          </select>
+        </div>
       </div>
 
       <!-- Results area -->
       <div id="search-results"></div>
+      <button type="button" class="search-more" id="search-more" hidden data-i18n="search_load_more">Mostrar mais</button>
 
       <!-- States -->
       <div class="search-state" id="state-initial">
@@ -90,6 +102,11 @@ permalink: /busca/
         <p data-i18n="search_empty">Nenhum resultado encontrado.</p>
       </div>
 
+      <div class="search-state" id="state-unavailable" style="display:none;">
+        <div class="empty-glyph">×</div>
+        <p data-i18n="search_unavailable">A busca não está disponível agora.</p>
+      </div>
+
     </div>
 
     {% include footer.html %}
@@ -102,7 +119,7 @@ permalink: /busca/
     .search-input-wrap {
       display: flex;
       align-items: center;
-      background: white;
+      background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: .6rem 1rem;
@@ -131,25 +148,27 @@ permalink: /busca/
     .search-clear.visible { opacity: 1; }
     .search-clear:hover { color: var(--ink); }
 
-    /* ── Sort bar ── */
+    /* ── Sort + language toolbar ── */
     .search-sort-bar {
-      display: flex; align-items: center; gap: 10px;
+      display: flex; align-items: center; flex-wrap: wrap;
+      column-gap: 1.5rem; row-gap: .6rem;
       margin-bottom: 1.5rem;
       font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
       color: var(--ink-light);
     }
+    .search-tool { display: flex; align-items: center; gap: 10px; }
     .search-sort-bar label { letter-spacing: .06em; text-transform: uppercase; }
-    #sort-field {
+    #sort-field, #lang-filter {
       font-family: 'JetBrains Mono', monospace; font-size: 0.69rem;
-      color: var(--ink); background: white;
+      color: var(--ink); background: var(--card-bg);
       border: 1px solid var(--border); border-radius: 20px;
       padding: 4px 10px; cursor: pointer;
     }
-    #sort-field:focus { outline: none; border-color: var(--accent); }
+    #sort-field:focus, #lang-filter:focus { outline: none; border-color: var(--accent); }
     .sort-direction-btn {
       display: inline-flex; align-items: center; justify-content: center;
       width: 26px; height: 26px;
-      background: white; border: 1px solid var(--border); border-radius: 50%;
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: 50%;
       color: var(--ink-muted); cursor: pointer;
       transition: border-color .2s, color .2s;
     }
@@ -181,7 +200,8 @@ permalink: /busca/
       line-height: 1; padding-top: .2rem; min-width: 2rem; text-align: right;
     }
     .result-body { flex: 1; min-width: 0; }
-    .result-cats { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: .5rem; }
+    .result-cats { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; margin-bottom: .5rem; }
+    .result-cats .lang-badge { margin-bottom: 0; }
     .result-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.05rem; font-weight: 700; color: var(--ink);
@@ -195,7 +215,7 @@ permalink: /busca/
     .result-meta {
       font-family: 'JetBrains Mono', monospace;
       font-size: 10px; color: var(--ink-light);
-      display: flex; align-items: center; gap: 10px;
+      display: flex; align-items: center; flex-wrap: wrap; gap: 4px 10px;
     }
     .result-meta .sep { opacity: .4; }
 
@@ -206,6 +226,20 @@ permalink: /busca/
       border-radius: 2px;
       padding: 0 1px;
     }
+
+    /* ── Show more ── */
+    .search-more {
+      display: block; margin: 1.5rem auto 0;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.69rem;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--accent); background: var(--card-bg);
+      border: 1px solid var(--border); border-radius: 20px;
+      padding: 6px 18px; cursor: pointer;
+      transition: border-color .2s;
+    }
+    .search-more:hover:not(:disabled) { border-color: var(--accent); }
+    .search-more:disabled { opacity: .5; cursor: progress; }
+    .search-more[hidden] { display: none; }
 
     /* ── States ── */
     .search-state { text-align: center; padding: 3.5rem 2rem; color: var(--ink-light); }
@@ -220,7 +254,6 @@ permalink: /busca/
   </style>
 
   {% include sidebar-script.html %}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="module">
     // ── i18n helper ──
     function getLang() {
@@ -232,46 +265,182 @@ permalink: /busca/
       return (i18n[lang] && i18n[lang][key] !== undefined) ? i18n[lang][key] : key;
     }
 
-    // ── Search logic ──
+    // ── Pagefind (ADR-0020) ──
+    // The index is built by deploy.yml after `jekyll build`, one per Post
+    // language, from the fields _includes/search-index-fields.html tags.
+    const BUNDLE_PATH = '{{ "/pagefind/" | relative_url }}';
+    // Post languages as written in <html lang>; Pagefind keys each language
+    // index by the lowercased value (pt-br, en).
+    const POST_LANGS = ['pt-BR', 'en'];
+    const PAGE_SIZE = 10;
+    const TYPING_DELAY_MS = 150;
+    // The field boosts the Lunr index used (title 10, categories and tags 6,
+    // description 4, body 1). Pagefind adds a boost per metadata field the
+    // query matches, scaled by these weights.
+    const RANKING = { metaWeights: { title: 10, categories: 6, tags: 6, description: 4 } };
+    // Sort select value → sort key tagged on every Post.
+    const SORT_KEYS = { title: 'title_key', date: 'date', updated: 'updated', reading_time: 'reading_time' };
+    const NUMERIC_SORT_KEYS = new Set(['reading_time']);
+
+    // One Pagefind module instance per Post language. Pagefind reads <html lang>
+    // when it initialises, to pick the language index and the stemmer the query
+    // goes through; an index merged into another instance would be searched
+    // with that instance's stemmer. Importing pagefind.js under a distinct URL
+    // gives each language its own module state, web worker and WebAssembly, so
+    // an English Post is matched with the English stemmer and a Portuguese one
+    // with the Portuguese stemmer.
+    async function openIndex(lang) {
+      const pagefind = await import(`${BUNDLE_PATH}pagefind.js?lang=${encodeURIComponent(lang)}`);
+      await pagefind.options({ excerptLength: 40, ranking: RANKING });
+      // init() reads <html lang> synchronously; the page's own language is put
+      // back in the same task, so nothing ever renders under the other one.
+      const root = document.documentElement;
+      const pageLang = root.lang;
+      root.lang = lang;
+      let ready;
+      try { ready = pagefind.init(); } finally { root.lang = pageLang; }
+      await ready;
+      return { lang, pagefind };
+    }
+
+    async function openIndexes() {
+      // pagefind-entry.json lists the language indexes the build produced. No
+      // file means no index was built (e.g. `jekyll serve` without running
+      // Pagefind; see the README).
+      const response = await fetch(`${BUNDLE_PATH}pagefind-entry.json`, { cache: 'no-store' });
+      if (!response.ok) throw new Error(`No search index (HTTP ${response.status})`);
+      const built = Object.keys((await response.json()).languages || {});
+      const langs = POST_LANGS.filter(lang => built.includes(lang.toLowerCase()));
+      if (langs.length === 0) throw new Error('The search index has no Post language');
+      return Promise.all(langs.map(openIndex));
+    }
+
+    // ── Results: merge the language indexes, load data on demand ──
+    // Pagefind returns every hit up front but each hit's data (URL, title,
+    // excerpt, fields) is a separate fragment, so only what is shown is loaded.
+    const docs = new WeakMap();
+    function loadDoc(entry) {
+      if (!docs.has(entry.hit)) {
+        docs.set(entry.hit, entry.hit.data().then(data => ({ ...data, lang: entry.lang })));
+      }
+      return docs.get(entry.hit);
+    }
+
+    // Pagefind's typo fallback: when no word in an index starts with a query
+    // word, it matches the longest indexed word the query word starts with.
+    // Across two language indexes that turns most queries into noise from the
+    // other language: in the English index "analise" falls back to "an" and
+    // "viagem" to "via". A language's hits are therefore kept only when its
+    // best hit contains, for every query word, some word that starts with the
+    // query word's first four letters (one fewer for a shorter word). That
+    // still lets stemming ("investimentos" → "investir") and typos that keep
+    // the start of the word through, and Pagefind's fallback is a property of
+    // the index and the word, not the page, so one hit decides for all.
+    function queryWords(term) {
+      return fold(term).split(/[^\p{L}\p{N}]+/u).filter(Boolean);
+    }
+    async function containsEveryWord(list, words) {
+      if (list.length === 0) return false;
+      const doc = await loadDoc(list[0]);
+      const pageWords = fold([doc.content, ...Object.values(doc.meta || {})].join(' '))
+        .split(/[^\p{L}\p{N}]+/u);
+      return words.every(word => {
+        const root = word.slice(0, Math.min(4, Math.max(1, word.length - 1)));
+        return pageWords.some(pageWord => pageWord.startsWith(root));
+      });
+    }
+
+    function sortValue(doc, key) {
+      const raw = doc.filters?.[key]?.[0] ?? '';
+      return NUMERIC_SORT_KEYS.has(key) ? (Number.parseFloat(raw) || 0) : raw;
+    }
+
+    // The order Pagefind sorts each index in: numbers numerically, everything
+    // else by code point (the keys are ISO dates and ASCII slugs).
+    function comesBefore({ key, dir }) {
+      return (a, b) => {
+        const va = sortValue(a, key);
+        const vb = sortValue(b, key);
+        return dir === 'asc' ? va < vb : va > vb;
+      };
+    }
+
+    // lists: one array of { hit, lang } per language index, in that index's
+    // order. Returns the merged total and take(n), which resolves to the next
+    // n loaded results.
+    function resultStream(lists, sort) {
+      const total = lists.reduce((sum, list) => sum + list.length, 0);
+
+      if (!sort) {
+        // Relevance: every index is ranked by the same algorithm and weights,
+        // so scores compare across languages and merging is a sort by score.
+        const ordered = lists.flat().sort((a, b) => b.hit.score - a.hit.score);
+        let next = 0;
+        return {
+          total,
+          take: count => Promise.all(ordered.slice(next, next += count).map(loadDoc)),
+        };
+      }
+
+      // Sorted: each index already returns its hits in sort order, so the next
+      // result is whichever language's head comes first. Pagefind's own merge
+      // of several indexes interleaves them instead (see its sorting docs).
+      const heads = lists.map(() => 0);
+      const before = comesBefore(sort);
+      return {
+        total,
+        async take(count) {
+          // Start every candidate's fetch at once; the merge reads the cache.
+          lists.forEach((list, i) => list.slice(heads[i], heads[i] + count).forEach(loadDoc));
+          const taken = [];
+          while (taken.length < count) {
+            let pick = -1;
+            let pickDoc = null;
+            for (let i = 0; i < lists.length; i++) {
+              if (heads[i] >= lists[i].length) continue;
+              const doc = await loadDoc(lists[i][heads[i]]);
+              if (pick === -1 || before(doc, pickDoc)) { pick = i; pickDoc = doc; }
+            }
+            if (pick === -1) break;
+            heads[pick]++;
+            taken.push(pickDoc);
+          }
+          return taken;
+        },
+      };
+    }
+
+    // ── Search UI ──
+    const form       = document.getElementById('search-form');
     const input      = document.getElementById('search-input');
     const clearBtn   = document.getElementById('search-clear');
     const resultsEl  = document.getElementById('search-results');
+    const moreBtn    = document.getElementById('search-more');
     const stateInit  = document.getElementById('state-initial');
     const stateLoad  = document.getElementById('state-loading');
     const stateEmpty = document.getElementById('state-empty');
+    const stateError = document.getElementById('state-unavailable');
     const heroTitle  = document.getElementById('hero-title');
     const heroDesc   = document.getElementById('hero-desc');
     const sortBar    = document.getElementById('search-sort-bar');
     const sortField  = document.getElementById('sort-field');
     const sortDirBtn = document.getElementById('sort-direction');
+    const langFilter = document.getElementById('lang-filter');
 
-    let searchIndex = null;
-    let documents   = [];
-    let indexReady  = false;
-    let activeQuery = '';
+    let indexes = null;        // [{ lang, pagefind }] once loaded
+    let indexFailed = false;
+    let stream = null;
+    let shown = 0;
+    let searchSeq = 0;         // drops the results of a search a newer one replaced
+    let typingTimer = 0;
     let activeSortField = '';
     let activeSortDir   = 'desc';
+    let activeLang      = '';  // '' = every Post language
 
-    // ── Sorting ──
-    function fieldValue(doc, field) {
-      switch (field) {
-        case 'title':        return (doc.title || '').toLocaleLowerCase();
-        case 'date':         return doc.date_iso || '';
-        case 'updated':      return doc.updated_iso || doc.date_iso || '';
-        case 'reading_time': return Number.parseFloat(doc.reading_time) || 0;
-        default:             return null;
-      }
-    }
-
-    function applySort(docs) {
-      if (!activeSortField) return docs;
-      const sorted = docs.slice().sort((a, b) => {
-        const va = fieldValue(a, activeSortField);
-        const vb = fieldValue(b, activeSortField);
-        if (typeof va === 'number') return va - vb;
-        return String(va).localeCompare(String(vb), undefined, { numeric: true, sensitivity: 'base' });
-      });
-      return activeSortDir === 'desc' ? sorted.reverse() : sorted;
+    function currentSort(term) {
+      if (activeSortField) return { key: SORT_KEYS[activeSortField], dir: activeSortDir };
+      // No query and no sort chosen: every Post, newest first.
+      return term ? null : { key: 'date', dir: 'desc' };
     }
 
     function updateSortDirUI() {
@@ -283,30 +452,18 @@ permalink: /busca/
         : 'fas fa-arrow-down-wide-short';
     }
 
-    sortField.addEventListener('change', () => {
-      activeSortField = sortField.value;
-      activeSortDir = activeSortField === 'title' ? 'asc' : 'desc';
-      updateSortDirUI();
-      runSearch(input.value);
-    });
-
-    sortDirBtn.addEventListener('click', () => {
-      activeSortDir = activeSortDir === 'asc' ? 'desc' : 'asc';
-      updateSortDirUI();
-      runSearch(input.value);
-    });
-
-    updateSortDirUI();
-
-    // Read ?q= from URL on load
-    const params = new URLSearchParams(window.location.search);
-    const initialQuery = params.get('q') || '';
-
     function showState(which) {
-      stateInit.style.display  = which === 'initial' ? '' : 'none';
-      stateLoad.style.display  = which === 'loading' ? '' : 'none';
-      stateEmpty.style.display = which === 'empty'   ? '' : 'none';
-      resultsEl.innerHTML      = which === 'results'  ? resultsEl.innerHTML : '';
+      stateInit.style.display  = which === 'initial'     ? '' : 'none';
+      stateLoad.style.display  = which === 'loading'     ? '' : 'none';
+      stateEmpty.style.display = which === 'empty'       ? '' : 'none';
+      stateError.style.display = which === 'unavailable' ? '' : 'none';
+      // The toolbar stays up on an empty result so the language filter or
+      // sort that caused it can be changed back.
+      sortBar.style.display = (which === 'results' || which === 'empty') ? '' : 'none';
+      if (which !== 'results') {
+        resultsEl.innerHTML = '';
+        moreBtn.hidden = true;
+      }
     }
 
     function escapeHtml(str) {
@@ -318,157 +475,224 @@ permalink: /busca/
         .replaceAll("'", '&#39;');
     }
 
+    // Case- and accent-insensitive, the way Pagefind matches: "analise" marks
+    // "Análise". Folds the text one character at a time, remembering where each
+    // folded character came from, so a match maps back to the original text.
+    function fold(str) {
+      return str.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
+    }
     function highlight(text, query) {
-      const safeText = escapeHtml(text);
-      if (!query || !text) return safeText;
-      // Escape query terms the same way as the text so a term containing
-      // HTML-special characters (e.g. searching for "<script>") still
-      // matches the escaped text instead of silently failing to highlight.
-      const terms = query.trim().split(/\s+/).filter(Boolean).map(escapeHtml);
-      const escaped = terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, String.raw`\$&`));
-      const re = new RegExp(`(${escaped.join('|')})`, 'gi');
-      return safeText.replace(re, '<mark>$1</mark>');
+      text = String(text == null ? '' : text);
+      const terms = String(query || '').replaceAll('"', ' ').split(/\s+/).map(fold).filter(Boolean);
+      if (terms.length === 0 || !text) return escapeHtml(text);
+
+      let folded = '';
+      const origin = [];
+      let offset = 0;
+      for (const ch of text) {
+        const f = fold(ch);
+        for (let k = 0; k < f.length; k++) origin.push(offset);
+        folded += f;
+        offset += ch.length;
+      }
+      origin.push(text.length);
+
+      const ranges = [];
+      for (const term of terms) {
+        for (let at = folded.indexOf(term); at !== -1; at = folded.indexOf(term, at + term.length)) {
+          ranges.push([origin[at], origin[at + term.length]]);
+        }
+      }
+      if (ranges.length === 0) return escapeHtml(text);
+      ranges.sort((a, b) => a[0] - b[0]);
+
+      let html = '';
+      let cursor = 0;
+      for (const [start, end] of ranges) {
+        if (end <= cursor) continue;
+        const from = Math.max(start, cursor);
+        html += escapeHtml(text.slice(cursor, from)) + '<mark>' + escapeHtml(text.slice(from, end)) + '</mark>';
+        cursor = end;
+      }
+      return html + escapeHtml(text.slice(cursor));
     }
 
-    function truncateAround(text, query, radius = 140) {
-      if (!text) return '';
-      const lower = text.toLowerCase();
-      const term  = query.trim().split(/\s+/)[0].toLowerCase();
-      const idx   = lower.indexOf(term);
-      if (idx === -1) return text.slice(0, radius * 2) + '…';
-      const start = Math.max(0, idx - radius);
-      const end   = Math.min(text.length, idx + radius);
-      return (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+    function formatDate(iso) {
+      const [y, m, d] = String(iso).split('-');
+      const pattern = t('date_short');
+      return (pattern === 'date_short' ? '%d/%m/%Y' : pattern)
+        .replace('%Y', y).replace('%m', m).replace('%d', d);
     }
 
-    function renderResults(query, docs) {
-      if (docs.length === 0) { sortBar.style.display = 'none'; showState('empty'); return; }
+    function resultCard(doc, term, n) {
+      const meta     = doc.meta || {};
+      const cats     = (meta.categories || '').split(', ').filter(Boolean);
+      const date     = sortValue(doc, 'date');
+      const updated  = sortValue(doc, 'updated');
+      const minutes  = sortValue(doc, 'reading_time');
+      const langT    = (window.__i18n || {})[doc.lang] || {};
+      const postLang = escapeHtml(doc.lang);
+      // Pagefind's excerpt is already HTML-escaped with <mark> around matches.
+      const excerpt  = doc.excerpt || escapeHtml(meta.description || '');
 
-      sortBar.style.display = '';
-
-      const resultWord = docs.length !== 1 ? t('search_result_plural') : t('search_result_singular');
-      const forPart    = query.trim() ? ` ${t('search_results_for')} "<strong>${escapeHtml(query)}</strong>"` : '';
-      const header = `<p class="results-header"><strong>${docs.length}</strong> ${resultWord}${forPart}</p>`;
-      const cards  = docs.map((doc, i) => {
-        const excerpt = truncateAround(doc.content, query);
-        const cats    = doc.categories ? doc.categories.split(', ').filter(Boolean) : [];
-        const catHtml = cats.map(c => `<span class="cat-pill">${escapeHtml(c)}</span>`).join('');
-        const safeUrl  = escapeHtml(doc.url);
-        const safeDate = escapeHtml(doc.date);
-        const isUpdated = doc.updated_iso && doc.date_iso && doc.updated_iso !== doc.date_iso;
-
-        return `
-        <a class="result-card" href="${safeUrl}">
-          <div class="result-num">${String(i + 1).padStart(2, '0')}</div>
+      return `
+        <a class="result-card" href="${escapeHtml(doc.url)}">
+          <div class="result-num">${String(n).padStart(2, '0')}</div>
           <div class="result-body">
-            ${catHtml ? `<div class="result-cats">${catHtml}</div>` : ''}
-            <div class="result-title">${highlight(doc.title, query)}</div>
-            ${excerpt ? `<p class="result-excerpt">${highlight(excerpt, query)}</p>` : ''}
+            <div class="result-cats">
+              <span class="lang-badge" title="${escapeHtml(langT.lang_name || doc.lang)}"><i class="fas fa-globe"></i> ${escapeHtml(langT.lang_label || doc.lang)}</span>
+              ${cats.map(c => `<span class="cat-pill">${escapeHtml(c)}</span>`).join('')}
+            </div>
+            <div class="result-title" lang="${postLang}">${highlight(meta.title || doc.url, term)}</div>
+            ${excerpt ? `<p class="result-excerpt" lang="${postLang}">${excerpt}</p>` : ''}
             <div class="result-meta">
-              <span>${safeDate}</span>
-              ${isUpdated ? `<span class="sep">·</span><span>${t('updated_on')} ${escapeHtml(doc.updated)}</span>` : ''}
-              ${doc.reading_time ? `<span class="sep">·</span><span>${escapeHtml(doc.reading_time)} min</span>` : ''}
-              ${doc.tags ? `<span class="sep">·</span><span>${highlight(doc.tags, query)}</span>` : ''}
+              ${date ? `<span>${escapeHtml(formatDate(date))}</span>` : ''}
+              ${updated && updated !== date ? `<span class="sep">·</span><span>${escapeHtml(t('updated_on'))} ${escapeHtml(formatDate(updated))}</span>` : ''}
+              ${minutes ? `<span class="sep">·</span><span>${minutes} min</span>` : ''}
+              ${meta.tags ? `<span class="sep">·</span><span>${highlight(meta.tags, term)}</span>` : ''}
             </div>
           </div>
         </a>`;
-      }).join('');
+    }
 
-      resultsEl.innerHTML = header + cards;
+    function renderResults(term, docsToShow, reset) {
+      if (reset && stream.total === 0) { showState('empty'); return; }
+      if (reset) shown = 0;
+
+      const cards = docsToShow.map((doc, i) => resultCard(doc, term, shown + i + 1)).join('');
+      if (reset) {
+        const resultWord = stream.total !== 1 ? t('search_result_plural') : t('search_result_singular');
+        const forPart    = term ? ` ${t('search_results_for')} "<strong>${escapeHtml(term)}</strong>"` : '';
+        resultsEl.innerHTML = `<p class="results-header"><strong>${stream.total}</strong> ${resultWord}${forPart}</p>` + cards;
+      } else {
+        resultsEl.insertAdjacentHTML('beforeend', cards);
+      }
+      shown += docsToShow.length;
       showState('results');
-      resultsEl.style.display = '';
+      moreBtn.hidden = shown >= stream.total;
     }
 
-    function resolveDocs(hits) {
-      return hits
-        .map(r => documents.find(d => d.id === Number.parseInt(r.ref)))
-        .filter(Boolean);
-    }
-
-    function runSearch(query) {
-      activeQuery = query;
-      if (!query.trim()) {
-        clearBtn.classList.remove('visible');
-        heroTitle.textContent = t('search_title');
-        heroDesc.textContent  = t('search_desc');
-
-        // Clear a stale ?q= left over from a previous non-empty search
-        const clearedUrl = new URL(window.location);
-        clearedUrl.searchParams.delete('q');
-        window.history.replaceState({}, '', clearedUrl);
-
-        // No active search: show every post, with sorting still available.
-        if (!indexReady) { showState('loading'); sortBar.style.display = 'none'; return; }
-        renderResults('', applySort(documents));
-        return;
-      }
-      clearBtn.classList.add('visible');
-
-      // Update URL without reload
+    function syncUrl(term) {
       const url = new URL(window.location);
-      url.searchParams.set('q', query);
+      if (term) url.searchParams.set('q', term); else url.searchParams.delete('q');
+      if (activeLang) url.searchParams.set('lang', activeLang); else url.searchParams.delete('lang');
       window.history.replaceState({}, '', url);
+    }
 
-      // Update hero
-      heroTitle.textContent = `"${query}"`;
-      heroDesc.textContent  = t('search_results_desc');
+    async function runSearch(query) {
+      const seq  = ++searchSeq;
+      const term = query.trim();
+      syncUrl(term);
 
-      if (!indexReady) { showState('loading'); return; }
+      clearBtn.classList.toggle('visible', term !== '');
+      heroTitle.textContent = term ? `"${term}"` : t('search_title');
+      heroDesc.textContent  = term ? t('search_results_desc') : t('search_desc');
 
+      if (indexFailed) { showState('unavailable'); return; }
+      if (!indexes)    { showState('loading'); return; }
+
+      const targets = indexes.filter(index => !activeLang || index.lang === activeLang);
+      const sort    = currentSort(term);
+      const options = sort ? { sort: { [sort.key]: sort.dir } } : {};
       try {
-        const hits = searchIndex.search(query + '~1'); // fuzzy
-        renderResults(query, applySort(resolveDocs(hits)));
-      } catch {
-        try {
-          const hits = searchIndex.search(query);
-          renderResults(query, applySort(resolveDocs(hits)));
-        } catch {
-          sortBar.style.display = 'none';
-          showState('empty');
+        // null lists every Post (Pagefind's filter-only search).
+        const searches = await Promise.all(targets.map(index => index.pagefind.search(term || null, options)));
+        if (seq !== searchSeq) return;
+
+        // Hit ids carry their language (pt-br_…, en_…); the Set only matters
+        // if two instances ever ended up on the same index.
+        const seen  = new Set();
+        let lists = searches.map((search, i) => search.results
+          .filter(hit => !seen.has(hit.id) && seen.add(hit.id))
+          .map(hit => ({ hit, lang: targets[i].lang })));
+
+        const words = queryWords(term);
+        if (words.length > 0) {
+          const genuine = await Promise.all(lists.map(list => containsEveryWord(list, words)));
+          if (seq !== searchSeq) return;
+          lists = lists.map((list, i) => genuine[i] ? list : []);
         }
+
+        stream = resultStream(lists, sort);
+        const firstPage = await stream.take(PAGE_SIZE);
+        if (seq !== searchSeq) return;
+        renderResults(term, firstPage, true);
+      } catch (error) {
+        if (seq !== searchSeq) return;
+        console.error('Search failed:', error);
+        showState('unavailable');
       }
     }
 
-    // Input events — attached immediately, independent of index load state
-    // (runSearch already guards on !indexReady, same as before this was
-    // rewritten to use top-level await; these must not move below the
-    // await, or focus/listener attachment would be delayed until the
-    // index fetch resolves).
-    input.addEventListener('input', () => runSearch(input.value));
-    input.addEventListener('keydown', e => { if (e.key === 'Escape') { input.value = ''; runSearch(''); } });
-    clearBtn.addEventListener('click', () => { input.value = ''; input.focus(); runSearch(''); });
-
-    // Pre-fill from ?q= immediately, before the index even starts loading
-    if (initialQuery) input.value = initialQuery;
-
-    // Focus on load if no initial query
-    if (!initialQuery) input.focus();
-
-    // Load index
-    showState('loading');
-    try {
-      const searchIndexResponse = await fetch('{{ "/search.json" | relative_url }}');
-      const data = await searchIndexResponse.json();
-      documents = data;
-      searchIndex = lunr(function() {
-        this.ref('id');
-        this.field('title',       { boost: 10 });
-        this.field('categories',  { boost: 6  });
-        this.field('tags',        { boost: 6  });
-        this.field('description', { boost: 4  });
-        this.field('content',     { boost: 1  });
-
-        data.forEach(doc => this.add(doc));
-      });
-      indexReady = true;
-
-      // Resume whatever's currently in the box — either the pre-filled
-      // ?q= value, or something the user typed while the index was still
-      // loading (runSearch handles the blank case as showState('initial')).
-      runSearch(input.value);
-    } catch {
-      showState('initial');
+    async function showMore() {
+      const seq = searchSeq;
+      moreBtn.disabled = true;
+      try {
+        const nextPage = await stream.take(PAGE_SIZE);
+        if (seq === searchSeq) renderResults(input.value.trim(), nextPage, false);
+      } catch (error) {
+        console.error('Loading more results failed:', error);
+      } finally {
+        moreBtn.disabled = false;
+      }
     }
+
+    function searchNow() {
+      clearTimeout(typingTimer);
+      runSearch(input.value);
+    }
+
+    // Listeners go on before the index loads: runSearch shows the loading
+    // state until it is ready, then the search below resumes whatever is in
+    // the box.
+    input.addEventListener('input', () => {
+      clearTimeout(typingTimer);
+      if (indexes) indexes.forEach(index => index.pagefind.preload(input.value.trim()));
+      typingTimer = setTimeout(() => runSearch(input.value), TYPING_DELAY_MS);
+    });
+    input.addEventListener('keydown', e => { if (e.key === 'Escape') { input.value = ''; searchNow(); } });
+    form.addEventListener('submit', e => { e.preventDefault(); searchNow(); });
+    clearBtn.addEventListener('click', () => { input.value = ''; input.focus(); searchNow(); });
+    moreBtn.addEventListener('click', showMore);
+
+    sortField.addEventListener('change', () => {
+      activeSortField = sortField.value;
+      activeSortDir = activeSortField === 'title' ? 'asc' : 'desc';
+      updateSortDirUI();
+      searchNow();
+    });
+    sortDirBtn.addEventListener('click', () => {
+      activeSortDir = activeSortDir === 'asc' ? 'desc' : 'asc';
+      updateSortDirUI();
+      searchNow();
+    });
+    langFilter.addEventListener('change', () => {
+      activeLang = langFilter.value;
+      searchNow();
+    });
+    // A UI-language switch (lang-switcher.js, whose listener runs first)
+    // relabels the static chrome; re-render so the results follow.
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => {
+      updateSortDirUI();
+      searchNow();
+    }));
+
+    // ?q= (and ?lang=) from the URL, before the index even starts loading.
+    const params = new URLSearchParams(window.location.search);
+    const initialQuery = params.get('q') || '';
+    if (POST_LANGS.includes(params.get('lang'))) activeLang = params.get('lang');
+    langFilter.value = activeLang;
+    if (initialQuery) input.value = initialQuery; else input.focus();
+    updateSortDirUI();
+    runSearch(input.value);
+
+    try {
+      indexes = await openIndexes();
+    } catch (error) {
+      console.error('Search index unavailable:', error);
+      indexFailed = true;
+    }
+    runSearch(input.value);
   </script>
 
 </body>

@@ -78,6 +78,16 @@ defaults:
         url:  "https://guilherme.stracini.com.br"
       subcategories: []
 
+# ── Busca ───────────────────────────────────────────────
+# O índice do Pagefind (_site/pagefind/) é gerado depois do build (ADR-0020).
+# Mantê-lo aqui evita que cada regeneração do `jekyll serve` o apague — basta
+# rodar o Pagefind uma vez (ver README, "Desenvolvimento local"). .git e .svn
+# são os valores padrão do Jekyll, repetidos porque esta lista os substitui.
+keep_files:
+  - .git
+  - .svn
+  - pagefind
+
 # ── Exclusões do build ──────────────────────────────────
 exclude:
   - README.md

@@ -111,7 +111,7 @@ blog/                                 # nome do repositório
 │
 ├── .github/
 │   ├── workflows/
-│   │   ├── deploy.yml                # build_images.py + jekyll build + deploy no GitHub Pages (push em main)
+│   │   ├── deploy.yml                # build_images.py + jekyll build + índice de busca (Pagefind) + deploy no GitHub Pages (push em main)
 │   │   ├── blog-audit.yml            # Roda audit_blog.py em push/PR que tocam posts, dados ou fotos
 │   │   ├── sync-category-tag-data.yml # Registra categorias/tags novas automaticamente em PRs
 │   │   └── og-cards.yml              # Gera o og:image (PNG 1200×630) dos posts sem imagem e comita no PR
@@ -119,14 +119,15 @@ blog/                                 # nome do repositório
 │   │   ├── audit_blog.py             # Audita a estrutura do blog
 │   │   ├── build_images.py           # Sanitiza fotos de galeria e gera os derivados AVIF/WebP + images.json
 │   │   ├── build_og_cards.py         # Renderiza o card Open Graph a partir do front matter (ou rasteriza o cover SVG)
+│   │   ├── check_search_index.py     # Confere que o índice do Pagefind tem todo post, em cada idioma, com as chaves de ordenação
 │   │   ├── create_missing_pages.py   # Sincroniza _data/categories.yml e _data/tags.yml
 │   │   ├── requirements-images.txt   # Pillow, versão exata + hash sha256 da wheel — pip em modo --require-hashes e --only-binary :all: (deploy, audit); Dependabot atualiza
-│   │   └── requirements-og-cards.txt # CairoSVG + PyYAML + árvore de dependências, versões exatas (og-cards)
+│   │   ├── requirements-og-cards.txt # CairoSVG + PyYAML + árvore de dependências, versões exatas (og-cards)
+│   │   └── requirements-search.txt   # Pagefind (launcher + binário), versão exata + hash sha256 (deploy); Dependabot atualiza
 │   └── fonts/                        # GERADO por build_og_cards.py --download-fonts (gitignored): TTFs da marca
 │
 ├── index.html                        # Página inicial (paginada)
-├── search.html                       # Página de busca (/busca/)
-├── search.json                       # Índice de busca client-side (lunr.js)
+├── search.html                       # Página de busca (/busca/) — Pagefind, um índice por idioma de post (ADR-0020)
 ├── travels.html                      # Página de viagens (/viagens/) — mapa + tabela por país
 ├── series.html                       # Índice de séries (/series/)
 ├── tags.html                         # Todos os tópicos (/topicos/)
@@ -314,6 +315,14 @@ python3 .github/scripts/build_og_cards.py --svg-only --out-dir /tmp/cards --no-f
 
 Para pré-visualizar um card sem comitar nada, rode `og-cards.yml` manualmente (Actions → *Open Graph cards* → *Run workflow*) sem marcar *commit*: o PNG e o SVG sobem como artifact.
 
+### Busca (`/busca/`, Pagefind)
+
+A busca usa o [Pagefind](https://pagefind.app/) ([ADR-0020](docs/adr/0020-search-via-pagefind-one-index-per-post-language.md)). Depois do `jekyll build`, o `deploy.yml` roda o Pagefind sobre `_site/`, que grava em `_site/pagefind/` um índice fatiado por idioma de post — o visitante baixa só os pedaços que a consulta usa, não o arquivo inteiro. Cada post entra no índice do próprio `lang:` (lido do `<html lang>`), com o stemmer daquele idioma; acentos são ignorados na busca ("analise" acha "análise").
+
+- **O que é indexado:** só o corpo dos posts (`data-pagefind-body` em `_layouts/post.html`). Título e descrição vêm do hero; categorias, tags, datas e tempo de leitura vêm de `_includes/search-index-fields.html`. Título, descrição, categorias e tags são pesquisáveis (com peso maior que o corpo); datas e tempo de leitura só servem para exibir e ordenar.
+- **A página:** `search.html` usa a API JavaScript do Pagefind, com um módulo por idioma, e junta os resultados. O contrato `?q=` continua valendo; `?lang=pt-BR` ou `?lang=en` filtra por idioma.
+- **`check_search_index.py`:** roda logo depois do Pagefind e derruba o deploy se algum post construído ficou fora do índice do seu idioma ou sem uma das chaves de ordenação — sem ela, o Pagefind tira o post da busca ordenada sem avisar.
+
 ### `.github/scripts/create_missing_pages.py`
 
 Chamado pelo workflow `sync-category-tag-data.yml` com a lista de posts alterados no PR. Não cria páginas — categoria/subcategoria/tag "existe" a partir do momento em que está registrada em `_data/categories.yml`/`_data/tags.yml`, e as páginas nascem sozinhas no build seguinte (ver [ADR-0001](docs/adr/0001-stub-files-for-category-tag-feed-pages.md)). O script só garante que as entradas estejam lá:
@@ -339,7 +348,7 @@ Além dos generators de categoria/tag/feed (ver [seção acima](#-gerenciando-ca
 
 | Workflow | Dispara em | O que faz |
 |---|---|---|
-| `deploy.yml` | push em `main` (ou manual) | `build_images.py` (derivados em cache) + `jekyll build` + deploy no GitHub Pages |
+| `deploy.yml` | push em `main` (ou manual) | `build_images.py` (derivados em cache) + `jekyll build` + índice de busca do Pagefind em `_site/pagefind/` + `check_search_index.py` + deploy no GitHub Pages |
 | `blog-audit.yml` | push/PR tocando posts, `_data/{tags,categories,countries}.yml` ou `assets/img/posts/**` | Roda `audit_blog.py` |
 | `sync-category-tag-data.yml` | abertura/atualização de PR | Roda `create_missing_pages.py` e comita/comenta o resultado |
 | `og-cards.yml` | abertura/atualização de PR tocando `_posts/**` (ou manual) | Roda `build_og_cards.py` nos posts alterados e comita o PNG + `image:`; manual sem *commit* só sobe um artifact de preview |
@@ -580,6 +589,14 @@ Para rodar a auditoria de estrutura localmente antes de abrir um PR:
 
 ```bash
 python3 .github/scripts/audit_blog.py
+```
+
+Busca: o índice do Pagefind é gerado depois do build, então `jekyll serve` sozinho mostra "A busca não está disponível agora" em `/busca/`. Para buscar localmente, instale o Pagefind e gere o índice uma vez com o servidor rodando (ou depois de um `jekyll build`). O `keep_files` do `_config.yml` preserva `_site/pagefind/` entre as regenerações; rode de novo quando quiser o índice atualizado com posts novos.
+
+```bash
+python3 -m pip install --require-hashes --only-binary :all: -r .github/scripts/requirements-search.txt
+python3 -m pagefind --site _site
+python3 .github/scripts/check_search_index.py _site   # opcional: a mesma checagem do deploy
 ```
 
 Fotos de galeria: sem os derivados, `jekyll serve` mostra o `<img>` simples. Para ver o `<picture>` responsivo como em produção (e para sanitizar fotos novas antes de commitar):
