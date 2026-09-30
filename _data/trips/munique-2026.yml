@@ -38,10 +38,10 @@ days:
         end: "15:30"
         type: transport
         title: "Ônibus airside para o Terminal 1 — o erro"
-        note: "Transfer de conexão, não de chegada: sem saída para a cidade pelos portões D. 1h15 perdida"
+        note: "Transfer de conexão, não de chegada: a saída pelos portões D era uma porta fechada, com acesso controlado. 1h15 perdida"
       - time: "15:30"
         type: transport
-        title: "S-Bahn do aeroporto até Laim, com baldeação"
+        title: "S-Bahn do aeroporto até Laim, sem baldeação"
         cost: 15.10
       - time: "17:11"
         type: lodging
@@ -49,13 +49,12 @@ days:
         note: "Saldo de € 1.438,43 pago no balcão pelo amigo de Manchester; minha parte da hospedagem, uma cama de seis, foi € 272,43"
       - time: "17:33"
         type: shopping
-        title: "Aluguel do traje típico, Schwanthalerstraße 67"
-        cost: 140.00
-        split: 2
-        note: "€ 70 por pessoa, por dois dias, mais € 100 de caução cada, devolvida no domingo. Somente dinheiro; retirada na manhã seguinte"
+        title: "Reserva do traje típico, Schwanthalerstraße 67"
+        note: "Provamos as roupas e saímos sem elas; ticket amarelo com número, retirada e pagamento na manhã seguinte"
       - time: "18:09"
         type: drinks
-        title: "Cerveja na rua — Restaurant Flair"
+        title: "Helles na barraquinha de rua da esquina da loja"
+        note: "No extrato, Restaurant Flair: o nome da maquininha, não um restaurante"
         cost: 10.00
       - time: "18:12"
         type: walk
@@ -77,8 +76,7 @@ days:
         type: drinks
         title: "Hofbräuhaus am Platzl — duas Maß e um Schweinshaxe"
         cost: 45.00
-        split: 2
-        note: "Maß a € 11,60 e o prato a ≈ € 21,80; conta paga pelo amigo"
+        note: "Maß a € 11,60 cada e o prato, só do amigo, a ≈ € 21,80; conta paga por ele. Quase 30 minutos de espera até sermos atendidos"
       - time: "20:44"
         type: drinks
         title: "Hofbräuhaus — consumo adicional"
@@ -110,15 +108,18 @@ days:
       - time: "11:25"
         end: "11:47"
         type: shopping
-        title: "Retirada do traje típico e troca de roupa na loja"
-        note: "Encontro com o amigo de Dublin e os dois amigos dele, recém-chegados do aeroporto; eles levaram nossas roupas ao hostel"
+        title: "Retirada do traje típico, pagamento e troca de roupa na loja"
+        cost: 140.00
+        split: 2
+        note: "€ 70 por pessoa, por dois dias, mais € 100 de caução cada, tudo em dinheiro (caução devolvida no domingo). Encontro com o conhecido de Dublin e os dois amigos dele, recém-chegados do aeroporto; eles levaram nossas roupas ao hostel"
       - time: "11:30"
         type: cash
         title: "Saque em dinheiro"
         cost: 345.95
+        note: "No caixa eletrônico da esquina da loja, para pagar o traje"
       - time: "11:46"
         type: drinks
-        title: "Duas cervejas de € 3,50 e um Jägermeister na rua — Restaurant Flair"
+        title: "Duas Helles de € 3,50 e um Jägermeister na barraquinha da esquina"
         cost: 13.00
       - time: "11:47"
         end: "16:34"
@@ -159,27 +160,31 @@ days:
         cost: 20.00
         split: 3
         approx: true
-        note: "≈ € 6 o kebab, mais uma Coca de 2 L dividida; pago em dinheiro pelo amigo de Dublin"
+        note: "≈ € 6 o kebab, mais uma Coca de 2 L dividida; pago em dinheiro pelo conhecido de Dublin"
       - time: "11:57"
         type: transport
         title: "Bolt, Laim → Theresienwiese"
         cost: 15.90
       - time: "12:25"
         type: event
-        title: "Entrada pela porta lateral da Theresienwiese"
-        note: "A entrada principal estava sob controle de densidade, com a multidão parada atrás das grades"
+        title: "Entrada pelo portal principal da Theresienwiese"
+        note: "Controle de densidade no portal, com a multidão parada atrás das grades; caixa eletrônico e banheiro logo na entrada"
       - time: "12:25"
         end: "00:10"
         type: event
-        title: "Hofbräu-Festhalle — 11h45 seguidas dentro da tenda"
+        title: "Theresienwiese e Hofbräu-Festhalle — 11h45 no festival, quase tudo dentro da tenda"
       - time: "12:28"
-        type: food
-        title: "Barraca na Wiesn — Bavaria Star"
+        type: drinks
+        title: "Energético numa barraca fora da área do festival — Bavaria Star"
         cost: 2.50
+        note: "Parada para o amigo comprar tabaco e filtro; só o meu — o conhecido de Dublin pegou outro"
       - time: "12:42"
         type: cash
         title: "Saque em dinheiro"
         cost: 197.95
+      - type: event
+        title: "Entrada na Hofbräu-Festhalle pela porta lateral"
+        note: "Fila e cordão na porta principal da tenda; a dica da lateral veio do grupo de WhatsApp do Alemãozando. Uma garçonete nos levou por uma porta sem fila e arrumou lugar numa bancada: quatro Maß pagas por um amigo e € 20 ou € 30 de gorjeta para ela"
       - time: "16:00"
         type: cash
         title: "Saque em dinheiro"
@@ -202,7 +207,8 @@ days:
         note: "Mais € 3,92 de taxa do banco; quinto saque do dia, € 751,75 no total"
       - time: "23:07"
         type: food
-        title: "Comida na tenda — Restaurant Festzelt"
+        title: "Consumo dentro da tenda — Restaurant Festzelt"
+        note: "Não lembro se foi comida ou mais bebida"
         cost: 27.50
       - time: "23:39"
         end: "23:58"
@@ -223,6 +229,7 @@ days:
       - time: "14:45"
         type: walk
         title: "Saída do hostel"
+        note: "O conhecido de Dublin e os amigos dele tinham ido embora logo cedo; encontro marcado às 16h45 na Paulaner"
       - time: "14:52"
         type: food
         title: "Almoço no Unique Burger"
@@ -234,13 +241,13 @@ days:
       - time: "15:54"
         type: shopping
         title: "Devolução do traje típico"
-        note: "Caução de € 100 devolvida integralmente para cada um"
+        note: "Caução de € 100 devolvida integralmente para cada um. Devolvi também as roupas do conhecido de Dublin e dos amigos dele, que já tinham ido embora; um deles tinha perdido o ticket, e a loja aceitou a foto"
       - time: "15:54"
         type: walk
         title: "Caminhada até a Theresienwiese (2,7 km)"
       - time: "16:37"
         type: food
-        title: "Lanche de linguiça — Brezn Kini"
+        title: "Pão com linguiça e batata frita — Brezn Kini"
         cost: 15.00
       - time: "17:24"
         end: "19:11"
@@ -248,13 +255,13 @@ days:
         title: "Área sul da Wiesn, perto da estátua da Bavaria"
       - type: other
         title: "Parada na tenda-restaurante da Paulaner, antes das 17h45"
-        note: "Para usar o banheiro e esperar um amigo; a Paulaner certa ficava na outra ponta da avenida das tendas"
+        note: "Para usar o banheiro e esperar o amigo alemão do meu amigo, marcado para as 16h45; era a Paulaner errada — a certa ficava na outra ponta da avenida das tendas"
       - type: drinks
         title: "Rodadas na Paulaner Festzelt e, depois, na Hacker-Festzelt"
         note: "Três rodadas de € 50 (3 Maß a € 15,80 e € 2,60 de gorjeta) e mais uma só nossa; tudo em dinheiro, sem recibo"
       - type: other
         title: "Separação do grupo na saída da Hacker"
-        note: "Esperei bastante, encontrei outros amigos de Dublin, comi algo, voltei à frente da tenda e desisti"
+        note: "Ele ficou conversando com outro brasileiro, eu saí da tenda e ele saiu por outro lado. Esperei bastante, encontrei outros amigos de Dublin, comi algo, voltei à frente da tenda e desisti"
       - type: transport
         title: "Táxi, Theresienwiese → Laim, sozinho"
         cost: 30.00
