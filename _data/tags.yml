@@ -8,6 +8,8 @@
   slug: aiesec
 - name: albania
   slug: albania
+- name: alemanha
+  slug: alemanha
 - name: alok
   slug: alok
 - name: aluguel-de-carro
@@ -96,10 +98,14 @@
     - /tags/bancos/
 - name: bastidores
   slug: bastidores
+- name: baviera
+  slug: baviera
 - name: beach
   slug: beach
 - name: beach-club
   slug: beach-club
+- name: beer
+  slug: beer
 - name: bet365
   slug: bet365
 - name: big-tech
@@ -166,6 +172,8 @@
   slug: certbot
   redirect_from:
     - /tags/certbot/
+- name: cerveja
+  slug: cerveja
 - name: checksum
   slug: checksum
 - name: ci
@@ -314,6 +322,8 @@
     - /tags/devsecops/
 - name: devtools
   slug: devtools
+- name: dirndl
+  slug: dirndl
 - name: diversificacao
   slug: diversificacao
 - name: docker
@@ -404,6 +414,8 @@
     - /tags/feriados/
 - name: ferry
   slug: ferry
+- name: festival
+  slug: festival
 - name: fgts
   slug: fgts
   redirect_from:
@@ -426,6 +438,8 @@
   slug: fintech
 - name: firewall
   slug: firewall
+- name: frauenkirche
+  slug: frauenkirche
 - name: free-tier
   slug: free-tier
 - name: freelancer
@@ -486,6 +500,8 @@
   slug: guia-de-viagem
 - name: habitos
   slug: habitos
+- name: hacker
+  slug: hacker
 - name: hardening
   slug: hardening
 - name: hash
@@ -498,6 +514,10 @@
   slug: hibrido
 - name: hobbies
   slug: hobbies
+- name: hofbrau
+  slug: hofbrau
+- name: hofbrauhaus
+  slug: hofbrauhaus
 - name: holanda
   slug: holanda
 - name: holidayapi
@@ -618,6 +638,8 @@
   slug: koningsdag
 - name: ksamil
   slug: ksamil
+- name: laim
+  slug: laim
 - name: lavinmq
   slug: lavinmq
   redirect_from:
@@ -628,6 +650,8 @@
   slug: lca
 - name: lci
   slug: lci
+- name: lederhosen
+  slug: lederhosen
 - name: legado
   slug: legado
 - name: lego
@@ -676,6 +700,8 @@
   slug: london
 - name: londres
   slug: londres
+- name: lufthansa
+  slug: lufthansa
 - name: madrid
   slug: madrid
 - name: mailhog
@@ -688,6 +714,8 @@
   slug: mariadb
   redirect_from:
     - /tags/mariadb/
+- name: marienplatz
+  slug: marienplatz
 - name: marsaskala
   slug: marsaskala
 - name: matematica-financeira
@@ -736,6 +764,10 @@
   slug: msbuild
 - name: mssql
   slug: mssql
+- name: munich
+  slug: munich
+- name: munique
+  slug: munique
 - name: mysql
   slug: mysql
 - name: net-framework
@@ -768,6 +800,8 @@
   slug: oci
 - name: odds
   slug: odds
+- name: oktoberfest
+  slug: oktoberfest
 - name: on-call
   slug: on-call
 - name: open-source
@@ -798,6 +832,8 @@
   slug: palma-de-mallorca
 - name: pandemia
   slug: pandemia
+- name: paulaner
+  slug: paulaner
 - name: pejotizacao
   slug: pejotizacao
 - name: performance
@@ -936,6 +972,8 @@
   slug: rust
   redirect_from:
     - /tags/rust/
+- name: s-bahn
+  slug: s-bahn
 - name: salario
   slug: salario
   redirect_from:
@@ -1080,6 +1118,8 @@
     - /tags/testing/
 - name: tests
   slug: tests
+- name: theresienwiese
+  slug: theresienwiese
 - name: ti
   slug: ti
   redirect_from:
@@ -1090,6 +1130,8 @@
   slug: trabalho-no-exterior
 - name: trabalho-remoto
   slug: trabalho-remoto
+- name: tracht
+  slug: tracht
 - name: travel
   slug: travel
 - name: twilio
@@ -1182,6 +1224,8 @@
     - /tags/websocket/
 - name: white-box
   slug: white-box
+- name: wiesn
+  slug: wiesn
 - name: windows
   slug: windows
 - name: wireguard
