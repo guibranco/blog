@@ -8,36 +8,37 @@ categories: [Hobbies]
 subcategories:
   - "Hobbies/Travel & Places"
 tags: [viagem, munique, munich, alemanha, oktoberfest, wiesn, theresienwiese, baviera, hofbrau, hofbrauhaus, paulaner, hacker, marienplatz, frauenkirche, lederhosen, dirndl, tracht, laim, irlanda, dublin, cerveja, lufthansa, kiwi, bolt, s-bahn, guia-de-viagem, custos-reais, travel, places, locations, beer, festival]
-image: /assets/img/posts/munique-2026/capa.jpg
+image: /assets/img/posts/munique-2026/cover.jpg
 image_alt: "A torre da tenda Paulaner e a torre do Löwenbräu sobre a multidão na alameda central da Theresienwiese"
 image_credit: "Ritesh Mishra / Unsplash"
 image_credit_url: "https://unsplash.com/@random_photographer_"
 image_license: "Unsplash License"
+image_license_url: "https://unsplash.com/license"
 gallery: true
 countries: [Germany]
 locations:
   - lat: 48.1315
     lng: 11.5496
-    label: "Theresienwiese, Munich"
+    label: "Theresienwiese, Munique"
   - lat: 48.1374
     lng: 11.5755
-    label: "Marienplatz, Munich"
+    label: "Marienplatz, Munique"
   - lat: 48.1377
     lng: 11.5799
-    label: "Hofbräuhaus am Platzl, Munich"
+    label: "Hofbräuhaus am Platzl, Munique"
   - lat: 48.1366
     lng: 11.5557
-    label: "Schwanthalerstraße, Munich"
+    label: "Schwanthalerstraße, Munique"
   - lat: 48.1441
     lng: 11.4951
-    label: "Laim, Munich"
+    label: "Laim, Munique"
   - lat: 48.3538
     lng: 11.7861
-    label: "Munich Airport (MUC)"
+    label: "Aeroporto de Munique (MUC)"
 trip: munique-2026
 ---
 
-<p class="lead">Cinco dias em Munique no fim de setembro, saindo de Dublin por € 263 ida e volta em voo direto, para a 191ª Oktoberfest. Um grupo que começou com oito pessoas e chegou em três, um quarto de hostel de seis camas dividido por cinco, 18 horas dentro da Theresienwiese, € 1.299,60 sacados em dinheiro vivo e um custo final de € 1.989,40. Este é o relato completo, com todos os números e os gráficos de onde o dinheiro foi.</p>
+<p class="lead">Cinco dias em Munique no fim de setembro, saindo de Dublin por € 263 ida e volta em voo direto, para a 191ª Oktoberfest. Um grupo que começou com oito pessoas e chegou em três, um quarto de hostel de seis camas dividido por cinco, 18 horas dentro da Theresienwiese, € 1.299,60 sacados em dinheiro vivo e um custo final de € 1.989,80. Este é o relato completo, com todos os números e os gráficos de onde o dinheiro foi.</p>
 
 <div class="callout callout-tip">
   <div class="callout-label">Moeda e pagamentos</div>
@@ -62,7 +63,7 @@ Começo por aqui porque foi isso que definiu o custo da viagem inteira.
 
 O planejamento nasceu grande. Em determinado momento havia **sete nomes confirmados ou prováveis** e um oitavo em cima do muro. Com esse tamanho, a decisão óbvia foi reservar um **quarto privativo de seis camas**, que a essa altura já era a opção mais barata por cabeça para as datas.
 
-Aí o grupo começou a derreter. Artur desistiu. Claudinho desistiu. Brittany desistiu. Um dos Gabriels nunca se manifestou, o outro nunca confirmou. A poucas semanas da viagem, o grupo tinha **duas pessoas confirmadas para um quarto de seis**.
+Aí o grupo começou a derreter. Três pessoas desistiram, uma depois da outra. Das outras duas, uma nunca se manifestou e a outra nunca confirmou. A poucas semanas da viagem, o grupo tinha **duas pessoas confirmadas para um quarto de seis**.
 
 <table class="compare-table">
   <thead>
@@ -76,7 +77,7 @@ Aí o grupo começou a derreter. Artur desistiu. Claudinho desistiu. Brittany de
   </tbody>
 </table>
 
-No fim viajamos em três — eu, o **Luiz** (que saiu de Manchester) e o **Diego** (de Dublin). E aí veio a reviravolta na direção oposta: o Diego levou **dois amigos**, Tiago e Alexandre, que chegaram na sexta e foram embora no domingo. O quarto de seis acabou sendo **dividido por cinco pessoas**.
+No fim viajamos em três — eu, **um amigo que saiu de Manchester** e **outro de Dublin**. E aí veio a reviravolta na direção oposta: o amigo de Dublin levou **dois amigos**, que chegaram na sexta e foram embora no domingo. O quarto de seis acabou sendo **dividido por cinco pessoas**.
 
 <div class="callout callout-tip">
   <div class="callout-label">Rateio por cama, não por noite</div>
@@ -119,12 +120,12 @@ Tarifa **Basic**, com duas peças de bagagem de mão inclusas em cada trecho —
 O voo é num **A321neo** e a Lufthansa serve, em ambos os trechos, **uma garrafinha de água e um biscoito** — sem custo. Bebidas são pagas e não há refeição vendida a bordo, apenas snacks. Para um voo de duas horas, está de bom tamanho.
 
 <div class="callout callout-warn">
-  <div class="callout-label">O Luiz perdeu a conexão em Frankfurt por causa da fila da imigração</div>
-  <p>O Luiz veio de <strong>Manchester via Frankfurt</strong>, e na ida <strong>perdeu o voo de conexão</strong> — não por atraso do primeiro trecho, mas pela <strong>fila do controle de imigração</strong> em Frankfurt. Pelo relato dele, várias pessoas do mesmo voo ficaram para trás. Ele foi <strong>realocado em um novo voo sem custo</strong>, porque era bilhete único da mesma companhia.</p>
-  <p>A lição é sobre <strong>de onde você sai</strong>: Reino Unido e Irlanda estão fora do Espaço Schengen, então o primeiro pouso em solo europeu significa passar pela imigração — e em setembro, com o novo sistema biométrico de entrada e saída da UE em implantação, essa fila anda mais devagar do que costumava. <strong>Conexão curta em bilhete único é chateação; em bilhete separado, seria prejuízo integral.</strong></p>
+  <div class="callout-label">Meu amigo perdeu a conexão em Frankfurt por causa da fila da imigração</div>
+  <p>Meu amigo veio de <strong>Manchester via Frankfurt</strong>, e na ida <strong>perdeu o voo de conexão</strong> — não por atraso do primeiro trecho, mas pela <strong>fila do controle de imigração</strong> em Frankfurt. Pelo relato dele, várias pessoas do mesmo voo ficaram para trás. Ele foi <strong>realocado em um novo voo sem custo</strong>, porque era bilhete único da mesma companhia.</p>
+  <p>A lição é sobre <strong>de onde você sai</strong>: Reino Unido e Irlanda estão fora do Espaço Schengen, então o primeiro pouso em solo europeu significa passar pela imigração — e, com o <a href="https://home-affairs.ec.europa.eu/news/entryexit-system-will-become-fully-operational-10-april-2026-2026-03-30_en" target="_blank">sistema biométrico de entrada e saída da UE (EES) em operação plena desde 10 de abril de 2026</a>, quem viaja com passaporte de fora da UE tem foto e digitais conferidas nesse controle. <strong>Conexão curta em bilhete único é chateação; em bilhete separado, seria prejuízo integral.</strong></p>
 </div>
 
-### Do aeroporto ao centro — e uma hora e meia perdida no caminho
+### Do aeroporto ao centro — e 1h15 perdida no caminho
 
 Pousei no **Terminal 2 às 14h05**. Deveria ter seguido as placas de *Ankunft* e *Einreise* até o controle de entrada e saído dali direto para a estação. Não foi o que aconteceu.
 
@@ -135,7 +136,7 @@ O que eu tinha pegado era o **transfer airside**, feito para passageiros em cone
 Resultado: **1h15 dentro do terminal**, das 14h15 às 15h30, para um trajeto que deveria levar dez minutos.
 
 <div class="callout callout-tip">
-  <div class="callout-label">O erro que custou uma hora e meia — e como não repeti-lo</div>
+  <div class="callout-label">O erro que custou 1h15 — e como não repeti-lo</div>
   <p>Se você chega em Munique vindo de fora do Schengen, <strong>o seu caminho é sair pelo mesmo terminal em que pousou</strong>. Siga <em>Ankunft</em> → <em>Einreise</em> (controle de entrada) → <em>Ausgang</em> (saída). Se estiver só com bagagem de mão, ignore o <em>Gepäckausgabe</em>.</p>
   <p>E o detalhe que torna tudo mais frustrante: <strong>não havia motivo nenhum para ir ao Terminal 1</strong>. Depois de passar pela imigração, os dois terminais são ligados a pé pelo <strong>MAC (Munich Airport Center)</strong>, e a estação de S-Bahn fica exatamente embaixo do MAC, no meio dos dois. Sair pelo T2 deixa você tão perto do trem quanto sair pelo T1.</p>
   <p>Se um funcionário te mandar para o lugar errado, peça explicitamente por <strong>"Einreise"</strong> — e, se possível, peça para alguém te acompanhar. Andar sozinho procurando placa em área de trânsito só faz você dar voltas.</p>
@@ -144,12 +145,14 @@ Resultado: **1h15 dentro do terminal**, das 14h15 às 15h30, para um trajeto que
 Do aeroporto até Laim foram **€ 15,10** de bilhete da Deutsche Bahn, com uma baldeação no caminho. Cheguei ao hostel às **17h11** — três horas e seis minutos depois de pousar.
 
 <div class="photo-gallery">
-  <a href="{{ site.baseurl }}/assets/img/posts/munique-2026/chegada-01.jpg" class="glightbox" data-gallery="munique-chegada" data-title="Embarque no A321neo da Lufthansa em Dublin">
-    <img src="{{ site.baseurl }}/assets/img/posts/munique-2026/chegada-01.jpg" alt="Embarque em Dublin">
-  </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/munique-2026/chegada-02.jpg" class="glightbox" data-gallery="munique-chegada" data-title="Em voo entre Dublin e Munique">
-    <img src="{{ site.baseurl }}/assets/img/posts/munique-2026/chegada-02.jpg" alt="Em voo">
-  </a>
+  {% include photo.html src="/assets/img/posts/munique-2026/chegada-01.jpg"
+     alt="Passageiros de mochila caminhando pela pista em direção a um Airbus A321neo da Lufthansa, sob céu nublado"
+     title="Embarque no A321neo da Lufthansa em Dublin"
+     gallery="munique-chegada" %}
+  {% include photo.html src="/assets/img/posts/munique-2026/chegada-02.jpg"
+     alt="Motor e ponta da asa do avião vistos da janela, acima das nuvens, com o horizonte azul ao fundo"
+     title="Em voo entre Dublin e Munique"
+     gallery="munique-chegada" %}
 </div>
 
 <div class="divider">· · ·</div>
@@ -177,7 +180,7 @@ A reserva foi de um **quarto privativo de seis camas com banheiro**, pelas quatr
   </tbody>
 </table>
 
-O quarto foi ocupado por **cinco pessoas** — eu, Luiz, Diego, Tiago e Alexandre —, com a sexta cama vazia.
+O quarto foi ocupado por **cinco pessoas** — eu, o amigo de Manchester, o de Dublin e os dois amigos dele —, com a sexta cama vazia.
 
 **€ 68 por cama por noite** durante a Oktoberfest é um preço muito bom — hotéis perto da Theresienwiese pediam de € 150 a € 300 a diária nas mesmas datas. O que se paga por isso é localização: Laim fica a **três estações de S-Bahn** da Hackerbrücke, a entrada mais usada da Wiesn.
 
@@ -188,7 +191,7 @@ O quarto foi ocupado por **cinco pessoas** — eu, Luiz, Diego, Tiago e Alexandr
 
 <div class="callout callout-tip">
   <div class="callout-label">Um paga o saldo, os outros reembolsam — e o acerto é feito uma vez só</div>
-  <p>Quem pagou os <strong>€ 1.438,43</strong> no balcão foi o Luiz. O acerto entre nós foi feito depois por transferência, <strong>descontando na mesma conta o que cada um já tinha pago em dinheiro por fora</strong> — no caso dele, o aluguel do traje típico, que saiu do meu bolso na véspera.</p>
+  <p>Quem pagou os <strong>€ 1.438,43</strong> no balcão foi o amigo de Manchester. O acerto entre nós foi feito depois por transferência, <strong>descontando na mesma conta o que cada um já tinha pago em dinheiro por fora</strong> — no caso dele, o aluguel do traje típico, que saiu do meu bolso na véspera.</p>
   <p>Esse é o modelo que funciona em viagem de grupo onde metade das coisas é paga em espécie: <strong>uma pessoa paga a conta grande, todo mundo anota o que pagou por fora, e no fim se faz um único encontro de contas</strong>. A alternativa — cada um pagando pedaços aleatórios ao longo de cinco dias — é a receita garantida para ninguém saber quem deve quanto no aeroporto.</p>
 </div>
 
@@ -262,7 +265,7 @@ O **Hofbräuhaus** foi fundado em **1589** como a cervejaria da corte dos duques
   </tbody>
 </table>
 
-A conta de **duas Maß e um joelho de porco (Schweinshaxe) saiu por € 45**, paga pelo Luiz. Fazendo a conta: € 23,20 de cerveja e cerca de € 21,80 do prato. Na tenda da Wiesn, o mesmo joelho de porco custa em torno de € 27.
+A conta de **duas Maß e um joelho de porco (Schweinshaxe) saiu por € 45**, paga pelo meu amigo. Fazendo a conta: € 23,20 de cerveja e cerca de € 21,80 do prato. Na tenda da Wiesn, o mesmo joelho de porco custa em torno de € 27.
 
 Um detalhe do cardápio que rende: o **Radler custa exatamente o mesmo que a cerveja pura** — € 11,60. É Helles com limonada, meio a meio, e é bebida tradicional bávara, não gambiarra de turista. Foi inventada justamente para ciclistas. Como estratégia para os dias longos de Wiesn, é imbatível: metade do álcool, mesma Maß, e ninguém estranha.
 
@@ -291,15 +294,18 @@ Voltamos de Bolt (**€ 23,90**) e jantamos no **Unique Burger** (Landsbergerstr
 </div>
 
 <div class="photo-gallery">
-  <a href="{{ site.baseurl }}/assets/img/posts/munique-2026/dia1-01.jpg" class="glightbox" data-gallery="munique-dia1" data-title="Frauenkirche vista da Kaufingerstraße, 18h31">
-    <img src="{{ site.baseurl }}/assets/img/posts/munique-2026/dia1-01.jpg" alt="Frauenkirche">
-  </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/munique-2026/dia1-02.jpg" class="glightbox" data-gallery="munique-dia1" data-title="Neues Rathaus na Marienplatz no fim da tarde">
-    <img src="{{ site.baseurl }}/assets/img/posts/munique-2026/dia1-02.jpg" alt="Marienplatz">
-  </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/munique-2026/dia1-03.jpg" class="glightbox" data-gallery="munique-dia1" data-title="Maß de Hofbräu no Hofbräuhaus, € 11,60">
-    <img src="{{ site.baseurl }}/assets/img/posts/munique-2026/dia1-03.jpg" alt="Maß no Hofbräuhaus">
-  </a>
+  {% include photo.html src="/assets/img/posts/munique-2026/dia1-01.jpg"
+     alt="Torre de tijolo da Frauenkirche, com a cúpula verde, iluminada pelo sol entre prédios em sombra numa rua de pedestres"
+     title="Frauenkirche vista da Kaufingerstraße, 18h31"
+     gallery="munique-dia1" %}
+  {% include photo.html src="/assets/img/posts/munique-2026/dia1-02.jpg"
+     alt="Fachada neogótica do Neues Rathaus dourada pelo sol, com a Marienplatz cheia de gente e uma bandeira em primeiro plano"
+     title="Neues Rathaus na Marienplatz no fim da tarde"
+     gallery="munique-dia1" %}
+  {% include photo.html src="/assets/img/posts/munique-2026/dia1-03.jpg"
+     alt="Caneca de vidro de um litro com o emblema HB, cheia de cerveja clara e espuma, sobre uma mesa de madeira"
+     title="Maß de Hofbräu no Hofbräuhaus, € 11,60"
+     gallery="munique-dia1" %}
 </div>
 
 <div class="divider">· · ·</div>
@@ -311,7 +317,7 @@ Voltamos de Bolt (**€ 23,90**) e jantamos no **Unique Burger** (Landsbergerstr
 
 O plano era retirar o traje às 9h e estar na tenda às 10h. Saímos do hostel às **11h10** — e essa hora perdida teve consequência.
 
-Retiramos o Tracht das **11h25 às 11h47**. Enquanto isso chegaram o Diego e os dois amigos dele, Tiago e Alexandre, vindos direto do aeroporto e **praticamente virados**. Nos encontramos ali mesmo na loja: **nós nos trocamos no local e entregamos a eles as roupas que estávamos usando**, que foram levadas para o hostel. Foi a solução mais prática possível — evitou uma viagem de ida e volta a Laim só para trocar de roupa.
+Retiramos o Tracht das **11h25 às 11h47**. Enquanto isso chegaram o amigo de Dublin e os dois amigos dele, vindos direto do aeroporto e **praticamente virados**. Nos encontramos ali mesmo na loja: **nós nos trocamos no local e entregamos a eles as roupas que estávamos usando**, que foram levadas para o hostel. Foi a solução mais prática possível — evitou uma viagem de ida e volta a Laim só para trocar de roupa.
 
 Ao sair da loja, uma parada rápida: **Restaurant Flair, € 13,00** — duas cervejas de € 3,50 e um Jägermeister, comprados na rua ao lado da loja. É a foto de abertura da Oktoberfest para mim: Lederhosen, garrafa de Helles numa mão e a mini de Jäger na outra, na calçada, com sol a pino.
 
@@ -321,7 +327,7 @@ Ao sair da loja, uma parada rápida: **Restaurant Flair, € 13,00** — duas ce
 
 Gastos em cartão: **Burtschers € 17,60** no almoço e **Burtschers € 18,00** no lanche da tarde — o mesmo lugar nas duas vezes, com linguiça no pão, cone de batata frita e refrigerante. O resto da conta do dia — toda a cerveja — saiu em dinheiro, e não deixa rastro.
 
-E aqui vale um aviso honesto sobre o que uma sexta-feira de Wiesn faz com você: **eu bebi mais do que devia e voltei sozinho**, de táxi (**€ 33,10**), às 16h34. O Luiz ficou. Ele voltou a pé, quase à meia-noite. O combinado era nos reencontrarmos à noite com o Diego e os amigos dele — e simplesmente não aconteceu.
+E aqui vale um aviso honesto sobre o que uma sexta-feira de Wiesn faz com você: **eu bebi mais do que devia e voltei sozinho**, de táxi (**€ 33,10**), às 16h34. O amigo de Manchester ficou. Ele voltou a pé, quase à meia-noite. O combinado era nos reencontrarmos à noite com o amigo de Dublin e os amigos dele — e simplesmente não aconteceu.
 
 <div class="callout callout-warn">
   <div class="callout-label">A cerveja da Oktoberfest é mais forte do que a cerveja normal</div>
@@ -330,15 +336,18 @@ E aqui vale um aviso honesto sobre o que uma sexta-feira de Wiesn faz com você:
 </div>
 
 <div class="photo-gallery">
-  <a href="{{ site.baseurl }}/assets/img/posts/munique-2026/dia2-01.jpg" class="glightbox" data-gallery="munique-dia2" data-title="De Tracht na rua, com Helles e Jägermeister, logo após retirar o traje">
-    <img src="{{ site.baseurl }}/assets/img/posts/munique-2026/dia2-01.jpg" alt="Traje típico na rua">
-  </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/munique-2026/dia2-02.jpg" class="glightbox" data-gallery="munique-dia2" data-title="Dentro da Hofbräu-Festhalle na sexta-feira">
-    <img src="{{ site.baseurl }}/assets/img/posts/munique-2026/dia2-02.jpg" alt="Hofbräu-Festhalle">
-  </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/munique-2026/dia2-03.jpg" class="glightbox" data-gallery="munique-dia2" data-title="Brinde na tenda Hofbräu, 13h13">
-    <img src="{{ site.baseurl }}/assets/img/posts/munique-2026/dia2-03.jpg" alt="Brinde na tenda">
-  </a>
+  {% include photo.html src="/assets/img/posts/munique-2026/dia2-01.jpg"
+     alt="Eu de camisa xadrez vermelha e Lederhosen na calçada, ao sol, com uma garrafa de cerveja numa mão e uma miniatura de Jägermeister na outra"
+     title="De Tracht na rua, com Helles e Jägermeister, logo após retirar o traje"
+     gallery="munique-dia2" %}
+  {% include photo.html src="/assets/img/posts/munique-2026/dia2-02.jpg"
+     alt="Eu de Lederhosen segurando uma Maß cheia dentro da tenda lotada, com coroas de lúpulo e emblemas HB ao fundo"
+     title="Dentro da Hofbräu-Festhalle na sexta-feira"
+     gallery="munique-dia2" %}
+  {% include photo.html src="/assets/img/posts/munique-2026/dia2-03.jpg"
+     alt="Eu e um amigo, os dois de camisa xadrez e Lederhosen, brindando com canecas de um litro sob o teto de lonas da tenda"
+     title="Brinde na tenda Hofbräu, 13h13"
+     gallery="munique-dia2" %}
 </div>
 
 <div class="divider">· · ·</div>
@@ -352,7 +361,7 @@ O dia grande da viagem, e de longe o mais caro.
 
 ### Café da manhã no Kebab ao lado do hostel
 
-Saímos cedo e comemos no **kebab ao lado do Unique Burger**, na Landsberger Straße. Cerca de **€ 6 o kebab**, e dividimos uma Coca de 2 litros — algo em torno de **€ 20 no total**. Quem pagou foi o Diego, em dinheiro, porque eu estava sem cash naquele momento. O Alexandre não comeu e o Tiago ficou dormindo no hostel.
+Saímos cedo e comemos no **kebab ao lado do Unique Burger**, na Landsberger Straße. Cerca de **€ 6 o kebab**, e dividimos uma Coca de 2 litros — algo em torno de **€ 20 no total**. Quem pagou foi o amigo de Dublin, em dinheiro, porque eu estava sem cash naquele momento. Dos dois amigos dele, um não comeu e o outro ficou dormindo no hostel.
 
 ### A entrada pela porta lateral (12h25)
 
@@ -401,22 +410,25 @@ Resolvemos às 00h19 pagando **€ 50 num táxi comum, via PayPal**.
 </div>
 
 <div class="photo-gallery">
-  <a href="{{ site.baseurl }}/assets/img/posts/munique-2026/dia3-01.jpg" class="glightbox" data-gallery="munique-dia3" data-title="Portal Willkommen zum Oktoberfest lotado, 12h39 de sábado">
-    <img src="{{ site.baseurl }}/assets/img/posts/munique-2026/dia3-01.jpg" alt="Entrada da Oktoberfest">
-  </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/munique-2026/dia3-02.jpg" class="glightbox" data-gallery="munique-dia3" data-title="Quatro Maß de uma vez na Hofbräu-Festhalle">
-    <img src="{{ site.baseurl }}/assets/img/posts/munique-2026/dia3-02.jpg" alt="Quatro Maß">
-  </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/munique-2026/dia3-03.jpg" class="glightbox" data-gallery="munique-dia3" data-title="Interior da Hofbräu-Festhalle, teto de lonas e coroas de lúpulo">
-    <img src="{{ site.baseurl }}/assets/img/posts/munique-2026/dia3-03.jpg" alt="Interior da tenda">
-  </a>
+  {% include photo.html src="/assets/img/posts/munique-2026/dia3-01.jpg"
+     alt="Multidão parada diante do portal de entrada da Oktoberfest, sob céu azul, vista por trás de visitantes em traje típico"
+     title="Portal Willkommen zum Oktoberfest lotado, 12h39 de sábado"
+     gallery="munique-dia3" %}
+  {% include photo.html src="/assets/img/posts/munique-2026/dia3-02.jpg"
+     alt="Eu segurando quatro canecas de um litro de cerveja ao mesmo tempo, no meio da tenda cheia"
+     title="Quatro Maß de uma vez na Hofbräu-Festhalle"
+     gallery="munique-dia3" %}
+  {% include photo.html src="/assets/img/posts/munique-2026/dia3-03.jpg"
+     alt="Eu com quatro Maß nas mãos, com a galeria superior lotada, o teto de lonas pintadas e as coroas de lúpulo da tenda ao fundo"
+     title="Interior da Hofbräu-Festhalle, teto de lonas e coroas de lúpulo"
+     gallery="munique-dia3" %}
 </div>
 
 <div class="divider">· · ·</div>
 
 <div class="section-header">
   <div class="section-num">08</div>
-  <div class="section-title-wrap"><h2>Dia 4 — Paulaner, Hacker e perder o Luiz</h2></div>
+  <div class="section-title-wrap"><h2>Dia 4 — Paulaner, Hacker e perder o grupo</h2></div>
 </div>
 
 Depois de doze horas de tenda, o domingo começou tarde: **saímos do hostel às 14h45**.
@@ -429,7 +441,7 @@ Nesse dia trocamos de tenda: começamos na **Paulaner** e terminamos na **Hacker
 
 ### O fim de noite que não terminou junto
 
-Na hora de sair da Hacker, **eu e o Luiz nos separamos** e não nos encontramos mais. Fiquei bastante tempo parado esperando, encontrei outros amigos de Dublin no meio do caminho, matei mais um tempo, comi alguma coisa, voltei até a frente da Hacker — e nada. No fim, **voltei sozinho de táxi**, pago em dinheiro.
+Na hora de sair da Hacker, **eu e meu amigo nos separamos** e não nos encontramos mais. Fiquei bastante tempo parado esperando, encontrei outros amigos de Dublin no meio do caminho, matei mais um tempo, comi alguma coisa, voltei até a frente da Hacker — e nada. No fim, **voltei sozinho de táxi**, pago em dinheiro.
 
 <div class="callout callout-warn">
   <div class="callout-label">Combine o ponto de encontro antes de entrar, não depois de sair</div>
@@ -492,7 +504,7 @@ Alugamos na **Schwanthalerstraße 67**, a poucos minutos da Theresienwiese.
   <tbody>
     <tr><td>Aluguel do conjunto, 2 dias</td><td>€ 70,00 por pessoa</td></tr>
     <tr><td>Caução (devolvida na entrega)</td><td>€ 100,00 por pessoa</td></tr>
-    <tr><td>Desembolso total (eu + Luiz)</td><td>€ 340,00</td></tr>
+    <tr><td>Desembolso total (eu + o amigo)</td><td>€ 340,00</td></tr>
     <tr><td>Devolvido</td><td>€ 200,00</td></tr>
     <tr><td><strong>Custo real</strong></td><td><strong>€ 140,00 (€ 70 cada)</strong></td></tr>
   </tbody>
@@ -509,7 +521,7 @@ Alugamos na **Schwanthalerstraße 67**, a poucos minutos da Theresienwiese.
 
 <div class="callout callout-tip">
   <div class="callout-label">Alugar perto da Theresienwiese muda a logística do dia</div>
-  <p>A Schwanthalerstraße fica a <strong>caminhada de poucos minutos da Wiesn</strong>, e isso resolveu dois problemas que eu nem tinha previsto. O primeiro: no dia da retirada, <strong>nos trocamos dentro da loja</strong> e fomos direto para o festival, sem voltar ao hostel. O segundo: quando o Diego e os amigos dele chegaram do aeroporto direto para lá, <strong>levaram nossas roupas de volta ao hostel</strong> — o que só funcionou porque estávamos todos no mesmo ponto.</p>
+  <p>A Schwanthalerstraße fica a <strong>caminhada de poucos minutos da Wiesn</strong>, e isso resolveu dois problemas que eu nem tinha previsto. O primeiro: no dia da retirada, <strong>nos trocamos dentro da loja</strong> e fomos direto para o festival, sem voltar ao hostel. O segundo: quando o amigo de Dublin e os amigos dele chegaram do aeroporto direto para lá, <strong>levaram nossas roupas de volta ao hostel</strong> — o que só funcionou porque estávamos todos no mesmo ponto.</p>
   <p>Se você for alugar, escolha uma loja no eixo Hauptbahnhof–Theresienwiese. A diferença de preço entre lojas é pequena; a diferença de logística é enorme.</p>
 </div>
 
@@ -606,8 +618,8 @@ Foram **oito saques em cinco dias**:
     <tr><td>− Táxi do aeroporto de Dublin até em casa</td><td>− € 35,00</td></tr>
     <tr><td>− Sobrou na carteira ao voltar</td><td>− € 30,00</td></tr>
     <tr><td><strong>= Movimentado em espécie em Munique</strong></td><td><strong>€ 1.234,60</strong></td></tr>
-    <tr><td>− Aluguel do Tracht do Luiz (reembolsado)</td><td>− € 70,00</td></tr>
-    <tr><td>− Cerveja do Luiz (reembolsada)</td><td>− € 250,00</td></tr>
+    <tr><td>− Aluguel do Tracht do amigo (reembolsado)</td><td>− € 70,00</td></tr>
+    <tr><td>− Cerveja do amigo (reembolsada)</td><td>− € 250,00</td></tr>
     <tr><td>− Aluguel do meu Tracht</td><td>− € 70,00</td></tr>
     <tr><td>− Táxi de volta no domingo à noite</td><td>≈ − € 30,00</td></tr>
     <tr><td><strong>= Cerveja, comida e gorjeta na Wiesn, minhas</strong></td><td><strong>≈ € 815,00</strong></td></tr>
@@ -636,7 +648,7 @@ Foram **oito saques em cinco dias**:
 
 Viagem em grupo gera dívida cruzada, e vale registrar como ficou.
 
-**O caso do Luiz** foi o mais simples de resolver, apesar de parecer o mais confuso. Ele **perdeu o cartão em Manchester** antes de embarcar, e como dentro da tenda só se paga em dinheiro, **eu banquei a cerveja dele nos três dias**.
+**O caso do amigo de Manchester** foi o mais simples de resolver, apesar de parecer o mais confuso. Ele **perdeu o cartão em Manchester** antes de embarcar, e como dentro da tenda só se paga em dinheiro, **eu banquei a cerveja dele nos três dias**.
 
 <table class="compare-table">
   <thead>
@@ -689,7 +701,7 @@ Não alugamos carro — e nem faria sentido, dado o propósito da viagem. Usamos
 <div class="callout callout-warn">
   <div class="callout-label">Táxi e app comeram 88% do transporte — e não precisava</div>
   <p>De € 256 gastos em transporte, <strong>€ 225,80 foram Bolt e táxi</strong>. Apenas € 30,20 foram transporte público, e mesmo assim em dois bilhetes avulsos de aeroporto.</p>
-  <p>O erro é evidente em retrospecto: <strong>com três pessoas, o bilhete de grupo do MVV resolveria quase tudo</strong>. A <em>Gruppen-Tageskarte</em> cobre até cinco adultos por cerca de € 20 o dia inteiro na zona central, e o <em>Airport-City-Day-Ticket</em> de grupo cobre aeroporto e cidade por volta de € 32,60. Só o trajeto do aeroporto, feito com o bilhete de grupo, já teria economizado dinheiro em relação aos dois avulsos que comprei.</p>
+  <p>O erro é evidente em retrospecto: <strong>com três pessoas, o bilhete de grupo do MVV resolveria quase tudo</strong>. A <em>Gruppen-Tageskarte</em> cobre até cinco adultos por cerca de € 20 o dia inteiro na zona central, e o <em>Airport-City-Day-Ticket</em> de grupo cobre aeroporto e cidade por volta de € 32,60. A exceção é justamente o aeroporto: fiz os dois trechos sozinho e em dias diferentes, e aí os dois avulsos (€ 30,20) saem mais baratos que o bilhete de grupo, que vale um dia só.</p>
   <p>E o principal: <strong>Laim fica a três estações da Hackerbrücke</strong>. Todas as idas e voltas à Wiesn podiam ter sido de S-Bahn, em minutos, por uma fração do preço — e sem depender de motorista aceitar corrida à meia-noite de sábado.</p>
 </div>
 
@@ -733,13 +745,13 @@ Praticamente não choveu, e as tardes foram excelentes. Mas **as noites caíram 
 A Alemanha faz parte do **Espaço Schengen**; a **Irlanda não**. Isso tem duas consequências práticas para quem viaja de Dublin:
 
 - **Há controle de imigração na chegada a Munique.** Não é voo doméstico europeu como um Paris–Berlim; você passa pelo *Einreise* como em qualquer entrada internacional.
-- **A fila conta.** Foi exatamente ela que fez o Luiz perder a conexão em Frankfurt na ida.
+- **A fila conta.** Foi exatamente ela que fez meu amigo perder a conexão em Frankfurt na ida.
 
 Sobre **visto**: eu tenho **dupla nacionalidade brasileira e portuguesa**, então entrei como cidadão da UE e a questão não se colocou. Mas vale o alerta para quem viaja em grupo: **o que vale é o passaporte, não a residência**. Morar em Dublin não dispensa ninguém de visto Schengen — quem tem passaporte de fora da UE ou de países sem acordo de isenção precisa resolver isso com antecedência, e isso leva semanas.
 
 <div class="callout callout-tip">
   <div class="callout-label">Cheque a nacionalidade de cada pessoa do grupo, não a de onde ela mora</div>
-  Num grupo que começou com oito pessoas vindas de Dublin, Manchester e Portugal, é fácil supor que "todo mundo mora na Europa, então está tudo certo". <strong>Não está.</strong> Faça a pergunta explicitamente, por escrito, no começo do planejamento — e lembre que o novo sistema biométrico de entrada e saída da UE vem sendo implantado progressivamente, o que tende a tornar as filas mais lentas do que se estava acostumado.
+  Num grupo que começou com oito pessoas vindas de Dublin, Manchester e Portugal, é fácil supor que "todo mundo mora na Europa, então está tudo certo". <strong>Não está.</strong> Faça a pergunta explicitamente, por escrito, no começo do planejamento — e lembre que o sistema biométrico de entrada e saída da UE (EES) está em operação plena desde 10 de abril de 2026: quem viaja com passaporte de fora da UE tem foto e digitais conferidas na fronteira.
 </div>
 
 <div class="divider">· · ·</div>
@@ -749,7 +761,7 @@ Sobre **visto**: eu tenho **dupla nacionalidade brasileira e portuguesa**, entã
   <div class="section-title-wrap"><h2>Custos — os gráficos da viagem</h2></div>
 </div>
 
-A viagem me custou **€ 1.989,40**, já com todas as contas de grupo acertadas.
+A viagem me custou **€ 1.989,80**, já com todas as contas de grupo acertadas.
 
 <div class="callout callout-tip">
   <div class="callout-label">Como esses números foram levantados</div>
@@ -776,8 +788,8 @@ A viagem me custou **€ 1.989,40**, já com todas as contas de grupo acertadas.
   </div>
   <div style="display:flex;align-items:center;gap:0.75rem; margin-bottom: 0.55rem;">
     <div style="flex:0 0 9.5rem;opacity:0.8;">Transporte (Munique)</div>
-    <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:28.5%;height:100%;background:#3D8361;border-radius:3px;"></div></div>
-    <div style="flex:0 0 7.5rem;text-align:right;font-variant-numeric:tabular-nums;">≈ € 255,60 · 13%</div>
+    <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:28.6%;height:100%;background:#3D8361;border-radius:3px;"></div></div>
+    <div style="flex:0 0 7.5rem;text-align:right;font-variant-numeric:tabular-nums;">≈ € 256,00 · 13%</div>
   </div>
   <div style="display:flex;align-items:center;gap:0.75rem; margin-bottom: 0.55rem;">
     <div style="flex:0 0 9.5rem;opacity:0.8;">Comida fora da Wiesn</div>
@@ -804,7 +816,7 @@ A viagem me custou **€ 1.989,40**, já com todas as contas de grupo acertadas.
     <div style="flex:1;background:rgba(127,127,127,0.16);height:1.35rem;border-radius:3px;overflow:hidden;"><div style="width:1.1%;height:100%;background:#B5646E;border-radius:3px;"></div></div>
     <div style="flex:0 0 7.5rem;text-align:right;font-variant-numeric:tabular-nums;">€ 10,00 · 0,5%</div>
   </div>
-  <p style="opacity:0.6;font-size:0.8rem;margin-top:0.75rem;">Total: € 1.989,40.</p>
+  <p style="opacity:0.6;font-size:0.8rem;margin-top:0.75rem;">Total: € 1.989,80.</p>
 </div>
 
 ### Movimentação por dia
@@ -848,14 +860,14 @@ A viagem me custou **€ 1.989,40**, já com todas as contas de grupo acertadas.
     <tr><td>Oktoberfest — cerveja, comida e gorjeta (dinheiro + cartão)</td><td>≈ € 895,60</td><td>45,0%</td></tr>
     <tr><td>Hospedagem (1 cama, quarto de 6, 4 noites)</td><td>€ 272,43</td><td>13,7%</td></tr>
     <tr><td>Voos (Kiwi / Lufthansa, ida e volta)</td><td>€ 263,00</td><td>13,2%</td></tr>
-    <tr><td>Transporte em Munique (S-Bahn, Bolt, táxi)</td><td>≈ € 255,60</td><td>12,8%</td></tr>
+    <tr><td>Transporte em Munique (S-Bahn, Bolt, táxi)</td><td>≈ € 256,00</td><td>12,9%</td></tr>
     <tr><td>Refeições e bebidas fora da Wiesn</td><td>€ 108,82</td><td>5,5%</td></tr>
     <tr><td>Transporte e alimentação em Dublin (ida e volta)</td><td>€ 92,95</td><td>4,7%</td></tr>
     <tr><td>Aluguel do traje típico (líquido de caução)</td><td>€ 70,00</td><td>3,5%</td></tr>
     <tr><td>Hostel — extras (máquina de bebida, consumo)</td><td>€ 21,00</td><td>1,1%</td></tr>
     <tr><td>Taxas de saque</td><td>€ 10,00</td><td>0,5%</td></tr>
-    <tr><td><strong>Total da viagem</strong></td><td><strong>€ 1.989,40</strong></td><td><strong>100%</strong></td></tr>
-    <tr><td><strong>Total sem voos e hospedagem</strong></td><td><strong>€ 1.453,97</strong></td><td>—</td></tr>
+    <tr><td><strong>Total da viagem</strong></td><td><strong>€ 1.989,80</strong></td><td><strong>100%</strong></td></tr>
+    <tr><td><strong>Total sem voos e hospedagem</strong></td><td><strong>€ 1.454,37</strong></td><td>—</td></tr>
   </tbody>
 </table>
 
@@ -863,7 +875,7 @@ A viagem me custou **€ 1.989,40**, já com todas as contas de grupo acertadas.
   <div class="callout-label">Onde o dinheiro realmente foi</div>
   <p><strong>A Oktoberfest sozinha custou € 895 — mais que o voo e a hospedagem somados.</strong> É a categoria que define o orçamento desta viagem, e a única que depende inteiramente do seu ritmo. Não existe "economizar em Oktoberfest" sem beber menos: o ingresso é gratuito, a Maß tem preço tabelado e não há promoção.</p>
   <p><strong>Voo e hospedagem juntos foram € 535, ou 27% do total.</strong> Caçar promoção de passagem para a Oktoberfest é otimizar a variável errada — € 263 ida e volta já é um preço ótimo, e mesmo que fosse metade disso a viagem mal sentiria. O que define o custo é <em>com quantas pessoas você divide o quarto</em> e <em>quantas Maß você bebe</em>.</p>
-  <p><strong>Transporte foi € 255 — quase o mesmo que a passagem aérea</strong>, e isso é puro desperdício. Está tudo explicado na seção 14: € 226 em Bolt e táxi para trajetos que o S-Bahn fazia em minutos.</p>
+  <p><strong>Transporte foi € 256 — quase o mesmo que a passagem aérea</strong>, e isso é puro desperdício. Está tudo explicado na seção 14: € 226 em Bolt e táxi para trajetos que o S-Bahn fazia em minutos.</p>
 </div>
 
 <div class="callout callout-tip">
@@ -879,27 +891,34 @@ A viagem me custou **€ 1.989,40**, já com todas as contas de grupo acertadas.
 </div>
 
 <div class="photo-gallery">
-  <a href="{{ site.baseurl }}/assets/img/posts/munique-2026/galeria-01.jpg" class="glightbox" data-gallery="munique" data-title="Airbus A321neo da Lufthansa sobrevoando o mar da Irlanda a caminho de Munique">
-    <img src="{{ site.baseurl }}/assets/img/posts/munique-2026/galeria-01.jpg" alt="Em voo, DUB → MUC">
-  </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/munique-2026/galeria-02.jpg" class="glightbox" data-gallery="munique" data-title="A Frauenkirche vista do fim da Kaufingerstraße, com o sol de fim de tarde no topo das torres">
-    <img src="{{ site.baseurl }}/assets/img/posts/munique-2026/galeria-02.jpg" alt="Frauenkirche, Munique">
-  </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/munique-2026/galeria-03.jpg" class="glightbox" data-gallery="munique" data-title="A Marienplatz cheia no fim da tarde, com o Neues Rathaus iluminado pelo sol">
-    <img src="{{ site.baseurl }}/assets/img/posts/munique-2026/galeria-03.jpg" alt="Marienplatz e Neues Rathaus">
-  </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/munique-2026/galeria-04.jpg" class="glightbox" data-gallery="munique" data-title="Maß de Hofbräu servida no Hofbräuhaus am Platzl, € 11,60">
-    <img src="{{ site.baseurl }}/assets/img/posts/munique-2026/galeria-04.jpg" alt="Maß no Hofbräuhaus">
-  </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/munique-2026/galeria-05.jpg" class="glightbox" data-gallery="munique" data-title="Brinde com as canecas da Hofbräu dentro da tenda, na sexta-feira">
-    <img src="{{ site.baseurl }}/assets/img/posts/munique-2026/galeria-05.jpg" alt="Brinde na Hofbräu-Festhalle">
-  </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/munique-2026/galeria-06.jpg" class="glightbox" data-gallery="munique" data-title="A multidão no portal de entrada da Oktoberfest 2026, no sábado ao meio-dia">
-    <img src="{{ site.baseurl }}/assets/img/posts/munique-2026/galeria-06.jpg" alt="Entrada da Oktoberfest">
-  </a>
-  <a href="{{ site.baseurl }}/assets/img/posts/munique-2026/galeria-07.jpg" class="glightbox" data-gallery="munique" data-title="Quatro Maß de uma vez na Hofbräu-Festhalle — € 63,20 numa mão só">
-    <img src="{{ site.baseurl }}/assets/img/posts/munique-2026/galeria-07.jpg" alt="Quatro Maß na Hofbräu-Festhalle">
-  </a>
+  {% include photo.html src="/assets/img/posts/munique-2026/galeria-01.jpg"
+     alt="Motor do avião visto da janela, com o mar e as nuvens lá embaixo e o céu escuro no alto"
+     title="Airbus A321neo da Lufthansa sobrevoando o mar da Irlanda a caminho de Munique"
+     gallery="munique" %}
+  {% include photo.html src="/assets/img/posts/munique-2026/galeria-02.jpg"
+     alt="Neues Rathaus com a torre central iluminada pelo sol, visto de longe, com a praça em sombra e pessoas caminhando"
+     title="O Neues Rathaus visto do outro lado da Marienplatz, com o sol de fim de tarde no topo das torres"
+     gallery="munique" %}
+  {% include photo.html src="/assets/img/posts/munique-2026/galeria-03.jpg"
+     alt="Fachada do Neues Rathaus dourada pelo sol, com faixas azuis penduradas e gente espalhada pela Marienplatz"
+     title="A Marienplatz cheia no fim da tarde, com o Neues Rathaus iluminado pelo sol"
+     gallery="munique" %}
+  {% include photo.html src="/assets/img/posts/munique-2026/galeria-04.jpg"
+     alt="Maß de vidro com o emblema HB, cheia de cerveja e espuma, vista de cima sobre uma mesa de madeira escura"
+     title="Maß de Hofbräu servida no Hofbräuhaus am Platzl, € 11,60"
+     gallery="munique" %}
+  {% include photo.html src="/assets/img/posts/munique-2026/galeria-05.jpg"
+     alt="Selfie com um amigo dentro da tenda, os dois de óculos escuros e camisa xadrez, brindando com canecas de um litro"
+     title="Brinde com as canecas da Hofbräu dentro da tenda, na sexta-feira"
+     gallery="munique" %}
+  {% include photo.html src="/assets/img/posts/munique-2026/galeria-06.jpg"
+     alt="Portal de entrada da Oktoberfest visto de longe, com a multidão compactada atrás das grades e o sol forte no céu azul"
+     title="A multidão no portal de entrada da Oktoberfest 2026, no sábado ao meio-dia"
+     gallery="munique" %}
+  {% include photo.html src="/assets/img/posts/munique-2026/galeria-07.jpg"
+     alt="Eu sorrindo com quatro canecas de cerveja nas mãos, cercado de gente em traje típico dentro da tenda"
+     title="Quatro Maß de uma vez na Hofbräu-Festhalle — € 63,20 numa mão só"
+     gallery="munique" %}
 </div>
 
 <div class="divider">· · ·</div>
@@ -925,7 +944,7 @@ A viagem me custou **€ 1.989,40**, já com todas as contas de grupo acertadas.
 
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-beer-mug-empty"></i> Hacker-Festzelt — Theresienwiese</div>
-    <div class="provider-detail">Conhecida como "o céu dos bávaros" pelo teto pintado. Foi onde terminamos o domingo — e onde me separei do Luiz na saída.</div>
+    <div class="provider-detail">Conhecida como "o céu dos bávaros" pelo teto pintado. Foi onde terminamos o domingo — e onde me separei do meu amigo na saída.</div>
     <div class="provider-price">Maß na faixa de € 15,50–15,90 · Entrada gratuita</div>
   </div>
 
@@ -984,7 +1003,7 @@ A viagem me custou **€ 1.989,40**, já com todas as contas de grupo acertadas.
 
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-train"></i> MVV — transporte público de Munique</div>
-    <div class="provider-detail">Bilhetes, zonas e mapa da rede. Vale especialmente pelo <em>Gruppen-Tageskarte</em> (até 5 adultos) e pelo <em>Airport-City-Day-Ticket</em>, que teriam economizado boa parte dos € 256 que gastei em Bolt e táxi.</div>
+    <div class="provider-detail">Bilhetes, zonas e mapa da rede. Vale especialmente pelo <em>Gruppen-Tageskarte</em> (até 5 adultos) e pelo <em>Airport-City-Day-Ticket</em>, que teriam economizado boa parte dos € 256 que gastei em transporte.</div>
     <div class="provider-price"><a href="https://www.mvv-muenchen.de/en" target="_blank">mvv-muenchen.de →</a></div>
   </div>
 
@@ -1011,6 +1030,6 @@ A viagem me custou **€ 1.989,40**, já com todas as contas de grupo acertadas.
 <div class="conclusion">
   <h2>Vale muito a pena — mas resolva o grupo antes de reservar</h2>
   <p>A Oktoberfest entrega exatamente o que promete, e mais: uma tenda com milhares de pessoas cantando junto, cerveja servida em litro por garçons que carregam doze canecas de uma vez, uma cidade inteira vestida a caráter no meio da semana, e tudo isso a duas horas de voo de Dublin por € 263. Passei quase dezoito horas dentro da Theresienwiese em três dias e a sensação, ao sair, foi de não ter visto metade.</p>
-  <p>Mas os números contam uma história específica, e ela não é sobre a Alemanha ser cara. Munique durante a Wiesn me custou € 1.989, e <strong>quase metade disso foi consumido dentro das tendas, em dinheiro, sem um único recibo</strong>. Voo e cama somados deram € 535 — menos de um terço do total. A Maß a € 15,80 é o preço oficial e não tem como fugir dele; o que pesa é que ninguém conta as rodadas enquanto a banda está tocando.</p>
+  <p>Mas os números contam uma história específica, e ela não é sobre a Alemanha ser cara. Munique durante a Wiesn me custou € 1.990, e <strong>quase metade disso foi consumido dentro das tendas, em dinheiro, sem um único recibo</strong>. Voo e cama somados deram € 535 — menos de um terço do total. A Maß a € 15,80 é o preço oficial e não tem como fugir dele; o que pesa é que ninguém conta as rodadas enquanto a banda está tocando.</p>
   <p>Se eu fizesse de novo, mudaria cinco coisas: cravaria um <strong>prazo-limite de confirmação</strong> para o grupo bem antes da data de cancelamento grátis, usaria o <strong>bilhete de grupo do MVV</strong> em vez de queimar € 226 em Bolt e táxi, sacaria dinheiro <strong>uma vez só, num banco de verdade</strong>, combinaria um <strong>ponto de encontro fixo</strong> antes de entrar na tenda — perdi o grupo duas vezes em três dias — e conferiria <strong>o letreiro do vagão</strong>, não só o do trem, na manhã do voo de volta. O resto eu repetiria exatamente igual, inclusive as quatro Maß de uma vez só.</p>
 </div>

@@ -87,7 +87,8 @@ blog/                                 # nome do repositório
 │   │   ├── londres-2026.yml          # Show do Alok em Londres — totais calculados
 │   │   ├── malta-2026.yml            # Malta em 8 dias — totals: false (custos por atividade, sem soma)
 │   │   ├── amsterda-2026.yml         # Amsterdã no Koningsdag — totals: false
-│   │   └── albania-2026.yml          # Albânia em 7 dias — totals: false, first_day: 0
+│   │   ├── albania-2026.yml          # Albânia em 7 dias — totals: false, first_day: 0
+│   │   └── munique-2026.yml          # Oktoberfest em 5 dias — totals: false (saques em dinheiro como atividade `cash`)
 │   ├── activity_types.yml            # Tipos de atividade do roteiro: ícone Font Awesome + rótulo em pt-BR/en
 │   ├── quotes.yml                    # Lista de quotes da sidebar
 │   └── images.json                   # GERADO por build_images.py (gitignored): dimensões + derivados das fotos
@@ -265,6 +266,7 @@ Audita a estrutura inteira do blog e escreve um relatório em `audit-report.md` 
 | `description`/`image` ausentes | ⚠️ aviso |
 | `reading_time:` manual destoando do valor calculado (mais de 10% e mais de 1 min) ou que não é um inteiro positivo | ⚠️ aviso |
 | `cover:` num formato inesperado | ⚠️ aviso |
+| `image_alt`/`image_credit`/`image_license` sem `image:`, `image_credit_url`/`image_license_url` sem o texto correspondente ou que não é uma URL `http(s)` absoluta | ⚠️ aviso |
 | Foto de galeria com outros metadados EXIF/XMP remanescentes | ⚠️ aviso |
 
 Rodar localmente:
@@ -441,6 +443,11 @@ A sidebar suporta dois campos distintos:
 | `reading_time` | number | — | Override manual do tempo de leitura, em minutos inteiros. Se ausente, `_plugins/reading_time.rb` calcula a partir do texto no build ([ADR-0013](docs/adr/0013-reading-time-computed-from-body.md)); se presente e muito diferente do calculado, `audit_blog.py` avisa |
 | `image` | path | — | Imagem de capa (og:image/Twitter card) — precisa ser raster (png/jpg/jpeg/gif). Se ausente num post que não é de viagem, `og-cards.yml` gera e preenche |
 | `cover` | path | — | Hero visual da página do post (SVG, PNG, JPG, GIF ou WebP). Um `cover` SVG sem `image` é rasterizado pelo `og-cards.yml` |
+| `image_alt` | string | — | Texto alternativo do hero: descreve o que a imagem mostra. Vira o `alt` do hero na página do post e nos cards, `og:image:alt`/`twitter:image:alt` e a `description` do `ImageObject` no JSON-LD. Sem ele, o `alt` é o título do post ([ADR-0021](docs/adr/0021-hero-alt-text-credit-and-licence-in-front-matter.md)) |
+| `image_credit` | string | — | Autor/fonte de um hero que **não é seu** (ex.: `"Nome / Unsplash"`). Aparece na linha de crédito sob o hero ("Foto: …") e como `creditText` no JSON-LD. Foto ou SVG próprios não levam crédito |
+| `image_credit_url` | URL | — | Link do crédito (página do fotógrafo ou da foto) — `http(s)://` absoluto; só tem efeito junto de `image_credit` |
+| `image_license` | string | — | Licença de uso do hero (ex.: `"Unsplash License"`, `"CC BY 4.0"`). Aparece na mesma linha de crédito ("Licença: …") |
+| `image_license_url` | URL | — | Link para o texto da licença — `http(s)://` absoluto; só tem efeito junto de `image_license`. Vira `license` no JSON-LD |
 | `card_style` | string | — | `dark` ou `cream` — força o estilo do card gerado (padrão: dark para Coding/Infrastructure, cream para o resto) |
 | `gallery` | boolean | — | Ativa o lightbox (GLightbox) para imagens `.glightbox` no corpo do post |
 | `featured` | boolean | — | Fixa o post na seção de destaques da home |
@@ -553,7 +560,7 @@ Cada dia tem `date`, `title` (opcional) e `activities`; cada atividade tem `type
 
 A linha do tempo é um `<ol>` de dias com um `<ul>` de atividades por dia — sem CSS ela continua legível como lista — e vem seguida de uma `<table hidden>` com as mesmas linhas, que o `main.css` exibe só em `@media print`. A 360px as linhas quebram (o valor desce para baixo do título) em vez de rolar. Ver [ADR-0016](docs/adr/0016-trip-itinerary-as-data-with-computed-totals.md).
 
-Duas opções no arquivo do roteiro: `totals: false` esconde todos os totais calculados (por dia, da viagem e a coluna da tabela de impressão) — para roteiros em que o texto só itemiza parte dos gastos, como Malta, Amsterdã e Albânia, onde os totais por dia continuam sendo os da planilha ou do extrato do próprio post; e `first_day: 0` muda a numeração quando o post conta a partir do "Dia 0". Só use `trip-summary.html` num roteiro com totais.
+Duas opções no arquivo do roteiro: `totals: false` esconde todos os totais calculados (por dia, da viagem e a coluna da tabela de impressão) — para roteiros em que o texto só itemiza parte dos gastos, como Malta, Amsterdã, Albânia e Munique, onde os totais por dia continuam sendo os da planilha ou do extrato do próprio post; e `first_day: 0` muda a numeração quando o post conta a partir do "Dia 0". Só use `trip-summary.html` num roteiro com totais.
 
 ---
 
@@ -642,7 +649,7 @@ Todos os tokens estão em `assets/css/main.css` como variáveis CSS em `:root`.
 ## 📚 Documentação adicional
 
 - **[CONTEXT.md](CONTEXT.md)** — glossário de domínio: o que é um Post, Category, Subcategory, Tag, Series e Trip, e como se relacionam.
-- **[docs/adr/](docs/adr/)** — Architecture Decision Records explicando por que categoria/tag/feed viraram páginas geradas em vez de arquivos físicos, como o workflow de posts escritos com apoio de IA funciona, por que as fotos de galeria são sanitizadas no repositório e servidas via derivados gerados no build, e por que o card Open Graph é renderizado no CI e comitado no PR.
+- **[docs/adr/](docs/adr/)** — Architecture Decision Records explicando por que categoria/tag/feed viraram páginas geradas em vez de arquivos físicos, como o workflow de posts escritos com apoio de IA funciona, por que as fotos de galeria são sanitizadas no repositório e servidas via derivados gerados no build, por que o card Open Graph é renderizado no CI e comitado no PR, e como o hero declara texto alternativo, crédito e licença.
 - **[docs/agents/](docs/agents/)** — documentação voltada a agentes de IA (onde ficam as issues, como o domínio é modelado).
 - **[CLAUDE.md](CLAUDE.md)** — instruções para agentes de IA (Claude Code) que trabalham neste repositório.
 
