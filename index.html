@@ -114,7 +114,7 @@ pagination:
           <article class="featured-card">
             <a class="featured-image" href="{{ featured.url | relative_url }}" tabindex="-1" aria-hidden="true">
               {% if _featured_image %}
-                <img src="{{ _featured_image | relative_url }}" alt="{{ featured.title }}">
+                <img src="{{ _featured_image | relative_url }}" alt="{{ featured.image_alt | default: featured.title | escape }}">
               {% else %}
                 <div class="featured-placeholder"><span>{{ featured.title | slice: 0 }}</span></div>
               {% endif %}

@@ -37,6 +37,9 @@ beach:
 shopping:
   icon: fa-bag-shopping
   label: { pt-BR: "Compras", en: "Shopping" }
+cash:
+  icon: fa-money-bill-wave
+  label: { pt-BR: "Saque", en: "Cash withdrawal" }
 rest:
   icon: fa-mug-hot
   label: { pt-BR: "Descanso", en: "Rest" }

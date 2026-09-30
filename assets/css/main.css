@@ -482,6 +482,16 @@ a { color: inherit; text-decoration: none; }
   height: auto;
   margin: 0;
 }
+/* Credit line under a Hero the author did not make (image_credit / image_license) */
+.post-cover-credit {
+  padding: .4rem 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.625rem; letter-spacing: .04em;
+  color: rgba(255,255,255,.65);
+  text-align: right;
+}
+.post-cover-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.post-cover-credit a:hover { color: var(--green-glow); }
 
 .hero-post-eyebrow {
   font-family: 'JetBrains Mono', monospace;

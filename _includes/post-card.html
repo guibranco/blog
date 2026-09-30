@@ -4,7 +4,7 @@
               {% assign _card_image = include.post.cover | default: include.post.image %}
               <a href="{{ include.post.url | relative_url }}" class="post-card-image" tabindex="-1" aria-hidden="true">
                 {% if _card_image %}
-                  <img src="{{ _card_image | relative_url }}" alt="{{ include.post.title }}">
+                  <img src="{{ _card_image | relative_url }}" alt="{{ include.post.image_alt | default: include.post.title | escape }}">
                 {% else %}
                   <div class="post-card-placeholder"><span>{{ include.post.title | slice: 0 }}</span></div>
                 {% endif %}

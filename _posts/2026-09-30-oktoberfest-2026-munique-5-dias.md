@@ -9,8 +9,9 @@ subcategories:
   - "Hobbies/Travel & Places"
 tags: [viagem, munique, munich, alemanha, oktoberfest, wiesn, theresienwiese, baviera, hofbrau, hofbrauhaus, paulaner, hacker, marienplatz, frauenkirche, lederhosen, dirndl, tracht, laim, irlanda, dublin, cerveja, lufthansa, kiwi, bolt, s-bahn, guia-de-viagem, custos-reais, travel, places, locations, beer, festival]
 image: /assets/img/posts/munique-2026/capa.jpg
-image_alt: "Vista aérea da Marienplatz ao anoitecer, com o Neues Rathaus e as torres da Frauenkirche ao fundo"
-image_credit: "Unsplash"
+image_alt: "A torre da tenda Paulaner e a torre do Löwenbräu sobre a multidão na alameda central da Theresienwiese"
+image_credit: "Ritesh Mishra / Unsplash"
+image_credit_url: "https://unsplash.com/@random_photographer_"
 image_license: "Unsplash License"
 gallery: true
 countries: [Germany]

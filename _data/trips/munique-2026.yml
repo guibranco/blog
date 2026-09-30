@@ -1,512 +1,300 @@
-# Vocabulário de `type` usado neste arquivo (13 valores):
-#   voo · transporte · hospedagem · alimentacao · bebida · passeio
-#   oktoberfest · tracht · saque · incidente · inicio · chegada · fim
-# Confira contra o vocabulário já usado em _data/trips/malta-2026.yml antes do merge.
-
-trip: munique-2026
-title: "Oktoberfest 2026 — Munique"
+# Itinerary of _posts/2026-09-30-oktoberfest-2026-munique-5-dias.md (ADR-0016).
+#
+# Times are Munich local time, already corrected: the card statement records
+# them one hour behind. `cost` is only ever an amount the post states: card
+# charges are exact, group amounts carry the `split` the post gives, and the
+# two cash amounts the post itself marks with "≈" carry `approx`. A cash
+# withdrawal (`type: cash`) is the amount taken out that day, not what was
+# spent: the cash spent inside the tents has no receipt and is not itemized.
+#
+# totals: false — the post's per-day and per-category figures come from the
+# author's reconciliation (cash estimated by difference, group settlements
+# netted out), so summing these rows would show a second, different total.
+# The timeline shows what each activity cost; section 17 of the post stays the
+# source for the totals.
 currency: EUR
-note: >-
-  Horários em hora local de Munique (CEST), já corrigidos: o extrato do Revolut
-  registra uma hora a menos. Valores em cartão são exatos; os gastos em dinheiro
-  dentro das tendas não têm recibo e aparecem apenas como saque, no dia em que
-  foram feitos. Onde a conta foi dividida, a divisão está explícita.
-
+totals: false
 days:
-
-  - day: 1
-    date: 2026-09-24
-    weekday: "Quinta"
-    label: "Dublin → Munique, Marienplatz e Hofbräuhaus"
-    total: 111.59
+  - date: 2026-09-24
+    title: "Dublin → Munique, Marienplatz e Hofbräuhaus"
     activities:
       - time: "09:01"
-        title: "Saída de casa, em Dublin"
-        place: "Dublin, Irlanda"
-        type: transporte
+        type: transport
+        title: "Bolt de casa ao aeroporto de Dublin (18,5 km)"
         cost: 33.40
-        paid_by: "eu"
-        note: "Bolt até o aeroporto de Dublin — 18,5 km"
       - time: "09:44"
-        title: "Aeroporto de Dublin"
-        place: "Dublin Airport (DUB)"
-        type: alimentacao
+        type: food
+        title: "The Garden Terrace, aeroporto de Dublin — duas contas, € 17,00 e € 7,55"
         cost: 24.55
-        paid_by: "eu"
-        note: "The Garden Terrace — duas contas, € 17,00 e € 7,55"
       - time: "11:04"
-        title: "Decolagem para Munique"
-        place: "DUB → MUC"
-        type: voo
+        type: flight
+        title: "Voo DUB → MUC (Lufthansa, A321neo)"
         cost: 131.50
-        paid_by: "eu"
-        note: "Lufthansa A321neo · 1.460 km · previsto 10h40, real 11h04"
+        note: "Previsto para as 10h40; água e biscoito a bordo, sem custo"
       - time: "14:05"
+        type: flight
         title: "Pouso em Munique, Terminal 2"
-        place: "Aeroporto de Munique (MUC)"
-        type: chegada
-        cost: 0
-        note: "Água e biscoito servidos a bordo, sem custo"
       - time: "14:15"
-        title: "Ônibus airside para o Terminal 1 — erro"
-        place: "MUC, Terminal 1"
-        type: transporte
-        cost: 0
-        highlight: true
-        note: >-
-          Transfer de conexão, não de chegada. Sem saída para a cidade pelos
-          portões D; controle de embarque nos portões A/B. 1h15 perdida.
+        end: "15:30"
+        type: transport
+        title: "Ônibus airside para o Terminal 1 — o erro"
+        note: "Transfer de conexão, não de chegada: sem saída para a cidade pelos portões D. 1h15 perdida"
       - time: "15:30"
+        type: transport
         title: "S-Bahn do aeroporto até Laim, com baldeação"
-        place: "MUC → Laim"
-        type: transporte
         cost: 15.10
-        paid_by: "eu"
       - time: "17:11"
-        title: "Check-in no hostel"
-        place: "A&O, Laim"
-        type: hospedagem
-        cost: 1438.43
-        paid_by: "Luiz"
-        split: 5
-        note: >-
-          Saldo da reserva pago no balcão pelo Luiz. Quarto privativo de 6 camas,
-          ocupado por 5 pessoas; acerto entre o grupo feito depois por transferência.
+        type: lodging
+        title: "Check-in no A&O, em Laim"
+        note: "Saldo de € 1.438,43 pago no balcão pelo amigo de Manchester; minha parte da hospedagem, uma cama de seis, foi € 272,43"
       - time: "17:33"
-        title: "Aluguel do traje típico"
-        place: "Schwanthalerstraße 67"
-        type: tracht
-        cost: 340.00
-        paid_by: "eu"
+        type: shopping
+        title: "Aluguel do traje típico, Schwanthalerstraße 67"
+        cost: 140.00
         split: 2
-        note: >-
-          € 70 de aluguel + € 100 de caução, por pessoa, para mim e para o Luiz.
-          Somente dinheiro. Retirada marcada para a manhã seguinte.
-      - time: "18:12"
-        title: "Caminhada pelo centro histórico — 1,24 km"
-        place: "Schwanthalerstraße → Platzl"
-        type: passeio
-        cost: 0
+        note: "€ 70 por pessoa, por dois dias, mais € 100 de caução cada, devolvida no domingo. Somente dinheiro; retirada na manhã seguinte"
       - time: "18:09"
-        title: "Cerveja na rua"
-        place: "Restaurant Flair"
-        type: bebida
+        type: drinks
+        title: "Cerveja na rua — Restaurant Flair"
         cost: 10.00
-        paid_by: "eu"
+      - time: "18:12"
+        type: walk
+        title: "Caminhada pelo centro histórico até o Platzl (1,24 km)"
       - time: "18:31"
-        title: "Frauenkirche"
-        place: "Kaufingerstraße"
-        type: passeio
-        cost: 0
+        type: sight
+        title: "Frauenkirche, vista da Kaufingerstraße"
         note: "Luz dourada só no topo das torres"
       - time: "18:33"
+        type: sight
         title: "Marienplatz e Neues Rathaus"
-        place: "Marienplatz"
-        type: passeio
-        cost: 0
         note: "Praça decorada com as bandeirolas azul-e-branco da Baviera"
       - time: "18:48"
-        title: "Parada no caminho"
-        place: "Wilde Zeiten"
-        type: bebida
+        type: drinks
+        title: "Parada no caminho — Wilde Zeiten"
         cost: 15.00
-        paid_by: "eu"
       - time: "19:08"
-        title: "Hofbräuhaus am Platzl"
-        place: "Platzl 9"
-        type: bebida
+        end: "20:56"
+        type: drinks
+        title: "Hofbräuhaus am Platzl — duas Maß e um Schweinshaxe"
         cost: 45.00
-        paid_by: "Luiz"
         split: 2
-        highlight: true
-        note: >-
-          2 Maß (€ 11,60 cada) + Schweinshaxe (≈ € 21,80). Ficamos até as 20h56.
+        note: "Maß a € 11,60 e o prato a ≈ € 21,80; conta paga pelo amigo"
       - time: "20:44"
-        title: "Consumo adicional no Hofbräuhaus"
-        place: "Platzl 9"
-        type: bebida
+        type: drinks
+        title: "Hofbräuhaus — consumo adicional"
         cost: 18.37
-        paid_by: "eu"
-        note: "Aparece no extrato como YUNO"
       - time: "20:53"
-        title: "Volta para Laim"
-        place: "Platzl → Laim"
-        type: transporte
+        type: transport
+        title: "Bolt, Platzl → Laim"
         cost: 23.90
-        paid_by: "eu"
-        note: "Bolt"
       - time: "21:26"
-        title: "Jantar"
-        place: "Unique Burger, Landsbergerstraße 317"
-        type: alimentacao
+        type: food
+        title: "Jantar no Unique Burger, Landsbergerstraße 317"
         cost: 29.22
-        paid_by: "eu"
-        note: >-
-          Bacon burger € 14,49 · fries € 4,99 · onion rings € 5,99 ·
-          Sprite € 3,75 · IVA 7% e 19% € 2,27
+        note: "Bacon burger € 14,49, fritas € 4,99, onion rings € 5,99 e Sprite € 3,75"
       - time: "21:53"
+        type: lodging
         title: "Hostel"
-        place: "A&O, Laim"
-        type: fim
-        cost: 0
-
-  - day: 2
-    date: 2026-09-25
-    weekday: "Sexta"
-    label: "Primeira Wiesn — Hofbräu-Festhalle"
-    total: 654.45
+  - date: 2026-09-25
+    title: "Primeira Wiesn — Hofbräu-Festhalle"
     activities:
       - time: "11:03"
+        type: drinks
         title: "Bebida na máquina do hostel"
-        place: "A&O, Laim"
-        type: alimentacao
         cost: 4.00
-        paid_by: "eu"
       - time: "11:10"
-        title: "Saída do hostel"
-        place: "Laim → Schwanthalerstraße"
-        type: transporte
+        type: transport
+        title: "Bolt, Laim → Schwanthalerstraße"
         cost: 20.90
-        paid_by: "eu"
-        note: "Bolt. O plano era sair às 9h."
+        note: "O plano era sair às 9h"
       - time: "11:25"
+        end: "11:47"
+        type: shopping
         title: "Retirada do traje típico e troca de roupa na loja"
-        place: "Schwanthalerstraße 67"
-        type: tracht
-        cost: 0
-        highlight: true
-        note: >-
-          Encontro com Diego, Tiago e Alexandre, recém-chegados do aeroporto.
-          Deixamos nossas roupas com eles, que as levaram ao hostel.
+        note: "Encontro com o amigo de Dublin e os dois amigos dele, recém-chegados do aeroporto; eles levaram nossas roupas ao hostel"
       - time: "11:30"
+        type: cash
         title: "Saque em dinheiro"
-        place: "Caixa eletrônico (Transact)"
-        type: saque
         cost: 345.95
-        paid_by: "eu"
       - time: "11:46"
-        title: "Cerveja e Jägermeister na rua"
-        place: "Restaurant Flair"
-        type: bebida
+        type: drinks
+        title: "Duas cervejas de € 3,50 e um Jägermeister na rua — Restaurant Flair"
         cost: 13.00
-        paid_by: "eu"
-        note: "Duas cervejas de € 3,50 e uma dose de Jäger, ao lado da loja"
       - time: "11:47"
-        title: "Entrada na Theresienwiese"
-        place: "Theresienwiese"
-        type: oktoberfest
-        cost: 0
-        highlight: true
-        note: "Hofbräu-Festhalle. Maß a € 15,80."
+        end: "16:34"
+        type: event
+        title: "Theresienwiese — Hofbräu-Festhalle"
+        note: "4h47 de festival; Maß a € 15,80, paga em dinheiro"
       - time: "12:21"
-        title: "Almoço na Wiesn"
-        place: "Burtschers"
-        type: alimentacao
+        type: food
+        title: "Almoço na Wiesn — Burtschers"
         cost: 17.60
-        paid_by: "eu"
         note: "Linguiça no pão, cone de batata frita e refrigerante"
       - time: "12:35"
+        type: cash
         title: "Saque em dinheiro"
-        place: "Caixa eletrônico (Transact)"
-        type: saque
         cost: 105.95
-        paid_by: "eu"
       - time: "14:02"
+        type: cash
         title: "Saque em dinheiro"
-        place: "Caixa eletrônico (Transact)"
-        type: saque
         cost: 95.95
-        paid_by: "eu"
       - time: "16:04"
-        title: "Lanche antes de ir embora"
-        place: "Burtschers"
-        type: alimentacao
+        type: food
+        title: "Lanche antes de ir embora — Burtschers"
         cost: 18.00
-        paid_by: "eu"
       - time: "16:34"
-        title: "Saída da Wiesn, sozinho"
-        place: "Theresienwiese → Laim"
-        type: transporte
+        type: transport
+        title: "Táxi, Theresienwiese → Laim, sozinho"
         cost: 33.10
-        paid_by: "eu"
-        highlight: true
-        note: >-
-          4h47 de festival. Bebi mais do que devia e voltei sozinho de táxi.
-          O Luiz ficou e voltou a pé, quase à meia-noite.
+        note: "Bebi mais do que devia; o amigo ficou e voltou a pé, quase à meia-noite"
       - time: "16:58"
+        type: lodging
         title: "Hostel — não saí mais"
-        place: "A&O, Laim"
-        type: fim
-        cost: 0
-
-  - day: 3
-    date: 2026-09-26
-    weekday: "Sábado"
-    label: "Doze horas na Hofbräu-Festhalle"
-    total: 874.65
+  - date: 2026-09-26
+    title: "Doze horas na Hofbräu-Festhalle"
     activities:
       - time: "11:00"
-        title: "Café da manhã no kebab"
-        place: "Landsberger Straße, ao lado do Unique Burger"
-        type: alimentacao
+        type: food
+        title: "Café da manhã no kebab da Landsberger Straße"
         cost: 20.00
-        paid_by: "Diego"
         split: 3
-        note: >-
-          ≈ € 6 o kebab, mais uma Coca de 2 L dividida. Pago em dinheiro.
-          Alexandre não comeu; Tiago ficou dormindo.
+        approx: true
+        note: "≈ € 6 o kebab, mais uma Coca de 2 L dividida; pago em dinheiro pelo amigo de Dublin"
       - time: "11:57"
-        title: "Saída para a Theresienwiese"
-        place: "Laim → Theresienwiese"
-        type: transporte
+        type: transport
+        title: "Bolt, Laim → Theresienwiese"
         cost: 15.90
-        paid_by: "eu"
-        note: "Bolt"
       - time: "12:25"
-        title: "Entrada pela porta lateral"
-        place: "Theresienwiese"
-        type: oktoberfest
-        cost: 0
-        highlight: true
-        note: >-
-          A entrada principal estava bloqueada por controle de densidade —
-          multidão parada atrás das grades. Entramos por uma lateral.
+        type: event
+        title: "Entrada pela porta lateral da Theresienwiese"
+        note: "A entrada principal estava sob controle de densidade, com a multidão parada atrás das grades"
+      - time: "12:25"
+        end: "00:10"
+        type: event
+        title: "Hofbräu-Festhalle — 11h45 seguidas dentro da tenda"
       - time: "12:28"
-        title: "Barraca na Wiesn"
-        place: "Bavaria Star"
-        type: alimentacao
+        type: food
+        title: "Barraca na Wiesn — Bavaria Star"
         cost: 2.50
-        paid_by: "eu"
       - time: "12:42"
+        type: cash
         title: "Saque em dinheiro"
-        place: "Caixa eletrônico (Icc)"
-        type: saque
         cost: 197.95
-        paid_by: "eu"
       - time: "16:00"
+        type: cash
         title: "Saque em dinheiro"
-        place: "Caixa eletrônico (Transact)"
-        type: saque
         cost: 125.95
-        fee: 1.44
-        paid_by: "eu"
+        note: "Mais € 1,44 de taxa do banco"
       - time: "17:52"
+        type: cash
         title: "Saque em dinheiro"
-        place: "Caixa eletrônico (Transact)"
-        type: saque
         cost: 105.95
-        fee: 2.12
-        paid_by: "eu"
+        note: "Mais € 2,12 de taxa do banco"
       - time: "18:58"
+        type: cash
         title: "Saque em dinheiro"
-        place: "Caixa eletrônico (Transact)"
-        type: saque
         cost: 125.95
-        fee: 2.52
-        paid_by: "eu"
+        note: "Mais € 2,52 de taxa do banco"
       - time: "21:07"
+        type: cash
         title: "Saque em dinheiro"
-        place: "Caixa eletrônico (Transact)"
-        type: saque
         cost: 195.95
-        fee: 3.92
-        paid_by: "eu"
-        note: "Quinto e último saque do dia — € 751,75 sacados em nove horas"
+        note: "Mais € 3,92 de taxa do banco; quinto saque do dia, € 751,75 no total"
       - time: "23:07"
-        title: "Comida na tenda"
-        place: "Restaurant Festzelt"
-        type: alimentacao
+        type: food
+        title: "Comida na tenda — Restaurant Festzelt"
         cost: 27.50
-        paid_by: "eu"
       - time: "23:39"
+        end: "23:58"
+        type: transport
         title: "Quatro tentativas de Bolt, todas revertidas"
-        place: "Theresienwiese"
-        type: transporte
-        cost: 0
-        highlight: true
-        note: >-
-          € 23,90 → € 42,90 → € 39,90 → € 31,90 entre 23h39 e 23h58.
-          Nenhum motorista aceitou; o preço subiu a cada tentativa.
-      - time: "00:10"
-        title: "Saída da tenda"
-        place: "Hofbräu-Festhalle"
-        type: oktoberfest
-        cost: 0
-        note: "11h45 seguidas dentro da tenda"
+        note: "€ 23,90 → € 42,90 → € 39,90 → € 31,90; nenhum motorista aceitou"
       - time: "00:19"
-        title: "Táxi comum, via PayPal"
-        place: "Theresienwiese → Laim"
-        type: transporte
+        type: transport
+        title: "Táxi comum, Theresienwiese → Laim, pago via PayPal"
         cost: 50.00
-        paid_by: "eu"
       - time: "00:20"
+        type: food
         title: "Consumo no hostel"
-        place: "A&O, Laim"
-        type: alimentacao
         cost: 17.00
-        paid_by: "eu"
-
-  - day: 4
-    date: 2026-09-27
-    weekday: "Domingo"
-    label: "Paulaner, Hacker e perder o grupo"
-    total: 54.13
+  - date: 2026-09-27
+    title: "Paulaner, Hacker e perder o grupo"
     activities:
       - time: "14:45"
+        type: walk
         title: "Saída do hostel"
-        place: "A&O, Laim"
-        type: inicio
-        cost: 0
       - time: "14:52"
-        title: "Almoço"
-        place: "Unique Burger, Landsbergerstraße 317"
-        type: alimentacao
+        type: food
+        title: "Almoço no Unique Burger"
         cost: 23.23
-        paid_by: "eu"
       - time: "15:37"
-        title: "Ida para devolver o traje"
-        place: "Laim → Schwanthalerstraße"
-        type: transporte
+        type: transport
+        title: "Bolt, Laim → Schwanthalerstraße"
         cost: 15.90
-        paid_by: "eu"
-        note: "Bolt"
       - time: "15:54"
+        type: shopping
         title: "Devolução do traje típico"
-        place: "Schwanthalerstraße 67"
-        type: tracht
-        cost: -200.00
-        paid_by: "eu"
-        highlight: true
         note: "Caução de € 100 devolvida integralmente para cada um"
       - time: "15:54"
-        title: "Caminhada até a Theresienwiese — 2,7 km"
-        place: "Schwanthalerstraße → Theresienwiese"
-        type: passeio
-        cost: 0
+        type: walk
+        title: "Caminhada até a Theresienwiese (2,7 km)"
       - time: "16:37"
-        title: "Lanche de linguiça"
-        place: "Brezn Kini"
-        type: alimentacao
+        type: food
+        title: "Lanche de linguiça — Brezn Kini"
         cost: 15.00
-        paid_by: "eu"
       - time: "17:24"
-        title: "Área sul da Wiesn, perto da Bavaria"
-        place: "Theresienwiese"
-        type: oktoberfest
-        cost: 0
-        note: "Paulaner Festzelt e depois Hacker-Festzelt. Maß a € 15,80."
-      - time: "19:11"
-        title: "Rodadas na Paulaner"
-        place: "Paulaner Festzelt"
-        type: bebida
-        cost: 0
-        note: >-
-          Três rodadas de € 50 (3 Maß a € 15,80 + € 2,60 de gorjeta), mais uma
-          rodada só minha e do Luiz. Tudo em dinheiro, sem recibo.
-      - time: "22:00"
+        end: "19:11"
+        type: event
+        title: "Área sul da Wiesn, perto da estátua da Bavaria"
+      - type: drinks
+        title: "Rodadas na Paulaner Festzelt e, depois, na Hacker-Festzelt"
+        note: "Três rodadas de € 50 (3 Maß a € 15,80 e € 2,60 de gorjeta) e mais uma só nossa; tudo em dinheiro, sem recibo"
+      - type: other
         title: "Separação do grupo na saída da Hacker"
-        place: "Hacker-Festzelt"
-        type: incidente
-        cost: 0
-        highlight: true
-        note: >-
-          Perdi o Luiz na saída. Esperei bastante, encontrei outros amigos de
-          Dublin, comi algo, voltei à frente da Hacker e desisti.
-      - time: "23:00"
-        title: "Táxi de volta, sozinho"
-        place: "Theresienwiese → Laim"
-        type: transporte
+        note: "Esperei bastante, encontrei outros amigos de Dublin, comi algo, voltei à frente da tenda e desisti"
+      - type: transport
+        title: "Táxi, Theresienwiese → Laim, sozinho"
         cost: 30.00
-        paid_by: "eu"
-        estimated: true
-        note: "Pago em dinheiro — valor aproximado"
+        approx: true
+        note: "Pago em dinheiro"
       - time: "23:49"
+        type: lodging
         title: "Hostel"
-        place: "A&O, Laim"
-        type: fim
-        cost: 0
-
-  - day: 5
-    date: 2026-09-28
-    weekday: "Segunda"
-    label: "O ramal errado da S1 e a volta para Dublin"
-    total: 51.20
+  - date: 2026-09-28
+    title: "O ramal errado da S1 e a volta para Dublin"
     activities:
       - time: "06:04"
-        title: "Saída do hostel, a pé até a estação"
-        place: "Laim"
-        type: inicio
-        cost: 0
+        type: walk
+        title: "Saída do hostel, a pé até a estação de Laim"
       - time: "06:16"
-        title: "Bilhete da Deutsche Bahn"
-        place: "Estação de Laim"
-        type: transporte
+        type: transport
+        title: "Bilhete da Deutsche Bahn até o aeroporto"
         cost: 15.10
-        paid_by: "eu"
       - time: "06:28"
-        title: "Embarque na S1 — vagão do ramal de Freising"
-        place: "Laim → Neufahrn"
-        type: incidente
-        cost: 0
-        highlight: true
-        note: >-
-          A S1 se divide em Neufahrn: parte da composição vai ao aeroporto,
-          parte a Freising. Eu estava na metade errada.
+        type: transport
+        title: "Embarque na S1 — no vagão do ramal de Freising"
+        note: "A S1 se divide em Neufahrn: parte da composição vai ao aeroporto, parte a Freising"
       - time: "07:29"
+        type: transport
         title: "Táxi de Freising ao aeroporto"
-        place: "Freising → MUC"
-        type: transporte
         cost: 36.10
-        paid_by: "eu"
         note: "O bilhete de € 15,10 virou uma viagem de € 51,20"
-      - time: "07:31"
-        title: "Chegada ao terminal"
-        place: "MUC"
-        type: chegada
-        cost: 0
       - time: "07:40"
-        title: "Entrando na fila do raio-x"
-        place: "MUC"
-        type: incidente
-        cost: 0
-        note: >-
-          Horário em que o embarque deveria começar. A fila levou menos de
-          15 minutos; cheguei ao portão antes das 8h.
+        type: other
+        title: "Fila do raio-x, no horário em que o embarque deveria começar"
+        note: "Menos de 15 minutos; no portão antes das 8h"
       - time: "08:29"
-        title: "Decolagem para Dublin"
-        place: "MUC → DUB"
-        type: voo
+        type: flight
+        title: "Voo MUC → DUB, previsto para as 08h25"
         cost: 131.50
-        paid_by: "eu"
-        note: "Previsto 08h25 · Lufthansa A321neo"
       - time: "09:42"
+        type: flight
         title: "Pouso em Dublin"
-        place: "Dublin Airport (DUB)"
-        type: chegada
-        cost: 0
       - time: "10:11"
-        title: "Táxi do aeroporto até em casa"
-        place: "DUB → D08"
-        type: transporte
+        type: transport
+        title: "Táxi do aeroporto de Dublin até em casa"
         cost: 35.00
-        paid_by: "eu"
         note: "Pago em dinheiro, com o que sobrou dos saques"
       - time: "10:43"
-        title: "Em casa"
-        place: "Dublin"
-        type: fim
-        cost: 0
-        note: "Sobraram € 30 em espécie na carteira"
-
-summary:
-  nights: 4
-  days: 5
-  travellers: 3
-  room_occupants: 5
-  hours_at_oktoberfest: 18.3
-  km_flown: 2920
-  cash_withdrawn: 1299.60
-  cash_fees: 10.00
-  card_spend_munich: 436.42
-  room_beds: 6
-  total_cost: 1989.40
+        type: transport
+        title: "Casa"
