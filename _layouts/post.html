@@ -12,6 +12,11 @@
   {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
   {% comment %}── json_ld=false: schema.html below emits the post's JSON-LD; the gem's BlogPosting node would duplicate it (ADR-0014). ──{% endcomment %}
   {% seo json_ld=false %}
+  {% comment %}── Hero text alternative for social cards: jekyll-seo-tag only emits these when `image` is a hash carrying `alt`; here `image` stays a path and the text lives in `image_alt` (ADR-0021). ──{% endcomment %}
+  {% if page.image and page.image_alt %}
+  <meta property="og:image:alt" content="{{ page.image_alt | escape }}">
+  <meta name="twitter:image:alt" content="{{ page.image_alt | escape }}">
+  {% endif %}
   {% include schema.html %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,7 +101,19 @@
 
     {% if _hero_image %}
     <figure class="post-cover">
-      <img src="{{ _hero_image | relative_url }}" alt="{{ page.title | escape }}" loading="eager">
+      <img src="{{ _hero_image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" loading="eager">
+      {% comment %}── Credit line: only for a Hero the author did not make (ADR-0021). ──{% endcomment %}
+      {% if page.image_credit or page.image_license %}
+      <figcaption class="post-cover-credit">
+        {%- if page.image_credit -%}
+        <span data-i18n="hero_credit">{{ _t.hero_credit }}</span>: {% if page.image_credit_url %}<a href="{{ page.image_credit_url | escape }}" target="_blank" rel="noopener">{{ page.image_credit | escape }}</a>{% else %}{{ page.image_credit | escape }}{% endif %}
+        {%- endif -%}
+        {%- if page.image_credit and page.image_license %} · {% endif -%}
+        {%- if page.image_license -%}
+        <span data-i18n="hero_license">{{ _t.hero_license }}</span>: {% if page.image_license_url %}<a href="{{ page.image_license_url | escape }}" target="_blank" rel="noopener license">{{ page.image_license | escape }}</a>{% else %}{{ page.image_license | escape }}{% endif %}
+        {%- endif -%}
+      </figcaption>
+      {% endif %}
     </figure>
     {% endif %}
 

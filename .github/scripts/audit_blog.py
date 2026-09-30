@@ -85,6 +85,13 @@ VALID_OG_IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif"}
 # `cover:` is the on-page hero graphic — any standard web image format is fine.
 VALID_COVER_EXTENSIONS = {".svg", ".png", ".jpg", ".jpeg", ".gif", ".webp"}
 
+# Hero credit fields (ADR-0021): `image_credit` / `image_license` are the text
+# shown under the Hero; each may carry a `*_url` companion that turns it into
+# a link. A companion without its text renders nothing, and a relative or
+# scheme-less value would become a broken link on the post page.
+HERO_LINK_FIELDS = {"image_credit_url": "image_credit", "image_license_url": "image_license"}
+HERO_TEXT_FIELDS = ("image_alt", "image_credit", "image_license")
+
 # Gallery photos live in per-post folders (ADR-0009) and are sanitized by
 # .github/scripts/build_images.py — orientation baked into the pixels,
 # EXIF/XMP stripped (ADR-0011). A committed photo that still carries GPS
@@ -187,6 +194,18 @@ def parse_front_matter(path: Path) -> tuple[dict, str]:
         elif fm_done:
             body.append(line)
     return fm, ''.join(body)
+
+
+def scalar_field(fm: dict, key: str) -> str:
+    """A front matter scalar without surrounding quotes or whitespace.
+
+    parse_front_matter keeps the raw text, so `key: ""` arrives as the two
+    quote characters and a bare `key:` as an empty list — both mean "unset".
+    """
+    raw = fm.get(key, "")
+    if isinstance(raw, list):
+        return ""
+    return str(raw).strip().strip('"').strip("'").strip()
 
 
 def extract_list_field(raw) -> list[str]:
@@ -421,7 +440,8 @@ def audit() -> tuple[dict, set, set]:
         "invalid_subcategories":      [],   # {file, subcategory, reason}
         "missing_local_images":       [],   # {file, field, path}
         "invalid_image_extensions":   [],   # {file, field, path, extension, expected}
-        "unsanitized_photos":         [],   # {file, problems, blocking}
+        "invalid_hero_credit":        [],   # {file, field, reason}
+        "unsanitized_photos":        [],   # {file, problems, blocking}
         "photo_metadata_skipped":     None, # reason string when the check couldn't run
     }
 
@@ -586,6 +606,29 @@ def audit() -> tuple[dict, set, set]:
                     f"{'/'.join(sorted(VALID_COVER_EXTENSIONS))}"
                 )
 
+        # Hero alt text / credit / licence (ADR-0021): they describe `image:`,
+        # and a `*_url` needs the text it links and an absolute http(s) URL.
+        for field in HERO_TEXT_FIELDS:
+            if scalar_field(fm, field) and not scalar_field(fm, "image"):
+                issues["invalid_hero_credit"].append({
+                    "file": rel, "field": field, "reason": "is set without `image:` — there is no Hero to describe",
+                })
+                gh_warning(rel, f"`{field}` is set without `image:` — there is no Hero to describe")
+        for url_field, text_field in HERO_LINK_FIELDS.items():
+            url_value = scalar_field(fm, url_field)
+            if not url_value:
+                continue
+            if not re.match(r'^https?://\S+$', url_value):
+                issues["invalid_hero_credit"].append({
+                    "file": rel, "field": url_field, "reason": f"`{url_value}` is not an absolute http(s) URL",
+                })
+                gh_warning(rel, f"`{url_field}: {url_value}` is not an absolute http(s) URL")
+            if not scalar_field(fm, text_field):
+                issues["invalid_hero_credit"].append({
+                    "file": rel, "field": url_field, "reason": f"is set without `{text_field}` — nothing is rendered",
+                })
+                gh_warning(rel, f"`{url_field}` is set without `{text_field}` — nothing is rendered")
+
         # Collect external image URLs from body
         for url in extract_external_images(body):
             url_to_posts[url].append((rel, False))
@@ -680,6 +723,7 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
         len(issues["invalid_reading_time"]) +
         len([i for i in issues["broken_external_images"] if i["location"] == "body image"]) +
         len([i for i in issues["invalid_image_extensions"] if i["field"] == "cover"]) +
+        len(issues["invalid_hero_credit"]) +
         len([i for i in issues["unsanitized_photos"] if not i["blocking"]]) +
         (1 if issues["photo_metadata_skipped"] else 0)
     )
@@ -780,6 +824,16 @@ def build_report(issues: dict, all_tags: set, all_cats: set) -> str:
             )
     else:
         lines.append("✅ All `image:`/`cover:` fields use the expected format.")
+    lines.append("")
+
+    # ── Hero alt text / credit / licence ──────────────────────────────────────
+    lines.append("## Hero credit (`image_alt` / `image_credit` / `image_license`)\n")
+    if issues["invalid_hero_credit"]:
+        lines.append(f"**{len(issues['invalid_hero_credit'])} field(s) to review:**\n")
+        for item in issues["invalid_hero_credit"]:
+            lines.append(f"- ⚠️ `{item['file']}` — `{item['field']}` {item['reason']}")
+    else:
+        lines.append("✅ Every Hero credit field is well-formed.")
     lines.append("")
 
     # ── Gallery photo metadata ────────────────────────────────────────────────
