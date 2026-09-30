@@ -186,7 +186,7 @@ O quarto foi ocupado por **cinco pessoas** — eu, o amigo de Manchester, o de D
 
 <div class="callout callout-warn">
   <div class="callout-label">Reserva cotada em dólar, cobrada em euro</div>
-  A tarifa apareceu como <strong>US$ 394,57 por noite</strong> e foi convertida para <strong>€ 1.634,58</strong> no total. O sinal saiu em dólar (US$ 245,77) e o saldo em euro. Vale conferir <strong>em que moeda o saldo será cobrado no balcão</strong> — se a plataforma cobrar em USD, o valor final em euro varia com o câmbio do dia, e não com o da reserva.
+  A plataforma cotou a reserva em dólar: o sinal saiu em dólar (US$ 245,77) e o saldo foi cobrado em euro, no balcão (€ 1.438,43). Os <strong>€ 1.634,58</strong> da tabela são o que foi pago de fato, somando os dois — não o valor cotado na reserva. Vale conferir <strong>em que moeda o saldo será cobrado no balcão</strong> — se a plataforma cobrar em USD, o valor final em euro varia com o câmbio do dia, e não com o da reserva.
 </div>
 
 <div class="callout callout-tip">
@@ -216,7 +216,7 @@ O quarto foi ocupado por **cinco pessoas** — eu, o amigo de Manchester, o de D
   <div class="section-title-wrap"><h2>Dia 1 — Tracht, Marienplatz e o Hofbräuhaus</h2></div>
 </div>
 
-Cheguei ao hostel às 17h11 e saí de novo às 18h. A primeira missão era **alugar o traje típico**, e a loja escolhida ficava na **Schwanthalerstraße 67** — a poucos minutos a pé da Theresienwiese, o que a torna uma localização ideal para os dias seguintes.
+Cheguei ao hostel às 17h11. A primeira missão era **alugar o traje típico**, e a loja escolhida ficava na **Schwanthalerstraße 67** — a poucos minutos a pé da Theresienwiese, o que a torna uma localização ideal para os dias seguintes.
 
 Fui de tram até lá, fechei o aluguel e combinei de retirar as roupas na manhã seguinte. Detalhes completos do processo estão na seção 10.
 
@@ -437,6 +437,8 @@ Almoçamos de novo no **Unique Burger (€ 23,23)**, fomos de Bolt (**€ 15,90*
 
 De lá caminhamos **2,7 km** até a Theresienwiese e ficamos na parte sul do parque, perto da estátua da Bavaria, entre **17h24 e 19h11**. Comi um lanche de linguiça no **Brezn Kini (€ 15,00)**.
 
+Antes das 17h45 entramos na tenda-restaurante da Paulaner, para usar o banheiro e esperar o amigo alemão do meu amigo. Não era a Paulaner que procurávamos: a certa fica na outra ponta da avenida das tendas, e foi para lá que acabamos indo depois.
+
 Nesse dia trocamos de tenda: começamos na **Paulaner** e terminamos na **Hacker**.
 
 ### O fim de noite que não terminou junto
@@ -460,7 +462,7 @@ Voo às **08h25**, e a manhã foi apertada do começo ao fim.
 
 Saí do hostel às **06h04** e caminhei até a estação de Laim. Comprei o bilhete às **06h16 (€ 15,10)** e peguei o trem às 06h28. E aí veio o problema: **a S1 se divide em Neufahrn** — parte da composição segue para o aeroporto e parte vai para Freising. Eu estava no vagão errado.
 
-Desci em Freising e peguei um **táxi na frente da estação: € 36,10**, às 07h29.
+Desci em Freising e peguei um **táxi na frente da estação: € 36,10**, às 07h15.
 
 <table class="compare-table">
   <thead>
@@ -470,7 +472,7 @@ Desci em Freising e peguei um **táxi na frente da estação: € 36,10**, às 0
     <tr><td>06h04</td><td>Saída do hostel, a pé até a estação de Laim</td></tr>
     <tr><td>06h16</td><td>Bilhete da Deutsche Bahn — € 15,10</td></tr>
     <tr><td>06h28</td><td>Embarque na S1 — vagão do ramal de Freising</td></tr>
-    <tr><td>07h29</td><td>Táxi de Freising ao aeroporto — € 36,10</td></tr>
+    <tr><td>07h15</td><td>Táxi de Freising ao aeroporto — € 36,10</td></tr>
     <tr><td>07h31</td><td>Chegada ao terminal</td></tr>
     <tr><td>07h40</td><td>Entrando na fila do raio-x — horário em que o embarque deveria começar</td></tr>
     <tr><td>&lt; 08h00</td><td>No portão; o embarque ainda nem havia começado</td></tr>

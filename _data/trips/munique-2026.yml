@@ -246,6 +246,9 @@ days:
         end: "19:11"
         type: event
         title: "Área sul da Wiesn, perto da estátua da Bavaria"
+      - type: other
+        title: "Parada na tenda-restaurante da Paulaner, antes das 17h45"
+        note: "Para usar o banheiro e esperar um amigo; a Paulaner certa ficava na outra ponta da avenida das tendas"
       - type: drinks
         title: "Rodadas na Paulaner Festzelt e, depois, na Hacker-Festzelt"
         note: "Três rodadas de € 50 (3 Maß a € 15,80 e € 2,60 de gorjeta) e mais uma só nossa; tudo em dinheiro, sem recibo"
@@ -274,7 +277,7 @@ days:
         type: transport
         title: "Embarque na S1 — no vagão do ramal de Freising"
         note: "A S1 se divide em Neufahrn: parte da composição vai ao aeroporto, parte a Freising"
-      - time: "07:29"
+      - time: "07:15"
         type: transport
         title: "Táxi de Freising ao aeroporto"
         cost: 36.10
