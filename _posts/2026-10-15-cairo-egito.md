@@ -8,7 +8,6 @@ categories: [Hobbies]
 subcategories:
   - "Hobbies/Travel & Places"
 tags: [viagem, egito, cairo, gize, piramides, starlight-festival, nazlet-el-semman, saqqara, memphis, esfinge, hurghada, sahl-hasheesh, mar-vermelho, ilha-orange, mergulho, aeroporto-sphinx, milao, malpensa, irlanda, dublin, wizz-air, easyjet, ryanair, aer-lingus, avios, revolut, wise, splitwise, aluguel-de-carro, e-visa, visto-na-chegada, libra-egipcia, guia-de-viagem, custos-reais]
-reading_time: 48
 cover: /assets/img/posts/cairo-egito.jpg
 image: /assets/img/posts/cairo-egito.jpg
 image_alt: "Lasers riscando a nuvem baixa sobre a multidão do Starlight Festival, com a face da pirâmide de Khufu iluminada ao fundo"
