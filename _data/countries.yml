@@ -10,6 +10,9 @@
 - name: Germany
   slug: germany
   name_pt: Alemanha
+- name: Egypt
+  slug: egypt
+  name_pt: Egito
 - name: Greece
   slug: greece
   name_pt: Grécia

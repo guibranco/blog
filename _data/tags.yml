@@ -4,6 +4,10 @@
   slug: adam-toren
 - name: adaptacao
   slug: adaptacao
+- name: aer-lingus
+  slug: aer-lingus
+- name: aeroporto-sphinx
+  slug: aeroporto-sphinx
 - name: aiesec
   slug: aiesec
 - name: albania
@@ -66,6 +70,8 @@
   slug: automation
 - name: automation-engineer
   slug: automation-engineer
+- name: avios
+  slug: avios
 - name: aws
   slug: aws
 - name: azure
@@ -142,6 +148,8 @@
   slug: cache
 - name: cagliari
   slug: cagliari
+- name: cairo
+  slug: cairo
 - name: calendarific
   slug: calendarific
   redirect_from:
@@ -344,14 +352,20 @@
   slug: dublin
 - name: e-commerce
   slug: e-commerce
+- name: e-visa
+  slug: e-visa
 - name: e2e-test
   slug: e2e-test
   redirect_from:
     - /tags/e2e-test/
+- name: easyjet
+  slug: easyjet
 - name: economia
   slug: economia
 - name: educacao-financeira
   slug: educacao-financeira
+- name: egito
+  slug: egito
 - name: elasticsearch
   slug: elasticsearch
 - name: emirados-arabes-unidos
@@ -376,6 +390,8 @@
   slug: entrevista-tecnica
 - name: environment
   slug: environment
+- name: esfinge
+  slug: esfinge
 - name: espanha
   slug: espanha
 - name: esportes
@@ -488,6 +504,8 @@
   slug: gitops
 - name: gitpython
   slug: gitpython
+- name: gize
+  slug: gize
 - name: golang
   slug: golang
 - name: golden-bay
@@ -538,6 +556,8 @@
   slug: html
   redirect_from:
     - /tags/html/
+- name: hurghada
+  slug: hurghada
 - name: iaas
   slug: iaas
   redirect_from:
@@ -546,6 +566,8 @@
   slug: idade
   redirect_from:
     - /tags/idade/
+- name: ilha-orange
+  slug: ilha-orange
 - name: imposto
   slug: imposto
 - name: impostos
@@ -666,6 +688,8 @@
   slug: leitura
   redirect_from:
     - /tags/leitura/
+- name: libra-egipcia
+  slug: libra-egipcia
 - name: library
   slug: library
   redirect_from:
@@ -708,8 +732,12 @@
   slug: mailhog
 - name: mallorca
   slug: mallorca
+- name: malpensa
+  slug: malpensa
 - name: malta
   slug: malta
+- name: mar-vermelho
+  slug: mar-vermelho
 - name: mariadb
   slug: mariadb
   redirect_from:
@@ -732,6 +760,8 @@
     - /tags/mei/
 - name: mellieha
   slug: mellieha
+- name: memphis
+  slug: memphis
 - name: mensageria
   slug: mensageria
   redirect_from:
@@ -740,6 +770,8 @@
   slug: mercado-de-trabalho
   redirect_from:
     - /tags/mercado-de-trabalho/
+- name: mergulho
+  slug: mergulho
 - name: message-broker
   slug: message-broker
   redirect_from:
@@ -750,6 +782,8 @@
   slug: microsservicos
 - name: migration
   slug: migration
+- name: milao
+  slug: milao
 - name: mobile
   slug: mobile
   redirect_from:
@@ -770,6 +804,8 @@
   slug: munique
 - name: mysql
   slug: mysql
+- name: nazlet-el-semman
+  slug: nazlet-el-semman
 - name: net-framework
   slug: net-framework
   redirect_from:
@@ -850,6 +886,8 @@
   slug: pipeline
 - name: "pirâmide-de-testes"
   slug: piramide-de-testes
+- name: piramides
+  slug: piramides
 - name: pivpn
   slug: pivpn
 - name: pix
@@ -962,6 +1000,8 @@
   slug: reserva-de-emergencia
 - name: resharper
   slug: resharper
+- name: revolut
+  slug: revolut
 - name: rolling-deploy
   slug: rolling-deploy
 - name: roteiro
@@ -972,14 +1012,20 @@
   slug: rust
   redirect_from:
     - /tags/rust/
+- name: ryanair
+  slug: ryanair
 - name: s-bahn
   slug: s-bahn
+- name: sahl-hasheesh
+  slug: sahl-hasheesh
 - name: salario
   slug: salario
   redirect_from:
     - /tags/salario/
 - name: santiago-de-compostela
   slug: santiago-de-compostela
+- name: saqqara
+  slug: saqqara
 - name: sarande
   slug: sarande
 - name: sardenha
@@ -1056,6 +1102,8 @@
   slug: software-engineering
   redirect_from:
     - /tags/software-engineering/
+- name: splitwise
+  slug: splitwise
 - name: sql
   slug: sql
 - name: sql-server
@@ -1072,6 +1120,8 @@
   slug: st-julians
 - name: st-peters-pool
   slug: st-peters-pool
+- name: starlight-festival
+  slug: starlight-festival
 - name: startups
   slug: startups
 - name: stress-test
@@ -1196,6 +1246,8 @@
   slug: vinculo-empregaticio
 - name: visto-de-trabalho
   slug: visto-de-trabalho
+- name: visto-na-chegada
+  slug: visto-na-chegada
 - name: visual-studio
   slug: visual-studio
 - name: visual-studio-code
@@ -1230,6 +1282,10 @@
   slug: windows
 - name: wireguard
   slug: wireguard
+- name: wise
+  slug: wise
+- name: wizz-air
+  slug: wizz-air
 - name: workflows
   slug: workflows
 - name: xml
