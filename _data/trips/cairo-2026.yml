@@ -1,0 +1,235 @@
+# Itinerary of _posts/2026-10-15-cairo-egito.md (ADR-0016).
+#
+# Times are Egypt local time (UTC+3) and come from the post's own tables and
+# from the author's Google Maps Timeline. `cost` is only ever an amount the
+# post states: group amounts carry the `split` the post gives (the airport
+# taxi was shared by three, the car's first day by three and the second by
+# five, the boat trip by three); amounts without a stated split are the
+# author's own.
+#
+# totals: false — the post's per-day and per-category figures come from the
+# author's reconciled spreadsheet (Splitwise + Wise + Revolut) and include
+# items the prose does not itemize, so the timeline shows what each activity
+# cost without summing days: the post's section 18 stays the source for the
+# totals.
+currency: EUR
+totals: false
+days:
+  - date: 2026-10-08
+    title: "Dublin, Milão e a chegada ao Egito"
+    activities:
+      - time: "07:00"
+        type: flight
+        title: "Voo DUB → Milão Linate (Aer Lingus EI432), pouso às 10h40"
+        note: "Pago com 18.025 Avios — valeria € 103,12"
+      - time: "10:40"
+        type: transport
+        title: "Ônibus AirPullman, Linate → centro de Milão"
+        cost: 7.00
+      - time: "13:18"
+        type: food
+        title: "Milkshake no Five Guys da Milano Centrale"
+        cost: 6.95
+      - type: food
+        title: "McDonald's na escala em Milão"
+        cost: 12.50
+      - time: "17:05"
+        type: flight
+        title: "Voo Malpensa → Sphinx (Wizz Air W4 6365), pouso às 22h00"
+        cost: 42.58
+        note: "Parte da tarifa paga com RevPoints"
+      - time: "22:00"
+        type: other
+        title: "Visto na chegada, guichê do Banque Misr"
+        cost: 83.06
+        split: 3
+      - type: transport
+        title: "Táxi privativo Sphinx → Nazlet El-Semman, preço fechado"
+        cost: 30.00
+        split: 3
+      - time: "23:30"
+        type: lodging
+        title: "Check-in no Nine Pyramids View, Nazlet El-Semman"
+        cost: 160.18
+        split: 3
+        note: "Cinco noites, café incluso — € 10,68 por pessoa por noite"
+      - type: food
+        title: "McDonald's pelo aplicativo, no hotel"
+        cost: 16.50
+        split: 3
+      - time: "23:49"
+        type: sight
+        title: "Primeira vista das pirâmides, do terraço do hotel"
+  - date: 2026-10-09
+    title: "Starlight Festival nas pirâmides"
+    activities:
+      - time: "18:40"
+        end: "19:06"
+        type: transport
+        title: "Táxi do hotel ao Grande Museu Egípcio — 11,3 km"
+        cost: 45.00
+        split: 5
+      - time: "19:30"
+        end: "20:21"
+        type: transport
+        title: "Ônibus shuttle do museu até o complexo — 13,6 km em 51 min"
+      - time: "20:36"
+        end: "21:03"
+        type: walk
+        title: "A pé até a entrada do festival — 3,6 km"
+      - time: "21:03"
+        end: "02:32"
+        type: event
+        title: "Starlight Festival — ingresso standing, wave 4"
+        cost: 130.90
+        note: "5h29 dentro, em quatro palcos; o principal com dois guindastes emoldurando a pirâmide"
+      - type: drinks
+        title: "Bar do festival — quatro compras"
+        cost: 122.51
+      - time: "02:32"
+        end: "03:33"
+        type: transport
+        title: "Volta ao hotel — 17,5 km"
+  - date: 2026-10-10
+    title: "Gizé, Memphis e Saqqara"
+    activities:
+      - time: "08:42"
+        type: sight
+        title: "Tour privativo de dia inteiro — carro, guia egiptólogo e almoço"
+        cost: 361.00
+        split: 4
+        note: "Contratado pelo hotel; inclui os ingressos dos quatro sítios"
+      - time: "11:13"
+        end: "11:50"
+        type: sight
+        title: "Passeio de camelo e charrete no platô — 12,6 km"
+        cost: 121.60
+        split: 4
+        note: "O Google Timeline classificou o trecho como esqui"
+      - type: drinks
+        title: "Bebidas no almoço do tour (1.800 EGP)"
+        cost: 30.00
+        split: 4
+      - type: shopping
+        title: "Casa de essências — óleo essencial"
+        cost: 70.00
+        split: 2
+      - type: shopping
+        title: "Casa de grãos — tâmaras, incenso e pedras de hortelã"
+        cost: 74.82
+      - type: other
+        title: "Gorjetas para motorista e guia (400 EGP)"
+        cost: 6.82
+      - type: lodging
+        title: "Reserva do apartamento em Sahl Hasheesh, duas noites"
+        cost: 115.48
+        split: 5
+  - date: 2026-10-11
+    title: "O carro e 502 km até o Mar Vermelho"
+    activities:
+      - time: "09:25"
+        end: "10:03"
+        type: transport
+        title: "Balcão da locadora no Cairo International — locação recusada por falta de PID"
+        note: "A reserva da Enterprise era para as 07h30; o carro saiu da agência local ao lado"
+      - time: "10:03"
+        type: transport
+        title: "Aluguel do Hyundai Azera na agência local — 2 diárias"
+        cost: 170.00
+        split: 3
+        note: "US$ 190 no total; a primeira diária foi dividida por três e a segunda por cinco"
+      - type: transport
+        title: "Primeiro abastecimento, na saída do aeroporto (800 EGP)"
+        cost: 14.00
+        split: 3
+      - time: "11:58"
+        end: "13:01"
+        type: transport
+        title: "Estrada do deserto — 132,4 km a 126 km/h de média"
+        note: "Três leituras do GPS acima de 200 km/h ao longo do dia"
+      - time: "15:37"
+        type: lodging
+        title: "Chegada em Sahl Hasheesh — 502 km em 5h34"
+      - type: food
+        title: "Shawarma na rua, primeiro dia (980 EGP)"
+        cost: 16.71
+        split: 4
+      - time: "20:38"
+        type: food
+        title: "Jantar no Waves, na marina — com steak de camelo"
+        cost: 125.00
+        split: 5
+        note: "Conta de 6.777,25 EGP: 14% de imposto e depois 12% de serviço sobre o valor já tributado"
+      - type: shopping
+        title: "Mercado em Hurghada — água, energético, refrigerante e sorvete"
+        cost: 17.16
+      - time: "23:15"
+        type: transport
+        title: "Segundo abastecimento, em Hurghada (1.100 EGP)"
+        cost: 22.00
+        split: 5
+  - date: 2026-10-12
+    title: "Dois mergulhos e a ilha Orange"
+    activities:
+      - time: "09:04"
+        end: "09:28"
+        type: transport
+        title: "Van do apartamento até a marina — inclusa no passeio"
+      - time: "09:37"
+        end: "17:01"
+        type: beach
+        title: "Passeio de barco — duas sessões de mergulho e 1h30 na ilha Orange"
+        cost: 86.53
+        split: 3
+        note: "US$ 30 por pessoa, transporte incluso; o carro ficou parado o dia inteiro"
+      - type: sight
+        title: "Fotos profissionais do mergulho"
+        cost: 108.17
+        split: 3
+        note: "Custaram 25% mais que o próprio mergulho"
+      - type: food
+        title: "Shawarma na rua, segundo dia (880 EGP)"
+        cost: 15.00
+        split: 3
+      - type: shopping
+        title: "Bazar em Hurghada — duas compras"
+        cost: 74.82
+  - date: 2026-10-13
+    title: "514 km de madrugada e a volta para Dublin"
+    activities:
+      - time: "03:22"
+        type: transport
+        title: "Saída de Sahl Hasheesh rumo ao Cairo"
+      - time: "11:03"
+        type: transport
+        title: "Chegada ao Cairo International — 514 km em 7h41"
+      - type: transport
+        title: "Devolução do carro — multa de velocidade, combustível e lavagem (1.200 EGP)"
+        cost: 20.46
+        note: "Assumido integralmente por quem dirigia"
+      - type: cash
+        title: "Saque no caixa eletrônico do Cairo International (600 EGP)"
+        cost: 12.28
+        note: "€ 1,00 de taxa sobre € 11,28 — 8,9%, a pior conversão da viagem"
+      - type: transport
+        title: "Táxi Cairo International → Sphinx (2.000 EGP)"
+        cost: 33.33
+        split: 3
+      - time: "12:57"
+        type: flight
+        title: "Voo Sphinx → Milão Malpensa (easyJet EJU3984), pouso às 15h50"
+        cost: 58.04
+      - type: transport
+        title: "Ônibus Terravision, Malpensa ↔ Milano Centrale, ida e volta"
+        cost: 16.00
+      - type: food
+        title: "Jantar na Osteria Da Fortunata, Milão"
+        cost: 25.00
+      - time: "23:25"
+        type: flight
+        title: "Voo Malpensa → Dublin (Ryanair FR7800), pouso à 01h00"
+        cost: 48.99
+      - time: "01:25"
+        type: transport
+        title: "Táxi do aeroporto de Dublin para casa"
+        cost: 31.80
