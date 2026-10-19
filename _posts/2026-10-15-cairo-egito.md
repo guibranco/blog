@@ -32,8 +32,8 @@ trip: cairo-2026
   <div class="callout-label">Cartão no Egito: a regra não é "aceita" ou "não aceita"</div>
   <p>Esta é a informação prática que eu mais queria ter antes de embarcar, e ela é contraintuitiva:</p>
   <p><strong>Os sítios arqueológicos só aceitam cartão.</strong> Os quatro que visitei — complexo de Gizé, Templo do Vale, Memphis e Saqqara — não aceitam dinheiro na bilheteria. Nenhum.</p>
-  <p><strong>Os postos de combustível só aceitam espécie.</strong> Os três em que abastecemos recusaram cartão, inclusive na estrada do deserto.</p>
-  <p>Hotel, restaurante e supermercado aceitam cartão e aproximação sem drama. Táxi, gorjeta, pedágio, estacionamento e a agência de aluguel de carro foram <strong>tudo em espécie</strong>. Leve um cartão que funcione, um reserva, e dinheiro vivo antes de pegar a estrada.</p>
+  <p><strong>Nos postos de combustível da estrada, dinheiro vivo não é obrigatório — é só mais rápido.</strong> Os três em que abastecemos tinham maquininha e aceitavam cartão; dois deles eram Circle K. Paguei em espécie por escolha: resolve em menos tempo, e eu já estava com libras na mão.</p>
+  <p>Hotel, restaurante e supermercado aceitam cartão e aproximação sem drama. Táxi, gorjeta, pedágio, estacionamento e a agência de aluguel de carro foram <strong>tudo em espécie</strong>. Leve um cartão que funcione, um reserva, e alguma coisa em dinheiro — menos por obrigação do que para não depender de maquininha em lugar nenhum.</p>
 </div>
 
 <div class="callout callout-warn">
@@ -912,7 +912,7 @@ Tudo convertido a 58,6623 EGP/€, o câmbio real das minhas transações.
     <tr><td>Táxi Sphinx → Nazlet El-Semman</td><td>—</td><td>€ 30,00 pelos 3</td><td>Preço fechado</td></tr>
     <tr><td>Táxi Cairo Intl. → Sphinx</td><td>2.000</td><td>€ 34,09 pelos 3</td><td>—</td></tr>
     <tr><td>Ônibus Cairo → Hurghada</td><td>—</td><td>≈ € 14,00</td><td>Por pessoa, por trecho</td></tr>
-    <tr><td>Tanque cheio, Petrol 92</td><td>800–1.400</td><td>€ 14,00–24,00</td><td>Só em espécie</td></tr>
+    <tr><td>Tanque cheio, Petrol 92</td><td>800–1.400</td><td>€ 14,00–24,00</td><td>Cartão ou espécie</td></tr>
     <tr><td>Ingresso — complexo de Gizé</td><td>2.800 pelos 4</td><td>€ 11,93 cada</td><td>Só cartão</td></tr>
     <tr><td>Ingresso — Saqqara</td><td>2.425 pelos 4</td><td>€ 10,34 cada</td><td>Só cartão</td></tr>
     <tr><td>Ingresso — Memphis</td><td>800 pelos 4</td><td>€ 3,41 cada</td><td>Só cartão</td></tr>
@@ -925,7 +925,7 @@ Tudo convertido a 58,6623 EGP/€, o câmbio real das minhas transações.
 <div class="callout callout-warn">
   <div class="callout-label">Três regras de dinheiro no Egito</div>
   <p><strong>1. Sítios arqueológicos só aceitam cartão.</strong> Os quatro que visitei, sem exceção. Leve um cartão que funcione, e um reserva.</p>
-  <p><strong>2. Postos de combustível só aceitam espécie.</strong> Os três em que abastecemos recusaram cartão. Tenha dinheiro antes de pegar a estrada.</p>
+  <p><strong>2. Posto grande aceita cartão; espécie é escolha, não exigência.</strong> Os três da estrada do deserto tinham maquininha, e dois eram Circle K — rede em que, numa parada da ida, paguei snacks no cartão sem nenhum atrito. Preferi espécie no combustível porque a fila anda melhor assim e eu já tinha libras na mão. Posto pequeno é outra conversa: num deles, a caminho de Luxor em 2025, o cartão deu trabalho — passou, mas depois de insistir.</p>
   <p><strong>3. Restaurante acrescenta 27,7%, não 12%.</strong> São 14% de imposto e depois 12% de serviço sobre o valor já tributado.</p>
 </div>
 
