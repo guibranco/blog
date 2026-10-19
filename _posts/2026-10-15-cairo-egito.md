@@ -2,7 +2,7 @@
 layout: post
 lang: pt-BR
 title: "Cairo, Gizé e Hurghada em 6 dias: o Starlight Festival nas pirâmides e os custos reais saindo de Dublin"
-description: "Relato completo de 6 dias no Egito saindo de Dublin: o Starlight Festival ao lado das pirâmides de Gizé, o tour por Saqqara e Memphis, 1.080 km de carro alugado até Hurghada, dois mergulhos no Mar Vermelho e o e-visa negado que custou € 80 ao grupo. Cronograma dia a dia, preços em libra egípcia e euro, e a conta que a locadora teria feito."
+description: "Relato completo de 6 dias no Egito saindo de Dublin: o Starlight Festival ao lado das pirâmides de Gizé, o tour por Saqqara e Memphis, 1.080 km de carro alugado até Hurghada, dois mergulhos no Mar Vermelho e o e-visa negado cuja taxa o portal diz não devolver — e devolveu. Cronograma dia a dia, preços em libra egípcia e euro, e a conta que a locadora teria feito."
 date: 2026-10-15
 categories: [Hobbies]
 subcategories:
@@ -38,7 +38,7 @@ trip: cairo-2026
 
 <div class="callout callout-warn">
   <div class="callout-label">Visto: a regra dos sete dias é a única coisa que você precisa saber antes</div>
-  <p>Pedi o e-visa dois dias antes de viajar. Foi <strong>negado</strong>, e a taxa <strong>não volta</strong>. O portal oficial exige o pedido com <strong>no mínimo sete dias de antecedência</strong>, e o documento não pode ser emitido na chegada.</p>
+  <p>Pedi o e-visa dois dias antes de viajar. Foi <strong>negado</strong>, e o portal avisa que a taxa <strong>não é reembolsável</strong>. O prazo não é recomendação: são <strong>no mínimo sete dias de antecedência</strong>, e o documento não pode ser emitido na chegada.</p>
   <p>Passaportes brasileiro e português têm direito a <strong>visto na chegada</strong>, entrada simples, estadia de até 30 dias — comprado num guichê antes do controle de passaportes. A seção 02 tem os números do que esse erro custou ao grupo. Confira passaporte por passaporte do seu grupo, não por grupo.</p>
 </div>
 
@@ -117,7 +117,7 @@ A Wizz é o gargalo: **24 litros** para seis dias a 35 °C. É viável se a roup
 
 <div class="section-header">
   <div class="section-num">02</div>
-  <div class="section-title-wrap"><h2>O visto: o e-visa negado que custou € 80 ao grupo</h2></div>
+  <div class="section-title-wrap"><h2>O visto: o e-visa negado, e a taxa que voltou sem ter que voltar</h2></div>
 </div>
 
 Esta é a seção mais útil do relato inteiro, e é sobre um erro meu.
@@ -129,7 +129,7 @@ Pedi o **e-visa** em 06/10/2026 para viajar em 08/10/2026. Foi **negado**. O mes
     <tr><th>Item</th><th>Valor</th><th>Resultado</th></tr>
   </thead>
   <tbody>
-    <tr><td>e-visa online — taxa de US$ 25</td><td>€ 26,76</td><td>Negado — <span class="cross">✗</span> <strong>não reembolsável</strong></td></tr>
+    <tr><td>e-visa online — taxa de US$ 25</td><td>€ 26,76</td><td>Negado — <span class="partial">~</span> cobrança <strong>cancelada 13 dias depois</strong></td></tr>
     <tr><td>Visto na chegada, 3 pessoas (Banque Misr)</td><td>€ 83,06</td><td>Emitido na hora <span class="check">✓</span></td></tr>
     <tr><td><strong>Minha parte do visto na chegada</strong></td><td><strong>€ 27,69</strong></td><td></td></tr>
     <tr><td><strong>Meu custo total de visto</strong></td><td><strong>€ 54,45</strong></td><td>O dobro do necessário</td></tr>
@@ -139,10 +139,11 @@ Pedi o **e-visa** em 06/10/2026 para viajar em 08/10/2026. Foi **negado**. O mes
 Entramos sem nenhum problema. O visto na chegada é comprado num **guichê do Banque Misr**, antes do controle de passaportes — você paga, recebe um selo, cola no passaporte e segue para a fila da imigração. Leva minutos, e o selo vale entrada simples com estadia de até 30 dias.
 
 <div class="callout callout-warn">
-  <div class="callout-label">A taxa do e-visa não volta, e o site avisa</div>
+  <div class="callout-label">O site avisa que não devolve — e, no meu caso, devolveu</div>
   <p>O portal oficial diz, nas condições, que a taxa <strong>não é reembolsável em caso de indeferimento</strong>. Não há o que reclamar nem disputa a abrir: eu é que não li.</p>
-  <p>No grupo, três pedidos negados somaram <strong>€ 80,28 jogados fora</strong> — mais que a hospedagem de qualquer um de nós na viagem inteira.</p>
   <p>E repare na conta: a taxa anunciada do visto de entrada simples é de <strong>US$ 25</strong>, mas o que o cartão registrou foi uma transação de <strong>US$ 30,00</strong> — € 26,64 à cotação da operação, mais € 0,12 de taxa do cartão. Os US$ 5 de diferença não aparecem discriminados em lugar nenhum do que eu recebi. Se for pedir, orce pelo valor que vai sair da conta, não pelo que está anunciado.</p>
+  <p>Só que em <strong>19/10/2026</strong>, treze dias depois, o banco me avisou que o <strong>próprio portal cancelou a cobrança</strong> e o dinheiro voltou para a conta — com a ressalva, no mesmo aviso, de que o estabelecimento ainda pode reivindicar o valor. A leitura mais provável é que, com o pedido indeferido, a autorização simplesmente nunca foi capturada.</p>
+  <p><strong>Não conte com isso.</strong> As condições que você aceita dizem que a taxa não volta, e é por elas que você deve orçar. Enquanto o prazo de reivindicação não passa, os € 26,76 seguem contabilizados como gasto nos números deste relato — se o estorno se confirmar de vez, o total da viagem cai de € 1.245,92 para <strong>€ 1.219,16</strong>.</p>
 </div>
 
 <div class="callout callout-tip">
@@ -1257,7 +1258,7 @@ Na escala de 7h35 da volta, jantamos na **Osteria Da Fortunata**, casa romana co
     <tr><td>Souvenirs — óleo, bazar, couro</td><td>€ 119,78</td><td>9,6%</td></tr>
     <tr><td>Carro — diárias, combustível, multa, lavagem, pedágios</td><td>€ 77,71</td><td>6,2%</td></tr>
     <tr><td>Hospedagem — 5 noites em Gizé + 2 em Hurghada</td><td>€ 76,49</td><td>6,1%</td></tr>
-    <tr><td>Vistos — incluindo € 26,76 do e-visa negado</td><td>€ 54,45</td><td>4,4%</td></tr>
+    <tr><td>Vistos — incluindo € 26,76 do e-visa negado, cuja cobrança foi cancelada depois</td><td>€ 54,45</td><td>4,4%</td></tr>
     <tr><td>eSIM</td><td>€ 18,94</td><td>1,5%</td></tr>
     <tr><td>Outros — taxa de caixa eletrônico, farmácia, taxas de câmbio</td><td>€ 18,84</td><td>1,5%</td></tr>
     <tr><td><strong>Total da viagem</strong></td><td><strong>€ 1.245,92</strong></td><td><strong>100%</strong></td></tr>
@@ -1288,7 +1289,7 @@ Na escala de 7h35 da volta, jantamos na **Osteria Da Fortunata**, casa romana co
 
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-passport"></i> e-Visa do Egito — portal oficial</div>
-    <div class="provider-detail">Único canal legítimo para o visto eletrônico. US$ 25 de taxa para entrada simples — no meu caso o cartão foi debitado em US$ 30,00. <strong>Peça com mais de sete dias de antecedência</strong> — abaixo disso o pedido é indeferido, a taxa não volta e o documento não pode ser emitido na chegada, como aprendi. Confira antes se o seu passaporte tem direito a visto na chegada; se não tiver, o e-visa deixa de ser conveniência e vira requisito.</div>
+    <div class="provider-detail">Único canal legítimo para o visto eletrônico. US$ 25 de taxa para entrada simples — no meu caso o cartão foi debitado em US$ 30,00. <strong>Peça com mais de sete dias de antecedência</strong> — abaixo disso o pedido é indeferido e o documento não pode ser emitido na chegada. As condições dizem que a taxa não é reembolsável; no meu caso o portal acabou cancelando a cobrança treze dias depois, mas isso não é uma garantia com que se possa contar. Confira antes se o seu passaporte tem direito a visto na chegada; se não tiver, o e-visa deixa de ser conveniência e vira requisito.</div>
     <div class="provider-price"><a href="https://visa2egypt.gov.eg" target="_blank">visa2egypt.gov.eg →</a></div>
   </div>
 
@@ -1337,5 +1338,5 @@ Na escala de 7h35 da volta, jantamos na **Osteria Da Fortunata**, casa romana co
   <h2>Vale muito a pena — mas o Egito não é onde o dinheiro vai</h2>
   <p>Seis dias no Egito me custaram € 1.245,92, e a tabela de categorias conta uma história que eu não esperava quando comecei a reconciliar os extratos. <strong>Sete noites de hospedagem somaram € 76,49</strong> — menos de um terço do que gastei numa única noite de festival. Os quatro voos deram € 149,61, e um deles foi pago com pontos. Chegar ao Egito e dormir lá é absurdamente barato; <strong>o que custa é fazer coisas</strong>, e eu fiz muitas.</p>
   <p>A noite do Starlight nas pirâmides justificou o preço. Quatro palcos no deserto, a face de Khufu iluminada entre dois guindastes, lasers riscando a nuvem baixa e cinco horas e meia lá dentro — e, para uma primeira edição, uma organização muito melhor do que a do festival que vi no mesmo lugar no ano anterior. Os € 130,90 do ingresso eu pagaria de novo. Os € 122,51 de bebida, provavelmente não.</p>
-  <p>Se eu fizesse tudo de novo, mudaria seis coisas: pediria o <strong>e-visa com mais de sete dias</strong> em vez de queimar € 80,28 no grupo por pressa; tiraria a <strong>Permissão Internacional para Dirigir</strong> antes de viajar, mesmo sem planejar dirigir; conferiria a <strong>franquia de quilometragem</strong> da reserva de carro, que era a pegadinha de verdade e não a habilitação; pegaria o <strong>ônibus da Terravision</strong> em vez do trem em Milão; guardaria uma <strong>nota de € 20,00 intocada</strong> para o último dia; e <strong>confirmaria o ponto de entrada do festival no próprio dia</strong>, em vez de confiar na logística do ano anterior e gastar 2h23 para percorrer 2 km. O resto eu repetiria igual — inclusive o steak de camelo, no dia seguinte a ter montado num.</p>
+  <p>Se eu fizesse tudo de novo, mudaria seis coisas: pediria o <strong>e-visa com mais de sete dias</strong> em vez de pagar três taxas por pressa e depender da boa vontade do portal para reavê-las; tiraria a <strong>Permissão Internacional para Dirigir</strong> antes de viajar, mesmo sem planejar dirigir; conferiria a <strong>franquia de quilometragem</strong> da reserva de carro, que era a pegadinha de verdade e não a habilitação; pegaria o <strong>ônibus da Terravision</strong> em vez do trem em Milão; guardaria uma <strong>nota de € 20,00 intocada</strong> para o último dia; e <strong>confirmaria o ponto de entrada do festival no próprio dia</strong>, em vez de confiar na logística do ano anterior e gastar 2h23 para percorrer 2 km. O resto eu repetiria igual — inclusive o steak de camelo, no dia seguinte a ter montado num.</p>
 </div>
