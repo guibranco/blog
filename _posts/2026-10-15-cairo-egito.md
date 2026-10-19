@@ -20,7 +20,7 @@ locations:
 trip: cairo-2026
 ---
 
-<p class="lead">Seis dias no Egito em outubro, saindo de Dublin por € 149,61 em quatro pernas — uma delas paga inteiramente com pontos. Uma noite de festival ao lado das pirâmides de Gizé que custou mais que a passagem aérea inteira, um tour cuja conta não fecha sem as três lojas do roteiro, uma locadora que me recusou o carro e com isso me economizou US$ 187, 1.080 km de deserto até o Mar Vermelho e um total de € 1.245,92 do bolso. Morando em Dublin, esta foi a viagem mais barata e mais cara que eu já fiz ao mesmo tempo — e este é o relato completo, com todos os números.</p>
+<p class="lead">Seis dias de calendário no Egito em outubro — quatro deles inteiros, porque pousei às 22h00 de uma quinta e decolei às 12h57 da terça seguinte —, saindo de Dublin por € 149,61 em quatro pernas — uma delas paga inteiramente com pontos. Uma noite de festival ao lado das pirâmides de Gizé que custou mais que a passagem aérea inteira, um tour cuja conta não fecha sem as três lojas do roteiro, uma locadora que me recusou o carro e com isso me economizou US$ 187, 1.080 km de deserto até o Mar Vermelho e um total de € 1.245,92 do bolso. Morando em Dublin, esta foi a viagem mais barata e mais cara que eu já fiz ao mesmo tempo — e este é o relato completo, com todos os números.</p>
 
 <div class="callout callout-tip">
   <div class="callout-label">Moeda e câmbio</div>
@@ -243,7 +243,7 @@ O cardápio avisa, no rodapé, que se acrescentam **12% de serviço**. Guarde es
 
 <div class="section-header">
   <div class="section-num">04</div>
-  <div class="section-title-wrap"><h2>Cronograma: os seis dias e o que cada um custou</h2></div>
+  <div class="section-title-wrap"><h2>Cronograma: os seis dias de calendário e o que cada um custou</h2></div>
 </div>
 
 <table class="compare-table">
@@ -295,7 +295,7 @@ O cardápio avisa, no rodapé, que se acrescentam **12% de serviço**. Guarde es
 
 <div class="callout callout-tip">
   <div class="callout-label">Como ler esta tabela</div>
-  Cada despesa está alocada no <strong>dia em que aconteceu</strong>, não no dia em que o cartão a lançou — as bebidas do festival, por exemplo, foram consumidas na madrugada de 09 para 10/10/2026 e debitadas em 11/10/2026, e contam no dia 2. As somas por dia estão arredondadas ao cêntimo; o total é exato.
+  Os dias 1 e 6 são parciais: o dia 1 só vira Egito às 22h00, depois de Dublin e Milão, e o dia 6 acaba às 12h57, na decolagem. Inteiros no país, são os dias 2 a 5. Cada despesa está alocada no <strong>dia em que aconteceu</strong>, não no dia em que o cartão a lançou — as bebidas do festival, por exemplo, foram consumidas na madrugada de 09 para 10/10/2026 e debitadas em 11/10/2026, e contam no dia 2. As somas por dia estão arredondadas ao cêntimo; o total é exato.
 </div>
 
 A linha do tempo completa, atividade por atividade e com os horários do GPS, está abaixo:
@@ -1337,7 +1337,7 @@ Na escala de 7h35 da volta, jantamos na **Osteria Da Fortunata**, casa romana co
 
 <div class="conclusion">
   <h2>Vale muito a pena — mas o Egito não é onde o dinheiro vai</h2>
-  <p>Seis dias no Egito me custaram € 1.245,92, e a tabela de categorias conta uma história que eu não esperava quando comecei a reconciliar os extratos. <strong>Sete noites de hospedagem somaram € 76,49</strong> — menos de um terço do que gastei numa única noite de festival. Os quatro voos deram € 149,61, e um deles foi pago com pontos. Chegar ao Egito e dormir lá é absurdamente barato; <strong>o que custa é fazer coisas</strong>, e eu fiz muitas.</p>
+  <p>Seis dias de calendário no Egito, quatro deles inteiros, me custaram € 1.245,92, e a tabela de categorias conta uma história que eu não esperava quando comecei a reconciliar os extratos. <strong>Sete noites de hospedagem somaram € 76,49</strong> — sete porque as cinco de Gizé e as duas de Hurghada se sobrepõem, já que seguramos o quarto de Gizé enquanto estávamos no Mar Vermelho; dormi cinco. Ainda assim, é menos de um terço do que gastei numa única noite de festival. Os quatro voos deram € 149,61, e um deles foi pago com pontos. Chegar ao Egito e dormir lá é absurdamente barato; <strong>o que custa é fazer coisas</strong>, e eu fiz muitas.</p>
   <p>A noite do Starlight nas pirâmides justificou o preço. Quatro palcos no deserto, a face de Khufu iluminada entre dois guindastes, lasers riscando a nuvem baixa e cinco horas e meia lá dentro — e, para uma primeira edição, uma organização muito melhor do que a do Anima, que vi no mesmo lugar no ano anterior. Os € 130,90 do ingresso eu pagaria de novo. Os € 122,51 de bebida, provavelmente não.</p>
   <p>Se eu fizesse tudo de novo, mudaria seis coisas: pediria o <strong>e-visa com mais de sete dias</strong> em vez de pagar três taxas por pressa e depender da boa vontade do portal para reavê-las; tiraria a <strong>Permissão Internacional para Dirigir</strong> antes de viajar, mesmo sem planejar dirigir; conferiria a <strong>franquia de quilometragem</strong> da reserva de carro, que era a pegadinha de verdade e não a habilitação; pegaria o <strong>ônibus da Terravision</strong> em vez do trem em Milão; guardaria uma <strong>nota de € 20,00 intocada</strong> para o último dia; e <strong>confirmaria o ponto de entrada do festival no próprio dia</strong>, em vez de confiar na logística do ano anterior e gastar 2h23 para percorrer 2 km. O resto eu repetiria igual — inclusive o steak de camelo, no dia seguinte a ter montado num.</p>
 </div>
