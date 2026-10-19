@@ -33,7 +33,8 @@ trip: cairo-2026
   <p>Esta é a informação prática que eu mais queria ter antes de embarcar, e ela é contraintuitiva:</p>
   <p><strong>Os sítios arqueológicos só aceitam cartão.</strong> Os quatro que visitei — complexo de Gizé, Templo do Vale, Memphis e Saqqara — não aceitam dinheiro na bilheteria. Nenhum.</p>
   <p><strong>Nos postos de combustível da estrada, dinheiro vivo não é obrigatório — é só mais rápido.</strong> Os três em que abastecemos tinham maquininha e aceitavam cartão; dois deles eram Circle K. Paguei em espécie por escolha: resolve em menos tempo, e eu já estava com libras na mão.</p>
-  <p>Hotel, restaurante e supermercado aceitam cartão e aproximação sem drama. Táxi, gorjeta, pedágio, estacionamento e a agência de aluguel de carro foram <strong>tudo em espécie</strong>. Leve um cartão que funcione, um reserva, e alguma coisa em dinheiro — menos por obrigação do que para não depender de maquininha em lugar nenhum.</p>
+  <p>Hotel, restaurante e supermercado aceitam cartão e aproximação sem drama. <strong>A agência de aluguel de carro também aceitava</strong> — pagamos em dinheiro por conveniência, não por falta de opção. Táxi, gorjeta, pedágio e estacionamento foram em espécie.</p>
+  <p>O padrão, no fim, é esse: quase tudo aceita cartão, e o dinheiro ganhou porque eu estava com libras na mão o tempo todo — as 8.025 EGP que o guia me devolveu pelos ingressos, como conto na seção 12. Leve um cartão que funcione, um reserva, e alguma coisa em dinheiro pela rapidez.</p>
 </div>
 
 <div class="callout callout-warn">
@@ -791,6 +792,7 @@ Fomos na agência pequena do próprio aeroporto, que não é rede, e alugamos **
     <tr><td>Caução</td><td>US$ 650,00</td><td>US$ 500,00, negociada para US$ 400,00</td></tr>
     <tr><td>Reposição de combustível</td><td>US$ 0,60 por litro</td><td>200 EGP fixos (≈ US$ 3,40)</td></tr>
     <tr><td>Habilitação exigida</td><td>PID + carteira do país</td><td><span class="check">✓</span> CNH digital bastou</td></tr>
+    <tr><td>Forma de pagamento</td><td>Cartão no nome do titular; <strong>dinheiro não é aceito</strong></td><td><span class="check">✓</span> Cartão ou dinheiro</td></tr>
   </tbody>
 </table>
 
@@ -1159,7 +1161,7 @@ Na escala de 7h35 da volta, jantamos na **Osteria Da Fortunata**, casa romana co
 
   <div class="provider-card">
     <div class="provider-name"><i class="fas fa-car-side"></i> Agência local do Cairo International</div>
-    <div class="provider-detail">Locadora pequena dentro do mesmo aeroporto, fora das redes internacionais. Aceitou só a CNH digital brasileira, sem PID, e entregou um Hyundai Azera bem maior que o Corolla reservado, sem limite de quilometragem. Caução pedida em US$ 500,00 e negociada para US$ 400,00. Na devolução cobrou 1.200 EGP de multa, combustível e lavagem.</div>
+    <div class="provider-detail">Locadora pequena dentro do mesmo aeroporto, fora das redes internacionais. Aceitou só a CNH digital brasileira, sem PID, e entregou um Hyundai Azera bem maior que o Corolla reservado, sem limite de quilometragem. Aceita cartão e dinheiro — pagamos em espécie por conveniência. Caução pedida em US$ 500,00 e negociada para US$ 400,00. Na devolução cobrou 1.200 EGP de multa, combustível e lavagem.</div>
     <div class="provider-price">US$ 190,00 por 2 diárias · sem franquia de km</div>
   </div>
 
