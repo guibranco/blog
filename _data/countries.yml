@@ -7,12 +7,12 @@
 - name: Albania
   slug: albania
   name_pt: Albânia
-- name: Germany
-  slug: germany
-  name_pt: Alemanha
 - name: Egypt
   slug: egypt
   name_pt: Egito
+- name: Germany
+  slug: germany
+  name_pt: Alemanha
 - name: Greece
   slug: greece
   name_pt: Grécia
