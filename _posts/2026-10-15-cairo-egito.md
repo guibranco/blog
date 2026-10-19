@@ -46,7 +46,8 @@ trip: cairo-2026
   <div class="callout-label">Transparência sobre este relato</div>
   <p>Os valores saem de quatro fontes cruzadas: o <strong>Splitwise</strong> do grupo, o <strong>extrato do Wise</strong>, o <strong>extrato do Revolut</strong> e o <strong>registro de localização do Google Maps Timeline</strong>. Onde algo foi dividido, a divisão está explícita e o número aqui é <strong>a minha parte</strong>, não a do grupo.</p>
   <p>Os horários e as distâncias vêm do Timeline, em hora local do Egito (UTC+3). A quilometragem do carro é do GPS, não do odômetro. Não há nenhuma linha estimada neste relato.</p>
-  <p>Esta foi minha <strong>segunda vez em Gizé</strong> — estive no mesmo lugar em outubro de 2025, para outro festival. Isso tem consequência prática: algumas coisas eu já sabia, e uma delas eu achei que sabia e tinha mudado. Está na seção 06.</p>
+  <p>Esta foi minha <strong>terceira vez no Egito</strong>, e a terceira em Gizé. A primeira foi em <strong>2022</strong>, quando eu ainda morava em Dubai, para o casamento de um amigo — Cairo e as pirâmides, sem festival nenhum. A segunda foi em <strong>outubro de 2025</strong>, para o festival <strong>Anima</strong>, no mesmo platô, com <strong>Luxor</strong> antes e <strong>Alexandria</strong> depois.</p>
+  <p>Isso tem duas consequências práticas para este relato. A primeira: ele <strong>não tem Luxor nem Alexandria</strong>, porque eu já tinha feito as duas no ano anterior — se for a sua primeira vez no Egito, trate este roteiro como incompleto de propósito. A segunda: algumas coisas eu já sabia, e uma delas eu achei que sabia e tinha mudado. Está na seção 06.</p>
   <p>Viajamos em cinco. As outras quatro pessoas aparecem aqui como "o grupo", "as meninas" ou "uma amiga" — os números são meus, os nomes são delas.</p>
 </div>
 
@@ -389,7 +390,7 @@ O hotel fica a cerca de **2 km da entrada do festival em linha reta**. Levamos *
 
 <div class="callout callout-warn">
   <div class="callout-label">O erro foi confiar na logística do ano anterior</div>
-  <p>Em 2025, no festival a que fui no mesmo lugar, a <strong>pulseira era entregue no Grande Museu Egípcio</strong> e o shuttle de lá até o complexo era obrigatório. Fomos pelo mesmo caminho achando que seria igual.</p>
+  <p>Em 2025, no <strong>Anima</strong>, no mesmo lugar, a <strong>pulseira era entregue no Grande Museu Egípcio</strong> e o shuttle de lá até o complexo era obrigatório. Fomos pelo mesmo caminho achando que seria igual.</p>
   <p>Não era: em 2026 a pulseira era entregue <strong>dentro do complexo</strong>, e dava para ir direto à entrada. O desvio custou 28,5 km e quase duas horas e meia de uma noite de cinco horas e meia.</p>
   <p><strong>A logística muda de edição para edição, mesmo no mesmo local.</strong> Confirme o ponto de entrada no dia, pelo canal oficial do evento — não pela memória.</p>
 </div>
@@ -400,7 +401,7 @@ Quatro palcos. Ficamos a maior parte do tempo no principal e cerca de uma hora n
 
 O palco principal eram **dois guindastes formando um V invertido**, com a face de uma pirâmide iluminada no vão central e uma grade de lasers riscando a nuvem baixa. A escolha de projeto é a coisa mais inteligente do evento: o palco não compete com o cenário, ele aponta para ele.
 
-Comparado ao festival do ano anterior no mesmo lugar, a **organização estava muito melhor** — filas, sinalização, estrutura de bar e banheiro. Para uma primeira edição, isso não é pouco.
+Comparado ao Anima, no ano anterior e no mesmo lugar, a **organização estava muito melhor** — filas, sinalização, estrutura de bar e banheiro. Para uma primeira edição, isso não é pouco.
 
 <div class="callout callout-warn">
   <div class="callout-label">€ 122,51 de bebida, ou 24 shawarmas</div>
@@ -1337,6 +1338,6 @@ Na escala de 7h35 da volta, jantamos na **Osteria Da Fortunata**, casa romana co
 <div class="conclusion">
   <h2>Vale muito a pena — mas o Egito não é onde o dinheiro vai</h2>
   <p>Seis dias no Egito me custaram € 1.245,92, e a tabela de categorias conta uma história que eu não esperava quando comecei a reconciliar os extratos. <strong>Sete noites de hospedagem somaram € 76,49</strong> — menos de um terço do que gastei numa única noite de festival. Os quatro voos deram € 149,61, e um deles foi pago com pontos. Chegar ao Egito e dormir lá é absurdamente barato; <strong>o que custa é fazer coisas</strong>, e eu fiz muitas.</p>
-  <p>A noite do Starlight nas pirâmides justificou o preço. Quatro palcos no deserto, a face de Khufu iluminada entre dois guindastes, lasers riscando a nuvem baixa e cinco horas e meia lá dentro — e, para uma primeira edição, uma organização muito melhor do que a do festival que vi no mesmo lugar no ano anterior. Os € 130,90 do ingresso eu pagaria de novo. Os € 122,51 de bebida, provavelmente não.</p>
+  <p>A noite do Starlight nas pirâmides justificou o preço. Quatro palcos no deserto, a face de Khufu iluminada entre dois guindastes, lasers riscando a nuvem baixa e cinco horas e meia lá dentro — e, para uma primeira edição, uma organização muito melhor do que a do Anima, que vi no mesmo lugar no ano anterior. Os € 130,90 do ingresso eu pagaria de novo. Os € 122,51 de bebida, provavelmente não.</p>
   <p>Se eu fizesse tudo de novo, mudaria seis coisas: pediria o <strong>e-visa com mais de sete dias</strong> em vez de pagar três taxas por pressa e depender da boa vontade do portal para reavê-las; tiraria a <strong>Permissão Internacional para Dirigir</strong> antes de viajar, mesmo sem planejar dirigir; conferiria a <strong>franquia de quilometragem</strong> da reserva de carro, que era a pegadinha de verdade e não a habilitação; pegaria o <strong>ônibus da Terravision</strong> em vez do trem em Milão; guardaria uma <strong>nota de € 20,00 intocada</strong> para o último dia; e <strong>confirmaria o ponto de entrada do festival no próprio dia</strong>, em vez de confiar na logística do ano anterior e gastar 2h23 para percorrer 2 km. O resto eu repetiria igual — inclusive o steak de camelo, no dia seguinte a ter montado num.</p>
 </div>
