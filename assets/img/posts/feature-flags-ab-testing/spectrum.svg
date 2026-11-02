@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" width="900" height="470" role="img" aria-label="A four-step ladder from feature flag to experiment. Step 1, on/off: a global switch. Step 2, targeted: named users, groups, tenants, exclusions — needs a targeting context. Step 3, percentage rollout: a sticky hashed percentage ramping 1, 5, 25, 50, 100 percent — needs deterministic hashing and operational metrics. Step 4, variants / A/B: a frozen percentile allocation into named variants, exposure telemetry and statistics. Steps 1 to 3 are delivery controls; only step 4 measures anything.">
+<defs>
+<marker id="a-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5a534a"/></marker>
+<marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2d6a4f"/></marker>
+<marker id="a-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b85c00"/></marker>
+<marker id="a-light" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8078"/></marker>
+</defs>
+<rect width="900" height="470" fill="#f5f0e8"/>
+<text x="20" y="26" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="15" font-weight="600" fill="#1a1714">From switch to experiment — each step adds one ingredient</text>
+<text x="20" y="44" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">steps 1–3 are delivery controls you may edit at any time · only step 4 measures anything, and it may only end</text>
+<line x1="20" y1="56" x2="880" y2="56" stroke="#d8cfc2" stroke-width="1"/>
+<rect x="20" y="240" width="200" height="164" rx="6" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<line x1="21" y1="241" x2="219" y2="241" stroke="#2d6a4f" stroke-width="4"/>
+<text x="34" y="262" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1" fill="#2d6a4f">step 1</text>
+<text x="34" y="284" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="14" font-weight="600" fill="#1a1714">On / off</text>
+<text x="34" y="302" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#8a8078">ship dark, flip later</text>
+<text x="34" y="366" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">global switch</text>
+<text x="34" y="381" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">no context needed</text>
+<rect x="34" y="320" width="46" height="22" rx="11" fill="#2d6a4f" stroke="none" stroke-width="1"/>
+<circle cx="69" cy="331" r="8" fill="#ffffff" stroke="none" stroke-width="1"/>
+<text x="90" y="335" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#1a1714">enabled: true</text>
+<path d="M222,241 L238,197" fill="none" stroke="#8a8078" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-light)"/>
+<rect x="240" y="196" width="200" height="208" rx="6" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<line x1="241" y1="197" x2="439" y2="197" stroke="#2d6a4f" stroke-width="4"/>
+<text x="254" y="218" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1" fill="#2d6a4f">step 2</text>
+<text x="254" y="240" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="14" font-weight="600" fill="#1a1714">Targeted</text>
+<text x="254" y="258" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#8a8078">dogfood → beta → rings</text>
+<text x="254" y="354" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">+ targeting context</text>
+<text x="254" y="369" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">users · groups · tenants</text>
+<text x="254" y="384" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">exclusions first</text>
+<path d="M255,284 L259,288 L266,279" fill="none" stroke="#2d6a4f" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="274" y="288" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#1a1714">alice@…</text>
+<path d="M255,302 L259,306 L266,297" fill="none" stroke="#2d6a4f" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="274" y="306" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#1a1714">internal</text>
+<path d="M255,315 L265,324 M265,315 L255,324" fill="none" stroke="#b85c00" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="274" y="324" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#1a1714">tenant-acme</text>
+<path d="M442,197 L458,153" fill="none" stroke="#8a8078" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-light)"/>
+<rect x="460" y="152" width="200" height="252" rx="6" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<line x1="461" y1="153" x2="659" y2="153" stroke="#2d6a4f" stroke-width="4"/>
+<text x="474" y="174" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1" fill="#2d6a4f">step 3</text>
+<text x="474" y="196" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="14" font-weight="600" fill="#1a1714">Percentage rollout</text>
+<text x="474" y="214" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#8a8078">1 → 5 → 25 → 50 → 100</text>
+<text x="474" y="316" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">+ deterministic hash</text>
+<text x="474" y="331" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">sticky per user</text>
+<text x="474" y="346" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">+ operational metrics</text>
+<rect x="474" y="232" width="150" height="8" rx="2" fill="#f2ede6" stroke="none" stroke-width="1"/>
+<rect x="474" y="232" width="2" height="8" rx="2" fill="#2d6a4f" stroke="none" stroke-width="1"/>
+<text x="632" y="239.5" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8" fill="#5a534a">1%</text>
+<rect x="474" y="244" width="150" height="8" rx="2" fill="#f2ede6" stroke="none" stroke-width="1"/>
+<rect x="474" y="244" width="7.5" height="8" rx="2" fill="#2d6a4f" stroke="none" stroke-width="1"/>
+<text x="632" y="251.5" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8" fill="#5a534a">5%</text>
+<rect x="474" y="256" width="150" height="8" rx="2" fill="#f2ede6" stroke="none" stroke-width="1"/>
+<rect x="474" y="256" width="37.5" height="8" rx="2" fill="#2d6a4f" stroke="none" stroke-width="1"/>
+<text x="632" y="263.5" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8" fill="#5a534a">25%</text>
+<rect x="474" y="268" width="150" height="8" rx="2" fill="#f2ede6" stroke="none" stroke-width="1"/>
+<rect x="474" y="268" width="75.0" height="8" rx="2" fill="#2d6a4f" stroke="none" stroke-width="1"/>
+<text x="632" y="275.5" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8" fill="#5a534a">50%</text>
+<rect x="474" y="280" width="150" height="8" rx="2" fill="#f2ede6" stroke="none" stroke-width="1"/>
+<rect x="474" y="280" width="150.0" height="8" rx="2" fill="#2d6a4f" stroke="none" stroke-width="1"/>
+<text x="632" y="287.5" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8" fill="#5a534a">100%</text>
+<path d="M662,153 L678,109" fill="none" stroke="#8a8078" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-light)"/>
+<rect x="680" y="108" width="200" height="296" rx="6" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<line x1="681" y1="109" x2="879" y2="109" stroke="#b85c00" stroke-width="4"/>
+<text x="694" y="130" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1" fill="#b85c00">step 4</text>
+<text x="694" y="152" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="14" font-weight="600" fill="#1a1714">Variants / A/B</text>
+<text x="694" y="170" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#8a8078">50 / 50 until n, then decide</text>
+<text x="694" y="262" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">+ frozen allocation</text>
+<text x="694" y="277" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">+ exposure telemetry</text>
+<text x="694" y="292" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">+ statistics</text>
+<rect x="694" y="198" width="150" height="20" rx="3" fill="#f2ede6" stroke="#d8cfc2" stroke-width="1"/>
+<rect x="694" y="198" width="75" height="20" rx="3" fill="#f8ead6" stroke="none" stroke-width="1"/>
+<rect x="769" y="198" width="75" height="20" rx="3" fill="#e8f5ee" stroke="none" stroke-width="1"/>
+<text x="731" y="212" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#b85c00">Control</text>
+<text x="806" y="212" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#2d6a4f">Estimate</text>
+<line x1="769" y1="196" x2="769" y2="220" stroke="#1a1714" stroke-width="1.2"/>
+<rect x="852" y="208" width="12" height="9" rx="1.5" fill="#b85c00" stroke="none" stroke-width="1"/>
+<path d="M854.5,208 V205 a3.5,3.5 0 0 1 7,0 V208" fill="none" stroke="#b85c00" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="694" y="236" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#b85c00">frozen allocation</text>
+<line x1="20" y1="424" x2="660" y2="424" stroke="#2d6a4f" stroke-width="1.5"/>
+<line x1="20" y1="418" x2="20" y2="424" stroke="#2d6a4f" stroke-width="1.5"/>
+<line x1="660" y1="418" x2="660" y2="424" stroke="#2d6a4f" stroke-width="1.5"/>
+<text x="340.0" y="442" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#2d6a4f">delivery control — edit the rules whenever you like; watch errors and latency</text>
+<line x1="680" y1="424" x2="880" y2="424" stroke="#b85c00" stroke-width="1.5"/>
+<line x1="680" y1="418" x2="680" y2="424" stroke="#b85c00" stroke-width="1.5"/>
+<line x1="880" y1="418" x2="880" y2="424" stroke="#b85c00" stroke-width="1.5"/>
+<text x="780.0" y="442" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#b85c00">experiment — you may only end it</text>
+<text x="20" y="462" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">The same hash that makes step 3 sticky makes step 4 random. What changes is who is allowed to touch the percentages, and when.</text>
+</svg>

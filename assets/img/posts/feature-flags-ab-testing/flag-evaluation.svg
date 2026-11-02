@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 548" width="900" height="548" role="img" aria-label="Feature flag evaluation: a request's targeting context runs through the flag's rules in a fixed order — exclusions, named users, group percentages, default percentage — and the first match selects the new or the legacy code path; the definition comes from a configuration store and changes without a deploy.">
+<defs>
+<marker id="a-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5a534a"/></marker>
+<marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2d6a4f"/></marker>
+<marker id="a-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b85c00"/></marker>
+<marker id="a-light" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8078"/></marker>
+</defs>
+<rect width="900" height="548" fill="#f5f0e8"/>
+<text x="20" y="26" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="15" font-weight="600" fill="#1a1714">Feature flag evaluation — one request, one answer</text>
+<text x="20" y="44" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">rules run in a fixed order · the first match wins · the definition changes without a deploy</text>
+<line x1="20" y1="56" x2="880" y2="56" stroke="#d8cfc2" stroke-width="1"/>
+<rect x="20" y="76" width="200" height="60" rx="6" fill="#f2ede6" stroke="#d8cfc2" stroke-width="1"/>
+<text x="32" y="97" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="12" font-weight="600" fill="#1a1714">Configuration store</text>
+<text x="32" y="113" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">appsettings · App Configuration</text>
+<text x="32" y="126" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">Unleash · LaunchDarkly · a table</text>
+<path d="M220,106 L288,106" fill="none" stroke="#5a534a" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-ink)"/>
+<text x="254" y="98" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">definition</text>
+<text x="254" y="120" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">no deploy</text>
+<rect x="20" y="250" width="200" height="112" rx="6" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<text x="32" y="271" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="12" font-weight="600" fill="#1a1714">Request</text>
+<text x="32" y="286" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#8a8078">targeting context</text>
+<text x="32" y="308" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#1a1714">user    alice@example.com</text>
+<text x="32" y="326" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#1a1714">groups  [beta-testers]</text>
+<text x="32" y="344" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#1a1714">tenant  acme</text>
+<path d="M220,306 L288,306" fill="none" stroke="#5a534a" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-ink)"/>
+<text x="254" y="298" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">evaluate</text>
+<rect x="290" y="76" width="320" height="434" rx="6" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<text x="306" y="98" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="13" font-weight="600" fill="#1a1714">Evaluator</text>
+<text x="306" y="114" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">Microsoft.Targeting · first match wins</text>
+<rect x="470" y="84" width="124" height="20" rx="10.0" fill="#f8ead6" stroke="#b85c00" stroke-width="1"/>
+<text x="532.0" y="97.06" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#b85c00">enabled:false → false</text>
+<rect x="306" y="136" width="288" height="66" rx="5" fill="#f2ede6" stroke="#d8cfc2" stroke-width="1"/>
+<text x="318" y="160" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="12" font-weight="600" fill="#1a1714">1 · Exclusion</text>
+<text x="318" y="178" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">users / groups on the kill list</text>
+<rect x="518" y="148" width="64" height="18" rx="9.0" fill="#ffffff" stroke="#8a8078" stroke-width="1"/>
+<text x="550.0" y="160.06" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">→ false</text>
+<path d="M450,203 L450,215" fill="none" stroke="#8a8078" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-light)"/>
+<text x="458" y="212" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8" fill="#8a8078">no match</text>
+<rect x="306" y="216" width="288" height="66" rx="5" fill="#e8f5ee" stroke="#d8cfc2" stroke-width="1"/>
+<text x="318" y="240" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="12" font-weight="600" fill="#1a1714">2 · Users</text>
+<text x="318" y="258" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">named allow-list</text>
+<rect x="518" y="228" width="64" height="18" rx="9.0" fill="#ffffff" stroke="#2d6a4f" stroke-width="1"/>
+<text x="550.0" y="240.06" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#2d6a4f">→ true</text>
+<path d="M450,283 L450,295" fill="none" stroke="#8a8078" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-light)"/>
+<text x="458" y="292" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8" fill="#8a8078">no match</text>
+<rect x="306" y="296" width="288" height="66" rx="5" fill="#e8f5ee" stroke="#d8cfc2" stroke-width="1"/>
+<text x="318" y="320" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="12" font-weight="600" fill="#1a1714">3 · Groups</text>
+<text x="318" y="338" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">beta-testers · RolloutPercentage 50</text>
+<rect x="466" y="308" width="116" height="18" rx="9.0" fill="#ffffff" stroke="#2d6a4f" stroke-width="1"/>
+<text x="524.0" y="320.06" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#2d6a4f">hash &lt; 50 → true</text>
+<path d="M450,363 L450,375" fill="none" stroke="#8a8078" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-light)"/>
+<text x="458" y="372" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8" fill="#8a8078">no match</text>
+<rect x="306" y="376" width="288" height="66" rx="5" fill="#e8f5ee" stroke="#d8cfc2" stroke-width="1"/>
+<text x="318" y="400" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="12" font-weight="600" fill="#1a1714">4 · Default</text>
+<text x="318" y="418" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">DefaultRolloutPercentage 10</text>
+<rect x="466" y="388" width="116" height="18" rx="9.0" fill="#ffffff" stroke="#2d6a4f" stroke-width="1"/>
+<text x="524.0" y="400.06" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#2d6a4f">hash &lt; 10 → true</text>
+<path d="M450,443 L450,456" fill="none" stroke="#8a8078" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-light)"/>
+<text x="450" y="472" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">no rule matched → false</text>
+<rect x="690" y="230" width="170" height="60" rx="6" fill="#e8f5ee" stroke="#2d6a4f" stroke-width="1.4"/>
+<text x="705" y="254" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#2d6a4f">true</text>
+<text x="705" y="274" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="10.5" fill="#1a1714">new checkout code path</text>
+<rect x="690" y="430" width="170" height="60" rx="6" fill="#f2ede6" stroke="#8a8078" stroke-width="1.2"/>
+<text x="705" y="454" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#5a534a">false</text>
+<text x="705" y="474" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="10.5" fill="#1a1714">legacy checkout code path</text>
+<line x1="610" y1="249.0" x2="650" y2="249.0" stroke="#2d6a4f" stroke-width="1.4"/>
+<line x1="610" y1="329.0" x2="650" y2="329.0" stroke="#2d6a4f" stroke-width="1.4"/>
+<line x1="610" y1="409.0" x2="650" y2="409.0" stroke="#2d6a4f" stroke-width="1.4"/>
+<line x1="650" y1="249.0" x2="650" y2="409.0" stroke="#2d6a4f" stroke-width="1.4"/>
+<path d="M650,260 L688,260" fill="none" stroke="#2d6a4f" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-green)"/>
+<circle cx="650" cy="249.0" r="2.4" fill="#2d6a4f" stroke="none" stroke-width="1"/>
+<circle cx="650" cy="329.0" r="2.4" fill="#2d6a4f" stroke="none" stroke-width="1"/>
+<circle cx="650" cy="409.0" r="2.4" fill="#2d6a4f" stroke="none" stroke-width="1"/>
+<path d="M610,169.0 L872,169.0 L872,460 L862,460" fill="none" stroke="#8a8078" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-light)"/>
+<text x="741" y="163.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">excluded users never see it</text>
+<path d="M610,468 L688,468" fill="none" stroke="#8a8078" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-light)"/>
+<text x="20" y="528" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">Exclusions win over everything: a user on the kill list never sees the feature, even if they are also on the allow-list.</text>
+<text x="20" y="542" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">Percentages are sticky — the same user gets the same answer on every request, on every instance.</text>
+</svg>
