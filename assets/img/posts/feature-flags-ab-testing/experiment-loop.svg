@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 520" width="980" height="520" role="img" aria-label="An A/B test as a closed loop: hypothesis with metric and sample size fixed in advance; deterministic randomization into a frozen 50/50 split; exposure logged at the point of exposure; metric collection; health checks for sample ratio mismatch and early stopping; statistical analysis; and a ship-or-discard decision that feeds the next hypothesis.">
+<defs>
+<marker id="a-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5a534a"/></marker>
+<marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2d6a4f"/></marker>
+<marker id="a-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b85c00"/></marker>
+<marker id="a-light" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8078"/></marker>
+</defs>
+<rect width="980" height="520" fill="#f5f0e8"/>
+<text x="20" y="26" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="15" font-weight="600" fill="#1a1714">An A/B test is a loop with a gate in it</text>
+<text x="20" y="44" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">everything on the top row is decided before the first user is assigned · nothing on the bottom row is read before n is reached</text>
+<line x1="20" y1="56" x2="960" y2="56" stroke="#d8cfc2" stroke-width="1"/>
+<rect x="20" y="92" width="196" height="104" rx="6" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<text x="34" y="118" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">1 · Hypothesis</text>
+<text x="34" y="140" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">primary metric + guardrails</text>
+<text x="34" y="156" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">minimum effect → sample size</text>
+<text x="34" y="172" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">n = 16σ² / δ² per arm</text>
+<rect x="82" y="83" width="124" height="18" rx="9.0" fill="#f8ead6" stroke="#b85c00" stroke-width="1"/>
+<text x="144.0" y="94.88" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#b85c00">fixed before start</text>
+<rect x="268" y="92" width="196" height="104" rx="6" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<text x="282" y="118" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">2 · Randomize</text>
+<text x="282" y="140" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">unit = user (match the metric)</text>
+<text x="282" y="156" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">hash(userId + seed) → arm</text>
+<text x="282" y="172" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">50 / 50, frozen for the run</text>
+<rect x="402" y="83" width="52" height="18" rx="9.0" fill="#f8ead6" stroke="#b85c00" stroke-width="1"/>
+<text x="428.0" y="94.88" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#b85c00">frozen</text>
+<rect x="516" y="92" width="196" height="104" rx="6" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<text x="530" y="118" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">3 · Expose &amp; log</text>
+<text x="530" y="140" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">at the point of exposure</text>
+<text x="530" y="156" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">event: user · variant · time</text>
+<text x="530" y="172" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">not in middleware, for everyone</text>
+<rect x="764" y="92" width="196" height="104" rx="6" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<text x="778" y="118" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">4 · Collect</text>
+<text x="778" y="140" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">primary metric per unit</text>
+<text x="778" y="156" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">guardrails: latency, errors,</text>
+<text x="778" y="172" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">revenue per user</text>
+<rect x="764" y="330" width="196" height="104" rx="6" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<text x="778" y="356" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">5 · Health checks</text>
+<text x="778" y="378" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">sample ratio mismatch (χ²)</text>
+<text x="778" y="394" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">both arms live, whole period</text>
+<text x="778" y="410" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">exposures match request logs</text>
+<rect x="886" y="321" width="64" height="18" rx="9.0" fill="#f8ead6" stroke="#b85c00" stroke-width="1"/>
+<text x="918.0" y="332.88" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#b85c00">the gate</text>
+<rect x="516" y="330" width="196" height="104" rx="6" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<text x="530" y="356" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">6 · Analyze</text>
+<text x="530" y="378" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">significance test at n</text>
+<text x="530" y="394" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">effect size with interval</text>
+<text x="530" y="410" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">guardrails not degraded</text>
+<rect x="268" y="330" width="196" height="104" rx="6" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<text x="282" y="356" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="#1a1714">7 · Decide</text>
+<text x="282" y="378" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">ship B · keep A · iterate</text>
+<text x="282" y="394" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">then delete the flag</text>
+<text x="282" y="410" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">and both code branches</text>
+<rect x="360" y="321" width="94" height="18" rx="9.0" fill="#e8f5ee" stroke="#2d6a4f" stroke-width="1"/>
+<text x="407.0" y="332.88" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#2d6a4f">ends the flag</text>
+<path d="M217,144.0 L266,144.0" fill="none" stroke="#5a534a" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-ink)"/>
+<text x="242.0" y="136.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">n · split</text>
+<path d="M465,144.0 L514,144.0" fill="none" stroke="#5a534a" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-ink)"/>
+<text x="490.0" y="136.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">arm</text>
+<path d="M713,144.0 L762,144.0" fill="none" stroke="#5a534a" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-ink)"/>
+<text x="738.0" y="136.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">events</text>
+<path d="M862.0,197 L862.0,318" fill="none" stroke="#5a534a" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-ink)"/>
+<text x="872.0" y="266.0" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">metrics per arm</text>
+<path d="M763,382.0 L714,382.0" fill="none" stroke="#5a534a" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-ink)"/>
+<text x="738.0" y="374.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">healthy?</text>
+<path d="M515,382.0 L466,382.0" fill="none" stroke="#5a534a" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-ink)"/>
+<text x="490.0" y="374.0" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">effect, p</text>
+<path d="M267,382.0 L118.0,382.0 L118.0,198" fill="none" stroke="#2d6a4f" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-green)"/>
+<text x="108.0" y="266.0" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#2d6a4f">next hypothesis</text>
+<path d="M862.0,435 L862.0,460" fill="none" stroke="#b85c00" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-orange)" stroke-dasharray="4 3"/>
+<text x="960" y="476" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#b85c00">unhealthy → discard the run,</text>
+<text x="960" y="489" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#b85c00">fix the plumbing, start again</text>
+<text x="20" y="494" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">Peeking at step 6 before n turns a nominal 5% test into a ~26% one.</text>
+<text x="20" y="508" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">A lopsided split at step 5 means every number downstream is untrustworthy, however good the lift looks.</text>
+</svg>

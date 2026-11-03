@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" width="900" height="540" role="img" aria-label="Variant allocation inside a flag. Named-user and group overrides are checked first; otherwise the user id and the seed are hashed with SHA-256, the first four bytes become a number between 0 and 100, and that number lands on a percentile bar split into Control (0 to 50) and Estimate (50 to 100). Every evaluation emits a FeatureFlag telemetry event with the variant and targeting id, which flows to Application Insights where the analysis joins exposures with outcome events. A kill switch (enabled: false) sends everyone to the default-when-disabled variant regardless of allocation.">
+<defs>
+<marker id="a-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5a534a"/></marker>
+<marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2d6a4f"/></marker>
+<marker id="a-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b85c00"/></marker>
+<marker id="a-light" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8078"/></marker>
+</defs>
+<rect width="900" height="540" fill="#f5f0e8"/>
+<text x="20" y="26" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="15" font-weight="600" fill="#1a1714">Variant allocation — the flag as a randomizer with a paper trail</text>
+<text x="20" y="44" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">overrides first · then a seeded hash onto a frozen percentile bar · every evaluation logged · the kill switch above all of it</text>
+<line x1="20" y1="56" x2="880" y2="56" stroke="#d8cfc2" stroke-width="1"/>
+<rect x="20" y="76" width="220" height="190" rx="6" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<text x="34" y="98" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="12" font-weight="600" fill="#1a1714">Overrides, checked first</text>
+<text x="34" y="113" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">allocation.user → allocation.group</text>
+<rect x="34" y="126" width="192" height="40" rx="4" fill="#f2ede6" stroke="#d8cfc2" stroke-width="1"/>
+<text x="44" y="143" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600" fill="#1a1714">user[]</text>
+<text x="44" y="158" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">alice@example.com → Estimate</text>
+<path d="M130,167 L130,177" fill="none" stroke="#8a8078" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-light)"/>
+<rect x="34" y="178" width="192" height="40" rx="4" fill="#f2ede6" stroke="#d8cfc2" stroke-width="1"/>
+<text x="44" y="195" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600" fill="#1a1714">group[]</text>
+<text x="44" y="210" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">internal → Estimate</text>
+<text x="130" y="250" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">no override → percentile bar</text>
+<path d="M240,218 L288,218" fill="none" stroke="#5a534a" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-ink)"/>
+<text x="264" y="210" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#8a8078">no match</text>
+<rect x="290" y="84" width="148" height="44" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<text x="300" y="102" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#1a1714">userId  "dave"</text>
+<text x="300" y="118" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">seed  "…2026-11"</text>
+<path d="M439,106 L451,106" fill="none" stroke="#8a8078" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-light)"/>
+<rect x="452" y="84" width="146" height="44" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<text x="462" y="102" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#1a1714">SHA-256(</text>
+<text x="462" y="118" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">userId + "\n" + seed)</text>
+<path d="M599,106 L611,106" fill="none" stroke="#8a8078" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-light)"/>
+<rect x="612" y="84" width="96" height="44" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<text x="622" y="102" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#1a1714">first 4 bytes</text>
+<text x="622" y="118" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#5a534a">→ uint32</text>
+<path d="M709,106 L721,106" fill="none" stroke="#8a8078" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-light)"/>
+<rect x="722" y="84" width="150" height="44" rx="5" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<text x="732" y="102" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#1a1714">÷ uint.MaxValue × 100</text>
+<text x="732" y="118" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600" fill="#2d6a4f">= 57.9</text>
+<text x="290" y="148" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">same user + same seed → same number on every request, on every instance · a new seed reshuffles everybody</text>
+<path d="M585,158 L585,196" fill="none" stroke="#5a534a" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-ink)"/>
+<rect x="290" y="200" width="295.0" height="36" rx="0" fill="#f8ead6" stroke="none" stroke-width="1"/>
+<rect x="585.0" y="200" width="295.0" height="36" rx="0" fill="#e8f5ee" stroke="none" stroke-width="1"/>
+<rect x="290" y="200" width="590" height="36" rx="4" fill="none" stroke="#d8cfc2" stroke-width="1"/>
+<line x1="585.0" y1="200" x2="585.0" y2="236" stroke="#1a1714" stroke-width="1.2"/>
+<text x="437.5" y="223" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#b85c00">Control  [0, 50)</text>
+<text x="762.5" y="223" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#2d6a4f">Estimate  [50, 100)</text>
+<line x1="290.0" y1="236" x2="290.0" y2="241" stroke="#8a8078" stroke-width="1"/>
+<text x="290.0" y="253" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">0</text>
+<line x1="437.5" y1="236" x2="437.5" y2="241" stroke="#8a8078" stroke-width="1"/>
+<text x="437.5" y="253" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">25</text>
+<line x1="585.0" y1="236" x2="585.0" y2="241" stroke="#8a8078" stroke-width="1"/>
+<text x="585.0" y="253" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">50</text>
+<line x1="732.5" y1="236" x2="732.5" y2="241" stroke="#8a8078" stroke-width="1"/>
+<text x="732.5" y="253" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">75</text>
+<line x1="880.0" y1="236" x2="880.0" y2="241" stroke="#8a8078" stroke-width="1"/>
+<text x="880.0" y="253" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">100</text>
+<line x1="631.61" y1="192" x2="631.61" y2="244" stroke="#1a1714" stroke-width="1.6"/>
+<circle cx="631.61" cy="190" r="3" fill="#1a1714" stroke="none" stroke-width="1"/>
+<text x="639.61" y="194" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600" fill="#1a1714">dave → 57.9 → Estimate</text>
+<text x="290" y="268" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">ranges cover 0–100, so default_when_enabled never fires here; leave a gap and it does</text>
+<text x="20" y="292" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#8a8078">every evaluation, whichever branch assigned it:</text>
+<rect x="20" y="302" width="270" height="80" rx="6" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<text x="32" y="322" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="11.5" font-weight="600" fill="#1a1714">FeatureFlag event</text>
+<text x="32" y="340" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">FeatureName · Variant</text>
+<text x="32" y="355" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">VariantAssignmentReason</text>
+<text x="32" y="370" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">TargetingId</text>
+<path d="M291,342 L318,342" fill="none" stroke="#8a8078" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-light)"/>
+<rect x="320" y="302" width="270" height="80" rx="6" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<text x="332" y="322" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="11.5" font-weight="600" fill="#1a1714">Application Insights</text>
+<text x="332" y="340" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">TargetingId stamped on every</text>
+<text x="332" y="355" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">item in the request: requests,</text>
+<text x="332" y="370" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">dependencies, custom events</text>
+<path d="M591,342 L618,342" fill="none" stroke="#8a8078" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-light)"/>
+<rect x="620" y="302" width="260" height="80" rx="6" fill="#ffffff" stroke="#d8cfc2" stroke-width="1"/>
+<text x="632" y="322" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="11.5" font-weight="600" fill="#1a1714">Analysis</text>
+<text x="632" y="340" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">exposures joined to outcomes</text>
+<text x="632" y="355" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">SRM check · effect ± CI</text>
+<text x="632" y="370" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">p at n — not before</text>
+<text x="20" y="400" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">telemetry.enabled: true → Microsoft.FeatureManagement.Telemetry.ApplicationInsights</text>
+<text x="20" y="414" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5a534a">→ join "saw Estimate" with "added to cart" on TargetingId</text>
+<rect x="20" y="434" width="860" height="62" rx="6" fill="#f8ead6" stroke="#b85c00" stroke-width="1.2"/>
+<text x="34" y="456" text-anchor="start" font-family="Source Serif 4, Georgia, serif" font-size="12" font-weight="600" fill="#b85c00">Kill switch outranks the experiment</text>
+<text x="34" y="474" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#1a1714">enabled: false → everyone gets default_when_disabled (Control); overrides and percentiles are ignored.</text>
+<text x="34" y="488" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#1a1714">Correct — operational safety sits above measurement — and it ends the experiment the moment someone pulls it.</text>
+<text x="20" y="516" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">Allocation order: user → group → percentile → default_when_enabled.</text>
+<text x="20" y="530" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a534a">The library gives you a correct randomizer with exposure logging; the experiment is the discipline around it.</text>
+</svg>

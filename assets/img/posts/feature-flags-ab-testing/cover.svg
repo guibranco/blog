@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="1200" height="706" role="img" aria-label="Feature flags vs. A/B testing: same switch, different questions">
+<rect width="680" height="400" fill="#0f0e0c"/>
+<line x1="34" y1="0" x2="34" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="68" y1="0" x2="68" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="102" y1="0" x2="102" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="136" y1="0" x2="136" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="170" y1="0" x2="170" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="204" y1="0" x2="204" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="238" y1="0" x2="238" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="272" y1="0" x2="272" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="306" y1="0" x2="306" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="340" y1="0" x2="340" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="374" y1="0" x2="374" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="408" y1="0" x2="408" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="442" y1="0" x2="442" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="476" y1="0" x2="476" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="510" y1="0" x2="510" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="544" y1="0" x2="544" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="578" y1="0" x2="578" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="612" y1="0" x2="612" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="646" y1="0" x2="646" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="0" y1="34" x2="680" y2="34" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="0" y1="68" x2="680" y2="68" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="0" y1="102" x2="680" y2="102" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="0" y1="136" x2="680" y2="136" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="0" y1="170" x2="680" y2="170" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="0" y1="204" x2="680" y2="204" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="0" y1="238" x2="680" y2="238" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="0" y1="272" x2="680" y2="272" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="0" y1="306" x2="680" y2="306" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="0" y1="340" x2="680" y2="340" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<line x1="0" y1="374" x2="680" y2="374" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
+<defs><radialGradient id="glow" cx="0.12" cy="0.12" r="0.7"><stop offset="0%" stop-color="#93c97a" stop-opacity="0.13"/><stop offset="100%" stop-color="#93c97a" stop-opacity="0"/></radialGradient></defs>
+<rect width="680" height="400" fill="url(#glow)"/>
+<text x="46" y="50" font-family="JetBrains Mono, monospace" font-size="11.5" fill="#93c97a" letter-spacing="1.6">// feature management · experimentation</text>
+<text x="634" y="50" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11.5" fill="#e8a33d" letter-spacing="1.6">.NET · 2026</text>
+<line x1="46" y1="64" x2="634" y2="64" stroke="#2a2621" stroke-width="1"/>
+<text x="46" y="150" font-family="Playfair Display, Georgia, serif" font-size="54" font-weight="700" fill="#f5f0e8">Feature flags</text>
+<text x="46" y="202" font-family="Playfair Display, Georgia, serif" font-size="54" font-weight="700" fill="#93c97a">vs. A/B testing</text>
+<rect x="46" y="224" width="58" height="3" fill="#e8a33d"/>
+<text x="46" y="258" font-family="Source Serif 4, Georgia, serif" font-size="15" fill="#8a8078">Same switch, different questions — rollout, targeting, variants</text>
+<rect x="46" y="296" width="111" height="20" rx="3" fill="none" stroke="#2a2621" stroke-width="1"/>
+<text x="101.5" y="310" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#8a8078">feature-flags</text>
+<rect x="165" y="296" width="90" height="20" rx="3" fill="none" stroke="#2a2621" stroke-width="1"/>
+<text x="210.0" y="310" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#8a8078">ab-testing</text>
+<rect x="263" y="296" width="75" height="20" rx="3" fill="none" stroke="#2a2621" stroke-width="1"/>
+<text x="300.5" y="310" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#8a8078">variants</text>
+<rect x="346" y="296" width="82" height="20" rx="3" fill="none" stroke="#2a2621" stroke-width="1"/>
+<text x="387.0" y="310" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#8a8078">targeting</text>
+<rect x="436" y="296" width="61" height="20" rx="3" fill="none" stroke="#2a2621" stroke-width="1"/>
+<text x="466.5" y="310" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#8a8078">dotnet</text>
+<rect x="505" y="296" width="54" height="20" rx="3" fill="none" stroke="#2a2621" stroke-width="1"/>
+<text x="532.0" y="310" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#8a8078">azure</text>
+<text x="46" y="344" font-family="JetBrains Mono, monospace" font-size="9" fill="#8a8078" letter-spacing="0.8">rollout · edit any time</text>
+<rect x="46" y="352" width="260" height="10" rx="2" fill="#1e1c18" stroke="#2a2621" stroke-width="1"/>
+<rect x="46" y="352" width="260.0" height="10" rx="2" fill="#93c97a" opacity="0.18"/>
+<rect x="46" y="352" width="130.0" height="10" rx="2" fill="#93c97a" opacity="0.34"/>
+<rect x="46" y="352" width="65.0" height="10" rx="2" fill="#93c97a" opacity="0.50"/>
+<rect x="46" y="352" width="13.0" height="10" rx="2" fill="#93c97a" opacity="0.66"/>
+<rect x="46" y="352" width="3" height="10" rx="2" fill="#93c97a" opacity="0.82"/>
+<circle cx="48.6" cy="357" r="2.4" fill="#93c97a"/>
+<circle cx="59.0" cy="357" r="2.4" fill="#93c97a"/>
+<circle cx="111.0" cy="357" r="2.4" fill="#93c97a"/>
+<circle cx="176.0" cy="357" r="2.4" fill="#93c97a"/>
+<circle cx="306.0" cy="357" r="2.4" fill="#93c97a"/>
+<text x="306" y="378" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9" fill="#8a8078" letter-spacing="0.8">1 → 5 → 25 → 50 → 100%</text>
+<text x="374" y="344" font-family="JetBrains Mono, monospace" font-size="9" fill="#e8a33d" letter-spacing="0.8">experiment · frozen</text>
+<rect x="374" y="352" width="260" height="10" rx="2" fill="#1e1c18" stroke="#2a2621" stroke-width="1"/>
+<rect x="374" y="352" width="130" height="10" rx="2" fill="#e8a33d" opacity="0.55"/>
+<rect x="504" y="352" width="130" height="10" rx="2" fill="#93c97a" opacity="0.55"/>
+<line x1="504" y1="348" x2="504" y2="366" stroke="#f5f0e8" stroke-width="1.5"/>
+<text x="374" y="378" font-family="JetBrains Mono, monospace" font-size="9" fill="#8a8078" letter-spacing="0.8">A · 50%</text>
+<text x="634" y="378" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9" fill="#8a8078" letter-spacing="0.8">B · 50% · until n</text>
+</svg>

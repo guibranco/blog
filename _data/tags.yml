@@ -1,3 +1,5 @@
+- name: ab-testing
+  slug: ab-testing
 - name: acoes
   slug: acoes
 - name: adam-toren
@@ -414,6 +416,8 @@
   slug: europa
 - name: expatriado
   slug: expatriado
+- name: experimentation
+  slug: experimentation
 - name: extensions
   slug: extensions
 - name: faculdade
@@ -424,6 +428,10 @@
   slug: farfetch
 - name: fator-r
   slug: fator-r
+- name: feature-flags
+  slug: feature-flags
+- name: feature-management
+  slug: feature-management
 - name: feriados
   slug: feriados
   redirect_from:
@@ -944,6 +952,8 @@
   slug: programadores
   redirect_from:
     - /tags/programadores/
+- name: progressive-delivery
+  slug: progressive-delivery
 - name: projetos
   slug: projetos
 - name: provider
