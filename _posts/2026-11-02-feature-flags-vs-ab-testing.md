@@ -11,6 +11,7 @@ subcategories:
   - "Infrastructure/DevOps"
 tags: [feature-flags, ab-testing, experimentation, progressive-delivery, feature-management, dotnet, csharp, azure, continuous-deployment, devops, architecture]
 cover: /assets/img/posts/feature-flags-ab-testing/cover.svg
+image: /assets/img/posts/feature-flags-ab-testing/cover.png
 card_style: dark
 ---
 
