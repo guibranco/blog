@@ -105,7 +105,7 @@ In .NET the reference implementation is `Microsoft.FeatureManagement` (version 4
 }
 ```
 
-The order of evaluation is fixed and worth memorising, because it is the same order in almost every tool: **exclusions win over everything**, then named users, then group percentages, then the default percentage for everybody else. The wiring is three lines, plus an accessor that tells the library who the current user is — and the accessor is where most real-world flag bugs live, so it is worth reading slowly:
+The order of evaluation is fixed and worth memorising, because it is the same order in almost every tool: **exclusions win over everything**, then named users, then group percentages, then the default percentage. One detail trips people up: the group percentage is a *first chance*, not a cap. A beta-tester who misses the group's 50% is still evaluated against the 10% default, so the feature reaches about 55% of that group, not 50%. The wiring is three lines, plus an accessor that tells the library who the current user is — and the accessor is where most real-world flag bugs live, so it is worth reading slowly:
 
 ```csharp
 builder.Services.AddHttpContextAccessor();
@@ -116,6 +116,8 @@ builder.Services
 public sealed class HttpTargetingContextAccessor(IHttpContextAccessor http)
     : ITargetingContextAccessor
 {
+    private const string AnonymousPrefix = "anon:";
+
     public ValueTask<TargetingContext> GetContextAsync()
     {
         var ctx  = http.HttpContext;
@@ -126,9 +128,10 @@ public sealed class HttpTargetingContextAccessor(IHttpContextAccessor http)
         // raw FindFirst("sub") returns null, and a null id puts everyone in one bucket.
         string? id = user?.FindFirst(ClaimTypes.Email)?.Value;
 
-        // Logged-out visitors need a stable id of their own (a first-party cookie set by
-        // middleware). A shared constant such as "anonymous" is one bucket for all of them.
-        id ??= ctx?.Request.Cookies["visitor-id"] ?? Guid.NewGuid().ToString("N");
+        // Logged-out visitors get a stable id of their own, in a namespace of its own:
+        // "anon:<guid>" can never collide with an allow-listed e-mail, however the
+        // cookie was forged. Middleware issues the cookie; this only reads it.
+        id ??= AnonymousId(ctx);
 
         return ValueTask.FromResult(new TargetingContext
         {
@@ -138,10 +141,32 @@ public sealed class HttpTargetingContextAccessor(IHttpContextAccessor http)
                           .ToList() ?? []
         });
     }
+
+    private static string AnonymousId(HttpContext? ctx)
+    {
+        if (ctx is null)
+        {
+            return AnonymousPrefix + Guid.NewGuid().ToString("N");
+        }
+
+        // Fixed once per request, so every evaluation and every exposure event in
+        // this request sees the same id even before the cookie round-trips.
+        if (ctx.Items["targeting-id"] is string cached)
+        {
+            return cached;
+        }
+
+        var cookie = ctx.Request.Cookies["visitor-id"];
+        var guid   = Guid.TryParse(cookie, out var parsed) ? parsed : Guid.NewGuid();
+        var anon   = AnonymousPrefix + guid.ToString("N");
+
+        ctx.Items["targeting-id"] = anon;
+        return anon;
+    }
 }
 ```
 
-Three things in that accessor are deliberate. `IHttpContextAccessor` is not registered by default, so `AddHttpContextAccessor()` has to be there or the container cannot build the accessor. The identifier has to be the one the flag definitions use — the targeting rules above list e-mail addresses, so the accessor reads the e-mail claim through its mapped `ClaimTypes` name, because ASP.NET Core's JWT bearer handler renames `sub` and `email` on the way in and a raw lookup silently returns `null`. And a visitor without an identity still needs a *distinct* one: with a null or constant `UserId` every logged-out request hashes to the same bucket, so a "10%" rollout is either 0% or 100% for all of them. The cookie gives them stickiness; the per-request GUID at least keeps the percentage honest when there is no cookie yet.
+Four things in that accessor are deliberate. `IHttpContextAccessor` is not registered by default, so `AddHttpContextAccessor()` has to be there or the container cannot build the accessor. The identifier has to be the one the flag definitions use — the targeting rules above list e-mail addresses, so the accessor reads the e-mail claim through its mapped `ClaimTypes` name, because ASP.NET Core's JWT bearer handler renames `sub` and `email` on the way in and a raw lookup silently returns `null`. A visitor without an identity still needs a *distinct* one: with a null or constant `UserId` every logged-out request hashes to the same bucket, so a "10%" rollout is either 0% or 100% for all of them. And that anonymous id lives in its own namespace and is validated before use — a cookie is client-controlled, and an accessor that passed its raw value through would let anyone become `alice@example.com` by editing a cookie. The id is also fixed once per request, so repeated evaluations and the exposure events they emit agree with each other; the cookie that middleware writes back is what makes it agree across requests.
 
 ### How "10%" stays the same 10%
 
@@ -325,7 +350,19 @@ public sealed class ProductPageModel(IVariantFeatureManager features) : PageMode
 
 Here is what turns this flag into an experiment, and none of it is in the flag itself:
 
-- **`telemetry.enabled: true`** makes every evaluation emit a `FeatureFlag` activity event on the `Microsoft.FeatureManagement` activity source, tagged with the flag name, the variant, the assignment reason and the targeting id. The `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package forwards those to Application Insights and stamps every other telemetry item in the request with the same `TargetingId`, which is what lets you later join "saw variant Estimate" with "added to cart". Azure App Configuration's variant feature flags are the hosted version of the same schema. Note what that `TargetingId` *is*: whatever `UserId` your accessor supplied. If that is an e-mail address, it is now personal data sitting in your telemetry store, joined to every request. Where that is not acceptable, give the library an opaque subject id or a keyed hash of the identifier and keep the mapping elsewhere.
+- **`telemetry.enabled: true`** makes every evaluation emit a `FeatureFlag` activity event on the `Microsoft.FeatureManagement` activity source, tagged with the flag name, the variant, the assignment reason and the targeting id. Nothing receives those events until you wire a publisher: the `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package forwards them to Application Insights and stamps every other telemetry item in the request with the same `TargetingId`, which is what lets you later join "saw variant Estimate" with "added to cart". The registration from section 02 grows by two lines, plus the middleware that carries the targeting id through the request:
+
+  ```csharp
+  builder.Services.AddApplicationInsightsTelemetry();   // Application Insights first
+  builder.Services
+      .AddFeatureManagement()
+      .WithTargeting<HttpTargetingContextAccessor>()
+      .AddApplicationInsightsTelemetry();                // the feature-management publisher
+
+  app.UseMiddleware<TargetingHttpContextMiddleware>();
+  ```
+
+  Azure App Configuration's variant feature flags are the hosted version of the same schema. Note what that `TargetingId` *is*: whatever `UserId` your accessor supplied. If that is an e-mail address, it is now personal data sitting in your telemetry store, joined to every request. Where that is not acceptable, give the library an opaque subject id or a keyed hash of the identifier and keep the mapping elsewhere.
 - **Only the randomized exposures count.** Users placed by the `user` and `group` overrides — you, your testers, the internal group — were *not* randomized, and leaving them in the analysis biases it toward whatever variant you forced on them. The event carries `VariantAssignmentReason` precisely so the analysis can keep `Percentile` and drop the rest.
 - **A frozen allocation** for the life of the test. The seed is deliberately dated so the next experiment on the same page gets a fresh shuffle.
 - **An analysis** that runs somewhere else — a notebook, Log Analytics, an experimentation platform — and applies the sample size, the SRM check and the significance test from the previous section.
@@ -347,7 +384,7 @@ Everything that goes wrong when a flag doubles as an experiment comes from apply
 
 **Log exposure where the user is actually exposed.** Evaluating the flag in middleware for every request assigns and logs users who never see the product page; the effect you measure is then diluted by people who could not have been affected. Evaluate at the component that renders the difference.
 
-**Seeds are a tool, not a default.** A shared seed across flags gives you the same cohort everywhere — useful when two experiments must be mutually exclusive or when a flag must follow another's rollout, dangerous when you wanted two independent tests and quietly correlated them.
+**Seeds are a tool, not a default.** A shared seed gives a user the *same percentile* in every flag that uses it. That is the building block for mutual exclusion, not mutual exclusion itself: two experiments on one seed are exclusive only if their percentile ranges are disjoint — say the first tests inside 0–50 and the second inside 50–100, each with `default_when_enabled` pointing at a variant that is in neither test. Overlapping ranges on a shared seed do the opposite and put the same people in both treatments; `user` and `group` overrides bypass the percentiles entirely, as before. And when you wanted two *independent* tests, a shared seed has quietly correlated them.
 
 **The kill switch outranks the experiment.** `enabled: false` sends everybody to `default_when_disabled`, overrides included. That is correct: operational safety sits above measurement. It also means the experiment is over the moment someone pulls it, and the data collected until then has an abrupt end that the analysis must account for.
 
