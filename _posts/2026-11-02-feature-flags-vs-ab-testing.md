@@ -105,9 +105,10 @@ In .NET the reference implementation is `Microsoft.FeatureManagement` (version 4
 }
 ```
 
-The order of evaluation is fixed and worth memorising, because it is the same order in almost every tool: **exclusions win over everything**, then named users, then group percentages, then the default percentage for everybody else. The wiring is two lines, plus an accessor that tells the library who the current user is:
+The order of evaluation is fixed and worth memorising, because it is the same order in almost every tool: **exclusions win over everything**, then named users, then group percentages, then the default percentage for everybody else. The wiring is three lines, plus an accessor that tells the library who the current user is — and the accessor is where most real-world flag bugs live, so it is worth reading slowly:
 
 ```csharp
+builder.Services.AddHttpContextAccessor();
 builder.Services
     .AddFeatureManagement()
     .WithTargeting<HttpTargetingContextAccessor>();
@@ -117,11 +118,21 @@ public sealed class HttpTargetingContextAccessor(IHttpContextAccessor http)
 {
     public ValueTask<TargetingContext> GetContextAsync()
     {
-        var user = http.HttpContext?.User;
+        var ctx  = http.HttpContext;
+        var user = ctx?.User;
+
+        // Use the same identifier the flag definitions use — e-mails here. Read it
+        // through the mapped claim type: with JwtBearer's default inbound mapping a
+        // raw FindFirst("sub") returns null, and a null id puts everyone in one bucket.
+        string? id = user?.FindFirst(ClaimTypes.Email)?.Value;
+
+        // Logged-out visitors need a stable id of their own (a first-party cookie set by
+        // middleware). A shared constant such as "anonymous" is one bucket for all of them.
+        id ??= ctx?.Request.Cookies["visitor-id"] ?? Guid.NewGuid().ToString("N");
 
         return ValueTask.FromResult(new TargetingContext
         {
-            UserId = user?.FindFirst("sub")?.Value ?? "anonymous",
+            UserId = id,
             Groups = user?.FindAll("groups")
                           .Select(c => c.Value)
                           .ToList() ?? []
@@ -129,6 +140,8 @@ public sealed class HttpTargetingContextAccessor(IHttpContextAccessor http)
     }
 }
 ```
+
+Three things in that accessor are deliberate. `IHttpContextAccessor` is not registered by default, so `AddHttpContextAccessor()` has to be there or the container cannot build the accessor. The identifier has to be the one the flag definitions use — the targeting rules above list e-mail addresses, so the accessor reads the e-mail claim through its mapped `ClaimTypes` name, because ASP.NET Core's JWT bearer handler renames `sub` and `email` on the way in and a raw lookup silently returns `null`. And a visitor without an identity still needs a *distinct* one: with a null or constant `UserId` every logged-out request hashes to the same bucket, so a "10%" rollout is either 0% or 100% for all of them. The cookie gives them stickiness; the per-request GUID at least keeps the percentage honest when there is no cookie yet.
 
 ### How "10%" stays the same 10%
 
@@ -241,7 +254,7 @@ This is `DefaultRolloutPercentage` above, or Unleash's gradual rollout, or a can
 
 What a percentage rollout is **not** is an experiment, and this is the single most common confusion. Two reasons:
 
-- **The population under treatment changes over time.** The 5% you watched on Tuesday and the 50% you watched the following Monday are different people on different days, with a marketing campaign and a release in between. Comparing their conversion rates compares calendars, not code.
+- **The population under treatment changes in time and in composition.** Because the hash is sticky, the 50% you watch the following Monday *contains* Tuesday's 5% plus 45% who are new to the feature — observed in a different week, with a marketing campaign and a release in between. Comparing the two conversion rates compares calendars and cohorts, not code.
 - **Nobody fixed a sample size or a metric in advance.** The numbers on the dashboard during a ramp are a smoke detector for operational breakage, not evidence of product value. Treat them as such.
 
 ### Audience 2 — specific users and groups
@@ -312,7 +325,8 @@ public sealed class ProductPageModel(IVariantFeatureManager features) : PageMode
 
 Here is what turns this flag into an experiment, and none of it is in the flag itself:
 
-- **`telemetry.enabled: true`** makes every evaluation emit a `FeatureFlag` activity event on the `Microsoft.FeatureManagement` activity source, tagged with the flag name, the variant, the assignment reason and the targeting id. The `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package forwards those to Application Insights and stamps every other telemetry item in the request with the same `TargetingId`, which is what lets you later join "saw variant Estimate" with "added to cart". Azure App Configuration's variant feature flags are the hosted version of the same schema.
+- **`telemetry.enabled: true`** makes every evaluation emit a `FeatureFlag` activity event on the `Microsoft.FeatureManagement` activity source, tagged with the flag name, the variant, the assignment reason and the targeting id. The `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package forwards those to Application Insights and stamps every other telemetry item in the request with the same `TargetingId`, which is what lets you later join "saw variant Estimate" with "added to cart". Azure App Configuration's variant feature flags are the hosted version of the same schema. Note what that `TargetingId` *is*: whatever `UserId` your accessor supplied. If that is an e-mail address, it is now personal data sitting in your telemetry store, joined to every request. Where that is not acceptable, give the library an opaque subject id or a keyed hash of the identifier and keep the mapping elsewhere.
+- **Only the randomized exposures count.** Users placed by the `user` and `group` overrides — you, your testers, the internal group — were *not* randomized, and leaving them in the analysis biases it toward whatever variant you forced on them. The event carries `VariantAssignmentReason` precisely so the analysis can keep `Percentile` and drop the rest.
 - **A frozen allocation** for the life of the test. The seed is deliberately dated so the next experiment on the same page gets a fresh shuffle.
 - **An analysis** that runs somewhere else — a notebook, Log Analytics, an experimentation platform — and applies the sample size, the SRM check and the significance test from the previous section.
 
