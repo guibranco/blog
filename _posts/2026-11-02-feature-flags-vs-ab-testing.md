@@ -142,6 +142,14 @@ Two properties fall out of this and both matter later:
 
 A flag is born, ships dark, is enabled ring by ring, reaches 100%, and then — this is the step that gets skipped — is **deleted**, along with the old code path. Hodgson calls toggles "inventory" with a "carrying cost" and suggests release toggles "should generally not stick around much longer than a week or two". The inventory metaphor is right. Each live flag doubles the number of states the system can be in, and flags that outlive their purpose are the raw material for the most expensive flag incident on record.
 
+<div class="personal-story">
+  <div class="personal-story-label">
+    <i class="fas fa-user-circle"></i> My experience — Flags so the pipeline never waits
+  </div>
+  <p>At my current employer, the most common reason a flag gets created has nothing to do with risk. A feature is finished but cannot go live yet: it only makes sense delivered together with other pieces that are still in progress, or the people who will use it have not been trained on it. Without a flag, the choices are to hold the merge — which stops the CI/CD flow and turns the eventual release into a bundle — or to prioritise selectively, pulling only the tasks that happen to be safe to ship in the "right" order and leaving the rest waiting.</p>
+  <p>With a flag, the code merges and deploys the moment it is ready, dark. The pipeline never stops, the team keeps pulling the next task instead of queuing behind the slowest dependency, and when the training happens or the last piece lands, the switch is flipped — no deploy, no release day. Two things followed from that. We need far fewer hot fixes, because what reaches production is a series of small, reviewed increments that have been deployed for days before anyone sees them, rather than a large merge done in a hurry. And the backlog flows on its own merit: we stopped doing the selective prioritisation whose only purpose was to keep unfinished combinations away from production.</p>
+</div>
+
 <div class="callout callout-warn">
   <div class="callout-label">Knight Capital, 1 August 2012: a flag reused, a deploy half done</div>
   Knight's new order router repurposed a flag that had previously activated a retired function called "Power Peg". The new code was deployed to only seven of the eight production servers; the eighth still carried the old logic behind the same flag. When the flag was turned on at market open, that server started executing the dead code path. Per the SEC's settlement release, in the first 45 minutes of trading the router sent <strong>more than 4 million orders</strong> while trying to fill 212 customer orders, traded <strong>more than 397 million shares</strong>, and the firm "eventually suffered a loss of more than $460 million". The SEC fined Knight $12 million for the control failures. The lesson is not "flags are dangerous"; it is that a flag whose semantics changed, on a partially deployed fleet, is two incidents stacked on top of each other.
@@ -238,6 +246,14 @@ What a percentage rollout is **not** is an experiment, and this is the single mo
 ### Audience 2 — specific users and groups
 
 `Users`, `Groups` and `Exclusion`: internal employees first (dogfooding), then a beta-tester group at 50%, then everyone; or a single enterprise tenant that asked for the feature; or everyone *except* the tenant whose integration you know will break. Rings — Ring0 internal, Ring1 early adopters, Ring2 general — are just this with naming discipline. Exclusions evaluate first, so a kill list always beats an allow list.
+
+<div class="personal-story">
+  <div class="personal-story-label">
+    <i class="fas fa-user-circle"></i> My experience — A payment gateway behind an allow-list
+  </div>
+  <p>The clearest case of this audience I have been through was the introduction of a new payment gateway at my current employer. The hard part was not our code. It was a new external environment, run by a third party, that we did not control and could only really exercise with real users and real customers — and switching the whole operation over on day one was not an option.</p>
+  <p>So the integration shipped behind a selective flag: an allow-list of users. For those users, payments went through the new gateway; for everyone else nothing changed, and the old gateway kept doing its job. The first real transactions exposed problems in the configuration of our account on the provider's side — the kind of thing no sandbox had shown. We opened tickets with their support, they fixed the setup, and we retried in production from our side, without a deploy, while the impact stayed contained to one or two customers instead of the entire operation. The flag did not make the integration correct; it made finding out that it was not correct cheap.</p>
+</div>
 
 This is pure delivery control. It is also where **permissioning** sneaks in: a flag that is "on for premium customers" is no longer a release mechanism but a product entitlement, and Hodgson's point about longevity applies — entitlements live for years and deserve to be modelled as entitlements, not left in the flag inventory as if they were going to be removed next sprint.
 
@@ -353,15 +369,6 @@ Everything that goes wrong when a flag doubles as an experiment comes from apply
     <div class="provider-price">Free, until it is not</div>
   </div>
 </div>
-
-<!-- TODO: personal-story box — a flag that outlived its purpose, a ring-based rollout, or an "experiment" that was really a ramp. Written in Guilherme's voice before publishing; the block stays commented out until then.
-<div class="personal-story">
-  <div class="personal-story-label">
-    <i class="fas fa-user-circle"></i> My experience — Flags that became furniture
-  </div>
-  <p></p>
-</div>
--->
 
 <div class="conclusion">
   <h2>Pick the question first</h2>
