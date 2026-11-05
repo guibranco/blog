@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="1200" height="706" role="img" aria-label="A parede de 50 metros — a IA barateou o tijolo, não a fundação">
+  <rect width="680" height="400" fill="#f5f0e8"/>
+  <rect x="18" y="18" width="644" height="364" fill="none" stroke="#d9d0c2" stroke-width="1"/>
+
+  <!-- left column: eyebrow, title, standfirst -->
+  <text x="44" y="62" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="12" letter-spacing="3.2" fill="#b85c00">CARREIRA · SENIORIDADE</text>
+
+  <text x="44" y="126" font-family="'Playfair Display', Georgia, serif" font-size="46" fill="#1a1714">A parede de</text>
+  <text x="44" y="178" font-family="'Playfair Display', Georgia, serif" font-size="46" font-style="italic" fill="#2d6a4f">50 metros</text>
+
+  <rect x="44" y="200" width="58" height="3" fill="#b85c00"/>
+  <rect x="106" y="200" width="24" height="3" fill="#2d6a4f"/>
+
+  <text x="44" y="238" font-family="'Source Serif 4', Georgia, serif" font-size="18" fill="#5a534a">A IA barateou o tijolo,</text>
+  <text x="44" y="262" font-family="'Source Serif 4', Georgia, serif" font-size="18" fill="#5a534a">não a fundação.</text>
+
+  <g font-family="'JetBrains Mono', 'Courier New', monospace" font-size="11" fill="#8a8078">
+    <rect x="44" y="288" width="14" height="14" fill="#b85c00"/>
+    <text x="68" y="299">A — repassa o pedido</text>
+    <rect x="44" y="310" width="14" height="14" fill="#2d6a4f"/>
+    <text x="68" y="321">B — pergunta antes</text>
+  </g>
+
+  <!-- right: two walls, identical above the ground line, different below it -->
+  <g font-family="'JetBrains Mono', 'Courier New', monospace" font-size="12" letter-spacing="2" fill="#8a8078" text-anchor="middle">
+    <text x="460" y="56">A</text>
+    <text x="580" y="56">B</text>
+  </g>
+
+  <path d="M413.5 248l-7 7M424.5 248l-7 7M435.5 248l-7 7M446.5 248l-7 7M457.5 248l-7 7M468.5 248l-7 7M479.5 248l-7 7M490.5 248l-7 7M501.5 248l-7 7M512.5 248l-7 7M523.5 248l-7 7M534.5 248l-7 7M545.5 248l-7 7M556.5 248l-7 7M567.5 248l-7 7M578.5 248l-7 7M589.5 248l-7 7M600.5 248l-7 7M611.5 248l-7 7M622.5 248l-7 7M633.5 248l-7 7" fill="none" stroke="#c9bfae" stroke-width="1" stroke-linecap="round"/>
+
+  <!-- A: nothing under the wall -->
+  <rect x="422" y="251" width="76" height="34" fill="#f5f0e8" stroke="#b85c00" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="460" y="276" font-family="'Playfair Display', Georgia, serif" font-size="22" font-style="italic" fill="#b85c00" text-anchor="middle">?</text>
+
+  <!-- B: footing and piles -->
+  <rect x="540" y="246" width="80" height="15" fill="#2d6a4f"/>
+  <rect x="546" y="261" width="9" height="40" fill="#2d6a4f"/>
+  <rect x="575.5" y="261" width="9" height="40" fill="#2d6a4f"/>
+  <rect x="605" y="261" width="9" height="40" fill="#2d6a4f"/>
+
+  <rect x="436" y="70" width="48" height="176" fill="#b85c00"/>
+  <path d="M436 78h48M436 86h48M436 94h48M436 102h48M436 110h48M436 118h48M436 126h48M436 134h48M436 142h48M436 150h48M436 158h48M436 166h48M436 174h48M436 182h48M436 190h48M436 198h48M436 206h48M436 214h48M436 222h48M436 230h48M436 238h48M452 70v8M468 70v8M444 78v8M460 78v8M476 78v8M452 86v8M468 86v8M444 94v8M460 94v8M476 94v8M452 102v8M468 102v8M444 110v8M460 110v8M476 110v8M452 118v8M468 118v8M444 126v8M460 126v8M476 126v8M452 134v8M468 134v8M444 142v8M460 142v8M476 142v8M452 150v8M468 150v8M444 158v8M460 158v8M476 158v8M452 166v8M468 166v8M444 174v8M460 174v8M476 174v8M452 182v8M468 182v8M444 190v8M460 190v8M476 190v8M452 198v8M468 198v8M444 206v8M460 206v8M476 206v8M452 214v8M468 214v8M444 222v8M460 222v8M476 222v8M452 230v8M468 230v8M444 238v8M460 238v8M476 238v8" fill="none" stroke="#f5f0e8" stroke-width="1"/>
+  <rect x="556" y="70" width="48" height="176" fill="#b85c00"/>
+  <path d="M556 78h48M556 86h48M556 94h48M556 102h48M556 110h48M556 118h48M556 126h48M556 134h48M556 142h48M556 150h48M556 158h48M556 166h48M556 174h48M556 182h48M556 190h48M556 198h48M556 206h48M556 214h48M556 222h48M556 230h48M556 238h48M572 70v8M588 70v8M564 78v8M580 78v8M596 78v8M572 86v8M588 86v8M564 94v8M580 94v8M596 94v8M572 102v8M588 102v8M564 110v8M580 110v8M596 110v8M572 118v8M588 118v8M564 126v8M580 126v8M596 126v8M572 134v8M588 134v8M564 142v8M580 142v8M596 142v8M572 150v8M588 150v8M564 158v8M580 158v8M596 158v8M572 166v8M588 166v8M564 174v8M580 174v8M596 174v8M572 182v8M588 182v8M564 190v8M580 190v8M596 190v8M572 198v8M588 198v8M564 206v8M580 206v8M596 206v8M572 214v8M588 214v8M564 222v8M580 222v8M596 222v8M572 230v8M588 230v8M564 238v8M580 238v8M596 238v8" fill="none" stroke="#f5f0e8" stroke-width="1"/>
+
+  <line x1="408" y1="246" x2="636" y2="246" stroke="#1a1714" stroke-width="1.2"/>
+
+  <!-- the only number in the request -->
+  <g stroke="#8a8078" stroke-width="1" fill="none">
+    <line x1="520" y1="70" x2="520" y2="132"/>
+    <line x1="520" y1="184" x2="520" y2="246"/>
+    <line x1="514" y1="70" x2="526" y2="70"/>
+    <line x1="514" y1="246" x2="526" y2="246"/>
+  </g>
+  <text x="520" y="162" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="12" fill="#5a534a" text-anchor="middle">50 m</text>
+
+  <line x1="44" y1="344" x2="636" y2="344" stroke="#d9d0c2"/>
+  <text x="44" y="366" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="11" letter-spacing="1.4" fill="#8a8078">GUILHERME BRANCO STRACINI</text>
+  <text x="636" y="366" text-anchor="end" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="11" letter-spacing="1.4" fill="#8a8078">GUILHERME.STRACINI.COM.BR</text>
+</svg>

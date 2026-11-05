@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 672" width="480" height="672" role="img" aria-label="Duas paredes idênticas vistas de frente; em corte, a do construtor A não tem motivo, fundação, armação nem travamento, e a do construtor B tem os quatro">
+  <rect width="480" height="672" fill="#faf9f6"/>
+  <rect x="0.5" y="0.5" width="479" height="671" fill="none" stroke="#e2dbd0"/>
+
+  <text x="240" y="38" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="21" font-weight="600" fill="#1a1714">De frente, idênticas. Em corte, não.</text>
+  <text x="240" y="59" text-anchor="middle" font-family="'Source Serif 4', Georgia, serif" font-size="13.5" fill="#8a8078">O mesmo pedido, a mesma IA, dois construtores</text>
+
+  <!-- column headers -->
+  <rect x="24" y="76" width="208" height="32" fill="#b85c00"/>
+  <text x="128" y="97" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="15" fill="#faf9f6">A · repassou o pedido</text>
+  <rect x="248" y="76" width="208" height="32" fill="#2d6a4f"/>
+  <text x="352" y="97" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="15" fill="#faf9f6">B · perguntou antes</text>
+
+  <!-- 1. elevation: the same wall twice -->
+  <text x="240" y="132" text-anchor="middle" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="10.5" letter-spacing="2" fill="#8a8078">DE FRENTE · DIA 1</text>
+  <path d="M35.5 204l-7 7M46.5 204l-7 7M57.5 204l-7 7M68.5 204l-7 7M79.5 204l-7 7M90.5 204l-7 7M101.5 204l-7 7M112.5 204l-7 7M123.5 204l-7 7M134.5 204l-7 7M145.5 204l-7 7M156.5 204l-7 7M167.5 204l-7 7M178.5 204l-7 7M189.5 204l-7 7M200.5 204l-7 7M211.5 204l-7 7M222.5 204l-7 7" fill="none" stroke="#c9bfae" stroke-width="1" stroke-linecap="round"/>
+  <path d="M259.5 204l-7 7M270.5 204l-7 7M281.5 204l-7 7M292.5 204l-7 7M303.5 204l-7 7M314.5 204l-7 7M325.5 204l-7 7M336.5 204l-7 7M347.5 204l-7 7M358.5 204l-7 7M369.5 204l-7 7M380.5 204l-7 7M391.5 204l-7 7M402.5 204l-7 7M413.5 204l-7 7M424.5 204l-7 7M435.5 204l-7 7M446.5 204l-7 7" fill="none" stroke="#c9bfae" stroke-width="1" stroke-linecap="round"/>
+  <rect x="40" y="146" width="176" height="56" fill="#b85c00"/>
+  <path d="M40 154h176M40 162h176M40 170h176M40 178h176M40 186h176M40 194h176M56 146v8M72 146v8M88 146v8M104 146v8M120 146v8M136 146v8M152 146v8M168 146v8M184 146v8M200 146v8M48 154v8M64 154v8M80 154v8M96 154v8M112 154v8M128 154v8M144 154v8M160 154v8M176 154v8M192 154v8M208 154v8M56 162v8M72 162v8M88 162v8M104 162v8M120 162v8M136 162v8M152 162v8M168 162v8M184 162v8M200 162v8M48 170v8M64 170v8M80 170v8M96 170v8M112 170v8M128 170v8M144 170v8M160 170v8M176 170v8M192 170v8M208 170v8M56 178v8M72 178v8M88 178v8M104 178v8M120 178v8M136 178v8M152 178v8M168 178v8M184 178v8M200 178v8M48 186v8M64 186v8M80 186v8M96 186v8M112 186v8M128 186v8M144 186v8M160 186v8M176 186v8M192 186v8M208 186v8M56 194v8M72 194v8M88 194v8M104 194v8M120 194v8M136 194v8M152 194v8M168 194v8M184 194v8M200 194v8" fill="none" stroke="#faf9f6" stroke-width="1"/>
+  <rect x="264" y="146" width="176" height="56" fill="#b85c00"/>
+  <path d="M264 154h176M264 162h176M264 170h176M264 178h176M264 186h176M264 194h176M280 146v8M296 146v8M312 146v8M328 146v8M344 146v8M360 146v8M376 146v8M392 146v8M408 146v8M424 146v8M272 154v8M288 154v8M304 154v8M320 154v8M336 154v8M352 154v8M368 154v8M384 154v8M400 154v8M416 154v8M432 154v8M280 162v8M296 162v8M312 162v8M328 162v8M344 162v8M360 162v8M376 162v8M392 162v8M408 162v8M424 162v8M272 170v8M288 170v8M304 170v8M320 170v8M336 170v8M352 170v8M368 170v8M384 170v8M400 170v8M416 170v8M432 170v8M280 178v8M296 178v8M312 178v8M328 178v8M344 178v8M360 178v8M376 178v8M392 178v8M408 178v8M424 178v8M272 186v8M288 186v8M304 186v8M320 186v8M336 186v8M352 186v8M368 186v8M384 186v8M400 186v8M416 186v8M432 186v8M280 194v8M296 194v8M312 194v8M328 194v8M344 194v8M360 194v8M376 194v8M392 194v8M408 194v8M424 194v8" fill="none" stroke="#faf9f6" stroke-width="1"/>
+  <line x1="30" y1="202" x2="226" y2="202" stroke="#1a1714" stroke-width="1.2"/>
+  <line x1="254" y1="202" x2="450" y2="202" stroke="#1a1714" stroke-width="1.2"/>
+  <text x="240" y="182" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="22" fill="#8a8078">=</text>
+  <text x="240" y="236" text-anchor="middle" font-family="'Source Serif 4', Georgia, serif" font-size="13.5" font-style="italic" fill="#5a534a">Na foto, na demo e no teste feliz: nenhuma diferença.</text>
+
+  <line x1="24" y1="254" x2="456" y2="254" stroke="#e2dbd0"/>
+
+  <!-- 2. section: what is under and inside each wall -->
+  <text x="240" y="277" text-anchor="middle" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="10.5" letter-spacing="2" fill="#8a8078">EM CORTE · O QUE A FOTO NÃO MOSTRA</text>
+
+  <path d="M35.5 438l-7 7M46.5 438l-7 7M57.5 438l-7 7M68.5 438l-7 7M79.5 438l-7 7M90.5 438l-7 7M101.5 438l-7 7M112.5 438l-7 7M123.5 438l-7 7M134.5 438l-7 7M145.5 438l-7 7M156.5 438l-7 7M167.5 438l-7 7M178.5 438l-7 7M189.5 438l-7 7M200.5 438l-7 7M211.5 438l-7 7M222.5 438l-7 7" fill="none" stroke="#c9bfae" stroke-width="1" stroke-linecap="round"/>
+  <path d="M259.5 438l-7 7M270.5 438l-7 7M281.5 438l-7 7M292.5 438l-7 7M303.5 438l-7 7M314.5 438l-7 7M325.5 438l-7 7M336.5 438l-7 7M347.5 438l-7 7M358.5 438l-7 7M369.5 438l-7 7M380.5 438l-7 7M391.5 438l-7 7M402.5 438l-7 7M413.5 438l-7 7M424.5 438l-7 7M435.5 438l-7 7M446.5 438l-7 7" fill="none" stroke="#c9bfae" stroke-width="1" stroke-linecap="round"/>
+
+  <!-- A: a wall standing on the surface -->
+  <rect x="115" y="442" width="54" height="28" fill="#faf9f6" stroke="#b85c00" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="142" y="463" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="19" font-style="italic" fill="#b85c00">?</text>
+  <rect x="133" y="296" width="18" height="140" fill="#f8ecdc"/>
+  <path d="M133 432.5L136.5 436M133 425.5L143.5 436M133 418.5L150.5 436M133 411.5L151 429.5M133 404.5L151 422.5M133 397.5L151 415.5M133 390.5L151 408.5M133 383.5L151 401.5M133 376.5L151 394.5M133 369.5L151 387.5M133 362.5L151 380.5M133 355.5L151 373.5M133 348.5L151 366.5M133 341.5L151 359.5M133 334.5L151 352.5M133 327.5L151 345.5M133 320.5L151 338.5M133 313.5L151 331.5M133 306.5L151 324.5M133 299.5L151 317.5M136.5 296L151 310.5M143.5 296L151 303.5M150.5 296L151 296.5" fill="none" stroke="#b85c00" stroke-width="1"/>
+  <rect x="133" y="296" width="18" height="140" fill="none" stroke="#b85c00" stroke-width="1.4"/>
+  <g fill="none" stroke="#8a8078" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="46" y1="320" x2="123" y2="320"/><path d="M118 316L125 320L118 324"/>
+    <line x1="46" y1="342" x2="123" y2="342"/><path d="M118 338L125 342L118 346"/>
+    <line x1="46" y1="364" x2="123" y2="364"/><path d="M118 360L125 364L118 368"/>
+  </g>
+  <text x="46" y="307" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="10.5" letter-spacing="1.2" fill="#8a8078">VENTO</text>
+
+  <!-- B: footing and piles, a wall that is thicker at the base, a tie beam on top, a floor slab at every storey -->
+  <defs><clipPath id="wall-b"><path d="M349 436L361 296H375V436Z"/></clipPath></defs>
+  <rect x="334" y="436" width="56" height="14" fill="#2d6a4f"/>
+  <rect x="340" y="450" width="9" height="30" fill="#2d6a4f"/>
+  <rect x="375" y="450" width="9" height="30" fill="#2d6a4f"/>
+  <path d="M349 436L361 296H375V436Z" fill="#e8f5ee"/>
+  <g clip-path="url(#wall-b)">
+    <path d="M349 432.5L352.5 436M349 425.5L359.5 436M349 418.5L366.5 436M349 411.5L373.5 436M349 404.5L375 430.5M349 397.5L375 423.5M349 390.5L375 416.5M349 383.5L375 409.5M349 376.5L375 402.5M349 369.5L375 395.5M349 362.5L375 388.5M349 355.5L375 381.5M349 348.5L375 374.5M349 341.5L375 367.5M349 334.5L375 360.5M349 327.5L375 353.5M349 320.5L375 346.5M349 313.5L375 339.5M349 306.5L375 332.5M349 299.5L375 325.5M352.5 296L375 318.5M359.5 296L375 311.5M366.5 296L375 304.5M373.5 296L375 297.5" fill="none" stroke="#2d6a4f" stroke-width="1"/>
+  </g>
+  <path d="M349 436L361 296H375V436Z" fill="none" stroke="#2d6a4f" stroke-width="1.4" stroke-linejoin="round"/>
+  <rect x="357" y="288" width="22" height="8" fill="#2d6a4f"/>
+  <rect x="375" y="340" width="34" height="6" fill="#8a8078"/>
+  <rect x="375" y="388" width="34" height="6" fill="#8a8078"/>
+  <g fill="none" stroke="#8a8078" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="270" y1="320" x2="343" y2="320"/><path d="M338 316L345 320L338 324"/>
+    <line x1="270" y1="342" x2="343" y2="342"/><path d="M338 338L345 342L338 346"/>
+    <line x1="270" y1="364" x2="343" y2="364"/><path d="M338 360L345 364L338 368"/>
+  </g>
+  <text x="270" y="307" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="10.5" letter-spacing="1.2" fill="#8a8078">VENTO</text>
+
+  <line x1="30" y1="436" x2="226" y2="436" stroke="#1a1714" stroke-width="1.2"/>
+  <line x1="254" y1="436" x2="450" y2="436" stroke="#1a1714" stroke-width="1.2"/>
+
+  <!-- what each section has, or lacks -->
+  <path d="M32.6 491l8.4 8.4M41 491l-8.4 8.4" fill="none" stroke="#b85c00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="51" y="500" font-family="'Source Serif 4', Georgia, serif" font-size="15" font-weight="600" fill="#1a1714">Sem motivo</text>
+  <text x="51" y="516" font-family="'Source Serif 4', Georgia, serif" font-size="12.5" font-style="italic" fill="#5a534a">ninguém perguntou pra quê</text>
+  <path d="M32.6 529l8.4 8.4M41 529l-8.4 8.4" fill="none" stroke="#b85c00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="51" y="538" font-family="'Source Serif 4', Georgia, serif" font-size="15" font-weight="600" fill="#1a1714">Sem fundação</text>
+  <text x="51" y="554" font-family="'Source Serif 4', Georgia, serif" font-size="12.5" font-style="italic" fill="#5a534a">apoiada direto no chão</text>
+  <path d="M32.6 567l8.4 8.4M41 567l-8.4 8.4" fill="none" stroke="#b85c00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="51" y="576" font-family="'Source Serif 4', Georgia, serif" font-size="15" font-weight="600" fill="#1a1714">Sem armação</text>
+  <text x="51" y="592" font-family="'Source Serif 4', Georgia, serif" font-size="12.5" font-style="italic" fill="#5a534a">nem pilar, nem cinta</text>
+  <path d="M32.6 605l8.4 8.4M41 605l-8.4 8.4" fill="none" stroke="#b85c00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="51" y="614" font-family="'Source Serif 4', Georgia, serif" font-size="15" font-weight="600" fill="#1a1714">Sem travamento</text>
+  <text x="51" y="630" font-family="'Source Serif 4', Georgia, serif" font-size="12.5" font-style="italic" fill="#5a534a">quem decide é o vento</text>
+  <path d="M256 495l3.6 4 6.4 -8.4" fill="none" stroke="#2d6a4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="275" y="500" font-family="'Source Serif 4', Georgia, serif" font-size="15" font-weight="600" fill="#1a1714">Motivo</text>
+  <text x="275" y="516" font-family="'Source Serif 4', Georgia, serif" font-size="12.5" font-style="italic" fill="#5a534a">é a fachada de um prédio</text>
+  <path d="M256 533l3.6 4 6.4 -8.4" fill="none" stroke="#2d6a4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="275" y="538" font-family="'Source Serif 4', Georgia, serif" font-size="15" font-weight="600" fill="#1a1714">Fundação</text>
+  <text x="275" y="554" font-family="'Source Serif 4', Georgia, serif" font-size="12.5" font-style="italic" fill="#5a534a">sapata, estacas, sondagem</text>
+  <path d="M256 571l3.6 4 6.4 -8.4" fill="none" stroke="#2d6a4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="275" y="576" font-family="'Source Serif 4', Georgia, serif" font-size="15" font-weight="600" fill="#1a1714">Armação</text>
+  <text x="275" y="592" font-family="'Source Serif 4', Georgia, serif" font-size="12.5" font-style="italic" fill="#5a534a">pilares e cintas</text>
+  <path d="M256 609l3.6 4 6.4 -8.4" fill="none" stroke="#2d6a4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="275" y="614" font-family="'Source Serif 4', Georgia, serif" font-size="15" font-weight="600" fill="#1a1714">Travamento</text>
+  <text x="275" y="630" font-family="'Source Serif 4', Georgia, serif" font-size="12.5" font-style="italic" fill="#5a534a">uma laje a cada andar</text>
+
+  <text x="456" y="661" text-anchor="end" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="10" fill="#8a8078">stracini.com.br/blog</text>
+</svg>
