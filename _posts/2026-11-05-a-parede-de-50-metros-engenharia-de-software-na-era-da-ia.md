@@ -9,6 +9,7 @@ subcategories:
   - "Career/Seniority"
 tags: [inteligencia-artificial, vibe-coding, senioridade, engenharia-de-software, carreira-dev, llm, arquitetura, boas-praticas, qualidade, seguranca, junior-pleno-senior]
 cover: /assets/img/posts/parede-de-50-metros/cover.svg
+image: /assets/img/posts/parede-de-50-metros/cover.png
 medium_tags: [inteligencia-artificial, vibe-coding, programacao, carreira, engenharia-de-software]
 ---
 
