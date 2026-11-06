@@ -3,7 +3,7 @@ layout: post
 lang: pt-BR
 title: "A parede de 50 metros: a IA barateou o tijolo, não a fundação"
 description: "Um pedido de uma linha, a mesma IA e dois construtores. Por que as duas paredes saem idênticas na foto, o que só aparece em corte — e o que os dados de 2026 dizem sobre experiência, vibe coding e código gerado por IA."
-date: 2026-11-05
+date: 2026-11-06
 categories: [Career]
 subcategories:
   - "Career/Seniority"
@@ -300,7 +300,6 @@ Para quem já tem experiência, a IA é multiplicador — e multiplicador multip
 
 Escora é a parte da obra que some antes da foto. Ninguém pede, ninguém vê, e é ela que decide se um erro vira susto ou desabamento.
 
-<!-- TODO (Guilherme): reescrever este relato na minha voz antes de publicar e confirmar que a empresa continua sem nome. -->
 <div class="personal-story">
   <div class="personal-story-label">
     <i class="fas fa-user-circle"></i> Minha experiência — O gateway atrás de uma lista
