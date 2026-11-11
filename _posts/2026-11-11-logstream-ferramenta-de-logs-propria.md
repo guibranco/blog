@@ -21,6 +21,8 @@ medium_tags: [logs, php, react, observabilidade, open-source]
 
 Os dois repositórios são públicos: o [logstream-server](https://github.com/guibranco/logstream-server) (PHP 8.3 + ReactPHP + Ratchet) e o [logstream-ui](https://github.com/guibranco/logstream-ui) (React + Vite + TypeScript). A instância que eu uso no dia a dia roda só na rede interna, e uma versão de demonstração pública está a caminho.
 
+[![logstream-server](https://github-readme-stats-guibranco.vercel.app/api/pin/?username=guibranco&repo=logstream-server&show_owner=true&show_forks=false&show_issues=true)](https://github.com/guibranco/logstream-server){:target="_blank"} [![logstream-ui](https://github-readme-stats-guibranco.vercel.app/api/pin/?username=guibranco&repo=logstream-ui&show_owner=true&show_forks=false&show_issues=true)](https://github.com/guibranco/logstream-ui){:target="_blank"}
+
 <div class="divider">· · ·</div>
 
 <div class="section-header">
@@ -69,6 +71,8 @@ O código daquela UI (o repositório *Notifications*) continua privado — por u
 ### CrispyWaffle (2019 →): o produtor não sabe para onde o log vai
 
 A parte de log daquele ecossistema virou o módulo de logs do [CrispyWaffle](https://github.com/guibranco/CrispyWaffle), meu toolkit .NET open source. A ideia central é a separação entre quem produz a mensagem e para onde ela vai: o código chama o log, e uma lista de **providers** decide o destino — console, arquivo de texto com rotação, Redis pub/sub, RabbitMQ, Elasticsearch, Event Log do Windows, Log4Net. O formato da mensagem (`LogMessage`) já carregava aplicação, categoria, nível, host, IP, processo, thread e uma "operação" para agrupar mensagens relacionadas.
+
+[![CrispyWaffle](https://github-readme-stats-guibranco.vercel.app/api/pin/?username=guibranco&repo=CrispyWaffle&show_owner=true&show_forks=false&show_issues=true)](https://github.com/guibranco/CrispyWaffle){:target="_blank"}
 
 ### Serilog (2019 →) e Seq (2020 →): message templates mudam o jogo
 
@@ -187,7 +191,11 @@ O que eu mais uso no dia a dia:
 
 Hoje, três jeitos de mandar log para o LogStream convivem na minha infraestrutura.
 
-**PHP, pelo [Pancake](https://github.com/guibranco/pancake).** Meu toolkit PHP ganhou uma classe `LogStream`, usada pelo GStraccini-bot, pelas APIs do API BR e pelo próprio Projects Monitor:
+**PHP, pelo [Pancake](https://github.com/guibranco/pancake).** Meu toolkit PHP ganhou uma classe `LogStream`, usada pelo GStraccini-bot, pelas APIs do API BR e pelo próprio Projects Monitor.
+
+[![Pancake](https://github-readme-stats-guibranco.vercel.app/api/pin/?username=guibranco&repo=pancake&show_owner=true&show_forks=false&show_issues=true)](https://github.com/guibranco/pancake){:target="_blank"}
+
+O uso é assim:
 
 ```php
 use GuiBranco\Pancake\LogStream;
