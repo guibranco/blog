@@ -728,6 +728,8 @@
   slug: local-environment
 - name: locations
   slug: locations
+- name: logs
+  slug: logs
 - name: london
   slug: london
 - name: londres
@@ -840,6 +842,8 @@
   slug: nuget
 - name: o2-brixton
   slug: o2-brixton
+- name: observabilidade
+  slug: observabilidade
 - name: oci
   slug: oci
 - name: odds
@@ -982,6 +986,10 @@
   slug: rabbitmq
   redirect_from:
     - /tags/rabbitmq/
+- name: react
+  slug: react
+- name: reactphp
+  slug: reactphp
 - name: recibos-verdes
   slug: recibos-verdes
 - name: recursos
