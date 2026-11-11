@@ -28,7 +28,7 @@ Os dois repositórios são públicos: o [logstream-server](https://github.com/gu
   <div class="section-title-wrap"><h2>Vinte anos procurando erro</h2></div>
 </div>
 
-Comecei a programar bem antes do primeiro emprego formal, em 2011. Na época de estudo e dos freelas, era PHP procedural — e depois um PHP orientado a objetos ainda engatinhando. Debug era `echo`, `print_r` e `var_dump` espalhados no código até a coisa funcionar. Sem Xdebug, sem ferramenta de log, sem teste unitário, sem teste de integração. Quando o código amadurecia o suficiente para ir para produção, os erros que escapavam iam parar num lugar só: o `error_log`.
+Comecei a programar bem antes do primeiro emprego formal, em 2011: meus primeiros projetos pessoais são do fim de 2006, e os primeiros freelas, de 2008. Nessa época de estudo e de freelas, era PHP procedural — e depois um PHP orientado a objetos ainda engatinhando. Debug era `echo`, `print_r` e `var_dump` espalhados no código até a coisa funcionar. Sem Xdebug, sem ferramenta de log, sem teste unitário, sem teste de integração. Quando o código amadurecia o suficiente para ir para produção, os erros que escapavam iam parar num lugar só: o `error_log`.
 
 Esse hábito sobreviveu mais do que deveria. Boa parte dos meus projetos pessoais roda numa hospedagem compartilhada com cPanel, e por anos o fluxo para descobrir um problema foi este: entrar no cPanel, abrir o gerenciador de arquivos, achar o `error_log` da pasta certa, ler, corrigir, apagar o arquivo e torcer.
 
@@ -49,12 +49,12 @@ A tabela `messages` do Projects Monitor nunca foi pensada para ser uma ferrament
 O LogStream não saiu do nada. Ele é a quarta ou quinta encarnação de uma ideia que me acompanha desde o primeiro emprego.
 
 <img src="{{ site.baseurl }}/assets/img/posts/logstream/linhagem.svg"
-     alt="Linha do tempo das ferramentas de log: echo e error_log nos freelas; Inovação de 2011 a 2018 com Redis, RabbitMQ, Elasticsearch e UI em React; CrispyWaffle open source desde 2019; Serilog e Seq de 2020 a 2026 na Farfetch, Talabat e OUTsurance; Projects Monitor com o scanner de error_log; e o LogStream em 2026. Abaixo, o que cada etapa deixou."
+     alt="Linha do tempo das ferramentas de log: projetos pessoais desde o fim de 2006 e freelas desde 2008, com echo e error_log; Inovação de 2011 a 2018 como funcionário e até 2021 como freelancer, com Redis, RabbitMQ, Elasticsearch e UI em React; CrispyWaffle open source desde 2019; Serilog no BS2 de 2019 a 2021; Seq na Farfetch, Talabat e OUTsurance desde o fim de 2020; Projects Monitor com o scanner de error_log; e o LogStream em 2026. Abaixo, o que cada etapa deixou."
      style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
 
-### Inovação (2011–2018): Redis, RabbitMQ e Elasticsearch — ao mesmo tempo
+### Inovação (2011–2021): Redis, RabbitMQ e Elasticsearch — ao mesmo tempo
 
-Passei quase sete anos na Editora Inovação (Inovação Media Brasil), boa parte deles como o principal — às vezes o único — desenvolvedor. O maior produtor de mensagens era o serviço de integração, mas todos os projetos internos e externos, hospedados na Locaweb ou em servidores dentro da própria empresa, mandavam mensagens estruturadas para três destinos: **Redis** (pub/sub), **RabbitMQ** e **Elasticsearch**. Uma UI em React consumia o Redis e o RabbitMQ para mostrar as mensagens em tempo real, e o Elasticsearch alimentava relatórios e gráficos.
+Passei quase sete anos como funcionário da Editora Inovação (Inovação Media Brasil), de 2011 a 2018, boa parte deles como o principal — às vezes o único — desenvolvedor, e continuei atendendo a empresa como freelancer até 2021. O maior produtor de mensagens era o serviço de integração, mas todos os projetos internos e externos, hospedados na Locaweb ou em servidores dentro da própria empresa, mandavam mensagens estruturadas para três destinos: **Redis** (pub/sub), **RabbitMQ** e **Elasticsearch**. Uma UI em React consumia o Redis e o RabbitMQ para mostrar as mensagens em tempo real, e o Elasticsearch alimentava relatórios e gráficos.
 
 <div class="personal-story">
   <div class="personal-story-label">
@@ -70,9 +70,9 @@ O código daquela UI (o repositório *Notifications*) continua privado — por u
 
 A parte de log daquele ecossistema virou o módulo de logs do [CrispyWaffle](https://github.com/guibranco/CrispyWaffle), meu toolkit .NET open source. A ideia central é a separação entre quem produz a mensagem e para onde ela vai: o código chama o log, e uma lista de **providers** decide o destino — console, arquivo de texto com rotação, Redis pub/sub, RabbitMQ, Elasticsearch, Event Log do Windows, Log4Net. O formato da mensagem (`LogMessage`) já carregava aplicação, categoria, nível, host, IP, processo, thread e uma "operação" para agrupar mensagens relacionadas.
 
-### Serilog e Seq (2020–2026): message templates mudam o jogo
+### Serilog (2019 →) e Seq (2020 →): message templates mudam o jogo
 
-Na Farfetch, na Talabat e, principalmente, nos quase quatro anos de OUTsurance, aqui em Dublin, o padrão foi Serilog — e, na OUTsurance, Seq como destino. O conceito que mais mudou a minha forma de investigar problema foi o de [message templates](https://messagetemplates.org/): você escreve `"Charge failed for invoice {InvoiceId}"`, e a ferramenta guarda tanto a frase renderizada quanto o template e cada propriedade separadamente. Dá para achar todas as ocorrências daquela linha de código, independentemente dos valores, e filtrar por qualquer propriedade.
+Conheci o Serilog no BS2, onde trabalhei de 2019 a 2021. O Seq veio logo depois: na Farfetch, do fim de 2020 ao começo de 2021, na Talabat, de 2021 a 2023, e na OUTsurance, aqui em Dublin, de 2023 até hoje — quase quatro anos de uso diário. O conceito que mais mudou a minha forma de investigar problema foi o de [message templates](https://messagetemplates.org/): você escreve `"Charge failed for invoice {InvoiceId}"`, e a ferramenta guarda tanto a frase renderizada quanto o template e cada propriedade separadamente. Dá para achar todas as ocorrências daquela linha de código, independentemente dos valores, e filtrar por qualquer propriedade.
 
 O LogStream se baseia bastante no Seq — não copiando, mas usando como referência alguns filtros e formas de exibir os logs, adaptados ao que eu preciso e corrigindo coisas do Seq que, pessoalmente, não me agradam.
 
