@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="1200" height="706" role="img" aria-label="LogStream: por que construí minha própria ferramenta de logs — um terminal com o live tail de logs e a linhagem error_log, Inovação, CrispyWaffle, Seq, LogStream">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="1200" height="706" role="img" aria-label="LogStream: por que construí minha própria ferramenta de logs — um terminal com o live tail de logs e a linhagem error_log, Inovação, CrispyWaffle, Serilog, Seq, LogStream">
 <rect width="680" height="400" fill="#0f0e0c"/>
 <line x1="34" y1="0" x2="34" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
 <line x1="68" y1="0" x2="68" y2="400" stroke="#2a2621" stroke-width="0.50" opacity=".45"/>
@@ -82,16 +82,19 @@
 <line x1="52" y1="346" x2="628" y2="346" stroke="#2a2621" stroke-width="1.2"/>
 <circle cx="52.0" cy="346" r="3.2" fill="#e8a33d"/>
 <text x="52.0" y="336" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#8a8078">error_log</text>
-<text x="52.0" y="364" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#e8a33d" letter-spacing="0.6">freelas</text>
-<circle cx="196.0" cy="346" r="3.2" fill="#e8a33d"/>
-<text x="196.0" y="336" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#8a8078">Inovação</text>
-<text x="196.0" y="364" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#e8a33d" letter-spacing="0.6">2011–18</text>
-<circle cx="340.0" cy="346" r="3.2" fill="#e8a33d"/>
-<text x="340.0" y="336" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#8a8078">CrispyWaffle</text>
-<text x="340.0" y="364" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#e8a33d" letter-spacing="0.6">2019</text>
-<circle cx="484.0" cy="346" r="3.2" fill="#e8a33d"/>
-<text x="484.0" y="336" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#8a8078">Serilog · Seq</text>
-<text x="484.0" y="364" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#e8a33d" letter-spacing="0.6">2020–26</text>
+<text x="52.0" y="364" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#e8a33d" letter-spacing="0.6">2006</text>
+<circle cx="167.2" cy="346" r="3.2" fill="#e8a33d"/>
+<text x="167.2" y="336" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#8a8078">Inovação</text>
+<text x="167.2" y="364" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#e8a33d" letter-spacing="0.6">2011–21</text>
+<circle cx="282.4" cy="346" r="3.2" fill="#e8a33d"/>
+<text x="282.4" y="336" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#8a8078">CrispyWaffle</text>
+<text x="282.4" y="364" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#e8a33d" letter-spacing="0.6">2016</text>
+<circle cx="397.6" cy="346" r="3.2" fill="#e8a33d"/>
+<text x="397.6" y="336" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#8a8078">Serilog</text>
+<text x="397.6" y="364" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#e8a33d" letter-spacing="0.6">2019–21</text>
+<circle cx="512.8" cy="346" r="3.2" fill="#e8a33d"/>
+<text x="512.8" y="336" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#8a8078">Seq</text>
+<text x="512.8" y="364" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#e8a33d" letter-spacing="0.6">2020→</text>
 <circle cx="628.0" cy="346" r="4.2" fill="#93c97a"/>
 <text x="628.0" y="336" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#f5f0e8">LogStream</text>
 <text x="628.0" y="364" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#93c97a" letter-spacing="0.6">2026</text>
