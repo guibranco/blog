@@ -231,9 +231,31 @@ O LogStream ficou **parado de agosto até o último domingo, 08/11/2026**. O mot
 
 Também não descarto que parte da carga tenha vindo de tráfego que não deveria estar lá, numa época em que eu testava muita coisa em paralelo. Isso pesou diretamente em duas decisões: o modelo de **chave e token por aplicação** e o **rate limit por cliente**, que está no backlog.
 
-No domingo, ele voltou rodando sobre o MariaDB. Desde então já passou de **1 milhão de mensagens** — e não por acaso: domingo e segunda são os dias de maior volume na minha infraestrutura, porque é quando o Dependabot abre a maior parte dos pull requests de atualização, e cada um deles gera uma cascata de webhooks, processamento e automação no GStraccini-bot. O servidor segurou bem esse primeiro pico. Ainda estou medindo a carga normal e o consumo de CPU e memória para ter números honestos.
+No domingo, ele voltou rodando sobre o MariaDB. Desde então já passou de **1 milhão de mensagens** — e não por acaso: domingo e segunda são os dias de maior volume na minha infraestrutura, porque é quando o Dependabot abre a maior parte dos pull requests de atualização, e cada um deles gera uma cascata de webhooks, processamento e automação no GStraccini-bot. O servidor segurou bem esse primeiro pico.
 
-<!-- TODO: preencher com números reais antes de publicar — mensagens/dia em dia normal vs. domingo/segunda, RAM e CPU do processo, tamanho da tabela -->
+O banco não mostra esse milhão inteiro, porque eu truncei a tabela algumas vezes enquanto testava. A janela limpa mais recente — 24 horas, de 10/11/2026 às 00h31 até 11/11/2026 às 00h44 (UTC), uma terça-feira, fora do pico de domingo e segunda — já conta a história:
+
+<table class="compare-table">
+  <thead><tr><th>Métrica</th><th>Valor</th></tr></thead>
+  <tbody>
+    <tr><td>Entradas em ~24 h</td><td>337.539</td></tr>
+    <tr><td>Média</td><td>~3,9 por segundo</td></tr>
+    <tr><td>Pico (10/11, das 09h00 às 10h00)</td><td>27.406 em uma hora · ~7,6 por segundo</td></tr>
+    <tr><td>Aplicação que mais envia (<code>webhooks</code>)</td><td>311.105 · 92,2%</td></tr>
+    <tr><td><code>info</code> + <code>debug</code></td><td>99,3%</td></tr>
+    <tr><td><code>error</code> + <code>critical</code></td><td>50 · 0,015%</td></tr>
+    <tr><td>Tamanho médio: mensagem / contexto</td><td>80 bytes / 398 bytes</td></tr>
+    <tr><td>Tamanho da tabela</td><td>626,9 MiB · ~1,9 KB por linha</td></tr>
+  </tbody>
+</table>
+
+Três coisas saltam desses números:
+
+- **"Poucos eventos por segundo" é exatamente a minha carga.** É a faixa que a documentação do Seq chama de leve — e para a qual ela pede 2 núcleos e 3,5 GB de RAM.
+- **O problema não é volume, é ruído.** Nove em cada dez entradas são o serviço de webhooks registrando, em `info`, cada evento que passa por ele. Os 50 erros e críticos que importam estão afogados em 337 mil linhas. É por isso que amostragem e retenção por aplicação estão no topo do backlog.
+- **O índice custa mais que o dado.** Uma entrada tem, em média, 478 bytes de conteúdo, mas ocupa ~1,9 KB no disco — umas quatro vezes mais, por conta dos oito índices, do FULLTEXT no contexto e da própria estrutura do InnoDB. Sem retenção, esse ritmo dá ~600 MB por dia, ou ~17,6 GB em 30 dias. Numa hospedagem compartilhada, retenção não é opcional.
+
+<!-- TODO: completar com RAM e CPU do processo (ps -o pid,rss,%cpu,etime,cmd -C php) num dia normal e num domingo/segunda -->
 
 Enquanto isso, a tabela `messages` do Projects Monitor continua viva como **fallback**. Ela só sai quando o LogStream cobrir tudo o que ela faz — migração gradual, sem big bang.
 
