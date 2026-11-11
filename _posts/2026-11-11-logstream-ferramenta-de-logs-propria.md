@@ -11,6 +11,7 @@ subcategories:
   - "Infrastructure/Self-Hosting"
 tags: [logs, observabilidade, php, reactphp, react, websocket, mariadb, self-hosting, open-source, side-projects]
 cover: /assets/img/posts/logstream/cover.svg
+image: /assets/img/posts/logstream/cover.png
 image_alt: "Capa do post: o título LogStream, logs do meu jeito, ao lado de um terminal com o live tail de logs e uma linha do tempo de error_log até LogStream"
 card_style: dark
 medium_tags: [logs, php, react, observabilidade, open-source]
