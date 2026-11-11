@@ -17,8 +17,6 @@ card_style: dark
 medium_tags: [logs, php, react, observabilidade, open-source]
 ---
 
-<!-- TODO: atualizar `date:` (e o nome do arquivo) para o dia da publicação — o post só sai junto com a demo pública. -->
-
 <p class="lead">Eu sei que, para quase todo mundo, a resposta certa para "preciso de uma ferramenta de logs" é usar uma pronta. Eu digo isso para os outros. E mesmo assim passei os últimos meses construindo a minha: o <strong>LogStream</strong>, um servidor de ingestão de logs em PHP com uma UI em React. Este texto conta por que, de onde vieram as ideias, como ele funciona por dentro e — principalmente — o que eu abri mão para ter uma ferramenta feita sob medida para a minha infraestrutura.</p>
 
 Os dois repositórios são públicos: o [logstream-server](https://github.com/guibranco/logstream-server) (PHP 8.3 + ReactPHP + Ratchet) e o [logstream-ui](https://github.com/guibranco/logstream-ui) (React + Vite + TypeScript). A instância que eu uso no dia a dia roda só na rede interna, e uma versão de demonstração pública está a caminho.
@@ -87,7 +85,7 @@ O LogStream se baseia bastante no Seq — não copiando, mas usando como referê
 
 Essa é a pergunta certa, e a resposta tem uma parte técnica e uma parte que é só minha.
 
-**A parte técnica é hardware.** O LogStream roda numa VM *micro* da Oracle Cloud: 1 vCPU e 1 GB de RAM, dividida com outros serviços. A documentação do próprio Seq pede, para cargas leves — poucos eventos por segundo, retidos por 30 dias —, no mínimo **2 núcleos e 3,5 GB de RAM**, e recomenda rodá-lo numa máquina dedicada, porque ele tenta usar toda a memória e CPU disponíveis. Elasticsearch é ainda mais faminto. Não cabe.
+**A parte técnica é hardware.** O LogStream roda numa VM *micro* da Oracle Cloud, do shape gratuito VM.Standard.E2.1.Micro: **1/8 de OCPU** garantido — o Linux enxerga 2 vCPUs, e a Oracle permite usar CPU adicional quando há sobra no host, mas o que está garantido é um oitavo de um núcleo — e **1 GB de RAM**, dividida com outros serviços. A documentação do próprio Seq pede, para cargas leves — poucos eventos por segundo, retidos por 30 dias —, no mínimo **2 núcleos e 3,5 GB de RAM**, e recomenda rodá-lo numa máquina dedicada, porque ele tenta usar toda a memória e CPU disponíveis. Elasticsearch é ainda mais faminto. Não cabe.
 
 **A parte que é só minha** pesou tanto quanto:
 
@@ -256,7 +254,13 @@ Três coisas saltam desses números:
 - **O problema não é volume, é ruído.** Nove em cada dez entradas são o serviço de webhooks registrando, em `info`, cada evento que passa por ele. Os 50 erros e críticos que importam estão afogados em 337 mil linhas. É por isso que amostragem e retenção por aplicação estão no topo do backlog.
 - **O índice custa mais que o dado.** Uma entrada tem, em média, 478 bytes de conteúdo, mas ocupa ~1,9 KB no disco — umas quatro vezes mais, por conta dos oito índices, do FULLTEXT no contexto e da própria estrutura do InnoDB. Sem retenção, esse ritmo dá ~600 MB por dia, ou ~17,6 GB em 30 dias. Numa hospedagem compartilhada, retenção não é opcional.
 
-<!-- TODO: completar com RAM e CPU do processo (ps -o pid,rss,%cpu,etime,cmd -C php) num dia normal e num domingo/segunda -->
+E o processo em si? Medi na quarta-feira à noite (11/11/2026, 21h52), com o servidor de pé havia 28 horas — desde o fim da tarde de terça, ainda na cauda da onda:
+
+- **Memória: ~36 MB residentes**, e o pico registrado desde que o processo subiu é o mesmo valor — ou seja, em nenhum momento dessas 28 horas ele passou de 36 MB.
+- **CPU: 0,1% de média** nessas 28 horas. Em 12 amostras de 5 segundos, ficou entre 0,0% e 0,4%.
+- **A VM inteira:** 952 MB no total, ~714 MB disponíveis e swap zerado. O LogStream é só o quarto processo que mais usa memória na máquina — o journal do systemd usa quase três vezes mais.
+
+Não é uma comparação de igual para igual: os 3,5 GB do Seq são o mínimo recomendado para a <em>máquina</em> inteira, e os 36 MB são a memória medida de um <em>processo</em> — sem contar o MariaDB, que roda em outro servidor. Mas é o número que importava para a minha decisão: o LogStream cabe com folga numa VM de 1 GB, e o Seq, pela própria documentação, não. O que derrubou o servidor em agosto nunca foi o processo; foi o disco.
 
 Enquanto isso, a tabela `messages` do Projects Monitor continua viva como **fallback**. Ela só sai quando o LogStream cobrir tudo o que ela faz — migração gradual, sem big bang.
 
@@ -270,7 +274,7 @@ Enquanto isso, a tabela `messages` do Projects Monitor continua viva como **fall
 <table class="compare-table">
   <thead><tr><th>Critério</th><th>LogStream</th><th>Seq</th><th>ELK</th></tr></thead>
   <tbody>
-    <tr><td>Roda em 1 vCPU / 1 GB</td><td><span class="check">✓</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td></tr>
+    <tr><td>Roda numa VM micro (1/8 OCPU, 1 GB)</td><td><span class="check">✓</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td></tr>
     <tr><td>Message templates e propriedades</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="partial">~</span></td></tr>
     <tr><td>Live tail</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="partial">~</span></td></tr>
     <tr><td>Busca rápida em volume grande</td><td><span class="partial">~</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
@@ -333,6 +337,7 @@ Várias dessas issues estão marcadas como `good first issue` e `help wanted` no
     <li>guibranco. <strong>Pancake — LogStream.</strong> <a href="https://guibranco.github.io/pancake/user-guide/logstream/" target="_blank">guibranco.github.io</a></li>
     <li>Datalust. <strong>Seq — System Requirements.</strong> <a href="https://datalust.co/docs/system-requirements" target="_blank">datalust.co</a></li>
     <li>GitHub. <strong>Configuration options for the dependabot.yml file.</strong> <a href="https://docs.github.com/en/enterprise-server@3.7/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file" target="_blank">docs.github.com</a></li>
+    <li>Oracle. <strong>Always Free Resources.</strong> <a href="https://docs.oracle.com/en-us/iaas/Content/FreeTier/resourceref.htm" target="_blank">docs.oracle.com</a></li>
     <li><strong>Message Templates.</strong> <a href="https://messagetemplates.org/" target="_blank">messagetemplates.org</a></li>
     <li>VictoriaMetrics. <strong>VictoriaLogs — FAQ.</strong> <a href="https://docs.victoriametrics.com/victorialogs/faq/" target="_blank">docs.victoriametrics.com</a></li>
     <li><strong>ReactPHP.</strong> <a href="https://reactphp.org/" target="_blank">reactphp.org</a> · <strong>Ratchet.</strong> <a href="http://socketo.me/" target="_blank">socketo.me</a></li>
