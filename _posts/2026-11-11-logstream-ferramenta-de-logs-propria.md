@@ -145,13 +145,21 @@ O servidor é **um único processo PHP** rodando em loop de eventos com [ReactPH
 
 Hoje o file mode serve para a demo e para ambientes restritos que não precisam de banco.
 
+**Retenção declarada em JSON.** As políticas ficam num arquivo de configuração, e o servidor as aplica a cada `interval_hours`. Cada política combina filtros — nível, aplicação, ambiente, regex ou glob na mensagem — com uma idade mínima, e o que casar com todos os filtros é apagado. Um trecho do `retention.example.json` do repositório:
+
 ```json
 {
-  "name": "remove-debug-7d",
-  "level": "debug",
-  "older_than_days": 7
+  "enabled": true,
+  "interval_hours": 24,
+  "policies": [
+    { "name": "remove-debug-7d", "level": "debug", "older_than_days": 7 },
+    { "name": "remove-production-info-30d", "app_id": "production", "level": "info", "older_than_days": 30 },
+    { "name": "remove-pii-email-regex-1d", "message_regex": "[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}", "older_than_days": 1 }
+  ]
 }
 ```
+
+A primeira limpa o `debug` depois de uma semana, a segunda segura o `info` de produção por 30 dias, e a terceira apaga em um dia qualquer mensagem que contenha um e-mail — retenção também serve para não guardar dado pessoal sem necessidade. Como regex e glob são aplicados tanto à mensagem renderizada quanto ao template, dá para mirar uma linha de log inteira, independentemente dos valores: `"message_glob": "GitHub {event}*"` pega todos os eventos de webhook do GitHub de uma vez.
 
 **Leitura e escrita separadas.** Quem envia log usa a chave de escrita; a UI usa só uma chave de leitura. Uma UI comprometida não consegue injetar log, e um serviço comprometido não consegue ler o log dos outros.
 
