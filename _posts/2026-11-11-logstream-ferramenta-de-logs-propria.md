@@ -85,7 +85,7 @@ O LogStream se baseia bastante no Seq — não copiando, mas usando como referê
 
 Essa é a pergunta certa, e a resposta tem uma parte técnica e uma parte que é só minha.
 
-**A parte técnica é hardware.** O LogStream roda numa VM *micro* da Oracle Cloud, do shape gratuito VM.Standard.E2.1.Micro: **1/8 de OCPU** — o Linux enxerga 2 vCPUs, mas a máquina só tem direito a um oitavo de um núcleo, sem burst — e **1 GB de RAM**, dividida com outros serviços. A documentação do próprio Seq pede, para cargas leves — poucos eventos por segundo, retidos por 30 dias —, no mínimo **2 núcleos e 3,5 GB de RAM**, e recomenda rodá-lo numa máquina dedicada, porque ele tenta usar toda a memória e CPU disponíveis. Elasticsearch é ainda mais faminto. Não cabe.
+**A parte técnica é hardware.** O LogStream roda numa VM *micro* da Oracle Cloud, do shape gratuito VM.Standard.E2.1.Micro: **1/8 de OCPU** garantido — o Linux enxerga 2 vCPUs, e a Oracle permite usar CPU adicional quando há sobra no host, mas o que está garantido é um oitavo de um núcleo — e **1 GB de RAM**, dividida com outros serviços. A documentação do próprio Seq pede, para cargas leves — poucos eventos por segundo, retidos por 30 dias —, no mínimo **2 núcleos e 3,5 GB de RAM**, e recomenda rodá-lo numa máquina dedicada, porque ele tenta usar toda a memória e CPU disponíveis. Elasticsearch é ainda mais faminto. Não cabe.
 
 **A parte que é só minha** pesou tanto quanto:
 
@@ -256,11 +256,11 @@ Três coisas saltam desses números:
 
 E o processo em si? Medi na quarta-feira à noite (11/11/2026, 21h52), com o servidor de pé havia 28 horas — desde o fim da tarde de terça, ainda na cauda da onda:
 
-- **Memória: ~36 MB residentes**, e o pico desde que o processo subiu é exatamente o mesmo valor. Em 28 horas, a memória não cresceu um byte.
+- **Memória: ~36 MB residentes**, e o pico registrado desde que o processo subiu é o mesmo valor — ou seja, em nenhum momento dessas 28 horas ele passou de 36 MB.
 - **CPU: 0,1% de média** nessas 28 horas. Em 12 amostras de 5 segundos, ficou entre 0,0% e 0,4%.
 - **A VM inteira:** 952 MB no total, ~714 MB disponíveis e swap zerado. O LogStream é só o quarto processo que mais usa memória na máquina — o journal do systemd usa quase três vezes mais.
 
-É aí que a comparação com o Seq fica concreta: para a mesma faixa de carga, ele pede 3,5 GB de RAM. O LogStream usa 36 MB — umas cem vezes menos. O que derrubou o servidor em agosto nunca foi o processo; foi o disco.
+Não é uma comparação de igual para igual: os 3,5 GB do Seq são o mínimo recomendado para a <em>máquina</em> inteira, e os 36 MB são a memória medida de um <em>processo</em> — sem contar o MariaDB, que roda em outro servidor. Mas é o número que importava para a minha decisão: o LogStream cabe com folga numa VM de 1 GB, e o Seq, pela própria documentação, não. O que derrubou o servidor em agosto nunca foi o processo; foi o disco.
 
 Enquanto isso, a tabela `messages` do Projects Monitor continua viva como **fallback**. Ela só sai quando o LogStream cobrir tudo o que ela faz — migração gradual, sem big bang.
 
