@@ -254,7 +254,7 @@ O banco não mostra esse milhão inteiro, porque eu truncei a tabela algumas vez
   <tbody>
     <tr><td>Entradas em ~24 h</td><td>337.539</td></tr>
     <tr><td>Média</td><td>~3,9 por segundo</td></tr>
-    <tr><td>Quarta, das 00h00 às 11h31 (fora da onda)</td><td>47.240 · ~1,1 por segundo</td></tr>
+    <tr><td>Quarta inteira, 11/11 (fora da onda)</td><td>96.877 · ~1,1 por segundo</td></tr>
     <tr><td>Pico (10/11, das 09h00 às 10h00)</td><td>27.406 em uma hora · ~7,6 por segundo</td></tr>
     <tr><td>Aplicação que mais envia (<code>webhooks</code>)</td><td>311.105 · 92,2%</td></tr>
     <tr><td><code>info</code> + <code>debug</code></td><td>99,3%</td></tr>
@@ -268,7 +268,7 @@ Três coisas saltam desses números:
 
 - **"Poucos eventos por segundo" é exatamente a minha carga.** É a faixa que a documentação do Seq chama de leve — e para a qual ela pede 2 núcleos e 3,5 GB de RAM.
 - **O problema não é volume, é ruído.** Nove em cada dez entradas são o serviço de webhooks registrando, em `info`, cada evento que passa por ele. Os 50 erros e críticos que importam estão afogados em 337 mil linhas. É por isso que amostragem e retenção por aplicação estão no topo do backlog.
-- **O índice custa mais que o dado.** Uma entrada tem, em média, 478 bytes de conteúdo, mas ocupa ~1,9 KB no disco — umas quatro vezes mais, por conta dos oito índices, do FULLTEXT no contexto e da própria estrutura do InnoDB. Sem retenção, esse ritmo dá ~600 MB por dia, ou ~17,6 GB em 30 dias. Numa hospedagem compartilhada, retenção não é opcional.
+- **O disco custa quatro vezes o conteúdo.** Uma entrada tem, em média, 478 bytes de conteúdo, mas ocupa ~1,9 KB no disco. Pelo `SHOW TABLE STATUS`, ~1,1 KB disso é a própria linha no InnoDB e ~0,8 KB são os oito índices e o FULLTEXT do contexto — ou seja, quase metade do espaço (42%) é índice. Sem retenção, isso dá entre ~180 MB por dia num dia calmo como a quarta e ~600 MB num dia de onda: algo entre 5 e 18 GB em 30 dias. Numa hospedagem compartilhada, retenção não é opcional — e ela já está trabalhando: hoje rodam duas políticas, uma que apaga `debug` com mais de 1 dia e outra que apaga qualquer entrada com mais de 7 dias. Só a primeira já tirou ~25 mil entradas de `debug` da terça.
 
 E o processo em si? Medi na quarta-feira à noite (11/11/2026, 21h52), com o servidor de pé havia 28 horas — desde o fim da tarde de terça, ainda na cauda da onda:
 
@@ -338,7 +338,7 @@ Sinceramente, até agora não sinto falta de nada no dia a dia. Parte disso é q
 
 ### E um banco feito para logs?
 
-Hoje o LogStream guarda tudo num MariaDB comum, e a seção 07 mostrou o preço: o índice ocupa mais que o próprio dado. Existem bancos pensados especificamente para isso, e eles resolvem o problema de formas bem diferentes:
+Hoje o LogStream guarda tudo num MariaDB comum, e a seção 07 mostrou o preço: cada entrada ocupa no disco quatro vezes o próprio conteúdo, e quase metade disso é índice. Existem bancos pensados especificamente para isso, e eles resolvem o problema de formas bem diferentes:
 
 <table class="compare-table">
   <thead><tr><th>Banco</th><th>Como indexa</th><th>Encaixa no LogStream?</th></tr></thead>
