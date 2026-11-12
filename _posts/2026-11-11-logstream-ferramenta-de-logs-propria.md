@@ -278,6 +278,26 @@ E o processo em si? Medi na quarta-feira à noite (11/11/2026, 21h52), com o ser
 
 Não é uma comparação de igual para igual: os 3,5 GB do Seq são o mínimo recomendado para a <em>máquina</em> inteira, e os 36 MB são a memória medida de um <em>processo</em> — sem contar o MariaDB, que roda em outro servidor. Mas é o número que importava para a minha decisão: o LogStream cabe com folga numa VM de 1 GB, e o Seq, pela própria documentação, não. O que derrubou o servidor em agosto nunca foi o processo; foi o disco.
 
+### Escrevendo este post, achei dois bugs
+
+Ao conferir os números da retenção, a tabela `retention_log` estava vazia. A limpeza acontecia, mas nada era registrado — e, pior, a linha de comando ignorava as políticas criadas pela UI e lia só o arquivo JSON, que em produção estava vazio. Investigando isso, encontrei um problema bem mais sério: o botão "Simular exclusão" da interface mandava o `dry_run` no corpo da requisição, e o servidor só lia esse parâmetro da query string. Toda simulação rodava todas as políticas de verdade. **Uma simulação apagava dados.**
+
+É o tipo de bug que uma ferramenta madura dificilmente teria — e é o preço de construir a sua. Mas o outro lado da moeda apareceu na mesma manhã de quinta-feira, 12/11/2026:
+
+<table class="compare-table">
+  <thead><tr><th>Horário</th><th>O que aconteceu</th></tr></thead>
+  <tbody>
+    <tr><td>11h05</td><td>Aberto o <a href="https://github.com/guibranco/logstream-server/pull/118" target="_blank">#118</a>: registro de cada execução na <code>retention_log</code> e políticas do banco também na linha de comando</td></tr>
+    <tr><td>11h08</td><td>#118 mesclado — 14 arquivos, 417 testes passando</td></tr>
+    <tr><td>11h13</td><td>Primeira correção em produção</td></tr>
+    <tr><td>11h26</td><td>Aberto o <a href="https://github.com/guibranco/logstream-server/pull/119" target="_blank">#119</a>: o <code>dry_run</code> passa a valer também no corpo da requisição, e o <code>prune.php</code> recusa argumentos</td></tr>
+    <tr><td>11h34</td><td>#119 mesclado — seis dos testes novos falhavam contra a <code>main</code> antes da correção; 427 testes passando</td></tr>
+    <tr><td>11h37</td><td>Segunda correção em produção</td></tr>
+  </tbody>
+</table>
+
+Do primeiro pull request aberto à segunda correção em produção, foram 32 minutos. Os dois PRs foram escritos com o Claude Code; eu revisei, o GStraccini-bot aprovou, o CodeRabbit revisou o segundo, e o deploy saiu automático a cada merge. Sem issue esperando triagem num projeto de terceiros, sem depender de ninguém além de mim — que, hoje, também sou o único usuário.
+
 Enquanto isso, a tabela `messages` do Projects Monitor continua viva como **fallback**. Ela só sai quando o LogStream cobrir tudo o que ela faz — migração gradual, sem big bang.
 
 <div class="divider">· · ·</div>
