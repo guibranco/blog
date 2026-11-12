@@ -64,7 +64,6 @@ Passei quase sete anos como funcionário da Editora Inovação (Inovação Media
   </div>
   <p>Vou ser honesto: eu joguei log nas três ferramentas ao mesmo tempo porque queria aprender cada uma delas — e porque queria colocá-las no currículo como "usei em produção". Foi overengineering puro. No fim, acabei tirando proveito de cada uma: pub/sub para o tempo real, fila para não perder mensagem, Elasticsearch para relatório. Mas a lição mais importante veio do que <em>não</em> funcionou: quando dava problema de verdade, quase sempre eu acabava abrindo os arquivos de log em texto no servidor. A mensagem estruturada atendia a mim e um pouco à equipe; a busca boa, que faria a gente largar o arquivo de texto, nunca chegou.</p>
 </div>
-<!-- TODO: revisar o personal-story acima na sua voz antes de publicar -->
 
 O código daquela UI (o repositório *Notifications*) continua privado — por um motivo nada nobre: ele guarda segredos no próprio código, de uma época em que eu ainda não usava variáveis de ambiente, muito menos um cofre de segredos.
 
