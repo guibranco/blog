@@ -246,14 +246,14 @@ Também não descarto que parte da carga tenha vindo de tráfego que não deveri
 
 No domingo, ele voltou rodando sobre o MariaDB. Desde então já passou de **1 milhão de mensagens** — e não por acaso. Nos meus repositórios, o Dependabot está configurado como `weekly` sem dia definido, e nesse caso ele roda às segundas-feiras, num horário que o próprio GitHub escolhe. Na prática, a onda começa por volta da meia-noite de domingo para segunda, segue durante a segunda e tem um segundo pico no fim do dia, já quase terça. Cada pull request aberto gera uma cascata de webhooks, processamento e automação no GStraccini-bot. E a onda não termina quando o Dependabot para: muitos desses PRs dependem de outro ser mesclado antes para então serem atualizados, o que forma uma fila por repositório. O GStraccini-bot vai consumindo essa fila ao longo do dia seguinte — atualizações, correções de code smells, reviews —, e cada passo dispara mais webhooks, horas depois de o PR ter sido aberto. O servidor segurou bem essa primeira onda.
 
-O banco não mostra esse milhão inteiro, porque eu truncei a tabela algumas vezes enquanto testava. A janela limpa mais recente — 24 horas, de 10/11/2026 às 00h31 até 11/11/2026 às 00h44 (UTC), uma terça-feira, ainda na cauda da onda do Dependabot — já conta a história. Para comparar, deixei também a manhã de quarta-feira, fora da onda:
+O banco não mostra esse milhão inteiro, porque eu truncei a tabela algumas vezes enquanto testava. A janela limpa mais recente — 24 horas, de 10/11/2026 às 00h31 até 11/11/2026 às 00h44 (UTC), uma terça-feira, ainda na cauda da onda do Dependabot — já conta a história. Para comparar, deixei também a quarta e a quinta-feira inteiras (00h00 a 23h59, UTC), já fora da onda:
 
 <table class="compare-table">
   <thead><tr><th>Métrica</th><th>Valor</th></tr></thead>
   <tbody>
     <tr><td>Entradas em ~24 h</td><td>337.539</td></tr>
     <tr><td>Média</td><td>~3,9 por segundo</td></tr>
-    <tr><td>Quarta e quinta, 11 e 12/11 (fora da onda)</td><td>96.877 e 101.883 · ~1,1 a 1,2 por segundo</td></tr>
+    <tr><td>Quarta e quinta, 11 e 12/11, 00h00–23h59 (fora da onda)</td><td>96.877 e 101.883 · ~1,1 a 1,2 por segundo</td></tr>
     <tr><td>Pico (10/11, das 09h00 às 10h00)</td><td>27.406 em uma hora · ~7,6 por segundo</td></tr>
     <tr><td>Aplicação que mais envia (<code>webhooks</code>)</td><td>311.105 · 92,2%</td></tr>
     <tr><td><code>info</code> + <code>debug</code></td><td>99,3%</td></tr>
