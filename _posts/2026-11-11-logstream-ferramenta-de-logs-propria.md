@@ -253,7 +253,7 @@ O banco não mostra esse milhão inteiro, porque eu truncei a tabela algumas vez
   <tbody>
     <tr><td>Entradas em ~24 h</td><td>337.539</td></tr>
     <tr><td>Média</td><td>~3,9 por segundo</td></tr>
-    <tr><td>Quarta inteira, 11/11 (fora da onda)</td><td>96.877 · ~1,1 por segundo</td></tr>
+    <tr><td>Quarta e quinta, 11 e 12/11 (fora da onda)</td><td>96.877 e 101.883 · ~1,1 a 1,2 por segundo</td></tr>
     <tr><td>Pico (10/11, das 09h00 às 10h00)</td><td>27.406 em uma hora · ~7,6 por segundo</td></tr>
     <tr><td>Aplicação que mais envia (<code>webhooks</code>)</td><td>311.105 · 92,2%</td></tr>
     <tr><td><code>info</code> + <code>debug</code></td><td>99,3%</td></tr>
