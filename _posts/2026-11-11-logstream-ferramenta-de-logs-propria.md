@@ -267,7 +267,7 @@ Três coisas saltam desses números:
 
 - **"Poucos eventos por segundo" é exatamente a minha carga.** É a faixa que a documentação do Seq chama de leve — e para a qual ela pede 2 núcleos e 3,5 GB de RAM.
 - **O problema não é volume, é ruído.** Nove em cada dez entradas são o serviço de webhooks registrando, em `info`, cada evento que passa por ele. Os 50 erros e críticos que importam estão afogados em 337 mil linhas. É por isso que amostragem e retenção por aplicação estão no topo do backlog.
-- **O disco custa quatro vezes o conteúdo.** Uma entrada tem, em média, 478 bytes de conteúdo, mas ocupa ~1,9 KB no disco. Pelo `SHOW TABLE STATUS`, ~1,1 KB disso é a própria linha no InnoDB e ~0,8 KB são os oito índices e o FULLTEXT do contexto — ou seja, quase metade do espaço (42%) é índice. Sem retenção, isso dá entre ~180 MB por dia num dia calmo como a quarta e ~600 MB num dia de onda: algo entre 5 e 18 GB em 30 dias. Numa hospedagem compartilhada, retenção não é opcional — e ela já está trabalhando: hoje rodam duas políticas, uma que apaga `debug` com mais de 1 dia e outra que apaga qualquer entrada com mais de 7 dias. Só a primeira já tirou ~25 mil entradas de `debug` da terça.
+- **O disco custa quatro vezes o conteúdo.** Uma entrada tem, em média, 478 bytes de conteúdo, mas ocupa ~1,9 KB no disco. Pelo `SHOW TABLE STATUS`, ~1,1 KB disso é a própria linha no InnoDB e ~0,8 KB são os oito índices e o FULLTEXT do contexto — ou seja, quase metade do espaço (42%) é índice. Sem retenção, isso dá entre ~180 MB por dia num dia calmo como a quarta e ~600 MB num dia de onda: algo entre 5 e 18 GB em 30 dias. Numa hospedagem compartilhada, retenção não é opcional — e ela já está trabalhando: hoje rodam duas políticas, uma que apaga `debug` com mais de 1 dia e outra que apaga qualquer entrada com mais de 7 dias. A primeira já tirou 24.765 entradas de `debug` da terça — mas não numa execução agendada: foi uma simulação que eu mesmo rodei, e que apagou de verdade (o bug logo abaixo).
 
 E o processo em si? Medi na quarta-feira à noite (11/11/2026, 21h52), com o servidor de pé havia 28 horas — desde o fim da tarde de terça, ainda na cauda da onda:
 
@@ -279,7 +279,7 @@ Não é uma comparação de igual para igual: os 3,5 GB do Seq são o mínimo re
 
 ### Escrevendo este post, achei dois bugs
 
-Ao conferir os números da retenção, a tabela `retention_log` estava vazia. A limpeza acontecia, mas nada era registrado — e, pior, a linha de comando ignorava as políticas criadas pela UI e lia só o arquivo JSON, que em produção estava vazio. Investigando isso, encontrei um problema bem mais sério: o botão "Simular exclusão" da interface mandava o `dry_run` no corpo da requisição, e o servidor só lia esse parâmetro da query string. Toda simulação rodava todas as políticas de verdade. **Uma simulação apagava dados.**
+Ao conferir os números da retenção, a tabela `retention_log` estava vazia. A limpeza acontecia, mas nada era registrado — e, pior, a linha de comando ignorava as políticas criadas pela UI e lia só o arquivo JSON, que em produção estava vazio. Investigando isso, encontrei um problema bem mais sério: o botão "Simular exclusão" da interface mandava o `dry_run` no corpo da requisição, e o servidor só lia esse parâmetro da query string. Toda simulação rodava todas as políticas de verdade. **Uma simulação apagava dados.** Foi exatamente o que aconteceu às 11h24: rodei uma simulação da política de `debug` e ela apagou 24.765 entradas da terça. Eram justamente as que a política apagaria de qualquer forma, então o prejuízo foi nenhum — mas com outra política, poderia ter sido.
 
 É o tipo de bug que uma ferramenta madura dificilmente teria — e é o preço de construir a sua. Mas o outro lado da moeda apareceu na mesma manhã de quinta-feira, 12/11/2026:
 
@@ -289,6 +289,7 @@ Ao conferir os números da retenção, a tabela `retention_log` estava vazia. A 
     <tr><td>11h05</td><td>Aberto o <a href="https://github.com/guibranco/logstream-server/pull/118" target="_blank">#118</a>: registro de cada execução na <code>retention_log</code> e políticas do banco também na linha de comando</td></tr>
     <tr><td>11h08</td><td>#118 mesclado — 14 arquivos, 417 testes passando</td></tr>
     <tr><td>11h13</td><td>Primeira correção em produção</td></tr>
+    <tr><td>11h24</td><td>Uma simulação da política de <code>debug</code> apaga 24.765 entradas de verdade — o bug em ação</td></tr>
     <tr><td>11h26</td><td>Aberto o <a href="https://github.com/guibranco/logstream-server/pull/119" target="_blank">#119</a>: o <code>dry_run</code> passa a valer também no corpo da requisição, e o <code>prune.php</code> recusa argumentos</td></tr>
     <tr><td>11h34</td><td>#119 mesclado — seis dos testes novos falhavam contra a <code>main</code> antes da correção; 427 testes passando</td></tr>
     <tr><td>11h37</td><td>Segunda correção em produção</td></tr>
