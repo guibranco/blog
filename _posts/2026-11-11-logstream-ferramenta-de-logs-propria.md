@@ -263,6 +263,8 @@ O banco não mostra esse milhão inteiro, porque eu truncei a tabela algumas vez
   </tbody>
 </table>
 
+<em>Atualizado em 13/11/2026: a tabela e os parágrafos abaixo incluem os dias completos de quarta e quinta-feira, medidos depois da publicação.</em>
+
 Três coisas saltam desses números:
 
 - **"Poucos eventos por segundo" é exatamente a minha carga.** É a faixa que a documentação do Seq chama de leve — e para a qual ela pede 2 núcleos e 3,5 GB de RAM.
