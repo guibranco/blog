@@ -380,7 +380,7 @@ Várias dessas issues estão marcadas como `good first issue` e `help wanted` no
 
 ### Teste você mesmo
 
-A demo pública já está no ar. O servidor roda no plano gratuito do Render, em file mode, e a interface é a mesma publicada no GitHub Pages: abra a [UI](https://guilherme.stracini.com.br/logstream-ui/){:target="_blank"}, informe `https://logstream-demo.onrender.com` como API URL e use o `UI_SECRET` de demonstração. Para mandar logs, o `API_SECRET` vai no header `Authorization: Bearer` de um `POST /api/logs` — com a UI aberta, a entrada aparece na hora. As duas chaves e um `curl` pronto estão na seção *Live demo* do README do [logstream-server](https://github.com/guibranco/logstream-server#live-demo){:target="_blank"}; a raiz do servidor mostra a documentação da API.
+A demo pública já está no ar. O servidor roda no plano gratuito do Render, em file mode, e a interface é a mesma publicada no GitHub Pages. O jeito mais rápido é este **[link da demo](https://guilherme.stracini.com.br/logstream-ui/#server=https%3A%2F%2Flogstream-demo.onrender.com&secret=lsu_Cj4qmrHvWkH3BfMyUn4HELyBsldiprEGZfB0VAOR2S0){:target="_blank"}**: ele abre a UI com o servidor e o `UI_SECRET` de demonstração já preenchidos — é só clicar em **Validate and Connect**. Para mandar logs, o `API_SECRET` vai no header `Authorization: Bearer` de um `POST /api/logs`; com a UI aberta, a entrada aparece na hora. As duas chaves e um `curl` pronto estão na seção *Live demo* do README do [logstream-server](https://github.com/guibranco/logstream-server#live-demo){:target="_blank"}, e a raiz do servidor mostra a documentação da API.
 
 <div class="callout callout-warn">
   <div class="callout-label">A demo dorme</div>
@@ -390,7 +390,7 @@ A demo pública já está no ar. O servidor roda no plano gratuito do Render, em
 <div class="conclusion">
   <h2>Ferramenta pronta é quase sempre melhor. Quase.</h2>
   <p>O LogStream não compete com o Seq, nem quer competir. Ele existe porque eu tinha uma restrição real de hardware, um problema específico — erro transacional e serviços espalhados fora da hospedagem — e vinte anos de vontade de entender como as coisas funcionam por dentro. Cada etapa deixou uma ideia: a Inovação me ensinou que mensagem estruturada vale mais que texto solto, o CrispyWaffle que o produtor não deve saber para onde o log vai, e o Seq que message templates mudam a forma de investigar.</p>
-  <p>Se você está pensando em fazer o mesmo, a minha recomendação continua sendo usar uma ferramenta pronta. Mas, se a conta fechar para você — pelo hardware, pelo aprendizado ou pela diversão —, os dois repositórios estão abertos. E, se quiser ver funcionando antes de decidir, a <a href="https://guilherme.stracini.com.br/logstream-ui/" target="_blank">demo</a> está no ar.</p>
+  <p>Se você está pensando em fazer o mesmo, a minha recomendação continua sendo usar uma ferramenta pronta. Mas, se a conta fechar para você — pelo hardware, pelo aprendizado ou pela diversão —, os dois repositórios estão abertos. E, se quiser ver funcionando antes de decidir, a <a href="https://guilherme.stracini.com.br/logstream-ui/#server=https%3A%2F%2Flogstream-demo.onrender.com&secret=lsu_Cj4qmrHvWkH3BfMyUn4HELyBsldiprEGZfB0VAOR2S0" target="_blank">demo</a> está no ar.</p>
 </div>
 
 <div class="references">
