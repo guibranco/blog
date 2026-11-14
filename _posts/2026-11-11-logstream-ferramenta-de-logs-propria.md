@@ -233,6 +233,8 @@ curl -sS -X POST "$LOGSTREAM_URL/api/logs" \
   -d '{"app_key":"trigger-jobs","app_id":"production","level":"info","message":"tick"}'
 ```
 
+Foi assim que entrou o cliente mais novo: na sexta, 13/11, um script de shell numa das VMs passou a disparar via REST os jobs que antes eram cron na hospedagem compartilhada — o suporte pediu para eu reduzir os crons de lá. No primeiro dia, ele mandou 11.988 entradas, sem nenhuma mudança no servidor de logs.
+
 <div class="divider">· · ·</div>
 
 <div class="section-header">
@@ -253,7 +255,7 @@ O banco não mostra esse milhão inteiro, porque eu truncei a tabela algumas vez
   <tbody>
     <tr><td>Entradas em ~24 h</td><td>337.539</td></tr>
     <tr><td>Média</td><td>~3,9 por segundo</td></tr>
-    <tr><td>Quarta e quinta, 11 e 12/11, 00h00–23h59 (fora da onda)</td><td>96.877 e 101.883 · ~1,1 a 1,2 por segundo</td></tr>
+    <tr><td>Quarta e quinta, 11 e 12/11, 00h00–23h59 (fora da onda)</td><td>96.877 (antes da retenção) e 101.883 · ~1,1 a 1,2 por segundo</td></tr>
     <tr><td>Pico (10/11, das 09h00 às 10h00)</td><td>27.406 em uma hora · ~7,6 por segundo</td></tr>
     <tr><td>Aplicação que mais envia (<code>webhooks</code>)</td><td>311.105 · 92,2%</td></tr>
     <tr><td><code>info</code> + <code>debug</code></td><td>99,3%</td></tr>
@@ -263,13 +265,13 @@ O banco não mostra esse milhão inteiro, porque eu truncei a tabela algumas vez
   </tbody>
 </table>
 
-<em>Atualizado em 13/11/2026: a tabela e os parágrafos abaixo incluem os dias completos de quarta e quinta-feira, medidos depois da publicação.</em>
+<em>Atualizado em 13/11/2026: a tabela e os parágrafos abaixo incluem os dias completos de quarta e quinta-feira, medidos depois da publicação. Atualizado de novo em 14/11/2026, com a primeira execução agendada da retenção.</em>
 
 Três coisas saltam desses números:
 
 - **"Poucos eventos por segundo" é exatamente a minha carga.** É a faixa que a documentação do Seq chama de leve — e para a qual ela pede 2 núcleos e 3,5 GB de RAM.
 - **O problema não é volume, é ruído.** Nove em cada dez entradas são o serviço de webhooks registrando, em `info`, cada evento que passa por ele. Os 50 erros e críticos que importam estão afogados em 337 mil linhas. É por isso que amostragem e retenção por aplicação estão no topo do backlog.
-- **O disco custa quatro vezes o conteúdo.** Uma entrada tem, em média, 478 bytes de conteúdo, mas ocupa ~1,9 KB no disco. Pelo `SHOW TABLE STATUS`, ~1,1 KB disso é a própria linha no InnoDB e ~0,8 KB são os oito índices e o FULLTEXT do contexto — ou seja, quase metade do espaço (42%) é índice. Sem retenção, isso dá entre ~180 MB por dia num dia calmo como a quarta e ~600 MB num dia de onda: algo entre 5 e 18 GB em 30 dias. Numa hospedagem compartilhada, retenção não é opcional — e ela já está trabalhando: hoje rodam duas políticas, uma que apaga `debug` com mais de 1 dia e outra que apaga qualquer entrada com mais de 7 dias. A primeira já tirou 24.765 entradas de `debug` da terça — mas não numa execução agendada: foi uma simulação que eu mesmo rodei, e que apagou de verdade (o bug logo abaixo).
+- **O disco custa quatro vezes o conteúdo.** Uma entrada tem, em média, 478 bytes de conteúdo, mas ocupa ~1,9 KB no disco. Pelo `SHOW TABLE STATUS`, ~1,1 KB disso é a própria linha no InnoDB e ~0,8 KB são os oito índices e o FULLTEXT do contexto — ou seja, quase metade do espaço (42%) é índice. Sem retenção, isso dá entre ~180 MB por dia num dia calmo como a quarta e ~600 MB num dia de onda: algo entre 5 e 18 GB em 30 dias. Numa hospedagem compartilhada, retenção não é opcional — e ela já está trabalhando: hoje rodam duas políticas, uma que apaga `debug` com mais de 1 dia e outra que apaga qualquer entrada com mais de 7 dias. A primeira já tirou 24.765 entradas de `debug` da terça — mas não numa execução agendada: foi uma simulação que eu mesmo rodei, e que apagou de verdade (o bug logo abaixo). A primeira execução agendada veio na sexta, 13/11, às 20h16: a política de `debug` apagou outras 22.883 entradas, todas da quarta, em 28 segundos — por isso a quarta, que tinha 96.877 entradas quando medi, hoje tem 73.994. O agendamento conta 24 horas a partir do início do processo, então cada deploy reinicia o relógio; num dia de muitos deploys, a limpeza simplesmente não acontece.
 
 E o processo em si? Medi na quarta-feira à noite (11/11/2026, 21h52), com o servidor de pé havia 28 horas — desde o fim da tarde de terça, ainda na cauda da onda:
 
