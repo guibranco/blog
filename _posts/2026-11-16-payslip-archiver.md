@@ -77,7 +77,7 @@ The setup is deliberately boring. Payslips go to a **dedicated mailbox**: I crea
      alt="Pipeline diagram: payroll mailbox, filter by sender, subject and PDF attachment, decrypt with PDFsharp or qpdf, SHA-256 duplicate check, upload to Dropbox, record in the SQLite ledger, then mark the e-mail as seen and move it to Processed"
      style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
 
-1. Open **one** mailbox session and list candidates: unread, from the configured sender.
+1. Open **one** mailbox session and list candidates from the configured sender — by default only unread ones (`Mailbox:OnlyUnseen`).
 2. Skip anything the **ledger** already knows — archived, ignored, or out of retries.
 3. Fetch the rest, decrypt every matching PDF attachment and hash the result (SHA-256).
 4. Upload each new document. Dropbox never overwrites: a name clash is auto-renamed.
@@ -131,13 +131,14 @@ CREATE TABLE IF NOT EXISTS documents (
 ```
 
 - **Upload fails** → nothing is recorded as archived → the message is retried next cycle.
-- **Upload succeeds, flagging the e-mail fails** → the ledger already has it → next cycle skips the upload and just retries the flag.
+- **Upload succeeds, then the process dies before the ledger write** → nothing records the upload, so the next cycle uploads the payslip again. Dropbox never overwrites, so the archive ends up with a renamed second copy (`2026-10 Payslip (1).pdf`). It's a window of milliseconds and the cost is a duplicate file, not a lost payslip — but it's the one gap in the ordering. <!-- TODO: optional — close it by checking the archive for the target path (or Dropbox's content_hash) before uploading -->
+- **Ledger written, flagging the e-mail fails** → the ledger already has it → next cycle skips the upload and just retries the flag.
 - **The same PDF arrives twice** (a resend, a forward) → the SHA-256 of the *decrypted* content is already in `documents` → no duplicate file.
 - **A poisoned message** (wrong password, corrupt PDF) → retried up to `Pipeline:MaxAttempts` (5) times, then left alone with a warning, so it never blocks the queue behind it.
 
 <div class="callout callout-tip">
   <div class="callout-label">Why the ledger and not just "unread"</div>
-  IMAP's <code>\Seen</code> flag is someone else's state: I open the mailbox on my phone, a client marks it read, and the worker would never see it. POP3 cannot flag anything at all. The ledger makes the worker correct no matter what else touches the mailbox; the flag and the <code>Processed</code> folder are just tidiness.
+  IMAP's <code>\Seen</code> flag is someone else's state, and POP3 can't flag anything at all — so the ledger, not the flag, decides whether a message was handled. That's what makes a crash, a retry or a resend harmless. The flag still narrows the search: with the default <code>Mailbox:OnlyUnseen=true</code>, a payslip that some other client marks as read before the next poll is never listed. Nothing else reads this mailbox, so I keep the default; set it to <code>false</code> and the ledger does all the filtering, while the <code>Processed</code> folder keeps the inbox short.
 </div>
 
 <div class="section-header">

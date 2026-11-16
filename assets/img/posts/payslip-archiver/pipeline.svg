@@ -82,5 +82,5 @@
     <text x="470" y="236" fill="#e0b84f">② then flag</text>
   </g>
 
-  <text x="24" y="316" font-family="'JetBrains Mono', monospace" font-size="11" fill="#c9bfb2">crash after upload → ledger already knows → next cycle skips the upload · bad message → retried ≤ 5×, then left alone</text>
+  <text x="24" y="316" font-family="'JetBrains Mono', monospace" font-size="11" fill="#c9bfb2">flag fails after the ledger write → next cycle only re-flags · bad message → retried ≤ 5×, then left alone</text>
 </svg>
