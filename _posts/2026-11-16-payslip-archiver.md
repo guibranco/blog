@@ -334,7 +334,7 @@ Grimoire is my self-hosted vault and configuration manager — an ASP.NET Core A
 
 ```ini
 # /etc/payslip-archiver/env — chmod 600, read by systemd before it drops privileges
-Grimoire__BaseUrl=https://api.grimoire.straccini.com
+Grimoire__BaseUrl=https://api.grimoire.example.com
 Grimoire__ApiKey=
 Grimoire__Environment=production
 ```
