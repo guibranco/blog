@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="920" viewBox="0 0 1280 920" font-family="&apos;JetBrains Mono&apos;, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">
+<title>LogStream — 33 selected of 33 loaded</title>
+<rect width="100%" height="100%" fill="rgb(9,9,11)"/>
+<rect width="1280" height="64" fill="rgb(24,24,27)"/>
+<rect x="0" y="63" width="1280" height="1" fill="rgb(39,39,42)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="20" y="14" width="36" height="36">
+  <defs>
+    <linearGradient id="ls-logo-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b2a4a"/>
+      <stop offset="1" stop-color="#0d1526"/>
+    </linearGradient>
+    <linearGradient id="ls-logo-stream" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#60a5fa"/>
+    </linearGradient>
+  </defs>
+  <rect x="16" y="16" width="480" height="480" rx="96" fill="url(#ls-logo-bg)"/>
+  <g stroke-linecap="round" stroke-width="22">
+    <line x1="96" y1="150" x2="200" y2="150" stroke="#94a3b8"/>
+    <line x1="96" y1="206" x2="168" y2="206" stroke="#94a3b8" opacity="0.75"/>
+    <line x1="96" y1="262" x2="216" y2="262" stroke="#94a3b8" opacity="0.5"/>
+  </g>
+  <path d="M96 352 C 176 292, 240 412, 320 352 S 416 300, 416 300" fill="none" stroke="url(#ls-logo-stream)" stroke-width="30" stroke-linecap="round"/>
+  <circle cx="160" cy="330" r="16" fill="#e2e8f0"/>
+  <circle cx="276" cy="372" r="16" fill="#e2e8f0"/>
+  <circle cx="392" cy="180" r="56" fill="none" stroke="url(#ls-logo-stream)" stroke-width="22"/>
+  <circle cx="392" cy="180" r="18" fill="#2dd4bf"/>
+  <line x1="392" y1="236" x2="408" y2="296" stroke="url(#ls-logo-stream)" stroke-width="22" stroke-linecap="round"/>
+</svg>
+<text x="68" y="27" fill="rgb(244,244,245)" font-size="15" font-weight="700">LogStream</text>
+<text x="164" y="27" fill="rgb(244,244,245)">33 selected of 33 loaded · 2026-11-15 20:06:03 → 2026-11-15 20:24:07</text>
+<text x="68" y="47" fill="rgb(113,113,123)" font-size="11">Filters: app: payslip-archiver · range: 2026-11-15T00:00 → 2026-11-16T00:00</text>
+<text x="20" y="82" fill="rgb(113,113,123)" font-size="10" font-weight="700" letter-spacing="1">TIMESTAMP</text>
+<text x="206" y="82" fill="rgb(113,113,123)" font-size="10" font-weight="700" letter-spacing="1">LEVEL</text>
+<text x="298" y="82" fill="rgb(113,113,123)" font-size="10" font-weight="700" letter-spacing="1">APP KEY</text>
+<text x="448" y="82" fill="rgb(113,113,123)" font-size="10" font-weight="700" letter-spacing="1">CATEGORY</text>
+<text x="578" y="82" fill="rgb(113,113,123)" font-size="10" font-weight="700" letter-spacing="1">MESSAGE</text>
+<rect x="0" y="91" width="1280" height="1" fill="rgb(39,39,42)"/>
+<text x="20" y="108" fill="rgb(113,113,123)">2026-11-15 20:24:07.691</text>
+<rect x="206" y="97" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="107" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="108" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="108" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="108" fill="rgb(244,244,245)">Cycle finished: &quot;listed=0 archived=0 documents=0 ignored=0 skipped=0 failed=0&quot;</text>
+<rect x="0" y="116" width="1280" height="24" fill="rgb(24,24,27)" fill-opacity="0.45"/>
+<text x="20" y="132" fill="rgb(113,113,123)">2026-11-15 20:24:07.687</text>
+<rect x="206" y="121" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="131" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="132" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="132" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="132" fill="rgb(244,244,245)">Mailbox listed 0 candidate message(s)</text>
+<text x="20" y="156" fill="rgb(113,113,123)">2026-11-15 20:24:06.453</text>
+<rect x="206" y="145" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="155" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="156" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="156" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="156" fill="rgb(244,244,245)">Archive cycle starting</text>
+<rect x="0" y="164" width="1280" height="24" fill="rgb(24,24,27)" fill-opacity="0.45"/>
+<text x="20" y="180" fill="rgb(113,113,123)">2026-11-15 20:24:06.374</text>
+<rect x="206" y="169" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="179" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="180" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="180" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="180" fill="rgb(244,244,245)">Archiver scheduled every 06:00:00</text>
+<text x="20" y="204" fill="rgb(113,113,123)">2026-11-15 20:24:06.366</text>
+<rect x="206" y="193" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="203" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="204" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="204" fill="rgb(113,113,123)">Microsoft.Hosti…</text>
+<text x="578" y="204" fill="rgb(244,244,245)">Application started. Hosting environment: &quot;Production&quot;; Content root path: &quot;/opt/payslip-arc…</text>
+<rect x="0" y="212" width="1280" height="24" fill="rgb(24,24,27)" fill-opacity="0.45"/>
+<text x="20" y="228" fill="rgb(113,113,123)">2026-11-15 20:24:06.060</text>
+<rect x="206" y="217" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="227" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="228" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="228" fill="rgb(113,113,123)">Program</text>
+<text x="578" y="228" fill="rgb(244,244,245)">LogStream shipping is &quot;enabled&quot;</text>
+<text x="20" y="252" fill="rgb(113,113,123)">2026-11-15 20:24:02.506</text>
+<rect x="206" y="241" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="251" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="252" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="252" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="252" fill="rgb(244,244,245)">Archiver stopping</text>
+<rect x="0" y="260" width="1280" height="24" fill="rgb(24,24,27)" fill-opacity="0.45"/>
+<text x="20" y="276" fill="rgb(113,113,123)">2026-11-15 20:24:02.489</text>
+<rect x="206" y="265" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="275" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="276" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="276" fill="rgb(113,113,123)">Microsoft.Hosti…</text>
+<text x="578" y="276" fill="rgb(244,244,245)">Application is shutting down...</text>
+<text x="20" y="300" fill="rgb(113,113,123)">2026-11-15 20:20:57.463</text>
+<rect x="206" y="289" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="299" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="300" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="300" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="300" fill="rgb(244,244,245)">Cycle finished: &quot;listed=0 archived=0 documents=0 ignored=0 skipped=0 failed=0&quot;</text>
+<rect x="0" y="308" width="1280" height="24" fill="rgb(24,24,27)" fill-opacity="0.45"/>
+<text x="20" y="324" fill="rgb(113,113,123)">2026-11-15 20:20:57.459</text>
+<rect x="206" y="313" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="323" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="324" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="324" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="324" fill="rgb(244,244,245)">Mailbox listed 0 candidate message(s)</text>
+<text x="20" y="348" fill="rgb(113,113,123)">2026-11-15 20:20:56.252</text>
+<rect x="206" y="337" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="347" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="348" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="348" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="348" fill="rgb(244,244,245)">Archive cycle starting</text>
+<rect x="0" y="356" width="1280" height="24" fill="rgb(24,24,27)" fill-opacity="0.45"/>
+<text x="20" y="372" fill="rgb(113,113,123)">2026-11-15 20:20:56.164</text>
+<rect x="206" y="361" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="371" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="372" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="372" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="372" fill="rgb(244,244,245)">Archiver scheduled every 00:30:00</text>
+<text x="20" y="396" fill="rgb(113,113,123)">2026-11-15 20:20:56.161</text>
+<rect x="206" y="385" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="395" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="396" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="396" fill="rgb(113,113,123)">Microsoft.Hosti…</text>
+<text x="578" y="396" fill="rgb(244,244,245)">Application started. Hosting environment: &quot;Production&quot;; Content root path: &quot;/opt/payslip-arc…</text>
+<rect x="0" y="404" width="1280" height="24" fill="rgb(24,24,27)" fill-opacity="0.45"/>
+<text x="20" y="420" fill="rgb(113,113,123)">2026-11-15 20:20:55.767</text>
+<rect x="206" y="409" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="419" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="420" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="420" fill="rgb(113,113,123)">Program</text>
+<text x="578" y="420" fill="rgb(244,244,245)">LogStream shipping is &quot;enabled&quot;</text>
+<text x="20" y="444" fill="rgb(113,113,123)">2026-11-15 20:20:51.850</text>
+<rect x="206" y="433" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="443" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="444" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="444" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="444" fill="rgb(244,244,245)">Archiver stopping</text>
+<rect x="0" y="452" width="1280" height="24" fill="rgb(24,24,27)" fill-opacity="0.45"/>
+<text x="20" y="468" fill="rgb(113,113,123)">2026-11-15 20:20:51.823</text>
+<rect x="206" y="457" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="467" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="468" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="468" fill="rgb(113,113,123)">Microsoft.Hosti…</text>
+<text x="578" y="468" fill="rgb(244,244,245)">Application is shutting down...</text>
+<text x="20" y="492" fill="rgb(113,113,123)">2026-11-15 20:15:29.550</text>
+<rect x="206" y="481" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="491" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="492" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="492" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="492" fill="rgb(244,244,245)">Cycle finished: &quot;listed=1 archived=1 documents=1 ignored=0 skipped=0 failed=0&quot;</text>
+<rect x="0" y="500" width="1280" height="24" fill="rgb(24,24,27)" fill-opacity="0.45"/>
+<text x="20" y="516" fill="rgb(113,113,123)">2026-11-15 20:15:29.455</text>
+<rect x="206" y="505" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="515" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="516" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="516" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="516" fill="rgb(244,244,245)">Creating IMAP folder &quot;Processed&quot;</text>
+<text x="20" y="540" fill="rgb(113,113,123)">2026-11-15 20:15:29.352</text>
+<rect x="206" y="529" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="539" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="540" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="540" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="540" fill="rgb(244,244,245)">Archived &quot;PS21.PDF&quot; from &quot;imap:…:1&quot; to &quot;/2026/2026-10 Payslip.pdf&quot; (period &quot;2026-10…</text>
+<rect x="0" y="548" width="1280" height="24" fill="rgb(24,24,27)" fill-opacity="0.45"/>
+<text x="20" y="564" fill="rgb(113,113,123)">2026-11-15 20:15:25.966</text>
+<rect x="206" y="553" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="563" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="564" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="564" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="564" fill="rgb(244,244,245)">Mailbox listed 1 candidate message(s)</text>
+<text x="20" y="588" fill="rgb(113,113,123)">2026-11-15 20:15:24.571</text>
+<rect x="206" y="577" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="587" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="588" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="588" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="588" fill="rgb(244,244,245)">Archive cycle starting</text>
+<rect x="0" y="596" width="1280" height="24" fill="rgb(24,24,27)" fill-opacity="0.45"/>
+<text x="20" y="612" fill="rgb(113,113,123)">2026-11-15 20:15:24.560</text>
+<rect x="206" y="601" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="611" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="612" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="612" fill="rgb(113,113,123)">Microsoft.Hosti…</text>
+<text x="578" y="612" fill="rgb(244,244,245)">Application started. Hosting environment: &quot;Production&quot;; Content root path: &quot;/opt/payslip-arc…</text>
+<text x="20" y="636" fill="rgb(113,113,123)">2026-11-15 20:15:24.557</text>
+<rect x="206" y="625" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="635" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="636" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="636" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="636" fill="rgb(244,244,245)">Archiver scheduled every 00:30:00</text>
+<rect x="0" y="644" width="1280" height="24" fill="rgb(24,24,27)" fill-opacity="0.45"/>
+<text x="20" y="660" fill="rgb(113,113,123)">2026-11-15 20:15:24.166</text>
+<rect x="206" y="649" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="659" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="660" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="660" fill="rgb(113,113,123)">Program</text>
+<text x="578" y="660" fill="rgb(244,244,245)">LogStream shipping is &quot;enabled&quot;</text>
+<text x="20" y="684" fill="rgb(113,113,123)">2026-11-15 20:15:18.768</text>
+<rect x="206" y="673" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="683" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="684" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="684" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="684" fill="rgb(244,244,245)">Archiver stopping</text>
+<rect x="0" y="692" width="1280" height="24" fill="rgb(24,24,27)" fill-opacity="0.45"/>
+<text x="20" y="708" fill="rgb(113,113,123)">2026-11-15 20:15:18.686</text>
+<rect x="206" y="697" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="707" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="708" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="708" fill="rgb(113,113,123)">Microsoft.Hosti…</text>
+<text x="578" y="708" fill="rgb(244,244,245)">Application is shutting down...</text>
+<text x="20" y="732" fill="rgb(113,113,123)">2026-11-15 20:06:06.174</text>
+<rect x="206" y="721" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="731" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="732" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="732" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="732" fill="rgb(244,244,245)">Cycle finished: &quot;listed=1 archived=0 documents=0 ignored=0 skipped=0 failed=1&quot;</text>
+<rect x="0" y="740" width="1280" height="24" fill="rgb(24,24,27)" fill-opacity="0.45"/>
+<text x="20" y="756" fill="rgb(113,113,123)">2026-11-15 20:06:06.165</text>
+<rect x="206" y="745" width="47" height="14" rx="3" fill="rgb(139,8,54)"/>
+<text x="213" y="755" fill="rgb(255,99,126)" font-size="10" font-weight="700" letter-spacing="0.5">ERROR</text>
+<text x="298" y="756" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="756" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="756" fill="rgb(244,244,245)">Processing &quot;imap:…:1&quot; failed; it will be retried next cycle</text>
+<text x="20" y="780" fill="rgb(113,113,123)">2026-11-15 20:06:05.457</text>
+<rect x="206" y="769" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="779" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="780" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="780" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="780" fill="rgb(244,244,245)">Mailbox listed 1 candidate message(s)</text>
+<rect x="0" y="788" width="1280" height="24" fill="rgb(24,24,27)" fill-opacity="0.45"/>
+<text x="20" y="804" fill="rgb(113,113,123)">2026-11-15 20:06:03.762</text>
+<rect x="206" y="793" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="803" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="804" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="804" fill="rgb(113,113,123)">Microsoft.Hosti…</text>
+<text x="578" y="804" fill="rgb(244,244,245)">Application started. Hosting environment: &quot;Production&quot;; Content root path: &quot;/opt/payslip-arc…</text>
+<text x="20" y="828" fill="rgb(113,113,123)">2026-11-15 20:06:03.762</text>
+<rect x="206" y="817" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="827" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="828" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="828" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="828" fill="rgb(244,244,245)">Archive cycle starting</text>
+<rect x="0" y="836" width="1280" height="24" fill="rgb(24,24,27)" fill-opacity="0.45"/>
+<text x="20" y="852" fill="rgb(113,113,123)">2026-11-15 20:06:03.688</text>
+<rect x="206" y="841" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="851" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="852" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="852" fill="rgb(113,113,123)">PayslipArchiver…</text>
+<text x="578" y="852" fill="rgb(244,244,245)">Archiver scheduled every 00:30:00</text>
+<text x="20" y="876" fill="rgb(113,113,123)">2026-11-15 20:06:03.361</text>
+<rect x="206" y="865" width="41" height="14" rx="3" fill="rgb(2,74,112)"/>
+<text x="213" y="875" fill="rgb(0,188,255)" font-size="10" font-weight="700" letter-spacing="0.5">INFO</text>
+<text x="298" y="876" fill="rgb(5,223,114)">payslip-archiver</text>
+<text x="448" y="876" fill="rgb(113,113,123)">Program</text>
+<text x="578" y="876" fill="rgb(244,244,245)">LogStream shipping is &quot;enabled&quot;</text>
+<rect x="0" y="884" width="1280" height="1" fill="rgb(39,39,42)"/>
+<text x="20" y="906" fill="rgb(113,113,123)" font-size="11">Exported 2026-11-16 23:25:04 · logstream-ui 1.28.1</text>
+</svg>
