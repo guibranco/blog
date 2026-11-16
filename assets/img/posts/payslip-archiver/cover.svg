@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="680" height="400" role="img" aria-labelledby="t d">
+  <title id="t">payslip-archiver</title>
+  <desc id="d">A padlocked PDF enters a pipeline and comes out unlocked, filed in a year/month folder tree.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a1814"/>
+      <stop offset="1" stop-color="#0f0e0c"/>
+    </linearGradient>
+  </defs>
+  <rect width="680" height="400" fill="url(#bg)"/>
+  <rect x="12" y="12" width="656" height="376" fill="none" stroke="#2a2620" stroke-width="1"/>
+
+  <!-- terminal header -->
+  <circle cx="34" cy="34" r="5" fill="#e0614f"/>
+  <circle cx="50" cy="34" r="5" fill="#e0b84f"/>
+  <circle cx="66" cy="34" r="5" fill="#93c97a"/>
+  <text x="88" y="38" font-family="'JetBrains Mono', monospace" font-size="11" fill="#8a8078">~/payslip-archiver · systemd · every 6 h</text>
+
+  <!-- title -->
+  <text x="40" y="96" font-family="'Playfair Display', Georgia, serif" font-size="40" font-weight="700" fill="#f5f0e8">payslip-archiver</text>
+  <text x="40" y="126" font-family="'Source Serif 4', Georgia, serif" font-size="17" fill="#c9bfb2">Never type the payslip password again</text>
+  <rect x="40" y="140" width="64" height="3" fill="#b85c00"/>
+  <rect x="108" y="140" width="32" height="3" fill="#93c97a"/>
+
+  <!-- locked PDF -->
+  <g transform="translate(40,184)">
+    <rect width="92" height="116" rx="6" fill="#26221c" stroke="#5a534a"/>
+    <path d="M66 0 v22 h26" fill="none" stroke="#5a534a"/>
+    <text x="14" y="34" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#e0614f">PDF</text>
+    <rect x="14" y="46" width="56" height="4" fill="#3a352d"/>
+    <rect x="14" y="56" width="44" height="4" fill="#3a352d"/>
+    <!-- padlock -->
+    <path d="M36 82 v-8 a10 10 0 0 1 20 0 v8" fill="none" stroke="#e0b84f" stroke-width="3"/>
+    <rect x="30" y="82" width="32" height="24" rx="3" fill="#e0b84f"/>
+    <circle cx="46" cy="93" r="3" fill="#26221c"/>
+  </g>
+  <text x="40" y="322" font-family="'JetBrains Mono', monospace" font-size="10" fill="#8a8078">IMAP · encrypted</text>
+
+  <!-- pipeline -->
+  <g font-family="'JetBrains Mono', monospace" font-size="11">
+    <line x1="146" y1="242" x2="440" y2="242" stroke="#3a352d" stroke-width="2"/>
+    <g transform="translate(160,222)">
+      <rect width="74" height="40" rx="4" fill="#1e1c18" stroke="#93c97a"/>
+      <text x="37" y="24" text-anchor="middle" fill="#93c97a">filter</text>
+    </g>
+    <g transform="translate(250,222)">
+      <rect width="80" height="40" rx="4" fill="#1e1c18" stroke="#e0b84f"/>
+      <text x="40" y="24" text-anchor="middle" fill="#e0b84f">decrypt</text>
+    </g>
+    <g transform="translate(346,222)">
+      <rect width="80" height="40" rx="4" fill="#1e1c18" stroke="#93c97a"/>
+      <text x="40" y="24" text-anchor="middle" fill="#93c97a">sha-256</text>
+    </g>
+    <path d="M430 242 l12 0 m-6 -5 l6 5 l-6 5" fill="none" stroke="#93c97a" stroke-width="2"/>
+  </g>
+
+  <!-- folder tree -->
+  <g transform="translate(458,170)" font-family="'JetBrains Mono', monospace" font-size="11.5">
+    <rect x="-10" y="-14" width="196" height="160" rx="6" fill="#1e1c18" stroke="#2a2620"/>
+    <text xml:space="preserve" x="0" y="6" fill="#8a8078">/Apps/payslips/</text>
+    <text xml:space="preserve" x="0" y="30" fill="#c9bfb2">  2025/</text>
+    <text xml:space="preserve" x="0" y="50" fill="#5a534a">    2025-12 Payslip.pdf</text>
+    <text xml:space="preserve" x="0" y="74" fill="#c9bfb2">  2026/</text>
+    <text xml:space="preserve" x="0" y="94" fill="#5a534a">    2026-10 Payslip.pdf</text>
+    <text xml:space="preserve" x="0" y="114" fill="#93c97a">    2026-11 Payslip.pdf</text>
+    <text xml:space="preserve" x="0" y="136" fill="#93c97a">    ✓ unlocked</text>
+  </g>
+
+  <!-- footer -->
+  <line x1="40" y1="350" x2="640" y2="350" stroke="#2a2620"/>
+  <text x="40" y="370" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#8a8078">.NET 10 · MailKit · PDFsharp · SQLite · Dropbox · LogStream · Grimoire</text>
+</svg>
