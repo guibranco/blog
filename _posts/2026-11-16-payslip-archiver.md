@@ -12,6 +12,7 @@ subcategories:
   - "Infrastructure/DevOps"
 tags: [csharp, dotnet, dotnet10, automation, self-hosting, systemd, logs, healthchecks, open-source, side-projects]
 cover: /assets/img/posts/payslip-archiver/cover.svg
+image: /assets/img/posts/payslip-archiver/cover.png
 image_alt: "Cover: a padlocked PDF going into a pipeline and coming out unlocked into a year/month folder tree"
 card_style: dark
 medium_tags: [dotnet, csharp, automation, self-hosting, open-source]
