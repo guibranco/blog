@@ -317,11 +317,11 @@ Because the code logs through `[LoggerMessage]` source-generated methods, what r
 
 And exceptions arrive as structure too — type, message, source and the inner exception — which is how the PDFsharp failure further down was diagnosed from the LogStream UI in a minute, without opening a shell on the VM. The user agent (`payslip-archiver/1.1.0 (Serilog.Sinks.LogStream/1.0.5)`) carries the app version, so I can see which release sent each line.
 
-<!-- TODO: screenshot of the payslip-archiver app in the LogStream UI — added outside this session. Redact before committing: sender IP, trace/batch/event IDs, the IMAP message key; keep app key, level, category, message, template. Save as assets/img/posts/payslip-archiver/logstream-ui.png and uncomment:
-<img src="{{ site.baseurl }}/assets/img/posts/payslip-archiver/logstream-ui.png"
-     alt="The LogStream UI showing payslip-archiver events from vinhedo3: cycle start, mailbox listed one message, payslip archived, cycle finished"
+Here is the whole first night in the LogStream UI, exported from the app as an SVG (message keys redacted):
+
+<img src="{{ site.baseurl }}/assets/img/posts/payslip-archiver/logstream-ui.svg"
+     alt="The LogStream UI filtered to payslip-archiver on 15/11/2026, 20:06 to 20:24: the first cycle fails with an ERROR on the payslip, the service restarts, the next cycle archives the October payslip and creates the Processed folder, and after another restart the schedule changes from every 30 minutes to every 6 hours"
      style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
--->
 
 <div class="section-header">
   <div class="section-num">12</div>
