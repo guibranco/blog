@@ -298,6 +298,8 @@ E o processo em si? Medi na quarta-feira à noite (11/11/2026, 21h52), com o ser
 - **CPU: 0,1% de média** nessas 28 horas. Em 12 amostras de 5 segundos, ficou entre 0,0% e 0,4%.
 - **A VM inteira:** 952 MB no total, ~714 MB disponíveis e swap zerado. O LogStream é só o quarto processo que mais usa memória na máquina — o journal do systemd usa quase três vezes mais.
 
+Medi de novo na terça, 17/11/2026, às 17h27, com o processo de pé havia quase 17 horas — logo depois da segunda de 381 mil entradas, e já com o ingest em buffer e os próprios logs do servidor gravados no banco: **~45 MB residentes** e **0,1% de CPU**. Uma semana mais carregada custou uns 10 MB a mais de memória.
+
 Não é uma comparação de igual para igual: os 3,5 GB do Seq são o mínimo recomendado para a <em>máquina</em> inteira, e os 36 MB são a memória medida de um <em>processo</em> — sem contar o MariaDB, que roda em outro servidor. Mas é o número que importava para a minha decisão: o LogStream cabe com folga numa VM de 1 GB, e o Seq, pela própria documentação, não. O que derrubou o servidor em agosto nunca foi o processo; foi o disco.
 
 ### Escrevendo este post, achei dois bugs
