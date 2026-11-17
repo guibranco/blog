@@ -235,6 +235,8 @@ curl -sS -X POST "$LOGSTREAM_URL/api/logs" \
 
 Foi assim que entrou o cliente mais novo: na sexta, 13/11, um script de shell numa das VMs passou a disparar via REST os jobs que antes eram cron na hospedagem compartilhada — o suporte pediu para eu reduzir os crons de lá. No primeiro dia, ele mandou 11.988 entradas, sem nenhuma mudança no servidor de logs.
 
+E não parou aí: entre 14 e 16/11 chegaram mais três clientes — o Grimoire, o payslip-archiver e o nginx, este já com uma política de retenção própria, que apaga o que tiver mais de 5 dias. Junto com eles, o próprio `logstream-server` passou a guardar os seus logs numa aplicação reservada, ao lado dos demais.
+
 <div class="divider">· · ·</div>
 
 <div class="section-header">
@@ -265,13 +267,30 @@ O banco não mostra esse milhão inteiro, porque eu truncei a tabela algumas vez
   </tbody>
 </table>
 
-<em>Atualizado em 13/11/2026: a tabela e os parágrafos abaixo incluem os dias completos de quarta e quinta-feira, medidos depois da publicação. Atualizado de novo em 14/11/2026, com a primeira execução agendada da retenção.</em>
+<em>Atualizado em 13/11/2026: a tabela e os parágrafos abaixo incluem os dias completos de quarta e quinta-feira, medidos depois da publicação. Atualizado de novo em 14/11/2026, com a primeira execução agendada da retenção, e em 17/11/2026, com a semana inteira.</em>
 
-Três coisas saltam desses números:
+A semana inteira, de quarta a segunda (00h00 a 23h59, UTC), conta o resto da história. A primeira coluna é o que chegou; a segunda, o que sobrou depois que a retenção apagou o `debug` dos dias anteriores:
+
+<table class="compare-table">
+  <thead><tr><th>Dia</th><th>Recebidas</th><th>Hoje (17/11)</th><th>Média</th></tr></thead>
+  <tbody>
+    <tr><td>Quarta, 11/11</td><td>96.877</td><td>73.994</td><td>~1,1 por segundo</td></tr>
+    <tr><td>Quinta, 12/11</td><td>101.883</td><td>82.737</td><td>~1,2 por segundo</td></tr>
+    <tr><td>Sexta, 13/11</td><td>123.175</td><td>101.491</td><td>~1,4 por segundo</td></tr>
+    <tr><td>Sábado, 14/11</td><td>111.884</td><td>85.387</td><td>~1,3 por segundo</td></tr>
+    <tr><td>Domingo, 15/11</td><td>208.070</td><td>165.161</td><td>~2,4 por segundo</td></tr>
+    <tr><td>Segunda, 16/11</td><td>381.662</td><td>381.662 (o <code>debug</code> ainda não venceu)</td><td>~4,4 por segundo</td></tr>
+  </tbody>
+</table>
+
+A segunda-feira é a onda seguinte do Dependabot, maior que a primeira: 381.662 entradas, com o minuto mais cheio às 06h47 (1.238 entradas, ~20 por segundo) e as duas horas mais pesadas entre 06h00 e 08h00, com ~32 mil entradas cada. O `webhooks` mandou 282 mil delas — 270 mil só da fila, consumida ao longo do dia — e o GStraccini-bot passou de 6 mil num sábado para 68 mil. O servidor segurou de novo, sem nenhum ajuste.
+
+Quatro coisas saltam desses números:
 
 - **"Poucos eventos por segundo" é exatamente a minha carga.** É a faixa que a documentação do Seq chama de leve — e para a qual ela pede 2 núcleos e 3,5 GB de RAM.
 - **O problema não é volume, é ruído.** Nove em cada dez entradas são o serviço de webhooks registrando, em `info`, cada evento que passa por ele. Os 50 erros e críticos que importam estão afogados em 337 mil linhas. É por isso que amostragem e retenção por aplicação estão no topo do backlog.
-- **O disco custa quatro vezes o conteúdo.** Uma entrada tem, em média, 478 bytes de conteúdo, mas ocupa ~1,9 KB no disco. Pelo `SHOW TABLE STATUS`, ~1,1 KB disso é a própria linha no InnoDB e ~0,8 KB são os oito índices e o FULLTEXT do contexto — ou seja, quase metade do espaço (42%) é índice. Sem retenção, isso dá entre ~180 MB por dia num dia calmo como a quarta e ~600 MB num dia de onda: algo entre 5 e 18 GB em 30 dias. Numa hospedagem compartilhada, retenção não é opcional — e ela já está trabalhando: hoje rodam duas políticas, uma que apaga `debug` com mais de 1 dia e outra que apaga qualquer entrada com mais de 7 dias. A primeira já tirou 24.765 entradas de `debug` da terça — mas não numa execução agendada: foi uma simulação que eu mesmo rodei, e que apagou de verdade (o bug logo abaixo). A primeira execução agendada veio na sexta, 13/11, às 20h16: a política de `debug` apagou outras 22.883 entradas, todas da quarta, em 28 segundos — por isso a quarta, que tinha 96.877 entradas quando medi, hoje tem 73.994. O agendamento conta 24 horas a partir do início do processo, então cada deploy reinicia o relógio; num dia de muitos deploys, a limpeza simplesmente não acontece.
+- **O disco custa quatro vezes o conteúdo.** Uma entrada tem, em média, 478 bytes de conteúdo, mas ocupa ~1,9 KB no disco. Pelo `SHOW TABLE STATUS`, ~1,1 KB disso é a própria linha no InnoDB e ~0,8 KB são os oito índices e o FULLTEXT do contexto — ou seja, quase metade do espaço (42%) é índice. Sem retenção, isso dá entre ~180 MB por dia num dia calmo como a quarta e ~600 MB num dia de onda: algo entre 5 e 18 GB em 30 dias. Numa hospedagem compartilhada, retenção não é opcional — e ela já está trabalhando: hoje rodam duas políticas, uma que apaga `debug` com mais de 1 dia e outra que apaga qualquer entrada com mais de 7 dias. A primeira já tirou 24.765 entradas de `debug` da terça — mas não numa execução agendada: foi uma simulação que eu mesmo rodei, e que apagou de verdade (o bug logo abaixo). A primeira execução agendada veio na sexta, 13/11, às 20h16: a política de `debug` apagou outras 22.883 entradas, todas da quarta, em 28 segundos — por isso a quarta, que tinha 96.877 entradas quando medi, hoje tem 73.994. O agendamento conta 24 horas a partir do início do processo, então cada deploy reinicia o relógio; num dia de muitos deploys, a limpeza simplesmente não acontece. E foi exatamente o que aconteceu depois: os deploys do sábado, 14/11, zeraram o relógio, e nenhuma execução agendada rodou mais até 17/11. As limpezas seguintes fui eu, pela UI: 67.327 entradas de `debug` (de quinta a sábado) em 25 segundos na segunda de manhã, e mais 42.909 (o domingo inteiro) em 23 segundos na madrugada de terça.
+- **Uma semana depois, o disco.** Em 17/11, com 1.277.320 linhas, a tabela ocupa **1,67 GiB**: 970 MiB de dados e 742 MiB de índices — 43% de índice, a mesma proporção. Por linha, caiu para ~1,4 KB, em parte porque, na noite de 16/11, depois de uma migração que adicionou a coluna `transport`, rodei um `OPTIMIZE TABLE`, que devolveu o espaço deixado pelas linhas que a retenção apagou.
 
 E o processo em si? Medi na quarta-feira à noite (11/11/2026, 21h52), com o servidor de pé havia 28 horas — desde o fim da tarde de terça, ainda na cauda da onda:
 
