@@ -71,7 +71,7 @@ It is also small. A mailbox, a decryptor and an uploader. That is a weekend-size
   <div class="section-title-wrap"><h2>The solution, end to end</h2></div>
 </div>
 
-The setup is deliberately boring. Payslips go to a **dedicated mailbox**: I created one just for this on my own hosting (Nuvem Hospedagem gives me unlimited mailboxes), and an Outlook rule on my work inbox forwards payroll's e-mail to it. The worker never touches my work mailbox, and the dedicated mailbox holds nothing but payslips. The worker polls that mailbox over IMAP — POP3 is supported too — on a fixed interval (30 minutes by default; in production it is every 6 hours, since a payslip arrives once a month) and runs one cycle:
+The setup is deliberately boring. Payslips go to a **dedicated mailbox**: I created one just for this on my own hosting (Nuvem Hospedagem gives me unlimited mailboxes), and payroll sends the payslip straight to it: I set that address as my personal e-mail in the company's HR system. No forwarding rule, no work mailbox in the loop — the worker never touches my work account, and the dedicated mailbox holds nothing but payslips. The worker polls that mailbox over IMAP — POP3 is supported too — on a fixed interval — every 6 hours by default, which is plenty for a document that arrives once a month — and runs one cycle:
 
 <img src="{{ site.baseurl }}/assets/img/posts/payslip-archiver/pipeline.svg"
      alt="Pipeline diagram: payroll mailbox, filter by sender, subject and PDF attachment, decrypt with PDFsharp or qpdf, SHA-256 duplicate check, upload to Dropbox, record in the SQLite ledger, then mark the e-mail as seen and move it to Processed"
@@ -150,9 +150,9 @@ Payroll only gives me the **user** password, not the owner password. PDFsharp re
 
 <!-- TODO: optional short C# snippet of PdfSharpDecryptor (open in Import mode, AddPage loop, save to MemoryStream) -->
 
-The licence follows from that choice. PDFsharp 6.5 is dual-licensed — AGPL-3.0 or commercial — and refuses to run until you declare which one. I declare the AGPL one, so the project itself ships under the AGPL-3.0. For anyone who can't live with that, there is a second engine behind the same `IPdfDecryptor` port: `Pdf:Engine=Qpdf` shells out to [qpdf](https://qpdf.sourceforge.io/) (Apache-2.0), The tests run both engines against real fixtures encrypted with RC4-128, AES-128 and AES-256.
+The licence follows from that choice. PDFsharp 6.5 is dual-licensed — AGPL-3.0 or commercial — and refuses to run until you declare which one. I declare the AGPL one, so the project itself ships under the AGPL-3.0. For anyone who can't live with that, there is a second engine behind the same `IPdfDecryptor` port: `Pdf:Engine=Qpdf` shells out to [qpdf](https://qpdf.sourceforge.io/) (Apache-2.0). The tests run both engines against real fixtures encrypted with RC4-128, AES-128 and AES-256.
 
-That second engine turned out to be more than a licensing escape hatch. My real payslip — the very first one the worker ever saw — is one that PDFsharp can't parse, and production now runs on qpdf. The story is in [How it's going](#how-its-going).
+That second engine turned out to be more than a licensing escape hatch. My real payslip — the very first one the worker ever saw — is one that PDFsharp can't parse, so qpdf is now the default engine and PDFsharp the opt-in one. The story is in [How it's going](#how-its-going).
 
 <div class="section-header">
   <div class="section-num">07</div>
@@ -161,17 +161,16 @@ That second engine turned out to be more than a licensing escape hatch. My real 
 
 A small thing that would otherwise be annoying: filing each slip under the right month. The worker tries, in order, the attachment name, the subject, and finally the e-mail date. It understands `2026-10`, `202610`, `2026-10-15`, `10/2026`, `Oct 2026`, `October2026` and `2026 October`. If none matches, it uses the e-mail date plus `Naming:PeriodOffsetMonths` — set it to `-1` if slips arrive early the following month.
 
-The path is a template, `/{year}/{period} Payslip.pdf` by default, so the Dropbox app folder ends up as:
+The path is a template with five tokens — `{year}`, `{month}`, `{period}` (`yyyy-MM`), `{original}` (the attachment's name without extension) and `{ext}`. The default is `/{year}/{original} - {period}.pdf`, so the Dropbox app folder looks like this today:
 
 ```text
 /Apps/<app name>/
-├── 2025/
-│   ├── 2025-11 Payslip.pdf
-│   └── 2025-12 Payslip.pdf
 └── 2026/
-    ├── 2026-01 Payslip.pdf
-    └── …
+    ├── 2026-10 Payslip.pdf      ← archived under the first default, /{year}/{period} Payslip.pdf
+    └── PS21 - 2026-11.pdf
 ```
+
+Changing the template only affects new files; the archive never renames what is already there.
 
 The Dropbox app uses **App folder** scoped access with only `files.content.write` and `files.metadata.read`: the token can't see anything else in my Dropbox. Authorisation is a one-off `authorize-dropbox` command using PKCE, so there isn't even an app secret to store — just a refresh token.
 
@@ -231,7 +230,7 @@ Two of those numbers are worth a sentence each:
      alt="Two line charts over ten idle minutes: memory charged to the service stays between 32.9 and 35.2 MiB on a 0 to 40 MiB scale; total CPU time rises from 5.45 to 5.79 seconds on a 0 to 6 second scale"
      style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
 
-In the first minute and a half after a start it uses about 0.13% of a core — most likely the runtime re-compiling hot methods in the background (tiered JIT) — and memory briefly climbs to 35 MiB before a garbage collection brings it back to 33. After that it settles at about 0.04% of one core: the LogStream batch timer and the runtime's housekeeping. An hour in, it was down to 0.03%. That's roughly half a minute of CPU a day, plus four cycles of a second or two each. That's why "9.4 s since the last deploy" mostly measures the deploy. <!-- TODO (optional): re-run the snapshot after a day without deploys and add the 24 h average -->
+In the first minute and a half after a start it uses about 0.13% of a core — most likely the runtime re-compiling hot methods in the background (tiered JIT) — and memory briefly climbs to 35 MiB before a garbage collection brings it back to 33. After that it settles at about 0.04% of one core: the LogStream batch timer (logs still went out in HTTPS batches then) and the runtime's housekeeping. An hour in, it was down to 0.03%. That's roughly half a minute of CPU a day, plus four cycles of a second or two each. That's why "9.4 s since the last deploy" mostly measures the deploy. <!-- TODO (optional): re-run the snapshot after a day without deploys and add the 24 h average -->
 
 The binary is the one place it isn't small. 88 MiB is the price of a self-contained publish: no .NET runtime to install or patch on the host, at the cost of disk. With three releases kept for rollback, that is 264 MiB — fine for this VM, and a trade I'd make again. A trimmed or framework-dependent build would shrink it a lot. <!-- TODO (optional): confirm whether you'd mention trimming/AOT as a future step -->
 
@@ -255,14 +254,14 @@ Why the rest stays small, by design rather than by tuning:
 </div>
 
 <img src="{{ site.baseurl }}/assets/img/posts/payslip-archiver/observability.svg"
-     alt="Diagram: the payslip-archiver worker reads configuration and secrets from Grimoire at startup, ships logs in batches to LogStream, pings Healthchecks.io at the start and end of every cycle, and writes to journald"
+     alt="Diagram: the payslip-archiver worker reads configuration and secrets from Grimoire at startup, ships logs to LogStream over UDP, pings Healthchecks.io at the start and end of every cycle, and writes to journald"
      style="width:100%;max-width:860px;display:block;margin:1.75rem auto;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(26,23,20,.08);">
 
 A job that runs silently in the background has one failure mode that matters: it stops, and nobody notices for months. So it reports in three ways:
 
 1. **Heartbeat — Healthchecks.io.** Every cycle pings `/start` when it begins, the bare URL on success and `/fail` on failure, with the cycle report as the body. If the pings stop arriving — the VM is down, the service crashed, systemd gave up — Healthchecks.io notices the *silence* and alerts me. It's the same dead man's switch I use for my other systemd services.
 2. **Local logs — journald.** The console logger stays on; `journalctl -u payslip-archiver -f` is still the first thing I look at on the box.
-3. **Central logs — LogStream.** Everything that matters is also shipped off the VM, so I can see it next to every other service.
+3. **Central logs — LogStream.** Everything that matters is also shipped to LogStream, so I can see it next to every other service.
 
 <div class="section-header">
   <div class="section-num">11</div>
@@ -282,6 +281,9 @@ var logger = new LoggerConfiguration()
             sink.ApiToken = options.ApiToken!.Trim();
             sink.AppId = string.IsNullOrWhiteSpace(options.AppId) ? Environment.MachineName : options.AppId.Trim();
             sink.RequestTimeout = TimeSpan.FromSeconds(10);
+            sink.Transport = options.Transport;   // Udp (default) or Http
+            sink.UdpHost = string.IsNullOrWhiteSpace(options.UdpHost) ? "127.0.0.1" : options.UdpHost.Trim();
+            sink.UdpPort = options.UdpPort;       // the server's UDP_PORT, 8082 by default
         },
         batching =>
         {
@@ -296,8 +298,8 @@ logging.Services.AddSingleton<ILoggerProvider>(_ => new SerilogLoggerProvider(lo
 
 The rules I care about for a background job:
 
-- **Logging never blocks a cycle.** Entries go out in background batches (up to 100 every 2 seconds). If LogStream is slow or down, up to 10,000 entries wait in memory, failing batches are retried for 5 minutes and then dropped. The payslip still gets archived.
-- **The last batch is flushed on shutdown.** The provider is registered through a factory, not as an instance, because the container only disposes what it created — and disposing it is what flushes the queue when systemd stops the service.
+- **Logging never blocks a cycle.** Since 17/11/2026 entries go out as HMAC-signed UDP datagrams, skipping NGINX and HTTPS entirely: fire-and-forget, nothing to wait for. Today LogStream runs on the same VM, so they go to `127.0.0.1:8082`; when it moves to a VM of its own, that's one setting, `LogStream:UdpHost`. An entry too big for a datagram falls back to HTTPS. `LogStream:Transport=Http` switches back to batched POSTs, where up to 10,000 entries wait in memory and failing batches are retried for 5 minutes before being dropped. Either way, the payslip still gets archived.
+- **The last entries are flushed on shutdown.** The provider is registered through a factory, not as an instance, because the container only disposes what it created — and disposing it is what flushes the queue when systemd stops the service.
 - **Opt-in and with a kill switch.** Shipping only starts when server, key and token are all set; `LogStream:Enabled=false` turns it off without deleting anything. The first log lines say whether shipping is enabled, or why not.
 
 Because the code logs through `[LoggerMessage]` source-generated methods, what reaches LogStream is not just a line of text. Every event carries the message template, the named properties, the event ID and the logger category; the app ID defaults to the host name, so every entry says `vinhedo3`. The archive event, for example:
@@ -367,6 +369,9 @@ The timeline, from the repository:
     <tr><td>15/11/2026, 20h15</td><td><code>Pdf:Engine=Qpdf</code> in Grimoire, restart — first payslip archived: October 2026</td></tr>
     <tr><td>15/11/2026, 20h24</td><td>Interval changed from 30 minutes to 6 hours, in Grimoire</td></tr>
     <tr><td>16/11/2026</td><td>Four Dependabot merges, four automatic deploys before 07h30</td></tr>
+    <tr><td>16/11/2026</td><td>qpdf becomes the default engine and is installed by <code>bootstrap.sh</code>; 6 hours becomes the default interval</td></tr>
+    <tr><td>17/11/2026</td><td>New default file name, <code>/{year}/{original} - {period}.pdf</code>; logs to LogStream over UDP</td></tr>
+    <tr><td>25/11/2026, 11h54</td><td>November payslip: sent by payroll straight to the dedicated mailbox and archived on its own</td></tr>
   </tbody>
 </table>
 
@@ -391,27 +396,36 @@ A few things in those lines are the design doing its job:
 
 - **The real payslip broke PDFsharp.** All my test fixtures were made with qpdf and opened fine; payroll's actual file didn't. PDFsharp's parser hit a token it didn't expect while reading an indirect object and gave up. That is not a wrong password and not a corrupt download: it's a file that is valid enough for every PDF viewer but structured in a way PDFsharp's reader doesn't accept. <!-- TODO (optional): one line on whether you'll dig into it / report it upstream -->
 - **The failure didn't lose anything.** The decryptor wrapped the parser error in a `PdfDecryptionException`, the ledger recorded the attempt, the e-mail stayed unread, and the cycle closed with `failed=1` — which also sent a `/fail` ping to Healthchecks.io.
-- **The fix was a configuration change, not a deploy.** I set `Pdf:Engine` to `Qpdf` in Grimoire and restarted. The restart at 20:15 runs the *same* release (`releases/20261115200555`), and the retry happened on the startup cycle instead of waiting for the next tick. Nine minutes from error to archived payslip, without writing a line of code — that's what the `IPdfDecryptor` port bought me. The only manual step was installing qpdf itself on `vinhedo3` over SSH — `bootstrap.sh` didn't install it, because PDFsharp was the default. That's now being added to the bootstrap script, so a fresh host works with either engine. <!-- TODO: link the bootstrap.sh PR once opened/merged -->
+- **The fix was a configuration change, not a deploy.** I set `Pdf:Engine` to `Qpdf` in Grimoire and restarted. The restart at 20:15 runs the *same* release (`releases/20261115200555`), and the retry happened on the startup cycle instead of waiting for the next tick. Nine minutes from error to archived payslip, without writing a line of code — that's what the `IPdfDecryptor` port bought me. The only manual step was installing qpdf itself on `vinhedo3` over SSH — `bootstrap.sh` didn't install it, because PDFsharp was the default. The next day that gap was closed for good: [`bootstrap.sh` now installs qpdf and qpdf became the default engine](https://github.com/guibranco/payslip-archiver/pull/15), so a fresh host works out of the box.
 - **The pay period came from the subject**, because payroll names the file `PS21.PDF` — a name that says nothing about the month. That is exactly why the resolver falls back from file name to subject to e-mail date.
 - **The `Processed` folder didn't exist** until the first payslip needed it; the worker created it on demand.
 - **Tuning is also configuration.** At 20:24 I moved the interval from 30 minutes to 6 hours in Grimoire and restarted; the next line reads `Archiver scheduled every 06:00:00`.
 
 The next morning, Dependabot opened four dependency PRs (Microsoft packages, test SDK, coverage action, `Dropbox.Api` 7.4.0 → 7.4.1). Each merge to `main` built, tested and deployed itself — LogStream shows the user agent moving from `payslip-archiver/1.1.0` to `1.1.1`, `1.1.2` and on as GitVersion bumped the patch — and each new release came up in under ten seconds and ran a clean cycle. I didn't touch the server.
 
-That October payslip arrived before the Outlook rule existed, so I forwarded it by hand; November's will be the first to make the whole trip on its own. <!-- TODO: after the next payday, confirm the rule forwarded it automatically -->
+That October payslip went to my work inbox, as every payslip had for almost four years, so I forwarded it by hand. My first idea for the following months was an Outlook rule doing the same forward automatically; in the end I asked payroll to send it to the dedicated mailbox directly instead, which takes the work account, and any company policy on automatic forwarding, out of the picture. November's was the first payslip to make the whole trip on its own. On payday, 25/11/2026, the regular six-hourly cycle found it:
 
-October 2026 is the first payslip in the archive: the worker starts from now and fills up month by month, one unlocked file at a time.
+```text
+11:54:52.872 [INFO] Archive cycle starting
+11:54:54.167 [INFO] Mailbox listed 1 candidate message(s)
+11:54:58.349 [INFO] Archived "PS21.PDF" from "imap:…:2" to "/2026/PS21 - 2026-11.pdf" (period "2026-11" from Subject, 7939 bytes)
+11:54:58.466 [INFO] Cycle finished: "listed=1 archived=1 documents=1 ignored=0 skipped=0 failed=0"
+```
+
+No restart, no configuration change, nobody watching: 5.6 seconds from "cycle starting" to an unlocked PDF in Dropbox.
+
+October 2026 is the first payslip in the archive, November the second: the worker starts from now and fills up month by month, one unlocked file at a time.
 
 And the ritual is gone. No more download, password, print to PDF, drag into Dropbox. The mailbox is checked every six hours, and by the time I think about a payslip it's already in `/2026/` with the right name and no password. The next time a letting agent asks for the last five, it's a Dropbox folder, not an evening.
 
 What I'd still like to add: <!-- TODO: confirm / edit -->
 
 - other password-protected documents from the same kind of sender (P60, benefit statements) with their own templates;
-- a "missing month" alert. Healthchecks.io catches a worker that stops; it can't catch a worker that runs perfectly every six hours while no payslip arrives — a forwarding rule that silently stops, say. A check like "no document for the previous month by day N" would close that gap.
+- a "missing month" alert. Healthchecks.io catches a worker that stops; it can't catch a worker that runs perfectly every six hours while no payslip arrives — payroll sending to an old address after an HR-system change, say. A check like "no document for the previous month by day N" would close that gap.
 
 <div class="conclusion">
   <h2>A small tool, built properly</h2>
-  <p>payslip-archiver solves a tiny, recurring annoyance — and that is exactly the kind of problem worth automating, because it never goes away on its own. The interesting part isn't the PDF trick; it's everything around it: an order of operations that makes crashes harmless, a heartbeat that notices silence, logs that leave the VM, and secrets that live in one place. It is also the first service where LogStream and Grimoire work together end to end, which was half the reason to build it.</p>
+  <p>payslip-archiver solves a tiny, recurring annoyance — and that is exactly the kind of problem worth automating, because it never goes away on its own. The interesting part isn't the PDF trick; it's everything around it: an order of operations that makes crashes harmless, a heartbeat that notices silence, logs that land next to every other service's, and secrets that live in one place. It is also the first service where LogStream and Grimoire work together end to end, which was half the reason to build it.</p>
 </div>
 
 <div class="references">
